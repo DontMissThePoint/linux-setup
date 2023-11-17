@@ -39,23 +39,23 @@ while true; do
 
     sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0
 
-    if [ -n "$BEAVER" ]; then
+    if [ -n "$beaver" ]; then
       sudo apt-get -y install python-keybinder gir1.2-keybinder
     fi
 
     # required for i3-layout-manager
     sudo apt-get -y install jq rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
 
-    if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; # if running interactively
+    if [ "$unattended" == "0" ] && [ -z $travis ]; # if running interactively
     then
-      # install graphical X11 graphical backend with lightdm loading screen
+      # install graphical x11 graphical backend with lightdm loading screen
       echo ""
       echo "-----------------------------------------------------------------"
-      echo "Installing lightdm login manager. It might require manual action."
+      echo "installing lightdm login manager. it might require manual action."
       echo "-----------------------------------------------------------------"
-      echo "If so, please select \"lightdm\", after hitting Enter"
+      echo "if so, please select \"lightdm\", after hitting enter"
       echo ""
-      echo "Waiting for Enter..."
+      echo "waiting for enter..."
       echo ""
       read
     fi
@@ -63,11 +63,14 @@ while true; do
     sudo apt-get -y install lightdm
 
     # compile i3 dependency which is not present in the repo
-    sudo apt-get -y install xutils-dev
+    sudo apt-get -y install libtool xutils-dev
+
+    # unlink
+    brew unlink pkg-config meson
 
     cd /tmp
     [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
-    git clone https://github.com/Airblader/xcb-util-xrm
+    git clone https://github.com/airblader/xcb-util-xrm
     cd xcb-util-xrm
     git submodule update --init
     ./autogen.sh --prefix=/usr
@@ -75,7 +78,7 @@ while true; do
     sudo make install
 
     # install light for display backlight control
-    # compile i3
+    # compile light
     sudo apt-get -y install help2man
 
     cd $APP_PATH/../../submodules/light/
@@ -83,22 +86,25 @@ while true; do
     ./configure && make
     sudo make install
     # set the minimal backlight value to 5%
-    light -N 5
+    light -n 5
     # clean up after the compilation
     make clean
     git clean -fd
 
     # compile i3
+    sudo pip3 install meson
     cd $APP_PATH/../../submodules/i3/
-    autoreconf --force --install
-    rm -rf build/
-    mkdir -p build && cd build/
-
-    # Disabling sanitizers is important for release versions!
-    # The prefix and sysconfdir are, obviously, dependent on the distribution.
-    ../configure --prefix=/usr --sysconfdir=/etc --disable-sanitizers
-    make
-    sudo make install
+    
+    # build from sources
+    rm -fr /tmp/build && mkdir /tmp/build 
+    cd /tmp/build
+    git clone https://www.github.com/airblader/i3 i3-gaps
+    cd i3-gaps
+    git checkout gaps && git pull
+    sudo apt install meson asciidoc
+    meson -Ddocs=true -Dmans=true ../build
+    meson compile -C ../build
+    sudo meson install -C ../build    
 
     # clean after myself
     git reset --hard
@@ -127,7 +133,7 @@ while true; do
     fi
 
     # for making gtk look better
-    sudo apt-get -y install lxappearance
+    sudo apt-get -y install lxappearance gtk-chtheme
 
     # indicator-sound-switcher
     sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
@@ -154,6 +160,11 @@ while true; do
     mkdir -p ~/.config/fontconfig
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
 
+
+    # link layouts
+    mkdir -p ~/.config/i3-layout-manager/layouts
+    ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
+
     # install useful gui utils
     sudo apt-get -y install thunar rofi compton systemd
 
@@ -167,10 +178,31 @@ while true; do
     make
     sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
 
-    sudo apt-get -y install i3lock
+    # required for i3lock-color
+    sudo apt remove -y i3lock
+     
+    sudo apt install -y libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 
+    # compile from sources
+    cd /tmp
+    [ -e i3lock-color ] && rm -rf i3lock-color
+    git clone https://github.com/Raymo111/i3lock-color.git
+    cd i3lock-color
+    ./install-i3lock-color.sh
+
+    # lockscreen with effects!
+    wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
+    mkdir -p ~/.config/betterlockscreen/
+    cp $APP_PATH/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
+     
+    # [ falcon_heavy.jpg, lightning.jpg ]
+    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
+    
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime
+
+    # relink
+    brew link pkg-config meson
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -33,16 +33,19 @@ while true; do
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
-
-    # for video, photo, audio, ..., viewing and editing
-    sudo apt-get -y install gimp vlc ffmpeg audacity rawtherapee hugin pavucontrol
-
     # for screencasting
-    sudo add-apt-repository -y ppa:obsproject/obs-studio
-    sudo apt-get -y install obs-studio screenkey
+    the_ppa=obsproject/obs-studio
+    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+        sudo add-apt-repository -y ppa:obsproject/obs-studio
+        sudo apt update
+        sudo apt -y install ffmpeg obs-studio screenkey mpv
+    fi    
 
     # use in pdfpc to play videos
     sudo apt-get -y install gstreamer1.0-libav
+     
+    # for video, photo, audio, ..., viewing and editing
+    sudo apt-get -y install gimp vlc audacity rawtherapee hugin pavucontrol
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

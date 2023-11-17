@@ -37,11 +37,13 @@ while true; do
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
-
-    sudo add-apt-repository -y ppa:linuxuprising/shutter
-    sudo apt-get update
-
-    sudo apt-get -y install shutter
+    
+    the_ppa=linuxuprising/shutter
+    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+        sudo add-apt-repository -y ppa:linuxuprising/shutter
+        sudo apt update
+        sudo apt install -y shutter
+    fi    
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

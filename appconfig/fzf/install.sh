@@ -41,7 +41,7 @@ while true; do
 
     ln -fs $APP_PATH/config/fzf.bash ~/.config/fzf/fzf.bash
     ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
-    
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

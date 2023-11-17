@@ -86,4 +86,4 @@ let g:vimtex_indent_conditionals = {
 " let g:vimtex_complete_recursive_bib = 1
 
 " add custom dictionary for a specific 'paper'
-" autocmd BufRead */mbzirc-treasure-hunt/* execute 'setlocal dict+=~/git/mbzirc-treasure-hunt/dictionary.txt'
+" autocmd BufRead */mbzirc-treasure-hunt/* execute 'setlocal dict+=~/.mbzirc-treasure-hunt/dictionary.txt'

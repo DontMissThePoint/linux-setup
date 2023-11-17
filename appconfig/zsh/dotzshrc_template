@@ -1,7 +1,7 @@
 plugins=(git tmuxinator)
 
 # path to the git root
-export GIT_PATH=~/git
+export GIT_PATH=$HOME
 
 # run Tmux automatically in every normal terminal
 export RUN_TMUX=true
@@ -10,7 +10,16 @@ export RUN_TMUX=true
 export USE_ATHAME=true
 
 # list (space-separated) of profile names for customizing configs
-export PROFILES="COLORSCHEME_DARK"
+export PROFILES="COLORSCHEME_GIT"
+
+# sourcing FZF
+source ~/.FZF_DEFAULT_OPTS
+
+# Cheatsheets
+eval "$(navi widget zsh)"
+
+# Prompt
+eval "$(starship init zsh)"
 
 # sourcing Tomas's linux setup
 source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc

@@ -4,16 +4,16 @@ set $mod Mod1
 set $mod2 Mod4
 
 # default definition of title/names of all workspaces
-set $workspace1 "1: "
+set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace3 "3: "
-set $workspace4 "4: "
-set $workspace5 "5"
-set $workspace6 "6"
-set $workspace7 "7"
-set $workspace8 "8"
-set $workspace9 "9"
-set $workspace10 "10"
+set $workspace3 "3: "
+set $workspace4 "4: "
+set $workspace5 "5: "
+set $workspace6 "6: "
+set $workspace7 "7: "
+set $workspace8 "8: "
+set $workspace9 "9: "
+set $workspace10 "10: "
 
 # #{ override the default $workspace names and icos by custom settings
 
@@ -112,7 +112,7 @@ set $workspace10 "10"
 # #}
 
 # set font
-font pango:Terminus 10
+font pango:Terminus 8
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -121,8 +121,13 @@ floating_modifier $mod
 focus_follows_mouse no
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec i3-sensible-terminal
+
+# Timer
+bindsym $mod+t exec --no-startup-id "gnome-pomodoro --pause-resume --no-default-window"
+
+# vim
+#bindsym $mod+v exec "tmux new-window vim"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -218,7 +223,7 @@ bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./sys
 
 # rofi launcher
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL {
-bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -opacity '85' -width 100 -padding 200 -font 'Monospace 18' -lines 10 -eh 1"
+bindsym $mod+d exec "rofi -combi-modi 'drun#run#window' -show combi -opacity '85' -width 100 -padding 200 -font 'Roboto Mono Thin for Powerline 18' -lines 10 -eh 1"
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL }
 
 # default key bindings for audio on external keyboard
@@ -241,7 +246,7 @@ bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen b
 bindsym Print exec shutter --select
 
 # toggling touchpad
-bindsym $mod+t exec --no-startup-id ~/.scripts/toggle_touchpad.sh
+bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # shutdown/logout menu
 # EPIGEN_DEL_BLOCK_VOJTA {
@@ -263,7 +268,7 @@ bindsym $mod+Shift+minus move scratchpad
 for_window [title="pdfpc"] border none floating enable
 
 # bluetooth applet
-# exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR 
+# exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
 # # # F1 will no longer activate help of any program
@@ -274,7 +279,7 @@ for_window [title="pdfpc"] border none floating enable
 
 # #{ COLORSCHEME_DARK colors
 
-# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
 
 set $focused_ws_bg            #005faf
 set $active_text_color        #ffffff
@@ -292,11 +297,11 @@ set $background_color         #121212
 set $split_indicator          #B85335
 set $urgent                   #ff0000
 # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
-exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
 # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
 for_window [class="^.*"] border pixel 3
 
-# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN EPIGEN_DEL_BLOCK_COLORSCHEME_GIT }
 
 # #}
 
@@ -319,7 +324,7 @@ for_window [class="^.*"] border pixel 3
 # set $background_color            #ffffff
 # set $split_indicator             #aaaaaa
 # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/white.jpg
 # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
 # for_window [class="^.*"] border pixel 3
 
@@ -347,13 +352,36 @@ for_window [class="^.*"] border pixel 3
 # set $split_indicator          #B85335
 # set $urgent                   #ff0000
 # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/121212.jpg
+# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
 # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
 # for_window [class="^.*"] border pixel 3
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
 # #}
+
+# #{ COLORSCHEME_GIT colors
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
+
+# set $focused_ws_bg            #001b87
+# set $active_text_color        #ffffff
+# set $inactive_text_color      #eeeeee
+# set $inactive_background      #333333
+
+# set $active_background        #001b87
+# set $active_border            #001b87
+
+# set $background_color         #000000
+# set $split_indicator          #E6B400
+# set $urgent                   #ff0000
+# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
+# for_window [class="^.*"] border pixel 2
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
+
+# #}
+
 
 hide_edge_borders both
 
@@ -372,7 +400,7 @@ bar {
 
   i3bar_command i3bar -t
 
-  font pango: Terminus, FontAwesome 10
+  font pango: Terminus, FontAwesome 8
 
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
@@ -417,7 +445,7 @@ bar {
   # EPIGEN_ADD_BLOCK_DANIEL {
 
 #   # EPIGEN_ADD_BLOCK_LENOVO {
-# #   font pango: Inconsolata, FontAwesome 10 
+# #   font pango: Inconsolata, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
 # # #   font pango: LiberationMono, FontAwesome 10
 # #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
@@ -444,15 +472,15 @@ bar {
   # #{ DANIEL's i3bar bg
 
   # EPIGEN_ADD_BLOCK_DANIEL {
-  
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK { 
-  # # set $i3bar_bg #4a3c87
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK } 
 
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN { 
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+  # # set $i3bar_bg #4a3c87
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
   # # set $i3bar_bg #383838
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN } 
- 
+  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
   # EPIGEN_ADD_BLOCK_DANIEL }
 
   # #}
@@ -507,6 +535,9 @@ bar {
   # i3bar position
   position top
 
+  # i3bar
+  mode hide
+
 }
 
 # #{ i3-gaps settings
@@ -554,11 +585,11 @@ set $mode_gaps_inner inner gaps
 
 # # compton without fancy graphics
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "pkill compton; compton --config ~/git/linux-setup/appconfig/compton/tomas.conf"
-# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/lightning.jpg"
+# # exec_always --no-startup-id "pkill compton; compton --config ~/linux-setup/appconfig/compton/tomas.conf"
+# # exec_always --no-startup-id "feh -F --bg-max ~/linux-setup/miscellaneous/wallpapers/lightning.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/white.jpg
+# # exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/white.jpg
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # #{ DESKTOP
@@ -683,10 +714,10 @@ set $mode_gaps_inner inner gaps
 
 # # Background image
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# #   exec_always --no-startup-id "feh -F --bg-max ~/linux-setup/miscellaneous/wallpapers/ros.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# #   exec_always --no-startup-id "feh -F --bg-max ~/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # EPIGEN_ADD_BLOCK_VOJTA }
@@ -696,7 +727,7 @@ set $mode_gaps_inner inner gaps
 # #{ Thinkpad 490 controls
 
 # EPIGEN_ADD_BLOCK_TP490NV {
-# # to the run the setBrightness.sh and nvidiaEnable.sh 
+# # to the run the setBrightness.sh and nvidiaEnable.sh
 # # add following two lines to /etc/sudoers below the line: %sudo	ALL=(ALL:ALL) ALL
 # # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh
 # # <USER_NAME> ALL=(root) NOPASSWD: /home/<USER_NAME>/.i3/thinkpad_t490_nvidia/setBrightness.sh
@@ -748,10 +779,10 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
 # # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
-# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
-# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
-# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
+# # bindsym XF86AudioPlay --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# # bindsym XF86AudioPause --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# # bindsym XF86AudioNext --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# # bindsym XF86AudioPrev --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
 
 # # # Bind Lejnovo keyboard backlight control
 # # # bindsym XF86KbdLightOnOff exec --no-startup-id sudo ~/.i3/toshiba/toggle_keyboard_backlight.sh
@@ -769,11 +800,11 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
 # # bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
 # # bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-# # bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
-# # bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
-# # bindsym XF86AudioStop --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh stop && notify-send "Stopping media"
-# # bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
-# # bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
+# # bindsym XF86AudioPlay --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
+# # bindsym XF86AudioPause --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing media"
+# # bindsym XF86AudioStop --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh stop && notify-send "Stopping media"
+# # bindsym XF86AudioNext --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# # bindsym XF86AudioPrev --release exec --no-startup-id ~/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
 # # exec_always --no-startup-id "feh -F --bg-max ~/Pictures/primitive_and_deadly.jpg"
 
 # # EPIGEN_ADD_BLOCK_SKUMPA }
@@ -937,17 +968,17 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod2+Shift+Right move right
 
 # # Desktop background
-# exec_always --no-startup-id feh --bg-fill ~/git/linux-setup/miscellaneous/wallpapers/petr.jpg
+# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/petr.jpg
 
 # # Numlock on by default
 # exec --no_startup_id numlockx on
 
 # # Fancy compton stuff
-# exec compton --config ~/git/linux-setup/appconfig/compton/fancy_blur.conf
+# exec compton --config ~/linux-setup/appconfig/compton/fancy_blur.conf
 
 # # Screen brightness controls
-# bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/git/linux-setup/scripts/brighten.sh
-# bindsym XF86MonBrightnessDown exec --no-startup-id sh ~/git/linux-setup/scripts/darken.sh
+# bindsym XF86MonBrightnessUp exec --no-startup-id sh ~/linux-setup/scripts/brighten.sh
+# bindsym XF86MonBrightnessDown exec --no-startup-id sh ~/linux-setup/scripts/darken.sh
 
 # # Pulse Audio controls
 # bindsym XF86AudioRaiseVolume exec --no-startup-id pactl -- set-sink-volume @DEFAULT_SINK@ +5% #increase sound volume
@@ -960,13 +991,13 @@ set $mode_gaps_inner inner gaps
 
 # # Keyboard switching
 # exec --no-startup-id setxkbmap -layout us,cz -option "grp:alt_caps_toggle"
-# bindcode 75 exec --no-startup-id "~/git/linux-setup/scripts/toggle_touchpad.sh"
+# bindcode 75 exec --no-startup-id "~/linux-setup/scripts/toggle_touchpad.sh"
 
 # # lab monitor setup
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
 
 # # Fix font DPI issues caused by nvidia
-# bindsym $mod+Shift+f exec sh ~/git/linux-setup/scripts/fix_dpi_petr.sh
+# bindsym $mod+Shift+f exec sh ~/linux-setup/scripts/fix_dpi_petr.sh
 
 # EPIGEN_ADD_BLOCK_PETR }
 
@@ -988,10 +1019,10 @@ set $mode_gaps_inner inner gaps
 
 # # Background image
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/linux-setup/miscellaneous/wallpapers/ros.jpg"
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# # exec_always --no-startup-id "feh -F --bg-max ~/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # # #{ HP
@@ -1022,7 +1053,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
 
 # # # Not so fancy compton stuff
-# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# # exec compton --config ~/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -1073,15 +1104,15 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_DANIEL {
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/tree.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/notes/files/linux-setup/wallpapers/tree.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/red.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/notes/files/linux-setup/wallpapers/red.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/git/notes/files/linux-setup/wallpapers/green.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/notes/files/linux-setup/wallpapers/green.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 272d2d
@@ -1093,7 +1124,7 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 5%+
 # bindsym $mod+F7 exec --no-startup-id amixer -D pulse sset Master toggle
 # bindsym $mod+F8 exec --no-startup-id amixer -D pulse sset Capture toggle
- 
+
 # # bindsym $mod+F11 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause"
 # # bindsym $mod+F10 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous"
 # # bindsym $mod+F12 exec "dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next"
@@ -1116,7 +1147,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
 # # # Wallpaper
-# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# # exec compton --config ~/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -1140,7 +1171,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_MPD {
 
 # # # Mpd notifier
-# # exec_always --no-startup-id ~/git/linux-setup/scripts/mpd.sh
+# # exec_always --no-startup-id ~/linux-setup/scripts/mpd.sh
 
 # # bindsym $mod+F11 exec --no-startup-id mpc toggle
 # # bindsym $mod+F12 exec --no-startup-id mpc next
@@ -1244,17 +1275,17 @@ set $mode_gaps_inner inner gaps
 
 # # Background image
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros.jpg"
+# #   exec_always --no-startup-id "feh -F --bg-max ~/linux-setup/miscellaneous/wallpapers/ros.jpg"
 # # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# #   exec_always --no-startup-id "feh -F --bg-max ~/git/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
+# #   exec_always --no-startup-id "feh -F --bg-max ~/linux-setup/miscellaneous/wallpapers/ros_inverted.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # #{ LENOVO
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
 # # # Not so fancy compton stuff
-# # exec compton --config ~/git/linux-setup/appconfig/compton/need_for_speed.conf
+# # exec compton --config ~/linux-setup/appconfig/compton/need_for_speed.conf
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -1293,7 +1324,7 @@ set $mode_gaps_inner inner gaps
 # gaps inner 2
 # gaps outer 0
 
-# # #{ ASUS 
+# # #{ ASUS
 # # EPIGEN_ADD_BLOCK_ASUS {
 
 # # # Toggling ASUS touchpad
@@ -1336,7 +1367,7 @@ set $mode_gaps_inner inner gaps
 # # Default keyboard US, alt+shift to switch between US and CZ
 # exec_always --no-startup-id setxkbmap us,cz -option 'grp:alt_caps_toggle'
 
-# # #{ ASUS 
+# # #{ ASUS
 # # # EPIGEN_ADD_BLOCK_ASUS {
 
 # # # set bar background
@@ -1363,26 +1394,26 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # # Bind calculator to Calculator button
-# # bindsym XF86Calculator exec --no-startup-id gnome-calculator 
+# # bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
 # # # Bind gnome-control-center to asus rogstrix key
-# # bindcode 156 exec gnome-control-center 
+# # bindcode 156 exec gnome-control-center
 
 # # # Bind script to set monitors
-# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh 
+# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh
 
 # # # Bind nautilus (file manager)
 # # bindsym $mod2+e exec nautilus
 
 # # # Run Thunderbird upon startup and assign it to workspace 10
 # # exec --no-startup-id thunderbird
-# # assign [class="Thunderbird"] $workspace10 
+# # assign [class="Thunderbird"] $workspace10
 
 # # # Run Sticky notes upon startup
 # # exec_always --no-startup-id indicator-stickynotes
-# # assign [class="^Indicator-stickynotes$"] $workspace10 
+# # assign [class="^Indicator-stickynotes$"] $workspace10
 
-# # # #{ COLORSCHEME DARK 
+# # # #{ COLORSCHEME DARK
 # # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
 # # # # set wallpaper
 # # # exec_always --no-startup-id "feh --fullscreen --bg-fill ~/Pictures/Wallpapers/wallpaper2.JPG"
@@ -1392,9 +1423,9 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_ASUS }
 # # #}
 
-# # #{ LENOVO 
+# # #{ LENOVO
 # # # EPIGEN_ADD_BLOCK_LENOVO {
-  
+
 # # # run bluetooth always
 # # exec --no-startup-id blueman-applet
 
@@ -1416,26 +1447,26 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # # Bind calculator to Calculator button
-# # # bindsym XF86Calculator exec --no-startup-id gnome-calculator 
+# # # bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
 # # # Bind gnome-control-center to Favorites key
-# # bindsym XF86Favorites exec gnome-control-center 
+# # bindsym XF86Favorites exec gnome-control-center
 
 # # # Bind script to set monitors
-# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh 
+# # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh
 
 # # # Bind nautilus (file manager)
 # # bindsym $mod2+e exec nautilus
 
 # # # Run Thunderbird upon startup and assign it to workspace 10
 # # exec --no-startup-id thunderbird
-# # assign [class="Thunderbird"] $workspace10 
+# # assign [class="Thunderbird"] $workspace10
 
 # # # Run Sticky notes upon startup
 # # exec --no-startup-id indicator-stickynotes
-# # assign [class="^Indicator-stickynotes$"] $workspace10 
+# # assign [class="^Indicator-stickynotes$"] $workspace10
 
-# # # #{ COLORSCHEME DARK 
+# # # #{ COLORSCHEME DARK
 # # # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
 # # # # set wallpaper
 # # # # exec_always --no-startup-id "feh --fullscreen --bg-fill ~/Pictures/Wallpapers/wallpaper2.JPG"

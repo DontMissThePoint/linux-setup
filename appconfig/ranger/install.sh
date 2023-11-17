@@ -34,6 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Installing ranger
     sudo apt-get -y install caca-utils libimage-exiftool-perl w3m w3m-img
 
     cd $APP_PATH/../../submodules/ranger
@@ -41,9 +42,9 @@ while true; do
 
     mkdir -p ~/.config/ranger
 
+    # symlinks
     ln -fs $APP_PATH/rifle.conf ~/.config/ranger/rifle.conf
     ln -fs $APP_PATH/commands.py ~/.config/ranger/commands.py
-    ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
     break

@@ -51,8 +51,6 @@ while true; do
     if [ -n "$BEAVER" ]; then
 
       sudo apt-get -y remove zathura libgirara-dev
-
-      # sudo apt-get -y remove zathura-pdf-poppler
       sudo apt-get -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
 
       sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
@@ -60,15 +58,6 @@ while true; do
       cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout $GIRARA_VERSION && make && sudo make install
       cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout $ZATHURA_VERSION && make WITH_SYNCTEX=1 && sudo make install
       cd /tmp && git clone https://github.com/pwmt/zathura-pdf-poppler.git && cd zathura-pdf-poppler && git checkout $ZATHURA_PDF_POPPLER_VERSION && make && sudo make install
-
-      # cd /tmp/girara
-      # sudo make uninstall
-
-      # cd /tmp/zathura
-      # sudo make uninstall
-
-      # cd /tmp/zathura-pf-poppler
-      # sudo make uninstall
 
       sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
 

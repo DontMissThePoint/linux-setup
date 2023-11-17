@@ -236,7 +236,7 @@ endsnippet
 # endsnippet
 
 snippet "^cdsim" "" Ar
-cd ~/git/simulation/start_simulation/
+cd ~/.simulation/start_simulation/
 endsnippet
 
 snippet "^cdcore" "" Ar
@@ -313,7 +313,7 @@ snippet "^"run" three" "" Ar
 endsnippet
 
 snippet "^"cd" thesis" "" Ar
-cd ~/git/Thesis
+cd ~/.Thesis
 endsnippet
 
 snippet "^pdflatex" "" Ar

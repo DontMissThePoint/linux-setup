@@ -47,6 +47,9 @@ while true; do
 
     sudo make install
 
+    # config
+    # C (shift-c for theme options)
+
     break
 
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -34,8 +34,10 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k
-   
+    if [ ! -d "$HOME/.oh-my-zsh/custom/plugins/k" ]; then
+      git clone https://github.com/supercrabtree/k $HOME/.oh-my-zsh/custom/plugins/k
+    fi
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

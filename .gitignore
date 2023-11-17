@@ -4,6 +4,7 @@
 
 **/.nvimlog
 
+appconfig/*
 appconfig/vim/dotvim/plugged/*
 appconfig/vim/dotvim/session
 appconfig/vim/dotvim/.netrwhist

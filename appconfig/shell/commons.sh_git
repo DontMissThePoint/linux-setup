@@ -13,11 +13,14 @@ export FZF_DEFAULT_COMMAND='ag -l -f --nocolor -g ""'
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
 
+alias f="fzf-tmux -p 80%,60%"
 alias :q=exit
+alias q=exit
+alias b=bash
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
-
+ 
 # #{ cd_media
 
 cd_media() {
@@ -226,7 +229,7 @@ ranger () {
 }
 
 # #}
-alias ra=ranger
+alias ra="wmctrl -r :ACTIVE: -b add,fullscreen && ranger"
 
 # #{ killp()
 
@@ -315,14 +318,14 @@ slack() {
     SLACK_NAME=${1}
   fi
 
-  mkdir -p ~/git/notes/slack
+  mkdir -p ~/notes/slack
 
   case ${SLACK_NAME} in
     mrs)
-      SLACK_CFG=~/git/notes/slack/mrsworkspace
+      SLACK_CFG=~/notes/slack/mrsworkspace
       ;;
     eagle)
-      SLACK_CFG=~/git/notes/slack/drone-eagleone
+      SLACK_CFG=~/notes/slack/drone-eagleone
       ;;
   esac
 

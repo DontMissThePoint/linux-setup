@@ -57,7 +57,7 @@ source ~/.vim/../startify_quotes.txt
 " load Viktor's quotes for startify
 " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
 " " Mine is prettier
-" source ~/git/linux_setup/vim/startify_quotes.txt
+" source ~/linux_setup/vim/startify_quotes.txt
 " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
 let g:startify_session_before_save = [

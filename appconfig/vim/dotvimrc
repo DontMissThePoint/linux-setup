@@ -36,6 +36,7 @@ if g:user_mode == "1"
 
   " fugitive.vim: a Git wrapper so awesome, it should be illegal
   Plug 'tpope/vim-fugitive'
+  Plug 'junegunn/gv.vim'
 
   " async
   Plug 'tpope/vim-dispatch'
@@ -50,8 +51,8 @@ if g:user_mode == "1"
 
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " Lean & mean status/tabline for vim that's light as air.
-  Plug 'bling/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  "Plug 'bling/vim-airline'
+  "Plug 'vim-airline/vim-airline-themes'
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD {
   "" Lean & mean status/tabline for vim that's light as air.
@@ -194,6 +195,32 @@ if g:user_mode == "1"
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
+  " Super Fast Jumper
+  Plug 'wookayin/fzf-ripgrep.vim'
+
+  " iA Writer
+  Plug 'cormacrelf/vim-colors-github'
+  Plug 'preservim/vim-colors-pencil'
+
+  " Focus
+  Plug 'junegunn/seoul256.vim'
+
+  " remove distractions
+  Plug 'junegunn/goyo.vim'
+  Plug 'junegunn/limelight.vim'
+
+  " Autosave your work
+  Plug '907th/vim-auto-save'
+
+  " Lean & mean status/tabline for vim that's light as air.
+  Plug 'itchyny/lightline.vim'
+
+  " live REPL in vim
+  Plug 'jpalardy/vim-slime'
+
+  " Visual math with v{motion}++
+  Plug 'nixon/vim-vmath'
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
@@ -232,6 +259,16 @@ if g:user_mode == "1"
 
 endif
 
+" Always load vim-devicons first
+Plug 'ryanoasis/vim-devicons'
+
+" Fuzzy finder
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Registers view
+Plug 'junegunn/vim-peekaboo'
+
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
 
@@ -239,6 +276,9 @@ Plug 'tpope/vim-repeat'
 " in visual pres ctrl+n to select next occurance
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
+
+" Flash the cursor on jumps
+Plug 'danilamihailov/beacon.nvim'
 
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
@@ -355,7 +395,7 @@ endfunc
 nnoremap <leader>c :call ToggleCursorLines()<cr>
 
 " enable cursor lines for python files
-au FileType python call EnableCursorLines()
+au FileType python,r call EnableCursorLines()
 
 " should fix colors in tmux
 if !has("nvim")
@@ -430,6 +470,7 @@ set completeopt=longest,menuone
 " better escape: when naviating through suggestion menu, j and k will behave
 " normally, otherwise they behave like ESC
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
+imap <expr> jj (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 
 " clever brackets
 imap <leader>( ()<Esc>i
@@ -514,7 +555,7 @@ set wildignore+=*/Downloads/**,*/Desktop/**,*/build/**
 
 " set path for filename suggestions
 " ** means "in any subfolder"
-set path+=~/git/**
+set path+=~/linux-setup/**
 set path+=~/.vim/UltiSnips/**
 
 " set jk in insert mode as ESC
@@ -570,7 +611,7 @@ if g:user_mode == "1"
   source ~/.vim/pluginconfig/vim-ros.vim
 
   " config for tmuxline
-  source ~/.vim/pluginconfig/tmuxline.vim
+  "source ~/.vim/pluginconfig/tmuxline.vim
 
   " config for vimtex
   source ~/.vim/pluginconfig/vimtex.vim
@@ -626,7 +667,7 @@ source ~/.vim/pluginconfig/vim-commentary.vim
 if g:user_mode == "0"
 
   nnoremap <leader>u Ivim ~/.vim/UltiSnips/athame.snippets
-  nnoremap <leader>ww Ivim ~/git/notes/index.md
+  nnoremap <leader>ww Ivim ~/notes/index.md
 
   nnoremap OA $a<up>
   nnoremap OB $a<down>
@@ -647,10 +688,10 @@ if g:user_mode == "1"
 
   " set vim and airline colorscheme
 
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
   colorscheme default
   let g:airline_theme='papercolor'
-  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
   " colorscheme jellybeans
@@ -661,6 +702,11 @@ if g:user_mode == "1"
   " colorscheme raggi
   " let g:airline_theme='papercolor'
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
+  " colorscheme github
+  " let g:airline_theme = "github"
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
   " colorscheme grun

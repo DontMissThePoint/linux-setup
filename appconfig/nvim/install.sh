@@ -8,6 +8,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
+CONFIG="$HOME/.config/nvim"
 
 unattended=0
 subinstall_params=""
@@ -21,42 +22,54 @@ do
   fi
 done
 
-distro=`lsb_release -r | awk '{ print $2 }'`
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall NEOVIM? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall neovim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    echo Installing neovim
+    toilet Installing neovim
 
-    if [ "$distro" = "18.04" ]; then
-      sudo apt-add-repository -y ppa:neovim-ppa/stable
-      sudo apt-get update
-    fi
+    sudo apt-get -y remove neovim* || echo ""
 
-    sudo apt-get -y install neovim
-    mkdir -p ~/.config/nvim/
+    sudo apt-get -y install ninja-build gettext cmake unzip curl python3.8-venv
 
-    if [ "$distro" = "18.04" ]; then
-      sudo -H pip install wheel
-    fi
+    # compile neovim from sources
+    cd $APP_PATH/../../submodules/nvim
+    rm -fr /tmp/build && mkdir /tmp/build 
+    cd /tmp/build
+    git clone https://github.com/neovim/neovim nvim
+    cd nvim && git checkout gaps && git pull
+    make CMAKE_BUILD_TYPE=RelWithDebInfo \
+    CMAKE_INSTALL_PREFIX=/usr/bin/nvim
+
+    cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+
+    # gitkraken
+    wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
+    sudo dpkg -i gitkraken-amd64.deb 
+
+    # config
+    mkdir -p "$CONFIG"
+
     sudo -H pip3 install wheel
 
     sudo -H pip3 install neovim
     sudo -H pip3 install neovim-remote
 
-    # link the configuration
-    ln -sf ~/.vimrc ~/.config/nvim/init.vim
-    ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
+    # Nvchad
+    git clone https://github.com/NvChad/NvChad "$CONFIG" --depth 1 && nvim
+
+    # symlink neovim settings
+    #ln -sf $APP_PATH/../nvim/init.vim ~/.config/nvim/init.vim
+    #ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

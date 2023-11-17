@@ -38,7 +38,7 @@ while true; do
 
     sudo apt-get -y install automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 
-    # instal tmux
+    # install ag
     cd $APP_PATH/../../submodules/the_silver_searcher
     ./build.sh
     sudo make install

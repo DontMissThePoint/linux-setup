@@ -38,7 +38,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up vim
+    toilet Installing vim
 
     sudo apt-get -y remove vim-* || echo ""
 
@@ -55,24 +55,16 @@ while true; do
     ./configure --with-features=huge \
       --enable-multibyte \
       --enable-python3interp=yes \
-      --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
+      --with-python3-config-dir=/usr/lib/python3.8/config-3.8-x86_64-linux-gnu \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-gui=no \
       --enable-cscope --prefix=/usr
 
-      ## add for python2
-      # --enable-pythoninterp=yes \
-      # --with-python-config-dir=/usr/lib/python2.7/config-x86_64-linux-gnu \
-
-      ## add for python3
-      # --enable-python3interp=yes \
-      # --with-python3-config-dir=/usr/lib/python3.5/config-3.5m-x86_64-linux-gnu \
-
       cd src
       make
       cd ../
-      make VIMRUNTIMEDIR=/usr/share/vim/vim81
+      make VIMRUNTIMEDIR=/usr/share/vim/vim90
       sudo make install
 
     # set vim as a default git mergetool
@@ -81,6 +73,9 @@ while true; do
     # symlink vim settings
     rm -rf ~/.vim
     ln -fs $APP_PATH/dotvim ~/.vim
+
+    # Reset plug
+    for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master); done
 
     # updated new plugins and clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
@@ -114,7 +109,7 @@ while true; do
           sudo pip3 install clang
         else
           # if 20.04, just install python3-clang from apt
-          sudo apt-get -y install python3-clang 
+          sudo apt-get -y install python3-clang
         fi
         # install prequisites for YCM
         sudo apt-get -y install clangd-11

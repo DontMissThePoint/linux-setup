@@ -1,3 +1,72 @@
+# Last change : 2023-10-09
+
+# Zathura configuration file
+# See man `man zathurarc'
+
+# Open document
+set adjust-open "best-fit"
+
+# Dual pages
+set pages-per-row 2
+set first-page-column 1:2
+
+# stop at page boundries
+set scroll-page-aware "true"
+set scroll-full-overlap 0.01
+set scroll-step 100
+
+# zoom settings
+set zoom-min 10
+set zoom-step 20
+set n-completion-items 20
+set incremental-search true
+set statusbar-home-tilde
+set guioptions ""
+
+# clipboard
+set selection-clipboard clipboard
+
+# zathurarc-dark
+
+set font "Ubuntu Mono derivative Powerline 12"
+set default-bg "#30303a"
+set default-fg "#d6d6d6"
+
+set statusbar-fg "#B0B0B0" #04
+set statusbar-bg "#30303a" #01
+
+set inputbar-bg "#30303a" #00
+set inputbar-fg "#FFFFFF" #02
+
+set notification-error-bg "#AC4142" #08
+set notification-error-fg "#151515" #00
+
+set notification-warning-bg "#AC4142" #08
+set notification-warning-fg "#151515" #00
+
+set highlight-color "#F4BF75" #0A
+set highlight-active-color "#6A9FB5" #0D
+
+set completion-highlight-fg "#151515" #02
+set completion-highlight-bg "#90A959" #0C
+
+set completion-bg "#303030" #02
+set completion-fg "#E0E0E0" #0C
+
+set notification-bg "#90A959" #0B
+set notification-fg "#151515" #00
+
+set recolor "true"
+set recolor-lightcolor "#FCC0C0"
+set recolor-darkcolor "#111"
+set recolor-reverse-video "true"
+set recolor-keephue "true"
+
+set render-loading "false"
+set scroll-step 50
+
+# key-bindings
+map t toggle_index
 map s toggle_statusbar
 map a adjust_window best-fit
 map w adjust_window width
@@ -7,4 +76,4 @@ map c set recolor true
 map u navigate next
 map i navigate previous
 
-set selection-clipboard clipboard
+map [normal] ; focus_inputbar :

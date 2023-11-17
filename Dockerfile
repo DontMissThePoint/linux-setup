@@ -10,8 +10,8 @@ RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install keyboard-configuratio
 
 RUN sudo apt-get -y update && sudo apt-get -y install software-properties-common git
 
-RUN mkdir -p /opt/klaxalk/git && cd /opt/klaxalk/git && git clone https://github.com/klaxalk/linux-setup --depth 1
+RUN mkdir -p /opt/shafiq && cd /opt/shafiq && git clone https://github.com/klaxalk/linux-setup --depth 1
 
-RUN cd /opt/klaxalk/git/linux-setup && ./install.sh --unattended --docker && rm -rf /var/lib/apt/lists/*
+RUN cd /opt/klaxalk/linux-setup && ./install.sh --unattended --docker && rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]
