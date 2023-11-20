@@ -24,7 +24,7 @@
 #
 # The top properties below are applied to every block, but can be overridden.
 # Each block command defaults to the script name to avoid boilerplate.
-command=~/linux-setup/appconfig/i3/i3blocks/$BLOCK_NAME
+command=~/git/linux-setup/appconfig/i3/i3blocks/$BLOCK_NAME
 separator_block_width=15
 markup=none
 
@@ -231,7 +231,7 @@ separator=true
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_VOJTA EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_YURII {
 
 # [notes]
-# command=~/notes/save_and_update.sh
+# command=~/git/notes/save_and_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=60
@@ -242,7 +242,7 @@ separator=true
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN {
 
 # [mail]
-# command=~/mail/scripts/i3/i3bar_update.sh
+# command=~/git/mail/scripts/i3/i3bar_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=300
@@ -253,7 +253,7 @@ separator=true
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_PETR EPIGEN_ADD_BLOCK_VIT {
 
 # [bibliography]
-# command=~/.bibliography/save_and_update.sh
+# command=~/git/bibliography/save_and_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=60
@@ -546,7 +546,7 @@ separator=true
 # [mpd]
 # interval=1
 # label=MPD
-# command=~/linux-setup/scripts/mpd_indicator.sh
+# command=~/git/linux-setup/scripts/mpd_indicator.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_ADD_BLOCK_MPD }
@@ -589,7 +589,7 @@ separator=true
 
 # EPIGEN_ADD_BLOCK_DARPA {
 # [notes]
-# command=~/notes_darpa/save_and_update.sh
+# command=~/git/notes_darpa/save_and_update.sh
 # # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
 # color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # interval=60
@@ -694,20 +694,7 @@ separator=true
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 # #}
 
-<<<<<<< HEAD
-# EPIGEN_DEL_BLOCK_SUPERNUC {
-[battery]
-command=~/linux-setup/appconfig/i3/doti3/battery_indicator.sh
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-color=#ffffff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-interval=60
-separator=true
-# EPIGEN_DEL_BLOCK_SUPERNUC }
-
-# EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ {
-=======
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
->>>>>>> 28c45c7385f5c996ffe1d6ba7a1b0b9c89f1d4c7
 [load]
 interval=5
 label= 
