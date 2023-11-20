@@ -90,6 +90,9 @@ while true; do
     # compile and install custom tmux
     # cd $APP_PATH/../../submodules/tmux
     # ( ./autogen.sh && ./configure && make && sudo make install-binPROGRAMS ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt-get -y install tmux)
+<<<<<<< HEAD
+>>>>>>> 28c45c7385f5c996ffe1d6ba7a1b0b9c89f1d4c7
+=======
 >>>>>>> 28c45c7385f5c996ffe1d6ba7a1b0b9c89f1d4c7
 
     #############################################
