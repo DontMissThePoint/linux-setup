@@ -35,10 +35,8 @@ var2=`lsb_release -r | awk '{ print $2 }'`
 
 arch=`uname -i`
 
-# match to remote
-! $docker && sudo git pull --recurse-submodules --jobs=10
-# ! $docker && find $MY_PATH/submodules -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} sudo rm -Irf {}/../* 
-! $docker && find . -name ".git" -type d | sed 's/\/.git//' |  xargs -P10 -I{} sudo git -C {}/.. clean -d -f -x
+# remotes
+! $docker && git pull --recurse-submodules --jobs=10
 
 # install packages
 # sudo apt-get -y update
