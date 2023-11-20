@@ -35,6 +35,9 @@ var2=`lsb_release -r | awk '{ print $2 }'`
 
 arch=`uname -i`
 
+# owner
+sudo chown -R $USER: $MY_PATH
+
 # remotes
 ! $docker && git pull --recurse-submodules --jobs=10
 
@@ -96,7 +99,7 @@ arch=`uname -i`
 # ! $docker && bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 #
 # # 10. Install I3
-# ! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
+! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 #
 # # 11. Install LATEX and PDF support
 # ! $docker && bash $APPCONFIG_PATH/latex/install.sh $subinstall_params

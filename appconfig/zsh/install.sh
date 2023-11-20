@@ -66,9 +66,6 @@ while true; do
       cp $APP_PATH/dotzshrc_template $HOME/.zshrc
     fi
 
-    # keep default shell
-    chsh -s $(which bash)
-
     # add liquid prompt
     if [ ! -e $HOME/.liquidprompt ]; then
       git clone --branch stable https://github.com/nojhan/liquidprompt.git ~/.liquidprompt
@@ -82,7 +79,7 @@ while true; do
     make -C ble.sh install PREFIX=~/.local
 
     # starship config
-    starship preset pure -o ~/.config/starship.toml
+    starship preset pure-preset -o ~/.config/starship.toml
     rm -f ~/.config/starship.toml
 
     break
