@@ -42,10 +42,13 @@
 	url = https://github.com/yktoo/indicator-sound-switcher.git
 [submodule "submodules/lolcat"]
 	path = submodules/lolcat
-	url = https://github.com/jaseg/lolcat.git
+	url = https://github.com/jaseg/lolcat
 [submodule "submodules/scrcpy"]
 	path = submodules/scrcpy
 	url = https://github.com/Genymobile/scrcpy
+[submodule "submodules/qutebrowser"]
+	path = submodules/qutebrowser
+	url = https://github.com/qutebrowser/qutebrowser
 [submodule "submodules/light"]
 	path = submodules/light
 	url = https://github.com/haikarainen/light
