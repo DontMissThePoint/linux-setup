@@ -50,6 +50,9 @@ while true; do
 
     sudo -H pip3 install rospkg
 
+    # Unlink
+    brew unlink python
+
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
@@ -132,6 +135,12 @@ while true; do
         echo " What? \"$resp\" is not a correct answer. Try y+Enter."
       fi
     done
+
+    # Plug
+    /usr/bin/vim -c :PlugUpdate
+
+    # relink
+    brew link python
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

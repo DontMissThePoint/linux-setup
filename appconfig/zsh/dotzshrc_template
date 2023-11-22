@@ -15,7 +15,7 @@ export PROFILES="COLORSCHEME_GIT"
 # sourcing FZF
 source ~/.FZF_DEFAULT_OPTS
 
-# Cheatsheets
+# Navi widget
 eval "$(navi widget zsh)"
 
 # Prompt

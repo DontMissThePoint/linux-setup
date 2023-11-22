@@ -10,4 +10,4 @@ fi
 
 # Key bindings
 # ------------
-# source "${HOME}/linux-setup/submodules/fzf/shell/key-bindings.zsh"
+source "${HOME}/linux-setup/submodules/fzf/shell/key-bindings.zsh"

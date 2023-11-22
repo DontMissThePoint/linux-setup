@@ -30,9 +30,6 @@ export NVIM_TUI_ENABLE_TRUE_COLOR=1
 # the location of `once generated ctags file`
 export CTAGS_FILE_ONCE="~/tags-once"
 
-# set vi mode in bash
-# set -o vi # EPIGEN_ADD_LINE_TOMAS
-
 # create alisases
 alias sb="source ~/.bashrc"
 
@@ -42,6 +39,11 @@ source "$REPO_PATH/appconfig/shell/commons.sh"
 case "$-" in
   *i*) INTERACTIVE_SHELL=1
 esac
+
+# set vi mode in bash
+set -o vi # EPIGEN_ADD_LINE_TOMAS
+bind '"jj":vi-movement-mode'
+bind '"jk":vi-movement-mode'
 
 # fzf
 [ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
