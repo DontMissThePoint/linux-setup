@@ -7,7 +7,7 @@ xset r rate 350 55 2> /dev/null
 export TERM=rxvt-unicode-256color
 
 export FZF_DEFAULT_OPTS='--height 25%'
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
+export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
@@ -21,10 +21,10 @@ alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/in
 alias demangle="c++filt"
 
 # quick acces to files and directories
-alias f="vim \$(fd -H ... ~ | fzy -s)"
-alias a="bat --theme TwoDark \$(fd -H ... / | fzf-tmux -p 80%,60%)" 
+alias f="vim \$(fd -H . ~ | fzy -s)"
+alias a="bat --theme TwoDark \$(fd -H . / | fzf-tmux -p 80%,60%)" 
 alias s="find ~ -type f -iname '*.pdf' | rofi -keep-right -dmenu -i -p FILES -multi-select -font 'Ubuntu Mono derivative Powerline 19' | xargs -I {} xdg-open {}"
-alias d="cd \$(fd -H -td ... / | fzy)"
+alias d="cd \$(fd -H -td . / | fzy)"
 
 # #{ cd_media
 

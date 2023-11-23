@@ -1,14 +1,10 @@
 # Use ~~ as the trigger sequence instead of default *8
 export FZF_COMPLETION_TRIGGER='**'
 
-# Options to fzf command
-export BAT_THEME='GitHub'
+export BAT_THEME='TwoDark'
 
-# ripgrep  ignore files (like '.gitignore'),
 # display hidden, and exclude '.git' directory.
-export FZF_DEFAULT_COMMAND='rg --files --hidden --glob "!.git"'
-
-export ENHANCD_FILTER="fzf --preview='eza --tree --group-directories-first --git-ignore --level=1 {}'"
+export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
   --cycle
@@ -23,7 +19,7 @@ export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
 
 # Color schemes
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
- --color=fg:#dedede,hl:#268bd2
+ --color=fg:#cdd6f4,hl:#268bd2
  --color=fg+:241,bg+:#181818,hl+:#87d75f
  --color=info:#b58900,prompt:#b58900,pointer:168
  --color=marker:168,spinner:#b58900,header:#91aadf'

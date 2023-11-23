@@ -1,0 +1,369 @@
+" Last change:	2022 Mar 21
+
+"{{{ BACKUP
+set backupdir=.backup/,~/.backup/,/tmp//
+set directory=.swp/,~/.swp/,/tmp//
+set undodir=.undo/,~/.undo/,/tmp//
+set hidden
+
+let g:auto_save        = 1
+let g:auto_save_silent = 1
+let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
+"}}}
+
+"{{{ ICON
+" loading the plugin
+let g:webdevicons_enable = 1
+
+" add to start screen
+let g:webdevicons_enable_startify = 1
+let g:startify_disable_at_vimenter = 1
+
+" use double-width(1) or single-width(0) glyphs
+" only manipulates padding
+" terminal or set(guifont) font preseved.
+let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
+
+" Can be enabled or disabled
+let g:webdevicons_enable_nerdtree = 1
+let g:webdevicons_conceal_nerdtree_brackets = 1
+
+" Enable folder/directory glyph flag
+let g:WebDevIconsUnicodeDecorateFolderNodes = 1
+let g:WebDevIconsEnableFoldersOpenClose = 1
+let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
+
+let g:NERDTreeGitStatusWithFlags = 1
+let g:NERDTreeGitStatusNodeColorization = 1
+let g:NERDTreeIgnore = ['^node_modules$']
+
+" enable folds
+set foldmethod=marker
+set foldmarker={{{,}}}
+
+" use a slightly darker background
+let g:github_colors_soft = 0
+
+" use the light theme
+set background=light
+
+" more blocky diff markers in signcolumn (e.g. GitGutter)
+let g:github_colors_block_diffmark = 1
+
+" Canvas
+"colorscheme github
+colorscheme pencil
+
+" enable lightline
+"let g:airline_theme = "github"
+"let g:lightline = { 'colorscheme': 'github' }
+let g:lightline = { 'colorscheme': 'selenized_white' }
+
+" iA
+" greater contrast
+let g:pencil_higher_contrast_ui = 1  " 0=low (def), 1=high
+
+" heading colors
+let g:pencil_neutral_headings = 1    " 0=blue (def), 1=normal
+
+" code background
+let g:pencil_neutral_code_bg = 1     " 0=gray (def), 1=normal
+
+" colored indicators
+let g:pencil_gutter_color = 1        " 0=mono (def), 1=color
+
+" Spelling Highlights
+let g:pencil_spell_undercurl = 1     " 0=underline, 1=undercurl (def)
+
+" Terminal Italics
+let g:pencil_terminal_italics = 0
+"}}}
+
+"{{{ CHAR
+" Dim
+hi SpecialKey ctermfg=gray guifg=gray80
+hi NonText ctermfg=gray guifg=gray70
+
+set list
+set listchars=tab:▸—,extends:»,precedes:«
+set showbreak=↪
+set nocursorline
+
+" Hide cursor line on inactive windows
+augroup MyCursorLineGroup
+    autocmd!
+    au WinEnter * setlocal cursorline
+    au WinLeave * setlocal nocursorline
+augroup end
+
+" Trailing whitespace
+" except in insert mode
+augroup trailing
+    au!
+    au VimEnter * :set listchars+=trail:␣
+    au VimLeave * :set listchars-=trail:␣
+    au InsertEnter * :set listchars-=trail:␣
+    au InsertLeave * :set listchars+=trail:␣
+augroup END
+
+" Show @@@ in the last line if it is truncated
+set display=truncate
+
+" Blank slate
+set shm+=I
+
+" 24-bit true color
+set termguicolors
+
+" Show a few lines of context around the cursor
+set scrolloff=5
+"}}}
+
+"{{{ LINE
+" Put these in an autocmd group, so that you can revert them with:
+" ":augroup vimStartup | au! | augroup END"
+augroup vimStartup
+  au!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid, when inside an event handler
+  " (happens when dropping a file on gvim) and for a commit message (it's
+  " likely a different one than last time).
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+augroup END
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+" Revert with: ":delcommand DiffOrig".
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+    \ | wincmd p | diffthis
+endif
+
+" Fullscreen for datasets
+au BufNewFile,BufRead *.tsv   set filetype=tsv
+au Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+"}}}
+
+"{{{ PLUGIN
+
+" FZF
+let g:beacon_ignore_filetypes = ['fzf']
+let g:beacon_ignore_buffers = ['\w*git*\w']
+
+" Customize fzf colors to match your color scheme
+" - fzf#wrap translates this to a set of `--color` options
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+" Enable per-command history
+" - History files will be stored in the specified directory
+" - When set, CTRL-N and CTRL-P will be bound to 'next-history' and
+"   'previous-history' instead of 'down' and 'up'.
+let g:fzf_history_dir = '~/.local/share/fzf-history'
+
+" fzf tmux
+if exists('$TMUX')
+  " Cursor shape
+  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
+  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
+  " Popup window
+  let g:fzf_layout = { 'tmux': '-p90%,60%' }
+else
+  let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
+endif
+
+" Preview window is hidden by default. You can toggle it with ctrl-/.
+" 50% , but if the width is smaller
+" than 70 columns, it will show above the candidate list
+let g:fzf_preview_window = ['right,70%,<70(up,80%)', 'ctrl-/']
+
+" [Buffers] Jump to the existing window if possible
+let g:fzf_buffers_jump = 1
+
+" [[B]Commits] Customize the options used by 'git log':
+let g:fzf_commits_log_options = '--graph --color=always
+        \ --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+
+" [Tags] Command to generate tags file
+let g:fzf_tags_command = 'ctags -R'
+
+" Global line completion (not just open buffers. ripgrep required.)
+inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
+  \ 'prefix': '^.*$',
+  \ 'source': 'rg -n ^ --color always',
+  \ 'options': '--ansi --delimiter : --nth 3..',
+  \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
+
+" Hide statusline
+autocmd! FileType fzf set laststatus=0 noshowmode noruler
+  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+" YouCompleteMe and UltiSnips
+
+" compatibility, with the helper of supertab
+let g:SuperTabDefaultCompletionType    = '<C-n>'
+let g:SuperTabCrMapping                = 0
+let g:UltiSnipsExpandTrigger           = '<tab>'
+let g:UltiSnipsJumpForwardTrigger      = '<tab>'
+let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
+let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+
+" Clear YCM blacklist
+let g:ycm_filetype_blacklist = {}
+
+" Target for REPL
+let g:slime_dont_ask_default = 1
+let g:slime_cell_delimiter = "```"
+let g:slime_target = "vimterminal"
+let g:slime_vimterminal_config = { "term_finish": "close",
+    \ "term_name": "R",
+    \ "horizontal": 1,
+    \ "term_rows": &columns * 1/3,}
+
+" R
+autocmd FileType r call ToSlime()
+function ToSlime()
+  inoremap <C-S-n> %>%<Space>
+  " Create new R terminal
+  terminal
+  " Get terminal buffer number
+  let bufnr = term_list()[0]
+  " Set Slime to pick terminal
+  let g:slime_default_config = {"bufnr": bufnr}
+  call term_sendkeys(bufnr, "R --silent\<CR>")
+endfunc
+
+"}}}
+
+"{{{ REMAP
+
+" Fzf
+nnoremap <leader>f :FZF<CR>
+
+" Beacon
+nmap n n:Beacon<cr>
+nmap N N:Beacon<cr>
+nmap * *:Beacon<cr>
+nmap # #:Beacon<cr>
+
+" Slime
+let g:slime_no_mappings = 0
+xmap <leader>s <Plug>SlimeRegionSend
+nmap <leader>s <Plug>SlimeMotionSend
+nmap <leader>ss <Plug>SlimeLineSend
+
+" Command-line
+noremap ;; ;
+map ; :
+map q; q:
+
+" Math
+vmap <expr>  ++  VMATH_YankAndAnalyse()
+
+" VimDiff
+nmap <F6> :DiffOrig<CR>
+
+" Tags
+nnoremap <silent> <F9> :TagbarToggle<CR>
+
+" toggle background
+silent! call github_colors#togglebg_map('<F11>')
+
+" Functions
+
+nnoremap i :noh<CR>i
+nnoremap <silent> <S-r> :nohlsearch<CR><S-r>
+nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
+
+" Toggle list mode quickly
+noremap \\ :set invlist<CR>
+
+function! s:goyo_enter()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
+  endif
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  colorscheme pencil
+  Limelight 0.85 | call feedkeys("\<F11>") | redraw
+  " ...
+endfunction
+
+function! s:goyo_leave()
+  if executable('tmux') && strlen($TMUX)
+    silent !tmux set status off
+    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
+  endif
+  set showmode
+  set showcmd
+  set scrolloff=5
+  colorscheme github
+  Limelight! | call feedkeys("\<F11>") | redraw
+  " ...
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
+
+" Activate FOCUS mode with F11
+nmap <F10> :Goyo<CR>
+
+" NetisFleet
+autocmd FileType tsv call DataViz()
+function DataViz()
+  colo pencil
+  colo github
+  noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
+
+  func! Swipe(card)
+      let @c = a:card
+      silent! execute "normal d$:pu c"
+      -join!
+
+      " Cursor pos
+      call cursor('.',strwidth(getline('.')))
+  endfunc
+
+  " Preselect suppliers
+  iabbrev <silent> ff <c-o>:call fzf#run(fzf#wrap({
+            \ 'source': readfile(expand('$HOME/.cards.txt')),
+            \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
+            \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },
+            \ 'options': '+m --header "" --border-label "Choose a supplier"
+            \ --preview "" --prompt "Location	: 💳 "'}))<CR>
+
+  " Canvas
+  setlocal noexpandtab ruler
+  setlocal tabstop=20 softtabstop=20 shiftwidth=20
+
+  " Visibility
+  setlocal number relativenumber cursorcolumn cursorline
+  windo set scrollopt=ver,jump scrollbind nowrap
+
+  " Fast Lanes
+  call EnableCursorLines()
+
+  " Highlight
+  call feedkeys(",a")
+endfunc
+"}}}
