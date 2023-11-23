@@ -42,7 +42,7 @@ while true; do
     sudo apt-get -y install ninja-build gettext cmake unzip curl python3.8-venv
 
     # compile neovim from sources
-    cd $APP_PATH/../../submodules/nvim
+    # cd $APP_PATH/../../submodules/nvim
     rm -fr /tmp/build && mkdir /tmp/build 
     cd /tmp/build
     git clone https://github.com/neovim/neovim nvim

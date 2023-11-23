@@ -37,11 +37,11 @@ while true; do
     toilet Installing tmuxinator
 
     # install tmuxinator
-    cd $APP_PATH/../../submodules/tmuxinator
+    # cd $APP_PATH/../../submodules/tmuxinator
 
     # gem build tmuxinator.gemspec
     # sudo gem install tmuxinator
-    brew install tmuxinator
+    brew install -q tmuxinator
 
     # symlink tmuxinator settings
     [ ! -e ~/.tmuxinator ] && ln -fs $APP_PATH/dottmuxinator ~/.tmuxinator

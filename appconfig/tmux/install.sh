@@ -47,7 +47,7 @@ while true; do
     # sudo apt-get -y install libevent-dev
 
     # compile and install custom tmux
-    cd $APP_PATH/../../submodules/tmux
+    # cd $APP_PATH/../../submodules/tmux
     #( sh autogen.sh && ./configure && make && sudo make install-binPrograms ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt-get -y install tmux)
     brew install -q tmux
 
