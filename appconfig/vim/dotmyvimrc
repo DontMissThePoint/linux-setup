@@ -178,12 +178,8 @@ let g:fzf_colors =
 "   'previous-history' instead of 'down' and 'up'.
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
-" fzf tmux
+" fzf tmux popup window
 if exists('$TMUX')
-  " Cursor shape
-  let &t_SI = "\ePtmux;\e\e[5 q\e\\"
-  let &t_EI = "\ePtmux;\e\e[2 q\e\\"
-  " Popup window
   let g:fzf_layout = { 'tmux': '-p90%,60%' }
 else
   let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.6 } }
