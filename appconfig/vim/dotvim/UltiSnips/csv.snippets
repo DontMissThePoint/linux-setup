@@ -1,0 +1,4 @@
+snippet st "Choose station" i
+ `p team = os.getcwd() + "dict.tsv"
+ vim.command(call fzf#run(fzf#wrap({'source': team, 'sink': snip.rv})))`
+endsnippet

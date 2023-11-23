@@ -1,0 +1,83 @@
+
+#############################################
+# remove the interactivity check from bashrc
+#############################################
+
+if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
+    VIM_BIN="$(whereis nvim | awk '{print $2}')"
+    HEADLESS="--headless"
+  elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
+    VIM_BIN="$(whereis vim | awk '{print $2}')"
+    HEADLESS=""
+fi
+
+# this caused some problems once, but where?
+$VIM_BIN $HEADLESS -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
+
+#############################################
+# add LOCALES variables
+#############################################
+
+num=`cat ~/.bashrc | grep "LC_ALL" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+    echo "Adding locales to .bashrc"
+    echo "
+# Locales
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+export LANGUAGE=en_US.UTF-8" >> ~/.bashrc
+
+fi
+
+#############################################
+# adding GIT_PATH variable to .bashrc
+#############################################
+
+# add variable for path to the git repository
+num=`cat ~/.bashrc | grep "GIT_PATH" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+    TEMP=`( cd "$MY_PATH/../" && pwd )`
+
+    echo "Adding GIT_PATH variable to .bashrc"
+    # set bashrc
+    echo "
+# path to the git root
+export GIT_PATH=$TEMP" >> ~/.bashrc
+
+fi
+
+#############################################
+# add PROFILES variables
+#############################################
+
+num=`cat ~/.bashrc | grep "PROFILES" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+    echo "Adding epigen rules to .bashrc"
+    echo '
+# list (space-separated) of profile names for customizing configs
+export PROFILES="COLORSCHEME_GIT"' >> ~/.bashrc
+
+fi
+
+#############################################
+# add sourcing of dotbashrc to .bashrc
+#############################################
+num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+    echo "Adding source to .bashrc"
+    # set bashrc
+    echo "
+# ble
+source ~/.local/share/blesh/ble.sh 
+
+# load Liquidprompt in interactive shells, not from script/scp
+[[ $- = *i* ]] && source ~/.liquidprompt/liquidprompt"
+
+# sourcing Tomas's linux setup
+source $APPCONFIG_PATH/bash/dotbashrc >> ~/.bashrc
+
+fi
