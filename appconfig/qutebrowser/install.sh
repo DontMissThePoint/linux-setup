@@ -44,12 +44,14 @@ while true; do
 
     /usr/bin/python3 -m pip install asciidoc
     /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.4
+    
     #.venv/bin/python3 -m qutebrowser
-
+    rm -fr ${APP_PATH}/.venv && mv .venv ${APP_PATH}/
+    
     # Wrapper script
     printf '#!/bin/bash\n' > $APP_PATH/qutebrowser_env
 
-    echo -e '~/linux-setup/submodules/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
+    echo -e '$GIT_PATH/linux-setup/appconfig/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
 
     chmod +x ${APP_PATH}/qutebrowser_env
     sudo cp ${APP_PATH}/qutebrowser_env /bin/qutebrowser
@@ -60,14 +62,6 @@ while true; do
     cp -fr $APP_PATH/catppuccin ~/.config/qutebrowser/
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
     ln -sf $APP_PATH/sessions ~/.local/share/qutebrowser/
-
-    # vivaldi
-    the_ppa=papirus/papirus
-    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-        sudo add-apt-repository -y ppa:papirus/papirus
-        sudo apt update
-        sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
-    fi    
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

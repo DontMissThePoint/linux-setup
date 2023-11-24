@@ -8,6 +8,9 @@ appconfig/vim/dotvim/plugged/*
 appconfig/vim/dotvim/session
 appconfig/vim/dotvim/.netrwhist
 appconfig/vim/dotvim/files/info/viminfo
+appconfig/qutebrowser/catppuccin/*
+appconfig/qutebrowser/sessions/*
+appconfig/qutebrowser/.venv/*
 
 html/
 
