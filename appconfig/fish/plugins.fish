@@ -9,9 +9,8 @@ fisher install edc/bass
 fisher install meaningful-ooo/sponge
 
 fisher install jorgebucaran/nvm.fish
-
-fisher install catppuccin/fish
-fish_config theme save "Catppuccin Mocha" # Frappe, Latte, Machiatto Mocha
+fisher install vitallium/tokyonight-fish
+fish_config theme save "TokyoNight Night" # Night, Storm, Mooon, Day
 fish_update_completions
 
 # npm
