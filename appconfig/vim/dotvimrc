@@ -272,6 +272,9 @@ Plug 'junegunn/vim-peekaboo'
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
 
+" Toggle cursor shape
+Plug 'jszakmeister/vim-togglecursor'
+
 " Multiple cursors
 " in visual pres ctrl+n to select next occurance
 " ctrl+p to go back and ctrl+x to skip
