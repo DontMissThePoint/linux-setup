@@ -36,8 +36,7 @@ while true; do
 
     toilet Installing fish
 
-    sudo apt-get -y remove fish* || echo ""
-
+    rm -fr $HOME/.config/fish && sudo apt-get -y remove fish* || echo ""
     sudo apt-add-repository -y ppa:fish-shell/release-3
     sudo apt update
     sudo apt install -y fish

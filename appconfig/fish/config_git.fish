@@ -55,7 +55,14 @@ function fish_greeting
     random choice "Hello!" "Hi" "G'day" "Howdy"
 end
 
+function fish_title
+    # shorten title
+    echo $argv[1] (prompt_pwd)
+    pwd
+end
+
 ### aliases ###
+alias vimdiff="/usr/bin/nvim -d"
 alias vim="wmctrl -r :ACTIVE: -b add,fullscreen && /usr/bin/nvim"
 
 ### abbreviation ###

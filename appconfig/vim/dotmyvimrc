@@ -145,8 +145,11 @@ if !exists(":DiffOrig")
 endif
 
 " Fullscreen for datasets
-au BufNewFile,BufRead *.tsv   set filetype=tsv
+au BufNewFile,BufRead *.tsv set filetype=tsv
 au Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+
+" hide status
+autocmd VimEnter,VimLeave * silent !tmux set status
 "}}}
 
 "{{{ PLUGIN

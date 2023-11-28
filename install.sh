@@ -208,6 +208,11 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # Optimize resources
 #############################################
 
+# time
+sudo apt -y install systemd-timesyncd
+timedatectl set-local-rtc 0 --adjust-system-clock
+
+# power
 the_ppa=linrunner/tlp
 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     sudo add-apt-repository -y ppa:linrunner/tlp
@@ -215,7 +220,6 @@ if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; 
     sudo apt -y install tlp tlp-rdw smartmontools
 fi    
 
-# power
 sudo systemctl enable tlp.service
 sudo systemctl start tlp.service
 
@@ -225,11 +229,9 @@ sudo systemctl mask systemd-rfkill.socket
 # tty
 sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100
 
-# unused packages
-sudo apt -y autoremove
-
-# reclaim space
+# space
 docker volume prune
+sudo apt -y autoremove
 
 #############################################
 # link the scripts folder

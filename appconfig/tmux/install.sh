@@ -42,8 +42,8 @@ while true; do
 
     toilet Installing tmux
 
-    sudo apt-get -y install tmux
-
+    sudo apt-get -y remove tmux* || echo ""
+    # sudo apt-get -y install tmux
     # sudo apt-get -y install libevent-dev
 
     # compile and install custom tmux
@@ -88,6 +88,14 @@ while true; do
     # compile and install custom tmux
     # cd $APP_PATH/../../submodules/tmux
     # ( ./autogen.sh && ./configure && make && sudo make install-binPROGRAMS ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt-get -y install tmux)
+
+    # display time
+    TIME_ZONE=`timedatectl status | grep zone | awk '{ print $3 }'`
+    EXISTING_ZONE=`cat ~/.profile 2> /dev/null | grep "zoneinfo" | wc -l`
+    if [ "$EXISTING_ZONE" -lt "1" ]; then
+      echo "Timezone set to $TIME_ZONE"
+      (echo; echo "export TZ=/usr/share/zoneinfo/$TIME_ZONE") >> ~/.profile
+    fi
 
     #############################################
     # add TMUX enable/disable to .bashrc
