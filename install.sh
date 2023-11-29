@@ -61,7 +61,7 @@ if [ -n "$BEAVER" ]; then
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak ncdu imagemagick gnome-shell-pomodoro gnome-control-center stacer wmctrl
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted gnome-shell-pomodoro gnome-control-center espeak ncdu imagemagick bleachbit stacer wmctrl
 
 if [ "$unattended" == "0" ]
   then
@@ -225,9 +225,6 @@ sudo systemctl start tlp.service
 
 sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
-
-# tty
-sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100
 
 # space
 docker volume prune

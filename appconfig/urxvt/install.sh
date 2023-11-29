@@ -45,6 +45,9 @@ while true; do
       sudo ln -fs $APP_PATH/extensions/$file $EXTENSION_PATH/$file
     done
 
+    # tty
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

@@ -37,13 +37,14 @@ c.bindings.commands['hint'] = {
 }
 
 # Hint
-
-config.bind('f', 'hint --rapid links tab-bg')
+config.bind('f', 'hint')
+config.bind('tf', 'hint tab')
+config.bind('F', 'hint --rapid links tab-bg')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
-config.bind('[t', 'tab-prev')
-config.bind(']t', 'tab-next')
+config.bind('tT', 'tab-prev')
+config.bind('tt', 'tab-next')
 config.bind('xx', 'tab-close')
 
 ## Note: 'gvim.bat' works but 'gvim' does not work

@@ -46,16 +46,20 @@ while true; do
     /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.4
     
     #.venv/bin/python3 -m qutebrowser
-    rm -fr ${APP_PATH}/.venv && mv .venv ${APP_PATH}/
+    mkdir -p ~/.qutebrowser
+    rm -fr ~/.qutebrowser/.venv && mv .venv ~/.qutebrowser/
     
     # Wrapper script
     printf '#!/bin/bash\n' > $APP_PATH/qutebrowser_env
 
-    echo -e '$GIT_PATH/linux-setup/appconfig/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
+    echo -e '~/.qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
 
     chmod +x ${APP_PATH}/qutebrowser_env
     sudo cp ${APP_PATH}/qutebrowser_env /bin/qutebrowser
     sudo ln -sf /bin/qutebrowser /usr/local/bin/qutebrowser
+
+    # default
+    sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/qutebrowser 210
 
     # Mocha flavor
     mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/sessions

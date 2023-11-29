@@ -1,2 +1,2 @@
 #!/bin/bash
-$GIT_PATH/linux-setup/appconfig/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"
+~/.qutebrowser/.venv/bin/python3 -m qutebrowser "$@"

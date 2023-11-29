@@ -48,7 +48,7 @@ set -g theme_display_cmd_duration yes
 set -g theme_powerline_fonts yes
 set -g theme_nerd_fonts yes
 set -g theme_color_scheme "TokyoNight Night"
-set --universal nvm_default_version v20.9.0
+set --universal nvm_default_version v20.10.0
 
 ### functions ###
 function fish_greeting
@@ -68,7 +68,7 @@ alias vim="wmctrl -r :ACTIVE: -b add,fullscreen && /usr/bin/nvim"
 ### abbreviation ###
 abbr rm "rm -i"
 abbr mkdir "mkdir -p"
-abbr lsa "eza -la --smart-group --tree --level=2 --git --header --icons"
+abbr lll "eza -la --smart-group --tree --level=2 --git --header --icons"
 
 ### bind ###
 bind --mode insert --sets-mode default jj repaint

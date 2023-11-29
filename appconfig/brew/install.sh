@@ -49,7 +49,7 @@ while true; do
       echo Links disrupted, retrying in 10 seconds...
       sleep 10
     done    
-    brew install -q starship fzy bat ripgrep miller ctop btop eza fd navi dust
+    brew install -q grc starship fzy bat ripgrep miller ctop btop eza fd navi dust
     brew cleanup --prune=all 
 
     # configs
