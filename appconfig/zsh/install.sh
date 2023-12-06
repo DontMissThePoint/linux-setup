@@ -78,9 +78,9 @@ while true; do
     git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
     make -C ble.sh install PREFIX=~/.local
 
-    # starship config
-    starship preset pure-preset -o ~/.config/starship.toml
-    rm -f ~/.config/starship.toml
+    # config
+    # starship preset pure-preset -o ~/.config/starship.toml
+    rm -f ~/.config/starship.toml && cp $APP_PATH/starship.toml ~/.config/starship.toml
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

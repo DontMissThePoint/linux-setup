@@ -148,8 +148,13 @@ endif
 au BufNewFile,BufRead *.tsv set filetype=tsv
 au Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
-" hide status
-autocmd VimEnter,VimLeave * silent !tmux set status
+" status
+if has_key(environ(), 'TMUX')
+  augroup TmuxStatusToggle
+    autocmd VimEnter,BufEnter,VimResume * silent !tmux setw status off
+    autocmd VimLeave,VimSuspend * silent !tmux setw status on
+  augroup END
+endif
 "}}}
 
 "{{{ PLUGIN
@@ -284,7 +289,7 @@ nmap <F6> :DiffOrig<CR>
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
 " toggle background
-silent! call github_colors#togglebg_map('<F11>')
+silent! call github_colors#togglebg_map('<F10>')
 
 " Functions
 
@@ -303,21 +308,22 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set scrolloff=999
-  colorscheme pencil
-  Limelight 0.85 | call feedkeys("\<F11>") | redraw
+  set background=dark
+  Limelight !!
   " ...
 endfunction
 
 function! s:goyo_leave()
   if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
+    silent !tmux setw status off
     silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
   endif
   set showmode
   set showcmd
   set scrolloff=5
+  set background=light
   colorscheme github
-  Limelight! | call feedkeys("\<F11>") | redraw
+  Limelight!
   " ...
 endfunction
 
@@ -325,7 +331,8 @@ autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 " Activate FOCUS mode with F11
-nmap <F10> :Goyo<CR>
+nmap <F11> :Goyo <bar> Limelight 0.85<CR>
+nmap <F12> :Goyo <bar> Limelight 0.85<CR>
 
 " NetisFleet
 autocmd FileType tsv call DataViz()

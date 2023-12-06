@@ -37,6 +37,11 @@ local plugins = {
     opts = overrides.nvimtree,
   },
 
+  {
+    "MunifTanjim/nui.nvim",
+    opts = overrides.nui,
+  },
+
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
@@ -55,59 +60,63 @@ local plugins = {
   },
 
   {
-    "Vigemus/iron.nvim",
+    "rcarriga/nvim-notify",
     lazy = false,
     config = function()
-      local iron = require("iron.core")
-
-      iron.setup({
-        config = {
-          -- Whether a repl should be discarded or not
-          scratch_repl = true,
-          -- Your repl definitions come here
-          repl_definition = {
-            sh = {
-              -- Can be a table or a function that
-              -- returns a table (see below)
-              command = { "bash" },
-            },
-            r = {
-              command = { "R", "-q" },
-            },
-          },
-          -- How the repl window will be displayed
-          -- See below for more information
-          repl_open_cmd = require("iron.view").split("65%"),
-        },
-        -- Iron doesn't set keymaps by default anymore.
-        -- You can set them here or manually add keymaps to the functions in iron.core
-        keymaps = {
-          send_motion = "<leader>sc",
-          visual_send = "<leader>sc",
-          send_file = "<leader>sf",
-          send_line = "<leader>sl",
-          send_mark = "<leader>sm",
-          mark_motion = "<leader>mc",
-          mark_visual = "<leader>mc",
-          remove_mark = "<leader>md",
-          cr = "<leader>s<cr>",
-          interrupt = "<leader>s<leader>",
-          exit = "<leader>sq",
-          clear = "<leader>cl",
-        },
-        -- If the highlight is on, you can change how it looks
-        -- For the available options, check nvim_set_hl
-        highlight = {
-          italic = true,
-        },
-        ignore_blank_lines = true, -- ignore blank lines when sending visual select lines
+      require("notify").setup({
+        background_colour = "#1A1B26",
       })
+    end,
+  },
 
-      -- iron also has a list of commands, see :h iron-commands for all available commands
-      vim.keymap.set("n", "<leader>rs", "<cmd>IronRepl<cr>")
-      vim.keymap.set("n", "<leader>rr", "<cmd>IronRestart<cr>")
-      vim.keymap.set("n", "<leader>rf", "<cmd>IronFocus<cr>")
-      vim.keymap.set("n", "<leader>rh", "<cmd>IronHide<cr>")
+  {
+    "folke/noice.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- add any options here
+    },
+    config = function()
+      require("noice").setup({
+        lsp = {
+          -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
+          override = {
+            ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+            ["vim.lsp.util.stylize_markdown"] = true,
+            ["cmp.entry.get_documentation"] = true,
+          },
+          signature = {
+            enabled = false,
+          },
+          hover = {
+            enabled = false,
+          },
+        },
+        -- you can enable a preset for easier configuration
+        presets = {
+          bottom_search = true, -- use a classic bottom cmdline for search
+          command_palette = true, -- position the cmdline and popupmenu together
+          long_message_to_split = true, -- long messages will be sent to a split
+          inc_rename = false, -- enables an input dialog for inc-rename.nvim
+          lsp_doc_border = false, -- add a border to hover docs and signature help
+        },
+      })
+    end,
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
+  },
+
+  { "alexghergh/nvim-tmux-navigation",
+    lazy = false,
+    config = function()
+      require("nvim-tmux-navigation").setup({
+        disable_when_zoomed = true, -- defaults to false
+      })
     end,
   },
 

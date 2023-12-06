@@ -46,6 +46,8 @@ alias sb="source ~/.zshrc"
 # EPIGEN_ADD_BLOCK_DANIEL {
 # ZSH_THEME="lukerandall"
 # EPIGEN_ADD_BLOCK_DANIEL }
+# ZSH_THEME="lukerandall"
+export ZSH_THEME="simple"
 
 # Path to your oh-my-zsh installation.
 if [ -e $HOME/.oh-my-zsh ]; then

@@ -3,7 +3,7 @@ bass source "~/linux-setup/appconfig/shell/commons.sh"
 
 ### export ###
 # set fish_greeting                                 # Supresses fish's intro message
-set TERM "screen-256color"                         # Sets the terminal type
+# set TERM "screen-256color"                        # Sets the terminal type
 
 set -gx COLORTERM truecolor
 set -gx EDITOR nvim
@@ -52,13 +52,7 @@ set --universal nvm_default_version v20.10.0
 
 ### functions ###
 function fish_greeting
-    random choice "Hello!" "Hi" "G'day" "Howdy"
-end
-
-function fish_title
-    # shorten title
-    echo $argv[1] (prompt_pwd)
-    pwd
+    random choice "Hello!" "Hi" "Welcome!!" "Howdy"
 end
 
 ### aliases ###

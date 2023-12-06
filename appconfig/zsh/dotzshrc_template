@@ -18,8 +18,5 @@ source ~/.FZF_DEFAULT_OPTS
 # Navi widget
 eval "$(navi widget zsh)"
 
-# Prompt
-eval "$(starship init zsh)"
-
 # sourcing Tomas's linux setup
 source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc
