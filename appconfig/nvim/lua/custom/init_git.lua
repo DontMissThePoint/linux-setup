@@ -15,3 +15,10 @@ if vim.fn.exists('$TMUX') then
         augroup end
     ]])
 end
+
+-- Fix libuv
+autocmd({ "VimLeave" }, {
+    callback = function()
+    vim.cmd("sleep 25m")
+  end,
+})
