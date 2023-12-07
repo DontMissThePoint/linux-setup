@@ -1103,15 +1103,15 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_DANIEL {
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/notes/files/linux-setup/wallpapers/tree.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill $GIT_PATH/linux-setup/miscellaneous/wallpapers/white.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/notes/files/linux-setup/wallpapers/red.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill $GIT_PATH/linux-setup/miscellaneous/wallpapers/121212.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-# # exec_always --no-startup-id "feh -F --bg-fill ~/notes/files/linux-setup/wallpapers/green.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill $GIT_PATH/linux-setup/miscellaneous/wallpapers/151515.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 272d2d
@@ -1163,7 +1163,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
 
 # # exec_always --no-startup-id "xinput set-prop 12 \"Device Enabled\" 1"
-# # exec_always --no-startup-id "xinput set-prop 13 \"libinput Accel Speed\" -0.25"
+# # exec_always --no-startup-id "xinput set-prop 13 \"libinput Accel Speed\" -0.35"
 
 # # EPIGEN_ADD_BLOCK_LENOVO }
 
