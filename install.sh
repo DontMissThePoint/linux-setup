@@ -190,7 +190,7 @@ sudo systemctl disable apt-daily-upgrade.service
 
 sudo apt-get -y purge unity-lens-shopping
 sudo apt-get -y purge unity-webapps-common
-sudo apt-get -y purge apturl 
+sudo apt-get -y purge apturl
 
 sudo apt-get -y purge zeitgeist
 sudo apt-get -y purge zeitgeist-datahub
@@ -218,7 +218,7 @@ if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; 
     sudo add-apt-repository -y ppa:linrunner/tlp
     sudo apt update
     sudo apt -y install tlp tlp-rdw smartmontools
-fi    
+fi
 
 sudo systemctl enable tlp.service
 sudo systemctl start tlp.service

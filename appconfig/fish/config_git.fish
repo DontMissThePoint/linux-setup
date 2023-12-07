@@ -1,10 +1,7 @@
 ### commons ###
 bass source "~/linux-setup/appconfig/shell/commons.sh"
 
-### export ###
-# set fish_greeting                                 # Supresses fish's intro message
-# set TERM "screen-256color"                        # Sets the terminal type
-
+### set ###
 set -gx COLORTERM truecolor
 set -gx EDITOR nvim
 set -gx LANG en_US.UTF-8                           # Adjust this to your language!
@@ -62,6 +59,7 @@ alias vim="wmctrl -r :ACTIVE: -b add,fullscreen && /usr/bin/nvim"
 ### abbreviation ###
 abbr rm "rm -i"
 abbr mkdir "mkdir -p"
+abbr cloud "rclone rcd --rc-web-gui"
 abbr lll "eza -la --smart-group --tree --level=2 --git --header --icons"
 
 ### bind ###

@@ -51,8 +51,8 @@ set background=light
 let g:github_colors_block_diffmark = 1
 
 " Canvas
-"colorscheme github
-colorscheme pencil
+" colorscheme pencil
+colorscheme github
 
 " enable lightline
 "let g:airline_theme = "github"
@@ -309,6 +309,7 @@ function! s:goyo_enter()
   set noshowcmd
   set scrolloff=999
   set background=dark
+  colorscheme typewriter-night
   Limelight !!
   " ...
 endfunction

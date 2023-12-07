@@ -29,7 +29,10 @@ local plugins = {
 
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = overrides.treesitter,
+    opts = {
+      overrides.treesitter,
+      auto_install = true,
+    },
   },
 
   {
@@ -48,6 +51,25 @@ local plugins = {
     event = "InsertEnter",
     config = function()
       require("better_escape").setup()
+    end,
+  },
+
+  {
+    "kylechui/nvim-surround",
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require("nvim-surround").setup({
+            -- Configuration here
+        })
+    end,
+  },
+
+  {
+    "cappyzawa/trim.nvim",
+    lazy = false,
+    config = function()
+      require("trim").setup {}
     end,
   },
 

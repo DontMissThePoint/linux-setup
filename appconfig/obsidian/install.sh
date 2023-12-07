@@ -34,6 +34,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    sudo rm -f /etc/apt/sources.list.d/syncthing.list
+
     # Syncthing
     sudo apt install -y curl apt-transport-https
     curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
@@ -48,12 +50,26 @@ while true; do
 
     #access the web UI
     #https://localhost:8384/
-    
+
     # Obsidian
     cd /tmp
     wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian_1.4.16_amd64.deb
     sudo dpkg -i obsidian_1.4.16_amd64.deb
-    
+
+    # Rclone
+    sudo apt install -y fuse3
+    sudo -v ; curl https://rclone.org/install.sh | sudo bash
+
+    # config
+    rclone config
+    # rclone rcd --rc-web-gui
+
+    # daemon
+    # sudo cp -f $APP_PATH/rclone-mega@.service /etc/systemd/system/rclone-mega@.service
+    # sudo systemctl daemon-reload
+    # sudo systemctl start rclone-mega@$USER
+    # sudo systemctl enable --now rclone-mega@$USER
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
