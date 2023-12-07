@@ -43,7 +43,7 @@ while true; do
 
     # compile neovim from sources
     # cd $APP_PATH/../../submodules/nvim
-    rm -fr /tmp/build && mkdir /tmp/build 
+    rm -fr /tmp/build && mkdir /tmp/build
     cd /tmp/build
     git clone https://github.com/neovim/neovim nvim
     cd nvim && git checkout gaps && git pull
@@ -53,8 +53,8 @@ while true; do
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
     # gitkraken
-    wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
-    sudo dpkg -i gitkraken-amd64.deb 
+    wget -c https://release.gitkraken.com/linux/gitkraken-amd64.deb
+    sudo dpkg -i gitkraken-amd64.deb
 
     # config
     mkdir -p "$CONFIG"

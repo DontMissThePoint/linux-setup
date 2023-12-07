@@ -94,9 +94,9 @@ while true; do
     # compile i3
     sudo pip3 install meson
     cd $APP_PATH/../../submodules/i3/
-    
+
     # build from sources
-    rm -fr /tmp/build && mkdir /tmp/build 
+    rm -fr /tmp/build && mkdir /tmp/build
     cd /tmp/build
     git clone https://www.github.com/airblader/i3 i3-gaps
     cd i3-gaps
@@ -104,7 +104,7 @@ while true; do
     sudo apt install meson asciidoc
     meson -Ddocs=true -Dmans=true ../build
     meson compile -C ../build
-    sudo meson install -C ../build    
+    sudo meson install -C ../build
 
     # clean after myself
     git reset --hard
@@ -180,7 +180,7 @@ while true; do
 
     # required for i3lock-color
     sudo apt remove -y i3lock
-     
+
     sudo apt install -y libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 
     # compile from sources
@@ -191,13 +191,13 @@ while true; do
     ./install-i3lock-color.sh
 
     # lockscreen with effects!
-    wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
+    wget -c https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
     mkdir -p ~/.config/betterlockscreen/
     cp $APP_PATH/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
-     
+
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
-    
+
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime
 

@@ -40,21 +40,21 @@ while true; do
 
     if [ -n "$BEAVER" ]; then
       cd /tmp
-      wget https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
+      wget -c https://github.com/jgm/pandoc/releases/download/2.7.2/pandoc-2.7.2-1-amd64.deb
       sudo dpkg -i pandoc-2.7.2-1-amd64.deb
     else
       sudo apt install -y pandoc
     fi
 
     # Calibre
-    #sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin 
+    #sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
     #sudo calibre-uninstall
-    
+
     # Kodoo
     cd /tmp
-    wget https://github.com/troyeguo/koodo-reader/releases/download/v1.5.1/Koodo.Reader-1.5.1.deb 
+    wget -c https://github.com/troyeguo/koodo-reader/releases/download/v1.5.1/Koodo.Reader-1.5.1.deb
     sudo dpkg -i Koodo.Reader-1.5.1.deb
-    
+
     break
 
   elif [[ $response =~ ^(n|N)=$ ]]

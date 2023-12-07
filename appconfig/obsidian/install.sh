@@ -53,12 +53,12 @@ while true; do
 
     # Obsidian
     cd /tmp
-    wget https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian_1.4.16_amd64.deb
+    wget -c https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian_1.4.16_amd64.deb
     sudo dpkg -i obsidian_1.4.16_amd64.deb
 
     # Rclone
     sudo apt install -y fuse3
-    sudo -v ; curl https://rclone.org/install.sh | sudo bash
+    sudo -v ; curl https://rclone.org/install.sh | sudo bash || echo "Setting up cloud storage."
 
     # config
     rclone config
