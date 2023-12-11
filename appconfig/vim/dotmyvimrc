@@ -148,6 +148,9 @@ endif
 au BufNewFile,BufRead *.tsv set filetype=tsv
 au Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
+" shape
+let g:togglecursor_force = 'xterm'
+
 " status
 if has_key(environ(), 'TMUX')
   augroup TmuxStatusToggle
