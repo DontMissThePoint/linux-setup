@@ -45,6 +45,7 @@ while true; do
     # symlinks
     ln -fs $APP_PATH/rifle.conf ~/.config/ranger/rifle.conf
     ln -fs $APP_PATH/commands.py ~/.config/ranger/commands.py
+    ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
     break

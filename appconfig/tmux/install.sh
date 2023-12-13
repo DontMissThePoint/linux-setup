@@ -97,6 +97,10 @@ while true; do
       (echo; echo "export TZ=/usr/share/zoneinfo/$TIME_ZONE") >> ~/.profile
     fi
 
+    # fix
+    sudo apt -y install systemd-timesyncd
+    timedatectl set-local-rtc 0 --adjust-system-clock
+
     #############################################
     # add TMUX enable/disable to .bashrc
     #############################################

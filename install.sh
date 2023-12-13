@@ -208,10 +208,6 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # Optimize resources
 #############################################
 
-# time
-sudo apt -y install systemd-timesyncd
-timedatectl set-local-rtc 0 --adjust-system-clock
-
 # power
 the_ppa=linrunner/tlp
 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
