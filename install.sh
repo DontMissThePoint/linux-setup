@@ -49,9 +49,8 @@ sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoc
 
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
+pip install --upgrade visidata openpyxl xlrd
 python3 -m pip install -U yt-dlp
-pip3 install git+https://github.com/saulpw/visidata.git@develop
-pip install --upgrade cmake openpyxl xlrd
 
 if [ -n "$BEAVER" ]; then
     sudo apt-get -y install python-git

@@ -369,11 +369,11 @@ for_window [title="pdfpc"] border none floating enable
 # set $inactive_text_color      #eeeeee
 
 # set $inactive_background      #333333
-# set $active_background        #53b5ff
-# set $active_border            #5cd8ff
+# set $active_background        #285577
+# set $active_border            #4c7899
 
 # set $background_color         [85]#1a1c1e
-# set $split_indicator          #E6B400
+# set $split_indicator          #2E9EF4
 # set $urgent                   #ff0000
 # exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
 # for_window [class="^.*"] border pixel 1
