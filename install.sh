@@ -50,7 +50,6 @@ sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoc
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
 pip install --upgrade visidata openpyxl xlrd
-python3 -m pip install -U yt-dlp
 
 if [ -n "$BEAVER" ]; then
     sudo apt-get -y install python-git
@@ -150,22 +149,25 @@ if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
 fi
 
-# 25. Install TMUXINATOR
+# 25. Install YT-DLP
+! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
+
+# 26. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# 26. Install LOLCAT
+# 27. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
 
-# 27. Install SCRCPY
+# 28. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 28. Install OBSIDIAN
+# 29. Install OBSIDIAN
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 29. Install QUTEBROWSER
+# 30. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 30. Install FISH
+# 31. Install FISH
 ! $docker && bash $APPCONFIG_PATH/fish/install.sh $subinstall_params
 
 ##################################################

@@ -21,42 +21,31 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up pandoc? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp to find and watch youtube videos from the terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ -n "$BEAVER" ]; then
-      cd /tmp
-      wget -c https://github.com/jgm/pandoc/releases/download/3.1.10/pandoc-3.1.10-1-amd64.deb
-      sudo dpkg -i pandoc-3.1.10-1-amd64.deb
-    else
-      sudo apt install -y pandoc
-    fi
+    toilet Setting up yt-dlp
 
-    # Calibre
-    sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
-    #sudo calibre-uninstall
+    python3 -m pip install -U yt-dlp
+    wget https://download.xnview.com/XnViewMP-linux-x64.deb -O "$APP_PATH/XnViewMP-linux-x64.deb"
 
-    # Kodoo
-    cd /tmp
-    wget -c https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb
-    sudo dpkg -i Koodo.Reader-1.6.0-amd64.deb
+    sudo dpkg -i "$APP_PATH/XnViewMP-linux-x64.deb"
+    rm "$APP_PATH/XnViewMP-linux-x64.deb"
+
+    # config
+    cp $APP_PATH/style_sheet.qss $HOME/.config/xnviewmp/style_sheet.qss
 
     break
-
   elif [[ $response =~ ^(n|N)=$ ]]
   then
     break

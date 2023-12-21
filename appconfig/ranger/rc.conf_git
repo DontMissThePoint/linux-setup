@@ -112,7 +112,7 @@ set status_bar_on_top false
 set draw_progress_bar_in_status_bar true
 
 # Draw borders around columns?
-set draw_borders false
+set draw_borders true
 
 # Display the directory name in tabs?
 set dirname_in_tabs true
@@ -208,7 +208,7 @@ set metadata_deep_search false
 # You can set local options that only affect a single directory.
 
 # Examples:
-# setlocal path=~/downloads sort mtime
+setlocal path=~/downloads sort mtime
 
 # ===================================================================
 # == Command Aliases in the Console

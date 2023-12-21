@@ -232,7 +232,7 @@ ranger () {
 }
 
 # #}
-alias ra="wmctrl -r :ACTIVE: -b add,fullscreen && ranger"
+alias ra="ranger"
 
 # #{ killp()
 

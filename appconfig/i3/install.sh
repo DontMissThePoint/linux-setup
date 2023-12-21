@@ -196,7 +196,7 @@ while true; do
     cp $APP_PATH/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
 
     # [ falcon_heavy.jpg, lightning.jpg ]
-    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
+    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/valley.jpg
 
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime

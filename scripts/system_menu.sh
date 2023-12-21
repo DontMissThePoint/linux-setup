@@ -8,7 +8,7 @@ hibernate" | rofi -dmenu -p "Select desired action:")
 
 case "$ACTION" in
     lock)
-        i3lock-fancy --pixelate
+        betterlockscreen -l -q  # i3lock-fancy --pixelate
         ;;
     logout)
         i3-msg exit
