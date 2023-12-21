@@ -136,9 +136,6 @@ while true; do
       fi
     done
 
-    # Plug
-    /usr/bin/vim -c :PlugUpdate
-
     # relink
     brew link python
 

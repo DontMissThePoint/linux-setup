@@ -21,10 +21,6 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -37,13 +33,13 @@ while true; do
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
-    
+
     the_ppa=linuxuprising/shutter
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-        sudo add-apt-repository -y ppa:linuxuprising/shutter
-        sudo apt update
-        sudo apt install -y shutter
-    fi    
+      sudo add-apt-repository -y ppa:linuxuprising/shutter
+      sudo apt update
+      sudo apt install -y shutter
+    fi
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

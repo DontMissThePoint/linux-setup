@@ -1,13 +1,6 @@
 # get the path to this script
 REPO_PATH="$(cd "$(dirname "$BASH_SOURCE")"/../..; pwd)"
 
-# detect the OS version
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-if [ "$var2" = "$var1" ]; then
-  export BEAVER=1
-fi
-
 # # if nvim is present, use it!
 # if [ -x "$(command -v nvim)" ]; then
 #   export EDITOR="/usr/bin/nvim --cmd 'let g:user_mode=1'"
@@ -152,7 +145,7 @@ if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
       [[ ! $TERM =~ screen ]] && [ -z $TMUX ] && runTmux
     fi
   fi
-   
+
   # Drop to fish, invoke bash with command if parent process is not fish
   if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
   then

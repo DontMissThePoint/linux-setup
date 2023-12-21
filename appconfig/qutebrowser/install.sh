@@ -21,10 +21,6 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -44,11 +40,11 @@ while true; do
 
     /usr/bin/python3 -m pip install asciidoc
     /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.4
-    
+
     #.venv/bin/python3 -m qutebrowser
     mkdir -p ~/.qutebrowser
     rm -fr ~/.qutebrowser/.venv && mv .venv ~/.qutebrowser/
-    
+
     # Wrapper script
     printf '#!/bin/bash\n' > $APP_PATH/qutebrowser_env
 
