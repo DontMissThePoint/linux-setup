@@ -202,6 +202,8 @@ sudo apt-get -y purge remote-login-service
 sudo apt-get -y purge lightdm-remote-session-freerdp
 sudo apt-get -y purge lightdm-remote-session-uccsconfigure
 
+sudo apt-get -y purge ubuntu-advantage-tools
+
 # Guest session & remote login disable for LightDm
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
