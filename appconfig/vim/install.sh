@@ -65,9 +65,9 @@ while true; do
       --enable-cscope --prefix=/usr
 
       cd src
-      make
+      make -j8
       cd ../
-      make VIMRUNTIMEDIR=/usr/share/vim/vim90
+      make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim90
       sudo make install
 
     # set vim as a default git mergetool

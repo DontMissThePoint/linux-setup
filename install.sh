@@ -108,66 +108,69 @@ source "$APPCONFIG_PATH/bash/dotbashrc_template"
 # 13. Install MULTIMEDIA support
 ! $docker && bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
-# 14. Install PANDOC
+# 14. Install TERMSAVER
+! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
+
+# 15. Install PANDOC
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 fi
 
-# 15. Install SHUTTER
+# 16. Install SHUTTER
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
 fi
 
-# 16. Install ZATHURA
+# 17. Install ZATHURA
 ! $docker && bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
 
-# 17. Install VIMIV
+# 18. Install VIMIV
 ! $docker && bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 
-# 18. Install SILVER SEARCHER (ag)
+# 19. Install SILVER SEARCHER (ag)
 ! $docker && bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
-# 19. Setup modified keyboard rules
+# 20. Setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
-# 20. Setup fuzzyfinder
+# 21. Setup fuzzyfinder
 ! $docker && bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
 
-# 21. Install PLAYERCTL
+# 22. Install PLAYERCTL
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 fi
 
-# 22. Install PAPIS
+# 23. Install PAPIS
 ! $docker && bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 
-# 23. Install VIM-STREAM
+# 24. Install VIM-STREAM
 ! $docker && bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
-# 24. Install GRUB CUSTOMIZER
+# 25. Install GRUB CUSTOMIZER
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
 fi
 
-# 25. Install YT-DLP
+# 26. Install YT-DLP
 ! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
 
-# 26. Install TMUXINATOR
+# 27. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# 27. Install LOLCAT
+# 28. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
 
-# 28. Install SCRCPY
+# 29. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 29. Install OBSIDIAN
+# 30. Install OBSIDIAN
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 30. Install QUTEBROWSER
+# 31. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 31. Install FISH
+# 32. Install FISH
 ! $docker && bash $APPCONFIG_PATH/fish/install.sh $subinstall_params
 
 ##################################################
@@ -189,20 +192,9 @@ sudo systemctl disable apt-daily-upgrade.service
 # Disable basic telemetry
 #############################################
 
-sudo apt-get -y purge unity-lens-shopping
-sudo apt-get -y purge unity-webapps-common
-sudo apt-get -y purge apturl
-
-sudo apt-get -y purge zeitgeist
-sudo apt-get -y purge zeitgeist-datahub
-sudo apt-get -y purge zeitgeist-core
-sudo apt-get -y purge zeitgeist-extension-fts
-
-sudo apt-get -y purge remote-login-service
-sudo apt-get -y purge lightdm-remote-session-freerdp
-sudo apt-get -y purge lightdm-remote-session-uccsconfigure
-
-sudo apt-get -y purge ubuntu-advantage-tools
+sudo apt-get -y purge unity-lens-shopping unity-webapps-common
+sudo apt-get -y purge zeitgeist zeitgeist-core zeitgeist-datahub
+sudo apt-get -y purge apturl ubuntu-advantage-tools
 
 # Guest session & remote login disable for LightDm
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
@@ -226,8 +218,8 @@ sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
 
 # space
-docker volume prune
 sudo apt -y autoremove
+docker volume prune
 
 #############################################
 # link the scripts folder

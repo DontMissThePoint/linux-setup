@@ -8,8 +8,6 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
-CONFIG="$HOME/.purple/plugins"
-WHATSAPP="$HOME/.purple/logs/whatsapp"
 
 unattended=0
 subinstall_params=""
@@ -29,27 +27,25 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall whatsapp chat client (pidgin, go-whatsapp)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up termsaver? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up go-whatsapp
+    # pygments
+    sudo pip install termsaver pygments
 
-    sudo apt install pidgin finch pkg-config cmake make golang gcc libgdk-pixbuf2.0-dev libopusfile-dev libpurple-bin libpurple-dev
+    # cmatrix
+    sudo apt install -y cmatrix cmatrix-xfont
 
-    # copy whatsapp plugin
-    mkdir -p "$CONFIG"
-    mkdir -p "$WHATSAPP"
-    cp "$APP_PATH/libwhatsmeow.so" "$CONFIG/libwhatsmeow.so"
-    ln -sf "$WHATSAPP" ~/Pictures/whatsapp
-
-    # Prefs
-    cp -f "$APP_PATH/prefs.xml" ~/.purple/prefs.xml
-
-    # setup account with 256782564488@s.whatsapp.net
+    # pipes.sh
+    cd /tmp
+    [ -e pipes.sh ] && rm -rf /tmp/pipes.sh
+    git clone https://github.com/pipeseroni/pipes.sh
+    cd pipes.sh
+    sudo make install
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

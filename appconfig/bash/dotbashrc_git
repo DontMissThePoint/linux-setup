@@ -10,8 +10,11 @@ REPO_PATH="$(cd "$(dirname "$BASH_SOURCE")"/../..; pwd)"
 
 alias vi="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 
-# 24-bit true color
+# full focus mode
 export EDITOR="/usr/bin/nvim"
+[[ $EDITOR == *"nvim"* ]] && wmctrl -r :ACTIVE: -b add,fullscreen
+
+# 24-bit true color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1
 
 # set the TMUX_BIN, prefer the user-compiled one

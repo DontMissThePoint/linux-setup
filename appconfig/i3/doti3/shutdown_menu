@@ -117,9 +117,9 @@ menu=(
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
   [Hibernate]="systemctl hibernate"
-  [Suspend]="systemctl suspend"
+  [Suspend]="${LOCKSCRIPT:-betterlockscreen -q -l dimpixel}"
   [Halt]="systemctl halt"
-  [Lock]="${LOCKSCRIPT:-betterlockscreen -l -q}"
+  [Lock]="${LOCKSCRIPT:-betterlockscreen -q -l dimpixel}"
   [Logout]="i3-msg exit"
   [Cancel]=""
 )

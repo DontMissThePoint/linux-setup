@@ -74,7 +74,7 @@ while true; do
     cd xcb-util-xrm
     git submodule update --init
     ./autogen.sh --prefix=/usr
-    make
+    make -j8
     sudo make install
 
     # install light for display backlight control

@@ -1481,12 +1481,18 @@ set $mode_gaps_inner inner gaps
 
 # #{ auto commands after login
 
+# locked
+exec --no-startup-id "betterlockscreen -q -l dimpixel; i3-sensible-terminal"
+
+# timer
+exec --no-startup-id "gnome-pomodoro --start --no-default-window"
+
 # network monitor
 exec --no-startup-id nm-applet
 
 # load monitor configuration
 # run arandr to configure the monitors and to export the .monitor.sh file
-exec ~/.monitor.sh
+# exec ~/.monitor.sh
 
 # enables transparency
 exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL

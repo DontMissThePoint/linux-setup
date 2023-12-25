@@ -49,17 +49,17 @@ set --universal nvm_default_version v20.10.0
 
 ### functions ###
 function fish_greeting
-    random choice "Hello!" "Hi" "Welcome!!" "Howdy"
+    random choice "Hi." "Hi" "Welcome to fish shell"
 end
 
 ### aliases ###
 alias vimdiff="/usr/bin/nvim -d"
-alias vim="wmctrl -r :ACTIVE: -b add,fullscreen && /usr/bin/nvim"
+alias vi="/usr/bin/nvim"
 
 ### abbreviation ###
 abbr rm "rm -i"
 abbr mkdir "mkdir -p"
-abbr cloud "rclone rcd --rc-web-gui"
+abbr rcw "rclone rcd --rc-web-gui"
 abbr lll "eza -la --smart-group --tree --level=2 --git --header --icons"
 
 ### bind ###

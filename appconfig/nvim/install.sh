@@ -47,7 +47,7 @@ while true; do
     cd /tmp/build
     git clone https://github.com/neovim/neovim nvim
     cd nvim && git checkout gaps && git pull
-    make CMAKE_BUILD_TYPE=RelWithDebInfo \
+    make -j8 CMAKE_BUILD_TYPE=RelWithDebInfo \
     CMAKE_INSTALL_PREFIX=/usr/bin/nvim
 
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb

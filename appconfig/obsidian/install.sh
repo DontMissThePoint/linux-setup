@@ -61,7 +61,7 @@ while true; do
     sudo -v ; curl https://rclone.org/install.sh | sudo bash || echo "Setting up cloud storage."
 
     # config
-    rclone config
+    # rclone config
     # rclone rcd --rc-web-gui
 
     # daemon
