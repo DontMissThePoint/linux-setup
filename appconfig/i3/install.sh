@@ -140,6 +140,10 @@ while true; do
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
 
+    # dunst
+    mkdir -p ~/.config/dunst
+    cp $APP_PATH/dunstrc ~/.config/dunst/dunstrc
+
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
       ln -sf $APP_PATH/doti3 ~/.i3
@@ -159,7 +163,6 @@ while true; do
     # link fonts.conf file
     mkdir -p ~/.config/fontconfig
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
-
 
     # link layouts
     mkdir -p ~/.config/i3-layout-manager/layouts
@@ -194,6 +197,7 @@ while true; do
     wget -c https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
     mkdir -p ~/.config/betterlockscreen/
     cp $APP_PATH/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
+    cp $APP_PATH/custom-pre.sh ~/.config/betterlockscreen/custom-pre.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/valley.jpg

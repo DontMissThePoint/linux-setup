@@ -109,7 +109,7 @@ source "$APPCONFIG_PATH/bash/dotbashrc_template"
 ! $docker && bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
 # 14. Install TERMSAVER
-! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
+! $docker && bash $APPCONFIG_PATH/termsaver/install.sh $subinstall_params
 
 # 15. Install PANDOC
 if [ "$arch" != "aarch64" ]; then

@@ -51,9 +51,9 @@ while true; do
     #sudo calibre-uninstall
 
     # Kodoo
-    cd /tmp
-    wget -c https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb
-    sudo dpkg -i Koodo.Reader-1.6.0-amd64.deb
+    # cd /tmp
+    # wget -c https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb
+    # sudo dpkg -i Koodo.Reader-1.6.0-amd64.deb
 
     break
 
