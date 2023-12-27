@@ -50,6 +50,17 @@ while true; do
     sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
     #sudo calibre-uninstall
 
+    # Green scheme background: #b9edcd foreground: #384f45 links: #000000
+
+    # mimeopen -d
+    num=`cat ~/.config/mimeapps.list | grep "epub" | wc -l`
+    if [ "$num" -lt "1" ]; then
+
+      echo "Adding calibre-viewer to mimeapps.list"
+      echo 'application/x-mobipocket-ebook=calibre-ebook-viewer.desktop;
+application/epub+zip=calibre-ebook-viewer.desktop;' >> ~/.config/mimeapps.list
+    fi
+
     # Kodoo
     # cd /tmp
     # wget -c https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb

@@ -21,7 +21,7 @@ alias demangle="c++filt"
 # quick acces to files and directories
 alias f="vim \$(fd -H . ~ | fzy -s)"
 alias a="bat \$(fd -H . / | fzf-tmux -p 80%,60% --preview 'bat --style=full --color=always {}' --preview-window '~3')"
-alias s="find ~ -type f -iregex '.*\.\(epub\|pdf\|txt\|mp4\|mkv\)$' | rofi -keep-right -dmenu -i -p FILES -multi-select -font 'Ubuntu Mono derivative Powerline 19' | xargs -I {} xdg-open {}"
+alias s="find ~ -type f -iregex '.*\.\(epub\|mobi\|pdf\|txt\|mp4\|mkv\)$' | rofi -opacity '80' -width 85 -padding 100 -keep-right -dmenu -i -p FILES -multi-select -font 'Ubuntu Mono derivative Powerline 19.5' | xargs -I {} xdg-open {}"
 alias d="cd \$(fd -H -td . / | fzy)"
 
 # #{ cd_media

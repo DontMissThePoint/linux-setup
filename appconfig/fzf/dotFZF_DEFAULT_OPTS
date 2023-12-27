@@ -24,5 +24,6 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=info:#b58900,prompt:#b58900,pointer:168
  --color=marker:168,spinner:#b58900,header:#91aadf'
 
-# scrcpy: Screencast
+# Screencast
+# scrcpy -w --show-touches --window-y 0
 export ANDROID_SERIAL=07334371CK100018
