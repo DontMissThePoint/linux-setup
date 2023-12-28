@@ -243,10 +243,6 @@ fi
 #############################################
 ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
 
-# interactive cheatsheet tool for CLI
-mkdir -p ~/.local/share/navi/cheats/denisidoro__cheats
-ln -sf "$MY_PATH/misc__bespoke.cheat" ~/.local/share/navi/cheats/denisidoro__cheats/misc__bespoke.cheat
-
 # deploy configs by Profile manager
 cd $MY_PATH && ./deploy_configs.sh
 

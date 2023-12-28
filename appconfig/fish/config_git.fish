@@ -65,6 +65,3 @@ abbr lll "eza -la --smart-group --tree --level=2 --git --header --icons"
 ### bind ###
 bind --mode insert --sets-mode default jj repaint
 bind --mode insert --sets-mode default jk repaint
-
-### cheatsheets ###
-navi widget fish | source

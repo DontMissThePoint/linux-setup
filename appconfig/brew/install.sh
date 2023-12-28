@@ -48,9 +48,9 @@ while true; do
     do
       echo Links disrupted, retrying in 10 seconds...
       sleep 10
-    done    
-    brew install -q grc starship fzy bat ripgrep miller ctop btop eza fd navi dust
-    brew cleanup --prune=all 
+    done
+    brew install -q grc starship fzy bat ripgrep miller ctop btop eza fd dust
+    brew cleanup --prune=all
 
     # configs
     cp "$APP_PATH/key_bindings.ron" ~/.config/gitui/key_bindings.ron
@@ -58,10 +58,10 @@ while true; do
 
     # exceed files limit
     # ulimit -n2048
-    
+
     # To relink, run:
     #brew unlink libxml2 && brew link libxml2
-     
+
     # Cleanup
     brew cleanup --prune=all
 

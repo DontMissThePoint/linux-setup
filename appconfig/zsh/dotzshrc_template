@@ -15,8 +15,5 @@ export PROFILES="COLORSCHEME_GIT"
 # sourcing FZF
 source ~/.FZF_DEFAULT_OPTS
 
-# Navi widget
-eval "$(navi widget zsh)"
-
 # sourcing Tomas's linux setup
 source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc
