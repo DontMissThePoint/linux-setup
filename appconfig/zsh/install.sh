@@ -80,7 +80,7 @@ while true; do
 
     # config
     # starship preset pure-preset -o ~/.config/starship.toml
-    rm -f ~/.config/starship.toml && cp $APP_PATH/starship.toml ~/.config/starship.toml
+    # rm -f ~/.config/starship.toml && cp $APP_PATH/starship.toml ~/.config/starship.toml
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

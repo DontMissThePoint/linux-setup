@@ -49,7 +49,7 @@ while true; do
       echo Links disrupted, retrying in 10 seconds...
       sleep 10
     done
-    brew install -q grc starship fzy bat ripgrep miller ctop btop eza fd dust
+    brew install -q grc fzy bat ripgrep miller ctop btop eza fd dust
     brew cleanup --prune=all
 
     # configs
