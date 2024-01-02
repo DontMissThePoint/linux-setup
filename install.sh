@@ -38,18 +38,15 @@ arch=`uname -i`
 # owner
 sudo chown -R $USER: $MY_PATH
 
-# remotes
-! $docker && git pull --recurse-submodules --jobs=10
-
-install packages
+# install packages
 sudo apt-get -y update
 
 # essentials
-sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck neofetch parallel
+sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync visidata gawk bison byacc shellcheck neofetch parallel
 
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
-pip install --upgrade visidata openpyxl xlrd
+pip3 install --upgrade openpyxl xlrd
 
 if [ -n "$BEAVER" ]; then
     sudo apt-get -y install python-git

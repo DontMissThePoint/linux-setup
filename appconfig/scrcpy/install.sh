@@ -34,11 +34,10 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    #sudo apt install -y ffmpeg libsdl2-2.0-0 adb wget \
-    #gcc git pkg-config meson ninja-build libsdl2-dev \
-    #libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
-    #libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
-    sudo apt install -y adb libusb-1.0-0-dev libsdl2-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
+    sudo apt install -y ffmpeg libsdl2-2.0-0 adb wget \
+    	gcc git pkg-config meson ninja-build libsdl2-dev \
+    	libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
+    	libswresample-dev libusb-1.0-0 libusb-1.0-0-dev libavformat-dev libavutil-dev
 
     toilet Installing scrcpy
 

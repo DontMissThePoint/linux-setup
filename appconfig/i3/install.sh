@@ -65,9 +65,6 @@ while true; do
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
 
-    # unlink
-    brew unlink pkg-config meson
-
     cd /tmp
     [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
     git clone https://github.com/airblader/xcb-util-xrm
@@ -204,9 +201,6 @@ while true; do
 
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime
-
-    # relink
-    brew link pkg-config meson
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

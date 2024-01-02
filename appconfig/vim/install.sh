@@ -50,15 +50,12 @@ while true; do
 
     sudo -H pip3 install rospkg
 
-    # Unlink
-    brew unlink python
-
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
       --enable-multibyte \
       --enable-python3interp=yes \
-      --with-python3-config-dir=/usr/lib/python3.8/config-3.8-x86_64-linux-gnu \
+      --with-python3-config-dir=/usr/lib/python3.10/config-3.10-x86_64-linux-gnu \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-gui=no \
@@ -135,9 +132,6 @@ while true; do
         echo " What? \"$resp\" is not a correct answer. Try y+Enter."
       fi
     done
-
-    # relink
-    brew link python
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
