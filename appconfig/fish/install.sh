@@ -46,7 +46,7 @@ while true; do
     rm -f ~/.config/fish/config.fish
 
     # install fish plugins
-    ./plugins.fish
+    $APP_PATH/plugins.fish
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
