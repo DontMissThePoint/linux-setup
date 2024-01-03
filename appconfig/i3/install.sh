@@ -202,7 +202,7 @@ while true; do
     cp $APP_PATH/custom-pre.sh ~/.config/betterlockscreen/custom-pre.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
-    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/valley.jpg
+    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
 
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime
