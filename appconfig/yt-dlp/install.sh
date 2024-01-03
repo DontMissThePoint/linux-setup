@@ -21,13 +21,17 @@ do
   fi
 done
 
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "20.04" ] && export FOCAL=1
+[ "$var" = "22.04" ] && export JAMMY=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp to find and watch youtube videos from the terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp to search youtube videos from the terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -37,10 +41,15 @@ while true; do
     toilet Setting up yt-dlp
 
     python3 -m pip install -U yt-dlp
-    wget https://download.xnview.com/XnViewMP-linux-x64.deb -O "$APP_PATH/XnViewMP-linux-x64.deb"
 
-    sudo dpkg -i "$APP_PATH/XnViewMP-linux-x64.deb"
-    rm "$APP_PATH/XnViewMP-linux-x64.deb"
+    # xnview
+    if [ -n "$JAMMY" ]; then
+      sudo apt install -y libgdk-pixbuf2.0-0
+    fi
+    wget https://download.xnview.com/XnViewMP-linux-x64.deb -O $APP_PATH/XnViewMP-linux-x64.deb
+
+    sudo dpkg -i $APP_PATH/XnViewMP-linux-x64.deb
+    rm -f $APP_PATH/XnViewMP-linux-x64.deb
 
     # config
     cp $APP_PATH/style_sheet.qss $HOME/.config/xnviewmp/style_sheet.qss
