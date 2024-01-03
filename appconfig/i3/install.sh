@@ -20,9 +20,9 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "18.04" ] && export BEAVER=1
+[ "$var" = "22.04" ] && export JAMMY=1
 
 default=y
 while true; do
@@ -133,7 +133,12 @@ while true; do
     sudo apt-get -y install lxappearance gtk-chtheme
 
     # indicator-sound-switcher
-    sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+    if [ -n "$JAMMY" ]; then
+	sudo apt -y install gir1.2-keybinder-3.0
+    else
+	sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+    fi
+
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
 
