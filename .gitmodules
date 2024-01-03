@@ -6,7 +6,7 @@
 	url = https://github.com/junegunn/vim-plug.git
 [submodule "submodules/athame"]
 	path = submodules/athame
-	url = http://github.com/ardagnir/athame
+	url = http://github.com/ardagnir/athame.git
 [submodule "submodules/vimiv"]
 	path = submodules/vimiv
 	url = https://github.com/karlch/vimiv
