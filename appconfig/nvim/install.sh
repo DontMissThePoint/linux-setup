@@ -43,10 +43,9 @@ while true; do
 
     # compile neovim from sources
     # cd $APP_PATH/../../submodules/nvim
-    rm -fr /tmp/build && mkdir /tmp/build
-    cd /tmp/build
-    git clone https://github.com/neovim/neovim nvim
-    cd nvim && git checkout gaps && git pull
+    rm -fr /tmp/nvim && mkdir /tmp/nvim && cd /tmp/nvim
+    git clone https://github.com/neovim/neovim
+    cd neovim
     make -j8 CMAKE_BUILD_TYPE=RelWithDebInfo \
     CMAKE_INSTALL_PREFIX=/usr/bin/nvim
 
