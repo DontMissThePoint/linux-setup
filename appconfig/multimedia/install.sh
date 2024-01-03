@@ -38,7 +38,7 @@ while true; do
     sudo apt-get -y install gstreamer1.0-libav
      
     # for video, photo, audio, ..., viewing and editing
-    sudo apt-get -y install gimp screenkey mpv vlc audacity rawtherapee hugin pavucontrol
+    sudo apt-get -y install gimp screenkey mpv vlc audacity rawtherapee pavucontrol
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
