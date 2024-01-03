@@ -38,6 +38,10 @@ arch=`uname -i`
 # owner
 sudo chown -R $USER: $MY_PATH
 
+# remotes
+cd $MY_PATH/submodules 
+git clean -xdf && git fetch --recurse-submodules --jobs=10 || echo "It normally returns >0"
+
 # install packages
 sudo apt-get -y update
 
