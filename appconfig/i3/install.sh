@@ -90,7 +90,7 @@ while true; do
 
     # compile i3
     sudo pip3 install meson
-    cd $APP_PATH/../../submodules/i3/
+    # cd $APP_PATH/../../submodules/i3/
 
     # build from sources
     rm -fr /tmp/build && mkdir /tmp/build
