@@ -52,7 +52,8 @@ while true; do
     rm -f $APP_PATH/XnViewMP-linux-x64.deb
 
     # config
-    cp $APP_PATH/style_sheet.qss $HOME/.config/xnviewmp/style_sheet.qss
+    mkdir -p ~/.config/xnviewmp
+    cp $APP_PATH/style_sheet.qss ~/.config/xnviewmp/style_sheet.qss
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
