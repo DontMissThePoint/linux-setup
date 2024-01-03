@@ -50,7 +50,7 @@ sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoc
 
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
-pip3 install --upgrade openpyxl xlrd
+pip3 install --upgrade openpyxl xlrd virtualenv
 
 if [ -n "$BEAVER" ]; then
     sudo apt-get -y install python-git

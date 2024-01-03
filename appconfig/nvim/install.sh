@@ -39,7 +39,7 @@ while true; do
 
     sudo apt-get -y remove neovim* || echo ""
 
-    sudo apt-get -y install ninja-build gettext cmake unzip curl python3.8-venv
+    sudo apt-get -y install ninja-build gettext cmake unzip curl
 
     # compile neovim from sources
     # cd $APP_PATH/../../submodules/nvim
