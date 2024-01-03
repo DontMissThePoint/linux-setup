@@ -41,7 +41,7 @@ while true; do
     sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texlive-pstricks latexmk texmaker texlive-font-utils texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
 
     if [ -n "$FOCAL" ] || [ -n "$JAMMY" ]; then
-      sudo apt-get -y pdftk
+      sudo apt install -y pdftk
     fi
 
     # use in pdfpc to play videos
