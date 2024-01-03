@@ -63,9 +63,6 @@ if [ "$unattended" == "0" ]
     if [ "$?" != "0" ]; then echo "Press Enter to continues.." && read; fi
 fi
 
-## bashrc extras
-source "$APPCONFIG_PATH/bash/dotbashrc_template"
-
 # 1. Install LINUXBREW
 ! $docker && bash $APPCONFIG_PATH/brew/install.sh $subinstall_params
 
@@ -242,6 +239,9 @@ ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
 
 # deploy configs by Profile manager
 cd $MY_PATH && ./deploy_configs.sh
+
+## bashrc extras
+source "$APPCONFIG_PATH/bash/dotbashrc_template"
 
 # finally source the correct rc file
 toilet All Done
