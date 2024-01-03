@@ -63,7 +63,7 @@ while true; do
     fc-cache -vf
 
     # config
-    mkdir -p ~/.config/environment.d
+    mkdir -p ~/.config/environment.d ~/.config/Kvantum
     printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
     cp $APP_PATH/kvantum.kvconfig ~/.config/Kvantum/kvantum.kvconfig
     
