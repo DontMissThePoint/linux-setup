@@ -61,7 +61,8 @@ while true; do
     mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/sessions
     cp -fr $APP_PATH/catppuccin ~/.config/qutebrowser/
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
-    ln -sf $APP_PATH/sessions ~/.local/share/qutebrowser/
+    ln -sf $APP_PATH/sessions/defaut.yml ~/.local/share/qutebrowser/sessions/default.yml
+    rm -fr $APP_PATH/sessions/before*
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
