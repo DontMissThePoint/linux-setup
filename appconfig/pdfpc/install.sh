@@ -40,7 +40,7 @@ while true; do
 
     # install prerequisities
     if [ -n "$JAMMY" ]; then
-      sudo apt install libunwind-dev
+      sudo apt install -y libunwind-dev
     fi
 
     sudo apt-get -y install cmake valac libgee-0.8-dev libpoppler-glib-dev \
