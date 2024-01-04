@@ -223,7 +223,7 @@ sudo systemctl mask systemd-rfkill.socket
 
 # space
 sudo apt -y autoremove
-docker volume prune
+sudo docker volume prune
 
 #############################################
 # link the scripts folder
