@@ -85,3 +85,5 @@ source ~/.FZF_DEFAULT_OPTS
 source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 fi
+
+source ~/.bashrc

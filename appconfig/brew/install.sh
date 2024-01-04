@@ -39,7 +39,7 @@ while true; do
     if [ "$EXISTING_BREW" == "0" ]; then
       toilet Setting up brew
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc && source ~/.bashrc
+      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     fi
 
@@ -47,7 +47,7 @@ while true; do
     ulimit -n2048
 
     # swiss knife
-    until brew update && brew upgrade
+    until source $HOME/.bashrc && brew update && brew upgrade
     do
       echo Connection disrupted, retrying in 10 seconds...
       sleep 10
