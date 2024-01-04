@@ -37,6 +37,7 @@ arch=`uname -i`
 
 # owner
 sudo chown -R $USER: $MY_PATH
+find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
 # remotes
 cd $MY_PATH/submodules 
