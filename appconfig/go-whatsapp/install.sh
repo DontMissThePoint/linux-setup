@@ -8,8 +8,6 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
-CONFIG="$HOME/.purple/plugins"
-WHATSAPP="$HOME/.purple/logs/whatsapp"
 
 unattended=0
 subinstall_params=""
@@ -42,21 +40,29 @@ while true; do
 
     toilet Setting up go-whatsapp
 
-    sudo apt install pidgin finch pkg-config cmake make golang gcc libgdk-pixbuf2.0-dev libopusfile-dev libpurple-bin libpurple-dev
+    sudo apt install -y finch pidgin pkg-config cmake make golang gcc libgdk-pixbuf2.0-dev libopusfile-dev libpurple-bin libpurple-dev
 
-    # copy whatsapp plugin
-    mkdir -p "$CONFIG"
-    mkdir -p "$WHATSAPP"
+    # config
+    mkdir -p ~/.purple/plugins
     
     if [ -n "$BEAVER" ] || [ -n "$FOCAL" ]; then
-	cp "$APP_PATH/libwhatsmeow.so" "$CONFIG/libwhatsmeow.so"
+      cp -f $APP_PATH/libwhatsmeow.so ~/.purple/plugins/libwhatsmeow.so
     else
-	# compile from sources
-	# cd /tmp
+      # compile from sources
+      cd /tmp && rm -fr purple-gowhatsapp
+      git clone https://github.com/hoehermann/purple-gowhatsapp.git
+      git submodule update --init
+      mkdir build && cd build
+      cmake ..
+      cmake --build .
+      sudo make install/strip
+
+      # whatsapp
+      sudo cp -f /usr/lib/purple-2/libwhatsmeow.so ~/.purple/plugins/libwhatsmeow.so
+      sudo chown $USER: ~/.purple/plugins/libwhatsmeow.so
     fi
 
-    # Prefs
-    cp -f "$APP_PATH/prefs.xml" ~/.purple/prefs.xml
+    # prefs
     echo "Setup account with 256782564488@s.whatsapp.net"
 
     break
