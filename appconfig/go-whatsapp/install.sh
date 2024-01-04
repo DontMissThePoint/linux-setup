@@ -31,7 +31,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall whatsapp chat client (pidgin, go-whatsapp)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall whatsmeow (pidgin, go-whatsapp)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -49,8 +49,9 @@ while true; do
       cp -f $APP_PATH/libwhatsmeow.so ~/.purple/plugins/libwhatsmeow.so
     else
       # compile from sources
-      cd /tmp && rm -fr purple-gowhatsapp
+      rm -fr /tmp/purple-gowhatsapp && cd /tmp
       git clone https://github.com/hoehermann/purple-gowhatsapp.git
+      cd purple-gowhatsapp
       git submodule update --init
       mkdir build && cd build
       cmake ..

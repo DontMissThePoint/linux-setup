@@ -31,14 +31,14 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp to search youtube videos from the terminal? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+	  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp (youtube videos in the terminal)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up yt-dlp
+    toilet Installing yt-dlp
 
     python3 -m pip install -U yt-dlp
 
