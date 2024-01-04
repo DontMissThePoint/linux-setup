@@ -23,6 +23,10 @@ do
   fi
 done
 
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "18.04" ] && export BEAVER=1
+[ "$var" = "20.04" ] && export FOCAL=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -43,13 +47,17 @@ while true; do
     # copy whatsapp plugin
     mkdir -p "$CONFIG"
     mkdir -p "$WHATSAPP"
-    cp "$APP_PATH/libwhatsmeow.so" "$CONFIG/libwhatsmeow.so"
-    ln -sf "$WHATSAPP" ~/Pictures/whatsapp
+    
+    if [ -n "$BEAVER" ] || [ -n "$FOCAL" ]; then
+	cp "$APP_PATH/libwhatsmeow.so" "$CONFIG/libwhatsmeow.so"
+    else
+	# compile from sources
+	# cd /tmp
+    fi
 
     # Prefs
     cp -f "$APP_PATH/prefs.xml" ~/.purple/prefs.xml
-
-    # setup account with 256782564488@s.whatsapp.net
+    echo "Setup account with 256782564488@s.whatsapp.net"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

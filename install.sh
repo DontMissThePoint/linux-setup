@@ -40,7 +40,7 @@ sudo chown -R $USER: $MY_PATH
 
 # remotes
 cd $MY_PATH/submodules 
-git clean -xdf && git fetch --recurse-submodules --jobs=10 || echo "It normally returns >0"
+git clean -xdf && git fetch --recurse-submodules --depth 1 --jobs=10 || echo "It normally returns >0"
 
 # install packages
 sudo apt-get -y update
@@ -165,11 +165,17 @@ fi
 # 30. Install OBSIDIAN
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 31. Install QUTEBROWSER
+# 31. Install GO-WHATSAPP
+! $docker && bash $APPCONFIG_PATH/go-whatsapp/install.sh $subinstall_params
+
+# 32. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 32. Install FISH
+# 33. Install FISH
 ! $docker && bash $APPCONFIG_PATH/fish/install.sh $subinstall_params
+
+# 34. Install DOCKER
+! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
 
 ##################################################
 # install inputs libraries when they are missing
