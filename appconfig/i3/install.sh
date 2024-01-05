@@ -199,7 +199,7 @@ while true; do
     wget -c https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
     mkdir -p ~/.config/betterlockscreen/
     cp $APP_PATH/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
-    cp $APP_PATH/custom-pre.sh ~/.config/betterlockscreen/custom-pre.sh
+    cp $APP_PATH/custom-post.sh ~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg

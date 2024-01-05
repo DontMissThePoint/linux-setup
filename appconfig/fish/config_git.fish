@@ -49,7 +49,7 @@ set --universal nvm_default_version v20.10.0
 
 ### functions ###
 function fish_greeting
-    random choice "Hi." "Hi" "Welcome to fish shell"
+    random choice "Hi." "Hi"
 end
 
 ### aliases ###

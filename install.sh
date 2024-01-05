@@ -61,7 +61,7 @@ if [ -n "$BEAVER" ]; then
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb gparted gnome-shell-pomodoro gnome-control-center espeak imagemagick ncdu bleachbit stacer wmctrl
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb gparted gnome-shell-pomodoro gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl
 
 if [ "$unattended" == "0" ]
   then

@@ -8,7 +8,7 @@ URxvt.title: Console
 URxvt.utf8: 1
 URxvt.imLocale: en_US.UTF-8
 !Xft.dpi: 166   ! https://dpi.lv
-Xft.dpi: 149
+Xft.dpi: 150
 URxvt.font: xft:MesloLGS NF:size=11:antialias=true:autohint=true, xft:FiraCode Nerd Font Mono:size=11, xft:Symbola
 URxvt.BoldFont: xft:FiraCode Nerd Font Mono:size=11:minspace=False
 URxvt.letterSpace: 0
