@@ -21,10 +21,6 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -44,30 +40,29 @@ while true; do
 
     /usr/bin/python3 -m pip install asciidoc
     /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.4
+
     #.venv/bin/python3 -m qutebrowser
+    mkdir -p ~/.qutebrowser
+    rm -fr ~/.qutebrowser/.venv && mv .venv ~/.qutebrowser/
 
     # Wrapper script
     printf '#!/bin/bash\n' > $APP_PATH/qutebrowser_env
 
-    echo -e '~/linux-setup/submodules/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
+    echo -e '~/.qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
 
     chmod +x ${APP_PATH}/qutebrowser_env
     sudo cp ${APP_PATH}/qutebrowser_env /bin/qutebrowser
     sudo ln -sf /bin/qutebrowser /usr/local/bin/qutebrowser
 
+    # default
+    sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/qutebrowser 210
+
     # Mocha flavor
     mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/sessions
     cp -fr $APP_PATH/catppuccin ~/.config/qutebrowser/
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
-    ln -sf $APP_PATH/sessions ~/.local/share/qutebrowser/
-
-    # vivaldi
-    the_ppa=papirus/papirus
-    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-        sudo add-apt-repository -y ppa:papirus/papirus
-        sudo apt update
-        sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
-    fi    
+    ln -sf $APP_PATH/sessions/defaut.yml ~/.local/share/qutebrowser/sessions/default.yml
+    rm -fr $APP_PATH/sessions/before*
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

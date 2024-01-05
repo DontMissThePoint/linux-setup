@@ -5,10 +5,26 @@ local M = {}
 local highlights = require "custom.highlights"
 
 M.ui = {
+  transparency = true,
   theme = "tokyonight",
   theme_toggle = { "tokyonight", "one_light" },
 
-  hl_override = highlights.override,
+  -- Dashboard
+  nvdash = {
+    load_on_startup = true
+  },
+
+  hl_override ={
+    NvDashAscii = {
+      bg ="none",
+      fg ="cyan"
+    },
+    NvDashButtons ={
+      bg ="none",
+      fg ="light_grey"
+    }
+  },
+  -- hl_override = highlights.override,
   hl_add = highlights.add,
 }
 

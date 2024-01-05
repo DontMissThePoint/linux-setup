@@ -12,3 +12,7 @@ appconfig/vim/dotvim/files/info/viminfo
 html/
 
 **/__pycache__
+
+appconfig/qutebrowser/catppuccin/
+appconfig/qutebrowser/sessions/
+appconfig/qutebrowser/.venv/

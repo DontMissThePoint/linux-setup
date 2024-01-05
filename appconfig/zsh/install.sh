@@ -46,20 +46,20 @@ while true; do
 
     rm -fr ~/.oh-my-zsh
     # install oh-my-zsh
-    [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
+    [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget -c https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
 
     # symlink plugins
     if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
       ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
-    
+
     if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
       ln -sf $APP_PATH/../../submodules/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     fi
 
     # add k plugin for zsh
     $APP_PATH/install_k_plugin.sh
-     
+
     # symlink the .zshrc
     num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`
     if [ "$num" -lt "1" ]; then
@@ -72,15 +72,15 @@ while true; do
     fi
 
     # bash line editor
-    rm -fr /tmp/ble && mkdir /tmp/ble 
+    rm -fr /tmp/ble && mkdir /tmp/ble
     cd /tmp/ble
-    
-    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-    make -C ble.sh install PREFIX=~/.local
 
-    # starship config
-    starship preset pure-preset -o ~/.config/starship.toml
-    rm -f ~/.config/starship.toml
+    git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
+    make -j8 -C ble.sh install PREFIX=~/.local
+
+    # config
+    # starship preset pure-preset -o ~/.config/starship.toml
+    # rm -f ~/.config/starship.toml && cp $APP_PATH/starship.toml ~/.config/starship.toml
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

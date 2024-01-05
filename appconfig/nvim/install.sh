@@ -39,22 +39,21 @@ while true; do
 
     sudo apt-get -y remove neovim* || echo ""
 
-    sudo apt-get -y install ninja-build gettext cmake unzip curl python3.8-venv
+    sudo apt-get -y install ninja-build gettext cmake unzip curl
 
     # compile neovim from sources
     # cd $APP_PATH/../../submodules/nvim
-    rm -fr /tmp/build && mkdir /tmp/build 
-    cd /tmp/build
-    git clone https://github.com/neovim/neovim nvim
-    cd nvim && git checkout gaps && git pull
-    make CMAKE_BUILD_TYPE=RelWithDebInfo \
+    rm -fr /tmp/nvim && mkdir /tmp/nvim && cd /tmp/nvim
+    git clone https://github.com/neovim/neovim
+    cd neovim
+    make -j8 CMAKE_BUILD_TYPE=RelWithDebInfo \
     CMAKE_INSTALL_PREFIX=/usr/bin/nvim
 
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
     # gitkraken
-    wget https://release.gitkraken.com/linux/gitkraken-amd64.deb
-    sudo dpkg -i gitkraken-amd64.deb 
+    wget -c https://release.gitkraken.com/linux/gitkraken-amd64.deb
+    sudo dpkg -i gitkraken-amd64.deb
 
     # config
     mkdir -p "$CONFIG"

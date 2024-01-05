@@ -8,9 +8,9 @@ URxvt.title: Console
 URxvt.utf8: 1
 URxvt.imLocale: en_US.UTF-8
 !Xft.dpi: 166   ! https://dpi.lv
-Xft.dpi: 149
-URxvt.font: xft:MesloLGS NF:size=11:antialias=true:autohint=true, xft:FiraCode Nerd Font Mono:size=9, xft:Symbola
-URxvt.BoldFont: xft:FiraCode Nerd Font Mono:size=9:minspace=False
+Xft.dpi: 150
+URxvt.font: xft:MesloLGS NF:size=11:antialias=true:autohint=true, xft:FiraCode Nerd Font Mono:size=11, xft:Symbola
+URxvt.BoldFont: xft:FiraCode Nerd Font Mono:size=11:minspace=False
 URxvt.letterSpace: 0
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL }
 
@@ -164,7 +164,13 @@ URxvt.keysym.C-question:  resize-font:show
 ! shared clipboard
 URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.iso14755: False
-URxvt.perl-ext-common: default,clipboard
+URxvt.perl-ext-common: default,clipboard,matcher
+
+! clickable urls
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1 
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list 
 
 ! fix CTRL+SHIFT+P
 URxvt.keysym.Shift-Control-P: \033[24;5~
@@ -497,7 +503,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! !! Bold, Italic, Underline
 ! URxvt.colorBD: [36]#69ff47
 ! URxvt.colorIT: [36]#7d7d7d
-! URxvt.colorUL:
+! URxvt.colorUL: [36]#4682B4
 
 ! !! URxvt COLORS --------------------------------------------------------
 ! URxvt.depth                   : 32

@@ -9,12 +9,6 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-if [ "$var2" = "$var1" ]; then
-  export BEAVER=1
-fi
-
 unattended=0
 subinstall_params=""
 for param in "$@"
@@ -42,8 +36,8 @@ while true; do
 
     toilet Installing tmux
 
-    sudo apt-get -y install tmux
-
+    sudo apt-get -y remove tmux* || echo ""
+    # sudo apt-get -y install tmux
     # sudo apt-get -y install libevent-dev
 
     # compile and install custom tmux
@@ -59,7 +53,7 @@ while true; do
 
     # # install libevent
     # cd /tmp
-    # wget https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
+    # wget -c https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
     # tar -xvf libevent-2.1.11-stable.tar.gz
     # rm libevent-2.1.11-stable.tar.gz
     # cd libevent-2.1.11-stable
@@ -88,6 +82,18 @@ while true; do
     # compile and install custom tmux
     # cd $APP_PATH/../../submodules/tmux
     # ( ./autogen.sh && ./configure && make && sudo make install-binPROGRAMS ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt-get -y install tmux)
+
+    # display time
+    TIME_ZONE=`timedatectl status | grep zone | awk '{ print $3 }'`
+    EXISTING_ZONE=`cat ~/.profile 2> /dev/null | grep "zoneinfo" | wc -l`
+    if [ "$EXISTING_ZONE" -lt "1" ]; then
+      echo "Timezone set to $TIME_ZONE"
+      (echo; echo "export TZ=/usr/share/zoneinfo/$TIME_ZONE") >> ~/.profile
+    fi
+
+    # fix
+    sudo apt -y install systemd-timesyncd
+    timedatectl set-local-rtc 0 --adjust-system-clock
 
     #############################################
     # add TMUX enable/disable to .bashrc

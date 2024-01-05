@@ -1,2 +1,2 @@
 #!/bin/bash
-~/linux-setup/submodules/qutebrowser/.venv/bin/python3 -m qutebrowser "$@"
+~/.qutebrowser/.venv/bin/python3 -m qutebrowser "$@"

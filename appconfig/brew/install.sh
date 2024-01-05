@@ -35,35 +35,30 @@ while true; do
   then
 
     # Brew
-    EXISTING_BREW=`cat ~/.profile 2> /dev/null | grep ".linuxbrew" | wc -l`
+    EXISTING_BREW=`cat ~/.bashrc 2> /dev/null | grep ".linuxbrew" | wc -l`
     if [ "$EXISTING_BREW" == "0" ]; then
       toilet Setting up brew
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.profile
+      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
     fi
 
+    # exceed files limit
+    ulimit -n2048
+
     # swiss knife
-    until brew update && brew upgrade
+    until source $HOME/.bashrc && brew update && brew upgrade
     do
-      echo Links disrupted, retrying in 10 seconds...
+      echo Connection disrupted, retrying in 10 seconds...
       sleep 10
-    done    
-    brew install -q starship fzy bat ripgrep miller ctop btop eza fd navi dust
-    brew cleanup --prune=all 
+    done
+    brew install -q grc fzy bat ripgrep miller ctop btop eza fd dust
+    brew cleanup --prune=all
 
     # configs
+    mkdir -p ~/.config/gitui ~/.config/btop
     cp "$APP_PATH/key_bindings.ron" ~/.config/gitui/key_bindings.ron
     cp "$APP_PATH/btop.conf" ~/.config/btop/btop.conf
-
-    # exceed files limit
-    # ulimit -n2048
-    
-    # To relink, run:
-    #brew unlink libxml2 && brew link libxml2
-     
-    # Cleanup
-    brew cleanup --prune=all
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

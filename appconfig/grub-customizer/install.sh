@@ -21,9 +21,9 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "18.04" ] && export BEAVER=1
+[ "$var" = "22.04" ] && export JAMMY=1
 
 default=y
 while true; do
@@ -38,12 +38,14 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ -n "$BEAVER" ]; then
-      sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
-      sudo apt-get update
+    if [ -n "$BEAVER" ] || [ -n "$JAMMY" ]; then
+      the_ppa=danielrichter2007/grub-customizer
+      if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+        sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
+        sudo apt update
+        sudo apt install -y grub-customizer
+      fi
     fi
-
-    sudo apt-get -y install grub-customizer
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

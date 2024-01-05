@@ -27,18 +27,17 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lolcat? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall scrcpy? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    #sudo apt install -y ffmpeg libsdl2-2.0-0 adb wget \
-    #gcc git pkg-config meson ninja-build libsdl2-dev \
-    #libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
-    #libswresample-dev libusb-1.0-0 libusb-1.0-0-dev
-    sudo apt install -y adb libusb-1.0-0-dev libsdl2-dev libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev
+    sudo apt install -y ffmpeg libsdl2-2.0-0 adb wget \
+    	gcc git pkg-config meson ninja-build libsdl2-dev \
+    	libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
+    	libswresample-dev libusb-1.0-0 libusb-1.0-0-dev libavformat-dev libavutil-dev
 
     toilet Installing scrcpy
 

@@ -20,9 +20,9 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "18.04" ] && export BEAVER=1
+[ "$var" = "22.04" ] && export JAMMY=1
 
 default=y
 while true; do
@@ -65,16 +65,13 @@ while true; do
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
 
-    # unlink
-    brew unlink pkg-config meson
-
     cd /tmp
     [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
     git clone https://github.com/airblader/xcb-util-xrm
     cd xcb-util-xrm
     git submodule update --init
     ./autogen.sh --prefix=/usr
-    make
+    make -j8
     sudo make install
 
     # install light for display backlight control
@@ -93,10 +90,10 @@ while true; do
 
     # compile i3
     sudo pip3 install meson
-    cd $APP_PATH/../../submodules/i3/
-    
+    # cd $APP_PATH/../../submodules/i3/
+
     # build from sources
-    rm -fr /tmp/build && mkdir /tmp/build 
+    rm -fr /tmp/build && mkdir /tmp/build
     cd /tmp/build
     git clone https://www.github.com/airblader/i3 i3-gaps
     cd i3-gaps
@@ -104,7 +101,7 @@ while true; do
     sudo apt install meson asciidoc
     meson -Ddocs=true -Dmans=true ../build
     meson compile -C ../build
-    sudo meson install -C ../build    
+    sudo meson install -C ../build
 
     # clean after myself
     git reset --hard
@@ -136,9 +133,18 @@ while true; do
     sudo apt-get -y install lxappearance gtk-chtheme
 
     # indicator-sound-switcher
-    sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+    if [ -n "$JAMMY" ]; then
+	sudo apt -y install gir1.2-keybinder-3.0
+    else
+	sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+    fi
+
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo python3 setup.py install
+
+    # dunst
+    mkdir -p ~/.config/dunst
+    cp $APP_PATH/dunstrc ~/.config/dunst/dunstrc
 
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
@@ -160,7 +166,6 @@ while true; do
     mkdir -p ~/.config/fontconfig
     ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
 
-
     # link layouts
     mkdir -p ~/.config/i3-layout-manager/layouts
     ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
@@ -180,7 +185,7 @@ while true; do
 
     # required for i3lock-color
     sudo apt remove -y i3lock
-     
+
     sudo apt install -y libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev
 
     # compile from sources
@@ -191,18 +196,16 @@ while true; do
     ./install-i3lock-color.sh
 
     # lockscreen with effects!
-    wget https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
+    wget -c https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
     mkdir -p ~/.config/betterlockscreen/
     cp $APP_PATH/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
-     
+    cp $APP_PATH/custom-post.sh ~/.config/betterlockscreen/custom-post.sh
+
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
-    
+
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime
-
-    # relink
-    brew link pkg-config meson
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -12,7 +12,7 @@ if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
 fi
 
 # this caused some problems once, but where?
-$VIM_BIN $HEADLESS -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
+# $VIM_BIN $HEADLESS -E -s -c "%g/running interactively/norm dap" -c "wqa" -- ~/.bashrc
 
 #############################################
 # add LOCALES variables
@@ -65,19 +65,25 @@ fi
 #############################################
 # add sourcing of dotbashrc to .bashrc
 #############################################
+var="\$-"
 num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
 if [ "$num" -lt "1" ]; then
 
     echo "Adding source to .bashrc"
     # set bashrc
-    echo "
+    echo -e "
 # ble
 source ~/.local/share/blesh/ble.sh 
 
-# load Liquidprompt in interactive shells, not from script/scp
-[[ $- = *i* ]] && source ~/.liquidprompt/liquidprompt"
+# sourcing FZF
+source ~/.FZF_DEFAULT_OPTS
+
+# load Liquidprompt in interactive shells, not from script
+[[ $var = *i* ]] && source ~/.liquidprompt/liquidprompt
 
 # sourcing Tomas's linux setup
-source $APPCONFIG_PATH/bash/dotbashrc >> ~/.bashrc
+source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
 
 fi
+
+source ~/.bashrc

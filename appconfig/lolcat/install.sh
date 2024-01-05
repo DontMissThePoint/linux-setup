@@ -38,7 +38,7 @@ while true; do
 
     # install lolcat
     cd $APP_PATH/../../submodules/lolcat
-    make && sudo make install
+    make -j8 && sudo make install
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

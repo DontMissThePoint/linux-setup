@@ -8,13 +8,13 @@ hibernate" | rofi -dmenu -p "Select desired action:")
 
 case "$ACTION" in
     lock)
-        i3lock-fancy --pixelate
+        betterlockscreen -q -l dimpixel  # i3lock-fancy --pixelate
         ;;
     logout)
         i3-msg exit
         ;;
     suspend)
-        i3lock && systemctl suspend
+        i3lock -kf -i $GIT_PATH/linux-setup/miscellaneous/wallpapers/space.jpg -L && systemctl suspend
         ;;
     hibernate)
         i3lock && systemctl hibernate

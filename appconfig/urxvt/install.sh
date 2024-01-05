@@ -21,6 +21,9 @@ do
   fi
 done
 
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "22.04" ] && export JAMMY=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -35,7 +38,12 @@ while true; do
   then
 
     # install urvxt
-    sudo apt-get -y install rxvt-unicode-256color rxvt-ml
+    if [ -n "$JAMMY" ];
+    then
+      sudo apt-get -y install rxvt-unicode
+    else
+      sudo apt-get -y install rxvt-unicode-256color rxvt-ml
+    fi
 
     EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
     sudo mkdir -p $EXTENSION_PATH
@@ -44,6 +52,9 @@ while true; do
     for file in `ls $APP_PATH/extensions/`; do
       sudo ln -fs $APP_PATH/extensions/$file $EXTENSION_PATH/$file
     done
+
+    # tty
+    sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

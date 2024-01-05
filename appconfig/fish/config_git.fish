@@ -1,14 +1,11 @@
 ### commons ###
 bass source "~/linux-setup/appconfig/shell/commons.sh"
 
-### export ###
-# set fish_greeting                                 # Supresses fish's intro message
-set TERM "screen-256color"                         # Sets the terminal type
-
+### set ###
 set -gx COLORTERM truecolor
 set -gx EDITOR nvim
-set -gx LANG en_US.UTF-8    # Adjust this to your language!
-set -gx LC_ALL en_US.UTF-8  # Adjust this to your locale!
+set -gx LANG en_US.UTF-8                           # Adjust this to your language!
+set -gx LC_ALL en_US.UTF-8                         # Adjust this to your locale!
 set -g fish_key_bindings fish_hybrid_key_bindings
 
 # cursor shapes
@@ -47,25 +44,24 @@ set -g theme_display_date yes
 set -g theme_display_cmd_duration yes
 set -g theme_powerline_fonts yes
 set -g theme_nerd_fonts yes
-set -g theme_color_scheme "Catppuccin Mochiatto"
-set --universal nvm_default_version v20.9.0
+set -g theme_color_scheme "TokyoNight Night"
+set --universal nvm_default_version v20.10.0
 
 ### functions ###
 function fish_greeting
-    random choice "Hello!" "Hi" "G'day" "Howdy"
+    random choice "Hi." "Hi"
 end
 
 ### aliases ###
-alias vim="wmctrl -r :ACTIVE: -b add,fullscreen && /usr/bin/nvim"
+alias vimdiff="/usr/bin/nvim -d"
+alias vi="/usr/bin/nvim"
 
 ### abbreviation ###
 abbr rm "rm -i"
 abbr mkdir "mkdir -p"
-abbr lsa "eza -la --smart-group --tree --level=2 --git --header --icons"
+abbr rcw "rclone rcd --rc-web-gui"
+abbr lll "eza -la --smart-group --tree --level=2 --git --header --icons"
 
 ### bind ###
 bind --mode insert --sets-mode default jj repaint
 bind --mode insert --sets-mode default jk repaint
-
-### cheatsheets ###
-navi widget fish | source

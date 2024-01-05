@@ -21,6 +21,10 @@ do
   fi
 done
 
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "20.04" ] && export FOCAL=1
+[ "$var" = "22.04" ] && export JAMMY=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -35,6 +39,10 @@ while true; do
   then
 
     # install prerequisities
+    if [ -n "$JAMMY" ]; then
+      sudo apt install -y libunwind-dev
+    fi
+
     sudo apt-get -y install cmake valac libgee-0.8-dev libpoppler-glib-dev \
     libgtk-3-dev libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev \
     libjson-glib-dev libmarkdown2-dev libwebkit2gtk-4.0-dev libsoup2.4-dev \

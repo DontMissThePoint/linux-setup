@@ -50,24 +50,21 @@ while true; do
 
     sudo -H pip3 install rospkg
 
-    # Unlink
-    brew unlink python
-
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
       --enable-multibyte \
       --enable-python3interp=yes \
-      --with-python3-config-dir=/usr/lib/python3.8/config-3.8-x86_64-linux-gnu \
+      --with-python3-config-dir=/usr/lib/python3.10/config-3.10-x86_64-linux-gnu \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-gui=no \
       --enable-cscope --prefix=/usr
 
       cd src
-      make
+      make -j8
       cd ../
-      make VIMRUNTIMEDIR=/usr/share/vim/vim90
+      make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim90
       sudo make install
 
     # set vim as a default git mergetool
@@ -78,7 +75,7 @@ while true; do
     ln -fs $APP_PATH/dotvim ~/.vim
 
     # Reset plug
-    for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master); done
+    for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master); done || echo "It normally returns >0"
 
     # updated new plugins and clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
@@ -135,12 +132,6 @@ while true; do
         echo " What? \"$resp\" is not a correct answer. Try y+Enter."
       fi
     done
-
-    # Plug
-    /usr/bin/vim -c :PlugUpdate
-
-    # relink
-    brew link python
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

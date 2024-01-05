@@ -36,9 +36,9 @@ while true; do
 
     # install papis
     cd $APP_PATH/../../submodules/papis/
-    make
-
+    make -j8
     sudo make install
+
     sudo pip3 install --upgrade whoosh
 
     # clean up after the compilation

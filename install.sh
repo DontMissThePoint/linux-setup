@@ -29,29 +29,29 @@ do
   fi
 done
 
-var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
-[ "$var2" = "$var1" ] && export BEAVER=1
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "18.04" ] && export BEAVER=1
+[ "$var" = "22.04" ] && export JAMMY=1
 
 arch=`uname -i`
 
 # owner
 sudo chown -R $USER: $MY_PATH
+find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
 # remotes
-! $docker && git pull --recurse-submodules --jobs=10
+cd $MY_PATH/submodules 
+git clean -xdf && git fetch --recurse-submodules --jobs=10 || echo "It normally returns >0"
 
-install packages
+# install packages
 sudo apt-get -y update
 
 # essentials
-sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck neofetch parallel
+sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync visidata gawk bison byacc shellcheck neofetch parallel
 
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
-python3 -m pip install -U yt-dlp
-pip3 install git+https://github.com/saulpw/visidata.git@develop
-pip install --upgrade cmake openpyxl xlrd
+pip3 install --upgrade openpyxl xlrd virtualenv
 
 if [ -n "$BEAVER" ]; then
     sudo apt-get -y install python-git
@@ -61,15 +61,12 @@ if [ -n "$BEAVER" ]; then
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse exfat-utils blueman autossh jq xvfb gparted espeak ncdu imagemagick gnome-shell-pomodoro gnome-control-center stacer wmctrl
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb gparted gnome-shell-pomodoro gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl
 
 if [ "$unattended" == "0" ]
   then
     if [ "$?" != "0" ]; then echo "Press Enter to continues.." && read; fi
 fi
-
-## bashrc extras
-source "$APPCONFIG_PATH/bash/dotbashrc_template"
 
 # 1. Install LINUXBREW
 ! $docker && bash $APPCONFIG_PATH/brew/install.sh $subinstall_params
@@ -110,64 +107,76 @@ source "$APPCONFIG_PATH/bash/dotbashrc_template"
 # 13. Install MULTIMEDIA support
 ! $docker && bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
-# 14. Install PANDOC
+# 14. Install TERMSAVER
+! $docker && bash $APPCONFIG_PATH/termsaver/install.sh $subinstall_params
+
+# 15. Install PANDOC
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 fi
 
-# 15. Install SHUTTER
+# 16. Install SHUTTER
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
 fi
 
-# 16. Install ZATHURA
+# 17. Install ZATHURA
 ! $docker && bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
 
-# 17. Install VIMIV
+# 18. Install VIMIV
 ! $docker && bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 
-# 18. Install SILVER SEARCHER (ag)
+# 19. Install SILVER SEARCHER (ag)
 ! $docker && bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
-# 19. Setup modified keyboard rules
+# 20. Setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
-# 20. Setup fuzzyfinder
+# 21. Setup fuzzyfinder
 ! $docker && bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
 
-# 21. Install PLAYERCTL
+# 22. Install PLAYERCTL
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 fi
 
-# 22. Install PAPIS
+# 23. Install PAPIS
 ! $docker && bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 
-# 23. Install VIM-STREAM
+# 24. Install VIM-STREAM
 ! $docker && bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
-# 24. Install GRUB CUSTOMIZER
+# 25. Install GRUB CUSTOMIZER
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
 fi
 
-# 25. Install TMUXINATOR
+# 26. Install YT-DLP
+! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
+
+# 27. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# 26. Install LOLCAT
+# 28. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
 
-# 27. Install SCRCPY
+# 29. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 28. Install OBSIDIAN
+# 30. Install OBSIDIAN
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 29. Install QUTEBROWSER
+# 31. Install GO-WHATSAPP
+! $docker && bash $APPCONFIG_PATH/go-whatsapp/install.sh $subinstall_params
+
+# 32. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 30. Install FISH
+# 33. Install FISH
 ! $docker && bash $APPCONFIG_PATH/fish/install.sh $subinstall_params
+
+# 34. Install DOCKER
+! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
 
 ##################################################
 # install inputs libraries when they are missing
@@ -188,18 +197,9 @@ sudo systemctl disable apt-daily-upgrade.service
 # Disable basic telemetry
 #############################################
 
-sudo apt-get -y purge unity-lens-shopping
-sudo apt-get -y purge unity-webapps-common
-sudo apt-get -y purge apturl 
-
-sudo apt-get -y purge zeitgeist
-sudo apt-get -y purge zeitgeist-datahub
-sudo apt-get -y purge zeitgeist-core
-sudo apt-get -y purge zeitgeist-extension-fts
-
-sudo apt-get -y purge remote-login-service
-sudo apt-get -y purge lightdm-remote-session-freerdp
-sudo apt-get -y purge lightdm-remote-session-uccsconfigure
+sudo apt-get -y purge unity-lens-shopping unity-webapps-common
+sudo apt-get -y purge zeitgeist zeitgeist-core zeitgeist-datahub
+sudo apt-get -y purge apturl ubuntu-advantage-tools
 
 # Guest session & remote login disable for LightDm
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
@@ -208,28 +208,23 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # Optimize resources
 #############################################
 
+# power
 the_ppa=linrunner/tlp
 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     sudo add-apt-repository -y ppa:linrunner/tlp
     sudo apt update
     sudo apt -y install tlp tlp-rdw smartmontools
-fi    
+fi
 
-# power
 sudo systemctl enable tlp.service
 sudo systemctl start tlp.service
 
 sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
 
-# tty
-sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100
-
-# unused packages
+# space
 sudo apt -y autoremove
-
-# reclaim space
-docker volume prune
+sudo docker volume prune
 
 #############################################
 # link the scripts folder
@@ -253,12 +248,11 @@ fi
 #############################################
 ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
 
-# interactive cheatsheet tool for CLI
-mkdir -p ~/.local/share/navi/cheats/denisidoro__cheats
-ln -sf "$MY_PATH/misc__bespoke.cheat" ~/.local/share/navi/cheats/denisidoro__cheats/misc__bespoke.cheat
-
 # deploy configs by Profile manager
 cd $MY_PATH && ./deploy_configs.sh
+
+## bashrc extras
+source "$APPCONFIG_PATH/bash/dotbashrc_template"
 
 # finally source the correct rc file
 toilet All Done

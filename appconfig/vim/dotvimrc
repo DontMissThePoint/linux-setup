@@ -201,6 +201,7 @@ if g:user_mode == "1"
   " iA Writer
   Plug 'cormacrelf/vim-colors-github'
   Plug 'preservim/vim-colors-pencil'
+  Plug 'logico/typewriter-vim'
 
   " Focus
   Plug 'junegunn/seoul256.vim'
@@ -271,6 +272,9 @@ Plug 'junegunn/vim-peekaboo'
 
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
+
+" Toggle cursor shape
+Plug 'jszakmeister/vim-togglecursor'
 
 " Multiple cursors
 " in visual pres ctrl+n to select next occurance
@@ -704,7 +708,7 @@ if g:user_mode == "1"
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-  " colorscheme github
+  " colorscheme typewriter
   " let g:airline_theme = "github"
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
