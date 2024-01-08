@@ -10,6 +10,7 @@ REPO_PATH="$(cd "$(dirname "$BASH_SOURCE")"/../..; pwd)"
 
 alias vi="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 export EDITOR="/usr/bin/nvim"
+export VISUAL="/usr/bin/nvim"
 
 # 24-bit true color
 export NVIM_TUI_ENABLE_TRUE_COLOR=1

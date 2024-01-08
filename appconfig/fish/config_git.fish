@@ -4,6 +4,7 @@ bass source "~/linux-setup/appconfig/shell/commons.sh"
 ### set ###
 set -gx COLORTERM truecolor
 set -gx EDITOR nvim
+set -gx VISUAL nvim
 set -gx LANG en_US.UTF-8                           # Adjust this to your language!
 set -gx LC_ALL en_US.UTF-8                         # Adjust this to your locale!
 set -g fish_key_bindings fish_hybrid_key_bindings
