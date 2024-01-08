@@ -54,7 +54,7 @@ end
 
 ### aliases ###
 alias vimdiff="/usr/bin/nvim -d"
-alias vi="/usr/bin/nvim"
+alias vi="/usr/bin/vim"
 
 ### abbreviation ###
 abbr rm "rm -i"
