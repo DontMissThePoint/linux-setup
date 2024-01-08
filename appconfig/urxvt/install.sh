@@ -56,6 +56,10 @@ while true; do
     # tty
     sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100
 
+    # rofi
+    mkdir -p ~/.config/rofi
+    cp -fr $APP_PATH/rofi/config.rasi ~/.config/rofi/config.rasi
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
