@@ -465,6 +465,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! ! GitHub Theme
 ! URxvt.foreground: #cdd6f4
 ! URxvt.background: [85]#1a1c1e
+! XTerm*cursorColor: #9aedfe
 ! URxvt.cursorColor: #9aedfe
 ! URxvt.underlineColor: #57c7ff
 
