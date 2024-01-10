@@ -6,6 +6,9 @@ autocmd("VimResized", {
   command = "tabdo wincmd =",
 })
 
+-- Unset guicursor whenever it is changed
+vim.cmd[[autocmd OptionSet * noautocmd set guicursor=]]
+
 -- Status
 if vim.fn.exists('$TMUX') then
       vim.cmd([[

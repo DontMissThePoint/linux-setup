@@ -59,8 +59,7 @@ c.url.default_page = "about:blank"
 config.bind(',sm', 'cmd-set-text :download --mhtml')
 
 ## Next works on Windows
-c.downloads.location.directory = '~/Downloads/2023-Q4'
-## c.downloads.location.directory = '%USERPROFILE%\\Downloads-2023-Q1\\'
+c.downloads.location.directory = '~/Downloads/2024-Q1'
 # c.downloads.location.directory = '%USERPROFILE%\\Downloads-%YEARQUARTER%\\'
 
 c.downloads.location.suggestion = 'both'
