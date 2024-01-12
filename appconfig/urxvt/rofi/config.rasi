@@ -14,7 +14,7 @@ configuration {
 	lines: 10;
 	width: 100%;
 	height: 65%;
-	padding: 200;
+	padding: 10% 20%;
 	location: 0;
 	yoffset: 0;
 	xoffset: 0;
@@ -168,7 +168,7 @@ configuration {
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */
-    transparency:                "real";
+    transparency:                "screenshot";
     location:                    west;
     anchor:                      west;
     fullscreen:                  false;

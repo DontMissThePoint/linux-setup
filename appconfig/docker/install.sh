@@ -34,6 +34,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Installing docker
+
     # conflicting packages
     for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y $pkg; done
 
@@ -55,6 +57,23 @@ while true; do
 
     # install docker
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+    # permission
+    sudo groupadd docker
+    sudo usermod -aG docker $USER
+
+    # m4b-tool
+    toilet Installing m4b-tool
+
+    # pull the image
+    docker pull sandreas/m4b-tool:latest
+
+    # Note: If you use the alias below, keep in mind that you cannot use absolute paths or symlinks
+    # Use relative paths
+    # (e.g. cd /tmp/data && m4b-tool merge "audiobooks/harry potter 1" --output-file harry.m4b)
+
+    # create an alias for m4b-tool running docker
+    alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

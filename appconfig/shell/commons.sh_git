@@ -24,6 +24,9 @@ alias a="bat \$(fd -H . / | fzf-tmux -p 80%,60% --preview 'bat --style=full --co
 alias s="find ~ -type f -iregex '.*\.\(epub\|mobi\|pdf\|txt\|mp4\|mkv\)$' | rofi -opacity '80' -width 85 -padding 100 -keep-right -dmenu -i -p FILES -multi-select -font | xargs -I {} xdg-open {}"
 alias d="cd \$(fd -H -td . / | fzy)"
 
+# m4b-tool
+alias m4b-tool='docker run -it --rm -u $(id -u):$(id -g) -v "$(pwd)":/mnt sandreas/m4b-tool:latest'
+
 # #{ cd_media
 
 cd_media() {

@@ -1497,7 +1497,7 @@ exec_always --no-startup-id indicator-sound-switcher
 # exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # locked
-exec --no-startup-id "betterlockscreen -q -l dimpixel; i3-sensible-terminal"
+exec --no-startup-id "betterlockscreen -q -l dimpixel; i3-sensible-terminal -e zsh"
 
 # timer
 exec --no-startup-id "gnome-pomodoro --start --no-default-window"
