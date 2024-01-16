@@ -20,7 +20,6 @@ fisher install patrickf1/colored_man_pages.fish
 
 fisher install jorgebucaran/nvm.fish
 nvm install lts/iron
-npm install -g parallel
 
 fisher install IlanCosman/tide@v6
 tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time='12-hour format' --classic_prompt_separators=Slanted --powerline_prompt_heads=Slanted --powerline_prompt_tails=Slanted --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=Yes

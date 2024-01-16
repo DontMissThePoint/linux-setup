@@ -208,17 +208,17 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 bindsym $mod+Shift+c reload
 
 # changing color schemes
-bindsym $mod2+c exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_colorscheme.sh'"
+bindsym $mod2+c exec "~/.i3/detacher.sh 'cd ~/scripts; ./set_colorscheme.sh'"
 
 # changing active gpu
-bindsym $mod2+x exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./set_gpu.sh'"
+bindsym $mod2+x exec "~/.i3/detacher.sh 'cd ~/scripts; ./set_gpu.sh'"
 
 # reload i3 settings from the ~/.i3/config file
 bindsym $mod+Shift+r restart
 
 # launch system manager menu
 # EPIGEN_DEL_BLOCK_HONZA {
-bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+bindsym $mod2+f exec "~/.i3/detacher.sh 'cd ~/scripts; ./system_menu.sh'"
 # EPIGEN_DEL_BLOCK_HONZA }
 
 # rofi launcher
@@ -595,7 +595,7 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_DESKTOP {
 
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop.sh'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./tomas_set_monitor_desktop.sh'"
 
 # # # sound
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
@@ -613,7 +613,7 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_DESKTOP2 {
 
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_desktop2.sh'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./tomas_set_monitor_desktop2.sh'"
 
 # # # sound
 # # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -c 2 set PCM 3.3db-
@@ -631,7 +631,7 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_THINKPAD {
 
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_dell.sh'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./tomas_set_monitor_dell.sh'"
 
 # # # Bind screen brightness control
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
@@ -654,7 +654,7 @@ set $mode_gaps_inner inner gaps
 
 # # EPIGEN_ADD_BLOCK_GPD {
 
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./tomas_set_monitor_gpd.sh'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./tomas_set_monitor_gpd.sh'"
 
 # # # gpd has small screen, tabs should be the default option
 # # # workspace_layout tabbed # EPIGEN_ADD_LINE_MONITOR_STANDALONE
@@ -689,7 +689,7 @@ set $mode_gaps_inner inner gaps
 
 # bindsym $mod+Shift+x exec "~/.i3/detacher.sh 'cd $HOME/.i3; ./shutdown_menu -p rofi'"
 
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./vojta_set_monitor.sh'"
 
 # # EPIGEN_ADD_BLOCK_ASUS {
 
@@ -827,7 +827,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
 # # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./dan_set_monitor_lenovo.sh'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./dan_set_monitor_lenovo.sh'"
 
 # # # Bing LENOVO keyboard brightness control
 # # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
@@ -900,7 +900,7 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_MATEJ {
 
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./matej_set_monitor.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./matej_set_monitor.sh'"
 
 # # EPIGEN_ADD_BLOCK_ASUS {
 
@@ -993,7 +993,7 @@ set $mode_gaps_inner inner gaps
 # bindcode 75 exec --no-startup-id "~/linux-setup/scripts/toggle_touchpad.sh"
 
 # # lab monitor setup
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./petr_set_monitor.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./petr_set_monitor.sh'"
 
 # # Fix font DPI issues caused by nvidia
 # bindsym $mod+Shift+f exec sh ~/linux-setup/scripts/fix_dpi_petr.sh
@@ -1028,7 +1028,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_HP {
 
 # # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh HP'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./pavel_set_monitor.sh HP'"
 
 # # # Bind HP screen brightness control
 # # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.config/i3/scripts/darken.sh
@@ -1049,7 +1049,7 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_LENOVO {
 
 # # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./pavel_set_monitor.sh LENOVO'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./pavel_set_monitor.sh LENOVO'"
 
 # # # Not so fancy compton stuff
 # # exec compton --config ~/linux-setup/appconfig/compton/need_for_speed.conf
@@ -1090,7 +1090,7 @@ set $mode_gaps_inner inner gaps
 # # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset Master 10%+
 
 # # # Monitor setup
-# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vit_set_monitor_dell.sh'"
+# # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./vit_set_monitor_dell.sh'"
 
 # # EPIGEN_ADD_BLOCK_DELL }
 
@@ -1103,21 +1103,21 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_DANIEL {
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # exec_always --no-startup-id "feh -F --bg-fill $GIT_PATH/linux-setup/miscellaneous/wallpapers/white.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/miscellaneous/wallpapers/white.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-# # exec_always --no-startup-id "feh -F --bg-fill $GIT_PATH/linux-setup/miscellaneous/wallpapers/121212.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/miscellaneous/wallpapers/121212.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
 
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-# # exec_always --no-startup-id "feh -F --bg-fill $GIT_PATH/linux-setup/miscellaneous/wallpapers/151515.jpg"
+# # exec_always --no-startup-id "feh -F --bg-fill ~/miscellaneous/wallpapers/151515.jpg"
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
 
 # bindsym $mod2+k exec --no-startup-id i3lock -c 272d2d
 
 # bindsym $mod+d exec "rofi -combi-modi drun,run -show combi -width 100 -location 1 -columns 10 -lines 1 -eh 1"
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./daniel_set_monitor.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./daniel_set_monitor.sh'"
 
 # bindsym $mod+F5 exec --no-startup-id amixer -D pulse sset Master 5%-
 # bindsym $mod+F6 exec --no-startup-id amixer -D pulse sset Master 5%+
@@ -1233,7 +1233,7 @@ set $mode_gaps_inner inner gaps
 
 #  # Monitor setup
 #  # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/.screenlayout; ./acer_set_monitor.sh'"
-#  bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vasek_set_monitor.sh'"
+#  bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./vasek_set_monitor.sh'"
 
 #  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 #  exec --no-startup-id dropbox start
@@ -1251,7 +1251,7 @@ set $mode_gaps_inner inner gaps
 # bindsym $mod2+greater move workspace to output right
 # bindsym $mod2+less move workspace to output left
 
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./yurii_set_monitor.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./yurii_set_monitor.sh'"
 # bindsym $mod2+w sticky toggle
 
 # EPIGEN_ADD_BLOCK_YURII }
@@ -1263,13 +1263,13 @@ set $mode_gaps_inner inner gaps
 # EPIGEN_ADD_BLOCK_HONZA {
 
 # # System manager
-# # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./system_menu.sh'"
+# # bindsym $mod2+s exec "~/.i3/detacher.sh 'cd ~/scripts; ./system_menu.sh'"
 
 # # Numlock on by default
 # # exec_always --no-startup-id numlockx on
 
 # # Monitor setup
-# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./honza_set_monitor.sh'"
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd ~/scripts; ./honza_set_monitor.sh'"
 # bindsym XF86Display exec "arandr"
 
 # # Background image
@@ -1497,7 +1497,7 @@ exec_always --no-startup-id indicator-sound-switcher
 # exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # locked
-exec --no-startup-id "betterlockscreen -q -l dimpixel; i3-sensible-terminal -e zsh"
+exec --no-startup-id "betterlockscreen -q -l dimpixel; i3-sensible-terminal -e sh -c 'tmux split-window -p 20 -Z zsh'"
 
 # timer
 exec --no-startup-id "gnome-pomodoro --start --no-default-window"

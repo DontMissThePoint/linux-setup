@@ -63,6 +63,10 @@ while true; do
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
     rm -fr $APP_PATH/sessions/before* ~/.local/share/qutebrowser/sessions
     ln -sf $APP_PATH/sessions ~/.local/share/qutebrowser/sessions
+    ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ~/.config/qutebrowser/userscripts
+
+    # userscripts
+    pip install readability-lxml
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
