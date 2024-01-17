@@ -223,7 +223,7 @@ bindsym $mod2+f exec "~/.i3/detacher.sh 'cd ~/scripts; ./system_menu.sh'"
 
 # rofi launcher
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL {
-bindsym $mod+d exec "rofi -combi-modi 'drun#run#window' -show combi -opacity '85' -width 100 -padding 200 -font 'Roboto Mono Thin for Powerline 18' -lines 10 -eh 1"
+bindsym $mod+d exec "rofi -combi-modi 'drun#run#window' -show combi -config ~/.i3/combi.rasi"
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL }
 
 # default key bindings for audio on external keyboard
@@ -1497,7 +1497,7 @@ exec_always --no-startup-id indicator-sound-switcher
 # exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # locked
-exec --no-startup-id "betterlockscreen -q -l dimpixel; i3-sensible-terminal -e sh -c 'tmux split-window -p 20 -Z zsh'"
+exec --no-startup-id "betterlockscreen -q -l dimpixel; i3-sensible-terminal"
 
 # timer
 exec --no-startup-id "gnome-pomodoro --start --no-default-window"

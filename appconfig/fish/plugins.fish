@@ -22,5 +22,5 @@ fisher install jorgebucaran/nvm.fish
 nvm install lts/iron
 
 fisher install IlanCosman/tide@v6
-tide configure --auto --style=Classic --prompt_colors='True color' --classic_prompt_color=Dark --show_time='12-hour format' --classic_prompt_separators=Slanted --powerline_prompt_heads=Slanted --powerline_prompt_tails=Slanted --powerline_prompt_style='One line' --prompt_spacing=Sparse --icons='Many icons' --transient=Yes
+tide configure --auto --style=Rainbow --prompt_colors='True color' --show_time='24-hour format' --rainbow_prompt_separators=Round --powerline_prompt_heads=Round --powerline_prompt_tails=Round --powerline_prompt_style='One line' --prompt_spacing=Compact --icons='Few icons' --transient=Yes
 fish_update_completions
