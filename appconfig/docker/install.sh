@@ -74,12 +74,12 @@ while true; do
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
        sudo apt-add-repository ppa:flexiondotorg/quickemu
        sudo apt update
-       sudo apt install quickemu
+       sudo apt install -y quickemu
     fi
 
     # macOS
-    quickget macos ventura
-    quickemu --vm macos-ventura.conf
+    quickget macos monterey || echo "It normally returns >0"
+    quickemu --vm macos-monterey.conf
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
