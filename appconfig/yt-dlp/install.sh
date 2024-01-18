@@ -31,7 +31,7 @@ while true; do
   then
     resp=$default
   else
-	  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp (youtube videos in the terminal)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+	  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp (videos from youtube in terminal)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -40,7 +40,30 @@ while true; do
 
     toilet Installing yt-dlp
 
+    # opencv
+    sudo apt install -y libopencv-dev python3-opencv
+
+    # ueberzug
+    cd /tmp
+    sudo apt install -y libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-res0-dev
+    [ -e ueberzugpp ] && rm -rf ueberzugpp
+    git clone https://github.com/jstkdng/ueberzugpp.git
+    cd ueberzugpp
+    mkdir build && cd build
+    cmake -DCMAKE_BUILD_TYPE=Release ..
+    cmake --build .
+
+    # ytfzf
     python3 -m pip install -U yt-dlp
+    cd /tmp
+    [ -e ytfzf ] && rm -rf ytfzf
+    git clone https://github.com/pystardust/ytfzf
+    cd ytfzf
+    sudo make install doc
+
+    # lobster
+    sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
+    sudo chmod +x /usr/local/bin/lobster
 
     # xnview
     if [ -n "$JAMMY" ]; then
@@ -54,6 +77,9 @@ while true; do
     # config
     mkdir -p ~/.config/xnviewmp
     cp $APP_PATH/style_sheet.qss ~/.config/xnviewmp/style_sheet.qss
+
+    mkdir -p ~/.config/ytfzf
+    cp $APP_PATH/conf.sh ~/.config/ytfzf/conf.sh
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

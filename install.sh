@@ -40,7 +40,7 @@ sudo chown -R $USER: $MY_PATH
 find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
 # remotes
-cd $MY_PATH/submodules 
+cd $MY_PATH/submodules
 git clean -xdf && git fetch --recurse-submodules --jobs=10 || echo "It normally returns >0"
 
 # install packages
@@ -65,7 +65,7 @@ sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exube
 
 if [ "$unattended" == "0" ]
   then
-    if [ "$?" != "0" ]; then echo "Press Enter to continues.." && read; fi
+    if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
 fi
 
 # 1. Install LINUXBREW
