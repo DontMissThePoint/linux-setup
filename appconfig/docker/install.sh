@@ -36,18 +36,19 @@ while true; do
 
     toilet Installing docker
 
-    # conflicting packages
+    # any conflict packages
     for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y $pkg; done
-
-    # Add Docker's official GPG key
-    sudo apt-get update
-    sudo apt-get install -y ca-certificates curl gnupg
-    sudo install -m 0755 -d /etc/apt/keyrings
-    curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-    sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
     # Add the repository to apt sources
     if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
+      sudo apt-get update
+      sudo apt-get install -y ca-certificates curl gnupg
+
+      # Add Docker's official GPG key
+      sudo install -m 0755 -d /etc/apt/keyrings
+      curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+      sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
       echo \
         "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
         $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
@@ -58,9 +59,27 @@ while true; do
     # install docker
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-    # permission
-    sudo groupadd docker
-    sudo usermod -aG docker $USER
+    # add group permission
+    num=`cat /etc/group | cut -d: -f1 | grep "docker" | wc -l`
+    if [ "$num" -lt "1" ]; then
+      sudo groupadd docker
+      sudo usermod -aG docker $USER
+      groups $USER
+    fi
+
+    # quickemu
+    sudo apt install -y qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
+
+    the_ppa=flexiondotorg/quickemu
+    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+       sudo apt-add-repository ppa:flexiondotorg/quickemu
+       sudo apt update
+       sudo apt install quickemu
+    fi
+
+    # macOS
+    quickget macos ventura
+    quickemu --vm macos-ventura.conf
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
