@@ -49,6 +49,27 @@ while true; do
     cd pipes.sh
     sudo make install
 
+    toilet Installing stig
+
+    # bittorent client
+    pip3 install --upgrade stig
+
+    # dns
+    num=`cat /etc/systemd/resolved.conf | grep "^DNS" | wc -l`
+    if [ "$num" -lt "1" ]; then
+
+      echo "Override DNS..."
+      echo -e \
+        "DNS=1.1.1.1 8.8.8.8 \
+        \nFallbackDNS=8.8.4.4" | \
+        sudo tee -a /etc/systemd/resolved.conf > /dev/null
+    fi
+
+    # config
+    mkdir -p ~/.config/stig
+    cp -f $APP_PATH/rc ~/.config/stig/rc
+    sudo service systemd-resolved restart
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

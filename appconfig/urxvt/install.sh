@@ -58,7 +58,7 @@ while true; do
 
     # rofi
     mkdir -p ~/.config/rofi
-    cp -fr $APP_PATH/rofi/config.rasi ~/.config/rofi/config.rasi
+    cp -f $APP_PATH/rofi/config.rasi ~/.config/rofi/config.rasi
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
