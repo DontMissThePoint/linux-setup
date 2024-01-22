@@ -208,6 +208,21 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # Optimize resources
 #############################################
 
+# network
+num=`cat /etc/systemd/resolved.conf | grep "^DNS" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+  echo "Override DNS..."
+  echo -e \
+    "DNS=1.1.1.1 8.8.8.8 \
+    \nFallbackDNS=8.8.4.4" | \
+    sudo tee -a /etc/systemd/resolved.conf > /dev/null
+fi
+
+# space
+sudo apt -y autoremove
+sudo docker volume prune
+
 # power
 the_ppa=linrunner/tlp
 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
@@ -221,10 +236,6 @@ sudo systemctl start tlp.service
 
 sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
-
-# space
-sudo apt -y autoremove
-sudo docker volume prune
 
 #############################################
 # link the scripts folder
