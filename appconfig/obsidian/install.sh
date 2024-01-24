@@ -42,6 +42,7 @@ while true; do
     echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
     sudo apt update
     sudo apt install -y syncthing
+    sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d
 
     sudo cp -f $APP_PATH/syncthing@.service /etc/systemd/system/syncthing@.service
     sudo systemctl daemon-reload

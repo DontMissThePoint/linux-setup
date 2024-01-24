@@ -77,9 +77,25 @@ while true; do
        sudo apt install -y quickemu
     fi
 
-    # macOS
-    quickget macos monterey || echo "It normally returns >0"
-    quickemu --vm macos-monterey.conf
+    # ZorinOS
+    mkdir -p ~/zorin-os
+    num=`ls -a $HOME/zorin-os | grep ".iso" | wc -l`
+    if [ "$num" -lt "1" ]; then
+      # download 15 connections search 4 mirrors
+      echo "Downloading... Zorin-OS Pro 64-bit"
+      cd ~/zorin-os && axel -a -n15 -S4 https://archive.org/download/zorin-os-17-pro-64-bit.iso/Zorin-OS-17-Pro-64-bit.iso
+    fi
+
+    # config
+    cp -f $APP_PATH/zorin-os.conf ~/zorin-os.conf
+
+    # virtual machine
+    # quickget zorin
+    # quickemu --vm zorin-os.conf
+
+    # Post-install
+    # Install the SPICE agent (spice-vdagent) in the guest to enable copy/paste and USB redirection.
+    # Install the SPICE WebDAV agent (spice-webdavd) in the guest to enable file sharing.
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
