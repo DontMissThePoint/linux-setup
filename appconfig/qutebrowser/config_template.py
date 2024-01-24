@@ -48,6 +48,8 @@ config.bind('tT', 'tab-prev')
 config.bind('tt', 'tab-next')
 config.bind('xx', 'tab-close')
 
+config.bind('gl', 'tab-focus last')
+
 ## Note: 'gvim.bat' works but 'gvim' does not work
 c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
 
