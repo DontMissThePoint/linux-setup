@@ -41,10 +41,11 @@ while true; do
     toilet Setting up go-whatsapp
 
     sudo apt install -y finch pidgin pkg-config cmake make golang gcc libgdk-pixbuf2.0-dev libopusfile-dev libpurple-bin libpurple-dev
+    pip install html2text
 
     # config
     mkdir -p ~/.purple/plugins
-    
+
     if [ -n "$BEAVER" ] || [ -n "$FOCAL" ]; then
       cp -f $APP_PATH/libwhatsmeow.so ~/.purple/plugins/libwhatsmeow.so
     else
