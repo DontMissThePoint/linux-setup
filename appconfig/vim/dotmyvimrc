@@ -39,44 +39,8 @@ let g:NERDTreeIgnore = ['^node_modules$']
 
 " enable folds
 set foldmethod=marker
+set foldlevel=20
 set foldmarker={{{,}}}
-
-" use a slightly darker background
-let g:github_colors_soft = 0
-
-" use the light theme
-set background=light
-
-" more blocky diff markers in signcolumn (e.g. GitGutter)
-let g:github_colors_block_diffmark = 1
-
-" Canvas
-" colorscheme pencil
-colorscheme github
-
-" enable lightline
-"let g:airline_theme = "github"
-"let g:lightline = { 'colorscheme': 'github' }
-let g:lightline = { 'colorscheme': 'selenized_white' }
-
-" iA
-" greater contrast
-let g:pencil_higher_contrast_ui = 1  " 0=low (def), 1=high
-
-" heading colors
-let g:pencil_neutral_headings = 1    " 0=blue (def), 1=normal
-
-" code background
-let g:pencil_neutral_code_bg = 1     " 0=gray (def), 1=normal
-
-" colored indicators
-let g:pencil_gutter_color = 1        " 0=mono (def), 1=color
-
-" Spelling Highlights
-let g:pencil_spell_undercurl = 1     " 0=underline, 1=undercurl (def)
-
-" Terminal Italics
-let g:pencil_terminal_italics = 0
 "}}}
 
 "{{{ CHAR
@@ -291,9 +255,6 @@ nmap <F6> :DiffOrig<CR>
 " Tags
 nnoremap <silent> <F9> :TagbarToggle<CR>
 
-" toggle background
-silent! call github_colors#togglebg_map('<F10>')
-
 " Functions
 
 nnoremap i :noh<CR>i
@@ -303,46 +264,52 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 " Toggle list mode quickly
 noremap \\ :set invlist<CR>
 
-function! s:goyo_enter()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux set status off
-    silent !tmux list-panes -F '\#F' | grep -q Z || tmux resize-pane -Z
-  endif
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  set background=dark
-  colorscheme typewriter-night
-  Limelight !!
-  " ...
-endfunction
+" Stage
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
 
-function! s:goyo_leave()
-  if executable('tmux') && strlen($TMUX)
-    silent !tmux setw status off
-    silent !tmux list-panes -F '\#F' | grep -q Z && tmux resize-pane -Z
-  endif
-  set showmode
-  set showcmd
-  set scrolloff=5
-  set background=light
-  colorscheme github
-  Limelight!
-  " ...
-endfunction
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
 
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
+" Default: 0.5
+let g:limelight_default_coefficient = 0.9
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 0
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = 9
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
 
 " Activate FOCUS mode with F11
-nmap <F11> :Goyo <bar> Limelight 0.85<CR>
-nmap <F12> :Goyo <bar> Limelight 0.85<CR>
+nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
+autocmd! VimEnter * set background=dark
+  \| silent! Goyo | execute "normal! ,l1j"
+
+" toggle background
+silent! call github_colors#togglebg_map('<F10>')
+
+nmap <Leader>l <Plug>(Limelight)
+xmap <Leader>l <Plug>(Limelight)
 
 " NetisFleet
 autocmd FileType tsv call DataViz()
 function DataViz()
-  colo pencil
-  colo github
+let g:github_colors_soft = 0
+Goyo!
+set background=light
+colo github
   noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
 
   func! Swipe(card)

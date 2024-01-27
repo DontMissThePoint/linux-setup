@@ -34,10 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing termsaver
-
-    # pygments
-    sudo pip install termsaver pygments
+    toilet Installing hollywood
 
     # cmatrix
     sudo apt install -y cmatrix cmatrix-xfont

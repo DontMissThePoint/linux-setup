@@ -204,11 +204,9 @@ if g:user_mode == "1"
   Plug 'logico/typewriter-vim'
 
   " Focus
-  Plug 'junegunn/seoul256.vim'
-
-  " remove distractions
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
+  Plug 'junegunn/seoul256.vim'
 
   " Autosave your work
   Plug '907th/vim-auto-save'
@@ -708,8 +706,22 @@ if g:user_mode == "1"
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-  " colorscheme typewriter
-  " let g:airline_theme = "github"
+  "let g:github_colors_soft = 1
+  "let g:github_colors_block_diffmark = 1
+  "colorscheme github
+
+  "" enable lightline
+  ""let g:airline_theme = "github"
+  ""let g:lightline = { 'colorscheme': 'github' }
+  "let g:lightline = { 'colorscheme': 'selenized_white' }
+
+  "" iA
+  "let g:pencil_higher_contrast_ui = 1  " 0=low (def), 1=high
+  "let g:pencil_neutral_headings = 1    " 0=blue (def), 1=normal
+  "let g:pencil_neutral_code_bg = 1     " 0=gray (def), 1=normal
+  "let g:pencil_gutter_color = 1        " 0=mono (def), 1=color
+  "let g:pencil_spell_undercurl = 1     " 0=underline, 1=undercurl (def)
+  "let g:pencil_terminal_italics = 0
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
@@ -722,6 +734,7 @@ if g:user_mode == "1"
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
+        \ { 'f': '~/.config/fish/config.fish' },
         \ { 'i': '~/.i3/config' },
         \ { 'p': '~/.config/papis/config' },
         \ { 'r': '~/.config/ranger/rc.conf' },

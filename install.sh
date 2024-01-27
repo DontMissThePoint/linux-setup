@@ -107,8 +107,8 @@ fi
 # 13. Install MULTIMEDIA support
 ! $docker && bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
-# 14. Install TERMSAVER
-! $docker && bash $APPCONFIG_PATH/termsaver/install.sh $subinstall_params
+# 14. Install HOLLYWOOD
+! $docker && bash $APPCONFIG_PATH/hollywood/install.sh $subinstall_params
 
 # 15. Install PANDOC
 if [ "$arch" != "aarch64" ]; then

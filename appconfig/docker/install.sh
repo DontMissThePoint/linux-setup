@@ -79,7 +79,7 @@ while true; do
 
     # virtual machine
     quickget windows 11
-    quickemu --vm windows-11.conf
+    quickemu --vm windows-11.conf --screenpct 85
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
