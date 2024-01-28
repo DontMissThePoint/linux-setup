@@ -181,7 +181,8 @@ while true; do
     # install xkb layout state
     cd $APP_PATH/../../submodules/xkblayout-state/
     make
-    sudo ln -sf $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
+    sudo cp -f $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
+    rm -f xkblayout-state
 
     # required for i3lock-color
     sudo apt remove -y i3lock

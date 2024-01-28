@@ -55,6 +55,7 @@ end
 ### aliases ###
 alias vimdiff="/usr/bin/nvim -d"
 alias vim="/usr/bin/nvim"
+alias cd_media="cd /media/$USER; ranger"
 
 ### abbreviation ###
 abbr rm "rm -i"

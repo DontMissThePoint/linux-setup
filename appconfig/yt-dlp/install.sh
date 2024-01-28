@@ -52,6 +52,7 @@ while true; do
     mkdir build && cd build
     cmake -DCMAKE_BUILD_TYPE=Release ..
     cmake --build .
+    sudo cp -f ueberzug /usr/local/bin/ueberzug
 
     # ytfzf
     python3 -m pip install -U yt-dlp
