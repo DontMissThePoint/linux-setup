@@ -122,7 +122,7 @@ def GetCompilationInfoForFile( filename ):
 
 # This is the entry point; this function is called by ycmd to produce flags for
 # a file.
-def FlagsForFile( filename, **kwargs ):
+def Settings( filename, **kwargs ):
   if database:
     # Bear in mind that compilation_info.compiler_flags_ does NOT return a
     # python list, but a "list-like" StringVec object

@@ -53,7 +53,7 @@ while true; do
     chmod +x ${APP_PATH}/qutebrowser_env
     sudo cp ${APP_PATH}/qutebrowser_env /bin/qutebrowser
     sudo ln -sf /bin/qutebrowser /usr/local/bin/qutebrowser
-
+    sudo cp $APP_PATH/../../submodules/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop /usr/share/applications/org.qutebrowser.qutebrowser.desktop
     # default
     sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/qutebrowser 210
 
@@ -63,10 +63,12 @@ while true; do
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
     rm -fr $APP_PATH/sessions/before* ~/.local/share/qutebrowser/sessions
     ln -sf $APP_PATH/sessions ~/.local/share/qutebrowser/sessions
-    ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ~/.config/qutebrowser/userscripts
 
     # userscripts
-    pip install readability-lxml
+    sudo apt install -y libxml2-dev libxslt-dev
+    pip3 install breadability
+
+    ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ~/.config/qutebrowser/userscripts
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

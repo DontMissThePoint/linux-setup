@@ -108,18 +108,19 @@ while true; do
           sudo apt-get -y install clang-11 libclang-11-dev
           sudo pip3 install clang
         else
-          # if 20.04, just install python3-clang from apt
-          sudo apt-get -y install python3-clang
+          # if 22.04, just install python3-clang from apt
+          sudo apt-get -y install python3-clang libclang-18-dev
         fi
         # install prequisites for YCM
-        sudo apt-get -y install clangd-11
-        # set clangd to version 11 by default
-        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-11 999
+        sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
+
+        # set clangd to 18 latest by default
+        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-18 999
         sudo apt-get -y install libboost-all-dev
 
         cd ~/.vim/plugged/YouCompleteMe/
         git submodule update --init --recursive
-        python3 ./install.py --clangd-completer
+        /usr/bin/python3 ./install.py --clangd-completer --verbose
 
         # link .ycm_extra_conf.py
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py

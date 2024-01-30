@@ -49,6 +49,7 @@ while true; do
     echo "Installing stig transmission client..."
 
     # bittorent client
+    sudo apt install -y transmission
     pip3 install --upgrade stig
 
     # config

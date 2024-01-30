@@ -45,7 +45,7 @@ c.bindings.commands['hint'] = {
 # hint
 config.bind('f', 'hint')
 config.bind('tf', 'hint tab')
-config.bind('f', 'hint --rapid links tab-bg')
+config.bind('F', 'hint --rapid links tab-bg')
 config.bind('yf', 'hint links yank')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
@@ -57,6 +57,7 @@ config.bind('xx', 'tab-close')
 config.bind('gl', 'tab-focus last')
 
 # userscripts
+config.bind('gr', 'spawn --userscript ~/.config/qutebrowser/userscripts/readability')
 config.bind('sd', 'spawn --userscript ~/.config/qutebrowser/userscripts/open_download')
 config.bind('ps', 'spawn --userscript ~/.config/qutebrowser/userscripts/password_fill')
 

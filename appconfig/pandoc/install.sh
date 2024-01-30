@@ -46,20 +46,17 @@ while true; do
       sudo apt install -y pandoc
     fi
 
+    # epy
+    pip3 install epy-reader
+
     # Calibre
     sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
     #sudo calibre-uninstall
 
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000
 
-    # mimeopen -d
-    num=`cat ~/.config/mimeapps.list | grep "epub" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      echo "Adding calibre-viewer to mimeapps.list"
-      echo 'application/x-mobipocket-ebook=calibre-ebook-viewer.desktop;
-application/epub+zip=calibre-ebook-viewer.desktop;' >> ~/.config/mimeapps.list
-    fi
+    # xdg-open
+    cp -f $APP_PATH/mimeapps.list ~/.config/mimeapps.list
 
     # Kodoo
     # cd /tmp
