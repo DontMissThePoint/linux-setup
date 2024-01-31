@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall termsaver? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall hollywood? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -35,6 +35,19 @@ while true; do
   then
 
     toilet Installing hollywood
+
+    # lobster
+    echo "mmm lobster"
+    sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
+    sudo chmod +x /usr/local/bin/lobster
+
+    # tribler
+    echo "Installing tribler tor torrent..."
+
+    # torrent
+    cd /tmp
+    wget -c https://github.com/Tribler/tribler/releases/download/v7.13.1/tribler_7.13.1_all.deb
+    sudo dpkg -i tribler_7.13.1_all.deb
 
     # cmatrix
     sudo apt install -y cmatrix cmatrix-xfont
@@ -45,17 +58,6 @@ while true; do
     git clone https://github.com/pipeseroni/pipes.sh
     cd pipes.sh
     sudo make install
-
-    echo "Installing stig transmission client..."
-
-    # bittorent client
-    sudo apt install -y transmission
-    pip3 install --upgrade stig
-
-    # config
-    mkdir -p ~/.config/stig
-    cp -f $APP_PATH/rc ~/.config/stig/rc
-    sudo service systemd-resolved restart
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

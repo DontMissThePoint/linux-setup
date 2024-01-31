@@ -38,7 +38,7 @@ while true; do
 
     cd $APP_PATH/../../submodules
     mv fonts fonts.orig
-    git clone https://github.com/powerline/fonts.git 
+    git clone https://github.com/powerline/fonts.git
 
     # apply our patch to change the font installation dir
     # git apply $APP_PATH/patch.patch
@@ -53,8 +53,8 @@ while true; do
         sudo add-apt-repository -y ppa:papirus/papirus
         sudo apt update
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
-    fi    
-    sudo apt install -y fonts-symbola dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes    
+    fi
+    sudo apt install -y fonts-symbola dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
@@ -66,7 +66,7 @@ while true; do
     mkdir -p ~/.config/environment.d ~/.config/Kvantum
     printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
     cp $APP_PATH/kvantum.kvconfig ~/.config/Kvantum/kvantum.kvconfig
-    
+
     # activate
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
@@ -74,6 +74,19 @@ while true; do
 
     # undo the patch
     # git reset --hard
+
+    # fontforge
+    toilet Installing fontforge
+
+    cd /tmp
+    sudo apt install -y libjpeg-dev libtiff5-dev libpng-dev libfreetype6-dev libgif-dev libgtk-3-dev libxml2-dev libpango1.0-dev libcairo2-dev libspiro-dev libwoff-dev python3-dev ninja-build cmake build-essential gettext
+    [ -e fontforge ] && rm -rf fontforge
+    git clone https://github.com/fontforge/fontforge.git
+    cd fontforge
+    mkdir build && cd build
+    cmake -GNinja ..
+    ninja
+    sudo ninja install
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

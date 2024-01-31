@@ -62,10 +62,6 @@ while true; do
     cd ytfzf
     sudo make install doc
 
-    # lobster
-    sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
-    sudo chmod +x /usr/local/bin/lobster
-
     # xnview
     if [ -n "$JAMMY" ]; then
       sudo apt install -y libgdk-pixbuf2.0-0
