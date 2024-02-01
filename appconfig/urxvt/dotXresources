@@ -4,7 +4,7 @@
 ! specific user settings
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL {
 URxvt.termName: rxvt-unicode-256color
-URxvt.title: Console
+URxvt.title: URxvt
 URxvt.utf8: 1
 URxvt.imLocale: en_US.UTF-8
 !Xft.dpi: 166   ! https://dpi.lv
