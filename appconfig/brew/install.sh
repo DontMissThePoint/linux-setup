@@ -52,7 +52,7 @@ while true; do
       echo Connection disrupted, retrying in 10 seconds...
       sleep 10
     done
-    brew install -q grc fzy bat ripgrep miller ctop btop eza fd dust
+    brew install -q grc fzy genact bat ripgrep miller ctop btop eza fd dust
     brew cleanup --prune=all
 
     # configs

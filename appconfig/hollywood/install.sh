@@ -36,6 +36,8 @@ while true; do
 
     toilet Installing hollywood
 
+    sudo apt install -y hollywood
+
     # lobster
     echo "mmm lobster"
     sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
@@ -43,8 +45,6 @@ while true; do
 
     # tribler
     echo "Installing tribler tor torrent..."
-
-    # torrent
     cd /tmp
     wget -c https://github.com/Tribler/tribler/releases/download/v7.13.1/tribler_7.13.1_all.deb
     sudo dpkg -i tribler_7.13.1_all.deb
