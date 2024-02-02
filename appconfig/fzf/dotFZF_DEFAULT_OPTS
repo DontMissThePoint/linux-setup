@@ -1,8 +1,6 @@
 # Use ~~ as the trigger sequence instead of default *8
 export FZF_COMPLETION_TRIGGER='**'
 
-export BAT_THEME='TwoDark'
-
 # display hidden, and exclude '.git' directory.
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
 

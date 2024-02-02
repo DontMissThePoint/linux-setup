@@ -3,12 +3,12 @@ configuration {
 	modi:                       "drun,run,combi,ssh,filebrowser";
 	font: 			    "Inconsolata for Powerline 19";
   show-icons:                 false;
-  display-drun:               "> ";
-  display-run:                "";
-  display-combi:              "⌨";
+  display-drun:               "";
+  display-run:                "";
+  display-combi:              "  ";
   display-ssh:                "🖥️";
-  display-filebrowser:        "";
-  display-window:             "";
+  display-filebrowser:        " ";
+  display-window:             "﩯 ";
 	columns: 1;
 	bw: 1;
 	lines: 10;
@@ -134,6 +134,13 @@ configuration {
 	me-select-entry: "MousePrimary";
 	me-accept-entry: "MouseDPrimary";
 	me-accept-custom: "Control+MouseDPrimary";
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+  modi {
+    matching:         "fuzzy";
+  }
 }
 
 /*****----- Global Properties -----*****/

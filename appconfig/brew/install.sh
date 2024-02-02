@@ -56,9 +56,10 @@ while true; do
     brew cleanup --prune=all
 
     # configs
-    mkdir -p ~/.config/gitui ~/.config/btop
+    mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat
     cp "$APP_PATH/key_bindings.ron" ~/.config/gitui/key_bindings.ron
     cp "$APP_PATH/btop.conf" ~/.config/btop/btop.conf
+    cp "$APP_PATH/config" ~/.config/bat/config
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
