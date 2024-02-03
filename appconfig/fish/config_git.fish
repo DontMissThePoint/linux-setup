@@ -7,6 +7,7 @@ set -gx EDITOR nvim
 set -gx LANG en_US.UTF-8                           # Adjust this to your language!
 set -gx LC_ALL en_US.UTF-8                         # Adjust this to your locale!
 set -g fish_key_bindings fish_hybrid_key_bindings
+set -U fish_greeting
 
 # cursor shapes
 set fish_cursor_default     block      blink
@@ -48,9 +49,9 @@ set -g theme_color_scheme "TokyoNight Night"
 set --universal nvm_default_version v20.10.0
 
 ### functions ###
-function fish_greeting
-    random choice "Hi." "Hi"
-end
+# function fish_greeting
+#     random choice "Hi." "Hi"
+# end
 
 ### aliases ###
 alias vimdiff="/usr/bin/nvim -d"

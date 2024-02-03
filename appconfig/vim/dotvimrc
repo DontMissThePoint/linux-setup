@@ -712,7 +712,6 @@ if g:user_mode == "1"
 
   "" enable lightline
   ""let g:airline_theme = "github"
-  ""let g:lightline = { 'colorscheme': 'github' }
   "let g:lightline = { 'colorscheme': 'selenized_white' }
 
   "" iA

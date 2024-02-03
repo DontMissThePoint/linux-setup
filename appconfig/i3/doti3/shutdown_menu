@@ -117,9 +117,9 @@ menu=(
   [Shutdown]="systemctl poweroff"
   [Reboot]="systemctl reboot"
   [Hibernate]="systemctl hibernate"
-  [Suspend]="i3lock -kLf -i ~/linux-setup/miscellaneous/wallpapers/space.jpg && systemctl suspend"
+  [Suspend]="systemctl suspend"
   [Halt]="systemctl halt"
-  [Lock]="${LOCKSCRIPT:-betterlockscreen -q -l dimpixel}"
+  [Lock]="${LOCKSCRIPT:-betterlockscreen -l}"
   [Logout]="i3-msg exit"
   [Cancel]=""
 )

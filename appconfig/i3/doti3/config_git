@@ -1521,7 +1521,6 @@ exec_always --no-startup-id indicator-sound-switcher
 
 # locked
 exec --no-startup-id "betterlockscreen -q -l dimpixel"
-exec_always --no-startup-id "i3-sensible-terminal -e sh -c zsh"
 
 # timer
 exec --no-startup-id "gnome-pomodoro --start --no-default-window"

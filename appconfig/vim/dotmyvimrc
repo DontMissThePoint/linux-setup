@@ -304,7 +304,7 @@ autocmd! User GoyoLeave Limelight!
 
 " Activate FOCUS mode with F11
 nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
-autocmd! VimEnter * set background=dark
+autocmd! VimEnter *\(.tsv\|.csv\)\@<! set background=dark
   \| silent! Goyo | execute "normal! ,l1j"
 
 " toggle background
