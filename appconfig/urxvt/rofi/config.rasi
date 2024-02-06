@@ -1,190 +1,27 @@
-/*****----- Configuration -----*****/
 configuration {
-    modi:                       "drun,run";
-    show-icons:                 false;
-    font: 		"Fira Mono for Powerline 14";
+	font: "Inconsolata for Powerline 19";
+  show-icons: true;
+  icon-theme: "Papirus";
+  display-drun: "";
+  display-run: "";
+  display-window: "﩯 ";
+  display-combi: "  ";
+	kb-remove-char-back: "BackSpace";
+	kb-remove-to-eol: "Control+Shift+e";
+	kb-accept-entry: "Return";
+	kb-mode-next: "Control+Tab,Control+l";
+	kb-mode-previous: "Control+Shift+Tab,Control+h";
+	kb-mode-complete: "Control+p";
+  kb-row-up: "Up,Control+k";
+  kb-row-down: "Down,Control+j";
+  filebrowser {
+      directories-first: true;
+      sorting-method:    "name";
+  }
+  run,drun {
+    fallback-icon:    "~/linux-setup/miscellaneous/fallback-icon.png";
+    matching:         "fuzzy";
+  }
 }
 
-/*****----- Global Properties -----*****/
-@import                          "color.rasi"
-
-* {
-    border-colour:               var(background);
-    handle-colour:               var(selected);
-    background-colour:           var(background);
-    foreground-colour:           var(foreground);
-    alternate-background:        var(background-alt);
-    normal-background:           var(background);
-    normal-foreground:           var(foreground);
-    urgent-background:           var(urgent);
-    urgent-foreground:           var(background);
-    active-background:           var(active);
-    active-foreground:           var(background);
-    selected-normal-background:  var(selected);
-    selected-normal-foreground:  var(background);
-    selected-urgent-background:  var(active);
-    selected-urgent-foreground:  var(background);
-    selected-active-background:  var(urgent);
-    selected-active-foreground:  var(background);
-    alternate-normal-background: var(background);
-    alternate-normal-foreground: var(foreground);
-    alternate-urgent-background: var(urgent);
-    alternate-urgent-foreground: var(background);
-    alternate-active-background: var(active);
-    alternate-active-foreground: var(background);
-}
-
-/*****----- Main Window -----*****/
-window {
-    /* properties for window widget */
-    transparency:                "screenshot";
-    location:                    northeast;
-    anchor:                      northeast;
-    fullscreen:                  false;
-    width:                       18%;
-    height:                      25%;
-    x-offset:                    0px;
-    y-offset:                    0px;
-
-    /* properties for all widgets */
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      1px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    cursor:                      "default";
-    background-color:            @background;
-}
-
-/*****----- Main Box -----*****/
-mainbox {
-    enabled:                     true;
-    spacing:                     8px;
-    margin:                      0px;
-    padding:                     8px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview" ];
-}
-
-/*****----- Inputbar -----*****/
-inputbar {
-    enabled:                     true;
-    spacing:                     8px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            transparent;
-    text-color:                  @foreground;
-    children:                    [ "textbox-prompt-colon", "prompt", "entry"];
-}
-
-prompt {
-    enabled:                     true;
-    padding:                     8px;
-    border-radius:               0px;
-    background-color:            @active;
-    text-color:                  @background;
-}
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "";
-    padding:                     8px 12px;
-    border-radius:               0px;
-    background-color:            @urgent;
-    text-color:                  @background;
-}
-entry {
-    enabled:                     true;
-    padding:                     8px;
-    border-radius:               0px;
-    background-color:            inherit;
-    text-color:                  inherit;
-    cursor:                      text;
-    placeholder:                 " - ";
-    placeholder-color:           inherit;
-}
-
-/*****----- Message -----*****/
-message {
-    enabled:                     true;
-    margin:                      0px;
-    padding:                     8px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
-}
-textbox {
-    background-color:            inherit;
-    text-color:                  inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-    placeholder-color:           @foreground;
-    blink:                       true;
-    markup:                      true;
-}
-error-message {
-    padding:                     8px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background;
-    text-color:                  @foreground;
-}
-
-/*****----- Listview -----*****/
-listview {
-    enabled:                     true;
-    columns:                     1;
-    lines:                       4;
-    cycle:                       true;
-    dynamic:                     true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
-
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            transparent;
-    text-color:                  @foreground;
-    cursor:                      "default";
-}
-
-/*****----- Elements -----*****/
-element {
-    enabled:                     true;
-    spacing:                     0px;
-    margin:                      0px;
-    padding:                     8px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            transparent;
-    text-color:                  @foreground;
-    cursor:                      pointer;
-}
-element-text {
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-}
-element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
-}
+@theme "~/.i3/styles/main.rasi"

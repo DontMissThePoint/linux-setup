@@ -49,12 +49,24 @@ while true; do
     if [ -n "$BEAVER" ] || [ -n "$FOCAL" ]; then
       cp -f $APP_PATH/libwhatsmeow.so ~/.purple/plugins/libwhatsmeow.so
     else
+      # go
+      sudo rm -rf /usr/local/go
+      wget -c https://go.dev/dl/go1.21.6.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+      # wget -c https://buildbot.hehoe.de/purple-whatsmeow/builds/libwhatsmeow.so -P /usr/lib/purple-2/
+
+      EXISTING_GO=`cat ~/.profile 2> /dev/null | grep "go/bin" | wc -l`
+      if [ "$EXISTING_GO" == "0" ]; then
+        toilet Setting up go
+        (echo; echo 'export PATH=$PATH:/usr/local/go/bin') >> ~/.profile
+      fi
+      source ~/.profile
+
       # compile from sources
       rm -fr /tmp/purple-gowhatsapp && cd /tmp
       git clone https://github.com/hoehermann/purple-gowhatsapp.git
       cd purple-gowhatsapp
       git submodule update --init
-      mkdir build && cd build
+      mkdir -p build && cd build
       cmake ..
       cmake --build .
       sudo make install/strip

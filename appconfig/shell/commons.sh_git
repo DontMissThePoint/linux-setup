@@ -24,6 +24,25 @@ alias a="bat \$(fd -H . / | fzf-tmux -p 80%,60% --preview 'bat --style=full --co
 alias s="find ~ -type f -iregex '.*\.\(epub\|mobi\|pdf\|txt\|mp4\|mkv\)$' | rofi -opacity '80' -width 85 -padding 100 -keep-right -dmenu -i -p FILES -multi-select -font | xargs -I {} xdg-open {}"
 alias d="cd \$(fd -H -td . / | fzy)"
 
+# #{ remove_duplicates_from_path()
+remove_duplicates_from_path() {
+    OLD_IFS=$IFS
+    IFS=:
+    NEWPATH=
+    unset EXISTS
+    declare -A EXISTS
+    for p in $PATH; do
+        if [ -z ${EXISTS[$p]} ]; then
+            NEWPATH=${NEWPATH:+$NEWPATH:}$p
+            EXISTS[$p]=yes
+        fi
+    done
+    IFS=$OLD_IFS
+    PATH=$NEWPATH
+}
+
+# #}
+
 # #{ cd_media
 
 cd_media() {

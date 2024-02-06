@@ -208,6 +208,9 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # Optimize resources
 #############################################
 
+# path
+remove_duplicates_from_path
+
 # network
 num=`cat /etc/systemd/resolved.conf | grep "^DNS" | wc -l`
 if [ "$num" -lt "1" ]; then
