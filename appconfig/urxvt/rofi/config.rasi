@@ -1,11 +1,12 @@
 configuration {
-	font: "Inconsolata for Powerline 19";
+	font: "Liga SFMono Nerd Font 14";
   show-icons: true;
   icon-theme: "Papirus";
-  display-drun: "";
   display-run: "";
-  display-window: "﩯 ";
+  display-drun:   "";
   display-combi: "  ";
+  display-window: "﩯 ";
+  display-ssh:    "";
 	kb-remove-char-back: "BackSpace";
 	kb-remove-to-eol: "Control+Shift+e";
 	kb-accept-entry: "Return";

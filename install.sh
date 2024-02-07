@@ -74,28 +74,28 @@ fi
 # 2. Install TMUX
 ! $docker && bash $APPCONFIG_PATH/tmux/install.sh $subinstall_params
 
-# 3. Setup RANGER
-! $docker && bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
-
-# 4. Install VIM
-! $docker && bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
-
-# 5. Install HTOP-VIM
-! $docker && bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
-
-# 6. Install URXVT
-! $docker && bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
-
-# 9. Install ZSH with ATHAME
+# 3. Install ZSH with ATHAME
 ! $docker && bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 
-# 10. Install I3
+# 4. Install I3
 ! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
-# 7. Install FONTS POWERLINE
+# 5. Install URXVT
+! $docker && bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
+
+# 6. Install FONTS POWERLINE
 ! $docker && bash $APPCONFIG_PATH/fonts-powerline/install.sh $subinstall_params
 
-# 8. Install NVIM
+# 7. Setup RANGER
+! $docker && bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
+
+# 8. Install VIM
+! $docker && bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
+
+# 9. Install HTOP-VIM
+! $docker && bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
+
+# 10. Install NVIM
 ! $docker && bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
 
 # 11. Install LATEX and PDF support

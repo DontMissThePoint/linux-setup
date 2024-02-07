@@ -57,6 +57,17 @@ while true; do
     sudo update-alternatives --install /usr/bin/x-terminal-emulator x-terminal-emulator /usr/bin/urxvt 100
 
     # rofi
+    sudo apt-get -y remove rofi* || echo "Installing rofi"
+    sudo apt install -y libxcb-ewmh-dev flex
+
+    rm -fr /tmp/rofi && cd /tmp
+    git clone https://github.com/davatorium/rofi.git
+    cd rofi
+    meson setup build
+    ninja -C build
+    sudo ninja -C build install
+
+    # config
     mkdir -p ~/.config/rofi
     cp -f $APP_PATH/rofi/config.rasi ~/.config/rofi/config.rasi
 
