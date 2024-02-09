@@ -44,7 +44,7 @@ cd $MY_PATH/submodules
 git clean -xdf && git fetch --recurse-submodules --jobs=10 || echo "It normally returns >0"
 
 # install packages
-sudo apt-get -y update
+sudo apt-get -y update -qq
 
 # essentials
 sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync visidata gawk bison byacc shellcheck neofetch parallel pv
@@ -230,7 +230,7 @@ sudo docker volume prune
 the_ppa=linrunner/tlp
 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     sudo add-apt-repository -y ppa:linrunner/tlp
-    sudo apt update
+    sudo apt update -qq
     sudo apt -y install tlp tlp-rdw smartmontools
 fi
 

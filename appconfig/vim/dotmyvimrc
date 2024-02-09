@@ -316,7 +316,7 @@ nmap <Leader>l <Plug>(Limelight)
 xmap <Leader>l <Plug>(Limelight)
 
 " NetisFleet
-autocmd FileType tsv call DataViz()
+autocmd FileType tsv,tex call DataViz()
 function DataViz()
 let g:github_colors_soft = 0
 Goyo!
