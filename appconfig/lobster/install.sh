@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lobster (movies from hollywood in terminal)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lobster (stream hollywood movies in terminal)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -39,12 +39,6 @@ while true; do
     # lobster
     sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
     sudo chmod +x /usr/local/bin/lobster
-
-    # tribler
-    echo "Installing tribler tor torrent..."
-    cd /tmp
-    wget -c https://github.com/Tribler/tribler/releases/download/v7.13.1/tribler_7.13.1_all.deb
-    sudo dpkg -i tribler_7.13.1_all.deb
 
     # cmatrix
     sudo apt install -y cmatrix cmatrix-xfont

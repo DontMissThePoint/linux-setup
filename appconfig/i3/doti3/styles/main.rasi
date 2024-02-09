@@ -38,10 +38,11 @@ entry {
 }
 
 listview {
-    columns:            2;
+    columns:            1;
+    lines:              8;
     cycle:              true;
     dynamic:            false;
-    scrollbar:          false;
+    scrollbar:          true;
     fixed-height:       false;
     margin:             0 0 0.75em;
 }
@@ -67,4 +68,10 @@ element-text {
 
 element-text selected {
     text-color:           @base0E;
+}
+
+scrollbar {
+    handle-width : 4px;
+    handle-color : @base06;
+    padding      : 0 4px;
 }

@@ -40,7 +40,7 @@ while true; do
 
     if [ -n "$BEAVER" ]; then
       cd /tmp
-      wget -c https://github.com/jgm/pandoc/releases/download/3.1.10/pandoc-3.1.10-1-amd64.deb
+      aria2c -x16 -s16 https://github.com/jgm/pandoc/releases/download/3.1.10/pandoc-3.1.10-1-amd64.deb
       sudo dpkg -i pandoc-3.1.10-1-amd64.deb
     else
       sudo apt install -y pandoc
@@ -60,7 +60,7 @@ while true; do
 
     # Kodoo
     # cd /tmp
-    # wget -c https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb
+    # aria2c -x16 -s16 https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb
     # sudo dpkg -i Koodo.Reader-1.6.0-amd64.deb
 
     break

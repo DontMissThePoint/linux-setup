@@ -52,7 +52,7 @@ while true; do
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
     # gitkraken
-    wget -c https://release.gitkraken.com/linux/gitkraken-amd64.deb
+    aria2c -x16 -s16 https://release.gitkraken.com/linux/gitkraken-amd64.deb
     sudo dpkg -i gitkraken-amd64.deb
 
     # config

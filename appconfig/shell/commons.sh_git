@@ -6,6 +6,7 @@ xset r rate 350 55 2> /dev/null
 
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
+export HOMEBREW_NO_EMOJI=1
 
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |

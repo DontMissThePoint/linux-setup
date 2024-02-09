@@ -126,9 +126,6 @@ bindsym $mod+Return exec i3-sensible-terminal
 # Timer
 bindsym $mod+t exec --no-startup-id "gnome-pomodoro --pause-resume --no-default-window"
 
-# vim
-#bindsym $mod+v exec "tmux new-window vim"
-
 # kill focused window
 bindsym $mod+Shift+q kill
 
@@ -223,7 +220,7 @@ bindsym $mod2+f exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./sys
 
 # rofi launcher
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL {
-bindsym $mod+d exec "rofi -combi-modi 'drun#run#window' -show combi -config ~/.i3/styles/combi.rasi"
+bindsym $mod+d exec "rofi -combi-modi 'drun#run#window' -show drun"
 # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_DANIEL }
 
 # default key bindings for audio on external keyboard
@@ -265,6 +262,7 @@ bindsym $mod+c mode "mouse_mode"
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 
+# float
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable
 for_window [title="File Transfer*"] floating enable
@@ -272,6 +270,26 @@ for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 # bluetooth applet
 # exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
+
+# colors from Xresources
+set_from_resource $term_background background
+set_from_resource $term_foreground foreground
+set_from_resource $term_color0 color0
+set_from_resource $term_color1 color1
+set_from_resource $term_color2 color2
+set_from_resource $term_color3 color3
+set_from_resource $term_color4 color4
+set_from_resource $term_color5 color5
+set_from_resource $term_color6 color6
+set_from_resource $term_color7 color7
+set_from_resource $term_color8 color8
+set_from_resource $term_color9 color9
+set_from_resource $term_color10 color10
+set_from_resource $term_color11 color11
+set_from_resource $term_color12 color12
+set_from_resource $term_color13 color13
+set_from_resource $term_color14 color14
+set_from_resource $term_color15 color15
 
 # EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_DAN EPIGEN_ADD_BLOCK_MATEJ {
 # # # F1 will no longer activate help of any program
@@ -367,17 +385,22 @@ for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GIT ACTIVE {
 
-set $focused_ws_bg            #005faf
-set $active_text_color        #e6e9ef
-set $inactive_text_color      #414559
+set $focused_ws_bg            #1a1b26
+set $active_text_color        #c0caf5
+set $inactive_text_color      #414868
 
-set $inactive_background      #333333
-set $active_background        #5c5f77
-set $active_border            #4c7899
+set $inactive_background      #d5d6db
+set $active_background        #a9b1d6
+set $active_border            #7aa2f7
 
-set $background_color         [85]#1a1c1e
-set $split_indicator          #2E9EF4
-set $urgent                   #ff0000
+set $warn                     #ff9e64
+set $info                     #e0af68
+set $success                  #9ece6a
+
+set $background_color         #1a1b26
+set $split_indicator          #1a1b26
+set $urgent                   #f7768e
+set $i3bar_bg                 #1a1b26
 exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
 for_window [class="^.*"] border pixel 1
 
@@ -388,45 +411,31 @@ for_window [class="^.*"] border pixel 1
 hide_edge_borders both
 
 # window colors
-#                       border                    background            text                  indicator
-client.focused          $active_border            $active_background    $active_text_color    $split_indicator
-client.unfocused        $inactive_background      $inactive_background  $inactive_text_color  $split_indicator
-client.focused_inactive $active_background        $inactive_background  $inactive_text_color  $split_indicator
-client.urgent           $inactive_background      $inactive_background  $inactive_text_color  $split_indicator
+# class                        border                 background          text            indicator        child_border
+client.focused           $inactive_text_color   $background_color  $active_border       $active_border    $active_border
+client.unfocused         $inactive_text_color   $background_color  $active_background   $split_indicator  $background_color
+client.focused_inactive  $inactive_text_color   $background_color  $active_text_color   $split_indicator  $background_color
+client.placeholder       $inactive_text_color   $background_color  $active_background   $split_indicator  $background_color
+client.urgent            $inactive_text_color   $urgent            $active_background   $urgent           $urgent
 
-# colors from Xresources
-set_from_resource $term_background background
-set_from_resource $term_foreground foreground
-set_from_resource $term_color0 color0
-set_from_resource $term_color1 color1
-set_from_resource $term_color2 color2
-set_from_resource $term_color3 color3
-set_from_resource $term_color4 color4
-set_from_resource $term_color5 color5
-set_from_resource $term_color6 color6
-set_from_resource $term_color7 color7
-set_from_resource $term_color8 color8
-set_from_resource $term_color9 color9
-set_from_resource $term_color10 color10
-set_from_resource $term_color11 color11
-set_from_resource $term_color12 color12
-set_from_resource $term_color13 color13
-set_from_resource $term_color14 color14
-set_from_resource $term_color15 color15
+client.background       $background_color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
 
+  position top
+  mode hide
+  strip_workspace_numbers yes
   status_command i3blocks -c ~/.i3/i3blocks.conf
-
   i3bar_command i3bar -t
+  # separator_symbol " "
 
   font pango: Terminus, FontAwesome 8
-
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
   tray_output DP-1-2
+  tray_padding 4
 
   # #{ TOMAS font
 
@@ -480,7 +489,7 @@ bar {
 
   # the default option
   # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
-  set $i3bar_bg #121212FF
+  # set $i3bar_bg #121212FF
   # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
 
   # #{ PETER's i3bar bg
@@ -542,24 +551,17 @@ bar {
 
   colors {
 
-    statusline $text_color
     background $i3bar_bg
-    separator  $inactive_text_color
+    statusline $active_text_color
+    separator  $active_background
 
     #                  border             background           text
     focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
-    active_workspace   $i3bar_bg          $i3bar_bg            $active_text_color
-    inactive_workspace $i3bar_bg          $i3bar_bg            $active_text_color
-    binding_mode       $i3bar_bg          $i3bar_bg            $active_text_color
+    active_workspace   $i3bar_bg          $i3bar_bg            $active_background
+    inactive_workspace $i3bar_bg          $i3bar_bg            $inactive_text_color
     urgent_workspace   $i3bar_bg          $i3bar_bg            $urgent
+    binding_mode       $i3bar_bg          $i3bar_bg            $urgent
   }
-
-  # i3bar position
-  position top
-
-  # i3bar
-  mode hide
-
 }
 
 # #{ i3-gaps settings
