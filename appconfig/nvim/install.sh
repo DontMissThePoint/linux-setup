@@ -51,9 +51,14 @@ while true; do
 
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
-    # gitkraken
-    aria2c -x16 -s16 https://release.gitkraken.com/linux/gitkraken-amd64.deb
-    sudo dpkg -i gitkraken-amd64.deb
+    # smartGit; smartSynchronize, deepGit
+    echo "Setup syntevo tools."
+    aria2c -x16 -s16 https://www.syntevo.com/downloads/smartgit/smartgit-23_1_1.deb
+    aria2c -x16 -s16 https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-4_5_0.deb
+    aria2c -x16 -s16 https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
+
+    # syntevo
+    sudo dpkg -i *.deb || sudo apt install -f
 
     # config
     mkdir -p "$CONFIG"
