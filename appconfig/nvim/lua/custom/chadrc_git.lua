@@ -6,8 +6,8 @@ local highlights = require "custom.highlights"
 
 M.ui = {
   transparency = true,
-  theme = "tokyonight",
-  theme_toggle = { "tokyonight", "one_light" },
+  theme = "tokyodark",
+  theme_toggle = { "tokyodark", "one_light" },
 
   -- Dashboard
   nvdash = {
@@ -17,7 +17,7 @@ M.ui = {
   hl_override ={
     NvDashAscii = {
       bg ="none",
-      fg ="cyan"
+      fg ="nord_blue"
     },
     NvDashButtons ={
       bg ="none",
