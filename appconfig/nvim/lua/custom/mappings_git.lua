@@ -7,6 +7,15 @@ M.general = {
     ["gh"] = { "<Home>", "Move cursor beginning of line" },
     ["gl"] = { "<End>", "Move cursor end of line" },
     ["<leader>."] = { "<cmd> cd %:p:h<CR>:pwd <CR>", "Change workspace onto current location" },
+
+     --  format with conform
+    ["<leader>fm"] = {
+      function()
+        require("conform").format()
+      end,
+      "formatting",
+    }
+
   },
   v = {
     [">"] = { ">gv", "indent"},

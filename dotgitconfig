@@ -8,6 +8,12 @@
 	editor = nvim
 	whitespace = fix,-indent-with-non-tab,trailing-space,cr-at-eol
 	pager = delta
+	packedGitLimit = 512m
+	packedGitWindowSize = 512m
+[pack]
+	deltaCacheSize = 2047m
+	packSizeLimit = 2047m
+	windowMemory = 2047m
 [sendemail]
 	smtpencryption = tls
 	smtpserver = smtp.gmail.com

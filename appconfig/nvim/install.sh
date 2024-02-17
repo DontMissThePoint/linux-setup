@@ -44,36 +44,32 @@ while true; do
     # compile neovim from sources
     # cd $APP_PATH/../../submodules/nvim
     rm -fr /tmp/nvim && mkdir /tmp/nvim && cd /tmp/nvim
-    git clone https://github.com/neovim/neovim
+    git clone https://github.com/neovim/neovim.git
     cd neovim
     make -j8 CMAKE_BUILD_TYPE=RelWithDebInfo \
     CMAKE_INSTALL_PREFIX=/usr/bin/nvim
 
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
-    # smartGit; smartSynchronize, deepGit
+    # smartGit; deepGit
     echo "Setup syntevo tools."
     aria2c -x16 -s16 https://www.syntevo.com/downloads/smartgit/smartgit-23_1_1.deb
-    aria2c -x16 -s16 https://www.syntevo.com/downloads/smartsynchronize/smartsynchronize-4_5_0.deb
     aria2c -x16 -s16 https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
 
     # syntevo
-    sudo dpkg -i *.deb || sudo apt install -f
+    sudo dpkg -i *.deb || sudo apt install -fy
 
     # config
-    mkdir -p "$CONFIG"
-
     sudo -H pip3 install wheel
 
     sudo -H pip3 install neovim
     sudo -H pip3 install neovim-remote
 
-    # Nvchad
-    git clone https://github.com/NvChad/NvChad "$CONFIG" --depth 1 && nvim
+    rm -rf ~/.local/share/nvim "$CONFIG"
 
-    # symlink neovim settings
-    #ln -sf $APP_PATH/../nvim/init.vim ~/.config/nvim/init.vim
-    #ln -sf $APP_PATH/../vim/dotvim/* ~/.config/nvim/
+    # Nvchad
+    git clone https://github.com/NvChad/NvChad "$CONFIG" --depth 1 && nvim +MasonInstallAll +NvChadUpdate
+    rm -fv $CONFIG/lua/custom/*.lua
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -6,15 +6,6 @@ local plugins = {
   -- Override plugin definition options
   {
     "neovim/nvim-lspconfig",
-    dependencies = {
-      -- format & linting
-      {
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-          require "custom.configs.null-ls"
-        end,
-      },
-    },
     config = function()
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
@@ -55,6 +46,15 @@ local plugins = {
   },
 
   {
+    "stevearc/conform.nvim",
+    --  for users those who want auto-save conform + lazyloading!
+    -- event = "BufWritePre"
+    config = function()
+      require "custom.configs.conform"
+    end,
+  },
+
+  {
     "kylechui/nvim-surround",
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
@@ -86,7 +86,9 @@ local plugins = {
     lazy = false,
     config = function()
       require("notify").setup({
-        background_colour = "#1A1B26",
+        stages = 'fade_in_slide_out',
+        background_colour = 'FloatShadow',
+        timeout = 3000,
       })
     end,
   },
@@ -131,6 +133,17 @@ local plugins = {
       --   If not available, we use `mini` as the fallback
       "rcarriga/nvim-notify",
     }
+  },
+
+  {
+     "folke/trouble.nvim",
+     event = "VeryLazy",
+     dependencies = { "nvim-tree/nvim-web-devicons" },
+     opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+     }
   },
 
   { "alexghergh/nvim-tmux-navigation",
