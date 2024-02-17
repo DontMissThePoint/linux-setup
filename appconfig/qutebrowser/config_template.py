@@ -28,6 +28,7 @@ c.zoom.default = '90%'
 c.aliases = {'q': 'close', 'qa': 'quit',
            'w': 'session-save', 'wq': 'quit --save',
            'wqa': 'quit --save',
+           'xa': 'quit --save',
            'mpv': 'spawn --userscript ~/.config/qutebrowser/userscripts/view_in_mpv'}
 
 ## mode

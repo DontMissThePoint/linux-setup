@@ -61,10 +61,7 @@ while true; do
     $APP_PATH/install_k_plugin.sh
 
     # symlink the .zshrc
-    num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`
-    if [ "$num" -lt "1" ]; then
-      cp $APP_PATH/dotzshrc_template $HOME/.zshrc
-    fi
+    case $(< "$HOME/.zshrc") in *"dotzshrc"*) ;; *) cp "$APP_PATH/dotzshrc_template" "$HOME/.zshrc" ;; esac
 
     # add liquid prompt
     if [ ! -e $HOME/.liquidprompt ]; then
