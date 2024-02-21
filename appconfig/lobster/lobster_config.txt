@@ -1,15 +1,15 @@
 # This is an example configuration file for lobster. This configuration includes all of the defaults, which you can change to you likings. The script will behave the exact same if you remove all of the values present here.
 
-lobster_editor=${VISUAL:-${EDITOR:-nvim}}
+lobster_editor=${VISUAL:-${EDITOR:-vim}}
 player=mpv
 download_dir="$PWD"
 provider="UpCloud"
 history=0
 subs_language="english"
 histfile="$HOME/.local/share/lobster/lobster_history.txt"
-use_external_menu=1
+use_external_menu=0
 image_preview=1
-image_config_path="$HOME/.i3/styles/launcher.rasi"
+# image_config_path="$HOME/.i3/styles/launcher.rasi"
 debug=0
 quiet_output=0
 preview_window_size=50%
