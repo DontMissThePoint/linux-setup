@@ -43,17 +43,6 @@ while true; do
     # opencv
     sudo apt install -y libopencv-dev python3-opencv
 
-    # ueberzug
-    cd /tmp
-    sudo apt install -y libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-res0-dev
-    [ -e ueberzugpp ] && rm -rf ueberzugpp
-    git clone https://github.com/jstkdng/ueberzugpp.git
-    cd ueberzugpp
-    mkdir build && cd build
-    cmake -DCMAKE_BUILD_TYPE=Release ..
-    cmake --build .
-    sudo cp -f ueberzug /usr/local/bin/ueberzug
-
     # yt-dlp; gallery-dl
     python3 -m pip install -U yt-dlp gallery-dl
 

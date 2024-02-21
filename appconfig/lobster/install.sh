@@ -36,6 +36,18 @@ while true; do
 
     toilet Installing lobster
 
+    # ueberzug
+    cd /tmp
+    sudo apt install -y libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-res0-dev
+    [ -e ueberzugpp ] && rm -rf ueberzugpp
+    git clone https://github.com/jstkdng/ueberzugpp.git
+    cd ueberzugpp
+    mkdir build && cd build
+    cmake -DCMAKE_BUILD_TYPE=Release ..
+    cmake --build .
+    sudo cp -f ueberzug /usr/local/bin/ueberzug
+    sudo ln -sf /usr/local/bin/ueberzug /usr/bin/ueberzugpp
+
     # lobster
     sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
     sudo chmod +x /usr/local/bin/lobster
