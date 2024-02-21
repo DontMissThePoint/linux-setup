@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lobster (stream hollywood movies in terminal)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lobster (stream hollywood movies)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -39,6 +39,10 @@ while true; do
     # lobster
     sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
     sudo chmod +x /usr/local/bin/lobster
+
+    # config
+    mkdir -p ~/.config/lobster
+    cp "$APP_PATH/lobster_config.txt" ~/.config/lobster/lobster_config.txt
 
     # cmatrix
     sudo apt install -y cmatrix cmatrix-xfont

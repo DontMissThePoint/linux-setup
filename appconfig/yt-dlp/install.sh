@@ -31,7 +31,7 @@ while true; do
   then
     resp=$default
   else
-	  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp (videos from youtube in terminal)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+	  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp (videos, image galleries, collections)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -54,8 +54,10 @@ while true; do
     cmake --build .
     sudo cp -f ueberzug /usr/local/bin/ueberzug
 
-    # ytfzf
-    python3 -m pip install -U yt-dlp
+    # yt-dlp; gallery-dl
+    python3 -m pip install -U yt-dlp gallery-dl
+
+   # ytfzf
     cd /tmp
     [ -e ytfzf ] && rm -rf ytfzf
     git clone https://github.com/pystardust/ytfzf
@@ -63,20 +65,22 @@ while true; do
     sudo make install doc
 
     # xnview
+    echo "Installing XnViewMP."
+
     if [ -n "$JAMMY" ]; then
       sudo apt install -y libgdk-pixbuf2.0-0
     fi
-    wget https://download.xnview.com/XnViewMP-linux-x64.deb -O $APP_PATH/XnViewMP-linux-x64.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$APP_PATH" https://download.xnview.com/XnViewMP-linux-x64.deb
 
     sudo dpkg -i $APP_PATH/XnViewMP-linux-x64.deb
     rm -f $APP_PATH/XnViewMP-linux-x64.deb
 
     # config
-    mkdir -p ~/.config/xnviewmp
+    mkdir -p ~/.config/yt-dlp ~/.config/ytfzf ~/.config/gallery-dl ~/.config/xnviewmp
     cp $APP_PATH/style_sheet.qss ~/.config/xnviewmp/style_sheet.qss
-
-    mkdir -p ~/.config/ytfzf
+    cp $APP_PATH/yt-dlp.conf ~/.config/yt-dlp/yt-dlp.conf
     cp $APP_PATH/conf.sh ~/.config/ytfzf/conf.sh
+    cp $APP_PATH/config.json ~/.config/gallery-dl/config.json
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

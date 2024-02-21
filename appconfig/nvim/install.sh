@@ -53,8 +53,8 @@ while true; do
 
     # smartGit; deepGit
     echo "Setup syntevo tools."
-    aria2c -x16 -s16 https://www.syntevo.com/downloads/smartgit/smartgit-23_1_1.deb
-    aria2c -x16 -s16 https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/smartgit/smartgit-23_1_1.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
 
     # syntevo
     sudo dpkg -i *.deb || sudo apt install -fy
