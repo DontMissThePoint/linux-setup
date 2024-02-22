@@ -48,11 +48,6 @@ set -g theme_nerd_fonts yes
 set -g theme_color_scheme "TokyoNight Night"
 set --universal nvm_default_version v20.10.0
 
-### functions ###
-# function fish_greeting
-#     random choice "Hi." "Hi"
-# end
-
 ### aliases ###
 alias vimdiff="/usr/bin/nvim -d"
 alias vim="/usr/bin/nvim"

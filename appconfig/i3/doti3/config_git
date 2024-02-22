@@ -300,27 +300,27 @@ set_from_resource $term_color15 color15
 
 # #{ COLORSCHEME_DARK colors
 
-# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN EPIGEN_DEL_BLOCK_COLORSCHEME_GIT ACTIVE {
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
 
-# # set $focused_ws_bg            #005faf
-# # set $active_text_color        #ffffff
-# # set $inactive_text_color      #eeeeee
-# # set $inactive_background      #333333
-# # # EPIGEN_ADD_BLOCK_PETR {
-# # # set $active_background        #53B5FF
-# # # set $active_border            #5cd8ff
-# # # EPIGEN_ADD_BLOCK_PETR }
-# # # EPIGEN_DEL_BLOCK_PETR {
-# # set $active_background        #005faf
-# # set $active_border            #005faf
-# # # EPIGEN_DEL_BLOCK_PETR }
-# # set $background_color         #121212
-# # set $split_indicator          #B85335
-# # set $urgent                   #ff0000
-# # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
-# # exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
-# # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
-# # for_window [class="^.*"] border pixel 3
+# set $focused_ws_bg            #005faf
+# set $active_text_color        #ffffff
+# set $inactive_text_color      #eeeeee
+# set $inactive_background      #333333
+# # EPIGEN_ADD_BLOCK_PETR {
+# # set $active_background        #53B5FF
+# # set $active_border            #5cd8ff
+# # EPIGEN_ADD_BLOCK_PETR }
+# # EPIGEN_DEL_BLOCK_PETR {
+# set $active_background        #005faf
+# set $active_border            #005faf
+# # EPIGEN_DEL_BLOCK_PETR }
+# set $background_color         #121212
+# set $split_indicator          #B85335
+# set $urgent                   #ff0000
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
+# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
+# # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
+# for_window [class="^.*"] border pixel 3
 
 # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN EPIGEN_DEL_BLOCK_COLORSCHEME_GIT }
 
@@ -383,26 +383,26 @@ set_from_resource $term_color15 color15
 
 # #{ COLORSCHEME_GIT colors
 
-# EPIGEN_ADD_BLOCK_COLORSCHEME_GIT ACTIVE {
+# EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 
-set $focused_ws_bg            #1a1b26
-set $active_text_color        #c0caf5
-set $inactive_text_color      #414868
+# set $focused_ws_bg            #1a1b26
+# set $active_text_color        #c0caf5
+# set $inactive_text_color      #414868
 
-set $inactive_background      #d5d6db
-set $active_background        #a9b1d6
-set $active_border            #7aa2f7
+# set $inactive_background      #d5d6db
+# set $active_background        #a9b1d6
+# set $active_border            #7aa2f7
 
-set $warn                     #ff9e64
-set $info                     #e0af68
-set $success                  #9ece6a
+# set $warn                     #ff9e64
+# set $info                     #e0af68
+# set $success                  #9ece6a
 
-set $background_color         #1a1b26
-set $split_indicator          #1a1b26
-set $urgent                   #f7768e
-set $i3bar_bg                 #1a1b26
-exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
-for_window [class="^.*"] border pixel 1
+# set $background_color         #1a1b26
+# set $split_indicator          #1a1b26
+# set $urgent                   #f7768e
+# set $i3bar_bg                 #1a1b26
+# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
+# for_window [class="^.*"] border pixel 1
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 

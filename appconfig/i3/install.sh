@@ -151,6 +151,22 @@ while true; do
       ln -sf $APP_PATH/doti3 ~/.i3
     fi
 
+    # rofi
+    sudo apt-get -y remove rofi* || echo "Installing rofi"
+    sudo apt install -y libxcb-ewmh-dev flex
+
+    rm -fr /tmp/rofi && cd /tmp
+    git clone https://github.com/davatorium/rofi.git
+    cd rofi
+    meson setup build
+    ninja -C build
+    sudo ninja -C build install
+
+    # config
+    mkdir -p ~/.config/rofi
+    cp -f $APP_PATH/doti3/rofi/config.rasi ~/.config/rofi/config.rasi
+    cp -f $APP_PATH/doti3/rofi/color.rasi ~/.config/rofi/color.rasi
+
     # copy i3 config file
     cp $APP_PATH/doti3/config_git ~/.i3/config
     cp $APP_PATH/doti3/i3blocks.conf_git ~/.i3/i3blocks.conf

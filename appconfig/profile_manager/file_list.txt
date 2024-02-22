@@ -14,14 +14,8 @@ $GIT_PATH/linux-setup/appconfig/tmux/dottmux.conf, ~/.tmux.conf, \#\ %s
 $GIT_PATH/linux-setup/appconfig/bash/dotblerc_git, ~/.blerc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/bash/dotbashrc_git, $GIT_PATH/linux-setup/appconfig/bash/dotbashrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc_git, $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc, \#\ %s
-$GIT_PATH/linux-setup/appconfig/fish/config_git.fish, ~/.config/fish/config.fish, \#\ %s
 $GIT_PATH/linux-setup/appconfig/shell/commons.sh_git, $GIT_PATH/linux-setup/appconfig/shell/commons.sh, \#\ %s
 $GIT_PATH/linux-setup/appconfig/zathura/zathurarc, ~/.config/zathura/zathurarc, \#\ %s
-$GIT_PATH/linux-setup/appconfig/nvim/lua/custom/chadrc_git.lua, ~/.config/nvim/lua/custom/chadrc.lua, \#\ %s
-$GIT_PATH/linux-setup/appconfig/nvim/lua/custom/init_git.lua, ~/.config/nvim/lua/custom/init.lua, \#\ %s
-$GIT_PATH/linux-setup/appconfig/nvim/lua/custom/plugins_git.lua, ~/.config/nvim/lua/custom/plugins.lua, \#\ %s
-$GIT_PATH/linux-setup/appconfig/nvim/lua/custom/mappings_git.lua, ~/.config/nvim/lua/custom/mappings.lua, \#\ %s
-$GIT_PATH/linux-setup/appconfig/nvim/lua/custom/highlights_git.lua, ~/.config/nvim/lua/custom/highlights.lua, \#\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vimwiki_git.vim, $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vimwiki.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-clang-format_git.vim, $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-clang-format.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-startify_git.vim, $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-startify.vim, \"\ %s

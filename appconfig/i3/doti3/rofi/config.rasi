@@ -25,4 +25,4 @@ configuration {
   }
 }
 
-@theme "~/.i3/styles/main.rasi"
+@theme "~/.i3/rofi/styles/main.rasi"

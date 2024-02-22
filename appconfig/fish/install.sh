@@ -41,12 +41,12 @@ while true; do
     sudo apt update
     sudo apt install -y fish
 
-    # deploy
-    mkdir -p $HOME/.config/fish
-    rm -f ~/.config/fish/config.fish
-
     # install fish plugins
     $APP_PATH/plugins.fish
+
+    # config
+    mkdir -p $HOME/.config/fish
+    cp -f $APP_PATH/config.fish ~/.config/fish/config.fish
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

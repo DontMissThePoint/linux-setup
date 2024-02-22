@@ -16,8 +16,8 @@ fisher install orefalo/grc
 fisher install gazorby/fish-abbreviation-tips
 fisher install nickeb96/puffer-fish
 fisher install jorgebucaran/autopair.fish
-fisher install patrickf1/colored_man_pages.fish
 
+fisher install patrickf1/colored_man_pages.fish
 fisher install jorgebucaran/nvm.fish
 nvm install lts/iron
 

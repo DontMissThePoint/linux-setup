@@ -68,8 +68,8 @@ while true; do
     rm -rf ~/.local/share/nvim "$CONFIG"
 
     # Nvchad
-    git clone https://github.com/NvChad/NvChad "$CONFIG" --depth 1 && nvim +MasonInstallAll +NvChadUpdate
-    rm -fv $CONFIG/lua/custom/*.lua
+    git clone https://github.com/NvChad/NvChad "$CONFIG" --depth 1
+    cp -f $APP_PATH/nvchad/* $CONFIG/lua/custom && nvim +MasonInstallAll +NvChadUpdate
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

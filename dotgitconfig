@@ -66,3 +66,15 @@
 	minus-empty-line-marker-style = normal normal
 	plus-empty-line-marker-style = normal normal
 	line-numbers-right-format = "{np:^4}│ "
+[commit]
+	gpgSign = false
+[pull]
+	rebase = false
+[gui]
+	pruneduringfetch = true
+[smartgit "submodule"]
+	fetchalways = false
+	update = true
+	initializenew = true
+[push]
+	recurseSubmodules = check
