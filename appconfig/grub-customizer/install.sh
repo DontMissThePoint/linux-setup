@@ -38,6 +38,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Installing grub-customizer
+
     if [ -n "$BEAVER" ] || [ -n "$JAMMY" ]; then
       the_ppa=danielrichter2007/grub-customizer
       if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
@@ -46,6 +48,15 @@ while true; do
         sudo apt install -y grub-customizer
       fi
     fi
+
+    # plymouth
+    sudo apt install -y plymouth
+
+    # install the new theme (ring, in this case)
+    sudo cp -fr $APP_PATH/plymouth-themes/pack/lone /usr/share/plymouth/themes/
+    sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/lone/lone.plymouth 200
+    sudo update-alternatives --config default.plymouth
+    sudo update-initramfs -u
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
