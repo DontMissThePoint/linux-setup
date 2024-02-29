@@ -52,11 +52,12 @@ while true; do
     # plymouth
     sudo apt install -y plymouth
 
-    # install the new theme (ring, in this case)
+    # install ring theme
     sudo cp -fr $APP_PATH/plymouth-themes/pack/lone /usr/share/plymouth/themes/
     sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/lone/lone.plymouth 200
     sudo update-alternatives --config default.plymouth
-    sudo update-initramfs -u
+    sudo update-initramfs -c -k $(uname -r)
+    sudo update-grub2
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
