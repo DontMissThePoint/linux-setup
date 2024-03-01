@@ -51,13 +51,15 @@ while true; do
 
     # plymouth
     sudo apt install -y plymouth
+    sudo mkdir -p /etc/plymouth
+    printf "[Daemon]\nTheme=lone\nShowDelay=0" | sudo tee /etc/plymouth/plymouthd.conf
 
-    # install ring theme
+    # install theme
     sudo cp -fr $APP_PATH/plymouth-themes/pack/lone /usr/share/plymouth/themes/
     sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/lone/lone.plymouth 200
     sudo update-alternatives --config default.plymouth
     sudo update-initramfs -c -k $(uname -r)
-    sudo update-grub2
+    sudo update-grub
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -83,6 +83,7 @@ while true; do
     # xorg
     cp -f $APP_PATH/dotxinitrc ~/.xinitrc
     cp -f $APP_PATH/dotxsession ~/.xsession
+    cp -f $APP_PATH/dotxserverrc ~/.xserverrc
 
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
