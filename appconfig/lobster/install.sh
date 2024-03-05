@@ -54,17 +54,16 @@ while true; do
 
     # config
     mkdir -p ~/.config/lobster
-    cp "$APP_PATH/lobster_config.txt" ~/.config/lobster/lobster_config.txt
+    cp -f "$APP_PATH/lobster_config.txt" ~/.config/lobster/lobster_config.txt
 
-    # cmatrix
-    sudo apt install -y cmatrix cmatrix-xfont
+    # libg-fzf
+    toilet LibG
+    sudo curl -sL https://raw.githubusercontent.com/mrishu/libg-fzf/main/libg -o /usr/local/bin/libg &&
+    sudo chmod +x /usr/local/bin/libg
 
-    # pipes.sh
-    cd /tmp
-    [ -e pipes.sh ] && rm -rf /tmp/pipes.sh
-    git clone https://github.com/pipeseroni/pipes.sh
-    cd pipes.sh
-    sudo make install
+    # config
+    mkdir -p ~/.config/libg
+    cp -f "$APP_PATH/libg.sh" ~/.config/libg/libg.sh
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

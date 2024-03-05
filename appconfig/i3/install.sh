@@ -244,6 +244,14 @@ while true; do
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
 
+    # pipes.sh -t7
+    sudo apt install -y cmatrix cmatrix-xfont
+    cd /tmp
+    [ -e pipes.sh ] && rm -rf /tmp/pipes.sh
+    git clone https://github.com/pipeseroni/pipes.sh
+    cd pipes.sh
+    sudo make install
+
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime
 
