@@ -10,10 +10,11 @@ export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
   --marker="▶"
   --layout=reverse-list --info=inline
   --preview-window="right:70%:<70(up,80%)"
-  --preview="bat --style=numbers --color=always --line-range :500 {}"
+  --preview="preview {}"
   --bind "ctrl-/:toggle-preview,focus:transform-preview-label:echo [ {} ] | lolcat -f"'
 #  --border-label="🎯 Pick..."
 #  --header="CTRL-g or ESC to quit"
+#  --preview="bat --style=numbers --color=always --line-range :500 {}"
 
 # Color schemes
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'

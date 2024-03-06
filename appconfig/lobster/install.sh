@@ -48,21 +48,22 @@ while true; do
     sudo cp -f ueberzug /usr/local/bin/ueberzug
     sudo ln -sf /usr/local/bin/ueberzug /usr/bin/ueberzugpp
 
+    # bt client
+    sudo apt install -y transmission transmission-cli
+
     # lobster
     sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
     sudo chmod +x /usr/local/bin/lobster
-
-    # config
-    mkdir -p ~/.config/lobster
-    cp -f "$APP_PATH/lobster_config.txt" ~/.config/lobster/lobster_config.txt
+    touch $HOME/.local/share/lobster/lobster_history.txt
 
     # libg-fzf
-    toilet LibG
+    echo "Adding Library Genesis.."
     sudo curl -sL https://raw.githubusercontent.com/mrishu/libg-fzf/main/libg -o /usr/local/bin/libg &&
     sudo chmod +x /usr/local/bin/libg
 
     # config
-    mkdir -p ~/.config/libg
+    mkdir -p ~/.config/lobster ~/.config/libg
+    cp -f "$APP_PATH/lobster_config.txt" ~/.config/lobster/lobster_config.txt
     cp -f "$APP_PATH/libg.sh" ~/.config/libg/libg.sh
 
     break
