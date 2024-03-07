@@ -253,6 +253,7 @@ nmap <leader>ss <Plug>SlimeLineSend
 
 " Command-line
 noremap ;; ;
+vnoremap ; :
 map ; :
 map q; q:
 
