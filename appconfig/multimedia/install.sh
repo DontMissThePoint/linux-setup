@@ -21,7 +21,7 @@ do
   fi
 done
 
-default=n
+default=y
 while true; do
   if [[ "$unattended" == "1" ]]
   then
@@ -36,9 +36,13 @@ while true; do
 
     # use in pdfpc to play videos
     sudo apt-get -y install gstreamer1.0-libav
-     
+
     # for video, photo, audio, ..., viewing and editing
     sudo apt-get -y install gimp screenkey mpv vlc audacity rawtherapee pavucontrol
+
+    # high-quality mpv
+    echo "Installing... 🎥 High-quality configuration for mpv media player"
+    wget -qO- https://github.com/noelsimbolon/mpv-config/releases/download/v1.0.5/mpv-config-linux.zip | bsdtar --strip-components=1 -xvf- -C ~/.config/mpv
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

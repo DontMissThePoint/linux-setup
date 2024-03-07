@@ -42,6 +42,11 @@ while true; do
     ln -fs $APP_PATH/config/fzf.bash ~/.config/fzf/fzf.bash
     ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
 
+    # preview
+    echo "Adding fzf previews.."
+    sudo cp -f $APP_PATH/preview /usr/local/bin/preview
+    sudo chmod a+x /usr/local/bin/preview
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

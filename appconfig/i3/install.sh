@@ -48,19 +48,42 @@ while true; do
 
     if [ "$unattended" == "0" ] && [ -z $travis ]; # if running interactively
     then
-      # install graphical x11 graphical backend with lightdm loading screen
+      sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev
+      # install tui backend with ly loading screen
+      cd /tmp
+      [ -e ly ] && rm -rf ly
+      git clone --recurse-submodules https://github.com/fairyglade/ly
+      cd ly
+      make -j8
+      sudo make install installsystemd
+
+      # systemd service file
+      sudo systemctl disable gdm3
+      sudo systemctl enable ly.service
+      sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
+
+      # font size in virtual console (tty)
+      # UTF-8
+      # Guess optimal character set
+      # Let the system select a suitable font
+      # 10x20 (framebuffer only)
       echo ""
       echo "-----------------------------------------------------------------"
-      echo "installing lightdm login manager. it might require manual action."
+      echo "installing custom tty font. it might require manual action."
       echo "-----------------------------------------------------------------"
-      echo "if so, please select \"lightdm\", after hitting enter"
+      echo "if so, please select \"10x20 (framebuffer only)\", after hitting enter"
       echo ""
       echo "waiting for enter..."
       echo ""
       read
     fi
 
-    sudo apt-get -y install lightdm
+    sudo dpkg-reconfigure -plow console-setup
+
+    # xorg
+    cp -f $APP_PATH/dotxinitrc ~/.xinitrc
+    cp -f $APP_PATH/dotxsession ~/.xsession
+    cp -f $APP_PATH/dotxserverrc ~/.xserverrc
 
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
@@ -220,6 +243,14 @@ while true; do
 
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
+
+    # pipes.sh -t7
+    sudo apt install -y cmatrix cmatrix-xfont
+    cd /tmp
+    [ -e pipes.sh ] && rm -rf /tmp/pipes.sh
+    git clone https://github.com/pipeseroni/pipes.sh
+    cd pipes.sh
+    sudo make install
 
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime

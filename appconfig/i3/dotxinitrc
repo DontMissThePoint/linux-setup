@@ -1,0 +1,6 @@
+#!/bin/bash
+# If you aren't using a display manager to login, add this line
+[[ -f ~/.Xresources ]] && xrdb -merge ~/.Xresources
+
+# i3
+exec i3

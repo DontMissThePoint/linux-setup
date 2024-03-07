@@ -14,7 +14,6 @@ cp $GIT_PATH/linux-setup/appconfig/fzf/dotFZF_DEFAULT_OPTS $HOME/ownCloud/Docume
 cp $GIT_PATH/linux-setup/appconfig/qutebrowser/config_template.py $HOME/ownCloud/Documents/ACCOMPLISHED/dotfiles/config.py
 cp $GIT_PATH/linux-setup/appconfig/zathura/zathurarc $HOME/ownCloud/Documents/ACCOMPLISHED/dotfiles/zathurarc
 cp $GIT_PATH/linux-setup/appconfig/i3/doti3/config_git $HOME/ownCloud/Documents/ACCOMPLISHED/dotfiles/config_git
-cp $GIT_PATH/linux-setup/appconfig/fish/config_git.fish $HOME/ownCloud/Documents/ACCOMPLISHED/dotfiles/config_git.fish
 
 # Folders
 cp -r $HOME/.config/i3-layout-manager/layouts $HOME/ownCloud/Documents/ACCOMPLISHED/

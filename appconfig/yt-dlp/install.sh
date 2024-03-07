@@ -46,7 +46,7 @@ while true; do
     # yt-dlp; gallery-dl
     python3 -m pip install -U yt-dlp gallery-dl
 
-   # ytfzf
+    # ytfzf
     cd /tmp
     [ -e ytfzf ] && rm -rf ytfzf
     git clone https://github.com/pystardust/ytfzf
