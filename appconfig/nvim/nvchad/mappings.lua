@@ -6,7 +6,9 @@ M.general = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
 		["gh"] = { "<Home>", "Move cursor beginning of line" },
 		["gl"] = { "<End>", "Move cursor end of line" },
+		["gs"] = { "<cmd> AutosaveToggle <CR>", "Toggle autosave" },
 		["<leader>."] = { "<cmd> cd %:p:h<CR>:pwd <CR>", "Change workspace onto current location" },
+    ["<leader><leader>"] = { "<cmd> Telescope find_files<CR>", "Find files" },
 
 		--  format with conform
 		["<leader>fm"] = {
@@ -25,13 +27,13 @@ M.general = {
 
 M.truezen = {
 	n = {
-		["<leader>ta"] = { "<cmd> TZAtaraxis<CR>", "Zen mode" },
-		["<leader>tf"] = { "<cmd> TZFocus<CR>", "Focus current window" },
-		["<leader>tm"] = { "<cmd> TZMinimalist<CR>", "Disable UI components" },
-		["<leader>tn"] = { "<cmd> TZNarrow<CR>", "Narrow text region for better focus" },
+		["<leader>Za"] = { "<cmd> TZAtaraxis<CR>", "Zen mode" },
+		["<leader>Zf"] = { "<cmd> TZFocus<CR>", "Focus current window" },
+		["<leader>Zm"] = { "<cmd> TZMinimalist<CR>", "Disable UI components" },
+		["<leader>Zn"] = { "<cmd> TZNarrow<CR>", "Narrow text region for better focus" },
 	},
 	v = {
-		["<leader>tn"] = { "<cmd> '<,'>TZNarrow<CR>", "Narrow text region for better focus" },
+		["<leader>Zn"] = { "<cmd> '<,'>TZNarrow<CR>", "Narrow text region for better focus" },
 	},
 }
 
