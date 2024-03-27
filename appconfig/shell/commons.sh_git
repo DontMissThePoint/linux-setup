@@ -19,6 +19,7 @@ alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
 alias lobc="lobster -i --rofi -x -c"
+alias vimdiff="nvim -d"
 
 # quick acces to files and directories
 alias f="nvim \$(fd -H . ~ | fzy -s)"

@@ -18,6 +18,23 @@ local plugins = {
 		opts = overrides.mason,
 	},
 
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      defaults = {
+          layout_strategy = "horizontal",
+          layout_config = {
+              height = 0.9,
+              prompt_position = "bottom",
+              vertical = {
+                  mirror = true,
+                  preview_cutoff = 0,
+              },
+          },
+      },
+    },
+  },
+
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
@@ -44,6 +61,13 @@ local plugins = {
 			require("better_escape").setup()
 		end,
 	},
+
+  {
+    "nvim-telescope/telescope-frecency.nvim",
+    config = function()
+      require("telescope").load_extension "frecency"
+    end,
+  },
 
 	{
 		"stevearc/conform.nvim",

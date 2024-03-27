@@ -8,7 +8,7 @@ M.general = {
 		["gl"] = { "<End>", "Move cursor end of line" },
 		["gs"] = { "<cmd> AutosaveToggle <CR>", "Toggle autosave" },
 		["<leader>."] = { "<cmd> cd %:p:h<CR>:pwd <CR>", "Change workspace onto current location" },
-    ["<leader><leader>"] = { "<cmd> Telescope find_files<CR>", "Find files" },
+    ["<leader><leader>"] = { "<cmd> Telescope frecency<CR>", "Find recent files" },
 
 		--  format with conform
 		["<leader>fm"] = {
