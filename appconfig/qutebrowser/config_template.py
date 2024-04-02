@@ -73,7 +73,7 @@ c.url.default_page = "about:blank"
 ## I like to save web pages in MHTML format
 ## ,sm to do that
 config.bind(',sm', 'cmd-set-text :download --mhtml')
-c.downloads.location.directory = '~/Downloads/2024-Q1'
+c.downloads.location.directory = '~/Downloads/2024-Q2'
 # c.downloads.location.directory = '%USERPROFILE%\\Downloads-%YEARQUARTER%\\'
 
 c.downloads.location.suggestion = 'both'
