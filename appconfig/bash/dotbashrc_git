@@ -42,6 +42,9 @@ bind '"jk":vi-movement-mode'
 # fzf
 [ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
 
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --bash)"
+
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
 

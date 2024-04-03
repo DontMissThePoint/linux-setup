@@ -55,14 +55,15 @@ while true; do
       echo Connection disrupted, retrying in 10 seconds...
       sleep 10
     done
-    brew install -q grc fzy bat ripgrep miller ctop btop eza fd dust aria2 glow
+    brew install -q grc fzy bat ripgrep miller ctop btop eza fd s-search dust aria2 glow
     brew cleanup --prune=all
 
     # configs
-    mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow
+    mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow ~/.config/s
     cp "$APP_PATH/key_bindings.ron" ~/.config/gitui/key_bindings.ron
     cp "$APP_PATH/btop.conf" ~/.config/btop/btop.conf
-    cp "$APP_PATH/config" ~/.config/bat/config
+    cp "$APP_PATH/bat.config" ~/.config/bat/config
+    cp "$APP_PATH/s.config" ~/.config/s/config
     cp "$APP_PATH/aria2.conf" ~/.config/aria2/aria2.conf
     cp "$APP_PATH/glow.yml" ~/.config/glow/glow.yml
 

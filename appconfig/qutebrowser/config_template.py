@@ -71,11 +71,9 @@ c.url.start_pages = ["about:blank"]
 c.url.default_page = "about:blank"
 
 ## I like to save web pages in MHTML format
-## Thanks to the next key binding, I can use ,sm to do that
+## ,sm to do that
 config.bind(',sm', 'cmd-set-text :download --mhtml')
-
-## Next works on Windows
-c.downloads.location.directory = '~/Downloads/2024-Q1'
+c.downloads.location.directory = '~/Downloads/2024-Q2'
 # c.downloads.location.directory = '%USERPROFILE%\\Downloads-%YEARQUARTER%\\'
 
 c.downloads.location.suggestion = 'both'
@@ -92,11 +90,10 @@ config.bind(',m', 'spawn mpv {url}')
 config.bind(',M', 'hint links spawn mpv {hint-url}')
 config.bind(';M', 'hint --rapid links spawn mpv {hint-url}')
 
-## next is a note to self about how to bind JavaScript code to a key shortcut
+## JavaScript code to a key shortcut
 # config.bind(',hw', "jseval alert('Hello World')")
-
 c.content.dns_prefetch = False
 
-c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/html?q={}'}
-## Above is qutebrowser’s default, next is search engine I use
+## qutebrowser’s default
+c.url.searchengines = {'DEFAULT': 'https://swisscows.com/en/web?query={}'}
 #c.url.searchengines = {'DEFAULT': 'https://lite.qwant.com/?q={}'}

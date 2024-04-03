@@ -163,7 +163,7 @@ while true; do
     fi
 
     cd $APP_PATH/../../submodules/indicator-sound-switcher
-    sudo python3 setup.py install
+    sudo /usr/bin/python3 setup.py install
 
     # dunst
     mkdir -p ~/.config/dunst

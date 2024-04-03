@@ -44,7 +44,7 @@ while true; do
     sudo apt install -y libopencv-dev python3-opencv
 
     # yt-dlp; gallery-dl
-    python3 -m pip install -U yt-dlp gallery-dl
+    /usr/bin/python3 -m pip install -U yt-dlp gallery-dl
 
     # ytfzf
     cd /tmp
