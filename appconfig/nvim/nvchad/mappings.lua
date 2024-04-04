@@ -6,9 +6,8 @@ M.general = {
 		[";"] = { ":", "enter command mode", opts = { nowait = true } },
 		["gh"] = { "<Home>", "Move cursor beginning of line" },
 		["gl"] = { "<End>", "Move cursor end of line" },
-		["gs"] = { "<cmd> AutosaveToggle <CR>", "Toggle autosave" },
 		["<leader>."] = { "<cmd> cd %:p:h<CR>:pwd <CR>", "Change workspace onto current location" },
-    ["<leader><leader>"] = { "<cmd> Telescope frecency<CR>", "Find recent files" },
+    ["<leader><leader>"] = { "<cmd> lua require('fzf-lua').files()<CR>", "FZF" },
 
 		--  format with conform
 		["<leader>fm"] = {
@@ -24,16 +23,21 @@ M.general = {
 }
 
 -- more keybinds!
-
-M.truezen = {
+M.autosave = {
 	n = {
-		["<leader>Za"] = { "<cmd> TZAtaraxis<CR>", "Zen mode" },
-		["<leader>Zf"] = { "<cmd> TZFocus<CR>", "Focus current window" },
-		["<leader>Zm"] = { "<cmd> TZMinimalist<CR>", "Disable UI components" },
-		["<leader>Zn"] = { "<cmd> TZNarrow<CR>", "Narrow text region for better focus" },
+		["<leader>s"]  = { "<cmd> AutosaveToggle <CR>", "Toggle autosave" },
+		["gs"] = { "<cmd> AutosaveToggle <CR>", "Toggle autosave" },
+	},
+}
+
+M.zen = {
+	n = {
+		["<leader>za"] = { "<cmd> ZenMode<CR>", "Zen mode" },
+		["<leader>zz"] = { "<cmd> ZenMode | TwilightEnable<CR>", "Distraction free coding" },
+		["<leader>zf"] = { "<cmd> Twilight<CR>", "Lime Light" },
 	},
 	v = {
-		["<leader>Zn"] = { "<cmd> '<,'>TZNarrow<CR>", "Narrow text region for better focus" },
+		["<leader>z"] = { "<cmd> '<,'>ZenMode<CR>", "Narrow text region for better focus" },
 	},
 }
 

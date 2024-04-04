@@ -62,13 +62,6 @@ local plugins = {
 		end,
 	},
 
-  {
-    "nvim-telescope/telescope-frecency.nvim",
-    config = function()
-      require("telescope").load_extension "frecency"
-    end,
-  },
-
 	{
 		"stevearc/conform.nvim",
 		--  for users those who want auto-save conform + lazyloading!
@@ -97,13 +90,41 @@ local plugins = {
 		end,
 	},
 
-	{
-		"Pocco81/true-zen.nvim",
+  {
+    "ibhagwan/fzf-lua",
 		lazy = false,
+    -- optional for icon support
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      -- calling `setup` is optional for customization
+      -- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
+      require("fzf-lua").setup({})
+    end
+  },
+
+  {
+    "folke/twilight.nvim",
+		lazy = false,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+    },
 		config = function()
-			require("true-zen").setup()
+			require("twilight").setup()
 		end,
-	},
+  },
+
+  {
+    "folke/zen-mode.nvim",
+		lazy = false,
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+    },
+		config = function()
+			require("zen-mode").setup()
+		end,
+  },
 
 	{
 		"rcarriga/nvim-notify",
@@ -166,7 +187,6 @@ local plugins = {
 		opts = {
 			-- your configuration comes here
 			-- or leave it empty to use the default settings
-			-- refer to the configuration section below
 		},
 	},
 
@@ -179,6 +199,20 @@ local plugins = {
 			})
 		end,
 	},
+
+  {
+    "epwalsh/pomo.nvim",
+    version = "*",  -- Recommended, use latest release instead of latest commit
+    lazy = true,
+    cmd = { "TimerStart", "TimerRepeat" },
+    dependencies = {
+      -- Optional, but highly recommended if you want to use the "Default" timer
+      "rcarriga/nvim-notify",
+    },
+    opts = {
+			-- your configuration here
+    },
+  }
 
 	-- To make a plugin not be loaded
 	-- {
