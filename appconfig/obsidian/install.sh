@@ -54,8 +54,9 @@ while true; do
 
     # Obsidian
     cd /tmp
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.4.16/obsidian_1.4.16_amd64.deb
-    sudo dpkg -i obsidian_1.4.16_amd64.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.5.12/obsidian_1.5.12_amd64.deb
+    sudo dpkg -i /tmp/obsidian_1.5.12_amd64.deb
+    mkdir -p ~/vaults/personal ~/vaults/work
 
     # Rclone
     sudo apt install -y fuse3
