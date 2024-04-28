@@ -7,7 +7,7 @@ M.general = {
 		["gh"] = { "<Home>", "Move cursor beginning of line" },
 		["gl"] = { "<End>", "Move cursor end of line" },
 		["<leader>."] = { "<cmd> cd %:p:h<CR>:pwd <CR>", "Change workspace onto current location" },
-    ["<leader><leader>"] = { "<cmd> lua require('fzf-lua').files()<CR>", "FZF" },
+    ["<leader><leader>"] = { "<cmd> lua require('fzf-lua').files({ cwd = '~/' })<CR>", "FZF" },
 
 		--  format with conform
 		["<leader>fm"] = {

@@ -217,6 +217,9 @@ while true; do
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false
 
+    # scroll view not content
+    gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
     # install xkb layout state
     cd $APP_PATH/../../submodules/xkblayout-state/
     make

@@ -69,6 +69,7 @@ while true; do
 
     # quickemu
     sudo apt install -y qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
+    sudo apt install -y --no-install-recommends samba
 
     the_ppa=flexiondotorg/quickemu
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then

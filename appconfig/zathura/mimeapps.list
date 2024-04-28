@@ -1,7 +1,7 @@
 [Default Applications]
-application/epub+zip=calibre-ebook-viewer.desktop;
 application/x-mobipocket-ebook=calibre-ebook-viewer.desktop;
 application/pdf=org.pwmt.zathura.desktop;
+application/epub+zip=org.pwmt.zathura.desktop;
 application/mxf=mpv.desktop;
 application/ogg=mpv.desktop;
 application/sdp=mpv.desktop;
@@ -90,8 +90,9 @@ font/otf=org.fontforge.FontForge.desktop;
 font/ttf=org.fontforge.FontForge.desktop;
 font/woff=org.fontforge.FontForge.desktop;
 font/woff2=org.fontforge.FontForge.desktop;
-image/jpeg=vimiv.desktop;
-image/jpg=vimiv.desktop;
+image/svg+xml=mupdf.desktop;
+image/jpeg=mupdf.desktop;
+image/jpg=mupdf.desktop;
 image/png=vimiv.desktop;
 inode/directory=org.gnome.Nautilus.desktop;
 text/csv=nvim.desktop;

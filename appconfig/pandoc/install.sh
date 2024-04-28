@@ -46,23 +46,6 @@ while true; do
       sudo apt install -y pandoc
     fi
 
-    # epy
-    pip3 install epy-reader
-
-    # Calibre
-    sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
-    #sudo calibre-uninstall
-
-    # Green scheme background: #b9edcd foreground: #384f45 links: #000000
-
-    # xdg-open
-    cp -f $APP_PATH/mimeapps.list ~/.config/mimeapps.list
-
-    # Kodoo
-    # cd /tmp
-    # aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb
-    # sudo dpkg -i /tmp/Koodo.Reader-1.6.0-amd64.deb
-
     break
 
   elif [[ $response =~ ^(n|N)=$ ]]
