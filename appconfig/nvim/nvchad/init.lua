@@ -6,6 +6,7 @@ set.tabstop = 2
 set.softtabstop = 2
 set.shiftwidth = 2
 set.nu = false
+set.relativenumber = true
 set.title = true
 
 -- Auto resize panes when resizing nvim window

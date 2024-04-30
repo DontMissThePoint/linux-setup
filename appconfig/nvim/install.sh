@@ -51,16 +51,34 @@ while true; do
 
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
-    # smartGit; deepGit
+    # syntevo smartGit
     echo "Setup syntevo tools."
     rm -rf ~/.config/smartgit
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
+
+    # deepGit
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
 
-    # syntevo
+    # Activate
     sudo dpkg -i *.deb || sudo apt install -fy
+    num=`cat /usr/share/smartgit/bin/smartgit.sh | grep "NEW_DATE" | wc -l`
+    if [ "$num" -lt "1" ]; then
 
-    # config
+        echo "Activating smartgit..."
+        echo '
+    # auto-reset trial period
+    config="~/.config/smartgit/20.2/preferences.yml"
+    # current date in msec + 25 days
+    NEW_DATE=$(date -d"+25 days" +%s%3N)
+    # sed is for change old date for new one in config
+    sed -r -i "s/(listx: \{eUT: )[0-9]+/\1$NEW_DATE/g" $config
+    sed -r -i "s/(, nRT: )[0-9]+/\1$NEW_DATE/g" $config' | \
+        sudo tee -a /usr/share/smartgit/bin/smartgit.sh > /dev/null
+        echo "Done."
+
+    fi
+
+    # nvim
     sudo -H pip3 install wheel
 
     sudo -H pip3 install neovim
