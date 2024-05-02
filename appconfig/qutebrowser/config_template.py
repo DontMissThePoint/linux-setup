@@ -41,6 +41,14 @@ c.bindings.commands['normal'] = {
 c.bindings.commands['hint'] = {
 # hints
     'x': 'tab-close',
+    'jk': 'mode-leave',
+    'jj': 'mode-leave',
+}
+
+c.bindings.commands['insert'] = {
+# insert
+    'jk': 'mode-leave',
+    'jj': 'mode-leave',
 }
 
 # hint

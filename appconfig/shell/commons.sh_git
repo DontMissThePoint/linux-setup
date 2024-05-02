@@ -24,7 +24,7 @@ alias vimdiff="nvim -d"
 # quick acces to files and directories
 alias f="nvim \$(fd -H . ~ | fzy -s)"
 alias a="fd -H . / | fzf-tmux -p 80%,60% --preview 'preview {}' --preview-window '~8'"
-# alias s="find ~ -type f -iregex '.*\.\(epub\|mobi\|pdf\|txt\|mp4\|mkv\)$' | fzy -l 20 | xargs -I {} xdg-open {}"
+alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzy -l 20 | xargs -I {} zaread {}"
 alias d="cd \$(fd -H -td . / | fzy)"
 
 # #{ remove_duplicates_from_path()

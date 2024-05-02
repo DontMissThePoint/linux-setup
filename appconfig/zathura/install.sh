@@ -63,27 +63,29 @@ while true; do
 
     else
 
-      sudo apt-get -y install zathura mupdf mupdf-tools
+      sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice
     fi
 
+    # zaread
+    sh -c "$(wget -O - https://sweetohm.net/dist/md2pdf/install)"
     mkdir -p ~/.config/zathura
 
+    cd /tmp
+    [ -e zaread ] && rm -rf zaread
+    git clone https://github.com/paoloap/zaread
+    cd zaread
+    sudo make install
+
     # epy
-    pip3 install epy-reader
+    pip install epy-reader
 
     # Calibre
     sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
     #sudo calibre-uninstall
-
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000
 
-    # xdg-open
+    # mimeapps
     cp -f $APP_PATH/mimeapps.list ~/.config/mimeapps.list
-
-    # Kodoo
-    # cd /tmp
-    # aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/koodo-reader/koodo-reader/releases/download/v1.6.0/Koodo.Reader-1.6.0-amd64.deb
-    # sudo dpkg -i /tmp/Koodo.Reader-1.6.0-amd64.deb
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

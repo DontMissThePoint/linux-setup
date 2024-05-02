@@ -38,8 +38,8 @@ while true; do
 
     # ueberzug
     cd /tmp
-    sudo apt install -y libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-res0-dev
     [ -e ueberzugpp ] && rm -rf ueberzugpp
+    sudo apt install -y libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-res0-dev
     git clone https://github.com/jstkdng/ueberzugpp.git
     cd ueberzugpp
     mkdir build && cd build

@@ -42,7 +42,7 @@ while true; do
 
     sudo udevadm control --reload-rules
 
-    pip3 install --user streamdeck_ui
+    pip install --user streamdeck_ui
 
     # symlink the settings
     rm -rf $HOME/.streamdeck_icons
