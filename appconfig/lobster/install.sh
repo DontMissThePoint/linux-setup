@@ -62,9 +62,10 @@ while true; do
     sudo chmod +x /usr/local/bin/libg
 
     # config
+    echo "Configuring..."
     mkdir -p ~/.config/lobster ~/.config/libg
-    cp -f "$APP_PATH/lobster_config.txt" ~/.config/lobster/lobster_config.txt
-    cp -f "$APP_PATH/libg.sh" ~/.config/libg/libg.sh
+    pv "$APP_PATH/lobster_config.txt" > ~/.config/lobster/lobster_config.txt
+    pv "$APP_PATH/libg.sh" > ~/.config/libg/libg.sh
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

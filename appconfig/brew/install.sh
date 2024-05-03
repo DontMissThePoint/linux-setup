@@ -59,13 +59,14 @@ while true; do
     brew cleanup --prune=all
 
     # configs
+    echo "Configuring..."
     mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow ~/.config/s
-    cp "$APP_PATH/key_bindings.ron" ~/.config/gitui/key_bindings.ron
-    cp "$APP_PATH/btop.conf" ~/.config/btop/btop.conf
-    cp "$APP_PATH/bat.config" ~/.config/bat/config
-    cp "$APP_PATH/s.config" ~/.config/s/config
-    cp "$APP_PATH/aria2.conf" ~/.config/aria2/aria2.conf
-    cp "$APP_PATH/glow.yml" ~/.config/glow/glow.yml
+    pv "$APP_PATH/key_bindings.ron" > ~/.config/gitui/key_bindings.ron
+    pv "$APP_PATH/btop.conf" > ~/.config/btop/btop.conf
+    pv "$APP_PATH/bat.config >" ~/.config/bat/config
+    pv "$APP_PATH/s.config" > ~/.config/s/config
+    pv "$APP_PATH/aria2.conf" > ~/.config/aria2/aria2.conf
+    pv "$APP_PATH/glow.yml" > ~/.config/glow/glow.yml
 
     # update bt-trackers
     echo "Updating bt-trackers... "

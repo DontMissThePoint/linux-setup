@@ -80,11 +80,6 @@ while true; do
 
     sudo dpkg-reconfigure -plow console-setup
 
-    # xorg
-    cp -f $APP_PATH/dotxinitrc ~/.xinitrc
-    cp -f $APP_PATH/dotxsession ~/.xsession
-    cp -f $APP_PATH/dotxserverrc ~/.xserverrc
-
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
 
@@ -165,10 +160,6 @@ while true; do
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo /usr/bin/python3 setup.py install
 
-    # dunst
-    mkdir -p ~/.config/dunst
-    cp $APP_PATH/dunstrc ~/.config/dunst/dunstrc
-
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
       ln -sf $APP_PATH/doti3 ~/.i3
@@ -186,15 +177,22 @@ while true; do
     sudo ninja -C build install
 
     # config
-    mkdir -p ~/.config/rofi
-    cp -f $APP_PATH/doti3/rofi/config.rasi ~/.config/rofi/config.rasi
-    cp -f $APP_PATH/doti3/rofi/color.rasi ~/.config/rofi/color.rasi
+    echo "Configuring..."
+    mkdir -p ~/.config/rofi ~/.config/dunst
+    pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
+    pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
+    pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
 
-    # copy i3 config file
-    cp $APP_PATH/doti3/config_git ~/.i3/config
-    cp $APP_PATH/doti3/i3blocks.conf_git ~/.i3/i3blocks.conf
-    cp $APP_PATH/i3blocks/wifi_git $APP_PATH/i3blocks/wifi
-    cp $APP_PATH/i3blocks/battery_git $APP_PATH/i3blocks/battery
+    # i3 config
+    pv $APP_PATH/doti3/config_git > ~/.i3/config
+    pv $APP_PATH/doti3/i3blocks.conf_git > ~/.i3/i3blocks.conf
+    pv $APP_PATH/i3blocks/wifi_git > $APP_PATH/i3blocks/wifi
+    pv $APP_PATH/i3blocks/battery_git > $APP_PATH/i3blocks/battery
+
+    # xorg
+    pv $APP_PATH/dotxinitrc > ~/.xinitrc
+    pv $APP_PATH/dotxsession > ~/.xsession
+    pv $APP_PATH/dotxserverrc > ~/.xserverrc
 
     # copy fonts
     # fontawesome 4.7
@@ -241,8 +239,8 @@ while true; do
     # lockscreen with effects!
     wget -c https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
     mkdir -p ~/.config/betterlockscreen/
-    cp $APP_PATH/betterlockscreenrc ~/.config/betterlockscreen/betterlockscreenrc
-    cp $APP_PATH/custom-post.sh ~/.config/betterlockscreen/custom-post.sh
+    pv $APP_PATH/betterlockscreenrc > ~/.config/betterlockscreen/betterlockscreenrc
+    pv $APP_PATH/custom-post.sh > ~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg

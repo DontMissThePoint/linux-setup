@@ -67,8 +67,11 @@ while true; do
     fi
 
     # zaread
+    echo "Configuring..."
     sh -c "$(wget -O - https://sweetohm.net/dist/md2pdf/install)"
-    mkdir -p ~/.config/zathura
+    mkdir -p ~/.config/zathura ~/.config/zaread
+    pv "$APP_PATH/zareadrc" > ~/.config/zaread/zareadrc
+
 
     cd /tmp
     [ -e zaread ] && rm -rf zaread
@@ -85,7 +88,7 @@ while true; do
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000
 
     # mimeapps
-    cp -f $APP_PATH/mimeapps.list ~/.config/mimeapps.list
+    pv $APP_PATH/mimeapps.list > ~/.config/mimeapps.list
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -63,9 +63,10 @@ while true; do
     fc-cache -vf
 
     # config
+    echo "Configuring..."
     mkdir -p ~/.config/environment.d ~/.config/Kvantum
     printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
-    cp $APP_PATH/kvantum.kvconfig ~/.config/Kvantum/kvantum.kvconfig
+    pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
 
     # activate
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'

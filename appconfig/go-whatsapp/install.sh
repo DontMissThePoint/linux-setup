@@ -47,7 +47,7 @@ while true; do
     mkdir -p ~/.purple/plugins
 
     if [ -n "$BEAVER" ] || [ -n "$FOCAL" ]; then
-      cp -f $APP_PATH/libwhatsmeow.so ~/.purple/plugins/libwhatsmeow.so
+      pv $APP_PATH/libwhatsmeow.so > ~/.purple/plugins/libwhatsmeow.so
     else
       # go
       sudo rm -rf /usr/local/go

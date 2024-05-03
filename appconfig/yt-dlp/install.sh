@@ -65,11 +65,12 @@ while true; do
     rm -f $APP_PATH/XnViewMP-linux-x64.deb
 
     # config
+    echo "Configuring..."
     mkdir -p ~/.config/yt-dlp ~/.config/ytfzf ~/.config/gallery-dl ~/.config/xnviewmp
-    cp $APP_PATH/style_sheet.qss ~/.config/xnviewmp/style_sheet.qss
-    cp $APP_PATH/yt-dlp.conf ~/.config/yt-dlp/yt-dlp.conf
-    cp $APP_PATH/conf.sh ~/.config/ytfzf/conf.sh
-    cp $APP_PATH/config.json ~/.config/gallery-dl/config.json
+    pv $APP_PATH/style_sheet.qss > ~/.config/xnviewmp/style_sheet.qss
+    pv $APP_PATH/yt-dlp.conf > ~/.config/yt-dlp/yt-dlp.conf
+    pv $APP_PATH/conf.sh > ~/.config/ytfzf/conf.sh
+    pv $APP_PATH/config.json > ~/.config/gallery-dl/config.json
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
