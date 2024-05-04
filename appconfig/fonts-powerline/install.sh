@@ -56,6 +56,12 @@ while true; do
     fi
     sudo apt install -y fonts-symbola dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
+    # NF
+    toilet Installing Nerd Fonts
+    curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
+    getnf -i "JetBrainsMono Meslo iA-Writer NerdFontsSymbolsOnly UbuntuMono"
+    getnf -U
+
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
 
@@ -75,19 +81,6 @@ while true; do
 
     # undo the patch
     # git reset --hard
-
-    # fontforge
-    toilet Installing fontforge
-
-    cd /tmp
-    sudo apt install -y libjpeg-dev libtiff5-dev libpng-dev libfreetype6-dev libgif-dev libgtk-3-dev libxml2-dev libpango1.0-dev libcairo2-dev libspiro-dev libwoff-dev python3-dev ninja-build cmake build-essential gettext
-    [ -e fontforge ] && rm -rf fontforge
-    git clone https://github.com/fontforge/fontforge.git
-    cd fontforge
-    mkdir build && cd build
-    cmake -GNinja ..
-    ninja
-    sudo ninja install
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
