@@ -36,16 +36,18 @@ while true; do
 
     toilet Setting up powerline fonts
 
-    cd $APP_PATH/../../submodules
-    mv fonts fonts.orig
-    git clone https://github.com/powerline/fonts.git
+    cd $APP_PATH/../../submodules/fonts
+    cp -fr $APP_PATH/fonts ./fonts.orig
 
     # apply our patch to change the font installation dir
     # git apply $APP_PATH/patch.patch
-    cd fonts
-    cp -rf ../fonts.orig/* ./
+
     ./install.sh
-    cd ..; rm -fr fonts; mv fonts.orig fonts
+    rm -fr ./fonts.orig
+
+    # make Terminus work
+    mkdir -p ~/.config/fontconfig/conf.d
+    cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
 
     # Look and feel
     the_ppa=papirus/papirus
@@ -64,8 +66,6 @@ while true; do
 
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
-
-    # refresh
     fc-cache -vf
 
     # config

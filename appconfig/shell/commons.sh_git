@@ -22,9 +22,9 @@ alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
 
 # quick acces to files and directories
-alias f="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzy -l 20 | xargs -I {} zaread {}"
+alias f="nvim \$(fd -H . ~ | fzy -s)"
+alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzy -l 20 | xargs -I {} zaread {}"
 alias a="fd -H . / | fzf-tmux -p 80%,60% --preview 'preview {}' --preview-window '~8'"
-alias z="nvim \$(fd -H . ~ | fzy -s)"
 alias d="cd \$(fd -H -td . / | fzy)"
 
 # #{ remove_duplicates_from_path()
