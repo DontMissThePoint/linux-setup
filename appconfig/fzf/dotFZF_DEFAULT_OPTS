@@ -6,21 +6,19 @@ export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --foll
 
 export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
   --cycle
-  --border=none
-  --marker="▶"
-  --layout=reverse-list --info=inline
+  --border --multi  --highlight-line
+  --marker ▏ --pointer ▌ --prompt "▌ "
+  --info inline-right --layout reverse
   --preview="preview {}"
   --bind "ctrl-/:toggle-preview,focus:transform-preview-label:echo [ {} ] | lolcat -f"'
-#  --border-label="🎯 Pick..."
-#  --header="CTRL-g or ESC to quit"
-# --preview="bat --style=numbers --color=always --line-range :500 {}"
 
 # Color schemes
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=fg:#cdd6f4,hl:#268bd2
  --color=fg+:241,bg+:#181818,hl+:#87d75f
  --color=info:#b58900,prompt:#b58900,pointer:168
- --color=marker:168,spinner:#b58900,header:#91aadf'
+ --color=marker:168,spinner:#b58900,header:#91aadf
+ --color gutter:-1,selected-bg:238,selected-fg:146,current-fg:189'
 
 # Screencast
 export ANDROID_SERIAL=07334371CK100018
