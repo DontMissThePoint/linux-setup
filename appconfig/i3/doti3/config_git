@@ -553,7 +553,7 @@ bar {
 
     background $i3bar_bg
     statusline $active_text_color
-    separator  $active_background
+    separator  #666666
 
     #                  border             background           text
     focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
