@@ -137,7 +137,7 @@ while true; do
     git clean -fd
 
     # for cpu usage in i3blocks
-    sudo apt-get -y install sysstat
+    sudo apt-get -y install sysstat dstat
 
     # for brightness and volume control
     sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr

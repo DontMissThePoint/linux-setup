@@ -27,6 +27,9 @@ alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w
 alias a="fd -H . / | fzf-tmux -p 80%,60% --preview 'preview {}' --preview-window '~8'"
 alias d="cd \$(fd -H -td . / | fzy)"
 
+# remove from PATH
+# export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | xargs | tr " " ":"`
+
 # #{ remove_duplicates_from_path()
 remove_duplicates_from_path() {
     OLD_IFS=$IFS

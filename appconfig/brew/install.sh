@@ -55,7 +55,7 @@ while true; do
       echo Connection disrupted, retrying in 10 seconds...
       sleep 10
     done
-    brew install -q grc fzy bat ripgrep miller ctop btop eza fd s-search dust aria2 glow
+    brew install grc fzy bat ripgrep miller ctop btop eza fd s-search dust aria2 glow
     brew cleanup --prune=all
 
     # configs

@@ -90,6 +90,14 @@ local plugins = {
 		end,
 	},
 
+	{
+		"sindrets/diffview.nvim",
+		lazy = false,
+		config = function()
+			require("diffview").setup({})
+		end,
+	},
+
   {
     "ibhagwan/fzf-lua",
 		lazy = false,
@@ -98,7 +106,7 @@ local plugins = {
     config = function()
       -- calling `setup` is optional for customization
       -- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
-      require("fzf-lua").setup({})
+      require("fzf-lua").setup({"fzf-tmux",winopts={preview={default="bat"}}})
     end
   },
 

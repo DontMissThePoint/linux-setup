@@ -55,7 +55,7 @@ c.bindings.commands['insert'] = {
 config.bind('f', 'hint')
 config.bind('tf', 'hint tab')
 config.bind('F', 'hint --rapid links tab-bg')
-config.bind('yf', 'hint links yank')
+config.bind('yl', 'hint links yank')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
