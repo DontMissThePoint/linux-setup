@@ -105,10 +105,9 @@ case "$-" in
 esac
 
 # fzf
-[ -f ~/.config/fzf/fzf.zsh ] && source ~/.config/fzf/fzf.zsh
+source <(fzf --zsh)
 
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --zsh)"
 source "$GIT_PATH/linux-setup/submodules/fzf-tab-completion/zsh/fzf-zsh-completion.sh"
 bindkey '^I' fzf_completion
 

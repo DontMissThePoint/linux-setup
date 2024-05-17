@@ -261,6 +261,7 @@ bindsym $mod+c mode "mouse_mode"
 # scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+plus scratchpad show; floating disable
 
 # float
 for_window [title="pdfpc"] border none floating enable
@@ -553,7 +554,7 @@ bar {
 
     background $i3bar_bg
     statusline $active_text_color
-    separator  $active_background
+    separator  #666666
 
     #                  border             background           text
     focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color

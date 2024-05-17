@@ -6,11 +6,11 @@ export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --foll
 
 export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
   --cycle
-  --border --multi  --highlight-line
+  --border --highlight-line
   --marker ▏ --pointer ▌ --prompt "▌ "
   --info inline-right --layout reverse
   --preview="preview {}"
-  --bind "ctrl-/:toggle-preview,focus:transform-preview-label:echo [ {} ] | lolcat -f"'
+  --bind "ctrl-j:accept,ctrl-/:toggle-preview,focus:transform-preview-label:echo [ {} ] | lolcat -f"'
 
 # Color schemes
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
@@ -19,6 +19,9 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=info:#b58900,prompt:#b58900,pointer:168
  --color=marker:168,spinner:#b58900,header:#91aadf
  --color gutter:-1,selected-bg:238,selected-fg:146,current-fg:189'
+
+# Tab-completion
+export FZF_COMPLETION_AUTO_COMMON_PREFIX_PART=true
 
 # Screencast
 export ANDROID_SERIAL=07334371CK100018

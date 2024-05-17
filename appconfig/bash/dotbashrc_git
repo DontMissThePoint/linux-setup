@@ -40,10 +40,9 @@ bind '"jj":vi-movement-mode'
 bind '"jk":vi-movement-mode'
 
 # fzf
-[ -f ~/.config/fzf/fzf.bash ] && source ~/.config/fzf/fzf.bash
+eval "$(fzf --bash)"
 
 # Set up fzf key bindings and fuzzy completion
-eval "$(fzf --bash)"
 source "$GIT_PATH/linux-setup/submodules/fzf-tab-completion/bash/fzf-bash-completion.sh"
 bind -x '"\t": fzf_bash_completion'
 
