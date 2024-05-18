@@ -8,7 +8,7 @@ fx_list=(dim blur dimblur pixel dimpixel color)
 dim_level=40
 blur_level=1
 pixel_scale=10,1000
-solid_color=333333
+solid_color=1a1b26
 wallpaper_cmd="feh --bg-fill"
 quiet=false
 

@@ -20,7 +20,7 @@ configuration {
       sorting-method:    "name";
   }
   run,drun {
-    fallback-icon:    "~/linux-setup/miscellaneous/fallback-icon.png";
+    fallback-icon:    "~/linux-setup/miscellaneous/chatGPT/fallback-icon.png";
     matching:         "fuzzy";
   }
 }

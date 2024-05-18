@@ -91,6 +91,3 @@
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts
-[submodule "submodules/fzf-tab-completion"]
-	path = submodules/fzf-tab-completion
-	url = https://github.com/lincheney/fzf-tab-completion

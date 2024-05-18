@@ -35,16 +35,16 @@ while true; do
   then
 
     # Brew
-    case $(< ~/.bashrc 2>/dev/null) in
-      *".linuxbrew"*)
-        ;;
-      *)
-        toilet "Setting up brew"
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        ;;
-    esac
+
+    num=`cat ~/.bashrc | grep "linuxbrew" | wc -l`
+    if [ "$num" -lt "1" ]; then
+
+      toilet "Setting up brew"
+      NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+    fi
 
     # exceed files limit
     ulimit -n2048

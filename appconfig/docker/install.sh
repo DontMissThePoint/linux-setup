@@ -79,8 +79,10 @@ while true; do
     fi
 
     # virtual machine
+    mkdir -p ~/VirtualMachines
+    cd ~/VirtualMachines/
     quickget windows 11
-    quickemu --vm windows-11.conf --width 1920 --height 1080
+    # quickemu --vm windows-11.conf --width 1920 --height 1080
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

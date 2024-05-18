@@ -107,10 +107,6 @@ esac
 # fzf
 source <(fzf --zsh)
 
-# Set up fzf key bindings and fuzzy completion
-source "$GIT_PATH/linux-setup/submodules/fzf-tab-completion/zsh/fzf-zsh-completion.sh"
-bindkey '^I' fzf_completion
-
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
 
