@@ -538,17 +538,21 @@ bleopt decode_macro_limit=1024
 bleopt term_bracketed_paste_mode=on
 
 #-----------------------------------------------------------------------------
-# Settings for completion
 
+# Setup fzf
+_ble_contrib_fzf_base=$(brew --prefix)/bin/fzf
+ble-import -d contrib/fzf-completion
+ble-import -d contrib/fzf-key-bindings
+
+# Settings for completion
 
 # The following settings turn on/off the corresponding functionalities. When
 # non-empty strings are set, the functionality is enabled. Otherwise, the
 # functionality is inactive.
 
-bleopt complete_auto_complete=1
+bleopt complete_auto_complete=
 bleopt complete_menu_complete=1
 bleopt complete_menu_filter=1
-
 
 # If "complete_ambiguous" has non-empty values, ambiguous completion
 # candidates are generated for completion.

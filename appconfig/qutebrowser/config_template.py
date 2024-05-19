@@ -51,6 +51,9 @@ c.bindings.commands['insert'] = {
     'jj': 'mode-leave',
 }
 
+## Keys
+config.set('hints.chars', 'asdflothn')
+
 # hint
 config.bind('f', 'hint')
 config.bind('tf', 'hint tab')
