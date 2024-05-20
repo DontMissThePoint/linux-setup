@@ -42,6 +42,14 @@ while true; do
     ln -fs $APP_PATH/config/fzf.bash ~/.config/fzf/fzf.bash
     ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
 
+    # fnf's not fzy
+    cd /tmp
+    [ -e build ] && mkdir build && cd build
+    git clone https://github.com/leo-arch/fnf
+    cd fnf
+    make -j8
+    sudo make install
+
     # preview
     echo "Adding fzf previews.."
     sudo cp -f $APP_PATH/preview /usr/local/bin/preview

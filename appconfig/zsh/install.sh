@@ -84,6 +84,9 @@ while true; do
     # starship preset pure-preset -o ~/.config/starship.toml
     # rm -f ~/.config/starship.toml && cp $APP_PATH/starship.toml ~/.config/starship.toml
 
+    # shell
+    sudo usermod --shell $(which zsh) $USER
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
