@@ -25,7 +25,7 @@ c.scrolling.bar = 'always'
 c.zoom.default = '90%'
 
 ## Aliases
-c.aliases = {'q': 'close', 'qa': 'quit',
+c.aliases = {'q': 'quit --save', 'qa': 'quit',
            'w': 'session-save', 'wq': 'quit --save',
            'wqa': 'quit --save',
            'xa': 'quit --save',
@@ -50,6 +50,9 @@ c.bindings.commands['insert'] = {
     'jk': 'mode-leave',
     'jj': 'mode-leave',
 }
+
+## Keys
+config.set('hints.chars', 'asdflothn')
 
 # hint
 config.bind('f', 'hint')

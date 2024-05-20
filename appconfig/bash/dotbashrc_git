@@ -147,7 +147,7 @@ if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
     fi
   fi
 
-  # Drop to fish? Just use bash.
+  # Drop to fish? Just use zsh.
   # if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
   # then
   #   shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''

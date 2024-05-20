@@ -62,6 +62,9 @@ while true; do
       sudo systemctl enable ly.service
       sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
 
+      # scripts on startup
+      sudo mkdir -p /etc/X11/xinit/xinitrc.d
+
       # font size in virtual console (tty)
       # UTF-8
       # Guess optimal character set

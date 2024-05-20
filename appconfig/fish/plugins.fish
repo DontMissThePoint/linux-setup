@@ -10,10 +10,8 @@ fish_config theme save "TokyoNight Night"   # Night, Storm, Mooon, Day
 fisher install jorgebucaran/fisher
 fisher install franciscolourenco/done
 fisher install edc/bass
-fisher install meaningful-ooo/sponge
 
 fisher install orefalo/grc
-fisher install gazorby/fish-abbreviation-tips
 fisher install nickeb96/puffer-fish
 fisher install jorgebucaran/autopair.fish
 

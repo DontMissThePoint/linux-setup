@@ -15,5 +15,8 @@ export PROFILES="COLORSCHEME_GIT"
 # sourcing FZF
 source ~/.FZF_DEFAULT_OPTS
 
+# load Liquidprompt in interactive shells
+[[ $- = *i* ]] && source ~/.liquidprompt/liquidprompt
+
 # sourcing Tomas's linux setup
 source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc
