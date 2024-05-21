@@ -237,7 +237,7 @@ endfunc
 "{{{ REMAP
 
 " Fzf
-nnoremap <leader>f :FZF<CR>
+nnoremap <Space><Space> :FZF<CR>
 
 " Beacon
 nmap n n:Beacon<cr>

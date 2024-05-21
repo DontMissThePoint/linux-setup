@@ -19,6 +19,28 @@ if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
   plugins+=(fzf-tab k zsh-autosuggestions zsh-syntax-highlighting)
 fi
 
+# vi mode
+export KEYTIMEOUT=1
+bindkey -v
+
+bindkey jj vi-cmd-mode
+bindkey jk vi-cmd-mode
+
+## more keys for easier editing
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^H" backward-delete-char
+bindkey "^W" backward-kill-word
+
+# accept
+bindkey '^F' autosuggest-accept
+
+# fallback
+export ZSH_AUTOSUGGEST_STRATEGY=(
+    history
+    completion
+)
+
 # EPIGEN_ADD_BLOCK_BETTER_YCM {
 # export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
 # EPIGEN_ADD_BLOCK_BETTER_YCM }
@@ -52,11 +74,6 @@ fi
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # eval "$(_PAPIS_COMPLETE=source_zsh papis)"
 # EPIGEN_ADD_BLOCK_TOMAS }
-
-# vi mode
-bindkey -v
-bindkey jj vi-cmd-mode
-bindkey jk vi-cmd-mode
 
 # Change cursor shape for different vi modes
 function zle-keymap-select {
