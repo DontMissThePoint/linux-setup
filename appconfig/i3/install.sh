@@ -197,6 +197,17 @@ while true; do
     pv $APP_PATH/dotxsession > ~/.xsession
     pv $APP_PATH/dotxserverrc > ~/.xserverrc
 
+    # Gnome 3
+    pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
+    pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
+    pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
+
+    # 4
+    if [ -d "~/.config/gtk-4.0" ] ; then
+        pv $APP_PATH/gtk.css > ~/.config/gtk-4.0/gtk.css
+        pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
+    fi
+
     # copy fonts
     # fontawesome 4.7
     mkdir -p ~/.fonts

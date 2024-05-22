@@ -67,6 +67,7 @@ while true; do
 
     # symlink the .zshrc
     case $(< "$HOME/.zshrc") in *"dotzshrc"*) ;; *) cp "$APP_PATH/dotzshrc_template" "$HOME/.zshrc" ;; esac
+    case $(< "$HOME/.zprofile") in *"go"*) ;; *) cp "$APP_PATH/zprofile_template" "$HOME/.zprofile" && echo "Configs..." ;; esac
 
     # liquid prompt
     if [ ! -e $HOME/.liquidprompt ]; then

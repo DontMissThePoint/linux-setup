@@ -28,7 +28,7 @@ set selection-clipboard clipboard
 
 # zathurarc-dark
 
-set font "Ubuntu Mono derivative Powerline 12"
+set font "Ubuntu Mono derivative Powerline 13"
 set default-bg "#30303a"
 set default-fg "#d6d6d6"
 

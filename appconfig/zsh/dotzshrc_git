@@ -16,13 +16,11 @@ export EDITOR="/usr/bin/nvim"
 
 # check for k plugin
 if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
-  plugins+=(fzf-tab k zsh-autosuggestions zsh-syntax-highlighting)
+  plugins+=(k zsh-autosuggestions zsh-syntax-highlighting fzf-tab)
 fi
 
 # vi mode
-export KEYTIMEOUT=1
 bindkey -v
-
 bindkey jj vi-cmd-mode
 bindkey jk vi-cmd-mode
 
@@ -34,12 +32,6 @@ bindkey "^W" backward-kill-word
 
 # accept
 bindkey '^F' autosuggest-accept
-
-# fallback
-export ZSH_AUTOSUGGEST_STRATEGY=(
-    history
-    completion
-)
 
 # EPIGEN_ADD_BLOCK_BETTER_YCM {
 # export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
@@ -120,9 +112,6 @@ alias history='historyRead'
 case "$-" in
   *i*) INTERACTIVE_SHELL=1
 esac
-
-# fzf
-source <(fzf --zsh)
 
 # zstyle
 zstyle ':fzf-tab:*' fzf-command ftb-tmux-popup
@@ -232,6 +221,9 @@ export ATHAME_SHOW_COMMAND=0
 export ATHAME_VIM_PERSIST=0
 export ATHAME_SHOW_ERROR=0
 export ATHAME_USE_JOBS=1
+
+# fzf
+source <(fzf --zsh)
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
 # and if user want to use athame, use it

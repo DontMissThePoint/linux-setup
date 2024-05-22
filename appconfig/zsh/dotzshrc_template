@@ -4,7 +4,7 @@ plugins=(git tmuxinator)
 export GIT_PATH=$HOME
 
 # run Tmux automatically in every normal terminal
-export RUN_TMUX=false
+export RUN_TMUX=true
 
 # use Athame in every normal terminal
 export USE_ATHAME=true
