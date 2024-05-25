@@ -196,6 +196,7 @@ while true; do
     pv $APP_PATH/dotxinitrc > ~/.xinitrc
     pv $APP_PATH/dotxsession > ~/.xsession
     pv $APP_PATH/dotxserverrc > ~/.xserverrc
+    pv $APP_PATH/picom.conf > ~/.config/picom.conf
 
     # Gnome 3
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
@@ -266,6 +267,15 @@ while true; do
     git clone https://github.com/pipeseroni/pipes.sh
     cd pipes.sh
     sudo make install
+
+    # picom
+    cd /tmp
+    [ -e picom ] && rm -rf /tmp/picom
+    git clone https://github.com/jonaburg/picom
+    cd picom
+    meson --buildtype=release . build
+    ninja -C build
+    sudo ninja -C build install
 
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime

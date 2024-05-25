@@ -106,5 +106,6 @@ config.bind(';M', 'hint --rapid links spawn mpv {hint-url}')
 c.content.dns_prefetch = False
 
 ## qutebrowser’s default
-c.url.searchengines = {'DEFAULT': 'https://swisscows.com/en/web?query={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
+# c.url.searchengines = {'DEFAULT': 'https://swisscows.com/en/web?query={}'}
 #c.url.searchengines = {'DEFAULT': 'https://lite.qwant.com/?q={}'}

@@ -23,3 +23,6 @@ fi
 if [ -d "/usr/local/go/bin" ] ; then
     PATH="$PATH:/usr/local/go/bin"
 fi
+
+TIME_ZONE=`timedatectl status | grep zone | awk '{ print $3 }'`
+export TZ=/usr/share/zoneinfo/$TIME_ZONE

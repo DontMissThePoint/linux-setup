@@ -2,14 +2,7 @@ local autocmd = vim.api.nvim_create_autocmd
 local create_cmd = vim.api.nvim_create_user_command
 
 local set = vim.opt
-set.title = true
-set.nu = false
-set.tabstop = 2
-set.softtabstop = 2
-set.shiftwidth = 2
-set.conceallevel = 2
-set.relativenumber = true
-set.fillchars:append { diff = "╱" }
+set.fillchars:append({ diff = "╱" })
 
 -- Auto resize panes when resizing nvim window
 autocmd("VimResized", {
