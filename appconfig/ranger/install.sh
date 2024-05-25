@@ -48,6 +48,21 @@ while true; do
     ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
+
+    # clifm
+    sudo apt install -y libreadline-dev libcap-dev libacl1-dev udevil vlock archivemount
+    cd /tmp
+
+    # advcpmv
+    curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o ./advcpmv/install.sh && (cd advcpmv && sh install.sh)
+    sudo mv ./advcpmv/advcp /usr/local/bin/
+    sudo mv ./advcpmv/advmv /usr/local/bin/
+
+    [ -e clifm ] && rm -rf /tmp/clifm
+    git clone https://github.com/leo-arch/clifm.git
+    cd clifm
+    sudo make install
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

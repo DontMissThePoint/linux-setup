@@ -257,7 +257,10 @@ ranger () {
 }
 
 # #}
-alias ra="ranger"
+alias ra="clifm"
+alias cp="/usr/local/bin/advcp -g"
+alias mv="/usr/local/bin/advmv -g"
+alias lll="eza -la --smart-group --tree --level=2 --git --header --icons"
 
 # #{ killp()
 

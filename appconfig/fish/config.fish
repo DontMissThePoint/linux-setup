@@ -49,15 +49,14 @@ set -g theme_color_scheme "TokyoNight Night"
 set --universal nvm_default_version v20.10.0
 
 ### aliases ###
-alias vimdiff="/usr/bin/nvim -d"
-alias vim="/usr/bin/nvim"
-alias cd_media="cd /media/$USER; ranger"
+alias vimdiff '/usr/bin/nvim -d'
+alias vim '/usr/bin/nvim'
+alias cd_media 'cd /media/$USER'
 
 ### abbreviation ###
 abbr rm "rm -i"
 abbr mkdir "mkdir -p"
 abbr rcw "rclone rcd --rc-web-gui"
-abbr lll "eza -la --smart-group --tree --level=2 --git --header --icons"
 
 ### bind ###
 bind --mode insert --sets-mode default jj repaint

@@ -9,6 +9,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
 CONFIG="$HOME/.config/nvim"
+DATA="$HOME/.local/share/nvim"
 
 unattended=0
 subinstall_params=""
@@ -84,11 +85,12 @@ while true; do
     sudo -H pip3 install neovim
     sudo -H pip3 install neovim-remote
 
-    rm -rf ~/.local/share/nvim "$CONFIG"
+    rm -rf "$DATA" "$CONFIG"
 
     # Nvchad
-    git clone https://github.com/NvChad/NvChad "$CONFIG" --depth 1
-    cp -f $APP_PATH/nvchad/* $CONFIG/lua/custom && nvim +MasonInstallAll +NvChadUpdate
+    git clone https://github.com/starter "$CONFIG"
+    cp -fr $APP_PATH/starter/lua/* $CONFIG/lua && nvim +MasonInstallAll
+    rm -fr "$CONFIG/.git"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

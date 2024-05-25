@@ -237,7 +237,7 @@ endfunc
 "{{{ REMAP
 
 " Fzf
-nnoremap <leader>f :FZF<CR>
+nnoremap <Space><Leader> :FZF<CR>
 
 " Beacon
 nmap n n:Beacon<cr>
@@ -254,7 +254,6 @@ nmap <leader>ss <Plug>SlimeLineSend
 " Command-line
 noremap ;; ;
 vnoremap ; :
-cnoremap q xa<CR>
 map ; :
 map q; q:
 
