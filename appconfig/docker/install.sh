@@ -67,6 +67,26 @@ while true; do
       groups $USER
     fi
 
+    # freerdp
+    echo "Setup remote desktop..."
+    if [ ! -e /etc/apt/sources.list.d/freerdp-nightly.list ]; then
+
+      # GPG key
+      sudo install -m 0755 -d /etc/apt/keyrings
+      wget -O - http://pub.freerdp.com/repositories/ADD6BF6D97CE5D8D.asc | sudo gpg --dearmor -o /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
+      sudo chmod a+r /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
+
+      echo \
+        "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] http://pub.freerdp.com/repositories/deb/\
+        $(. /etc/os-release && echo "$VERSION_CODENAME") freerdp-nightly main" | \
+        sudo tee /etc/apt/sources.list.d/freerdp-nightly.list > /dev/null
+      sudo apt-get update
+    fi
+
+    # install docker
+    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+
     # quickemu
     sudo apt install -y qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
     sudo apt install -y --no-install-recommends samba
@@ -78,11 +98,14 @@ while true; do
        sudo apt install -y quickemu
     fi
 
-    # virtual machine
-    mkdir -p ~/VirtualMachines
-    cd ~/VirtualMachines/
-    quickget windows 11
+    # VM
+    mkdir -p ~/VirtualMachines/Windows-Docker
+    # quickget windows 11
     # quickemu --vm windows-11.conf --width 1920 --height 1080
+
+    # dockurr
+    cp $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
+    # docker compose up -d
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
