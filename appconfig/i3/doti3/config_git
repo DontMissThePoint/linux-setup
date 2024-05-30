@@ -426,7 +426,9 @@ client.background       $background_color
 bar {
 
   position top
-  mode hide
+  mode dock
+  hidden_state show
+  modifier $mod2
   strip_workspace_numbers yes
   status_command i3blocks -c ~/.i3/i3blocks.conf
   i3bar_command i3bar -t

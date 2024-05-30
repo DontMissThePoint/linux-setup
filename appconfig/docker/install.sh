@@ -77,14 +77,14 @@ while true; do
       sudo chmod a+r /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
 
       echo \
-        "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] http://pub.freerdp.com/repositories/deb/\
-        $(. /etc/os-release && echo "$VERSION_CODENAME") freerdp-nightly main" | \
+        "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
+http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_CODENAME")"/ freerdp-nightly main" | \
         sudo tee /etc/apt/sources.list.d/freerdp-nightly.list > /dev/null
       sudo apt-get update
     fi
 
     # install docker
-    sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo apt-get install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 
     # quickemu
@@ -106,6 +106,12 @@ while true; do
     # dockurr
     cp $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
     # docker compose up -d
+
+    # guest DPI text : 125
+    # desktop scale factor. This value MUST be ignored if it is less than 100%
+    # or greater than 500% or deviceScaleFactor is not 100%, 140%, or 180%.
+
+    # /opt/freerdp-nightly/bin/xfreerdp3 /f /u:Quickemu /p:******** /v:<IP-address> /dynamic-resolution +decorations +fonts +aero +window-drag +multitransport +clipboard /floatbar:sticky:off /bpp:32 /audio-mode:0 /rfx /gfx:rfx /codec-cache:rfx /video /tune:FreeRDP_HiDefRemoteApp:true,FreeRDP_GfxAVC444v2:true,FreeRDP_GfxH264:true /scale-desktop:146 /scale-device:140
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
