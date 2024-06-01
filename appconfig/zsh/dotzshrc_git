@@ -130,6 +130,8 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
+# completion
+bindkey '^I' fzf-tab
 
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
