@@ -8,11 +8,10 @@ map("n", ";", ":", {desc = "Enter command mode"})
 map("n", "gh", "<Home>", {desc = "move cursor beginning of line"})
 map("n", "gl", "<End>", {desc = "move cursor end of line"})
 map("n", "<leader>.", ":cd %:p:h<CR>:pwd <cr>", {desc = "change workspace onto current location"})
-map("c", "q", "xa <cr>", {desc = "Quit"})
 
 --  fzf-lua
 map("n", "<leader><leader>", function()
-  require('fzf-lua').files({ cwd = '~/' })
+  require('fzf-lua').command_history()
 end, {desc = "FZF"})
 
 -- conform

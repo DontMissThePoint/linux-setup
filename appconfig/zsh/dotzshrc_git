@@ -16,7 +16,7 @@ export EDITOR="/usr/bin/nvim"
 
 # check for k plugin
 if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
-  plugins+=(k zsh-autosuggestions zsh-syntax-highlighting fzf-tab)
+  plugins+=(k zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-interactive-cd)
 fi
 
 # vi mode

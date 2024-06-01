@@ -92,7 +92,7 @@ local plugins = {
 
 	{
 		"sindrets/diffview.nvim",
-		lazy = false,
+		lazy = true,
 		config = function()
 			require("diffview").setup({})
 		end,
@@ -100,7 +100,7 @@ local plugins = {
 
   {
     "ibhagwan/fzf-lua",
-		lazy = false,
+		event = "VeryLazy",
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
@@ -200,7 +200,7 @@ local plugins = {
 
 	{
 		"alexghergh/nvim-tmux-navigation",
-		lazy = false,
+    lazy = false,
 		config = function()
 			require("nvim-tmux-navigation").setup({
 				disable_when_zoomed = true, -- defaults to false
@@ -209,17 +209,16 @@ local plugins = {
 	},
 
   {
-    "epwalsh/pomo.nvim",
-    version = "*",  -- Recommended, use latest release instead of latest commit
-    lazy = true,
-    cmd = { "TimerStart", "TimerRepeat" },
-    dependencies = {
-      -- Optional, but highly recommended if you want to use the "Default" timer
-      "rcarriga/nvim-notify",
-    },
+    "wildfunctions/myeyeshurt",
     opts = {
-			-- your configuration here
-    },
+      initialFlakes = 1,
+      flakeOdds = 20,
+      maxFlakes = 750,
+      nextFrameDelay = 175,
+      useDefaultKeymaps = true,
+      flake = {'*', '.'},
+      minutesUntilRest = 20
+    }
   },
 
   {

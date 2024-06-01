@@ -41,7 +41,7 @@ while true; do
     toilet Installing yt-dlp
 
     # opencv
-    sudo apt install -y libopencv-dev python3-opencv
+    sudo apt install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
 
     # yt-dlp; gallery-dl
     /usr/bin/python3 -m pip install -U yt-dlp gallery-dl

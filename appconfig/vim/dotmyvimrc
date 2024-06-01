@@ -237,7 +237,7 @@ endfunc
 "{{{ REMAP
 
 " Fzf
-nnoremap <Space><Leader> :FZF<CR>
+nnoremap <Space><Space> :History:<CR>
 
 " Beacon
 nmap n n:Beacon<cr>
@@ -252,10 +252,10 @@ nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
 
 " Command-line
+cnoremap q wqa
 noremap ;; ;
 vnoremap ; :
 map ; :
-map q; q:
 
 " Math
 vmap <expr>  ++  VMATH_YankAndAnalyse()

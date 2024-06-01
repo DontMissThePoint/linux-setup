@@ -1,0 +1,24 @@
+services:
+  windows:
+    image: dockurr/windows
+    container_name: windows
+    devices:
+      - /dev/kvm
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - 8006:8006
+      - 3389:3389/tcp
+      - 3389:3389/udp
+    stop_grace_period: 2m
+    restart: on-failure
+    environment:
+      VERSION: "win11e"
+      USERNAME: "Quickemu"
+      PASSWORD: "quickemu"
+      RAM_SIZE: "3G"
+      CPU_CORES: "4"
+      DISK_SIZE: "64G"
+    volumes:
+      - /var/win:/storage
+      - /home/$USER/Public:/shared
