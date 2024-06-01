@@ -427,7 +427,7 @@ bar {
 
   position top
   mode dock
-  hidden_state show
+  hidden_state hide
   modifier $mod2
   strip_workspace_numbers yes
   status_command i3blocks -c ~/.i3/i3blocks.conf
