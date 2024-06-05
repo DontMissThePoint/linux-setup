@@ -48,20 +48,28 @@ while true; do
     ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
+    # lnav
+    cd /tmp
+    wget -c https://github.com/tstack/lnav/releases/download/v0.12.2/lnav-0.12.2.tar.gz
+    tar xvfz lnav-0.12.2.tar.gz
+    cd lnav-0.12.2
+    ./configure
+    make -j8 && sudo make install
 
     # clifm
-    sudo apt install -y libreadline-dev libcap-dev libacl1-dev udevil vlock archivemount
     cd /tmp
-
-    # advcpmv
-    curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o ./advcpmv/install.sh && (cd advcpmv && sh install.sh)
-    sudo mv ./advcpmv/advcp /usr/local/bin/
-    sudo mv ./advcpmv/advmv /usr/local/bin/
-
+    sudo apt install -y libcap-dev libacl1-dev libreadline-dev libmagic-dev udevil vlock archivemount
     [ -e clifm ] && rm -rf /tmp/clifm
     git clone https://github.com/leo-arch/clifm.git
     cd clifm
     sudo make install
+
+    # advcpmv
+    cd /tmp
+    [ -e advcpmv ] && rm -rf /tmp/advcpmv
+    curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o ./advcpmv/install.sh && (cd advcpmv && sh install.sh)
+    sudo mv ./advcpmv/advcp /usr/local/bin/
+    sudo mv ./advcpmv/advmv /usr/local/bin/
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

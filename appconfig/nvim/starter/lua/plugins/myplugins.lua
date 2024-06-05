@@ -92,7 +92,7 @@ local plugins = {
 
 	{
 		"sindrets/diffview.nvim",
-		lazy = true,
+		lazy = false,
 		config = function()
 			require("diffview").setup({})
 		end,
@@ -210,6 +210,7 @@ local plugins = {
 
   {
     "wildfunctions/myeyeshurt",
+    lazy = false,
     opts = {
       initialFlakes = 1,
       flakeOdds = 20,

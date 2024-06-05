@@ -426,7 +426,7 @@ client.background       $background_color
 bar {
 
   position top
-  mode dock
+  mode invisible
   hidden_state hide
   modifier $mod2
   strip_workspace_numbers yes

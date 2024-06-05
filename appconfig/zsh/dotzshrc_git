@@ -19,17 +19,6 @@ if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
   plugins+=(k zsh-autosuggestions zsh-syntax-highlighting fzf-tab zsh-interactive-cd)
 fi
 
-# vi mode
-bindkey -v
-bindkey jj vi-cmd-mode
-bindkey jk vi-cmd-mode
-
-## more keys for easier editing
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-bindkey "^H" backward-delete-char
-bindkey "^W" backward-kill-word
-
 # accept
 bindkey '^F' autosuggest-accept
 
@@ -130,8 +119,17 @@ zstyle ':completion:*' menu no
 zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
-# completion
-bindkey '^I' fzf-tab
+
+# vi mode
+bindkey jj vi-cmd-mode
+bindkey jk vi-cmd-mode
+
+## more keys for easier editing
+bindkey "^A" beginning-of-line
+bindkey "^E" end-of-line
+bindkey "^H" backward-delete-char
+bindkey "^W" backward-kill-word
+bindkey "^I" fzf-tab
 
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {

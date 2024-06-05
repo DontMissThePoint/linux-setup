@@ -55,7 +55,7 @@ while true; do
       echo Connection disrupted, retrying in 10 seconds...
       sleep 10
     done
-    brew install grc fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow
+    brew install grc tailspin fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow
     brew cleanup --prune=all
 
     # configs

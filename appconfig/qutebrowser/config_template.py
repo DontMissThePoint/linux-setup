@@ -62,7 +62,7 @@ config.bind('yl', 'hint links yank')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
-config.bind('tT', 'tab-prev')
+config.bind('tj', 'tab-prev')
 config.bind('tt', 'tab-next')
 config.bind('xx', 'tab-close')
 

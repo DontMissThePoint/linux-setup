@@ -1,0 +1,16 @@
+---
+name: plugs
+project_root: "~/ownCloud/Documents/netis-fleet"
+windows:
+- zsh:
+    layout: c03d,136x35,0,0,0
+    panes:
+    - zsh
+- dotfiles:
+    layout: c03e,136x35,0,0,1
+    panes:
+    - cd ~/ownCloud/Documents/ACCOMPLISHED
+- dataset:
+    layout: c03f,136x35,0,0,2
+    panes:
+    - cd ~/ownCloud/Documents/netis-fleet
