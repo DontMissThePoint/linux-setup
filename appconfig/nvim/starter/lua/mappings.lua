@@ -10,14 +10,19 @@ map("n", "gl", "<End>", {desc = "move cursor end of line"})
 map("n", "<leader>.", ":cd %:p:h<CR>:pwd <cr>", {desc = "change workspace onto current location"})
 
 --  fzf-lua
-map("n", "<leader><leader>", function()
-  require('fzf-lua').command_history()
-end, {desc = "FZF"})
+map("n", "<C-p>", function() require("fzf-lua").files() end, {desc = "fzf-lua files"})
+map("n", "<leader><leader>", function() require("fzf-lua").command_history() end, {desc = "FZF"})
 
 -- conform
-map("n", "<leader>fm", function()
-  require("conform").format()
-end, {desc = "formatting"})
+map("n", "<leader>fm", function() require("conform").format() end, {desc = "formatting"})
+
+-- myeyes
+map("n", "<leader>ms", function()
+  require("myeyeshurt").start()
+end, {desc = "myeyes start break"})
+map("n", "<leader>mx", function()
+  require("myeyeshurt").stop()
+end, {desc = "myeyes stop flakes"})
 
 -- autosave
 map("n", "gs", "<cmd> AutosaveToggle <cr>", {desc = "autosave toggle"})

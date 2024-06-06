@@ -107,7 +107,7 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     cp $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
     # docker compose up -d
 
-    # guest DPI text : 125
+    # guest DPI text : 120
     # desktop scale factor. This value MUST be ignored if it is less than 100%
     # or greater than 500% or deviceScaleFactor is not 100%, 140%, or 180%.
 
