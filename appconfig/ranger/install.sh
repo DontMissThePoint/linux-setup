@@ -48,13 +48,15 @@ while true; do
     ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
-    # lnav
+    # arttime
+    zsh -c '{url="https://gist.githubusercontent.com/poetaman/bdc598ee607e9767fe33da50e993c650/raw/d0146d258a30daacb9aee51deca9410d106e4237/arttime_online_installer.sh"; zsh -c "$(curl -fsSL $url || wget -qO- $url)"}'
+
+    # icons-in-terminal
     cd /tmp
-    wget -c https://github.com/tstack/lnav/releases/download/v0.12.2/lnav-0.12.2.tar.gz
-    tar xvfz lnav-0.12.2.tar.gz
-    cd lnav-0.12.2
-    ./configure
-    make -j8 && sudo make install
+    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
+    git clone https://github.com/sebastiencs/icons-in-terminal.git
+    cd icons-in-terminal
+    ./install-autodetect.sh
 
     # clifm
     cd /tmp
@@ -62,7 +64,8 @@ while true; do
     [ -e clifm ] && rm -rf /tmp/clifm
     git clone https://github.com/leo-arch/clifm.git
     cd clifm
-    sudo make install
+    export CPPFLAGS="$CPPFLAGS -D_ICONS_IN_TERMINAL"
+    make -j8 && sudo make install
 
     # advcpmv
     cd /tmp
@@ -70,6 +73,7 @@ while true; do
     curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o ./advcpmv/install.sh && (cd advcpmv && sh install.sh)
     sudo mv ./advcpmv/advcp /usr/local/bin/
     sudo mv ./advcpmv/advmv /usr/local/bin/
+    pv $APP_PATH/clifmrc > ~/.config/clifm/profiles/default/clifmrc
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
