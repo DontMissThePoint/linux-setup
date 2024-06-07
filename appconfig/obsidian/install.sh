@@ -71,6 +71,12 @@ while true; do
     # sudo systemctl daemon-reload
     # sudo systemctl start rclone-mega@$USER
     # sudo systemctl enable --now rclone-mega@$USER
+    mkdir -p ~/.elinks
+    pv $APP_PATH/elinks.conf > ~/.elinks/elinks.conf
+
+    # GDrive
+    pip install --upgrade gdown
+
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
