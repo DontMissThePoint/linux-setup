@@ -60,7 +60,8 @@ while true; do
 
     # Rclone
     sudo apt install -y fuse3
-    sudo -v ; curl https://rclone.org/install.sh | sudo bash || echo "Setting up cloud storage."
+    sudo -v ; curl https://rclone.org/install.sh | sudo bash || echo 'Configure cloud storage: Mega, GDrive, ...
+$ rclone config'
 
     # config
     # rclone config

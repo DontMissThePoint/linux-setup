@@ -52,7 +52,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - bash && cd ~/VirtualMachines/Windows-Docker
+        - cd ~/VirtualMachines/Windows-Docker; bash
         - cd $GIT_PATH/linux-setup
         - btop
   - bash:
