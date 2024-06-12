@@ -54,7 +54,7 @@ while true; do
     sudo make install doc
 
     # xnview
-    echo "Installing XnViewMP."
+    echo "Installing XnViewMP"
 
     if [ -n "$JAMMY" ]; then
       sudo apt install -y libgdk-pixbuf2.0-0
