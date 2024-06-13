@@ -17,7 +17,6 @@ cp $GIT_PATH/linux-setup/appconfig/i3/doti3/config_git $HOME/ownCloud/Documents/
 # Folders
 cp -r $HOME/.config/i3-layout-manager/layouts $HOME/ownCloud/Documents/ACCOMPLISHED/
 cp -r $HOME/Documents/rattle/* $HOME/ownCloud/Documents/ACCOMPLISHED/rattle
-cp -r $HOME/.config/nvim/lua/custom/* $HOME/ownCloud/Documents/ACCOMPLISHED/dotfiles
 rsync -ah --exclude '.git' $HOME/Documents/cvbuilder $HOME/ownCloud/Documents/ACCOMPLISHED/
 
 # Notify

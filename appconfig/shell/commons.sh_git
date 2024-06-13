@@ -20,6 +20,7 @@ alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/in
 alias demangle="c++filt"
 alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
+alias winenter="~/.scripts/dockurr.sh"
 
 # quick acces to files and directories
 alias a="tspin \$(fd -H . / | fzf-tmux -p 80%,60% --preview 'preview {}' --preview-window '~8')"
@@ -54,7 +55,7 @@ remove_duplicates_from_path() {
 cd_media() {
 
   cd /media/$USER
-  sudo clifm -t
+  clifm ./
 }
 
 # #}
