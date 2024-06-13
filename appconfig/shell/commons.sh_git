@@ -20,11 +20,12 @@ alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/in
 alias demangle="c++filt"
 alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
+alias winenter="~/.scripts/dockurr.sh"
 
 # quick acces to files and directories
 alias a="tspin \$(fd -H . / | fzf-tmux -p 80%,60% --preview 'preview {}' --preview-window '~8')"
 alias f="nvim \$(fd -H . ~ | fnf)"
-alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fnf -l 20 | xargs -I {} zaread {}"
+alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fnf -l 20 | xargs -I {} zaread {} &>/dev/null"
 alias d="cd \$(fd -H -td . / | fnf)"
 
 # remove from PATH
@@ -54,7 +55,7 @@ remove_duplicates_from_path() {
 cd_media() {
 
   cd /media/$USER
-  ranger
+  clifm ./
 }
 
 # #}

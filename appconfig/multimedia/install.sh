@@ -21,6 +21,10 @@ do
   fi
 done
 
+var=`lsb_release -r | awk '{ print $2 }'`
+[ "$var" = "20.04" ] && export FOCAL=1
+[ "$var" = "22.04" ] && export JAMMY=1
+
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -35,10 +39,20 @@ while true; do
   then
 
     # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav
+    sudo apt-get -y install gstreamer1.0-libav libxpresent1
 
     # for video, photo, audio, ..., viewing and editing
-    sudo apt-get -y install gimp screenkey mpv vlc audacity rawtherapee pavucontrol
+    sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol
+
+    # mpv
+    echo "Installing MPV"
+    if [ -n "$JAMMY" ]; then
+      wget -c -P "$APP_PATH" https://apt.fruit.je/ubuntu/jammy/mpv/mpv_0.38.0+fruit.1_amd64.deb
+      sudo dpkg -i $APP_PATH/mpv_0.38.0+fruit.1_amd64.deb
+      rm -f $APP_PATH/mpv_0.38.0+fruit.1_amd64.deb
+    else
+      sudo apt install -y mpv
+    fi
 
     # high-quality mpv
     echo "Installing... 🎥 High-quality configuration for mpv media player"

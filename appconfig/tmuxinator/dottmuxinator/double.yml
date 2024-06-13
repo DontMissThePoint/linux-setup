@@ -52,14 +52,14 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - bash && cd ~/VirtualMachines/Windows-Docker
+        - cd ~/VirtualMachines/Windows-Docker; bash
         - cd $GIT_PATH/linux-setup
         - btop
   - bash:
       layout: 89a6,136x34,0,0[136x17,0,0{67x17,0,0,2,68x17,68,0,6},136x16,0,18,7]
       panes:
         - bash
-        - clifm
+        - clifm --no-tips
         - multitail -D -f /var/log/*
         # - journalctl -f | tspin
   - nvim:

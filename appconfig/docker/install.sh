@@ -84,8 +84,10 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     fi
 
     # install docker
-    sudo apt-get install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+    sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
+    # virt-manager
+    sudo apt install -y --install-recommends virt-manager
 
     # quickemu
     sudo apt install -y qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
@@ -103,15 +105,23 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     # quickget windows 11
     # quickemu --vm windows-11.conf --width 1920 --height 1080
 
+    # tex-cvbuilder: https://github.com/antkr10/tex-cvbuilder
+    if [ -e $HOME/Documents/cvbuilder ]; then
+      pv $APP_PATH/tex-cvbuilder > ~/Documents/cvbuilder/Dockerfile && cd ~/Documents/cvbuilder
+      docker build -t ubuntu:tex-cvbuilder .
+    fi
+
     # dockurr
     cp $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
-    # docker compose up -d
+    # docker compose stop
+    # docker compose up -d --force-recreate --build
 
     # guest DPI text : 120
     # desktop scale factor. This value MUST be ignored if it is less than 100%
     # or greater than 500% or deviceScaleFactor is not 100%, 140%, or 180%.
 
-    # /opt/freerdp-nightly/bin/xfreerdp3 /f /u:Quickemu /p:******** /v:"$(hostname -I | awk '{print $1}')" /dynamic-resolution +decorations +fonts +aero +window-drag +multitransport +clipboard /floatbar:sticky:off /bpp:32 /audio-mode:0 /rfx /gfx:rfx /codec-cache:rfx /video /tune:FreeRDP_HiDefRemoteApp:true,FreeRDP_GfxAVC444v2:true,FreeRDP_GfxH264:true /scale-desktop:146 /scale-device:140
+    # remove images unused & dangling (Careful !)
+    # docker system prune -af
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

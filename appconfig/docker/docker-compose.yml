@@ -13,12 +13,15 @@ services:
     stop_grace_period: 2m
     restart: on-failure
     environment:
-      VERSION: "win11e"
+      # VERSION: "win11e"
       USERNAME: "Quickemu"
       PASSWORD: "quickemu"
       RAM_SIZE: "3G"
       CPU_CORES: "4"
       DISK_SIZE: "64G"
     volumes:
+      # Please start with an empty /storage folder: rm -fr /var/win/*
+      # install a different version of Windows
+      - /home/$USER/VirtualMachines/Windows-Docker/windows.iso:/custom.iso
       - /var/win:/storage
       - /home/$USER/Public:/shared
