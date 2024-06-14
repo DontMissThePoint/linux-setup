@@ -112,9 +112,9 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     fi
 
     # dockurr
-    cp $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
+    pv $APP_PATH/docker-compose.yml > ~/VirtualMachines/Windows-Docker
     # docker compose stop
-    # docker compose up -d --force-recreate --build
+    # sudo docker compose up -d --force-recreate --build
 
     # guest DPI text : 120
     # desktop scale factor. This value MUST be ignored if it is less than 100%

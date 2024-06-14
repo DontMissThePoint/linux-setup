@@ -2,10 +2,10 @@
 name: plugs
 project_root: "~/ownCloud/Documents/netis-fleet"
 windows:
-- zsh:
+- bash:
     layout: c03d,136x35,0,0,0
     panes:
-    - zsh
+    - bash
 - dotfiles:
     layout: c03e,136x35,0,0,1
     panes:

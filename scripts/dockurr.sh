@@ -1,7 +1,8 @@
 #!/bin/sh
 
-echo -n "Username: "
-read username
+# echo -n "Username: "
+# read username
+username=Quickemu
 read -p "Password: " password
 
 # Start windows inside Docker container

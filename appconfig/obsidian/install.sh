@@ -74,6 +74,8 @@ $ rclone config'
     # sudo systemctl enable --now rclone-mega@$USER
 
     # timemachine
+    # Append rsync options
+    # timemachine /source/dir /target/dir -- -laAvX --progress --exclude={"/submodules/**"}
     cd /tmp
     [ -e linux-timemachine ] && rm -rf linux-timemachine
     git clone https://github.com/cytopia/linux-timemachine
