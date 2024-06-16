@@ -4,6 +4,7 @@ services:
     container_name: windows
     devices:
       - /dev/kvm
+      # - /dev/bus/usb
     cap_add:
       - NET_ADMIN
     ports:
@@ -20,6 +21,7 @@ services:
       - /home/$USER/Public:/shared
     environment:
       # VERSION: "win11e"
+      # ARGUMENTS: "-device usb-host,vendorid=0x048d,productid=0x1234"
       USERNAME: "Quickemu"
       PASSWORD: "quickemu"
       RAM_SIZE: "3G"
