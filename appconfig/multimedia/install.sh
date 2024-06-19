@@ -38,15 +38,27 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    # ffmpeg
+    cd /tmp
+    wget -c -O ~/.local/bin/alass https://github.com/kaegi/alass/releases/download/v2.0.0/alass-linux64
+    wget -c https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+    tar -xf ffmpeg-release-amd64-static.tar.xz
+    cp ffmpeg-7.0.1-amd64-static/ff* ~/.local/bin
+    sudo chmod 755 ~/.local/bin/ffmpeg
+    sudo chmod 755 ~/.local/bin/ffprobe
+    sudo chmod 755 ~/.local/bin/alass
+
+
     # use in pdfpc to play videos
     sudo apt-get -y install gstreamer1.0-libav libxpresent1
 
     # for video, photo, audio, ..., viewing and editing
+    sudo pip install subliminal ffsubsync
     sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol
 
     # mpv
     echo "Installing MPV"
-    if [ -n "$JAMMY" ]; then
+    if [ -n "$FOCAL" ] || [ -n "$JAMMY" ]; then
       wget -c -P "$APP_PATH" https://apt.fruit.je/ubuntu/jammy/mpv/mpv_0.38.0+fruit.1_amd64.deb
       sudo dpkg -i $APP_PATH/mpv_0.38.0+fruit.1_amd64.deb
       rm -f $APP_PATH/mpv_0.38.0+fruit.1_amd64.deb
@@ -55,8 +67,13 @@ while true; do
     fi
 
     # high-quality mpv
-    echo "Installing... 🎥 High-quality configuration for mpv media player"
-    wget -qO- https://github.com/noelsimbolon/mpv-config/releases/download/v1.0.5/mpv-config-linux.zip | bsdtar --strip-components=1 -xvf- -C ~/.config/mpv
+    echo "Installing... 🎥 High-quality configuration for mpv"
+    # wget -qO- https://github.com/noelsimbolon/mpv-config/releases/download/v1.0.5/mpv-config-linux.zip | bsdtar --strip-components=1 -xvf- -C ~/.config/mpv
+    if [ ! -e $HOME/.config/mpv/mpv-config ]; then
+      mkdir -p ~/.config/mpv
+      cd ~/.config/mpv
+      git clone https://github.com/NaiveInvestigator/mpv-config -b linux
+    fi
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
