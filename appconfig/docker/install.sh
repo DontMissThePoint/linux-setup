@@ -116,10 +116,6 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     # docker compose stop
     # sudo docker compose up -d --force-recreate --build
 
-    # guest DPI text : 120
-    # desktop scale factor. This value MUST be ignored if it is less than 100%
-    # or greater than 500% or deviceScaleFactor is not 100%, 140%, or 180%.
-
     # remove images unused & dangling (Careful !)
     # docker system prune -af
 

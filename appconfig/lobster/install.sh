@@ -74,10 +74,13 @@ while true; do
 
     # tordl
     toilet Setup cli-torrent-dl
-    
+
+    # Run JSON RPC Server
     cd $APP_PATH/../../submodules/cli-torrent-dl
     ./setup.sh
-    
+    docker build . -t tordl
+    # docker run -p 57000:57000 -it tordl -s
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

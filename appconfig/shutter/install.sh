@@ -21,10 +21,6 @@ do
   fi
 done
 
-var=`lsb_release -r | awk '{ print $2 }'`
-[ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "20.04" ] && export FOCAL=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -38,17 +34,14 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    if [ -n "$BEAVER" ] || [ -n "$FOCAL" ]; then
-	 the_ppa=linuxuprising/shutter
-	 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-	   sudo add-apt-repository -y ppa:linuxuprising/shutter
-	   sudo apt update
-	 fi
-    fi
+   the_ppa=xtradeb/apps
+   if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+     sudo add-apt-repository -y ppa:xtradeb/apps
+     sudo apt update
+     sudo apt install -y shutter nextcloud-desktop nautilus-nextcloud
+   fi
 
-    sudo apt install -y shutter
-
-    break
+   break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
     break
