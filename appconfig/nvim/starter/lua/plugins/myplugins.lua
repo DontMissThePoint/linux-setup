@@ -90,6 +90,14 @@ local plugins = {
 		end,
 	},
 
+ {
+    "numToStr/Comment.nvim",
+		lazy = false,
+    config = function()
+      require("Comment").setup()
+    end
+  },
+
 	{
 		"sindrets/diffview.nvim",
 		lazy = false,
