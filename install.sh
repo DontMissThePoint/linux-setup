@@ -39,9 +39,7 @@ arch=`uname -i`
 sudo chown -R $USER: $MY_PATH
 find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
-# remotes
-# cd $MY_PATH/submodules
-# git clean -xdf && git fetch --recurse-submodules --jobs=10 || echo "It normally returns >0"
+# submodules
 cd $MY_PATH
 $docker && git submodule update --init --recursive --recommend-shallow
 ! $docker && git submodule update --init --recursive
