@@ -68,7 +68,8 @@ while true; do
     sudo apt install -y libxml2-dev libxslt-dev libjs-pdf
     pip install breadability
 
-    ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ~/.config/qutebrowser/userscripts
+    cd ~/.config/qutebrowser
+    ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts userscripts
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
