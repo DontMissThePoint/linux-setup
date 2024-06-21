@@ -17,6 +17,41 @@ map("n", "<leader><leader>", function() require("fzf-lua").command_history() end
 -- conform
 map("n", "<leader>fm", function() require("conform").format() end, {desc = "formatting"})
 
+-- toggler
+map("n", "<leader>i", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
+map("v", "<leader>i", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
+
+-- trouble
+map("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "trouble - toggle" })
+map("n", "<leader>wd", ":TroubleToggle workspace_diagnostics<CR>", { desc = "trouble - workspace Diagnostics" })
+map("n", "<leader>cq", "<CMD>TroubleToggle quickfix<CR>", { desc = "trouble - quickfix" })
+map("n", "<leader>td", "<CMD>TodoTrouble<CR>", { desc = "trouble - todo" })
+map("n", "gd", "<CMD>Trouble lsp_definitions<CR>", { desc = "trouble - definition" })
+map("n", "gi", "<CMD>Trouble lsp_implementations<CR>", { desc = "trouble - implementations" })
+map("n", "gD", "<CMD>Trouble lsp_type_definitions<CR>", { desc = "trouble - type definition" })
+
+-- pomodoro timer
+local ok, pomo = pcall(require, "pomo")
+if not ok then
+  return
+end
+local function start_new_timer()
+  local timer = pomo.get_first_to_finish()
+  if timer then
+    vim.notify("a Timer is already running", vim.log.levels.INFO)
+    return
+  end
+  pomo.start_timer(25 * 60, "work")
+end
+
+-- track milestones
+map("n", "<leader>pm", function()
+  start_new_timer()
+end, { desc = "Pomo - Start new Timer", noremap = true, silent = true })
+map("n", "<leader>ps", function()
+  pomo.stop_timer()
+end, { desc = "Pomo - Stop Timer", noremap = true, silent = true })
+
 -- myeyes
 map("n", "<leader>ms", function()
   require("myeyeshurt").start()
