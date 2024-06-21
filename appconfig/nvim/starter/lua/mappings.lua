@@ -10,7 +10,8 @@ map("n", "gl", "<End>", {desc = "move cursor end of line"})
 map("n", "<leader>.", ":cd %:p:h<CR>:pwd <cr>", {desc = "change workspace onto current location"})
 
 --  fzf-lua
-map("n", "<C-p>", function() require("fzf-lua").files() end, {desc = "fzf-lua files"})
+map("n", "<C-p>", function() require("fzf-lua").files({ cwd = '~/' }) end, {desc = "fzf-lua files"})
+map("n", "<leader>fe", function() require("fzf-lua").files({ cwd = '~/' }) end, {desc = "fzf-lua files"})
 map("n", "<leader><leader>", function() require("fzf-lua").command_history() end, {desc = "FZF"})
 
 -- conform

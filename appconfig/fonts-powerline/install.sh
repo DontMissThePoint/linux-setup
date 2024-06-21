@@ -56,7 +56,7 @@ while true; do
         sudo apt update
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
     fi
-    sudo apt install -y fonts-symbola dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
+    sudo apt install -y fonts-symbola ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
     # NF
     toilet Installing Nerd Fonts
@@ -66,6 +66,12 @@ while true; do
 
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
+    wget -c -P "$APP_PATH" https://github.com/13rac1/twemoji-color-font/releases/download/v14.0.2/TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
+    cd $APP_PATH
+    tar zxf TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
+    cd TwitterColorEmoji-SVGinOT-Linux-14.0.2
+    ./install.sh
+    rm -fr $APP_PATH/TwitterColorEmoji-*
     fc-cache -vf
 
     # config

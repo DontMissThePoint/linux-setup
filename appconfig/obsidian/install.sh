@@ -37,24 +37,24 @@ while true; do
     sudo rm -f /etc/apt/sources.list.d/syncthing.list
 
     # Syncthing
-    sudo apt install -y curl apt-transport-https
-    curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
-    echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
-    sudo apt update
-    sudo apt install -y syncthing
-    sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d
+    # sudo apt install -y curl apt-transport-https
+    # curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+    # echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+    # sudo apt update
+    # sudo apt install -y syncthing
+    # sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d
 
-    sudo cp -f $APP_PATH/syncthing@.service /etc/systemd/system/syncthing@.service
-    sudo systemctl daemon-reload
-    sudo systemctl start syncthing@$USER
-    sudo systemctl enable syncthing@$USER
+    # sudo cp -f $APP_PATH/syncthing@.service /etc/systemd/system/syncthing@.service
+    # sudo systemctl daemon-reload
+    # sudo systemctl start syncthing@$USER
+    # sudo systemctl enable syncthing@$USER
 
     #access the web UI
     #https://localhost:8384/
 
     # Obsidian
     cd /tmp
-    wget -c https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/obsidian_1.6.3_amd64.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/obsidian_1.6.3_amd64.deb
     sudo dpkg -i /tmp/obsidian_1.6.3_amd64.deb
     mkdir -p ~/vaults/personal ~/vaults/work
 
@@ -63,7 +63,7 @@ while true; do
     sudo -v ; wget https://rclone.org/install.sh | sudo bash || echo 'Configure cloud storage: Mega, GDrive, ...
 $ rclone config'
 
-    # config
+    # Cloud
     # rclone config
     # rclone rcd --rc-web-gui
 

@@ -1,9 +1,6 @@
 local autocmd = vim.api.nvim_create_autocmd
 local create_cmd = vim.api.nvim_create_user_command
 
-local set = vim.opt
-set.fillchars:append({ diff = "╱" })
-
 -- Auto resize panes when resizing nvim window
 autocmd("VimResized", {
 	pattern = "*",

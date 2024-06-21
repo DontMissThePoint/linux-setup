@@ -8,6 +8,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=`dirname "$0"`
 APP_PATH=`( cd "$APP_PATH" && pwd )`
+CONFIG="$HOME/.config/mpv"
 
 unattended=0
 subinstall_params=""
@@ -68,12 +69,8 @@ while true; do
 
     # high-quality mpv
     echo "Installing... 🎥 High-quality configuration for mpv"
-    # wget -qO- https://github.com/noelsimbolon/mpv-config/releases/download/v1.0.5/mpv-config-linux.zip | bsdtar --strip-components=1 -xvf- -C ~/.config/mpv
-    if [ ! -e $HOME/.config/mpv/mpv-config ]; then
-      mkdir -p ~/.config/mpv
-      cd ~/.config/mpv
-      git clone https://github.com/NaiveInvestigator/mpv-config -b linux
-    fi
+    rm -rf "$CONFIG"
+    git clone https://github.com/noelsimbolon/mpv-config "$CONFIG"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
