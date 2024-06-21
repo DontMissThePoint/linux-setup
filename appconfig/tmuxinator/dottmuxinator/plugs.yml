@@ -5,7 +5,7 @@ windows:
 - bash:
     layout: c03d,136x35,0,0,0
     panes:
-    - bash
+    - cd; bash
 - dotfiles:
     layout: c03e,136x35,0,0,1
     panes:

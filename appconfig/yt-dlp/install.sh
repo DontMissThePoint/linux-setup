@@ -21,10 +21,6 @@ do
   fi
 done
 
-var=`lsb_release -r | awk '{ print $2 }'`
-[ "$var" = "20.04" ] && export FOCAL=1
-[ "$var" = "22.04" ] && export JAMMY=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -52,17 +48,6 @@ while true; do
     git clone https://github.com/pystardust/ytfzf
     cd ytfzf
     sudo make install doc
-
-    # xnview
-    echo "Installing XnViewMP"
-
-    if [ -n "$JAMMY" ]; then
-      sudo apt install -y libgdk-pixbuf2.0-0
-    fi
-    aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$APP_PATH" https://download.xnview.com/XnViewMP-linux-x64.deb
-
-    sudo dpkg -i $APP_PATH/XnViewMP-linux-x64.deb
-    rm -f $APP_PATH/XnViewMP-linux-x64.deb
 
     # config
     echo "Configuring..."

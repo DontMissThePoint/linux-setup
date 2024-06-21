@@ -54,6 +54,7 @@ while true; do
 
     # syntevo smartGit
     echo "Setup syntevo tools."
+    cp -f $APP_PATH/ssh_config ~/.ssh/config
     rm -rf ~/.config/smartgit
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
@@ -88,7 +89,7 @@ while true; do
     rm -rf "$DATA" "$CONFIG"
 
     # Nvchad
-    git clone https://github.com/starter "$CONFIG"
+    git clone https://github.com/NvChad/starter "$CONFIG"
     cp -fr $APP_PATH/starter/lua/* $CONFIG/lua && nvim +MasonInstallAll
     rm -fr "$CONFIG/.git"
 

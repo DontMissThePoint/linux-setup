@@ -1,6 +1,6 @@
-local overrides = require("configs.overrides")
-
+require "autocmds"
 ---@type NvPluginSpec[]
+
 local plugins = {
 
 	-- Override plugin definition options
@@ -15,7 +15,9 @@ local plugins = {
 	-- override plugin configs
 	{
 		"williamboman/mason.nvim",
-		opts = overrides.mason,
+    config = function()
+      require "configs.mason"
+    end,
 	},
 
   {
@@ -38,19 +40,19 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
-			overrides.treesitter,
+      ensure_installed = {"vim", "html", "bash"},
 			auto_install = true,
 		},
 	},
 
 	{
 		"nvim-tree/nvim-tree.lua",
-		opts = overrides.nvimtree,
+		lazy = false,
 	},
 
 	{
 		"MunifTanjim/nui.nvim",
-		opts = overrides.nui,
+		lazy = false,
 	},
 
 	-- Install a plugin
