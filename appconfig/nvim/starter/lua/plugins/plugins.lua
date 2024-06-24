@@ -1,4 +1,3 @@
-require "autocmds"
 ---@type NvPluginSpec[]
 
 local plugins = {
@@ -10,14 +9,6 @@ local plugins = {
 			require("nvchad.configs.lspconfig")
 			require("configs.lspconfig")
 		end, -- Override to setup mason-lspconfig
-	},
-
-	-- override plugin configs
-	{
-		"williamboman/mason.nvim",
-    config = function()
-      require "configs.mason"
-    end,
 	},
 
   {
@@ -46,16 +37,11 @@ local plugins = {
 	},
 
 	{
-		"nvim-tree/nvim-tree.lua",
-		lazy = false,
-	},
-
-	{
-		"MunifTanjim/nui.nvim",
-		lazy = false,
+		"williamboman/mason.nvim",
 	},
 
 	-- Install a plugin
+
 	{
 		"max397574/better-escape.nvim",
 		event = "InsertEnter",
@@ -63,6 +49,11 @@ local plugins = {
 			require("better_escape").setup()
 		end,
 	},
+
+  {
+    "kevinhwang91/nvim-bqf",
+    ft = "qf",
+  },
 
 	{
 		"stevearc/conform.nvim",
@@ -72,6 +63,15 @@ local plugins = {
 			require("configs.conform")
 		end,
 	},
+
+  {
+    "jiaoshijie/undotree",
+    dependencies = "nvim-lua/plenary.nvim",
+    config = true,
+    keys = { -- load the plugin only when using it's keybinding:
+      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", desc = "undotree" },
+    },
+  },
 
 	{
 		"kylechui/nvim-surround",
@@ -83,6 +83,50 @@ local plugins = {
 			})
 		end,
 	},
+
+  {
+    "nacro90/numb.nvim",
+    event = "BufRead",
+    config = function()
+      require("numb").setup {
+        show_numbers = true, -- Enable 'number' for the window while peeking
+        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+        hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
+        number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
+        centered_peeking = true, -- Peeked line will be centered relative to window
+      }
+    end,
+  },
+
+  {
+    "nguyenvukhang/nvim-toggler",
+    config = function()
+      require("nvim-toggler").setup {
+        inverses = {
+          ["disable"] = "enable",
+        },
+      }
+    end,
+  },
+
+  {
+    "zeioth/garbage-day.nvim",
+    dependencies = "neovim/nvim-lspconfig",
+    event = "VeryLazy",
+    opts = {
+      aggressive_mode = false,
+      excluded_lsp_clients = { "copilot" },
+      grace_period = 60 * 30,
+      wakeup_delay = 0,
+    },
+  },
+
+  {
+    "karb94/neoscroll.nvim",
+    config = function ()
+      require("neoscroll").setup({})
+    end,
+  },
 
 	{
 		"cappyzawa/trim.nvim",
@@ -116,7 +160,7 @@ local plugins = {
     config = function()
       -- calling `setup` is optional for customization
       -- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
-      require("fzf-lua").setup({"fzf-tmux",winopts={preview={default="bat"}}})
+      require("fzf-lua").setup({{"telescope","fzf-native"},winopts={preview={default="bat"}}})
     end
   },
 
@@ -144,6 +188,14 @@ local plugins = {
 		end,
   },
 
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    opts = {
+      -- add any custom options here
+    }
+  },
+
 	{
 		"rcarriga/nvim-notify",
 		lazy = false,
@@ -154,48 +206,6 @@ local plugins = {
 				timeout = 3000,
 			})
 		end,
-	},
-
-	{
-		"folke/noice.nvim",
-		event = "VeryLazy",
-		opts = {
-			-- add any options here
-		},
-		config = function()
-			require("noice").setup({
-				lsp = {
-					-- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-					override = {
-						["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-						["vim.lsp.util.stylize_markdown"] = true,
-						["cmp.entry.get_documentation"] = true,
-					},
-					signature = {
-						enabled = false,
-					},
-					hover = {
-						enabled = false,
-					},
-				},
-				-- you can enable a preset for easier configuration
-				presets = {
-					bottom_search = true, -- use a classic bottom cmdline for search
-					command_palette = true, -- position the cmdline and popupmenu together
-					long_message_to_split = true, -- long messages will be sent to a split
-					inc_rename = false, -- enables an input dialog for inc-rename.nvim
-					lsp_doc_border = false, -- add a border to hover docs and signature help
-				},
-			})
-		end,
-		dependencies = {
-			-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-			"MunifTanjim/nui.nvim",
-			-- OPTIONAL:
-			--   `nvim-notify` is only needed, if you want to use the notification view.
-			--   If not available, we use `mini` as the fallback
-			"rcarriga/nvim-notify",
-		},
 	},
 
 	{
@@ -220,7 +230,7 @@ local plugins = {
 
   {
     "wildfunctions/myeyeshurt",
-    lazy = false,
+    event = "BufReadPre",
     opts = {
       initialFlakes = 1,
       flakeOdds = 20,
@@ -232,64 +242,8 @@ local plugins = {
     }
   },
 
-  {
-    "epwalsh/obsidian.nvim",
-    version = "*",  -- recommended, use latest release instead of latest commit
-    lazy = true,
-    ft = "markdown",
-    -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
-    -- event = {
-    --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
-    --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
-    --   "BufReadPre path/to/my-vault/**.md",
-    --   "BufNewFile path/to/my-vault/**.md",
-    -- },
-    dependencies = {
-      -- Required.
-      "nvim-lua/plenary.nvim",
-
-      -- see the full list of optional dependencies
-    },
-    opts = {
-      workspaces = {
-        {
-          name = "personal",
-          path = "~/vaults/personal",
-        },
-        {
-          name = "work",
-          path = "~/vaults/work",
-          -- Optional, override certain settings.
-          overrides = {
-            notes_subdir = "notes",
-          },
-        },
-      },
-
-      daily_notes = {
-        -- Optional, if you keep daily notes in a separate directory.
-        folder = "notes/dailies",
-        -- Optional, if you want to change the date format for the ID of daily notes.
-        date_format = "%Y-%m-%d",
-        -- Optional, if you want to change the date format of the default alias of daily notes.
-        alias_format = "%B %-d, %Y",
-        -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-        template = nil
-      },
-
-      templates = {
-        subdir = "templates",
-        date_format = "%Y-%m-%d",
-        time_format = "%H:%M",
-        -- A map for custom variables, the key should be the variable and the value a function
-        substitutions = {},
-      },
-
-      -- see full list of options
-    },
-  }
-
 	-- To make a plugin not be loaded
+
 	-- {
 	--   "NvChad/nvim-colorizer.lua",
 	--   enabled = false
@@ -302,6 +256,7 @@ local plugins = {
 	--   "mg979/vim-visual-multi",
 	--   lazy = false,
 	-- }
+
 }
 
 return plugins
