@@ -18,17 +18,17 @@ map("n", "<leader><leader>", function() require("fzf-lua").command_history() end
 map("n", "<leader>fm", function() require("conform").format() end, {desc = "formatting"})
 
 -- toggler
-map("n", "<leader>i", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
-map("v", "<leader>i", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
+map("n", "<leader>ti", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
+map("v", "<leader>ti", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
 
 -- trouble
-map("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "trouble - toggle" })
-map("n", "<leader>wd", ":TroubleToggle workspace_diagnostics<CR>", { desc = "trouble - workspace Diagnostics" })
-map("n", "<leader>cq", "<CMD>TroubleToggle quickfix<CR>", { desc = "trouble - quickfix" })
-map("n", "<leader>td", "<CMD>TodoTrouble<CR>", { desc = "trouble - todo" })
-map("n", "gd", "<CMD>Trouble lsp_definitions<CR>", { desc = "trouble - definition" })
-map("n", "gi", "<CMD>Trouble lsp_implementations<CR>", { desc = "trouble - implementations" })
-map("n", "gD", "<CMD>Trouble lsp_type_definitions<CR>", { desc = "trouble - type definition" })
+map("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "trouble toggle" })
+map("n", "<leader>wd", ":TroubleToggle workspace_diagnostics<CR>", { desc = "trouble workspace diagnostics" })
+map("n", "<leader>cq", "<CMD>TroubleToggle quickfix<CR>", { desc = "trouble quickfix" })
+map("n", "<leader>td", "<CMD>TodoTrouble<CR>", { desc = "trouble todo" })
+map("n", "gd", "<CMD>Trouble lsp_definitions<CR>", { desc = "trouble definition" })
+map("n", "gi", "<CMD>Trouble lsp_implementations<CR>", { desc = "trouble implementations" })
+map("n", "gD", "<CMD>Trouble lsp_type_definitions<CR>", { desc = "trouble type definition" })
 
 -- pomodoro timer
 local ok, pomo = pcall(require, "pomo")
@@ -61,8 +61,8 @@ map("n", "<leader>mx", function()
 end, {desc = "myeyes stop flakes"})
 
 -- autosave
-map("n", "gs", "<cmd> AutosaveToggle <cr>", {desc = "autosave toggle"})
-map("n", "<leader>s", "<cmd> AutosaveToggle <cr>", {desc = "autosave toggle"})
+map("n", "gq", "<cmd> AutosaveToggle <cr>", {desc = "autosave toggle"})
+map("n", "<leader>qs", "<cmd> AutosaveToggle <cr>", {desc = "autosave toggle"})
 
 -- zen
 map("n", "<leader>za", ":ZenMode <cr>", {desc = "zen mode"})
@@ -78,3 +78,23 @@ map("n", "<C-k>", "<cmd> NvimTmuxNavigateUp <cr>", {desc = "Up"})
 map("n", "<C-l>", "<cmd> NvimTmuxNavigateRight <cr>", {desc = "Right"})
 map("n", "<C-\\>", "<cmd> NvimTmuxNavigateLastActive <cr>", {desc = "Last active"})
 map("n", "<C-Space>", "<cmd> NvimTmuxNavigateNext <cr>", {desc = "Next"})
+
+-- windows
+map("n", "<leader>wz", function() require("windows").setup() end, {desc = "window autosize"})
+
+local function cmd(command)
+   return table.concat({ '<Cmd>', command, '<CR>' })
+end
+
+map("n", "<C-w>z", cmd "WindowsMaximize", {desc = "Max window"})
+map("n", "<C-w>_", cmd "WindowsMaximizeVertically", {desc = "Max out the height"})
+map("n", "<C-w>|", cmd "WindowsMaximizeHorizontally", {desc = "Max out the width"})
+map("n", "<C-w>=", cmd "WindowsEqualize", {desc = "Equally high and wide"})
+
+-- persistence
+map("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {desc = "restore stop"})
+map("n", "<leader>ql", [[<cmd>lua require("persistence").load()<cr>]], {desc = "restore current directory"})
+map("n", "<leader>qr", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {desc = "restore last session"})
+
+-- quit
+map("c", "q", [[quitall<cr>]], { desc = "quit all", noremap = true, silent = false })

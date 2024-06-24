@@ -41,6 +41,7 @@ local plugins = {
 	},
 
 	-- Install a plugin
+
 	{
 		"max397574/better-escape.nvim",
 		event = "InsertEnter",
@@ -159,7 +160,7 @@ local plugins = {
     config = function()
       -- calling `setup` is optional for customization
       -- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
-      require("fzf-lua").setup({"fzf-tmux",winopts={preview={default="bat"}}})
+      require("fzf-lua").setup({{"telescope","fzf-native"},winopts={preview={default="bat"}}})
     end
   },
 
@@ -185,6 +186,14 @@ local plugins = {
 		config = function()
 			require("zen-mode").setup()
 		end,
+  },
+
+  {
+    "folke/persistence.nvim",
+    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    opts = {
+      -- add any custom options here
+    }
   },
 
 	{
@@ -221,7 +230,7 @@ local plugins = {
 
   {
     "wildfunctions/myeyeshurt",
-    lazy = false,
+    event = "BufReadPre",
     opts = {
       initialFlakes = 1,
       flakeOdds = 20,
@@ -234,6 +243,7 @@ local plugins = {
   },
 
 	-- To make a plugin not be loaded
+
 	-- {
 	--   "NvChad/nvim-colorizer.lua",
 	--   enabled = false
@@ -246,6 +256,7 @@ local plugins = {
 	--   "mg979/vim-visual-multi",
 	--   lazy = false,
 	-- }
+
 }
 
 return plugins

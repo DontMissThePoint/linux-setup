@@ -4,19 +4,11 @@ return {
     "anuvyklack/middleclass",
     "anuvyklack/animation.nvim",
   },
+  lazy = false,
   config = function()
     vim.o.winwidth = 10
     vim.o.winminwidth = 10
     vim.o.equalalways = false
     require("windows").setup()
   end,
-  keys = {
-    {
-      "<leader>Tw",
-      function()
-        require("windows").setup()
-      end,
-      desc = "Toggle window autosize",
-    },
-  },
 }
