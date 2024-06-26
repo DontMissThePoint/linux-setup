@@ -160,7 +160,7 @@ local plugins = {
     config = function()
       -- calling `setup` is optional for customization
       -- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
-      require("fzf-lua").setup({{"telescope","fzf-native"},winopts={preview={default="bat"}}})
+      require("fzf-lua").setup({{"fzf-native","fzf-tmux"},winopts={preview={default="bat"}}})
     end
   },
 
