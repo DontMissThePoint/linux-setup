@@ -49,7 +49,6 @@ while true; do
     sudo chmod 755 ~/.local/bin/ffprobe
     sudo chmod 755 ~/.local/bin/alass
 
-
     # use in pdfpc to play videos
     sudo apt-get -y install gstreamer1.0-libav libxpresent1
 
@@ -73,11 +72,8 @@ while true; do
     # high-quality mpv
     echo "Installing... 🎥 High-quality configuration for mpv"
     rm -rf "$CONFIG/*"
-    # git clone https://github.com/noelsimbolon/mpv-config "$CONFIG"
-    cp -rf $APP_PATH/mpv-config/* "$CONFIG"
-
-    # scripts
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
+    cp -rf $APP_PATH/mpv-config/* "$CONFIG"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

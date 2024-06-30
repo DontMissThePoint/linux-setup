@@ -1,29 +1,47 @@
-# GENERAL #
+# -- general -----------------------------------------------------------------
+
 reload-time 30
 auto-reload yes
-text-width 50
+text-width 80
+max-items 500
+download-retries 4
+download-timeout 10
+keep-articles-days 90
+reload-threads 100
 browser "setsid -f qutebrowser --target tab %u > /dev/null 2>&1"
 cleanup-on-quit no
+confirm-exit no
+
 history-limit 2000
 show-keymap-hint no
 show-read-feeds no
+show-read-articles no
 goto-next-feed no
 error-log ".config/newsboat/error.log"
 prepopulate-query-feeds yes
 suppress-first-reload yes
 
-# NOTIFICATIONS #
+datetime-format "%d-%b-%Y"
+feedlist-title-format "Feeds (%u unread, %total)"
+feedlist-format "%11u - %t"
+save-path ~/Documents/saved_articles
+
+# -- notifications -----------------------------------------------------------------
+
 notify-always yes
+notify-xterm yes
 notify-program "/usr/bin/dunstify"
 notify-format "Newsboat: %d new articles"
 
-# Hide feeds where all the items are read.
+# -- bookmarks -----------------------------------------------------------------
+
+bookmark-cmd ~/.scripts/bookmark.sh
+bookmark-interactive no
+bookmark-autopilot yes
 
 
-# Use multiple threads to download all the news faster.
-reload-threads 11
+# -- keybindings -----------------------------------------------------------------
 
-# Vim keybindings
 unbind-key j
 unbind-key k
 unbind-key J
@@ -32,6 +50,7 @@ unbind-key ^D
 unbind-key ^U
 unbind-key ENTER
 unbind-key o
+unbind-key C feedlist
 
 bind-key o open
 bind-key k up
@@ -40,8 +59,11 @@ bind-key ^D pagedown
 bind-key ^U pageup
 bind-key d pagedown
 bind-key u pageup
+bind-key ^F pagedown
+bind-key ^H toggle-show-read-feeds
 
-bind-key b toggle-source-view
+# bind-key b toggle-source-view
+bind-key b bookmark
 bind-key J next-feed articlelist
 bind-key K prev-feed articlelist
 bind-key G end
@@ -53,26 +75,36 @@ bind-key n next-unread
 bind-key N prev-unread
 bind-key D pb-download
 
+bind-key H prev-feed
+bind-key L next-feed
 bind-key B open-in-browser-and-mark-read
 bind-key i sort
 bind-key I rev-sort
 bind-key U toggle-show-read-feeds
 bind-key u show-urls
 bind-key x pb-delete
+bind-key SPACE macro-prefix
 
-# COLORS #
+# -- colors -----------------------------------------------------------------
+
+# col  item       fg       bg
+color background default default        # the most bottom bar
 color listnormal cyan default
-color listfocus black yellow standout bold
 color listnormal_unread blue default
-color listfocus_unread yellow default bold
-color info red black bold
-color article white default bold
+color listfocus color14 default
+color listfocus_unread color14 default standout bold
+color info color5 color0 bold
+color article default default
 
-highlight all "---.*---" yellow
-highlight feedlist ".*(0/0))" black
+highlight all "---.*---" color6
+highlight feedlist ".*(0/0))" color0
 highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
 highlight article "(^Link:.*|^Date:.*)" default default
-highlight article "https?://[^ ]+" green default
+highlight article "^(Feed|Link):.*$" color6 default bold
+highlight article "^(Title|Date|Author):.*$" color6 default bold
+highlight article "https?://[^ ]+" color10 default underline
+highlight article "\\[[0-9]+\\]" color10 default bold
+
 highlight article "^(Title):.*$" blue default
 highlight article "\\[[0-9][0-9]*\\]" magenta default bold
 highlight article "\\[image\\ [0-9]+\\]" green default bold
@@ -81,27 +113,26 @@ highlight article ":.*\\(link\\)$" cyan default
 highlight article ":.*\\(image\\)$" blue default
 highlight article ":.*\\(embedded flash\\)$" magenta default
 
-# MACROS #
-# To execute a macro press , + key
+feedlist-format "%?T?║%4i %n %8u %8T %t &╠═══════════════════════════════════════════════════════════════%t?"
+highlight feedlist "[║│]" color6 color0
+highlight feedlist "╠═.*" color6 color0
+
+# -- macros -----------------------------------------------------------------
+
+# To execute a macro press <SPACE> + key
 
 macro a set browser "echo %u >> ~/.config/newsboat/queue" ; open-in-browser
 macro c set browser "rm $HOME/.config/newsboat/queue > /dev/null 2>&1" ; open-in-browser
 macro p set browser "setsid -f mpv --playlist=$HOME/.config/newsboat/queue > /dev/null 2>&1" ; open-in-browser
 
-# VIDEO #
-
 # Play video
 macro v set browser "setsid -f mpv %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
-
 # Play video floating mode
 macro i set browser "setsid -f mpv --x11-name=mpvfloat %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
-
 # Play audio only
 macro A set browser "setsid -f mpv %u --no-video > /dev/null 2>&1" ; open-in-browser-and-mark-read
-
 # Play fullscreen, i3 sends it to second monitor (useful for playing all the videos from a channel)
 macro f set browser "setsid -f mpv --x11-name=newsboatfs --fullscreen=yes %u > /dev/null 2>&1" ; open-in-browser
-
 # Download video
 macro y set browser "yt-dlp %u" ; open-in-browser
 
