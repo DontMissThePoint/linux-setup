@@ -123,7 +123,7 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# Timer
+# pomodoro technique
 bindsym $mod+t exec --no-startup-id "gnome-pomodoro --pause-resume --no-default-window"
 
 # kill focused window
@@ -266,7 +266,9 @@ bindsym $mod+plus scratchpad show; floating disable
 # float
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable
+for_window [instance="mpvfloat"] floating enable, resize set 960 540, move container position center
 for_window [title="File Transfer*"] floating enable
+for_window [instance="newsboatfs"] move container to workspace $ws10
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 # bluetooth applet
@@ -1527,6 +1529,9 @@ exec_always --no-startup-id indicator-sound-switcher
 
 # timer
 exec --no-startup-id "gnome-pomodoro --start --no-default-window"
+
+# news
+exec --no-startup-id "newsboat -r -q"
 
 # #}
 

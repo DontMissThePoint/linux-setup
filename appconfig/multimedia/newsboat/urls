@@ -1,0 +1,39 @@
+# NewsBoat URL LIST
+
+# News
+#                                   "~Great Uganda Jobs"
+https://www.greatugandajobs.com/jobs/
+
+# Newsletter
+#                                   "~Swan"
+https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml
+
+# Magazine
+#                                   "~CEO EastAfrica Magazine"/
+https://www.ceo.co.ug/feed://www.ceo.co.ug/feed/
+https://www.ceo.co.ug/comments/feed://www.ceo.co.ug/comments/feed/
+
+# Courses
+#                                   "~Script Mafia"
+https://feeds.feedburner.com/scriptmafia
+#                                   "~FreeCoursedl"
+https://freecoursedl.com/feed/
+https://freecoursedl.com/comments/feed/
+
+# Blogs
+#                                           "~Richard Stallman"
+https://stallman.org//rss/rss.xml
+
+# YouTube
+#                                   "~Lamborghini             (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw
+#                                   "~Technology Connections  (YouTube)"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q
+
+# PeerTube
+#                                "~Luke Smith             (PeerTube)"
+https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&isLocal=true
+
+# Podcasts
+#                                           "~Saifedan Ammous"
+https://feeds.buzzsprout.com/1849151.rss

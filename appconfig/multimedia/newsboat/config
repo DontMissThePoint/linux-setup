@@ -1,0 +1,109 @@
+# GENERAL #
+reload-time 30
+auto-reload yes
+text-width 50
+browser "setsid -f qutebrowser --target tab %u > /dev/null 2>&1"
+cleanup-on-quit no
+history-limit 2000
+show-keymap-hint no
+show-read-feeds no
+goto-next-feed no
+error-log ".config/newsboat/error.log"
+prepopulate-query-feeds yes
+suppress-first-reload yes
+
+# NOTIFICATIONS #
+notify-always yes
+notify-program "/usr/bin/dunstify"
+notify-format "Newsboat: %d new articles"
+
+# Hide feeds where all the items are read.
+
+
+# Use multiple threads to download all the news faster.
+reload-threads 11
+
+# Vim keybindings
+unbind-key j
+unbind-key k
+unbind-key J
+unbind-key K
+unbind-key ^D
+unbind-key ^U
+unbind-key ENTER
+unbind-key o
+
+bind-key o open
+bind-key k up
+bind-key j down
+bind-key ^D pagedown
+bind-key ^U pageup
+bind-key d pagedown
+bind-key u pageup
+
+bind-key b toggle-source-view
+bind-key J next-feed articlelist
+bind-key K prev-feed articlelist
+bind-key G end
+bind-key g home
+bind-key l open
+bind-key h quit
+bind-key a toggle-article-read
+bind-key n next-unread
+bind-key N prev-unread
+bind-key D pb-download
+
+bind-key B open-in-browser-and-mark-read
+bind-key i sort
+bind-key I rev-sort
+bind-key U toggle-show-read-feeds
+bind-key u show-urls
+bind-key x pb-delete
+
+# COLORS #
+color listnormal cyan default
+color listfocus black yellow standout bold
+color listnormal_unread blue default
+color listfocus_unread yellow default bold
+color info red black bold
+color article white default bold
+
+highlight all "---.*---" yellow
+highlight feedlist ".*(0/0))" black
+highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
+highlight article "(^Link:.*|^Date:.*)" default default
+highlight article "https?://[^ ]+" green default
+highlight article "^(Title):.*$" blue default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
+highlight article ":.*\\(link\\)$" cyan default
+highlight article ":.*\\(image\\)$" blue default
+highlight article ":.*\\(embedded flash\\)$" magenta default
+
+# MACROS #
+# To execute a macro press , + key
+
+macro a set browser "echo %u >> ~/.config/newsboat/queue" ; open-in-browser
+macro c set browser "rm $HOME/.config/newsboat/queue > /dev/null 2>&1" ; open-in-browser
+macro p set browser "setsid -f mpv --playlist=$HOME/.config/newsboat/queue > /dev/null 2>&1" ; open-in-browser
+
+# VIDEO #
+
+# Play video
+macro v set browser "setsid -f mpv %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
+
+# Play video floating mode
+macro i set browser "setsid -f mpv --x11-name=mpvfloat %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
+
+# Play audio only
+macro A set browser "setsid -f mpv %u --no-video > /dev/null 2>&1" ; open-in-browser-and-mark-read
+
+# Play fullscreen, i3 sends it to second monitor (useful for playing all the videos from a channel)
+macro f set browser "setsid -f mpv --x11-name=newsboatfs --fullscreen=yes %u > /dev/null 2>&1" ; open-in-browser
+
+# Download video
+macro y set browser "yt-dlp %u" ; open-in-browser
+
+# Open in default browser
+macro o open-in-browser
