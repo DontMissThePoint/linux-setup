@@ -1,39 +1,42 @@
 # NewsBoat URL LIST
 
-# News
-#                                   "~Great Uganda Jobs"
-https://www.greatugandajobs.com/jobs/
+"query:News:tags # \"News\""
+https://morss.it/:items=%7C%7C*[class=jobtitle]/https://www.greatugandajobs.com/jobs/  "News" "enterprise" "~Great Uganda Jobs"
 
-# Newsletter
-#                                   "~Swan"
-https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml
+"query:Newsletter:tags # \"Newsletter\""
+https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "favourite" "~Swan"
 
-# Magazine
-#                                   "~CEO EastAfrica Magazine"/
-https://www.ceo.co.ug/feed://www.ceo.co.ug/feed/
-https://www.ceo.co.ug/comments/feed://www.ceo.co.ug/comments/feed/
+"query:Magazine:tags # \"Magazine\""
+https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
 
-# Courses
-#                                   "~Script Mafia"
-https://feeds.feedburner.com/scriptmafia
-#                                   "~FreeCoursedl"
-https://freecoursedl.com/feed/
-https://freecoursedl.com/comments/feed/
+"query:Courses:tags # \"Courses\""
+https://feeds.feedburner.com/scriptmafia  "Courses" "video" "~Script Mafia"
+https://freecoursedl.com/feed/  "Courses" "video" "~FreeCoursedl"
+https://freecoursedl.com/comments/feed/  "Courses" "video" "~FreeCoursedl"
 
-# Blogs
-#                                           "~Richard Stallman"
-https://stallman.org//rss/rss.xml
+"query:Podcast:tags # \"Podcast\""
+https://feeds.buzzsprout.com/1849151.rss   "Podcast" "favourite" "~Saifedan Ammous"
 
-# YouTube
-#                                   "~Lamborghini             (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw
-#                                   "~Technology Connections  (YouTube)"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q
+"query:Reddit:tags # \"Reddit\""
+https://www.reddit.com/r/bash.rss "Reddit" "linux bash"
+https://www.reddit.com/r/vim.rss "Reddit" "linux"
+https://www.reddit.com/user/C4rnAg3.rss "Reddit" "~Bangladeshi Bash"
 
-# PeerTube
-#                                "~Luke Smith             (PeerTube)"
-https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&isLocal=true
+"query:Blogs:tags # \"Blog\""
+https://www.chrisatmachine.com/rss.xml "Blog" "linux"
+https://www.howtogeek.com/feed/ "Blog" "howtogeek"
+https://www.topbug.net/blog/category/unix-variants/gnu-linux/feed/ "Blog" "linux"
+https://stallman.org//rss/rss.xml "Blog" "linux" "~Richard Stallman"
 
-# Podcasts
-#                                           "~Saifedan Ammous"
-https://feeds.buzzsprout.com/1849151.rss
+"query:YouTube:tags # \"YouTube\""
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw "YouTube" "video" "~Lamborghini"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q  "YouTube" "video" "~Technology Connections"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "Comedy" "Youtube"                              #Technlinked
+https://www.youtube.com/feeds/videos.xml?channel_id=UCUuWlKrLVaR6_yTckhLG7hg "Linux" "YouTube"                              #linux leech
+https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "Linux" "YouTube"                              #Wolf Gang
+https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw "Tech"  "Youtube"                              #Linus Tech Tips
+https://www.youtube.com/feeds/videos.xml?channel_id=UCfLsPYDDrGaFc9XhfDM-ktA "Linux" "YouTube"                              #Null Byte
+https://www.youtube.com/feeds/videos.xml?channel_id=UCqwUrj10mAEsqezcItqvwEw "Comedy" "Yotube"                              #BB Ki Vines
+
+"query:PeerTube:tags # \"PeerTube\""
+https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&isLocal=true "PeerTube" "video" "~Luke Smith"
