@@ -6,7 +6,7 @@ do
 
   read line
 
-  source /home/klaxalk/.i3/env_variables.txt
+  source /home/shafiq/.i3/env_variables.txt
 
   echo '$ROS_IP='"$ROS_IP"' | $UAV_NAME='"$UAV_NAME $line" || exit 1
 

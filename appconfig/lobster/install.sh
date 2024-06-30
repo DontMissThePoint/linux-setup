@@ -48,9 +48,6 @@ while true; do
     sudo cp -f ueberzug /usr/local/bin/ueberzug
     sudo ln -sf /usr/local/bin/ueberzug /usr/bin/ueberzugpp
 
-    # bt client
-    sudo apt install -y transmission transmission-cli
-
     # lobster
     sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
     sudo chmod +x /usr/local/bin/lobster
@@ -66,6 +63,23 @@ while true; do
     mkdir -p ~/.config/lobster ~/.config/libg
     pv "$APP_PATH/lobster_config.txt" > ~/.config/lobster/lobster_config.txt
     pv "$APP_PATH/libg.sh" > ~/.config/libg/libg.sh
+
+    # bt client
+    the_ppa=qbittorrent-team/qbittorrent-stable
+    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+       sudo apt-add-repository ppa:qbittorrent-team/qbittorrent-stable
+       sudo apt update
+       sudo apt install -y qbittorrent
+    fi
+
+    # tordl
+    toilet Setup cli-torrent-dl
+
+    # Run JSON RPC Server
+    cd $APP_PATH/../../submodules/cli-torrent-dl
+    ./setup.sh
+    docker build . -t tordl
+    # docker run -p 57000:57000 -it tordl -s
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

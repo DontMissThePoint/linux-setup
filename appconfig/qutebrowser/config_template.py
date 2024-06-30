@@ -25,7 +25,7 @@ c.scrolling.bar = 'always'
 c.zoom.default = '90%'
 
 ## Aliases
-c.aliases = {'q': 'close', 'qa': 'quit',
+c.aliases = {'q': 'quit --save', 'qa': 'quit',
            'w': 'session-save', 'wq': 'quit --save',
            'wqa': 'quit --save',
            'xa': 'quit --save',
@@ -51,15 +51,18 @@ c.bindings.commands['insert'] = {
     'jj': 'mode-leave',
 }
 
+## Keys
+config.set('hints.chars', 'asdflothn')
+
 # hint
 config.bind('f', 'hint')
 config.bind('tf', 'hint tab')
 config.bind('F', 'hint --rapid links tab-bg')
-config.bind('yf', 'hint links yank')
+config.bind('yl', 'hint links yank')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
-config.bind('tT', 'tab-prev')
+config.bind('tj', 'tab-prev')
 config.bind('tt', 'tab-next')
 config.bind('xx', 'tab-close')
 
@@ -103,5 +106,6 @@ config.bind(';M', 'hint --rapid links spawn mpv {hint-url}')
 c.content.dns_prefetch = False
 
 ## qutebrowser’s default
-c.url.searchengines = {'DEFAULT': 'https://swisscows.com/en/web?query={}'}
+c.url.searchengines = {'DEFAULT': 'https://google.com/search?q={}'}
+# c.url.searchengines = {'DEFAULT': 'https://swisscows.com/en/web?query={}'}
 #c.url.searchengines = {'DEFAULT': 'https://lite.qwant.com/?q={}'}

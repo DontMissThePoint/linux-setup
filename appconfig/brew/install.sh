@@ -35,16 +35,16 @@ while true; do
   then
 
     # Brew
-    case $(< ~/.bashrc 2>/dev/null) in
-      *".linuxbrew"*)
-        ;;
-      *)
-        toilet "Setting up brew"
-        NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-        (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
-        eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-        ;;
-    esac
+
+    num=`cat ~/.bashrc | grep "linuxbrew" | wc -l`
+    if [ "$num" -lt "1" ]; then
+
+      toilet "Setting up brew"
+      NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+      (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
+      eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
+    fi
 
     # exceed files limit
     ulimit -n2048
@@ -55,7 +55,7 @@ while true; do
       echo Connection disrupted, retrying in 10 seconds...
       sleep 10
     done
-    brew install -q grc fzy bat ripgrep miller ctop btop eza fd s-search dust aria2 glow
+    brew install webtorrent-cli grc tailspin fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow
     brew cleanup --prune=all
 
     # configs
@@ -63,7 +63,7 @@ while true; do
     mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow ~/.config/s
     pv "$APP_PATH/key_bindings.ron" > ~/.config/gitui/key_bindings.ron
     pv "$APP_PATH/btop.conf" > ~/.config/btop/btop.conf
-    pv "$APP_PATH/bat.config >" ~/.config/bat/config
+    pv "$APP_PATH/bat.config" > ~/.config/bat/config
     pv "$APP_PATH/s.config" > ~/.config/s/config
     pv "$APP_PATH/aria2.conf" > ~/.config/aria2/aria2.conf
     pv "$APP_PATH/glow.yml" > ~/.config/glow/glow.yml
@@ -71,6 +71,9 @@ while true; do
     # update bt-trackers
     echo "Updating bt-trackers... "
     $GIT_PATH/linux-setup/scripts/aria2-trackers-update.sh
+
+    # RPC extension: https://aria2e.com/
+    # aria2c --enable-rpc --rpc-listen-all --max-concurrent-downloads=40 --max-connection-per-server=16 --min-split-size=20M --split=16 --continue=true --dir=~/VirtualMachines/Windows-Docker/
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

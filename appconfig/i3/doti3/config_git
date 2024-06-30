@@ -6,12 +6,12 @@ set $mod2 Mod4
 # default definition of title/names of all workspaces
 set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace3 "3: "
+set $workspace3 "3: 󰨊"
 set $workspace4 "4: "
 set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
+set $workspace6 "6: 󱎐"
+set $workspace7 "7: "
+set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10: "
 
@@ -123,7 +123,7 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# Timer
+# pomodoro technique
 bindsym $mod+t exec --no-startup-id "gnome-pomodoro --pause-resume --no-default-window"
 
 # kill focused window
@@ -261,11 +261,14 @@ bindsym $mod+c mode "mouse_mode"
 # scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+plus scratchpad show; floating disable
 
 # float
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable
+for_window [instance="mpvfloat"] floating enable, resize set 960 540, move container position center
 for_window [title="File Transfer*"] floating enable
+for_window [instance="newsboatfs"] move container to workspace $ws10
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 # bluetooth applet
@@ -425,7 +428,9 @@ client.background       $background_color
 bar {
 
   position top
-  mode hide
+  mode invisible
+  hidden_state hide
+  modifier $mod2
   strip_workspace_numbers yes
   status_command i3blocks -c ~/.i3/i3blocks.conf
   i3bar_command i3bar -t
@@ -553,7 +558,7 @@ bar {
 
     background $i3bar_bg
     statusline $active_text_color
-    separator  $active_background
+    separator  #666666
 
     #                  border             background           text
     focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
@@ -1514,7 +1519,8 @@ exec --no-startup-id nm-applet
 # exec ~/.monitor.sh
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
+# exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
+exec --no-startup-id picom --config ~/.config/picom.conf # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
@@ -1523,6 +1529,9 @@ exec_always --no-startup-id indicator-sound-switcher
 
 # timer
 exec --no-startup-id "gnome-pomodoro --start --no-default-window"
+
+# news
+exec --no-startup-id "newsboat -r -q"
 
 # #}
 

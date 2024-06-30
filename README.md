@@ -2,15 +2,15 @@
 
 |              |       |                                                                                                                                                                       |
 |--------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 20.04 Docker | AMD64 | [![Build [![Focal](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml) |
-| 20.04        | AMD64 | [![Docker](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml)       |
+| 22.04 Docker | AMD64 | [![Jammy](https://github.com/dontmissthepoint/linux-setup/actions/workflows/jammy.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/jammy.yml) |
+| 22.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
 
 ## Summary
 
-This repo contains settings of klaxalk's Linux work environment.
+This repo contains settings of DMP's Linux work environment.
 
 It could be summarized as follows:
-* **Ubuntu 20.04**
+* **Ubuntu 22.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability to show images (when using the *ranger* file manager)
@@ -38,16 +38,15 @@ It could be summarized as follows:
 To clone and install everything run following code. **BEWARE**, running this will **DELETE** your current .i3, tmux, vim, etc. dotfiles.
 ```bash
 cd /tmp
-echo "mkdir -p ~/git
-cd ~/git
+echo "cd ~/
 sudo apt-get -y install git
-git clone https://github.com/klaxalk/linux-setup.git
+git clone https://github.com/dontmissthepoint/linux-setup.git
 cd linux-setup
 ./install.sh" > run.sh && source run.sh
 ```
 **Calling install.sh repeatedly** will not cause acumulation of code in your .bashrc, so feel free to update your configuration by rerunning it.
 
-# How to? -> [wiki](https://github.com/klaxalk/linux-setup/wiki)
+# How to? -> [wiki](https://github.com/dontmissthepoint/linux-setup/wiki)
 
 Refer to the project's [wiki](https://github.com/klaxalk/linux-setup/wiki) (work in progress).
 

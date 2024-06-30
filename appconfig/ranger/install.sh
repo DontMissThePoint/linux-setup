@@ -48,6 +48,30 @@ while true; do
     ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
+    # icons-in-terminal
+    cd /tmp
+    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
+    git clone https://github.com/sebastiencs/icons-in-terminal.git
+    cd icons-in-terminal
+    ./install-autodetect.sh
+
+    # clifm
+    cd /tmp
+    sudo apt install -y libcap-dev libacl1-dev libreadline-dev libmagic-dev udevil vlock archivemount
+    [ -e clifm ] && rm -rf /tmp/clifm
+    git clone https://github.com/leo-arch/clifm.git
+    cd clifm
+    export CPPFLAGS="$CPPFLAGS -D_ICONS_IN_TERMINAL"
+    make -j8 && sudo make install
+
+    # advcpmv
+    cd /tmp
+    [ -e advcpmv ] && rm -rf /tmp/advcpmv
+    curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o ./advcpmv/install.sh && (cd advcpmv && sh install.sh)
+    sudo mv ./advcpmv/advcp /usr/local/bin/
+    sudo mv ./advcpmv/advmv /usr/local/bin/
+    pv $APP_PATH/clifmrc > ~/.config/clifm/profiles/default/clifmrc
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
