@@ -20,6 +20,7 @@ alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/in
 alias demangle="c++filt"
 alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
+alias news="newsboat"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 
 # quick acces to files and directories

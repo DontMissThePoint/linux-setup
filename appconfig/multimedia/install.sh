@@ -55,7 +55,10 @@ while true; do
 
     # for video, photo, audio, ..., viewing and editing
     sudo pip install subliminal ffsubsync
-    sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol
+    sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol newsboat
+
+    # newsboat
+    cp -rf "$APP_PATH/newsboat" ~/.config/
 
     # mpv
     echo "Installing MPV"
@@ -69,8 +72,12 @@ while true; do
 
     # high-quality mpv
     echo "Installing... 🎥 High-quality configuration for mpv"
-    rm -rf "$CONFIG"
-    git clone https://github.com/noelsimbolon/mpv-config "$CONFIG"
+    rm -rf "$CONFIG/*"
+    # git clone https://github.com/noelsimbolon/mpv-config "$CONFIG"
+    cp -rf $APP_PATH/mpv-config/* "$CONFIG"
+
+    # scripts
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -56,6 +56,7 @@ while true; do
     echo "Setup syntevo tools."
     cp -f $APP_PATH/ssh_config ~/.ssh/config
     rm -rf ~/.config/smartgit
+    # Previews:  https://www.syntevo.com/downloads/smartgit/smartgit-24_1-preview-8.deb
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
     # deepGit

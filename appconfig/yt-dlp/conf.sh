@@ -6,7 +6,8 @@ ytfzf_hist=1
 ytfzf_loop=0
 
 # set the video format
-ytfzf_pref="bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080]"
+# ytfzf_pref="bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080]"
+ytfzf_pref="bestvideo[height<=?720]+bestaudio/best"
 
 # fzf colors are going to be the one from your fzf configuration
 ytfzf_enable_fzf_default_opts=1

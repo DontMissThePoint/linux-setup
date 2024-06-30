@@ -48,9 +48,6 @@ while true; do
     ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
-    # arttime
-    zsh -c '{url="https://gist.githubusercontent.com/poetaman/bdc598ee607e9767fe33da50e993c650/raw/d0146d258a30daacb9aee51deca9410d106e4237/arttime_online_installer.sh"; zsh -c "$(curl -fsSL $url || wget -qO- $url)"}'
-
     # icons-in-terminal
     cd /tmp
     [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
