@@ -31,7 +31,7 @@ save-path ~/Documents/saved_articles
 notify-always yes
 notify-xterm yes
 notify-program "/usr/bin/dunstify"
-notify-format "Newsboat: %d new articles"
+notify-format "Newsboat: %d new articles (%n unread articles, %f unread feeds)"
 
 # -- bookmarks -----------------------------------------------------------------
 

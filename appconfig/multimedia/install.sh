@@ -71,7 +71,7 @@ while true; do
 
     # high-quality mpv
     echo "Installing... 🎥 High-quality configuration for mpv"
-    rm -rf "$CONFIG/*"
+    rm -rf "$CONFIG"
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
     cp -rf $APP_PATH/mpv-config/* "$CONFIG"
 
