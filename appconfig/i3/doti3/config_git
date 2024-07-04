@@ -250,6 +250,9 @@ bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 # EPIGEN_DEL_BLOCK_VOJTA }
 
+bindsym $mod2+e exec nautilus
+bindsym $mod2+b exec qutebrowser
+bindsym $mod2+s exec /usr/share/smartgit/bin/smartgit.sh
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
 # bind i3 modes
@@ -267,6 +270,8 @@ bindsym $mod+plus scratchpad show; floating disable
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable
 for_window [instance="mpvfloat"] floating enable, resize set 960 540, move container position center
+for_window [class="qutebrowser"] move workspace $workspace2
+for_window [class="SmartGit"] move workspace $workspace3
 for_window [title="File Transfer*"] floating enable
 for_window [instance="newsboatfs"] move container to workspace $ws10
 for_window [class="Lxappearance"] floating enable sticky enable border normal
