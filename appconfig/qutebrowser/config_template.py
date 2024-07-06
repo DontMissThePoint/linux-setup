@@ -69,12 +69,15 @@ config.set('hints.chars', 'asdflothn')
 config.bind('f', 'hint')
 config.bind('tf', 'hint tab')
 config.bind('F', 'hint --rapid links tab-bg')
+# config.bind('dl', 'hint links download')
 config.bind('yl', 'hint links yank-primary')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
+config.unbind('d')
 config.bind('tj', 'tab-prev')
 config.bind('tt', 'tab-next')
+config.bind('dd', 'tab-close')
 config.bind('xx', 'tab-close')
 
 config.bind('gl', 'tab-focus last')
@@ -159,8 +162,8 @@ c.fonts.tooltip = small_mono
 c.fonts.messages.error = small_mono
 c.fonts.messages.info = small_mono
 c.fonts.messages.warning = small_mono
-c.fonts.statusbar = mono
-c.fonts.tabs.selected = mono
+c.fonts.statusbar = 'bold ' + mono
+c.fonts.tabs.selected = 'bold 10pt monospace'
 c.fonts.tabs.unselected = mono
 
 config.bind(',P', 'open -b -- {primary}')

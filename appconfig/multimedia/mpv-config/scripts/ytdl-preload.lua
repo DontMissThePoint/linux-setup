@@ -18,7 +18,7 @@ local utils = require 'mp.utils'
 
 local options = require 'mp.options'
 local opts = {
-	temp = "/tmp/ytdl",
+	temp = "/tmp",
 	subLangs = "en",
 	ytdl_opt1 = "",
 	ytdl_opt2 = "",

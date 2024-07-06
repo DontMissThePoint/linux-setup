@@ -67,6 +67,10 @@ while true; do
       groups $USER
     fi
 
+    # plugins
+    curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+    curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
+
     # freerdp
     echo "Setup remote desktop..."
     if [ ! -e /etc/apt/sources.list.d/freerdp-nightly.list ]; then
