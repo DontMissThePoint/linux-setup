@@ -8,6 +8,10 @@ stty -echo
 read -p "Password: " password; echo
 stty echo
 
+# deamon
+cd $GIT_PATH/VirtualMachines/Windows-Docker
+docker compose up -d
+
 # Start windows inside Docker container
 # guest DPI text : 140
 # desktop scale factor. This value MUST be ignored if it is less than 100%

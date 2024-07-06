@@ -73,7 +73,7 @@ while true; do
     $GIT_PATH/linux-setup/scripts/aria2-trackers-update.sh
 
     # RPC extension: https://aria2e.com/
-    # aria2c --enable-rpc --rpc-listen-all --max-concurrent-downloads=40 --max-connection-per-server=16 --min-split-size=20M --split=16 --continue=true --dir=~/VirtualMachines/Windows-Docker/
+    # aria2c --enable-rpc --rpc-listen-all --max-concurrent-downloads=40 --max-connection-per-server=16 --min-split-size=20M --split=16 --continue=true --dir=/home/$USER/Downloads
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
