@@ -39,7 +39,17 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing MPV
+    toilet Installing ffmpeg
+
+    # ffmpeg
+    cd /tmp
+    wget -c -O ~/.local/bin/alass https://github.com/kaegi/alass/releases/download/v2.0.0/alass-linux64
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+    tar -xf ffmpeg-release-amd64-static.tar.xz
+    cp ffmpeg-7.0.1-amd64-static/ff* ~/.local/bin
+    sudo chmod 755 ~/.local/bin/ffmpeg
+    sudo chmod 755 ~/.local/bin/ffprobe
+    sudo chmod 755 ~/.local/bin/alass
 
     # jq
     cd /tmp
@@ -59,47 +69,30 @@ while true; do
 
     # for video, photo, audio, ..., viewing and editing
     sudo pip install subliminal ffsubsync
-    sudo apt-get -y install ffmpeg gimp screenkey vlc audacity rawtherapee pavucontrol newsboat
+    sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol newsboat
 
     # newsboat
     cp -rf "$APP_PATH/newsboat" ~/.config/
 
     # mpv
+    echo "Installing MPV"
     if [ -n "$FOCAL" ] || [ -n "$JAMMY" ]; then
-
-      # Add the repository to apt sources
-      if [ ! -e /etc/apt/sources.list.d/non-gnu-uvt.list ]; then
-        sudo apt-get update
-        sudo apt-get install -y ca-certificates curl gnupg apt-transport-https
-
-        # GPG key
-        sudo install -m 0755 -d /etc/apt/trusted.gpg.d
-        curl -fsSL https://non-gnu.uvt.nl/debian/uvt_key.gpg | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/uvt_key.gpg
-        sudo chmod a+r /etc/apt/trusted.gpg.d
-
-        echo \
-          "deb https://non-gnu.uvt.nl/debian $(lsb_release -sc) uvt" | \
-          sudo tee /etc/apt/sources.list.d/non-gnu-uvt.list > /dev/null
-        sudo apt-get update
-        sudo apt install -y -t "o=UvT" mpv
-      fi
-      
+      wget -c -P "$APP_PATH" https://apt.fruit.je/ubuntu/jammy/mpv/mpv_0.38.0+fruit.1_amd64.deb
+      wget -c -P "$APP_PATH" https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%200.9.8/xidel_0.9.8-1_amd64.deb
+      sudo dpkg -i $APP_PATH/*.deb
+      rm -f $APP_PATH/*.deb
     else
       sudo apt install -y mpv
     fi
 
-    # xidel
-    wget -c -P "$APP_PATH" https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%200.9.8/xidel_0.9.8-1_amd64.deb
-    sudo dpkg -i $APP_PATH/*.deb
-    rm -f $APP_PATH/*.deb
+    # high-quality mpv
+    echo "🎥 High-quality configuration for mpv"
+    echo "Installing..."
+    rm -rf "$CONFIG"
 
-    # js
-    cd /tmp
-    [ -e mujs ] && rm -rf mujs
-    git clone https://github.com/ccxvii/mujs.git
-    cd mujs
-    make release
-    sudo make install
+    # uosc
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
+    cp -rf $APP_PATH/mpv-config/* "$CONFIG"
 
     # audio
     cd /tmp
@@ -112,18 +105,6 @@ while true; do
     cd build && cpack
     sudo cmake install .
 
-    # high-quality mpv
-    echo "🎥 High-quality configuration for mpv"
-    echo "Installing..."
-    rm -rf "$CONFIG"
-
-    # plugins
-
-    # uosc
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
-    cp -rf $APP_PATH/mpv-config/* "$CONFIG"
-
-    # sofa
     aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
 
     # webtorrent
