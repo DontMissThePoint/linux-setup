@@ -105,9 +105,15 @@ while true; do
     cd build && cpack
     sudo cmake install .
 
-    # wget -c -P "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
+    aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
+
     # webtorrent
     git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
+
+    # imdb
+    pip install --upgrade guessit git+https://github.com/cinemagoer/cinemagoer
+    git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
+    git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

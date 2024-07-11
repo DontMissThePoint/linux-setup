@@ -72,6 +72,12 @@ while true; do
     cd TwitterColorEmoji-SVGinOT-Linux-14.0.2
     ./install.sh
     rm -fr $APP_PATH/TwitterColorEmoji-*
+    find ~/.config/fontconfig/conf.d ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
+
+    # Test with:
+    # fc-match -s serif
+    # fc-match -s sans-serif
+    # fc-match -s monospace
     fc-cache -vf
 
     # config
