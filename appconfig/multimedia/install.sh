@@ -94,17 +94,25 @@ while true; do
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
     cp -rf $APP_PATH/mpv-config/* "$CONFIG"
 
-    # audio
-    cd /tmp
-    sudo apt install zlib1g-dev libcunit1-dev libcunit1-dev git build-essential cmake
-    [ -e libmysofa ] && rm -rf libmysofa
-    git clone git clone https://github.com/hoene/libmysofa
-    cd libmysofa/build
-    cmake -DCMAKE_BUILD_TYPE=Debug ..
-    make all test
-    cd build && cpack
-    sudo cmake install .
+    # image-viewer
+    echo "Installing image-viewer"
+    cp -rf $APP_PATH/mvi ~/.config/
 
+    echo '
+[Desktop Entry]
+Type=Application
+Name=mvi
+GenericName=Image Viewer
+Comment=An image viewer with mpv
+Icon=mpv
+Terminal=false
+Exec=mpv --config-dir=$HOME/.config/mvi
+Categories=Graphics;GTK
+MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image/png;image/svg;image/tiff;' | \
+    sudo tee /usr/share/applications/mvi.desktop > /dev/null
+    xdg-mime default mvi.desktop `grep 'MimeType=' /usr/share/applications/mvi.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
+
+    # audio
     aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
 
     # webtorrent

@@ -48,13 +48,6 @@ while true; do
     ln -fs $APP_PATH/rc.conf ~/.config/ranger/rc.conf
     ln -fs $APP_PATH/scope.sh ~/.config/ranger/scope.sh
 
-    # icons-in-terminal
-    cd /tmp
-    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
-    git clone https://github.com/sebastiencs/icons-in-terminal.git
-    cd icons-in-terminal
-    ./install-autodetect.sh
-
     # clifm
     cd /tmp
     sudo apt install -y libcap-dev libacl1-dev libreadline-dev libmagic-dev udevil vlock archivemount
@@ -71,6 +64,7 @@ while true; do
     sudo mv ./advcpmv/advcp /usr/local/bin/
     sudo mv ./advcpmv/advmv /usr/local/bin/
     pv $APP_PATH/clifmrc > ~/.config/clifm/profiles/default/clifmrc
+    pv $APP_PATH/default-256.clifm > ~/.config/clifm/colors/default-256.clifm
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
