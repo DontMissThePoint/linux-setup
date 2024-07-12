@@ -4,9 +4,14 @@ xrdb ~/.Xresources 2> /dev/null
 # set keyboard repeat rate
 xset r rate 350 55 2> /dev/null
 
+# fzf
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
+
+# LS_COLORS
 export HOMEBREW_NO_EMOJI=1
+export LS_COLORS="$(vivid generate tokyonight-night)"
+source ~/.local/share/icons-in-terminal/icons_bash.sh
 
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
@@ -20,6 +25,7 @@ alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/in
 alias demangle="c++filt"
 alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
+alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 

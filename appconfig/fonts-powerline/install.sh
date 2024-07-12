@@ -56,7 +56,7 @@ while true; do
         sudo apt update
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
     fi
-    sudo apt install -y fonts-symbola ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
+    sudo apt install -y fonts-inter-variable fonts-symbola ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
     # NF
     toilet Installing Nerd Fonts
@@ -72,7 +72,15 @@ while true; do
     cd TwitterColorEmoji-SVGinOT-Linux-14.0.2
     ./install.sh
     rm -fr $APP_PATH/TwitterColorEmoji-*
-    find ~/.config/fontconfig/conf.d ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
+
+    # icons-in-terminal
+    cd /tmp
+    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
+    git clone https://github.com/sebastiencs/icons-in-terminal.git
+    cd icons-in-terminal
+    ./install.sh
+    pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
+    find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
 
     # Test with:
     # fc-match -s serif
@@ -89,7 +97,11 @@ while true; do
     # activate
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-    sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark && xdg-desktop-menu forceupdate
+    gsettings set org.gnome.desktop.interface font-name 'Inter Variable 11'
+    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Propo 11'
+    sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark
+    xdg-desktop-menu forceupdate
 
     # undo the patch
     # git reset --hard

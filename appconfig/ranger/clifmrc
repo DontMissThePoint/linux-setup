@@ -214,7 +214,7 @@
 #
 # Defaults to 'default-256', or 'default' (16 colors) if 256 colors support
 # is not detected.
-ColorScheme=solarized
+ColorScheme=default-256
 
 # Enable/disable icons.
 # By default, emojis (widely available today) are used as icons.
@@ -368,7 +368,7 @@ Icons=true
 #=====================================#
 
 # Send errors, warnings, and notices to the notification daemon.
-;DesktopNotifications=false
+DesktopNotifications=true
 
 # Log errors and warnings.
 ;LogMsgs=false
