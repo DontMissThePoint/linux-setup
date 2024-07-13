@@ -39,7 +39,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing ffmpeg
+    toilet Installing multimedia
 
     # ffmpeg
     cd /tmp
@@ -98,7 +98,7 @@ while true; do
     echo "Installing image-viewer"
     cp -rf $APP_PATH/mvi ~/.config/
 
-    echo '
+    echo "
 [Desktop Entry]
 Type=Application
 Name=mvi
@@ -106,9 +106,9 @@ GenericName=Image Viewer
 Comment=An image viewer with mpv
 Icon=mpv
 Terminal=false
-Exec=mpv --config-dir=$HOME/.config/mvi
+Exec=mpv --config-dir=$HOME/.config/mvi %U
 Categories=Graphics;GTK
-MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image/png;image/svg;image/tiff;' | \
+MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image/png;image/svg;image/tiff;" | \
     sudo tee /usr/share/applications/mvi.desktop > /dev/null
     xdg-mime default mvi.desktop `grep 'MimeType=' /usr/share/applications/mvi.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
 

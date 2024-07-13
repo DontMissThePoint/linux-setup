@@ -99,7 +99,7 @@ while true; do
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
     gsettings set org.gnome.desktop.interface font-name 'Inter Variable 11'
     gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
-    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Propo 11'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
     sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark
     xdg-desktop-menu forceupdate
 

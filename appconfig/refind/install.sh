@@ -31,15 +31,23 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall grub-customizer? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall refind? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing grub-customizer
+    toilet Installing refind
 
+    the_ppa=rodsmith/refind
+    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+      sudo add-apt-repository -y ppa:rodsmith/refind
+      sudo apt update
+      sudo apt install -y refind
+    fi
+
+    # grub-customizer
     if [ -n "$BEAVER" ] || [ -n "$JAMMY" ]; then
       the_ppa=danielrichter2007/grub-customizer
       if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
@@ -60,6 +68,24 @@ while true; do
     sudo update-alternatives --config default.plymouth
     sudo update-initramfs -c -k $(uname -r)
     sudo update-grub
+
+    # refind2k
+    cd /tmp
+    [ -e refind2k ] && rm -rf refind2k
+    git clone https://github.com/2kabhishek/refind2k.git
+    cd refind2k
+    sudo ./setup.sh
+    # To uninstall refind2k run setup.sh with -u or --uninstall
+    # ./setup.sh -u
+    # To use a custom ESP, set the ESP envvar
+    # ESP=/path/to/efi ./setup.sh
+    # ESP=/path/to/efi ./setup.sh -u
+    sudo refind-install
+    sudo refind-mkdefault
+    efibootmgr
+
+    # uninstall
+    # sudo rm -r /boot/efi/EFI/refind
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
