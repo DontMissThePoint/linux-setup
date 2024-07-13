@@ -145,10 +145,12 @@ c.url.searchengines = {
         'yo': 'https://youtube.com/results?search_query={}'
         }
 
+# fonts in pixels
 c.fonts.default_family = '"JetBrainsMono Nerd Font Mono", monospace'
+c.fonts.default_size = '15px'
 
-mono = '10pt monospace'
-small_mono = '9pt monospace'
+mono = '14px monospace'
+small_mono = '13px monospace'
 c.fonts.completion.entry = mono
 c.fonts.completion.category = 'bold ' + mono
 c.fonts.debug_console = mono
@@ -156,13 +158,13 @@ c.fonts.downloads = mono
 c.fonts.prompts = mono
 c.fonts.contextmenu = mono
 
-c.fonts.hints = 'bold 10pt monospace'
-c.fonts.keyhint = small_mono
+c.fonts.hints = '12px monospace'
+c.fonts.keyhint = mono
 c.fonts.tooltip = small_mono
 c.fonts.messages.error = small_mono
-c.fonts.messages.info = small_mono
+c.fonts.messages.info = 'bold ' + mono
 c.fonts.messages.warning = small_mono
-c.fonts.statusbar = 'bold ' + mono
+c.fonts.statusbar = 'bold ' + '14px monospace'
 c.fonts.tabs.selected = 'bold 10pt monospace'
 c.fonts.tabs.unselected = mono
 

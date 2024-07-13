@@ -1,0 +1,67 @@
+from visidata import TableSheet, options
+
+# Load plugins
+import dedupe
+import normcol
+# import vdtabulate
+
+options.encoding = 'utf-8'
+options.force_256_colors = True
+options.default_width = 20
+
+# Copy to clipboard via xclip
+# options.clipboard_copy_cmd = 'xclip -selection clipboard'
+options.clipboard_copy_cmd = 'xclip -selection primary'
+
+# menu ^H
+options.disp_menu = False
+options.min_memory_mb = 100
+
+# Add current position to status bar
+options.disp_status_fmt = '({sheet.cursorRowIndex},{sheet.cursorColIndex}) ' + options.disp_status_fmt
+
+# Set column separator
+options.disp_column_sep = '┊'
+# options.disp_column_sep = '|'
+options.disp_keycol_sep = '║' # ┃│┊┆ ┆┆
+
+# Adjust colors
+options.color_menu = "235 on 72"
+options.color_working = "green"
+options.color_heading = "black on yellow"
+options.color_default = "white on grey"
+options.color_default_hdr = "8 underline bold"
+options.color_current_hdr = 'blue reverse'
+options.color_current_col = "normal"
+options.color_current_row = "yellow underline"
+options.color_key_col = "cyan"
+options.color_selected_row = "14"
+options.color_status = "8"
+options.color_active_status = "8"
+options.color_sidebar = "black on 8"
+options.color_cmdpalette = "black on 8"
+options.color_keystrokes = "normal"
+options.color_longname = "black on yellow"
+options.color_code = "normal"
+options.color_menu = "cyan underline reverse"
+options.color_menu_help = "cyan underline reverse"
+options.color_menu_spec = "yellow underline"
+options.color_match = "202 bold"
+options.color_current_cell = "bold"
+options.color_menu_active = "yellow reverse"
+options.save_filetype = "csv"
+options.disp_float_fmt = "%.07f"
+options.scroll_incr = -3
+options.numeric_binning = True
+options.disp_scroll_context = 5
+
+# Force column names to be useful in expressions.
+options.clean_names = True
+
+# mouse
+globalCommand('gm', 'mm, _ = curses.mousemask(-1); status("mouse "+("ON" if mm else "OFF"))', 'enable mouse events')
+globalCommand('zm', 'mm, _ = curses.mousemask(0); status("mouse "+("ON" if mm else "OFF"))', 'disable mouse events')
+
+# bind
+TableSheet.unbindkey("i")
+TableSheet.bindkey("i", "edit-cell")

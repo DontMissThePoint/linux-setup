@@ -48,7 +48,7 @@ $docker && git submodule update --init --recursive --recommend-shallow
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync visidata gawk bison byacc shellcheck pv atool moreutils
+sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck pv atool moreutils
 
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
@@ -147,9 +147,9 @@ fi
 # 24. Install VIM-STREAM
 ! $docker && bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
-# 25. Install GRUB CUSTOMIZER
+# 25. Install REFIND
 if [ "$arch" != "aarch64" ]; then
-    ! $docker && bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+    ! $docker && bash $APPCONFIG_PATH/refind/install.sh $subinstall_params
 fi
 
 # 26. Install YT-DLP
