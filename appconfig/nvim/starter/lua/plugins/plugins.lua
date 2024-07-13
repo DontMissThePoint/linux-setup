@@ -56,6 +56,11 @@ local plugins = {
   },
 
 	{
+    "HiPhish/rainbow-delimiters.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+	},
+
+	{
 		"stevearc/conform.nvim",
 		--  for users those who want auto-save conform + lazyloading!
 		-- event = "BufWritePre"
@@ -63,6 +68,22 @@ local plugins = {
 			require("configs.conform")
 		end,
 	},
+
+  {
+    "uga-rosa/ccc.nvim",
+    cmd = { "CccHighlighterToggle", "CccConvert", "CccPick" },
+    opts = {
+      [[vim.opt.termguicolors = true]],
+    },
+		config = function()
+			require("ccc").setup({
+        highlighter = {
+          auto_enable = true,
+          lsp = true,
+        },
+      })
+		end,
+  },
 
   {
     "jiaoshijie/undotree",
@@ -124,7 +145,7 @@ local plugins = {
   {
     "karb94/neoscroll.nvim",
     config = function ()
-      require("neoscroll").setup({})
+      require("neoscroll").setup()
     end,
   },
 
@@ -132,7 +153,7 @@ local plugins = {
 		"cappyzawa/trim.nvim",
 		lazy = false,
 		config = function()
-			require("trim").setup({})
+			require("trim").setup()
 		end,
 	},
 
@@ -148,7 +169,7 @@ local plugins = {
 		"sindrets/diffview.nvim",
 		lazy = false,
 		config = function()
-			require("diffview").setup({})
+			require("diffview").setup()
 		end,
 	},
 
@@ -165,27 +186,17 @@ local plugins = {
   },
 
   {
-    "folke/twilight.nvim",
-		lazy = false,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-    },
-		config = function()
-			require("twilight").setup()
-		end,
+    "m4xshen/hardtime.nvim",
+    dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
+    lazy = false,
+    config = function()
+      require('hardtime').setup({ enabled = true })
+    end,
   },
 
   {
-    "folke/zen-mode.nvim",
-		lazy = false,
-    opts = {
-      -- your configuration comes here
-      -- or leave it empty to use the default settings
-    },
-		config = function()
-			require("zen-mode").setup()
-		end,
+    "chrisgrieser/nvim-spider",
+    lazy = true,
   },
 
   {
@@ -194,6 +205,24 @@ local plugins = {
     opts = {
       -- add any custom options here
     }
+  },
+
+  {
+    "folke/flash.nvim",
+    event = "VeryLazy",
+    opts = {},
+    keys = {
+      { "s", mode = { "n", "x", "o" },
+        function() require("flash").jump() end, desc = "Flash" },
+      { "S", mode = { "n", "x", "o" },
+        function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+      { "r", mode = "o",
+        function() require("flash").remote() end, desc = "Remote Flash" },
+      { "R", mode = { "o", "x" },
+        function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+      { "<c-s>", mode = { "c" },
+        function() require("flash").toggle() end, desc = "Toggle Flash Search" },
+    },
   },
 
 	{
@@ -218,15 +247,17 @@ local plugins = {
 		},
 	},
 
-	{
-		"alexghergh/nvim-tmux-navigation",
-    lazy = false,
-		config = function()
-			require("nvim-tmux-navigation").setup({
-				disable_when_zoomed = true, -- defaults to false
-			})
-		end,
-	},
+  {
+    "numToStr/Navigator.nvim",
+     event = "VeryLazy",
+     config = function()
+       require("Navigator").setup({
+       auto_save = 'current',
+       disable_on_zoom = false,
+       mux = 'auto',
+     })
+     end,
+  },
 
   {
     "wildfunctions/myeyeshurt",

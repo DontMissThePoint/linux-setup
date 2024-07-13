@@ -17,6 +17,9 @@ map("n", "<leader><leader>", function() require("fzf-lua").command_history() end
 -- conform
 map("n", "<leader>fm", function() require("conform").format() end, {desc = "formatting"})
 
+-- spectre
+map("n", "<leader>s", "<cmd> Spectre <cr>", {desc = "search replace"})
+
 -- toggler
 map("n", "<leader>ti", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
 map("v", "<leader>ti", function() require("nvim-toggler").toggle() end, {desc = "toggler"})
@@ -71,13 +74,39 @@ map("n", "<leader>zf", ":Twilight <cr>", {desc = "lime light"})
 
 map("v", "<leader>zf", ":'<,'>ZenMode <cr>", {desc = "narrow text region"})
 
--- tmuxnavigation
-map("n", "<C-h>", "<cmd> NvimTmuxNavigateLeft <cr>", {desc = "Left"})
-map("n", "<C-j>", "<cmd> NvimTmuxNavigateDown <cr>", {desc = "Down"})
-map("n", "<C-k>", "<cmd> NvimTmuxNavigateUp <cr>", {desc = "Up"})
-map("n", "<C-l>", "<cmd> NvimTmuxNavigateRight <cr>", {desc = "Right"})
-map("n", "<C-\\>", "<cmd> NvimTmuxNavigateLastActive <cr>", {desc = "Last active"})
-map("n", "<C-Space>", "<cmd> NvimTmuxNavigateNext <cr>", {desc = "Next"})
+-- navigator
+map("n", "<C-h>", "<cmd> NavigatorLeft <cr>", {desc = "Left"})
+map("n", "<C-j>", "<cmd> NavigatorDown <cr>", {desc = "Down"})
+map("n", "<C-k>", "<cmd> NavigatorUp <cr>", {desc = "Up"})
+map("n", "<C-l>", "<cmd> NavigatorRight <cr>", {desc = "Right"})
+map("n", "<C-Space>", "<cmd> NavigatorPrevious <cr>", {desc = "Previous"})
+
+-- spider
+map(
+	{ "n", "o", "x" },
+	"w",
+	"<cmd>lua require('spider').motion('w')<CR>",
+	{ desc = "Spider-w" }
+)
+map(
+	{ "n", "o", "x" },
+	"e",
+	"<cmd>lua require('spider').motion('e')<CR>",
+	{ desc = "Spider-e" }
+)
+map(
+	{ "n", "o", "x" },
+	"b",
+	"<cmd>lua require('spider').motion('b')<CR>",
+	{ desc = "Spider-b" }
+)
+
+map(
+	{ "n", "o", "x" },
+	"ge",
+	"<cmd>lua require('spider').motion('ge')<CR>",
+	{ desc = "Spider-ge" }
+)
 
 -- windows
 map("n", "<leader>wz", function() require("windows").setup() end, {desc = "window autosize"})
@@ -97,4 +126,4 @@ map("n", "<leader>ql", [[<cmd>lua require("persistence").load()<cr>]], {desc = "
 map("n", "<leader>qr", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {desc = "restore last session"})
 
 -- quit
-map("c", "q", [[quitall<cr>]], { desc = "quit all", noremap = true, silent = false })
+map("n", "<leader>qa", [[quitall<cr>]], { desc = "quit all", noremap = true, silent = false })

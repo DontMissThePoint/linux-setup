@@ -252,7 +252,7 @@ nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
 
 " Command-line
-cnoremap q wqa
+cnoremap q qa
 noremap ;; ;
 vnoremap ; :
 map ; :
@@ -313,8 +313,8 @@ nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
 " toggle background
 silent! call github_colors#togglebg_map('<F10>')
 
-nmap <Leader>l <Plug>(Limelight)
-xmap <Leader>l <Plug>(Limelight)
+nmap <leader>l <Plug>(Limelight)
+xmap <leader>l <Plug>(Limelight)
 
 " NetisFleet
 autocmd FileType tsv,tex call DataViz()
