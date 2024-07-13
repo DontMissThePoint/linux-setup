@@ -57,6 +57,8 @@ while true; do
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/obsidian_1.6.3_amd64.deb
     sudo dpkg -i /tmp/obsidian_1.6.3_amd64.deb
     mkdir -p ~/vaults/personal ~/vaults/work
+    cp -fr APP_PATH/dotobsidian ~/vaults/.obsidian
+    pv APP_PATH/obsidian.vimrc > ~/vaults/.obsidian.vimrc
 
     # Rclone
     sudo apt install -y fuse3
