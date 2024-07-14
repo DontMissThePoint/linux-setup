@@ -73,6 +73,26 @@ while true; do
     ./install.sh
     rm -fr $APP_PATH/TwitterColorEmoji-*
 
+    # config
+    echo "Configuring..."
+    mkdir -p ~/.config/environment.d ~/.config/Kvantum
+    printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
+    pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
+
+    # interface
+    gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
+    gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
+    gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+    gsettings set org.gnome.desktop.interface font-name 'Inter Variable 11'
+    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+
+    # extensions
+    sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell
+    sudo pv $APP_PATH/gnome-shell.css > /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
+    gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Darker'
+
     # icons-in-terminal
     cd /tmp
     [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
@@ -83,25 +103,12 @@ while true; do
     find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
 
     # Test with:
-    # fc-match -s serif
-    # fc-match -s sans-serif
     # fc-match -s monospace
-    fc-cache -vf
 
-    # config
-    echo "Configuring..."
-    mkdir -p ~/.config/environment.d ~/.config/Kvantum
-    printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
-    pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
-
-    # activate
-    gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
-    gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-    gsettings set org.gnome.desktop.interface font-name 'Inter Variable 11'
-    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
-    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
+    # cache
     sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark
     xdg-desktop-menu forceupdate
+    fc-cache -vf
 
     # undo the patch
     # git reset --hard

@@ -8,6 +8,9 @@ config.load_autoconfig()
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 catppuccin.setup(c, 'latte')
 
+# colors
+config.set('colors.webpage.darkmode.enabled', False)
+
 ##################
 
 # autoplay
@@ -18,19 +21,20 @@ c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBla
 c.content.javascript.enabled = False
 
 c.content.geolocation = True
-
-## Display PDFs within qutebrowser
-c.content.pdfjs = True
-
 c.qt.force_platform = 'xcb'
 c.auto_save.session = True
 
 c.scrolling.bar = 'always'
 c.zoom.default = '90%'
 
+c.editor.command = ["urxvt -e nvim {}"]
+c.content.headers.do_not_track = True
 c.completion.shrink = True
 c.completion.scrollbar.width = 0
 c.completion.scrollbar.padding = 0
+
+## Display PDFs
+c.content.pdfjs = True
 
 ## Aliases
 c.aliases = {'q': 'quit --save', 'qa': 'quit',
@@ -99,32 +103,35 @@ config.bind('gr', 'spawn --userscript ~/.config/qutebrowser/userscripts/readabil
 config.bind('sd', 'spawn --userscript ~/.config/qutebrowser/userscripts/open_download')
 config.bind('ps', 'spawn --userscript ~/.config/qutebrowser/userscripts/password_fill')
 
-
-## Note: 'gvim.bat' works but 'gvim' does not work
-c.editor.command = ['vim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
-
-## I like my start page(s) and default page to be blank
+## start page(s) and default page blank
 c.url.start_pages = ["about:blank"]
 c.url.default_page = "about:blank"
 
-## I like to save web pages in MHTML format
+## save web pages in MHTML format
 ## ,sm to do that
 config.bind(',sm', 'cmd-set-text :download --mhtml')
 c.downloads.location.directory = '~/Downloads/2024-Q3'
 c.downloads.location.suggestion = 'both'
-c.downloads.remove_finished = 1
+c.downloads.remove_finished = 30000
 c.confirm_quit = ['downloads']
+
+c.completion.height = "33%"
+c.messages.timeout = 10000
 
 ## ,ya “yank asciidoc-formatted link”
 config.bind(',ya', 'yank inline {url:pretty}[{title}]')
+config.bind(',P', 'open -b -- {primary}')
+config.bind(',p', 'open -b -- {clipboard}')
 
 ## ,ym “yank markdown-formatted link”
 ## ym (without a leading comma) also works because it is built-in
 config.bind(',ym', 'yank inline [{title}]({url:pretty})')
+config.bind('yc', 'yank pretty-url')
 
-config.bind(',m', 'spawn mpv {url}')
-config.bind(',M', 'hint links spawn mpv {hint-url}')
-config.bind(';M', 'hint --rapid links spawn mpv {hint-url}')
+# mpv
+config.bind('ya', 'hint links spawn -dv ~/.scripts/fillplaylist.sh push {hint-url}')
+config.bind('yp', 'spawn -dv ~/.scripts/fillplaylist.sh play')
+config.bind('yx', 'hint links spawn -dv mpv {hint-url} --input-ipc-server=/tmp/mpvsocket')
 
 ## JavaScript code to a key shortcut
 # config.bind(',hw', "jseval alert('Hello World')")
@@ -167,8 +174,3 @@ c.fonts.messages.warning = small_mono
 c.fonts.statusbar = 'bold ' + '14px monospace'
 c.fonts.tabs.selected = 'bold 10pt monospace'
 c.fonts.tabs.unselected = mono
-
-config.bind(',P', 'open -b -- {primary}')
-config.bind(',X', 'spawn -dv mpv --profile=no-term {url}')
-config.bind(',p', 'open -b -- {clipboard}')
-config.bind(',x', 'hint all spawn -dv mpv --profile=no-term {hint-url}')

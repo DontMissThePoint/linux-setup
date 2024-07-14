@@ -82,7 +82,7 @@ while true; do
     # ESP=/path/to/efi ./setup.sh -u
     sudo refind-install
     sudo refind-mkdefault
-    efibootmgr
+    sudo efibootmgr -n 0000
 
     # uninstall
     # sudo rm -r /boot/efi/EFI/refind

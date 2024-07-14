@@ -56,8 +56,8 @@ while true; do
     cd /tmp
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/obsidian_1.6.3_amd64.deb
     sudo dpkg -i /tmp/obsidian_1.6.3_amd64.deb
-    mkdir -p ~/vaults/personal ~/vaults/work
-    cp -fr APP_PATH/dotobsidian ~/vaults/.obsidian
+    mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
+    cp -fr APP_PATH/dotobsidian/* ~/vaults/.obsidian
     pv APP_PATH/obsidian.vimrc > ~/vaults/.obsidian.vimrc
 
     # Rclone
@@ -75,14 +75,9 @@ $ rclone config'
     # sudo systemctl start rclone-mega@$USER
     # sudo systemctl enable --now rclone-mega@$USER
 
-    # timemachine
-    # Append rsync options
-    # timemachine /source/dir /target/dir -- -laAvX --progress --exclude={"/submodules/**"}
-    cd /tmp
-    [ -e linux-timemachine ] && rm -rf linux-timemachine
-    git clone https://github.com/cytopia/linux-timemachine
-    cd linux-timemachine
-    sudo make install
+    # docker-backup
+
+    # borg
 
     mkdir -p ~/.elinks
     pv $APP_PATH/elinks.conf > ~/.elinks/elinks.conf
