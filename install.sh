@@ -62,7 +62,7 @@ if [ -n "$BEAVER" ]; then
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs gnome-shell-pomodoro gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs gnome-shell-extensions gnome-shell-pomodoro gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
 
 if [ "$unattended" == "0" ]
   then
@@ -276,3 +276,14 @@ toilet All Done
 
 # say some tips to the new user
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
+
+#############################################
+# set rEFInd boot
+#############################################
+
+str=`ps --no-headers -o comm 1`
+if [ "$str" = "systemd" ]; then
+  echo "rEFInd boot manager options"
+  echo "Rebooting... to EFI setup"
+  sudo systemctl reboot --firmware-setup
+fi

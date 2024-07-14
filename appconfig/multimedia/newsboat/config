@@ -121,9 +121,9 @@ highlight feedlist "╠═.*" color6 color0
 
 # To execute a macro press <SPACE> + key
 
-macro a set browser "echo %u >> ~/.config/newsboat/queue" ; open-in-browser
-macro c set browser "rm $HOME/.config/newsboat/queue > /dev/null 2>&1" ; open-in-browser
-macro p set browser "setsid -f mpv --playlist=$HOME/.config/newsboat/queue > /dev/null 2>&1" ; open-in-browser
+macro a set browser "~/.scripts/fillplaylist.sh push" ; open-in-browser
+# macro c set browser "rm /tmpplaylist > /dev/null 2>&1" ; open-in-browser
+macro p set browser "setsid -f ~/.scripts/fillplaylist.sh play > /dev/null 2>&1" ; open-in-browser
 
 # Play video
 macro v set browser "setsid -f mpv %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
