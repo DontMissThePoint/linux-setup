@@ -55,7 +55,7 @@ windows:
         - cd ~/VirtualMachines/Windows-Docker; bash
         - cd $GIT_PATH/linux-setup
         - btop
-  - bash:
+  - files:
       layout: 89a6,136x34,0,0[136x17,0,0{67x17,0,0,2,68x17,68,0,6},136x16,0,18,7]
       panes:
         - bash

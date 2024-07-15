@@ -80,7 +80,7 @@ while true; do
     sudo make install
 
     # visidata
-    pip install --upgrade visidata pypng pdfminer.six
+    pip install --upgrade visidata datapackage pypng pdfminer.six lxml xlrd openpyxl PyYAML
     mkdir -p ~/.visidata
     cp -f $APP_PATH/plugins/* ~/.visidata
     pv "$APP_PATH/visidatarc" > ~/.visidatarc

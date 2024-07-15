@@ -55,11 +55,15 @@ while true; do
     ./configure --with-features=huge \
       --enable-multibyte \
       --enable-python3interp=yes \
-      --with-python3-config-dir=/usr/lib/python3.10/config-3.10-x86_64-linux-gnu \
+      --with-python3-command=python3 \
+      --enable-pythoninterp=yes \
+      --enable-python3interp=yes \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
+      --enable-rubyinterp \
       --enable-gui=no \
-      --enable-cscope --prefix=/usr
+      --enable-cscope \
+      --prefix=/usr
 
       cd src
       make -j8
@@ -77,7 +81,7 @@ while true; do
     # Reset plug
     for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master); done || echo "It normally returns >0"
 
-    # updated new plugins and clean old plugins
+    # update: clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
 
     default=y
