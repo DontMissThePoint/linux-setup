@@ -17,8 +17,9 @@ config.set('colors.webpage.darkmode.enabled', False)
 c.content.autoplay = True
 
 ## Adblock Plus AND hosts blocking
-c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 c.content.javascript.enabled = False
+c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+config.set('content.javascript.enabled', True, '*://*.mail.google.com')
 
 c.content.geolocation = True
 c.qt.force_platform = 'xcb'

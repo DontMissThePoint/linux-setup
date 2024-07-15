@@ -61,7 +61,7 @@ while true; do
     # NF
     toilet Installing Nerd Fonts
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
-    getnf -i "JetBrainsMono Meslo iA-Writer NerdFontsSymbolsOnly UbuntuMono"
+    getnf -i "JetBrainsMono Meslo IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
     getnf -U
 
     # emoji
@@ -86,7 +86,12 @@ while true; do
     gsettings set org.gnome.desktop.interface font-name 'Inter Variable 11'
     gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
     gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
+
+    # cursor
+    gsettings set org.gnome.desktop.interface locate-pointer true
+    gsettings set org.gnome.desktop.interface cursor-size 32
 
     # extensions
     sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell

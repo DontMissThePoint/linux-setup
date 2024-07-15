@@ -203,6 +203,9 @@ if g:user_mode == "1"
   Plug 'preservim/vim-colors-pencil'
   Plug 'logico/typewriter-vim'
 
+  " Registers view
+  Plug 'junegunn/vim-peekaboo'
+
   " Focus
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
@@ -268,17 +271,17 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Registers view
-Plug 'junegunn/vim-peekaboo'
-
 " Repeat.vim remaps . in a way that plugins can tap into it.
 Plug 'tpope/vim-repeat'
+
+" The missing motion
+Plug 'justinmk/vim-sneak'
 
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
 
 " Multiple cursors
-" in visual pres ctrl+n to select next occurance
+" in visual press ctrl+n to select next occurance
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
 

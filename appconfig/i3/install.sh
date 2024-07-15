@@ -44,7 +44,7 @@ while true; do
     fi
 
     # required for i3-layout-manager
-    sudo apt-get -y install jq rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
+    sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
 
     if [ "$unattended" == "0" ] && [ -z $travis ]; # if running interactively
     then
@@ -192,13 +192,13 @@ while true; do
     pv $APP_PATH/i3blocks/wifi_git > $APP_PATH/i3blocks/wifi
     pv $APP_PATH/i3blocks/battery_git > $APP_PATH/i3blocks/battery
 
-    # xorg
+    # Xorg
     pv $APP_PATH/dotxinitrc > ~/.xinitrc
     pv $APP_PATH/dotxsession > ~/.xsession
     pv $APP_PATH/dotxserverrc > ~/.xserverrc
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
 
-    # Gnome 3
+    # GTK
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
     pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
     pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
@@ -223,7 +223,7 @@ while true; do
     ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
 
     # install useful gui utils
-    sudo apt-get -y install thunar rofi compton systemd
+    sudo apt-get -y install thunar compton systemd
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 

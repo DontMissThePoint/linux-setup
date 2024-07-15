@@ -186,6 +186,36 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
+" Sneak
+let g:sneak#label = 1
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.9
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 0
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = 9
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 " YouCompleteMe and UltiSnips
 
 " compatibility, with the helper of supertab
@@ -238,6 +268,13 @@ endfunc
 
 " Fzf
 nnoremap <Space><Space> :History:<CR>
+nnoremap <leader>fe :FZF ~/<CR>
+
+" Jump
+map f <Plug>Sneak_s
+map F <Plug>Sneak_S
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " Beacon
 nmap n n:Beacon<cr>
@@ -274,34 +311,6 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 
 " Toggle list mode quickly
 noremap \\ :set invlist<CR>
-
-" Stage
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-
-" Default: 0.5
-let g:limelight_default_coefficient = 0.9
-
-" Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 0
-
-" Beginning/end of paragraph
-"   When there's no empty line between the paragraphs
-"   and each paragraph starts with indentation
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
-
-" Highlighting priority (default: 10)
-"   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = 9
-
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
 
 " Activate FOCUS mode with F11
 nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
