@@ -166,7 +166,7 @@ c.fonts.downloads = mono
 c.fonts.prompts = mono
 c.fonts.contextmenu = mono
 
-c.fonts.hints = '12px monospace'
+c.fonts.hints = '13px monospace'
 c.fonts.keyhint = mono
 c.fonts.tooltip = small_mono
 c.fonts.messages.error = small_mono
