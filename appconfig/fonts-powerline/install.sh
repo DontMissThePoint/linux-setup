@@ -63,6 +63,7 @@ while true; do
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
     getnf -i "JetBrainsMono Meslo IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
     getnf -U
+    rm -fr ~/Downloads/getnf
 
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
@@ -78,6 +79,26 @@ while true; do
     mkdir -p ~/.config/environment.d ~/.config/Kvantum
     printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
     pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
+
+    # icons-in-terminal
+    cd /tmp
+    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
+    git clone https://github.com/sebastiencs/icons-in-terminal.git
+    cd icons-in-terminal
+    ./install.sh
+    pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
+    find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
+
+    # Test with:
+    # fc-match -s monospace
+
+    # cursor
+    cd /tmp
+    [ -e Afterglow-Cursors ] && rm -rf /tmp/Afterglow-Cursors
+    git clone https://github.com/yeyushengfan258/Afterglow-Cursors
+    sudo ./install.sh
+    gsettings set org.gnome.desktop.interface cursor-theme 'Afterglow-cursors'
+    gsettings set org.gnome.desktop.interface cursor-size 32
 
     # interface
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
@@ -97,18 +118,6 @@ while true; do
     sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell
     sudo pv $APP_PATH/gnome-shell.css > /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
     gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Darker'
-
-    # icons-in-terminal
-    cd /tmp
-    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
-    git clone https://github.com/sebastiencs/icons-in-terminal.git
-    cd icons-in-terminal
-    ./install.sh
-    pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
-    find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
-
-    # Test with:
-    # fc-match -s monospace
 
     # cache
     sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark
