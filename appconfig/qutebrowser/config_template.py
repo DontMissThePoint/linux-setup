@@ -113,11 +113,11 @@ c.url.default_page = "about:blank"
 config.bind(',sm', 'cmd-set-text :download --mhtml')
 c.downloads.location.directory = '~/Downloads/2024-Q3'
 c.downloads.location.suggestion = 'both'
-c.downloads.remove_finished = 30000
+c.downloads.remove_finished = 1000
 c.confirm_quit = ['downloads']
 
 c.completion.height = "33%"
-c.messages.timeout = 10000
+c.messages.timeout = 5000
 
 ## ,ya “yank asciidoc-formatted link”
 config.bind(',ya', 'yank inline {url:pretty}[{title}]')

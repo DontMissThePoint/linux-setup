@@ -81,12 +81,12 @@ while true; do
 
     # interface
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
-    gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-    gsettings set org.gnome.desktop.interface font-name 'Inter Variable 11'
+    gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
     gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
     gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
     gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
 
     # cursor
