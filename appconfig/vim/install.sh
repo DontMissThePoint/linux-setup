@@ -122,7 +122,10 @@ while true; do
         sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-18 999
         sudo apt-get -y install libboost-all-dev
 
-        cd ~/.vim/plugged/YouCompleteMe/
+        cd ~/.vim/plugged
+        rm -fr YouCompleteMe
+        git clone https://github.com/ycm-core/YouCompleteMe
+        cd YouCompleteMe
         git submodule update --init --recursive
         /usr/bin/python3 ./install.py --clangd-completer --verbose
 

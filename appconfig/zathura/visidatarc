@@ -133,7 +133,7 @@ vd.options.vpager_cmd = 'bat --paging=always'
 # Space+i: Open a cell's value in `glow` for prettier rendered markdown
 #          in the terminal.
 BaseSheet.bindkey(" e", "open-cell-pager")
-BaseSheet.addCommand(" g", "open-cell-markdown", "cursorCol.pageValue(cursorRow, cmd='glow -p')")
+BaseSheet.addCommand(" i", "open-cell-markdown", "cursorCol.pageValue(cursorRow, cmd='glow -p')")
 
 # Space+j: Navigate parent sheet
 # Space+k:
