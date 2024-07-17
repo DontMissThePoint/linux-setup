@@ -151,7 +151,7 @@ while true; do
     fi
 
     # for making gtk look better
-    sudo apt-get -y install lxappearance gtk-chtheme
+    sudo apt-get -y install lxappearance gtk-chtheme xbanish
 
     # indicator-sound-switcher
     if [ -n "$JAMMY" ]; then

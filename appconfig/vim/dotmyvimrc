@@ -108,11 +108,13 @@ if !exists(":DiffOrig")
     \ | wincmd p | diffthis
 endif
 
-" Fullscreen for datasets
+" Datasets
 au BufNewFile,BufRead *.tsv set filetype=tsv
-au Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
-" shape
+" Fullscreen for datasets
+autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+
+" cursors
 let g:togglecursor_force = 'xterm'
 
 " status
@@ -270,12 +272,6 @@ endfunc
 nnoremap <Space><Space> :History:<CR>
 nnoremap <leader>fe :FZF ~/<CR>
 
-" Jump
-map f <Plug>Sneak_s
-map F <Plug>Sneak_S
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-
 " Beacon
 nmap n n:Beacon<cr>
 nmap N N:Beacon<cr>
@@ -312,26 +308,37 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 " Toggle list mode quickly
 noremap \\ :set invlist<CR>
 
-" Activate FOCUS mode with F11
-nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
-" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-# autocmd! VimEnter *\(.tsv\|.csv\)\@<! set background=dark
-#  \| silent! Goyo | execute "normal! ,l1j"
-" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
-
 " toggle background
 silent! call github_colors#togglebg_map('<F10>')
 
-nmap <leader>l <Plug>(Limelight)
-xmap <leader>l <Plug>(Limelight)
+" Activate FOCUS mode with F11
+nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
+
+" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
+" nmap <buffer> <leader>l <Plug>(Limelight)
+" xmap <buffer> <leader>l <Plug>(Limelight)
+" autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
+" function SneakStf()
+"   nnoremap <buffer> s <Plug>Sneak_s
+"   nnoremap <buffer> S <Plug>Sneak_S
+"   nnoremap <buffer> f <Plug>Sneak_s
+"   nnoremap <buffer> F <Plug>Sneak_F
+"   nnoremap <buffer> t <Plug>Sneak_t
+"   nnoremap <buffer> T <Plug>Sneak_T
+"   " focus
+"   set background=dark
+"   silent! Goyo | redraw!
+"   execute "normal! ,l1j"
+" endfunction
+" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
 " NetisFleet
 autocmd FileType tsv,tex call DataViz()
 function DataViz()
-let g:github_colors_soft = 0
-Goyo!
-set background=light
-colo github
+  let g:github_colors_soft = 0
+  Goyo!
+  set background=light
+  colo github
   noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
 
   func! Swipe(card)
