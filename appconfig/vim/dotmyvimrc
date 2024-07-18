@@ -228,6 +228,7 @@ let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+let g:ycm_disable_for_files_larger_than_kb = 2560
 
 " Debug logs: run :YcmDebugInfo to see clangd status
 " and :YcmToggleLogs to view clangd’s debug logs.
@@ -312,7 +313,7 @@ noremap \\ :set invlist<CR>
 silent! call github_colors#togglebg_map('<F10>')
 
 " Activate FOCUS mode with F11
-nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
+nmap <F11> <Cmd>set background=dark <bar> silent! Goyo <bar> execute "normal ,l1j"<CR>
 
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 " nmap <buffer> <leader>l <Plug>(Limelight)
@@ -327,7 +328,7 @@ nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
 "   nnoremap <buffer> T <Plug>Sneak_T
 "   " focus
 "   set background=dark
-"   silent! Goyo | redraw!
+"   silent! Goyo
 "   execute "normal! ,l1j"
 " endfunction
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
@@ -336,7 +337,7 @@ nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
 autocmd FileType tsv,tex call DataViz()
 function DataViz()
   let g:github_colors_soft = 0
-  Goyo!
+  silent! Goyo!
   set background=light
   colo github
   noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
