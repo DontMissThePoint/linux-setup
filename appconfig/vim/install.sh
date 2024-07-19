@@ -79,7 +79,7 @@ while true; do
     ln -fs $APP_PATH/dotvim ~/.vim
 
     # Reset plug
-    for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master); done || echo "It normally returns >0"
+    for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master && git checkout master); done || echo "It normally returns >0"
 
     # update: clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
