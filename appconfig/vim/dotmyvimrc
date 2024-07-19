@@ -79,8 +79,8 @@ set shm+=I
 " 24-bit true color
 set termguicolors
 
-" Show a few lines of context around the cursor
-set scrolloff=5
+" Show context around the cursor
+set scrolloff=1
 "}}}
 
 "{{{ LINE
@@ -188,9 +188,6 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
   \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-" Sneak
-let g:sneak#label = 1
-
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
@@ -200,10 +197,10 @@ let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
 
 " Default: 0.5
-let g:limelight_default_coefficient = 0.9
+let g:limelight_default_coefficient = 0.7
 
 " Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 0
+let g:limelight_paragraph_span = 1
 
 " Beginning/end of paragraph
 "   When there's no empty line between the paragraphs
@@ -213,10 +210,13 @@ let g:limelight_eop = '\ze\n^\s'
 
 " Highlighting priority (default: 10)
 "   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = 9
+let g:limelight_priority = -1
 
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
+
+" Sneak
+let g:sneak#label = 1
 
 " YouCompleteMe and UltiSnips
 
@@ -313,7 +313,7 @@ noremap \\ :set invlist<CR>
 silent! call github_colors#togglebg_map('<F10>')
 
 " Activate FOCUS mode with F11
-nmap <F11> <Cmd>set background=dark <bar> silent! Goyo <bar> execute "normal ,l1j"<CR>
+nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
 
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 " nmap <buffer> <leader>l <Plug>(Limelight)
@@ -329,7 +329,6 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo <bar> execute "normal ,l1
 "   " focus
 "   set background=dark
 "   silent! Goyo
-"   execute "normal! ,l1j"
 " endfunction
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 

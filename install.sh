@@ -202,11 +202,14 @@ sudo apt-get -y purge unity-lens-shopping unity-webapps-common
 sudo apt-get -y purge zeitgeist zeitgeist-core zeitgeist-datahub
 sudo apt-get -y purge apturl ubuntu-advantage-tools
 
+# disable firewall log
+sudo ufw logging off
+
 # Guest session & remote login disable for LightDm
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
-# Optimize resources
+# Optimize for performance
 #############################################
 
 # path
@@ -225,7 +228,7 @@ case $(< /etc/systemd/resolved.conf 2>/dev/null) in
     ;;
 esac
 
-# space
+# storage
 sudo apt -y autoremove
 sudo docker volume prune
 
@@ -242,6 +245,13 @@ sudo systemctl start tlp.service
 
 sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
+
+#############################################
+# use temporary folder in RAM
+#############################################
+
+sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
+sudo systemctl enable tmp.mount
 
 #############################################
 # link the scripts folder

@@ -75,6 +75,29 @@ while true; do
     # RPC extension: https://aria2e.com/
     # aria2c --enable-rpc --rpc-listen-all --max-concurrent-downloads=40 --max-connection-per-server=16 --min-split-size=20M --split=16 --continue=true --dir=/home/$USER/Downloads
 
+    # servers
+    curl -s http://mirrors.ubuntu.com/mirrors.txt | xargs -I {} sh -c 'echo $(curl -r 0-102400 -s -w %{speed_download} -o /dev/null {}/ls-lR.gz) {}' | sort -g -r | head -3 | awk '{ print $2  }'
+
+    num=`cat /etc/apt/apt.conf.d/00aptitude | grep "Languages" | wc -l`
+    if [ "$num" -lt "1" ]; then
+
+        echo "Suppressing the language translation while updating..."
+        echo 'Acquire::Languages "none";' | \
+        sudo tee -a /etc/apt/apt.conf.d/00aptitude > /dev/null
+        echo "Done."
+    fi
+
+    # apt-fast
+    the_ppa=apt-fast/stable
+    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+        sudo add-apt-repository -y ppa:apt-fast/stable
+        sudo apt update -qq
+        sudo apt -y install apt-fast
+    fi
+
+    # downloader
+    sudo rm -f /usr/bin/aria2c
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

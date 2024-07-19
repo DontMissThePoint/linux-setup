@@ -94,11 +94,15 @@ while true; do
 
     # cursor
     cd /tmp
-    [ -e Afterglow-Cursors ] && rm -rf /tmp/Afterglow-Cursors
-    git clone https://github.com/yeyushengfan258/Afterglow-Cursors
+    [ -e Afterglow-Cursors-Recolored ] && rm -rf /tmp/Afterglow-Cursors-Recolored
+    git clone https://github.com/TeddyBearKilla/Afterglow-Cursors-Recolored
+    cd Afterglow-Cursors-Recolored/colors/Gruvbox/Black
     sudo ./install.sh
-    gsettings set org.gnome.desktop.interface cursor-theme 'Afterglow-cursors'
+    gsettings set org.gnome.desktop.interface cursor-theme 'Afterglow-Recolored-Gruvbox-Black'
     gsettings set org.gnome.desktop.interface cursor-size 32
+
+    # animations
+    gsettings set org.gnome.desktop.interface enable-animations false
 
     # interface
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'

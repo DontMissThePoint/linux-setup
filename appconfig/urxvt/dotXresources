@@ -42,7 +42,7 @@ Xft*hintstyle: hintslight
 Xft*lcdfilter: lcddefault
 !Xft.dpi: 166   ! https://dpi.lv
 Xft.dpi: 150
-Xcursor.theme: Afterglow-cursors
+Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
 Xcursor.size: 32
 
 URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11, xft:MesloLGSDZ Nerd Font Mono:size=11, xft:Symbola

@@ -210,6 +210,10 @@ while true; do
         pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
     fi
 
+    # autostart
+    cd /etc/xdg/autostart/
+    sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
+
     # systemd
     sudo cp -f $APP_PATH/systemd/picom@.service /etc/systemd/system/picom@.service
     sudo systemctl daemon-reload
