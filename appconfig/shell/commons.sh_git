@@ -35,6 +35,10 @@ alias f="nvim \$(fd -H . ~ | fnf)"
 alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fnf -l 20 | xargs -I {} zaread {} &>/dev/null"
 alias d="cd \$(fd -H -td . / | fnf)"
 
+# apt get multiple connections simultaneously
+alias apt="apt-fast"
+alias apt-get="apt-fast"
+
 # remove from PATH
 # export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | xargs | tr " " ":"`
 

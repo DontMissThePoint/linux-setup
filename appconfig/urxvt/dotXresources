@@ -1,5 +1,9 @@
 ! EXTENSIONS are stored at /usr/lib/urxvt/perl
 
+! ! ------------------------------------------------------------------------------
+! ! URxvt
+! ! ------------------------------------------------------------------------------
+
 ! the default font, will be commented out for
 ! specific user settings
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL {
@@ -7,10 +11,42 @@ URxvt.termName: rxvt-unicode-256color
 URxvt.title: URxvt
 URxvt.utf8: 1
 URxvt.imLocale: en_US.UTF-8
+
+! ! ------------------------------------------------------------------------------
+! ! UI
+! ! ------------------------------------------------------------------------------
+
+xterm*locale: false
+xterm*utf8: true
+xterm*utf8Fonts: always
+xterm*dynamicColors: true
+
+xterm*toolBar: false
+xterm*scrollBar: false
+xterm*geometry: 80x24
+xterm*internalBorder: 0
+
+xterm*metaSendsEscape: true
+xterm*backarrowKey: false
+xterm*ttyModes: erase ^?
+
+! ! ------------------------------------------------------------------------------
+! ! FONTS
+! ! ------------------------------------------------------------------------------
+
+Xft*rgba: rgb
+Xft*antialias: true
+Xft*autohint: false
+Xft*hinting: true
+Xft*hintstyle: hintslight
+Xft*lcdfilter: lcddefault
 !Xft.dpi: 166   ! https://dpi.lv
 Xft.dpi: 150
-URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11:antialias=true:autohint=true, xft:MesloLGSDZ Nerd Font:size=11, xft:Symbola
-URxvt.BoldFont: xft:JetBrainsMono NFM SemiBold:size=11:minspace=False
+Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
+Xcursor.size: 32
+
+URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11, xft:MesloLGSDZ Nerd Font Mono:size=11, xft:Symbola
+URxvt.BoldFont: xft:JetBrainsMono Nerd Font Mono:size=11:minspace=False
 URxvt.letterSpace: 0
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL }
 

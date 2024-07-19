@@ -151,7 +151,7 @@ local plugins = {
 
 	{
 		"cappyzawa/trim.nvim",
-		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("trim").setup()
 		end,
@@ -159,7 +159,7 @@ local plugins = {
 
  {
     "numToStr/Comment.nvim",
-		lazy = false,
+		event = "VeryLazy",
     config = function()
       require("Comment").setup()
     end
@@ -167,7 +167,7 @@ local plugins = {
 
 	{
 		"sindrets/diffview.nvim",
-		lazy = false,
+		event = "VeryLazy",
 		config = function()
 			require("diffview").setup()
 		end,
@@ -187,8 +187,8 @@ local plugins = {
 
   {
     "m4xshen/hardtime.nvim",
+		event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
-    lazy = false,
     config = function()
       require('hardtime').setup({ enabled = true })
     end,

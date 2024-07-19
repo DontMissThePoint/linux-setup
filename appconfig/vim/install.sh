@@ -79,7 +79,7 @@ while true; do
     ln -fs $APP_PATH/dotvim ~/.vim
 
     # Reset plug
-    for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master); done || echo "It normally returns >0"
+    for dir in $APP_PATH/dotvim/plugged/*; do (cd "$dir" && git reset --hard origin/master && git checkout master); done || echo "It normally returns >0"
 
     # update: clean old plugins
     /usr/bin/vim -E -c "let g:user_mode=1" -c "so $APP_PATH/dotvimrc" -c "PlugInstall" -c "wqa" || echo "It normally returns >0"
@@ -122,7 +122,10 @@ while true; do
         sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-18 999
         sudo apt-get -y install libboost-all-dev
 
-        cd ~/.vim/plugged/YouCompleteMe/
+        cd ~/.vim/plugged
+        rm -fr YouCompleteMe
+        git clone https://github.com/ycm-core/YouCompleteMe
+        cd YouCompleteMe
         git submodule update --init --recursive
         /usr/bin/python3 ./install.py --clangd-completer --verbose
 

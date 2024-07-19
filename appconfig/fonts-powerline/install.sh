@@ -63,6 +63,7 @@ while true; do
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
     getnf -i "JetBrainsMono Meslo IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
     getnf -U
+    rm -fr ~/Downloads/getnf
 
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
@@ -79,25 +80,6 @@ while true; do
     printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
     pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
 
-    # interface
-    gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
-    gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
-    gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-    gsettings set org.gnome.desktop.interface font-name 'Inter Variable 11'
-    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
-    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
-    gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
-
-    # cursor
-    gsettings set org.gnome.desktop.interface locate-pointer true
-    gsettings set org.gnome.desktop.interface cursor-size 32
-
-    # extensions
-    sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell
-    sudo pv $APP_PATH/gnome-shell.css > /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
-    gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Darker'
-
     # icons-in-terminal
     cd /tmp
     [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
@@ -109,6 +91,37 @@ while true; do
 
     # Test with:
     # fc-match -s monospace
+
+    # cursor
+    cd /tmp
+    [ -e Afterglow-Cursors-Recolored ] && rm -rf /tmp/Afterglow-Cursors-Recolored
+    git clone https://github.com/TeddyBearKilla/Afterglow-Cursors-Recolored
+    cd Afterglow-Cursors-Recolored/colors/Gruvbox/Black
+    sudo ./install.sh
+    gsettings set org.gnome.desktop.interface cursor-theme 'Afterglow-Recolored-Gruvbox-Black'
+    gsettings set org.gnome.desktop.interface cursor-size 32
+
+    # animations
+    gsettings set org.gnome.desktop.interface enable-animations false
+
+    # interface
+    gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
+    gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+    gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
+    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
+    gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
+
+    # cursor
+    gsettings set org.gnome.desktop.interface locate-pointer true
+    gsettings set org.gnome.desktop.interface cursor-size 32
+
+    # extensions
+    sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell
+    sudo pv $APP_PATH/gnome-shell.css > /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
+    gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Darker'
 
     # cache
     sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark

@@ -151,7 +151,7 @@ while true; do
     fi
 
     # for making gtk look better
-    sudo apt-get -y install lxappearance gtk-chtheme
+    sudo apt-get -y install lxappearance gtk-chtheme xbanish
 
     # indicator-sound-switcher
     if [ -n "$JAMMY" ]; then
@@ -197,6 +197,7 @@ while true; do
     pv $APP_PATH/dotxsession > ~/.xsession
     pv $APP_PATH/dotxserverrc > ~/.xserverrc
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
+    sudo cp $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
     # GTK
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
@@ -208,6 +209,16 @@ while true; do
         pv $APP_PATH/gtk.css > ~/.config/gtk-4.0/gtk.css
         pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
     fi
+
+    # autostart
+    cd /etc/xdg/autostart/
+    sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
+
+    # systemd
+    sudo cp -f $APP_PATH/systemd/picom@.service /etc/systemd/system/picom@.service
+    sudo systemctl daemon-reload
+    sudo systemctl start picom@$USER
+    sudo systemctl enable picom@$USER
 
     # copy fonts
     # fontawesome 4.7
