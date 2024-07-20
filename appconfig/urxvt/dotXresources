@@ -46,8 +46,10 @@ Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
 Xcursor.size: 32
 
 URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11, xft:MesloLGSDZ Nerd Font Mono:size=11, xft:Symbola
-URxvt.BoldFont: xft:JetBrainsMono Nerd Font Mono:size=11:minspace=False
+URxvt.BoldFont: xft:JetBrainsMono Nerd Font Mono:size=11:minspace=False,style=SemiBold
 URxvt.letterSpace: 0
+URxvt.intensityStyles: false
+
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL }
 
 ! { MATOUS
@@ -205,8 +207,9 @@ URxvt.perl-ext-common: default,clipboard,matcher
 ! clickable urls
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
+URxvt.keysym.M-u: perl:matcher:list
 URxvt.keysym.C-Delete: perl:matcher:last
-URxvt.keysym.M-Delete: perl:matcher:list
+URxvt.keysym.M-Delete: perl:matcher:select
 
 ! fix CTRL+SHIFT+P
 URxvt.keysym.Shift-Control-P: \033[24;5~

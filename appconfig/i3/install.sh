@@ -195,7 +195,6 @@ while true; do
     # Xorg
     pv $APP_PATH/dotxinitrc > ~/.xinitrc
     pv $APP_PATH/dotxsession > ~/.xsession
-    pv $APP_PATH/dotxserverrc > ~/.xserverrc
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
     sudo cp $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 

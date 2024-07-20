@@ -50,6 +50,7 @@ hi NonText ctermfg=gray guifg=gray70
 
 set list
 set listchars=tab:▸—,extends:»,precedes:«
+set whichwrap+=<,>,[,],h,l
 set showbreak=↪
 set nocursorline
 
