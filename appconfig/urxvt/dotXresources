@@ -8,9 +8,15 @@
 ! specific user settings
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL {
 URxvt.termName: rxvt-unicode-256color
+URxvt.imLocale: en_US.UTF-8
 URxvt.title: URxvt
 URxvt.utf8: 1
-URxvt.imLocale: en_US.UTF-8
+Xcursor.size: 32
+Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
+
+! Use Print to initiate a screen dump to the printer
+! Ctrl-Print or Shift-Print to include the scrollback
+URxvt*print-pipe: cat > $HOME/$(echo urxvt.dump.$(date +'%Y%M%d%H%m%S'))
 
 ! ! ------------------------------------------------------------------------------
 ! ! UI
@@ -20,35 +26,24 @@ xterm*locale: false
 xterm*utf8: true
 xterm*utf8Fonts: always
 xterm*dynamicColors: true
+xterm*geometry: 240x84
 
+URxvt.saveLines: 0
+URxvt*skipScroll: true
+URxvt*scrollTtyKeypress: true
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: false
+
+xterm*internalBorder: 0
 xterm*toolBar: false
 xterm*scrollBar: false
-xterm*geometry: 80x24
-xterm*internalBorder: 0
-
 xterm*metaSendsEscape: true
 xterm*backarrowKey: false
 xterm*ttyModes: erase ^?
 
 ! ! ------------------------------------------------------------------------------
-! ! FONTS
+! ! PROFILES
 ! ! ------------------------------------------------------------------------------
-
-Xft*rgba: rgb
-Xft*antialias: true
-Xft*autohint: false
-Xft*hinting: true
-Xft*hintstyle: hintslight
-Xft*lcdfilter: lcddefault
-!Xft.dpi: 166   ! https://dpi.lv
-Xft.dpi: 150
-Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
-Xcursor.size: 32
-
-URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11, xft:MesloLGSDZ Nerd Font Mono:size=11, xft:Symbola
-URxvt.BoldFont: xft:JetBrainsMono Nerd Font Mono:size=11:minspace=False,style=SemiBold
-URxvt.letterSpace: 0
-URxvt.intensityStyles: false
 
 ! EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_DAN EPIGEN_DEL_BLOCK_DANIEL }
 
@@ -188,10 +183,6 @@ URxvt.intensityStyles: false
 ! EPIGEN_ADD_BLOCK_PEPPE }
 
 ! }
-
-URxvt.scrollBar: false
-
-URxvt.saveLine: 10000
 
 ! font resizing
 URxvt.keysym.C-minus:     resize-font:smaller
@@ -505,7 +496,6 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.foreground: #cdd6f4
 ! URxvt.background: [85]#1a1c1e
 ! URxvt.cursorColor: #9aedfe
-! URxvt.underlineColor: #57c7ff
 
 ! !! black dark/light
 ! URxvt.color0: #33303b
@@ -542,15 +532,32 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! !! Bold, Italic, Underline
 ! URxvt.colorBD: [36]#69ff47
 ! URxvt.colorIT: [36]#7d7d7d
-! URxvt.colorUL: [36]#4682B4
+! URxvt.colorUL: [36]#57c7ff
+! URxvt.underlineColor: #57c7ff
 
 ! !! URxvt COLORS --------------------------------------------------------
+
+! Xft*rgba                      : rgb
+! Xft*antialias                 : true
+! Xft*autohint                  : false
+! Xft*hinting                   : true
+! Xft*hintstyle                 : hintslight
+! Xft*lcdfilter                 : lcddefault
+! !Xft.dpi                      : 166   ! https://dpi.lv
+! Xft.dpi                       : 150
+
+! URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11, xft:MesloLGSDZ Nerd Font Mono:size=12, xft:Symbola
+! URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:bold:size=12
+! URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:italic:size=12
+! URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:bold:italic:size=12
+! URxvt.letterSpace: 0
+! URxvt.intensityStyles: false
+
 ! URxvt.depth                   : 32
-! URxvt.visualBell              : false
+! URxvt.fading                  : 30
+! URxvt.shading                 : 25  ! Shading 0 to 99 darkens, 101 to 200 lightens
+! URxvt.visualBell              : true
 ! URxvt.transparent             : false
-! ! URxvt*.shading: 0 to 99 darkens, 101 to 200 lightens
-! URxvt.shading: 26
-! URxvt.fading: 30
 
 ! URxvt.iso14755_52             : false
 ! URxvt.loginShell              : true

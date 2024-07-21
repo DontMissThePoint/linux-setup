@@ -206,6 +206,9 @@ if g:user_mode == "1"
   " Registers view
   Plug 'junegunn/vim-peekaboo'
 
+  " Flash the cursor on jumps
+  Plug 'danilamihailov/beacon.nvim'
+
   " Focus
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
@@ -284,9 +287,6 @@ Plug 'jszakmeister/vim-togglecursor'
 " in visual press ctrl+n to select next occurance
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
-
-" Flash the cursor on jumps
-Plug 'danilamihailov/beacon.nvim'
 
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
