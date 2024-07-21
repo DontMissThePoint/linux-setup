@@ -219,6 +219,18 @@ autocmd! User GoyoLeave Limelight!
 " Sneak
 let g:sneak#label = 1
 
+" Rainbow
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" IndentLine
+let g:indentLine_defaultGroup         = 'SpecialKey'
+let g:indentLine_char                 = '│'
+" let g:indentLine_char_list            = ['│', '|', '¦', '┆', '┊', '▏']
+
+" disable for syntax
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
+
 " YouCompleteMe and UltiSnips
 
 " compatibility, with the helper of supertab
@@ -273,6 +285,9 @@ endfunc
 " Fzf
 nnoremap <Space><Space> :History:<CR>
 nnoremap <leader>fe :FZF ~/<CR>
+
+" Indent
+nnoremap <leader>idl :IndentLinesToggle<CR>
 
 " Beacon
 nmap n n:Beacon<cr>

@@ -126,4 +126,4 @@ map("n", "<leader>ql", [[<cmd>lua require("persistence").load()<cr>]], {desc = "
 map("n", "<leader>qr", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {desc = "restore last session"})
 
 -- quit
-map("n", "<leader>qa", [[quitall<cr>]], { desc = "quit all", noremap = true, silent = false })
+map("n", "<leader>qa", [[<cmd>quitall<cr>]], { desc = "quit all", noremap = true, silent = false })
