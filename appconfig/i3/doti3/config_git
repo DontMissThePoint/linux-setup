@@ -123,8 +123,6 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# pomodoro technique
-bindsym $mod+t exec --no-startup-id "gnome-pomodoro --pause-resume --no-default-window"
 
 # kill focused window
 bindsym $mod+Shift+q kill

@@ -546,10 +546,10 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! !Xft.dpi                      : 166   ! https://dpi.lv
 ! Xft.dpi                       : 150
 
-! URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11, xft:MesloLGSDZ Nerd Font Mono:size=12, xft:Symbola
-! URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:bold:size=12
-! URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:italic:size=12
-! URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:bold:italic:size=12
+! URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11, xft:MesloLGSDZ Nerd Font Mono:size=11, xft:Symbola
+! URxvt.boldFont: xft:JetBrainsMono Nerd Font Mono:bold:size=11, xft:Symbola
+! URxvt.italicFont: xft:JetBrainsMono Nerd Font Mono:italic:size=11, xft:Symbola
+! URxvt.boldItalicFont: xft:JetBrainsMono Nerd Font Mono:bold:italic:size=11, xft:Symbola
 ! URxvt.letterSpace: 0
 ! URxvt.intensityStyles: false
 

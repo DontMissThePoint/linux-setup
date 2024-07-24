@@ -206,9 +206,6 @@ if g:user_mode == "1"
   " Registers view
   Plug 'junegunn/vim-peekaboo'
 
-  " Flash the cursor on jumps
-  Plug 'danilamihailov/beacon.nvim'
-
   " Focus
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
@@ -483,6 +480,9 @@ set textwidth=0
 
 " just show the autocomplete menu
 set completeopt=longest,menuone
+
+" delays on escape
+set timeoutlen=1000 ttimeoutlen=0
 
 " better escape: when naviating through suggestion menu, j and k will behave
 " normally, otherwise they behave like ESC
