@@ -8,8 +8,8 @@ require "autocmds"
 
 M.ui = {
 	transparency = true,
-	theme = "tokyodark",
-	theme_toggle = { "tokyodark", "one_light" },
+	theme = "gatekeeper",
+	theme_toggle = { "gatekeeper", "one_light" },
 
 	-- Dashboard
 	nvdash = {
