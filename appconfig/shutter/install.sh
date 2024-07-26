@@ -34,14 +34,16 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-   the_ppa=xtradeb/apps
-   if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-     sudo add-apt-repository -y ppa:xtradeb/apps
-     sudo apt update
-     sudo apt install -y shutter nextcloud-desktop nautilus-nextcloud
-   fi
+    toilet Installing shutter
 
-   break
+    the_ppa=xtradeb/apps
+    if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+      sudo add-apt-repository -y ppa:xtradeb/apps
+      sudo apt update
+      sudo apt install -y shutter nextcloud-desktop nautilus-nextcloud
+    fi
+
+    break
   elif [[ $response =~ ^(n|N)=$ ]]
   then
     break

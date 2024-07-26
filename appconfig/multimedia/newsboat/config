@@ -22,7 +22,7 @@ prepopulate-query-feeds yes
 suppress-first-reload yes
 
 datetime-format "%d-%b-%Y"
-feedlist-title-format "Feeds (%u unread, %total)"
+feedlist-title-format "Feeds (%u unread, %t total)"
 feedlist-format "%11u - %t"
 save-path ~/Documents/saved_articles
 
@@ -90,10 +90,10 @@ bind-key SPACE macro-prefix
 # col  item       fg       bg
 color background default default        # the most bottom bar
 color listnormal cyan default
-color listnormal_unread blue default
+color listnormal_unread color77 default
 color listfocus color14 default
 color listfocus_unread color14 default standout bold
-color info color5 color0 bold
+color info color170 color0 bold
 color article default default
 
 highlight all "---.*---" color6
@@ -105,12 +105,12 @@ highlight article "^(Title|Date|Author):.*$" color6 default bold
 highlight article "https?://[^ ]+" color10 default underline
 highlight article "\\[[0-9]+\\]" color10 default bold
 
-highlight article "^(Title):.*$" blue default
-highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article "^(Title):.*$" color77 default
+highlight article "\\[[0-9][0-9]*\\]" cyan default bold
 highlight article "\\[image\\ [0-9]+\\]" green default bold
 highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
 highlight article ":.*\\(link\\)$" cyan default
-highlight article ":.*\\(image\\)$" blue default
+highlight article ":.*\\(image\\)$" color77 default
 highlight article ":.*\\(embedded flash\\)$" magenta default
 
 feedlist-format "%?T?║%4i %n %8u %8T %t &╠═══════════════════════════════════════════════════════════════%t?"

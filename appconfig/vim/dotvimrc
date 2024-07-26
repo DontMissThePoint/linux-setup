@@ -99,7 +99,7 @@ if g:user_mode == "1"
 
   " Shows tags in the file
   " currently mapped to F8
-  Plug 'majutsushi/tagbar', { 'commit': 'a0f51bd' }
+  Plug 'majutsushi/tagbar'
 
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
   " if has('nvim')
@@ -285,9 +285,6 @@ Plug 'jszakmeister/vim-togglecursor'
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
 
-" Flash the cursor on jumps
-Plug 'danilamihailov/beacon.nvim'
-
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
 
@@ -303,6 +300,15 @@ Plug 'wellle/targets.vim'
 " howto: yank od delete something, then past it in by e.g. griw (go replace in
 " word) to replace without removing it from register
 Plug 'vim-scripts/ReplaceWithRegister'
+
+" display the indention levels with thin vertical lines
+Plug 'Yggdroot/indentLine'
+
+" show levels of parentheses in different colors.
+Plug 'luochen1990/rainbow'
+
+" Insert or delete brackets, parentheses, and quotes in pairs
+Plug 'LunarWatcher/auto-pairs'
 
 " modifying surroundings by "s" target
 " e.g. cs"' changes surrounding quotes
@@ -474,6 +480,9 @@ set textwidth=0
 
 " just show the autocomplete menu
 set completeopt=longest,menuone
+
+" delays on escape
+set timeoutlen=1000 ttimeoutlen=0
 
 " better escape: when naviating through suggestion menu, j and k will behave
 " normally, otherwise they behave like ESC

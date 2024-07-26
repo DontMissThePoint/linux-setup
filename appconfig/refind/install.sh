@@ -87,6 +87,11 @@ while true; do
     # uninstall
     # sudo rm -r /boot/efi/EFI/refind
 
+    # boot
+    echo "Hide kernel messages from the console."
+    sudo cp -f $APP_PATH/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
+    echo "Done."
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

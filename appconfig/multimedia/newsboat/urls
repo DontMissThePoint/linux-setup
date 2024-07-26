@@ -18,15 +18,13 @@ https://freecoursedl.com/comments/feed/  "Courses" "video" "~FreeCoursedl"
 https://feeds.buzzsprout.com/1849151.rss   "Podcast" "favourite" "~Saifedan Ammous"
 
 "query:Reddit:tags # \"Reddit\""
-https://www.reddit.com/r/bash.rss "Reddit" "linux bash"
 https://www.reddit.com/r/vim.rss "Reddit" "linux"
 https://www.reddit.com/user/C4rnAg3.rss "Reddit" "~Bangladeshi Bash"
 
 "query:Blogs:tags # \"Blog\""
 https://www.chrisatmachine.com/rss.xml "Blog" "linux"
-https://www.howtogeek.com/feed/ "Blog" "howtogeek"
 https://www.topbug.net/blog/category/unix-variants/gnu-linux/feed/ "Blog" "linux"
-https://stallman.org//rss/rss.xml "Blog" "linux" "~Richard Stallman"
+https://sunaku.github.io/index.atom "Blog" "linux" "~The Terminal Programmer"
 
 "query:YouTube:tags # \"YouTube\""
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw "YouTube" "video" "~Lamborghini"

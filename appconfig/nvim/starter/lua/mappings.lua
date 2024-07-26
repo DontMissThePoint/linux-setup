@@ -124,6 +124,7 @@ map("n", "<C-w>=", cmd "WindowsEqualize", {desc = "Equally high and wide"})
 map("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], {desc = "restore stop"})
 map("n", "<leader>ql", [[<cmd>lua require("persistence").load()<cr>]], {desc = "restore current directory"})
 map("n", "<leader>qr", [[<cmd>lua require("persistence").load({ last = true })<cr>]], {desc = "restore last session"})
+map("n", "<leader>qS", [[<cmd>lua require("persistence").select()<cr>]], {desc = "select a session to load"})
 
 -- quit
-map("n", "<leader>qa", [[quitall<cr>]], { desc = "quit all", noremap = true, silent = false })
+map("n", "<leader>qa", [[<cmd>quitall<cr>]], { desc = "quit all", noremap = true, silent = false })

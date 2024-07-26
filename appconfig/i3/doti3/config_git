@@ -123,8 +123,6 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# pomodoro technique
-bindsym $mod+t exec --no-startup-id "gnome-pomodoro --pause-resume --no-default-window"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -1526,7 +1524,7 @@ exec --no-startup-id nm-applet
 
 # enables transparency
 # exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
-exec --no-startup-id /usr/bin/picom -b --experimental-backends # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
+exec_always --no-startup-id /usr/bin/picom -f -b --experimental-backends # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
@@ -1534,7 +1532,7 @@ exec_always --no-startup-id indicator-sound-switcher
 # exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # timer
-exec --no-startup-id "gnome-pomodoro --start --no-default-window"
+exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 
 # news
 exec --no-startup-id "newsboat -r -q"

@@ -4,6 +4,12 @@ export FZF_COMPLETION_TRIGGER='88'
 # display hidden, and exclude '.git' directory.
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
 
+# Print tree structure in the preview window
+export FZF_ALT_C_OPTS="
+  --walker-root=/
+  --walker-skip .git,node_modules,target
+  --preview 'eza --tree --level=3 {}'"
+
 export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
   --cycle
   --border --highlight-line

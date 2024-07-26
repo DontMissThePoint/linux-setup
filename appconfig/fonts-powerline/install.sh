@@ -61,7 +61,7 @@ while true; do
     # NF
     toilet Installing Nerd Fonts
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
-    getnf -i "JetBrainsMono Meslo IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
+    getnf -i "JetBrainsMono Meslo Monofur IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
     getnf -U
     rm -fr ~/Downloads/getnf
 
@@ -120,7 +120,7 @@ while true; do
 
     # extensions
     sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell
-    sudo pv $APP_PATH/gnome-shell.css > /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
+    sudo cp -f $APP_PATH/gnome-shell.css /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
     gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Darker'
 
     # cache
