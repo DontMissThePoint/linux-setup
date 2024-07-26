@@ -65,6 +65,20 @@ while true; do
       # scripts on startup
       sudo mkdir -p /etc/X11/xinit/xinitrc.d
 
+      # gnome-shell-pomodoro
+      num=`gnome-shell --version | awk '{ print $3 }' | cut -c -2`
+
+      sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev
+
+      cd /tmp
+      [ -e gnome-pomodoro ] && rm -rf gnome-pomodoro
+      git clone -b "gnome-$num" https://github.com/gnome-pomodoro/gnome-pomodoro.git
+      cd gnome-pomodoro
+      cp -f $APP_PATH/pomodoro-style.css ./data/resources/style.css
+      meson . build --prefix=/usr
+      meson compile -C build
+      sudo meson install -C build --no-rebuild
+
       # font size in virtual console (tty)
       # UTF-8
       # Guess optimal character set

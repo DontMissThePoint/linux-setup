@@ -141,7 +141,6 @@ c.content.dns_prefetch = False
 ## search
 c.url.searchengines = {
         'DEFAULT': 'https://google.com/search?q={}',
-        'sc': 'https://swisscows.com/en/web?query={}',
         'qw': 'https://lite.qwant.com/?q={}',
         'dd': 'https://duckduckgo.com/?q={}',
         'ec': 'https://www.ecosia.org/search?q={}',

@@ -7,6 +7,7 @@ xset r rate 350 55 2> /dev/null
 # fzf
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
+export _Z_CMD='d'
 
 # LS_COLORS
 export HOMEBREW_NO_EMOJI=1
@@ -17,9 +18,7 @@ source ~/.local/share/icons-in-terminal/icons_bash.sh
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
 
-alias :q=exit
 alias q=exit
-alias b=bash
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
@@ -29,15 +28,47 @@ alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 
-# quick acces to files and directories
-alias a="tspin \$(fd -H . / | fzf-tmux -p 80%,60% --preview 'preview {}' --preview-window '~8')"
-alias f="nvim \$(fd -H . ~ | fnf)"
-alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzf -m --height '~70%' --bind 'enter:become(zaread {} &>/dev/null)'"
-alias d="cd \$(fd -H -td . / | fzf)"
-
 # apt get multiple connections simultaneously
 alias apt="apt-fast"
 alias apt-get="apt-fast"
+
+# quick acces to files
+alias a="tspin \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
+alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzf -m --height '~70%' --bind 'enter:become(zaread {} &>/dev/null)'"
+
+# jump around
+. "$HOMEBREW_PREFIX/etc/profile.d/z.sh"
+unalias d 2> /dev/null
+
+# directories
+d() {
+  local dir=$(
+    _z 2>&1 |
+    fzf --height 40% --layout reverse --info inline \
+        --nth 2.. --tac --no-sort --query "$*" \
+        --bind 'enter:become:echo {2..}'
+  ) && cd "$dir"
+}
+
+# ripgrep->fzf->vim [QUERY] : f
+f() (
+  RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+  OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            nvim {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            nvim +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+  fzf --disabled --ansi --multi \
+      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --bind "ctrl-o:execute:$OPENER" \
+      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --preview-window '~4,+{2}+4/3,<80(up)' \
+      --height '75%' \
+      --query "$*"
+)
 
 # remove from PATH
 # export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | xargs | tr " " ":"`

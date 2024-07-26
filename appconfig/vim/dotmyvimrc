@@ -186,6 +186,9 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
       \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
+" seoul256
+let g:seoul256_srgb = 1
+
 " Color name (:help cterm-colors) or ANSI code
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_ctermfg = 240
@@ -377,7 +380,7 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
     setlocal number relativenumber cursorcolumn cursorline
     windo set scrollopt=ver,jump scrollbind nowrap
 
-    " Fast Lanes
+    " Fast Lane
     call EnableCursorLines()
 
     " Highlight
