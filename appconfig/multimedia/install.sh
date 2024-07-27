@@ -68,7 +68,6 @@ while true; do
     sudo apt-get -y install gstreamer1.0-libav libxpresent1
 
     # for video, photo, audio, ..., viewing and editing
-    sudo pip install subliminal ffsubsync
     sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol newsboat
 
     # newsboat
@@ -97,6 +96,7 @@ while true; do
     # image-viewer
     echo "Installing image-viewer"
     cp -rf $APP_PATH/mvi ~/.config/
+    mkdir -p ~/.cache/thumbnails/mpv-gallery
 
     echo "
 [Desktop Entry]
@@ -122,6 +122,10 @@ MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image
     pip install --upgrade guessit git+https://github.com/cinemagoer/cinemagoer
     git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
     git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
+
+    # autosubsync
+    sudo pip install --upgrade subliminal ffsubsync
+    git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

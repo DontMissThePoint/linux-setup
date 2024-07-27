@@ -72,10 +72,12 @@ config.set('hints.chars', 'asdflothn')
 
 # hint
 config.bind('f', 'hint')
-config.bind('tf', 'hint tab')
-config.bind('F', 'hint --rapid links tab-bg')
+config.bind('td', 'hint links download')
+config.bind('tf', 'hint --rapid links tab-bg')
+config.bind('tr', 'hint links right-click')
+config.bind('F', 'hint links tab-fg')
 # config.bind('dl', 'hint links download')
-config.bind('yl', 'hint links yank-primary')
+config.bind('yl', 'hint links yank')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
@@ -119,15 +121,16 @@ c.confirm_quit = ['downloads']
 c.completion.height = "33%"
 c.messages.timeout = 5000
 
-## ,ya “yank asciidoc-formatted link”
-config.bind(',ya', 'yank inline {url:pretty}[{title}]')
-config.bind(',P', 'open -b -- {primary}')
-config.bind(',p', 'open -b -- {clipboard}')
+## ,yc “yank asciidoc-formatted link”
+config.bind(',yc', 'yank inline {url:pretty}[{title}]')
 
 ## ,ym “yank markdown-formatted link”
 ## ym (without a leading comma) also works because it is built-in
 config.bind(',ym', 'yank inline [{title}]({url:pretty})')
-config.bind('yc', 'yank pretty-url')
+config.bind('ys', 'yank selection')
+
+config.bind(',P', 'open -b -- {primary}')
+config.bind(',p', 'open -b -- {clipboard}')
 
 # mpv
 config.bind('ya', 'hint links spawn -dv ~/.scripts/fillplaylist.sh push {hint-url}')
