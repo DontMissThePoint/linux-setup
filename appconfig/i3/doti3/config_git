@@ -123,6 +123,8 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
+# scratchpad
+bindsym $mod+v exec urxvt -name scratchpad -e vim
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -1534,7 +1536,7 @@ exec_always --no-startup-id indicator-sound-switcher
 # timer
 exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 
-# news
+# rss feed
 exec --no-startup-id "newsboat -r -q"
 
 # #}
@@ -1548,7 +1550,7 @@ for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disable
 for_window [title="^Figure"] floating disable
 for_window [title="market"] floating disable
-for_window [instance="scratchpadurxvt"] move scratchpad
+for_window [instance="scratchpad"] move scratchpad, scratchpad show
 # for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [title="float_pls"] floating enable

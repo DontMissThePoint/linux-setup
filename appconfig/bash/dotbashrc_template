@@ -62,6 +62,22 @@ export PROFILES="COLORSCHEME_GIT"' >> ~/.bashrc
 fi
 
 #############################################
+# add zoxide
+#############################################
+
+# smarter cd
+num=`cat ~/.bashrc | grep "zoxide" | wc -l`
+if [ "$num" -lt "1" ]; then
+
+    echo "Adding smarter cd"
+    # set bashrc
+    echo '
+# jump around
+eval "$(zoxide init bash)"' >> ~/.bashrc
+
+fi
+
+#############################################
 # add sourcing of dotbashrc to .bashrc
 #############################################
 var="\$-"
