@@ -120,12 +120,12 @@ zstyle ':fzf-tab:complete:cd:*' fzf-preview 'eza -1 --color=always $realpath'
 # switch group using `<` and `>`
 zstyle ':fzf-tab:*' switch-group '<' '>'
 
-# 10ms for key sequences
-KEYTIMEOUT=1
+# 20ms for key sequences
+export KEYTIMEOUT=20
 
 # vi mode
-# bindkey jj vi-cmd-mode
-# bindkey jk vi-cmd-mode
+bindkey -M viins 'jj' vi-cmd-mode
+bindkey -M viins 'jk' vi-cmd-mode
 
 ## more keys for easier editing
 bindkey "^A" beginning-of-line

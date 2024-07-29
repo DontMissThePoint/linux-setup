@@ -33,17 +33,13 @@ alias apt="apt-fast"
 alias apt-get="apt-fast"
 
 # quick acces to files
-alias a="tspin \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
-alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzf -m --height '~70%' --bind 'enter:become(zaread {} &>/dev/null)'"
-
-# jump around
-. "$HOMEBREW_PREFIX/etc/profile.d/z.sh"
-unalias d 2> /dev/null
+alias a="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
+alias za="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzf -m --height '~70%' --bind 'enter:become(zaread {} &>/dev/null)'"
 
 # directories
 d() {
   local dir=$(
-    _z 2>&1 |
+    zoxide query --list --score |
     fzf --height 40% --layout reverse --info inline \
         --nth 2.. --tac --no-sort --query "$*" \
         --bind 'enter:become:echo {2..}'

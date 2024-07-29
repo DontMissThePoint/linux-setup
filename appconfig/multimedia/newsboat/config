@@ -93,7 +93,7 @@ color listnormal cyan default
 color listnormal_unread color77 default
 color listfocus color14 default
 color listfocus_unread color14 default standout bold
-color info color170 color0 bold
+color info color176 color0 bold
 color article default default
 
 highlight all "---.*---" color6
