@@ -157,6 +157,15 @@ fi
 
 # 27. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
+=======
+# the docker setup ends here
+if $docker; then
+  exit 0
+fi
+
+#############################################
+# remove the interactivity check from bashrc
+#############################################
 
 # 28. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params

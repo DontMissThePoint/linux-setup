@@ -4,6 +4,9 @@
 |--------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 22.04 Docker | AMD64 | [![Jammy](https://github.com/dontmissthepoint/linux-setup/actions/workflows/jammy.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/jammy.yml) |
 | 22.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
+=======
+| 20.04 Docker | AMD64 | [![Focal](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml)          |
+| 20.04        | AMD64 | [![Docker](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml)       |
 
 ## Summary
 
