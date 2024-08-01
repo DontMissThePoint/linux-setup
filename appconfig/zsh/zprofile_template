@@ -29,5 +29,10 @@ if [ -d "/usr/local/go/bin" ] ; then
     PATH="$PATH:/usr/local/go/bin"
 fi
 
+# nix
+if [ -d "/nix/var/nix/profiles/default/bin" ] ; then
+    PATH="$PATH:/nix/var/nix/profiles/default/bin"
+fi
+
 TIME_ZONE=`timedatectl status | grep zone | awk '{ print $3 }'`
 export TZ=/usr/share/zoneinfo/$TIME_ZONE

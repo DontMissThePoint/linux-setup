@@ -27,27 +27,34 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall fish? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall nix environment? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing fish
+    # Nix
 
-    rm -fr $HOME/.config/fish && sudo apt-get -y remove fish* || echo ""
-    sudo apt-add-repository -y ppa:fish-shell/release-3
-    sudo apt update
-    sudo apt install -y fish
+    num=`nix --version | wc -l`
+    if [ "$num" -lt "1" ]; then
 
-    # install fish plugins
-    echo "Configuring..."
-    $APP_PATH/plugins.fish
+      toilet "Setting up nix"
+      sh <(curl -L https://nixos.org/nix/install) --daemon
+      urxvt -e bash -i -c "nix-shell -p nix-info --run 'nix-info -m'"
 
-    # config
-    mkdir -p $HOME/.config/fish
-    pv $APP_PATH/config.fish > ~/.config/fish/config.fish
+    fi
+
+    # pkgs
+    nix-channel --update
+    nix-env -u
+    nix-collect-garbage --delete-older-than 30d
+
+    # list
+    nix-env -q
+
+    # uninstall packages
+    # nix-env -e packagename
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

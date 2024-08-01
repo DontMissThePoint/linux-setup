@@ -157,15 +157,6 @@ fi
 
 # 27. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
-=======
-# the docker setup ends here
-if $docker; then
-  exit 0
-fi
-
-#############################################
-# remove the interactivity check from bashrc
-#############################################
 
 # 28. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
@@ -182,11 +173,16 @@ fi
 # 32. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 33. Install FISH
-! $docker && bash $APPCONFIG_PATH/fish/install.sh $subinstall_params
+# 33. Install NIX
+! $docker && bash $APPCONFIG_PATH/nix/install.sh $subinstall_params
 
 # 34. Install DOCKER
 ! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
+
+# the docker setup ends here
+if $docker; then
+  exit 0
+fi
 
 ##################################################
 # install inputs libraries when they are missing

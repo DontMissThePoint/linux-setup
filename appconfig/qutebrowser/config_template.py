@@ -9,23 +9,33 @@ config.load_autoconfig()
 catppuccin.setup(c, 'latte')
 
 # colors
-config.set('colors.webpage.darkmode.enabled', False)
+c.colors.webpage.darkmode.enabled = False
+c.colors.webpage.darkmode.policy.images = 'never'
+c.colors.webpage.darkmode.threshold.foreground = 150
+c.colors.webpage.darkmode.threshold.background = 205
 
 ##################
 
-# autoplay
-c.content.autoplay = True
+## Media
+c.content.autoplay = False
+c.content.pdfjs = True
+c.content.media.audio_video_capture = False
+c.content.media.video_capture = False
 
 ## Adblock Plus AND hosts blocking
 c.content.javascript.enabled = False
 c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
+c.content.blocking.method = 'both'
 config.set('content.javascript.enabled', True, '*://*.mail.google.com')
 
 c.content.geolocation = True
 c.qt.force_platform = 'xcb'
 c.auto_save.session = True
 
-c.scrolling.bar = 'always'
+# Status bar
+c.statusbar.show = 'in-mode'
+c.scrolling.bar = 'when-searching'
+c.scrolling.smooth = False
 c.zoom.default = '90%'
 
 c.editor.command = ["urxvt -e nvim {}"]
@@ -34,8 +44,8 @@ c.completion.shrink = True
 c.completion.scrollbar.width = 0
 c.completion.scrollbar.padding = 0
 
-## Display PDFs
-c.content.pdfjs = True
+# Spellcheck
+c.spellcheck.languages = ['en-US']
 
 ## Aliases
 c.aliases = {'q': 'quit --save', 'qa': 'quit',
@@ -64,11 +74,12 @@ c.bindings.commands['insert'] = {
     'jj': 'mode-leave',
 }
 
-## Keys
+## Hints
 c.hints.auto_follow = 'always'
 c.hints.auto_follow_timeout = 400
 c.hints.mode = 'letter'
-config.set('hints.chars', 'asdflothn')
+c.hints.chars = 'asdhfeiotr'
+c.hints.border = '0px'
 
 # hint
 config.bind('f', 'hint')
@@ -90,13 +101,16 @@ config.bind('xx', 'tab-close')
 config.bind('gl', 'tab-focus last')
 
 # tabs
+c.tabs.title.format = '{audio}{private}{index}: {current_title}'
 c.tabs.background = True
 c.tabs.favicons.scale = 0.9
 c.tabs.last_close = 'close'
+c.tabs.select_on_remove = 'prev'
 c.tabs.padding = {'bottom': 3, 'left': 5, 'right': 5, 'top': 2}
 c.tabs.mode_on_change = 'restore'
 c.tabs.show = 'multiple'
 c.tabs.indicator.width = 0
+c.tabs.pinned.frozen = False
 
 c.new_instance_open_target = 'tab-silent'
 c.new_instance_open_target_window = 'last-focused'
@@ -115,7 +129,7 @@ c.url.default_page = "about:blank"
 config.bind(',sm', 'cmd-set-text :download --mhtml')
 c.downloads.location.directory = '~/Downloads/2024-Q3'
 c.downloads.location.suggestion = 'both'
-c.downloads.remove_finished = 1000
+c.downloads.remove_finished = 60000
 c.confirm_quit = ['downloads']
 
 c.completion.height = "33%"

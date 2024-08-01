@@ -126,13 +126,13 @@ macro a set browser "~/.scripts/fillplaylist.sh push" ; open-in-browser
 macro p set browser "setsid -f ~/.scripts/fillplaylist.sh play > /dev/null 2>&1" ; open-in-browser
 
 # Play video
-macro v set browser "setsid -f mpv %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
+macro x set browser "setsid -f mpv %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
 # Play video floating mode
-macro i set browser "setsid -f mpv --x11-name=mpvfloat %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
+macro f set browser "setsid -f mpv --x11-name=mpvfloat %u > /dev/null 2>&1" ; open-in-browser-and-mark-read
 # Play audio only
 macro A set browser "setsid -f mpv %u --no-video > /dev/null 2>&1" ; open-in-browser-and-mark-read
 # Play fullscreen, i3 sends it to second monitor (useful for playing all the videos from a channel)
-macro f set browser "setsid -f mpv --x11-name=newsboatfs --fullscreen=yes %u > /dev/null 2>&1" ; open-in-browser
+macro v set browser "setsid -f mpv --x11-name=newsboatfs --fullscreen=yes %u > /dev/null 2>&1" ; open-in-browser
 # Download video
 macro y set browser "yt-dlp %u" ; open-in-browser
 
