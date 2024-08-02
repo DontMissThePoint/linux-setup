@@ -243,7 +243,7 @@ bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen b
 bindsym Print exec shutter --select
 
 # highlight cursor position
-bindsym F13 "exec find-cursor --size 320 --distance 40 --wait 400 --line-width 4 --color black"
+bindsym F13 exec find-cursor
 
 # toggling touchpad
 bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh
@@ -1526,7 +1526,7 @@ exec_always --no-startup-id indicator-sound-switcher
 # exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # send F13 for left Shift tapped
-exec_always --no-startup-id "xcape -e 'Ctrl_R=F13;Shift_L=F13'"
+exec_always --no-startup-id "xcape -e 'Control_L=Escape;Shift_L=F13'"
 
 # timer
 exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
