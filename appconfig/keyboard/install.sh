@@ -39,6 +39,23 @@ while true; do
     # copy modified keyboard default file
     sudo cp "$APP_PATH/keyboard" /etc/default/keyboard
 
+    # xcape
+    sudo apt install -y gcc make pkg-config libx11-dev libxtst-dev libxi-dev libx11-dev libxcomposite-dev libxdamage-dev libxrender-dev
+    cd /tmp
+    [ -e xcape ] && rm -rf xcape
+    git clone https://github.com/alols/xcape.git
+    cd xcape
+    make -j8
+    sudo make install
+
+    # find-cursor
+    cd /tmp
+    [ -e find-cursor ] && rm -rf find-cursor
+    git clone https://github.com/arp242/find-cursor
+    cd find-cursor
+    make -j8
+    sudo make install
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

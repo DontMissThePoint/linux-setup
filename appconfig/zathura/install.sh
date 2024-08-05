@@ -79,13 +79,19 @@ while true; do
     cd zaread
     sudo make install
 
+    # visidata
+    pip install --upgrade visidata datapackage pypng pdfminer.six ptpython lxml xlrd openpyxl tomli PyYAML IPython
+    mkdir -p ~/.visidata
+    cp -f $APP_PATH/dotvisidata/* ~/.visidata
+    pv "$APP_PATH/visidatarc" > ~/.visidatarc
+
     # epy
     pip install epy-reader
 
     # Calibre
+    # Green scheme background: #b9edcd foreground: #384f45 links: #000000
     sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
     #sudo calibre-uninstall
-    # Green scheme background: #b9edcd foreground: #384f45 links: #000000
 
     # mimeapps
     pv $APP_PATH/mimeapps.list > ~/.config/mimeapps.list

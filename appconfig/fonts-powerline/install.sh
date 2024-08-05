@@ -56,17 +56,23 @@ while true; do
         sudo apt update
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
     fi
-    sudo apt install -y fonts-symbola dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
+    sudo apt install -y fonts-inter-variable fonts-symbola ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
     # NF
     toilet Installing Nerd Fonts
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
-    getnf -i "JetBrainsMono Meslo iA-Writer NerdFontsSymbolsOnly UbuntuMono"
+    getnf -i "JetBrainsMono Meslo Monofur IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
     getnf -U
+    rm -fr ~/Downloads/getnf
 
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
-    fc-cache -vf
+    wget -c -P "$APP_PATH" https://github.com/13rac1/twemoji-color-font/releases/download/v14.0.2/TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
+    cd $APP_PATH
+    tar zxf TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
+    cd TwitterColorEmoji-SVGinOT-Linux-14.0.2
+    ./install.sh
+    rm -fr $APP_PATH/TwitterColorEmoji-*
 
     # config
     echo "Configuring..."
@@ -74,10 +80,53 @@ while true; do
     printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
     pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
 
-    # activate
+    # icons-in-terminal
+    cd /tmp
+    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
+    git clone https://github.com/sebastiencs/icons-in-terminal.git
+    cd icons-in-terminal
+    ./install.sh
+    pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
+    find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
+
+    # Test with:
+    # fc-match -s monospace
+
+    # cursor
+    cd /tmp
+    [ -e Afterglow-Cursors-Recolored ] && rm -rf /tmp/Afterglow-Cursors-Recolored
+    git clone https://github.com/TeddyBearKilla/Afterglow-Cursors-Recolored
+    cd Afterglow-Cursors-Recolored/colors/Gruvbox/Black
+    sudo ./install.sh
+    gsettings set org.gnome.desktop.interface cursor-theme 'Afterglow-Recolored-Gruvbox-Black'
+    gsettings set org.gnome.desktop.interface cursor-size 32
+
+    # animations
+    gsettings set org.gnome.desktop.interface enable-animations false
+
+    # interface
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-    sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark && xdg-desktop-menu forceupdate
+    gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
+    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
+    gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
+
+    # cursor
+    gsettings set org.gnome.desktop.interface locate-pointer true
+    gsettings set org.gnome.desktop.interface cursor-size 32
+
+    # extensions
+    sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell
+    sudo cp -f $APP_PATH/gnome-shell.css /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
+    gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Darker'
+
+    # cache
+    sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark
+    xdg-desktop-menu forceupdate
+    fc-cache -vf
 
     # undo the patch
     # git reset --hard
