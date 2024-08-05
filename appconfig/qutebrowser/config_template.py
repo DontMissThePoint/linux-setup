@@ -6,7 +6,7 @@ config.load_autoconfig()
 
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
-catppuccin.setup(c, 'latte')
+catppuccin.setup(c, 'macchiato')
 
 # colors
 c.colors.webpage.darkmode.enabled = False
@@ -104,11 +104,12 @@ config.bind('gl', 'tab-focus last')
 c.tabs.title.format = '{audio}{private}{index}: {current_title}'
 c.tabs.background = True
 c.tabs.favicons.scale = 0.9
-c.tabs.last_close = 'close'
 c.tabs.select_on_remove = 'prev'
-c.tabs.padding = {'bottom': 3, 'left': 5, 'right': 5, 'top': 2}
 c.tabs.mode_on_change = 'restore'
-c.tabs.show = 'multiple'
+c.tabs.position = 'right'
+c.tabs.show = 'switching'
+c.tabs.last_close = 'close'
+c.tabs.padding = {'bottom': 3, 'left': 5, 'right': 5, 'top': 2}
 c.tabs.indicator.width = 0
 c.tabs.pinned.frozen = False
 

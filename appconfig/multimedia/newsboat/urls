@@ -29,6 +29,7 @@ https://sunaku.github.io/index.atom "Blog" "linux" "~The Terminal Programmer"
 "query:YouTube:tags # \"YouTube\""
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw "YouTube" "video" "~Lamborghini"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q  "YouTube" "video" "~Technology Connections"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCbzVRTkX3bzNZuBd9In4XyA  "YouTube" "video" "~Modern MBA"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "Comedy" "Youtube"                              #Technlinked
 https://www.youtube.com/feeds/videos.xml?channel_id=UCUuWlKrLVaR6_yTckhLG7hg "Linux" "YouTube"                              #linux leech
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "Linux" "YouTube"                              #Wolf Gang
@@ -37,4 +38,4 @@ https://www.youtube.com/feeds/videos.xml?channel_id=UCfLsPYDDrGaFc9XhfDM-ktA "Li
 https://www.youtube.com/feeds/videos.xml?channel_id=UCqwUrj10mAEsqezcItqvwEw "Comedy" "Yotube"                              #BB Ki Vines
 
 "query:PeerTube:tags # \"PeerTube\""
-https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&isLocal=true "PeerTube" "video" "~Luke Smith"
+# https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&isLocal=true "PeerTube" "video" "~Luke Smith"

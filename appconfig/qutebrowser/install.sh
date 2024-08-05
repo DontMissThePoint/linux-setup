@@ -38,8 +38,10 @@ while true; do
     cd $APP_PATH/../../submodules/qutebrowser
     sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg libgl1-mesa-glx git ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libegl1-mesa libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 libasound2 gstreamer1.0-plugins-{bad,base,good,ugly}
 
-    /usr/bin/python3 -m pip install asciidoc
-    /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.4
+    # /usr/bin/python3 -m pip install asciidoc
+    sudo -H pip3 install -r misc/requirements/requirements-docs.txt
+    /usr/bin/python3 scripts/asciidoc2html.py
+    /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.7
 
     #.venv/bin/python3 -m qutebrowser
     mkdir -p ~/.qutebrowser
@@ -51,13 +53,14 @@ while true; do
     echo -e '~/.qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
 
     chmod +x ${APP_PATH}/qutebrowser_env
-    sudo cp ${APP_PATH}/qutebrowser_env /bin/qutebrowser
+    sudo mv -f ${APP_PATH}/qutebrowser_env /bin/qutebrowser
     sudo ln -sf /bin/qutebrowser /usr/local/bin/qutebrowser
     sudo cp $APP_PATH/../../submodules/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop /usr/share/applications/org.qutebrowser.qutebrowser.desktop
-    # default
+
+    # browser
     sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/qutebrowser 210
 
-    # Mocha flavor
+    # flavor
     mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/sessions
     cp -fr $APP_PATH/catppuccin ~/.config/qutebrowser/
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
@@ -65,11 +68,13 @@ while true; do
     ln -sf $APP_PATH/sessions ~/.local/share/qutebrowser/sessions
 
     # userscripts
+    cd scripts
+    /usr/bin/python3 -m dictcli install "en-US"
     sudo apt install -y libxml2-dev libxslt-dev libjs-pdf
-    pip install breadability
+    sudo -H pip3 install breadability
 
     cd ~/.config/qutebrowser
-    ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts userscripts
+    ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

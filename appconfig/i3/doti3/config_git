@@ -243,7 +243,7 @@ bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen b
 bindsym Print exec shutter --select
 
 # highlight cursor position
-bindsym F13 exec find-cursor
+bindsym F13 exec "find-cursor -r1 -f -o2 -O magenta -s320 -d40 -w400 -l1 -c black"
 
 # toggling touchpad
 bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh
@@ -267,15 +267,16 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+plus scratchpad show; floating disable
 
-# float
+# xprop. To get the instance and class
 for_window [title="pdfpc"] border none floating enable
-for_window [class="scrcpy*"] floating enable
+for_window [class="scrcpy*"] floating enable, resize set 960 540, move container position center
 for_window [class="mpv"] floating enable
-for_window [instance="mpvfloat"] floating enable, resize set 960 540, move container position center
+for_window [instance="mpvfloat"] floating enable, move container position center, focus
 for_window [class="qutebrowser"] move workspace $workspace2
-for_window [class="SmartGit"] move workspace $workspace3
+for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [title="File Transfer*"] floating enable
-for_window [instance="newsboatfs"] move container to workspace $ws10
+for_window [instance="newsboatfs"] move container to workspace $ws5, focus
+for_window [instance="xfreerdp"] move container to workspace $ws6, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 # bluetooth applet
@@ -1523,10 +1524,7 @@ exec_always --no-startup-id /usr/bin/picom -f -b --experimental-backends # EPIGE
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
 
-# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
-
-# send F13 for left Shift tapped
-exec_always --no-startup-id "xcape -e 'Control_L=Escape;Shift_L=F13'"
+# exec_always --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
 # timer
 exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"

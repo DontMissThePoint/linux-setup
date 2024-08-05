@@ -173,10 +173,7 @@ fi
 # 32. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 33. Install NIX
-! $docker && bash $APPCONFIG_PATH/nix/install.sh $subinstall_params
-
-# 34. Install DOCKER
+# 33. Install DOCKER
 ! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
 
 # the docker setup ends here

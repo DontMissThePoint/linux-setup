@@ -43,12 +43,14 @@
 [submodule "submodules/lolcat"]
 	path = submodules/lolcat
 	url = https://github.com/jaseg/lolcat
+  ignore = dirty
 [submodule "submodules/scrcpy"]
 	path = submodules/scrcpy
 	url = https://github.com/Genymobile/scrcpy
 [submodule "submodules/qutebrowser"]
 	path = submodules/qutebrowser
 	url = https://github.com/qutebrowser/qutebrowser
+  ignore = dirty
 [submodule "submodules/light"]
 	path = submodules/light
 	url = https://github.com/klaxalk/light
