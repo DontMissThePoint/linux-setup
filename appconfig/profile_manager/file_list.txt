@@ -6,6 +6,7 @@ $GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi_git, $GIT_PATH/linux-setup/appc
 $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery, \#\ %s
 $GIT_PATH/linux-setup/appconfig/fzf/dotFZF_DEFAULT_OPTS, ~/.FZF_DEFAULT_OPTS, \#\ %s
 $GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources, \!\ %s
+$GIT_PATH/linux-setup/appconfig/keyboard/dotXmodmap, ~/.Xmodmap, \!\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvimrc, ~/.vimrc, \"\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotmyvimrc, ~/.my.vimrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/go-whatsapp/dotgntrc, ~/.gntrc, \#\ %s

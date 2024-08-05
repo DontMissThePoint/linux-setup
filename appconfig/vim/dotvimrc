@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required by Vundle
-set t_Co=256                  " 256 colors
+" set t_Co=256                 " 256 colors. Upgrade to 24-bit truecolor
 set encoding=utf-8
 set lazyredraw
 
@@ -749,7 +749,7 @@ if g:user_mode == "1"
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
-        \ { 'f': '~/.config/fish/config.fish' },
+        \ { 'f': '~/.FZF_DEFAULT_OPTS' },
         \ { 'i': '~/.i3/config' },
         \ { 'p': '~/.config/papis/config' },
         \ { 'r': '~/.config/ranger/rc.conf' },

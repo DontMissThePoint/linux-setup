@@ -68,7 +68,7 @@ while true; do
       # gnome-shell-pomodoro
       num=`gnome-shell --version | awk '{ print $3 }' | cut -c -2`
 
-      sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev
+      sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev gnome-shell-pomodoro-data
 
       cd /tmp
       [ -e gnome-pomodoro ] && rm -rf gnome-pomodoro
@@ -165,7 +165,15 @@ while true; do
     fi
 
     # for making gtk look better
-    sudo apt-get -y install lxappearance gtk-chtheme xbanish
+    sudo apt-get -y install lxappearance gtk-chtheme
+
+    # xbanish
+    cd /tmp
+    [ -e xbanish ] && rm -rf xbanish
+    git clone https://github.com/jcs/xbanish
+    cd xbanish
+    make -j8
+    sudo make install
 
     # indicator-sound-switcher
     if [ -n "$JAMMY" ]; then

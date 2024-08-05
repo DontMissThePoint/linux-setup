@@ -78,6 +78,9 @@ set display=truncate
 set shm+=I
 
 " 24-bit true color
+" The "^[" is a single character. Ctrl+v and then ESC
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
 set termguicolors
 
 " Show context around the cursor
@@ -220,7 +223,7 @@ autocmd! User GoyoLeave Limelight!
 let g:sneak#label = 1
 let g:sneak#s_next = 1
 let g:sneak#use_ic_scs = 1
-let g:sneak#prompt = ' ▶ '
+let g:sneak#prompt = '🎯'
 let g:sneak#target_labels = "sftunq/;SFGHLTUNRMQZ?0"
 
 " Rainbow

@@ -97,6 +97,7 @@ while true; do
 
     # downloader
     sudo rm -f /usr/bin/aria2c
+    sudo cp -f $APP_PATH/apt-fast.conf /etc/apt-fast.conf
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
