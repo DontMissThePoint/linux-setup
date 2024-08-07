@@ -38,10 +38,9 @@ while true; do
     cd $APP_PATH/../../submodules/qutebrowser
     sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg libgl1-mesa-glx git ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libegl1-mesa libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 libasound2 gstreamer1.0-plugins-{bad,base,good,ugly}
 
-    # /usr/bin/python3 -m pip install asciidoc
-    sudo -H pip3 install -r misc/requirements/requirements-docs.txt
+    /usr/bin/python3 -m pip install -r misc/requirements/requirements-docs.txt
     /usr/bin/python3 scripts/asciidoc2html.py
-    /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.7
+    /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.5
 
     #.venv/bin/python3 -m qutebrowser
     mkdir -p ~/.qutebrowser
@@ -71,10 +70,21 @@ while true; do
     cd scripts
     /usr/bin/python3 -m dictcli install "en-US"
     sudo apt install -y libxml2-dev libxslt-dev libjs-pdf
-    sudo -H pip3 install breadability
 
     cd ~/.config/qutebrowser
     ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts
+
+    # reader
+    npm config set strict-ssl=false
+    npm install -g jsdom qutejs @mozilla/readability
+
+    # browsh
+    echo "Set up text-based browsh..."
+    cd /tmp
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/browsh-org/browsh/releases/download/v1.8.0/browsh_1.8.0_linux_amd64.deb
+    sudo apt install -y firefox ./browsh_1.8.0_linux_amd64.deb
+    rm -f ./browsh_1.8.0_linux_amd64.deb
+    echo "Done."
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -19,6 +19,7 @@ c.colors.webpage.darkmode.threshold.background = 205
 ## Media
 c.content.autoplay = False
 c.content.pdfjs = True
+c.qt.highdpi = True
 c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
 
@@ -26,6 +27,8 @@ c.content.media.video_capture = False
 c.content.javascript.enabled = False
 c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 c.content.blocking.method = 'both'
+
+# js
 config.set('content.javascript.enabled', True, '*://*.mail.google.com')
 
 c.content.geolocation = True
@@ -38,7 +41,7 @@ c.scrolling.bar = 'when-searching'
 c.scrolling.smooth = False
 c.zoom.default = '90%'
 
-c.editor.command = ["urxvt -e nvim {}"]
+c.editor.command = ["vim {}"]
 c.content.headers.do_not_track = True
 c.completion.shrink = True
 c.completion.scrollbar.width = 0
@@ -52,7 +55,8 @@ c.aliases = {'q': 'quit --save', 'qa': 'quit',
            'w': 'session-save', 'wq': 'quit --save',
            'wq': 'quit --save',
            'x': 'quit --save',
-           'X': 'spawn --userscript ~/.config/qutebrowser/userscripts/view_in_mpv'}
+           'X': 'spawn --userscript ~/.config/qutebrowser/userscripts/view_in_mpv',
+           'reader' : 'spawn --userscript readability-js'}
 
 ## mode
 c.bindings.commands['normal'] = {
@@ -102,7 +106,7 @@ config.bind('gl', 'tab-focus last')
 
 # tabs
 c.tabs.title.format = '{audio}{private}{index}: {current_title}'
-c.tabs.background = True
+c.tabs.background = False
 c.tabs.favicons.scale = 0.9
 c.tabs.select_on_remove = 'prev'
 c.tabs.mode_on_change = 'restore'
@@ -117,7 +121,7 @@ c.new_instance_open_target = 'tab-silent'
 c.new_instance_open_target_window = 'last-focused'
 
 # userscripts
-config.bind('gr', 'spawn --userscript ~/.config/qutebrowser/userscripts/readability')
+config.bind('gr', 'spawn --userscript ~/.config/qutebrowser/userscripts/readability-js')
 config.bind('sd', 'spawn --userscript ~/.config/qutebrowser/userscripts/open_download')
 config.bind('ps', 'spawn --userscript ~/.config/qutebrowser/userscripts/password_fill')
 

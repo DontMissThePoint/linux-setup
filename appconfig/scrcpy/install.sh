@@ -45,6 +45,17 @@ while true; do
     cd $APP_PATH/../../submodules/scrcpy
     ./install_release.sh
 
+    # re-droid
+    echo "Setup redroid..."
+    sudo apt install -y linux-modules-extra-`uname -r`
+    sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
+
+    cd /tmp
+    [ -e redroid-script ] && rm -rf redroid-script
+    git clone https://github.com/ayasa520/redroid-script
+    cd redroid-script
+    /usr/bin/python3 redroid.py -a 13.0.0 -gmnw
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

@@ -9,8 +9,11 @@ export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
 export _Z_CMD='d'
 
-# LS_COLORS
+# homebrew
 export HOMEBREW_NO_EMOJI=1
+export NODE_PATH=$NODE_PATH:$(npm root -g)
+
+# LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 

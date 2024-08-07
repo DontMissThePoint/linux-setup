@@ -11,8 +11,8 @@ URxvt.termName: rxvt-unicode-256color
 URxvt.imLocale: en_US.UTF-8
 URxvt.title: URxvt
 URxvt.utf8: 1
-URxvt.pointerBlank: 1
-URxvt.pointerBlankDelay: 0
+URxvt.pointerBlank: 0
+URxvt.pointerBlankDelay: 2
 
 Xcursor.size: 32
 Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
@@ -200,7 +200,7 @@ URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard,matcher
 
 ! clickable urls
-URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.url-launcher: /usr/bin/browsh --startup-url
 URxvt.matcher.button: 1
 URxvt.keysym.M-u: perl:matcher:list
 URxvt.keysym.C-Delete: perl:matcher:last
