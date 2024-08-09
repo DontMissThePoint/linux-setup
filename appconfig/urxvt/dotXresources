@@ -200,7 +200,7 @@ URxvt.iso14755: False
 URxvt.perl-ext-common: default,clipboard,matcher
 
 ! clickable urls
-URxvt.url-launcher: /usr/bin/browsh --startup-url
+URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.keysym.M-u: perl:matcher:list
 URxvt.keysym.C-Delete: perl:matcher:last

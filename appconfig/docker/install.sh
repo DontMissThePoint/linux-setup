@@ -113,7 +113,7 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     fi
 
     # dockurr
-    pv $APP_PATH/docker-compose.yml > ~/VirtualMachines/Windows-Docker
+    cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
     # docker compose stop
     # sudo docker compose up -d --force-recreate --build
 

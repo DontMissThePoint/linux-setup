@@ -29,6 +29,7 @@ alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
+alias droid11="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 
 # apt get multiple connections simultaneously
@@ -40,7 +41,7 @@ alias a="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padd
 alias za="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzf -m --height '~70%' --bind 'enter:become(zaread {} &>/dev/null)'"
 
 # directories
-d() {
+z() {
   local dir=$(
     zoxide query --list --score |
     fzf --height 40% --layout reverse --info inline \
