@@ -78,15 +78,6 @@ while true; do
     npm config set strict-ssl=false
     npm install -g jsdom qutejs punycode @mozilla/readability
 
-    # browsh
-    echo "Set up text-based browsh..."
-    cd /tmp
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/browsh-org/browsh/releases/download/v1.8.0/browsh_1.8.0_linux_amd64.deb
-    sudo apt install -y firefox ./browsh_1.8.0_linux_amd64.deb
-    rm -f ./browsh_1.8.0_linux_amd64.deb
-    pv $APP_PATH/config.toml > ~/.config/browsh/config.toml
-    echo "Done."
-
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

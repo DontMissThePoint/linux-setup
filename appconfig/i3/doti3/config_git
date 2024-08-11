@@ -269,7 +269,7 @@ bindsym $mod+plus scratchpad show; floating disable
 
 # xprop. To get the instance and class
 for_window [title="pdfpc"] border none floating enable
-for_window [class="scrcpy*"] floating enable, resize set 1014 1076, move container position center, focus
+for_window [class="scrcpy*"] floating enable, resize set 2160 920, move container position center, focus
 for_window [class="mpv"] floating enable
 for_window [instance="mpvfloat"] floating enable, move container position center, focus
 for_window [class="qutebrowser"] move workspace $workspace2

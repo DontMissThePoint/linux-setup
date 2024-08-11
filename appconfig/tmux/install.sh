@@ -93,13 +93,13 @@ while true; do
     sudo apt -y install systemd-timesyncd
     timedatectl set-local-rtc 0 --adjust-system-clock
 
-    num=`cat ~/.profile | grep "tty" | wc -l`
+    num=`cat ~/.profile | grep "tty2" | wc -l`
     if [ "$num" -lt "1" ]; then
 
         echo "Automatically starting X after login"
         echo '
 # start X after login
-test -z "$DISPLAY" -a "$(tty)" = /dev/tty &&
+test -z "$DISPLAY" -a "$(tty)" = /dev/tty2 &&
 exec env XDG_VTNR=9 startx &>/dev/null' >> ~/.profile
 
     fi

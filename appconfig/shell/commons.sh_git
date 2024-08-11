@@ -27,6 +27,7 @@ alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/in
 alias demangle="c++filt"
 alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
+alias tmx="tmuxinator double"
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias droid11="$GIT_PATH/linux-setup/scripts/redroid.sh"

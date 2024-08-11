@@ -26,6 +26,3 @@ export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
  --color=info:#b58900,prompt:#b58900,pointer:168
  --color=marker:168,spinner:#b58900,header:#91aadf
  --color gutter:-1,selected-bg:238,selected-fg:146,current-fg:189'
-
-# Screencast
-export ANDROID_SERIAL=07334371CK100018

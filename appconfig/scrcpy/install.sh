@@ -45,19 +45,12 @@ while true; do
     cd $APP_PATH/../../submodules/scrcpy
     ./install_release.sh
 
+    # Screencast
+    # scrcpy -w --show-touches --window-width 2160 --window-height 920 --window-borderless -s '07334371CK100018'
+
     # re-droid
     echo "Setup redroid..."
-    sudo apt install -y lzip linux-modules-extra-`uname -r`
-
-    cd /tmp
-    [ -e redroid-script ] && rm -rf redroid-script
-    git clone https://github.com/ayasa520/redroid-script
-    cd redroid-script
-    /usr/bin/python3 redroid.py -a 11.0.0 -gmnw
-
-    # vm
-    mkdir -p ~/VirtualMachines/Android-Docker
-    cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Android-Docker
+    sudo apt install -y android-platform-tools-base lzip linux-modules-extra-`uname -r`
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
