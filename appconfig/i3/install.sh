@@ -60,6 +60,7 @@ while true; do
       # systemd service file
       sudo systemctl disable gdm3
       sudo systemctl enable ly.service
+      sudo systemctl disable getty@tty2.service
       sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
 
       # scripts on startup

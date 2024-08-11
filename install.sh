@@ -152,29 +152,29 @@ if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/refind/install.sh $subinstall_params
 fi
 
-# 26. Install YT-DLP
-! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
-
-# 27. Install TMUXINATOR
+# 26. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# 28. Install LOLCAT
+# 27. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
 
-# 29. Install SCRCPY
+# 28. Install YT-DLP
+! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
+
+# 29. Install DOCKER
+! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
+
+# 30. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 30. Install OBSIDIAN
+# 31. Install OBSIDIAN
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 31. Install GO-WHATSAPP
+# 32. Install GO-WHATSAPP
 ! $docker && bash $APPCONFIG_PATH/go-whatsapp/install.sh $subinstall_params
 
-# 32. Install QUTEBROWSER
+# 33. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
-
-# 33. Install DOCKER
-! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
 
 # the docker setup ends here
 if $docker; then

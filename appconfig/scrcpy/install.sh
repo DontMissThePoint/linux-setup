@@ -45,6 +45,13 @@ while true; do
     cd $APP_PATH/../../submodules/scrcpy
     ./install_release.sh
 
+    # Screencast
+    # scrcpy -w --show-touches --window-width 2160 --window-height 920 --window-borderless -s '07334371CK100018'
+
+    # re-droid
+    echo "Setup redroid..."
+    sudo apt install -y android-platform-tools-base lzip linux-modules-extra-`uname -r`
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

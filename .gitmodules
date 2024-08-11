@@ -46,6 +46,7 @@
   ignore = dirty
 [submodule "submodules/scrcpy"]
 	path = submodules/scrcpy
+  ignore = dirty
 	url = https://github.com/Genymobile/scrcpy
 [submodule "submodules/qutebrowser"]
 	path = submodules/qutebrowser

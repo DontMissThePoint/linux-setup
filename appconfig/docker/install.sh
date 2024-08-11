@@ -90,9 +90,6 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     # install docker
     sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-    # virt-manager
-    sudo apt install -y --install-recommends virt-manager
-
     # quickemu
     sudo apt install -y qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
     sudo apt install -y --no-install-recommends samba
@@ -116,7 +113,7 @@ http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_C
     fi
 
     # dockurr
-    pv $APP_PATH/docker-compose.yml > ~/VirtualMachines/Windows-Docker
+    cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
     # docker compose stop
     # sudo docker compose up -d --force-recreate --build
 

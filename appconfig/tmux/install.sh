@@ -100,7 +100,7 @@ while true; do
         echo '
 # start X after login
 test -z "$DISPLAY" -a "$(tty)" = /dev/tty2 &&
-exec env XDG_VTNR=1 startx &>/dev/null' >> ~/.profile
+exec env XDG_VTNR=9 startx &>/dev/null' >> ~/.profile
 
     fi
 

@@ -56,6 +56,7 @@ while true; do
     pv $APP_PATH/yt-dlp.conf > ~/.config/yt-dlp/yt-dlp.conf
     pv $APP_PATH/conf.sh > ~/.config/ytfzf/conf.sh
     pv $APP_PATH/config.json > ~/.config/gallery-dl/config.json
+    echo "Done."
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
