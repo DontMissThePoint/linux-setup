@@ -9,7 +9,7 @@ read -p "Password: " password; echo
 stty echo
 
 # deamon
-cd $GIT_PATH/VirtualMachines/Windows-Docker
+cd ~/VirtualMachines/Windows-Docker
 docker compose up -d
 
 # Start windows inside Docker container

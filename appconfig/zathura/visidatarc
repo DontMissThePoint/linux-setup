@@ -111,6 +111,7 @@ options.color_graph_axis     =  'bold'               # color for graph axis labe
 #  ╰──────────────────────────────────────────────────────────╯
 
 # Repeat
+Sheet.unbindkey('.')
 Sheet.bindkey('.', 'repeat-input')
 Sheet.bindkey('z.', 'repeat-last')
 
