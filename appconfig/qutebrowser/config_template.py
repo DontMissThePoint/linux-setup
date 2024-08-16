@@ -96,10 +96,8 @@ config.bind('yl', 'hint links yank')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
-config.unbind('d')
 config.bind('tj', 'tab-prev')
 config.bind('tt', 'tab-next')
-config.bind('dd', 'tab-close')
 config.bind('xx', 'tab-close')
 
 config.bind('gl', 'tab-focus last')

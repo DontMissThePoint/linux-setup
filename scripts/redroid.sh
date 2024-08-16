@@ -6,14 +6,22 @@ sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 
 # deamon
 cd ~/VirtualMachines/Android-Docker
-docker compose up -d
+sudo docker compose up -d
+
+# scrcpy-web
+# docker run -itd --privileged -p 8000:8000/tcp emptysuns/scrcpy-web:v0.1
 
 # Connect to android: scrcpy-web
-# docker run -itd --privileged -p 8000:8000/tcp emptysuns/scrcpy-web:v0.1 #--name scrcpy-web
-docker start `docker ps -a | grep 'scrcpy-web' | awk '{print $1}'`
-# docker exec -it scrcpy-web adb connect "$(hostname -I | awk '{print $1}')":11101
+sudo docker start `docker ps -a | grep 'scrcpy-web' | awk '{print $1}'`
+sudo docker exec -it scrcpy-web adb connect "$(hostname -I | awk '{print $1}')":11101
 
-scrcpy --tcpip="$(hostname -I | awk '{print $1}')":11101 --audio-codec=raw
+until scrcpy --tcpip="$(hostname -I | awk '{print $1}')":11101 --audio-codec=raw
+do
+  echo Connection refused, retrying in 10 seconds...
+  sleep 10
+done
+
+
 
 # Open your browser,and open your_ip:8000. Click on the H264 Converter
 
