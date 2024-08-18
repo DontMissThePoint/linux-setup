@@ -51,15 +51,23 @@ while true; do
     # re-droid
     echo "Setup redroid..."
     sudo apt install -y android-platform-tools-base lzip linux-modules-extra-`uname -r`
+    sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 
     cd /tmp
     [ -e redroid-script ] && rm -rf redroid-script
     git clone https://github.com/ayasa520/redroid-script
     cd redroid-script
-    /usr/bin/python3 redroid.py -a 12.0.0 -gmnw
+    /usr/bin/python3 -m venv venv
+    venv/bin/pip install -r requirements.txt
+
+    # GApps
+    venv/bin/python3 redroid.py -a 11.0.0 -gmnw
 
     mkdir -p ~/VirtualMachines/Android-Docker
     cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Android-Docker
+
+    # modules load automatically
+    sudo cp -f $APP_PATH/redroid.conf /etc/modules-load.d/redroid.conf
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

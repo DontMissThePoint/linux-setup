@@ -1,7 +1,7 @@
 @import "color.rasi"
 
 * {
-    background-color:   transparent;
+    background-color:   @base0A;
     text-color:         @text;
     border-radius:      10px;
 }
@@ -34,7 +34,7 @@ entry {
     margin:             1em 1em;
     padding:            0.75em 1.25em;
     border-radius:      20px;
-    background-color:   @base00;
+    background-color:   transparent;
 }
 
 listview {
@@ -63,11 +63,11 @@ element-icon {
 }
 
 element-text {
-    highlight:          @base0C;
+    highlight:          @base0B;
 }
 
 element-text selected {
-    text-color:           @base0E;
+    text-color:           @base03;
 }
 
 scrollbar {

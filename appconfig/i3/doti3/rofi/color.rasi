@@ -17,5 +17,5 @@
     base0F: #82cfff;
 
     background: @base01;
-    text:       @base06;
+    text:       @base00;
 }

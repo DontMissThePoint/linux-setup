@@ -64,5 +64,5 @@ windows:
         # - journalctl -f | tspin
   - nvim:
       panes:
-        - nvim
+        - nvim -c 'lua require("persistence").load({ last = true })'
       layout: dc50,136x33,0,0,21

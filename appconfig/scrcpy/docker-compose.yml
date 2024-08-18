@@ -1,24 +1,28 @@
 services:
-    redroid:
-        stdin_open: true
-        tty: true
-        restart: always
-        privileged: true
-        volumes:
-            - ~/VirtualMachines/Android-Docker/data:/data
-        ports:
-            - 11101:5555
-        image: redroid/redroid:12.0.0_gapps_ndk_magisk_widevine
-        command:
-            - androidboot.redroid_gpu_mode=auto
-            # - androidboot.redroid_width=1080
-            # - androidboot.redroid_height=920
-            # - androidboot.redroid_dpi=480
-            - ro.product.cpu.abilist=x86_64,arm64-v8a,x86,armeabi-v7a,armeabi
-            - ro.product.cpu.abilist64=x86_64,arm64-v8a
-            - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
-            - ro.dalvik.vm.isa.arm=x86
-            - ro.dalvik.vm.isa.arm64=x86_64
-            - ro.enable.native.bridge.exec=1
-            - ro.dalvik.vm.native.bridge=libndk_translation.so
-            - ro.ndk_translation.version=0.2.2
+     redroid:
+       image: redroid/redroid:11.0.0_gapps_ndk_magisk_widevine
+       stdin_open: true
+       tty: true
+       privileged: true
+       ports:
+       # - "5555:5555"
+       - 11101:5555
+       volumes:
+       # The data is stored in the current directory
+       - ./redroid-11-data:/data
+       command:
+       # Android resolution
+       # - androidboot.redroid_width=720
+       # - androidboot.redroid_height=1280
+       - androidboot.redroid_dpi=320
+       # Enable host GPU hardware acceleration
+       - androidboot.redroid_gpu_mode=host
+       # Set libndk parameters
+       - ro.product.cpu.abilist0=x86_64,arm64-v8a,x86,armeabi-v7a,armeabi
+       - ro.product.cpu.abilist64=x86_64,arm64-v8a
+       - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+       - ro.dalvik.vm.isa.arm=x86
+       - ro.dalvik.vm.isa.arm64=x86_64
+       - ro.enable.native.bridge.exec=1
+       - ro.dalvik.vm.native.bridge=libndk_translation.so
+       - ro.ndk_translation.version=0.2.2
