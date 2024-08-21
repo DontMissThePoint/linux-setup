@@ -61,10 +61,28 @@ while true; do
     venv/bin/pip install -r requirements.txt
 
     # GApps
-    venv/bin/python3 redroid.py -a 11.0.0 -gmnw
+    # venv/bin/python3 redroid.py -a 11.0.0 -gmnw
+    venv/bin/python3 redroid.py -a 11.0.0 -gn
 
     mkdir -p ~/VirtualMachines/Android-Docker
     cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Android-Docker
+
+    # ID
+    # Register
+    # Execute the following commands to obtain the Android device ID,
+
+    ~/.scripts/redroid.sh
+    IP_ADDRESS=`hostname -I | awk '{print $1}'`
+    adb -s $IP_ADDRESS:11101 root
+
+    adb -s $IP_ADDRESS:11101 shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
+     "select * from main where name = \"android_id\";"'
+    echo "https://www.google.com/android/uncertified go to Google website to register the device"
+
+    echo "wait 30 minutes and then restart the Redroid container. Then you can log in to Google Play."
+
+    # How to install APK on ReDroid
+    # adb -s "$(hostname -I | awk '{print $1}')":11101 install "jp.naver.line.android.apk"
 
     # modules load automatically
     sudo cp -f $APP_PATH/redroid.conf /etc/modules-load.d/redroid.conf

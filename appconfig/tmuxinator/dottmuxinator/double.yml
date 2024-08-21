@@ -56,7 +56,7 @@ windows:
         - cd $GIT_PATH/linux-setup
         - btop
   - logs:
-      layout: 89a6,136x34,0,0[136x17,0,0{67x17,0,0,2,68x17,68,0,6},136x16,0,18,7]
+      layout: 55d7,136x34,0,0[136x27,0,0{67x27,0,0,3,68x27,68,0,7},136x6,0,28,8]
       panes:
         - bash
         - clifm --no-tips

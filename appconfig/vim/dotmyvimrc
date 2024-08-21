@@ -53,6 +53,7 @@ set listchars=tab:▸—,extends:»,precedes:«
 set whichwrap+=<,>,[,],h,l
 set showbreak=↪
 set nocursorline
+set nowrapscan
 
 " Hide cursor line on inactive windows
 augroup MyCursorLineGroup
@@ -337,8 +338,8 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
   " xmap <buffer> <leader>l <Plug>(Limelight)
   " autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
   " function SneakStf()
-  "   nnoremap <buffer> s <Plug>Sneak_s
-  "   nnoremap <buffer> S <Plug>Sneak_S
+  "   nnoremap <buffer> S <Plug>Sneak_s
+  "   nnoremap <buffer> s <Plug>Sneak_S
   "   nnoremap <buffer> f <Plug>Sneak_s
   "   nnoremap <buffer> F <Plug>Sneak_F
   "   nnoremap <buffer> t <Plug>Sneak_t
