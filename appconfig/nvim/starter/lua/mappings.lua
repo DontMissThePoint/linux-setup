@@ -12,7 +12,7 @@ map("n", "<leader>.", ":cd %:p:h<CR>:pwd <cr>", {desc = "change workspace onto c
 --  fzf-lua
 map("n", "<C-p>", function() require("fzf-lua").files({ cwd = '~/' }) end, {desc = "fzf-lua files"})
 map("n", "<leader>fe", function() require("fzf-lua").files({ cwd = '~/' }) end, {desc = "fzf-lua files"})
-map("n", "<leader><leader>", function() require("fzf-lua").command_history() end, {desc = "FZF"})
+map("n", "<leader><leader>", function() require("fzf-lua").command_history() end, {desc = "command history"})
 
 -- conform
 map("n", "<leader>fm", function() require("conform").format() end, {desc = "formatting"})

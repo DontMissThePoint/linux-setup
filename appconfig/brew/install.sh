@@ -52,7 +52,7 @@ while true; do
     # swiss knife
     until source $HOME/.bashrc && brew update && brew upgrade
     do
-      echo Connection disrupted, retrying in 10 seconds...
+      echo Connection refused, retrying in 10 seconds...
       sleep 10
     done
     brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow

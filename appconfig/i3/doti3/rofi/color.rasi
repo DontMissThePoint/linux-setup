@@ -16,6 +16,7 @@
     base0E: #be95ff;
     base0F: #82cfff;
 
-    background: @base01;
-    text:       @base06;
+    // background: @base01;
+    background: transparent;
+    text:       @base03;
 }

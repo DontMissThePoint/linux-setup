@@ -30,7 +30,7 @@ alias vimdiff="nvim -d"
 alias tmx="tmuxinator double"
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
-alias droid11="$GIT_PATH/linux-setup/scripts/redroid.sh"
+alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 
 # apt get multiple connections simultaneously

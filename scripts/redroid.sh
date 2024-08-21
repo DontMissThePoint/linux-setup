@@ -1,21 +1,22 @@
 #!/bin/sh
 
-# modules
-sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
-
-# deamon
-cd $GIT_PATH/VirtualMachines/Android-Docker
+# Start the container
+cd ~/VirtualMachines/Android-Docker
 sudo docker compose up -d
 
-# You can obtain shell via
-# $ docker exec -it `docker container ls | grep 'redroid' | awk '{print $1}'` sh
+# scrcpy-web
+sudo docker start `docker ps -a | grep 'scrcpy-web' | awk '{print $1}'` || \
+sudo docker run -itd --privileged -p 8000:8000/tcp emptysuns/scrcpy-web:v0.1
 
-# Connect to the local ReDroid using ADB
-adb connect localhost:5555
-# adb kill-server
+# Connect to android
+sudo docker exec -it scrcpy-web adb connect "$(hostname -I | awk '{print $1}')":11101
 
-# Run Scrcpy to connect to the Android desktop
-scrcpy -s 'localhost:5555' # --audio-codec=raw
+until scrcpy --tcpip="$(hostname -I | awk '{print $1}')":11101 --audio-codec=raw
+do
+  echo Connection refused, retrying in 10 seconds...
+  sleep 10
+done
 
-# Stop container
-# sudo ps awx | grep docker | awk '{print $1}' | xargs kill -9
+# Open your browser,and open your_ip:8000. Click on the H264 Converter
+
+# Pull up from the bottom of the screen
