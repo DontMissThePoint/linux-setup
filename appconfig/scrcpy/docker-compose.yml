@@ -11,6 +11,8 @@ services:
        volumes:
        # The data is stored in the current directory
        - ./redroid-11-data:/data
+       - /etc/localtime:/etc/localtime:ro
+       - /etc/timezone:/etc/timezone:ro
        command:
        # Android resolution
        # - androidboot.redroid_width=720

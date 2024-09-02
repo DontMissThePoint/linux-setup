@@ -149,8 +149,11 @@ config.bind('ys', 'yank selection')
 config.bind(',P', 'open -b -- {primary}')
 config.bind(',p', 'open -b -- {clipboard}')
 
+# qrcode for website
+config.bind(',q', 'spawn --userscript ~/.scripts/qrcode_url.sh')
+
 # gallery-dl
-config.bind('yi', 'hint images spawn -dv mvi {hint-url} --input-ipc-server=/tmp/mpvsocket')
+config.bind(',i', 'hint images spawn -dv mvi {hint-url} --input-ipc-server=/tmp/mpvsocket')
 
 # mpv
 config.bind('ya', 'hint links spawn -dv ~/.scripts/fillplaylist.sh push {hint-url}')

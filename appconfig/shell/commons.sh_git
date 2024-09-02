@@ -30,6 +30,7 @@ alias vimdiff="nvim -d"
 alias tmx="tmuxinator double"
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
+alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 
@@ -98,7 +99,7 @@ remove_duplicates_from_path() {
 cd_media() {
 
   cd /media/$USER
-  clifm ./
+  ranger
 }
 
 # #}
@@ -301,7 +302,6 @@ ranger () {
 }
 
 # #}
-alias ra="clifm"
 alias cp="/usr/local/bin/advcp -g"
 alias mv="/usr/local/bin/advmv -g"
 alias lll="eza -la --smart-group --tree --level=2 --git --header --icons"

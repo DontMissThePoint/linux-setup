@@ -69,7 +69,7 @@ while true; do
     # userscripts
     cd scripts
     /usr/bin/python3 -m dictcli install "en-US"
-    sudo apt install -y libxml2-dev libxslt-dev libjs-pdf
+    sudo apt install -y libxml2-dev libxslt-dev libjs-pdf qrencode
 
     cd ~/.config/qutebrowser
     ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts

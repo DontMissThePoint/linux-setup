@@ -19,6 +19,8 @@ services:
       # - /home/$USER/VirtualMachines/Windows-Docker/windows.iso:/custom.iso
       - /var/win:/storage
       - /home/$USER/Public:/shared
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
     environment:
       # VERSION: "win11e"
       # ARGUMENTS: "-device usb-host,vendorid=0x048d,productid=0x1234"
