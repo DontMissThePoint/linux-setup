@@ -29,7 +29,16 @@ c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBla
 c.content.blocking.method = 'both'
 
 # js
-config.set('content.javascript.enabled', True, '*://*.mail.google.com')
+try:
+    with (config.configdir / 'js.sites').open() as js_file:
+        js_sites = js_file.read().split("\n")
+        js_file.close()
+
+    for js_site in js_sites:
+        if js_site != '':
+            config.set('content.javascript.enabled', True, js_site)
+except FileNotFoundError:
+    print('js.sites not found')
 
 c.content.geolocation = True
 c.qt.force_platform = 'xcb'

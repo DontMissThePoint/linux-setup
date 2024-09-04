@@ -63,6 +63,7 @@ while true; do
     mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/sessions
     cp -fr $APP_PATH/catppuccin ~/.config/qutebrowser/
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
+    ln -sf $APP_PATH/js.sites ~/.config/qutebrowser/js.sites
     rm -fr $APP_PATH/sessions/before* ~/.local/share/qutebrowser/sessions
     ln -sf $APP_PATH/sessions ~/.local/share/qutebrowser/sessions
 
