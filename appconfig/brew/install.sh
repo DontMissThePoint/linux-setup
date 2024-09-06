@@ -55,12 +55,12 @@ while true; do
       echo Connection refused, retrying in 10 seconds...
       sleep 10
     done
-    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow
+    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow restic
     brew cleanup --prune=all
 
     # configs
     echo "Configuring..."
-    mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow ~/.config/s
+    mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow ~/.config/s ~/.config/autorestic
     pv "$APP_PATH/key_bindings.ron" > ~/.config/gitui/key_bindings.ron
     pv "$APP_PATH/btop.conf" > ~/.config/btop/btop.conf
     pv "$APP_PATH/bat.config" > ~/.config/bat/config

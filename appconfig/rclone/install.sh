@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up obsidian? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up rclone? (Encrypted backups, restic) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -75,10 +75,7 @@ $ rclone config'
     # sudo systemctl start rclone-mega@$USER
     # sudo systemctl enable --now rclone-mega@$USER
 
-    # docker-backup
-
-    # borg
-
+    # elinks
     mkdir -p ~/.elinks
     pv $APP_PATH/elinks.conf > ~/.elinks/elinks.conf
 

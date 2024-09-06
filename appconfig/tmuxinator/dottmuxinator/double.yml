@@ -58,7 +58,7 @@ windows:
   - logs:
       layout: 55d7,136x34,0,0[136x27,0,0{67x27,0,0,3,68x27,68,0,7},136x6,0,28,8]
       panes:
-        - bash
+        - bash; ctop
         - clifm --no-tips
         - multitail -D -f /var/log/*
         # - journalctl -f | tspin
