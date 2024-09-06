@@ -120,8 +120,10 @@ if g:user_mode == "1"
   " youcompleteme
   " automatic code completion for C++ and more
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  Plug 'ycm-core/YouCompleteMe', { 'commit': '7c4d053', 'do': './install.py --clangd-completer' }
-  Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
+  Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clangd-completer' }
+  Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
+  Plug 'SirVer/ultisnips', { 'on': [] }
+  Plug 'ervandew/supertab', { 'on': [] }
   " enable airline YCM status
   let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
@@ -153,9 +155,6 @@ if g:user_mode == "1"
   " allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
   " and vim panels... its like magic :-)
   Plug 'christoomey/vim-tmux-navigator'
-
-  " should make ultisnips work together with youcompletme
-  Plug 'ervandew/supertab'
 
   " easier manipulation with quickfix window
   " [q and ]q to move through the quickfix list
@@ -194,9 +193,6 @@ if g:user_mode == "1"
   " Thesaurus synonyms integration
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
-
-  " Super Fast Jumper
-  Plug 'wookayin/fzf-ripgrep.vim'
 
   " iA Writer
   Plug 'cormacrelf/vim-colors-github'
@@ -288,33 +284,24 @@ Plug 'terryma/vim-multiple-cursors'
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
 
-" snippet completion
-Plug 'SirVer/ultisnips'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-
 " powerful targeting of text parts
-" makes targetting more naturally useful..
 Plug 'wellle/targets.vim'
 
-" allows to replace text without pasting in to a register by gr
-" howto: yank od delete something, then past it in by e.g. griw (go replace in
-" word) to replace without removing it from register
+" replace text without paste into register by gr
+" yank or delete something, then past it in by e.g. griw (go replace in)
 Plug 'vim-scripts/ReplaceWithRegister'
 
 " display the indention levels with thin vertical lines
 Plug 'Yggdroot/indentLine'
 
-" show levels of parentheses in different colors.
+" levels of parentheses in different colors.
 Plug 'luochen1990/rainbow'
 
-" Insert or delete brackets, parentheses, and quotes in pairs
-Plug 'LunarWatcher/auto-pairs'
-
-" modifying surroundings by "s" target
+" modify surroundings by "s" target
 " e.g. cs"' changes surrounding quotes
 Plug 'tpope/vim-surround'
 
-" exchangin of two parts of a file...
+" exchange two parts of a file
 " cx{motion} and later cx{motion} swaps the two places
 Plug 'tommcdo/vim-exchange'
 
@@ -708,7 +695,6 @@ if g:user_mode == "1"
 
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
   colorscheme default
-  let g:airline_theme='papercolor'
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
@@ -749,7 +735,7 @@ if g:user_mode == "1"
   " customize bookmarks in startify
   let g:startify_bookmarks = [
         \ { 'b': '~/.bashrc' },
-        \ { 'f': '~/.FZF_DEFAULT_OPTS' },
+        \ { 'f': '~/.config/fish/config.fish' },
         \ { 'i': '~/.i3/config' },
         \ { 'p': '~/.config/papis/config' },
         \ { 'r': '~/.config/ranger/rc.conf' },

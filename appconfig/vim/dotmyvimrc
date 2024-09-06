@@ -20,8 +20,6 @@ let g:webdevicons_enable_startify = 1
 let g:startify_disable_at_vimenter = 1
 
 " use double-width(1) or single-width(0) glyphs
-" only manipulates padding
-" terminal or set(guifont) font preseved.
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 
 " Can be enabled or disabled
@@ -222,7 +220,7 @@ autocmd! User GoyoLeave Limelight!
 
 " Sneak
 let g:sneak#label = 1
-let g:sneak#s_next = 1
+let g:sneak#s_next = 0
 let g:sneak#use_ic_scs = 1
 let g:sneak#prompt = '🎯'
 let g:sneak#target_labels = "sftunq/;SFGHLTUNRMQZ?0"
@@ -240,10 +238,15 @@ let g:vim_json_conceal=0
 let g:markdown_syntax_conceal=0
 
 " YouCompleteMe and UltiSnips
+augroup load_us_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('YouCompleteMe', 'ultisnips', 'supertab')
+                     \| autocmd! load_us_ycm
+augroup END
 
 " compatibility, with the helper of supertab
-let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
+let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
@@ -353,7 +356,9 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
   " NetisFleet
   autocmd FileType tsv,tex call DataViz()
   function DataViz()
+    let g:airline_theme='papercolor'
     let g:github_colors_soft = 0
+
     silent! Goyo!
     set background=light
     colo github

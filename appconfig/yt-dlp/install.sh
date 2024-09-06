@@ -39,7 +39,7 @@ while true; do
     # opencv
     sudo apt install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
 
-    # yt-dlp; gallery-dl
+    # gallery-dl
     /usr/bin/python3 -m pip install -U yt-dlp gallery-dl
 
     # ytfzf
@@ -57,6 +57,14 @@ while true; do
     pv $APP_PATH/conf.sh > ~/.config/ytfzf/conf.sh
     pv $APP_PATH/config.json > ~/.config/gallery-dl/config.json
     echo "Done."
+
+    # yt-dlp
+    mkdir -p ~/VirtualMachines/YoutubeDL-Material
+    cd ~/VirtualMachines/YoutubeDL-Material
+    curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
+    docker compose pull
+    # docker compose up
+    # connect http://localhost:8998/#/home
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
