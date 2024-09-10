@@ -61,7 +61,7 @@ windows:
         - bash
         - clifm --no-tips
         # - multitail -D -f /var/log/*
-        - ctop
+        - clear
         # - journalctl -f | tspin
   - nvim:
       panes:

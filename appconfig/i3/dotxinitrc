@@ -28,6 +28,9 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
+#  numlock enabled
+numlockx &
+
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
@@ -36,7 +39,7 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
  unset f
 fi
 
-# send F13 for left Shift, right Control
+#  F13 for LShift & RControl
 xcape -e 'Control_L=Escape;Shift_L=F13;Shift_R=F13;Control_R=F13' &
 
 # pointer
