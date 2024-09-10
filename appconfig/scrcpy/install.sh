@@ -34,10 +34,22 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt install -y ffmpeg libsdl2-2.0-0 adb wget \
+    sudo apt install -y libsdl2-2.0-0 adb fastboot wget \
     	gcc git pkg-config meson ninja-build libsdl2-dev \
     	libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
     	libswresample-dev libusb-1.0-0 libusb-1.0-0-dev libavformat-dev libavutil-dev
+
+    # latest adb
+    cd /tmp
+    wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+    unzip \platform-tools-latest-linux.zip
+    sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/
+    sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
+
+    # check that it worked with:
+
+    # adb --version
+    # fastboot --version
 
     toilet Installing scrcpy
 

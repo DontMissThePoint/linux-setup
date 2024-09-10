@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # start server
-scrcpy -w --no-mouse-hover --window-borderless --window-y 0
+scrcpy -w -S --no-mouse-hover --window-borderless --window-y 0 # screen off save power
 
 # orientation
 adb shell settings put system accelerometer_rotation 0  #disable auto-rotate

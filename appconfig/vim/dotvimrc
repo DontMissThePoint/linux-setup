@@ -31,6 +31,9 @@ call plug#begin("~/.vim/plugged")
 " which plugins should not be loaded outside of normal session (not in athame)
 if g:user_mode == "1"
 
+  " Always load vim-devicons first
+  Plug 'ryanoasis/vim-devicons'
+
   " A colorful, dark color scheme
   Plug 'nanotech/jellybeans.vim'
 
@@ -121,8 +124,7 @@ if g:user_mode == "1"
   " automatic code completion for C++ and more
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
   Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clangd-completer' }
-  Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
-  Plug 'SirVer/ultisnips', { 'on': [] }
+  Plug 'rdnetto/YCM-Generator', { 'on': [],  'branch': 'stable' }
   Plug 'ervandew/supertab', { 'on': [] }
   " enable airline YCM status
   let g:airline#extensions#ycm#enabled = 1
@@ -222,6 +224,18 @@ if g:user_mode == "1"
   " Syntax highlighting for jinja
   Plug 'lepture/vim-jinja'
 
+  " display the indention levels with thin vertical lines
+  Plug 'Yggdroot/indentLine'
+
+  " levels of parentheses in different colors.
+  Plug 'luochen1990/rainbow'
+
+  " Repeat.vim remaps . in a way that plugins can tap into it.
+  Plug 'tpope/vim-repeat'
+
+  " The missing motion
+  Plug 'justinmk/vim-sneak'
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
@@ -260,18 +274,12 @@ if g:user_mode == "1"
 
 endif
 
-" Always load vim-devicons first
-Plug 'ryanoasis/vim-devicons'
-
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Repeat.vim remaps . in a way that plugins can tap into it.
-Plug 'tpope/vim-repeat'
-
-" The missing motion
-Plug 'justinmk/vim-sneak'
+" Snippets
+Plug 'SirVer/ultisnips'
 
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
@@ -290,12 +298,6 @@ Plug 'wellle/targets.vim'
 " replace text without paste into register by gr
 " yank or delete something, then past it in by e.g. griw (go replace in)
 Plug 'vim-scripts/ReplaceWithRegister'
-
-" display the indention levels with thin vertical lines
-Plug 'Yggdroot/indentLine'
-
-" levels of parentheses in different colors.
-Plug 'luochen1990/rainbow'
 
 " modify surroundings by "s" target
 " e.g. cs"' changes surrounding quotes

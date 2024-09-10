@@ -124,7 +124,7 @@ focus_follows_mouse no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # scratchpad
-bindsym $mod+v exec urxvt -name scratchpad -e vim
+bindsym $mod+v exec "urxvt -name scratchpad -e vim"
 
 # kill focused window
 bindsym $mod+Shift+q kill
