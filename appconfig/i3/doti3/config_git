@@ -1527,10 +1527,10 @@ exec_always --no-startup-id indicator-sound-switcher
 
 # exec_always --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
-# timer
+# breaks regularly
 exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 
-# rss feed
+# news feed
 exec --no-startup-id "newsboat -r -q"
 
 # #}

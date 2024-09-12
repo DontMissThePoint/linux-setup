@@ -206,10 +206,11 @@ while true; do
     echo "Configuring..."
     mkdir -p ~/.config/rofi ~/.config/dunst
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
+    pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
     pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
     pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
 
-    # i3 config
+    # i3
     pv $APP_PATH/doti3/config_git > ~/.i3/config
     pv $APP_PATH/doti3/i3blocks.conf_git > ~/.i3/i3blocks.conf
     pv $APP_PATH/i3blocks/wifi_git > $APP_PATH/i3blocks/wifi
@@ -265,6 +266,10 @@ while true; do
 
     # scroll view not content
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
+    # disable location
+    sudo systemctl restart geoclue.service
+    gsettings set org.gnome.system.location enabled false
 
     # install xkb layout state
     cd $APP_PATH/../../submodules/xkblayout-state/
