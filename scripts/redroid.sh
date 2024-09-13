@@ -54,7 +54,3 @@ adb -s $deviceID shell am start-foreground-service com.lexa.fakegps/.FakeGPSServ
 
 # wireless display
 (scrcpy --tcpip=$deviceID --audio-codec=raw &)
-
-
-# wireless display
-(scrcpy --tcpip=$deviceID --audio-codec=raw &)

@@ -1,0 +1,12 @@
+[Unit]
+Description=Redshift
+After=graphical.target
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/redshift -l 0.314757:32.577754 -c /home/$USER/.config/redshift.conf
+Restart=on-failure
+RestartSec=3s
+
+[Install]
+WantedBy=default.target

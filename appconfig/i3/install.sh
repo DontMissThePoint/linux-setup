@@ -168,6 +168,10 @@ while true; do
     # for making gtk look better
     sudo apt-get -y install lxappearance gtk-chtheme
 
+    # flashfocus
+    sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
+    pip install --upgrade flashfocus
+
     # xbanish
     cd /tmp
     [ -e xbanish ] && rm -rf xbanish
@@ -204,8 +208,9 @@ while true; do
 
     # config
     echo "Configuring..."
-    mkdir -p ~/.config/rofi ~/.config/dunst
+    mkdir -p ~/.config/rofi ~/.config/dunst ~/.config/flashfocus
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
+    pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
     pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
     pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
     pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
@@ -220,7 +225,6 @@ while true; do
     pv $APP_PATH/dotxinitrc > ~/.xinitrc
     pv $APP_PATH/dotxsession > ~/.xsession
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
-    sudo cp $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
     # GTK
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
@@ -238,7 +242,11 @@ while true; do
     sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
 
     # systemd
-    sudo cp -f $APP_PATH/systemd/picom@.service /etc/systemd/system/picom@.service
+    sudo cp $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+    sudo cp -f $APP_PATH/systemd/picom.service /etc/systemd/system/picom.service
+    sudo cp -f $APP_PATH/systemd/redshift.service /etc/systemd/system/redshift.service
+    sudo cp -f $APP_PATH/systemd/flashfocus.service /etc/systemd/system/flashfocus.service
+    sudo cp -f $APP_PATH/systemd/xidlehook.service /etc/systemd/system/xidlehook.service
     sudo systemctl daemon-reload
     sudo systemctl start picom@$USER
     sudo systemctl enable picom@$USER

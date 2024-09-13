@@ -1520,7 +1520,9 @@ exec --no-startup-id nm-applet
 
 # enables transparency
 # exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
-exec_always --no-startup-id /usr/bin/picom -f -b --experimental-backends # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
+
+# animations
+# exec_always --no-startup-id flashfocus
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
