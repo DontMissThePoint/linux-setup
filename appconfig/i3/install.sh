@@ -243,13 +243,6 @@ while true; do
 
     # systemd
     sudo cp $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-    sudo cp -f $APP_PATH/systemd/picom.service /etc/systemd/system/picom.service
-    sudo cp -f $APP_PATH/systemd/redshift.service /etc/systemd/system/redshift.service
-    sudo cp -f $APP_PATH/systemd/flashfocus.service /etc/systemd/system/flashfocus.service
-    sudo cp -f $APP_PATH/systemd/xidlehook.service /etc/systemd/system/xidlehook.service
-    sudo systemctl daemon-reload
-    sudo systemctl start picom@$USER
-    sudo systemctl enable picom@$USER
 
     # copy fonts
     # fontawesome 4.7

@@ -69,12 +69,6 @@ $ rclone config'
     # rclone config
     # rclone rcd --rc-web-gui
 
-    # daemon
-    # sudo cp -f $APP_PATH/rclone-mega@.service /etc/systemd/system/rclone-mega@.service
-    # sudo systemctl daemon-reload
-    # sudo systemctl start rclone-mega@$USER
-    # sudo systemctl enable --now rclone-mega@$USER
-
     # elinks
     mkdir -p ~/.elinks
     pv $APP_PATH/elinks.conf > ~/.elinks/elinks.conf
