@@ -1,5 +1,20 @@
 #!/bin/sh
 
+xrandr --dpi 96
+
+# Set screensaver settings
+xset s on
+xset s 900 180
+
+# Update font path
+xset +fp ~/.local/share/fonts
+xset fp rehash
+fc-cache -fv &
+
+# pointer
+xbanish -s -t2 -i all &
+xsetroot -xcf /usr/share/icons/Afterglow-Recolored-Gruvbox-Black/cursors/left_ptr 32
+
 # (Probably) you
 # don't need a display manager
 
@@ -7,9 +22,6 @@ userresources=$HOME/.Xresources
 usermodmap=$HOME/.Xmodmap
 sysresources=/etc/X11/xinit/.Xresources
 sysmodmap=/etc/X11/xinit/.Xmodmap
-
-# xsetroot -cursor_name left_ptr &
-xsetroot -xcf /usr/share/icons/Afterglow-Recolored-Gruvbox-Black/cursors/left_ptr 32
 
 # merge in defaults and keymaps
 if [ -f $sysresources ]; then
@@ -28,8 +40,16 @@ if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
 
-#  numlock enabled
-numlockx &
+# Interface scaling
+## HiDPI
+export GDK_SCALE=0
+export GDK_DPI_SCALE=0
+
+# bell
+xset b off
+
+# redshift
+redshift-gtk -l 0.314757:32.577754 &
 
 # start some nice programs
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
@@ -42,23 +62,23 @@ fi
 #  F13 for LShift & RControl
 xcape -e 'Control_L=Escape;Shift_L=F13;Shift_R=F13;Control_R=F13' &
 
-# pointer
-xbanish -s -t2 -i all &
-
 # Keyring
-eval $(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)
-export $(gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg)
-dbus-update-activation-environment --systemd DISPLAY
-
-# compositor
-# /usr/bin/picom -b &
+eval "$(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)"
+export SSH_AUTH_SOCK
+export GPG_AGENT_INFO
+export GNOME_KEYRING_CONTROL
+export GNOME_KEYRING_PID
 
 # Start applets, daemons, etc.
 # diskie
 # nm-applet
 # ...
 
-# To be able to use gnome-keyring
+# compositor
 f="/etc/X11/xinit/xinitrc.d/50-systemd-user.sh"; [[ -f "$f" ]] && source "$f"
+
+# picom
+picom -b --experimental-backends &
+
 # Start i3wm
 exec i3

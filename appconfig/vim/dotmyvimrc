@@ -294,8 +294,10 @@ endfunc
 "{{{ REMAP
 
 " Fzf
+" search open buffers
 nnoremap <Space><Space> :History:<CR>
-nnoremap <leader>fe :FZF ~/<CR>
+nnoremap <leader>ff :FZF ~/<CR>
+nnoremap <leader>fw :Lines<CR>
 
 " Indent
 nnoremap <leader>idl :IndentLinesToggle<CR>

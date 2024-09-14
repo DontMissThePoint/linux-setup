@@ -168,6 +168,10 @@ while true; do
     # for making gtk look better
     sudo apt-get -y install lxappearance gtk-chtheme
 
+    # flashfocus
+    sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
+    pip install --upgrade flashfocus
+
     # xbanish
     cd /tmp
     [ -e xbanish ] && rm -rf xbanish
@@ -204,12 +208,14 @@ while true; do
 
     # config
     echo "Configuring..."
-    mkdir -p ~/.config/rofi ~/.config/dunst
+    mkdir -p ~/.config/rofi ~/.config/dunst ~/.config/flashfocus
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
+    pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
+    pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
     pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
     pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
 
-    # i3 config
+    # i3
     pv $APP_PATH/doti3/config_git > ~/.i3/config
     pv $APP_PATH/doti3/i3blocks.conf_git > ~/.i3/i3blocks.conf
     pv $APP_PATH/i3blocks/wifi_git > $APP_PATH/i3blocks/wifi
@@ -219,7 +225,6 @@ while true; do
     pv $APP_PATH/dotxinitrc > ~/.xinitrc
     pv $APP_PATH/dotxsession > ~/.xsession
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
-    sudo cp $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
     # GTK
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
@@ -237,10 +242,7 @@ while true; do
     sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
 
     # systemd
-    sudo cp -f $APP_PATH/systemd/picom@.service /etc/systemd/system/picom@.service
-    sudo systemctl daemon-reload
-    sudo systemctl start picom@$USER
-    sudo systemctl enable picom@$USER
+    sudo cp $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
 
     # copy fonts
     # fontawesome 4.7
@@ -265,6 +267,10 @@ while true; do
 
     # scroll view not content
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
+    # disable location
+    sudo systemctl restart geoclue.service
+    gsettings set org.gnome.system.location enabled false
 
     # install xkb layout state
     cd $APP_PATH/../../submodules/xkblayout-state/
