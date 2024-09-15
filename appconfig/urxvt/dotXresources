@@ -11,8 +11,8 @@ URxvt.termName: rxvt-unicode-256color
 URxvt.imLocale: en_US.UTF-8
 URxvt.title: URxvt
 URxvt.utf8: 1
-URxvt.pointerBlank: 0
-URxvt.pointerBlankDelay: 2
+URxvt.pointerBlank: 1
+URxvt.pointerBlankDelay: 3
 
 Xcursor.size: 32
 Xcursor.theme: Afterglow-Recolored-Gruvbox-Black

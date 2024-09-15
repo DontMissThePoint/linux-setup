@@ -12,7 +12,8 @@ xset fp rehash
 fc-cache -fv &
 
 # pointer
-xbanish -s -t2 -i all &
+xbanish -s -t3 -i all &
+keynav &
 xsetroot -xcf /usr/share/icons/Afterglow-Recolored-Gruvbox-Black/cursors/left_ptr 32
 
 # (Probably) you
