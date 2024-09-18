@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up rclone? (Encrypted backups, restic) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up rclone? (Encrypted backups, restic, syncthing) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -37,28 +37,30 @@ while true; do
     sudo rm -f /etc/apt/sources.list.d/syncthing.list
 
     # Syncthing
-    # sudo apt install -y curl apt-transport-https
-    # curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
-    # echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
-    # sudo apt update
-    # sudo apt install -y syncthing
-    # sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d
+    sudo apt install -y curl apt-transport-https
+    curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+    echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+    sudo apt update
+    sudo apt install -y syncthing
+    sudo systemctl enable syncthing@$USER.service
+    sudo systemctl start syncthing@$USER.service
+    # sudo systemctl status syncthing@$USER.service
 
-    # sudo cp -f $APP_PATH/syncthing@.service /etc/systemd/system/syncthing@.service
-    # sudo systemctl daemon-reload
-    # sudo systemctl start syncthing@$USER
-    # sudo systemctl enable syncthing@$USER
+    # open port 22000 firewall
+    sudo ufw allow 22000/tcp
 
     #access the web UI
+    # 127.0.0.1:8384
     #https://localhost:8384/
+    mkdir -p ~/Downloads/Syncthing
 
     # Obsidian
     cd /tmp
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.3/obsidian_1.6.3_amd64.deb
-    sudo dpkg -i /tmp/obsidian_1.6.3_amd64.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
+    sudo dpkg -i /tmp/obsidian_1.6.7_amd64.deb
     mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
-    cp -fr APP_PATH/dotobsidian/* ~/vaults/.obsidian
-    pv APP_PATH/obsidian.vimrc > ~/vaults/.obsidian.vimrc
+    cp -fr $APP_PATH/dotobsidian/* ~/vaults/.obsidian
+    pv $APP_PATH/obsidian.vimrc > ~/vaults/.obsidian.vimrc
 
     # Rclone
     sudo apt install -y fuse3
@@ -69,11 +71,9 @@ $ rclone config'
     # rclone config
     # rclone rcd --rc-web-gui
 
-    # elinks
+    # GDrive
     mkdir -p ~/.elinks
     pv $APP_PATH/elinks.conf > ~/.elinks/elinks.conf
-
-    # GDrive
     pip install --upgrade gdown
 
     break

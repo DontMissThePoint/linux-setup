@@ -18,7 +18,10 @@ done
 
 # connect to android
 docker exec -it scrcpy-web adb connect $deviceID
-sleep 6
+
+# wireless display
+(scrcpy --tcpip=$deviceID --audio-codec=raw --no-cleanup &)
+sleep 5
 
 # options
 adb shell settings put system accelerometer_rotation 0  #disable auto-rotate
@@ -47,6 +50,3 @@ adb shell am start-foreground-service com.lexa.fakegps/.FakeGPSService
 # Open your browser,and open your_ip:8000. Click on the H264 Converter
 
 # Pull up from the bottom of the screen
-
-# wireless display
-(scrcpy --tcpip=$deviceID --audio-codec=raw &)

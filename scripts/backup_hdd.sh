@@ -5,7 +5,7 @@ RESTIC_REPOSITORY=/media/$USER/Envy/00-09.Library/07.OS
 LINUX_SETUP=$GIT_PATH/linux-setup
 
 # init
-# restic init --repo $RESTIC_REPOSITORY --password-file $RESTIC_PASSWORD_FILE
+[ ! -e "$RESTIC_REPOSITORY/linux-setup" ] && restic init --repo $RESTIC_REPOSITORY --password-file $RESTIC_PASSWORD_FILE
 
 # backup
 restic -r $RESTIC_REPOSITORY --verbose --password-file $RESTIC_PASSWORD_FILE backup $LINUX_SETUP

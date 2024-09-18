@@ -62,7 +62,7 @@ if [ -n "$BEAVER" ]; then
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs gnome-shell-extensions gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail redshift redshift-gtk
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs gnome-shell-extensions gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
 
 if [ "$unattended" == "0" ]
   then
