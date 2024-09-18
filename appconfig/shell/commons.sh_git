@@ -54,7 +54,7 @@ z() {
 }
 
 # ripgrep->fzf->vim [QUERY] : f
-f() (
+fw() (
   RELOAD='reload:rg --column --color=always --smart-case {q} || :'
   OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
             nvim {1} +{2}     # No selection. Open the current line in Vim.

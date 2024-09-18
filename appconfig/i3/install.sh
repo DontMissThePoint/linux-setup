@@ -37,7 +37,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0 redshift redshift-gtk keynav
+    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0 redshift redshift-gtk
 
     if [ -n "$beaver" ]; then
       sudo apt-get -y install python-keybinder gir1.2-keybinder
@@ -224,7 +224,6 @@ while true; do
     # Xorg
     pv $APP_PATH/dotxinitrc > ~/.xinitrc
     pv $APP_PATH/dotxsession > ~/.xsession
-    pv $APP_PATH/dotkeynavrc > ~/.keynavrc
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
 
     # GTK
@@ -245,7 +244,7 @@ while true; do
     # systemd
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
     sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
-    sudo systemctl --global enable keynav syncthing
+    sudo systemctl --global enable xidlehook
 
     # copy fonts
     # fontawesome 4.7

@@ -51,7 +51,7 @@ while true; do
 
       echo \
         "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        $(lsb_release -cs) stable" | \
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
       sudo apt-get update
     fi
@@ -66,6 +66,8 @@ while true; do
       sudo usermod -aG docker $USER
       groups $USER
     fi
+    sudo systemctl start docker
+    sudo systemctl enable docker
 
     # plugins
     curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
@@ -82,7 +84,7 @@ while true; do
 
       echo \
         "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
-http://pub.freerdp.com/repositories/deb/"$(. /etc/os-release && echo "$VERSION_CODENAME")"/ freerdp-nightly main" | \
+http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly main" | \
         sudo tee /etc/apt/sources.list.d/freerdp-nightly.list > /dev/null
       sudo apt-get update
     fi

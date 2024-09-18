@@ -2,9 +2,17 @@
 
 xrandr --dpi 96
 
+# Interface scaling
+## HiDPI
+export GDK_SCALE=0
+export GDK_DPI_SCALE=0
+
 # Set screensaver settings
 xset s on
 xset s 900 180
+
+# bell
+xset b off
 
 # Update font path
 xset +fp ~/.local/share/fonts
@@ -13,7 +21,6 @@ fc-cache -fv &
 
 # pointer
 xbanish -s -t3 -i all &
-keynav &
 xsetroot -xcf /usr/share/icons/Afterglow-Recolored-Gruvbox-Black/cursors/left_ptr 32
 
 # (Probably) you
@@ -40,14 +47,6 @@ fi
 if [ -f "$usermodmap" ]; then
     xmodmap "$usermodmap"
 fi
-
-# Interface scaling
-## HiDPI
-export GDK_SCALE=0
-export GDK_DPI_SCALE=0
-
-# bell
-xset b off
 
 # redshift
 redshift-gtk -l 0.314757:32.577754 &

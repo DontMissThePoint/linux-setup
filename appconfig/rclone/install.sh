@@ -42,9 +42,15 @@ while true; do
     echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
     sudo apt update
     sudo apt install -y syncthing
-    sudo cp /etc/apt/trusted.gpg /etc/apt/trusted.gpg.d
+    sudo systemctl enable syncthing@$USER.service
+    sudo systemctl start syncthing@$USER.service
+    # sudo systemctl status syncthing@$USER.service
+
+    # open port 22000 firewall
+    sudo ufw allow 22000/tcp
 
     #access the web UI
+    # 127.0.0.1:8384
     #https://localhost:8384/
     mkdir -p ~/Downloads/Syncthing
 
