@@ -17,7 +17,7 @@ set scroll-step 100
 
 # zoom settings
 set zoom-min 10
-set zoom-step 20
+set zoom-step 5
 set n-completion-items 20
 set incremental-search true
 set statusbar-home-tilde
@@ -28,8 +28,9 @@ set selection-clipboard clipboard
 
 # zathurarc-dark
 
-set font "Ubuntu Mono derivative Powerline 12"
-set default-bg "#30303a"
+set font "Ubuntu Mono derivative Powerline 13"
+# set default-bg "#30303a"
+set default-bg "#ff7eb6"
 set default-fg "#d6d6d6"
 
 set statusbar-fg "#B0B0B0" #04

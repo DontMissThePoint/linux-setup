@@ -4,28 +4,77 @@ xrdb ~/.Xresources 2> /dev/null
 # set keyboard repeat rate
 xset r rate 350 55 2> /dev/null
 
+# fzf
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
+export _Z_CMD='d'
+
+# homebrew
 export HOMEBREW_NO_EMOJI=1
+export NODE_PATH=$NODE_PATH:$(npm root -g)
+
+# LS_COLORS
+export LS_COLORS="$(vivid generate tokyonight-night)"
+source ~/.local/share/icons-in-terminal/icons_bash.sh
 
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
 
-alias :q=exit
 alias q=exit
-alias b=bash
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
 alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
+alias tmx="tmuxinator double"
+alias ra="ranger"
+alias mvi="mpv --config-dir=$HOME/.config/mvi"
+alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
+alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
+alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
+alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 
-# quick acces to files and directories
-alias f="nvim \$(fd -H . ~ | fzy -s)"
-alias z="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzy -l 20 | xargs -I {} zaread {}"
-alias a="fd -H . / | fzf-tmux -p 80%,60% --preview 'preview {}' --preview-window '~8'"
-alias d="cd \$(fd -H -td . / | fzy)"
+# apt get multiple connections simultaneously
+alias apt="apt-fast"
+alias apt-get="apt-fast"
+
+# quick acces to files
+alias a="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
+alias za="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzf -m --height '~70%' --bind 'enter:become(zaread {} &>/dev/null)'"
+
+# directories
+z() {
+  local dir=$(
+    zoxide query --list --score |
+    fzf --height 40% --layout reverse --info inline \
+        --nth 2.. --tac --no-sort --query "$*" \
+        --bind 'enter:become:echo {2..}'
+  ) && cd "$dir"
+}
+
+# ripgrep->fzf->vim [QUERY] : f
+fw() (
+  RELOAD='reload:rg --column --color=always --smart-case {q} || :'
+  OPENER='if [[ $FZF_SELECT_COUNT -eq 0 ]]; then
+            nvim {1} +{2}     # No selection. Open the current line in Vim.
+          else
+            nvim +cw -q {+f}  # Build quickfix list for the selected items.
+          fi'
+  fzf --disabled --ansi --multi \
+      --bind "start:$RELOAD" --bind "change:$RELOAD" \
+      --bind "enter:become:$OPENER" \
+      --bind "ctrl-o:execute:$OPENER" \
+      --bind 'alt-a:select-all,alt-d:deselect-all,ctrl-/:toggle-preview' \
+      --delimiter : \
+      --preview 'bat --style=full --color=always --highlight-line {2} {1}' \
+      --preview-window '~4,+{2}+4/3,<80(up)' \
+      --height '75%' \
+      --query "$*"
+)
+
+# remove from PATH
+# export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | xargs | tr " " ":"`
 
 # #{ remove_duplicates_from_path()
 remove_duplicates_from_path() {
@@ -254,7 +303,9 @@ ranger () {
 }
 
 # #}
-alias ra="ranger"
+alias cp="/usr/local/bin/advcp -g"
+alias mv="/usr/local/bin/advmv -g"
+alias lll="eza -la --smart-group --tree --level=2 --git --header --icons"
 
 # #{ killp()
 

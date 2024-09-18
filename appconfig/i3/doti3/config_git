@@ -6,12 +6,12 @@ set $mod2 Mod4
 # default definition of title/names of all workspaces
 set $workspace1 "1: "
 set $workspace2 "2: "
-set $workspace3 "3: "
+set $workspace3 "3: 󰨊"
 set $workspace4 "4: "
 set $workspace5 "5: "
-set $workspace6 "6: "
-set $workspace7 "7: "
-set $workspace8 "8: "
+set $workspace6 "6: 󱎐"
+set $workspace7 "7: "
+set $workspace8 "8: "
 set $workspace9 "9: "
 set $workspace10 "10: "
 
@@ -123,8 +123,8 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# Timer
-bindsym $mod+t exec --no-startup-id "gnome-pomodoro --pause-resume --no-default-window"
+# scratchpad
+bindsym $mod+v exec "urxvt -name scratchpad -e vim"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -242,14 +242,18 @@ bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen b
 # printscreen using shutter
 bindsym Print exec shutter --select
 
+# highlight cursor position
+bindsym F13 exec "find-cursor -r1 -f -o2 -O magenta -s320 -d40 -w400 -l1 -c black"
+
 # toggling touchpad
 bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 
 # shutdown/logout menu
-# EPIGEN_DEL_BLOCK_VOJTA {
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
-# EPIGEN_DEL_BLOCK_VOJTA }
 
+bindsym $mod2+e exec nautilus
+bindsym $mod2+b exec qutebrowser
+bindsym $mod2+s exec /usr/share/smartgit/bin/smartgit.sh
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
 # bind i3 modes
@@ -261,11 +265,18 @@ bindsym $mod+c mode "mouse_mode"
 # scratchpad
 bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+plus scratchpad show; floating disable
 
-# float
+# xprop. To get the instance and class
 for_window [title="pdfpc"] border none floating enable
-for_window [class="scrcpy*"] floating enable
+for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
+for_window [class="mpv"] floating enable
+for_window [instance="mpvfloat"] floating enable, move container position center, focus
+for_window [class="qutebrowser"] move workspace $workspace2
+for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [title="File Transfer*"] floating enable
+for_window [instance="newsboatfs"] move container to workspace $ws5, focus
+for_window [instance="xfreerdp"] move container to workspace $ws6, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 # bluetooth applet
@@ -425,7 +436,10 @@ client.background       $background_color
 bar {
 
   position top
-  mode hide
+  # mode invisible
+  mode dock
+  hidden_state hide
+  modifier $mod2
   strip_workspace_numbers yes
   status_command i3blocks -c ~/.i3/i3blocks.conf
   i3bar_command i3bar -t
@@ -553,7 +567,7 @@ bar {
 
     background $i3bar_bg
     statusline $active_text_color
-    separator  $active_background
+    separator  #666666
 
     #                  border             background           text
     focused_workspace  $focused_ws_bg     $focused_ws_bg       $active_text_color
@@ -712,29 +726,20 @@ set $mode_gaps_inner inner gaps
 
 # EPIGEN_ADD_BLOCK_VOJTA {
 
-# bindsym $mod+Shift+x exec "~/.i3/detacher.sh 'cd $HOME/.i3; ./shutdown_menu -p rofi'"
-
 # bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./vojta_set_monitor.sh'"
 
-# # EPIGEN_ADD_BLOCK_ASUS {
+# # Bind audio control keys
+# bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
+# bindsym XF86AudioLowerVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%-
+# bindsym XF86AudioRaiseVolume --release exec --no-startup-id amixer -D pulse sset 'Master' 5%+
+# bindsym XF86AudioPlay --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# bindsym XF86AudioPause --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh toggle && notify-send "Pausing/playing youtube"
+# bindsym XF86AudioNext --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh next && notify-send "Next song"
+# bindsym XF86AudioPrev --release exec --no-startup-id ~/git/linux-setup/scripts/control_music.sh previous && notify-send "Previous song"
 
-# # # Bing ASUS keyboard brightness control
-# # bindsym XF86KbdBrightnessUp exec --no-startup-id ~/.scripts/kb-light.py +
-# # bindsym XF86KbdBrightnessDown exec --no-startup-id ~/.scripts/kb-light.py -
-
-# # # Bind ASUS screen brightness control
-# # bindsym XF86MonBrightnessDown exec --no-startup-id ~/.i3/brightness.sh -
-# # bindsym XF86MonBrightnessUp exec --no-startup-id ~/.i3/brightness.sh +
-
-# # # Toggling ASUS touchpad
-# # bindsym XF86TouchpadToggle exec --no-startup-id ~/.scripts/toggle_touchpad.sh
-
-# # # # Bind ASUS audio control keys
-# # bindsym XF86AudioMute --release exec --no-startup-id amixer -D pulse sset 'Master' toggle
-# # bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%-
-# # bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse sset 'Master' 5%+
-
-# # EPIGEN_ADD_BLOCK_ASUS }
+# # Bind screen brightness control
+# bindsym XF86MonBrightnessDown --release exec --no-startup-id ~/.i3/brightness.sh - # decrease screen brightness
+# bindsym XF86MonBrightnessUp --release exec --no-startup-id ~/.i3/brightness.sh + # INCREASE Screen brightness
 
 # # Background image
 # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
@@ -1514,15 +1519,21 @@ exec --no-startup-id nm-applet
 # exec ~/.monitor.sh
 
 # enables transparency
-exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
+# exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
+
+# animations
+exec_always --no-startup-id flashfocus
 
 # sound-card control
 exec_always --no-startup-id indicator-sound-switcher
 
-# exec_always  --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
+# exec_always --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
-# timer
-exec --no-startup-id "gnome-pomodoro --start --no-default-window"
+# breaks regularly
+exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
+
+# news feed
+exec --no-startup-id "newsboat -r -q"
 
 # #}
 
@@ -1535,7 +1546,7 @@ for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disable
 for_window [title="^Figure"] floating disable
 for_window [title="market"] floating disable
-for_window [instance="scratchpadurxvt"] move scratchpad
+for_window [instance="scratchpad"] move scratchpad, scratchpad show
 # for_window [title="GIMP Startup"] move workspace $workspace8
 for_window [title="Figure"] floating enable
 for_window [title="float_pls"] floating enable

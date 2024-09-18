@@ -1,5 +1,5 @@
 configuration {
-	font: "Liga SFMono Nerd Font 15";
+	font: "Liga SFMono Nerd Font 17";
   show-icons: true;
   icon-theme: "Papirus";
   display-run: "";
@@ -20,7 +20,9 @@ configuration {
       sorting-method:    "name";
   }
   run,drun {
-    fallback-icon:    "~/linux-setup/miscellaneous/fallback-icon.png";
+    sort:             true;
+    fallback-icon:    "~/linux-setup/miscellaneous/chatGPT/fallback-icon.png";
+    sorting-method:   "fzf";
     matching:         "fuzzy";
   }
 }

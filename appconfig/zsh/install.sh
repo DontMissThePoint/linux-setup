@@ -48,7 +48,12 @@ while true; do
     # install oh-my-zsh
     [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget -c https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
 
-    # symlink plugins
+    # fzf-tab
+    if [ ! -e ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab ]; then
+      git clone https://github.com/Aloxaf/fzf-tab ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab
+    fi
+
+    # plugins
     if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
       ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
@@ -57,13 +62,14 @@ while true; do
       ln -sf $APP_PATH/../../submodules/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     fi
 
-    # add k plugin for zsh
+    # k
     $APP_PATH/install_k_plugin.sh
 
     # symlink the .zshrc
-    case $(< "$HOME/.zshrc") in *"dotzshrc"*) ;; *) cp "$APP_PATH/dotzshrc_template" "$HOME/.zshrc" ;; esac
+    case $(< "$HOME/.zshrc") in *"dotzshrc"*) ;; *) cp -f "$APP_PATH/dotzshrc_template" "$HOME/.zshrc" ;; esac
+    case $(< "$HOME/.zprofile") in *"go"*) ;; *) cp -f "$APP_PATH/zprofile_template" "$HOME/.zprofile" && echo -e "Adding configs\nDone." ;; esac
 
-    # add liquid prompt
+    # liquid prompt
     if [ ! -e $HOME/.liquidprompt ]; then
       git clone --branch stable https://github.com/nojhan/liquidprompt.git ~/.liquidprompt
     fi
@@ -78,6 +84,9 @@ while true; do
     # config
     # starship preset pure-preset -o ~/.config/starship.toml
     # rm -f ~/.config/starship.toml && cp $APP_PATH/starship.toml ~/.config/starship.toml
+
+    # shell
+    sudo usermod --shell $(which zsh) $USER
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

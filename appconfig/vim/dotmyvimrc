@@ -20,8 +20,6 @@ let g:webdevicons_enable_startify = 1
 let g:startify_disable_at_vimenter = 1
 
 " use double-width(1) or single-width(0) glyphs
-" only manipulates padding
-" terminal or set(guifont) font preseved.
 let g:WebDevIconsUnicodeGlyphDoubleWidth = 0
 
 " Can be enabled or disabled
@@ -50,24 +48,26 @@ hi NonText ctermfg=gray guifg=gray70
 
 set list
 set listchars=tab:▸—,extends:»,precedes:«
+set whichwrap+=<,>,[,],h,l
 set showbreak=↪
 set nocursorline
+set nowrapscan
 
 " Hide cursor line on inactive windows
 augroup MyCursorLineGroup
-    autocmd!
-    au WinEnter * setlocal cursorline
-    au WinLeave * setlocal nocursorline
+  autocmd!
+  au WinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
 augroup end
 
 " Trailing whitespace
 " except in insert mode
 augroup trailing
-    au!
-    au VimEnter * :set listchars+=trail:␣
-    au VimLeave * :set listchars-=trail:␣
-    au InsertEnter * :set listchars-=trail:␣
-    au InsertLeave * :set listchars+=trail:␣
+  au!
+  au VimEnter * :set listchars+=trail:␣
+  au VimLeave * :set listchars-=trail:␣
+  au InsertEnter * :set listchars-=trail:␣
+  au InsertLeave * :set listchars+=trail:␣
 augroup END
 
 " Show @@@ in the last line if it is truncated
@@ -77,10 +77,13 @@ set display=truncate
 set shm+=I
 
 " 24-bit true color
+" The "^[" is a single character. Ctrl+v and then ESC
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
 set termguicolors
 
-" Show a few lines of context around the cursor
-set scrolloff=5
+" Show context around the cursor
+set scrolloff=1
 "}}}
 
 "{{{ LINE
@@ -94,9 +97,9 @@ augroup vimStartup
   " (happens when dropping a file on gvim) and for a commit message (it's
   " likely a different one than last time).
   autocmd BufReadPost *
-    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
-    \ |   exe "normal! g`\""
-    \ | endif
+        \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+        \ |   exe "normal! g`\""
+        \ | endif
 augroup END
 
 " Convenient command to see the difference between the current buffer and the
@@ -105,14 +108,16 @@ augroup END
 " Revert with: ":delcommand DiffOrig".
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-    \ | wincmd p | diffthis
+        \ | wincmd p | diffthis
 endif
 
-" Fullscreen for datasets
+" Datasets
 au BufNewFile,BufRead *.tsv set filetype=tsv
-au Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
-" shape
+" Fullscreen for datasets
+autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+
+" cursors
 let g:togglecursor_force = 'xterm'
 
 " status
@@ -127,25 +132,22 @@ endif
 "{{{ PLUGIN
 
 " FZF
-let g:beacon_ignore_filetypes = ['fzf']
-let g:beacon_ignore_buffers = ['\w*git*\w']
-
 " Customize fzf colors to match your color scheme
 " - fzf#wrap translates this to a set of `--color` options
 let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+      \ { 'fg':      ['fg', 'Normal'],
+      \ 'bg':      ['bg', 'Normal'],
+      \ 'hl':      ['fg', 'Comment'],
+      \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+      \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+      \ 'hl+':     ['fg', 'Statement'],
+      \ 'info':    ['fg', 'PreProc'],
+      \ 'border':  ['fg', 'Ignore'],
+      \ 'prompt':  ['fg', 'Conditional'],
+      \ 'pointer': ['fg', 'Exception'],
+      \ 'marker':  ['fg', 'Keyword'],
+      \ 'spinner': ['fg', 'Label'],
+      \ 'header':  ['fg', 'Comment'] }
 
 " Enable per-command history
 " - History files will be stored in the specified directory
@@ -170,32 +172,87 @@ let g:fzf_buffers_jump = 1
 
 " [[B]Commits] Customize the options used by 'git log':
 let g:fzf_commits_log_options = '--graph --color=always
-        \ --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
+      \ --format="%C(auto)%h%d %s %C(black)%C(bold)%cr"'
 
 " [Tags] Command to generate tags file
 let g:fzf_tags_command = 'ctags -R'
 
 " Global line completion (not just open buffers. ripgrep required.)
 inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
-  \ 'prefix': '^.*$',
-  \ 'source': 'rg -n ^ --color always',
-  \ 'options': '--ansi --delimiter : --nth 3..',
-  \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
+      \ 'prefix': '^.*$',
+      \ 'source': 'rg -n ^ --color always',
+      \ 'options': '--ansi --delimiter : --nth 3..',
+      \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
 " Hide statusline
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
-  \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+      \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
 
-" YouCompleteMe and UltiSnips
+" seoul256
+let g:seoul256_srgb = 1
+
+" Color name (:help cterm-colors) or ANSI code
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_ctermfg = 240
+
+" Color name (:help gui-colors) or RGB color
+let g:limelight_conceal_guifg = 'DarkGray'
+let g:limelight_conceal_guifg = '#777777'
+
+" Default: 0.5
+let g:limelight_default_coefficient = 0.7
+
+" Number of preceding/following paragraphs to include (default: 0)
+let g:limelight_paragraph_span = 1
+
+" Beginning/end of paragraph
+"   When there's no empty line between the paragraphs
+"   and each paragraph starts with indentation
+let g:limelight_bop = '^\s'
+let g:limelight_eop = '\ze\n^\s'
+
+" Highlighting priority (default: 10)
+"   Set it to -1 not to overrule hlsearch
+let g:limelight_priority = -1
+
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+" Sneak
+let g:sneak#label = 1
+let g:sneak#s_next = 0
+let g:sneak#use_ic_scs = 1
+let g:sneak#prompt = '🎯'
+let g:sneak#target_labels = "sftunq/;SFGHLTUNRMQZ?0"
+
+" Rainbow
+let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+
+" IndentLine
+let g:indentLine_defaultGroup         = 'SpecialKey'
+let g:indentLine_char                 = '│'
+" let g:indentLine_char_list            = ['│', '|', '¦', '┆', '┊', '▏']
+
+" disable for syntax
+let g:vim_json_conceal=0
+let g:markdown_syntax_conceal=0
+
+" YouCompleteMe
+augroup load_ycm
+  autocmd!
+  autocmd CursorMoved * call plug#load('YouCompleteMe', 'YCM-Generator', 'supertab')
+                     \| autocmd! load_ycm
+augroup END
 
 " compatibility, with the helper of supertab
-let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:SuperTabCrMapping                = 0
+let g:SuperTabDefaultCompletionType    = '<C-n>'
 let g:UltiSnipsExpandTrigger           = '<tab>'
 let g:UltiSnipsJumpForwardTrigger      = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger     = '<s-tab>'
 let g:ycm_key_list_select_completion   = ['<C-j>', '<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion = ['<C-k>', '<C-p>', '<Up>']
+let g:ycm_disable_for_files_larger_than_kb = 2560
 
 " Debug logs: run :YcmDebugInfo to see clangd status
 " and :YcmToggleLogs to view clangd’s debug logs.
@@ -215,9 +272,9 @@ let g:slime_dont_ask_default = 1
 let g:slime_cell_delimiter = "```"
 let g:slime_target = "vimterminal"
 let g:slime_vimterminal_config = { "term_finish": "close",
-    \ "term_name": "R",
-    \ "horizontal": 1,
-    \ "term_rows": &columns * 1/3,}
+      \ "term_name": "R",
+      \ "horizontal": 1,
+      \ "term_rows": &columns * 1/3,}
 
 " R
 autocmd FileType r call ToSlime()
@@ -237,13 +294,13 @@ endfunc
 "{{{ REMAP
 
 " Fzf
-nnoremap <leader>f :FZF<CR>
+" search open buffers
+nnoremap <Space><Space> :History:<CR>
+nnoremap <leader>ff :FZF ~/<CR>
+nnoremap <leader>fw :Lines<CR>
 
-" Beacon
-nmap n n:Beacon<cr>
-nmap N N:Beacon<cr>
-nmap * *:Beacon<cr>
-nmap # #:Beacon<cr>
+" Indent
+nnoremap <leader>idl :IndentLinesToggle<CR>
 
 " Slime
 let g:slime_no_mappings = 0
@@ -252,10 +309,10 @@ nmap <leader>s <Plug>SlimeMotionSend
 nmap <leader>ss <Plug>SlimeLineSend
 
 " Command-line
+cnoremap q qa
 noremap ;; ;
 vnoremap ; :
 map ; :
-map q; q:
 
 " Math
 vmap <expr>  ++  VMATH_YankAndAnalyse()
@@ -275,85 +332,69 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 " Toggle list mode quickly
 noremap \\ :set invlist<CR>
 
-" Stage
-" Color name (:help cterm-colors) or ANSI code
-let g:limelight_conceal_ctermfg = 'gray'
-let g:limelight_conceal_ctermfg = 240
-
-" Color name (:help gui-colors) or RGB color
-let g:limelight_conceal_guifg = 'DarkGray'
-let g:limelight_conceal_guifg = '#777777'
-
-" Default: 0.5
-let g:limelight_default_coefficient = 0.9
-
-" Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 0
-
-" Beginning/end of paragraph
-"   When there's no empty line between the paragraphs
-"   and each paragraph starts with indentation
-let g:limelight_bop = '^\s'
-let g:limelight_eop = '\ze\n^\s'
-
-" Highlighting priority (default: 10)
-"   Set it to -1 not to overrule hlsearch
-let g:limelight_priority = 9
-
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
-
-" Activate FOCUS mode with F11
-nmap <F11> <Cmd>set background=dark <bar> Goyo <bar> execute "normal ,l1j"<CR>
-" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-# autocmd! VimEnter *\(.tsv\|.csv\)\@<! set background=dark
-#  \| silent! Goyo | execute "normal! ,l1j"
-" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
-
 " toggle background
 silent! call github_colors#togglebg_map('<F10>')
 
-nmap <Leader>l <Plug>(Limelight)
-xmap <Leader>l <Plug>(Limelight)
+" Activate FOCUS mode with F11
+nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
 
-" NetisFleet
-autocmd FileType tsv,tex call DataViz()
-function DataViz()
-let g:github_colors_soft = 0
-Goyo!
-set background=light
-colo github
-  noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
+" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
+  " nmap <buffer> <leader>l <Plug>(Limelight)
+  " xmap <buffer> <leader>l <Plug>(Limelight)
+  " autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
+  " function SneakStf()
+  "   nnoremap <buffer> S <Plug>Sneak_s
+  "   nnoremap <buffer> s <Plug>Sneak_S
+  "   nnoremap <buffer> f <Plug>Sneak_s
+  "   nnoremap <buffer> F <Plug>Sneak_F
+  "   nnoremap <buffer> t <Plug>Sneak_t
+  "   nnoremap <buffer> T <Plug>Sneak_T
+  "   " focus
+  "   set background=dark
+  "   silent! Goyo
+  " endfunction
+  " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
-  func! Swipe(card)
+  " NetisFleet
+  autocmd FileType tsv,tex call DataViz()
+  function DataViz()
+    let g:airline_theme='papercolor'
+    let g:github_colors_soft = 0
+
+    silent! Goyo!
+    set background=light
+    colo github
+    noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
+
+    func! Swipe(card)
       let @c = a:card
       silent! execute "normal d$:pu c"
       -join!
 
       " Cursor pos
       call cursor('.',strwidth(getline('.')))
+    endfunc
+
+    " Preselect suppliers
+    iabbrev <silent> ff <Cmd>:call fzf#run(fzf#wrap({
+          \ 'source': readfile(expand('$HOME/.cards.txt')),
+          \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
+          \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },
+          \ 'options': '+m --header "" --border-label "Select gas station"
+          \ --preview "" --prompt "Location	: 💳 "'}))<CR>
+
+    " Canvas
+    setlocal noexpandtab ruler
+    setlocal tabstop=20 softtabstop=20 shiftwidth=20
+
+    " Visibility
+    setlocal number relativenumber cursorcolumn cursorline
+    windo set scrollopt=ver,jump scrollbind nowrap
+
+    " Fast Lane
+    call EnableCursorLines()
+
+    " Highlight
+    call feedkeys(",a")
   endfunc
-
-  " Preselect suppliers
-  iabbrev <silent> ff <c-o>:call fzf#run(fzf#wrap({
-            \ 'source': readfile(expand('$HOME/.cards.txt')),
-            \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
-            \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },
-            \ 'options': '+m --header "" --border-label "Select gas station"
-            \ --preview "" --prompt "Location	: 💳 "'}))<CR>
-
-  " Canvas
-  setlocal noexpandtab ruler
-  setlocal tabstop=20 softtabstop=20 shiftwidth=20
-
-  " Visibility
-  setlocal number relativenumber cursorcolumn cursorline
-  windo set scrollopt=ver,jump scrollbind nowrap
-
-  " Fast Lanes
-  call EnableCursorLines()
-
-  " Highlight
-  call feedkeys(",a")
-endfunc
-"}}}
+  "}}}

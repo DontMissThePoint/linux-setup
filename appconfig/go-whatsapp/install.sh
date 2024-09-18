@@ -59,7 +59,7 @@ while true; do
         toilet Setting up go
         (echo; echo 'export PATH=$PATH:/usr/local/go/bin') >> ~/.profile
       fi
-      source ~/.profile
+      export PATH=$PATH:/usr/local/go/bin
 
       # compile from sources
       rm -fr /tmp/purple-gowhatsapp && cd /tmp

@@ -21,10 +21,6 @@ do
   fi
 done
 
-var=`lsb_release -r | awk '{ print $2 }'`
-[ "$var" = "20.04" ] && export FOCAL=1
-[ "$var" = "22.04" ] && export JAMMY=1
-
 default=y
 while true; do
   if [[ "$unattended" == "1" ]]
@@ -41,9 +37,9 @@ while true; do
     toilet Installing yt-dlp
 
     # opencv
-    sudo apt install -y libopencv-dev python3-opencv
+    sudo apt install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
 
-    # yt-dlp; gallery-dl
+    # gallery-dl
     /usr/bin/python3 -m pip install -U yt-dlp gallery-dl
 
     # ytfzf
@@ -53,17 +49,6 @@ while true; do
     cd ytfzf
     sudo make install doc
 
-    # xnview
-    echo "Installing XnViewMP."
-
-    if [ -n "$JAMMY" ]; then
-      sudo apt install -y libgdk-pixbuf2.0-0
-    fi
-    aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$APP_PATH" https://download.xnview.com/XnViewMP-linux-x64.deb
-
-    sudo dpkg -i $APP_PATH/XnViewMP-linux-x64.deb
-    rm -f $APP_PATH/XnViewMP-linux-x64.deb
-
     # config
     echo "Configuring..."
     mkdir -p ~/.config/yt-dlp ~/.config/ytfzf ~/.config/gallery-dl ~/.config/xnviewmp
@@ -71,6 +56,15 @@ while true; do
     pv $APP_PATH/yt-dlp.conf > ~/.config/yt-dlp/yt-dlp.conf
     pv $APP_PATH/conf.sh > ~/.config/ytfzf/conf.sh
     pv $APP_PATH/config.json > ~/.config/gallery-dl/config.json
+    echo "Done."
+
+    # yt-dlp
+    mkdir -p ~/VirtualMachines/YoutubeDL-Material
+    cd ~/VirtualMachines/YoutubeDL-Material
+    curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
+    docker compose pull
+    # docker compose up
+    # connect http://localhost:8998/#/home
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

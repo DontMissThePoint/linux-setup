@@ -373,8 +373,12 @@ rosparam set use_sim_time true
 endsnippet
 
 snippet "^update" "" Ar
-sudo apt-get update && rosdep update && sudo apt-get upgrade --with-new-pkgs --allow-downgrades
+sudo apt update && sudo apt dist-upgrade -y && $GIT_PATH/linux-setup/appconfig/brew/install.sh
 endsnippet
+
+# snippet "^updater" "" Ar
+# sudo apt-get update && rosdep update && sudo apt-get upgrade --with-new-pkgs --allow-downgrades
+# endsnippet
 
 snippet "^install" "" Ar
 sudo apt-get install

@@ -1,5 +1,5 @@
 set nocompatible              " be iMproved, required by Vundle
-set t_Co=256                  " 256 colors
+" set t_Co=256                 " 256 colors. Upgrade to 24-bit truecolor
 set encoding=utf-8
 set lazyredraw
 
@@ -30,6 +30,9 @@ call plug#begin("~/.vim/plugged")
 
 " which plugins should not be loaded outside of normal session (not in athame)
 if g:user_mode == "1"
+
+  " Always load vim-devicons first
+  Plug 'ryanoasis/vim-devicons'
 
   " A colorful, dark color scheme
   Plug 'nanotech/jellybeans.vim'
@@ -99,7 +102,7 @@ if g:user_mode == "1"
 
   " Shows tags in the file
   " currently mapped to F8
-  Plug 'majutsushi/tagbar', { 'commit': 'a0f51bd' }
+  Plug 'majutsushi/tagbar'
 
   " EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX {
   " if has('nvim')
@@ -120,8 +123,9 @@ if g:user_mode == "1"
   " youcompleteme
   " automatic code completion for C++ and more
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX {
-  Plug 'ycm-core/YouCompleteMe', { 'commit': '7c4d053', 'do': './install.py --clangd-completer' }
-  Plug 'rdnetto/YCM-Generator', { 'commit': '9cb722a' }
+  Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clangd-completer' }
+  Plug 'rdnetto/YCM-Generator', { 'on': [],  'branch': 'stable' }
+  Plug 'ervandew/supertab', { 'on': [] }
   " enable airline YCM status
   let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
@@ -153,9 +157,6 @@ if g:user_mode == "1"
   " allows to use the same keys (CTRL+hjkl) for smothly navigating between tmux
   " and vim panels... its like magic :-)
   Plug 'christoomey/vim-tmux-navigator'
-
-  " should make ultisnips work together with youcompletme
-  Plug 'ervandew/supertab'
 
   " easier manipulation with quickfix window
   " [q and ]q to move through the quickfix list
@@ -195,13 +196,13 @@ if g:user_mode == "1"
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
-  " Super Fast Jumper
-  Plug 'wookayin/fzf-ripgrep.vim'
-
   " iA Writer
   Plug 'cormacrelf/vim-colors-github'
   Plug 'preservim/vim-colors-pencil'
   Plug 'logico/typewriter-vim'
+
+  " Registers view
+  Plug 'junegunn/vim-peekaboo'
 
   " Focus
   Plug 'junegunn/goyo.vim'
@@ -222,6 +223,18 @@ if g:user_mode == "1"
 
   " Syntax highlighting for jinja
   Plug 'lepture/vim-jinja'
+
+  " display the indention levels with thin vertical lines
+  Plug 'Yggdroot/indentLine'
+
+  " levels of parentheses in different colors.
+  Plug 'luochen1990/rainbow'
+
+  " Repeat.vim remaps . in a way that plugins can tap into it.
+  Plug 'tpope/vim-repeat'
+
+  " The missing motion
+  Plug 'justinmk/vim-sneak'
 
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
@@ -261,51 +274,36 @@ if g:user_mode == "1"
 
 endif
 
-" Always load vim-devicons first
-Plug 'ryanoasis/vim-devicons'
-
 " Fuzzy finder
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-" Registers view
-Plug 'junegunn/vim-peekaboo'
-
-" Repeat.vim remaps . in a way that plugins can tap into it.
-Plug 'tpope/vim-repeat'
+" Snippets
+Plug 'SirVer/ultisnips'
 
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
 
 " Multiple cursors
-" in visual pres ctrl+n to select next occurance
+" in visual press ctrl+n to select next occurance
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
-
-" Flash the cursor on jumps
-Plug 'danilamihailov/beacon.nvim'
 
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
 
-" snippet completion
-Plug 'SirVer/ultisnips'
-Plug 'vim-scripts/DoxygenToolkit.vim'
-
 " powerful targeting of text parts
-" makes targetting more naturally useful..
 Plug 'wellle/targets.vim'
 
-" allows to replace text without pasting in to a register by gr
-" howto: yank od delete something, then past it in by e.g. griw (go replace in
-" word) to replace without removing it from register
+" replace text without paste into register by gr
+" yank or delete something, then past it in by e.g. griw (go replace in)
 Plug 'vim-scripts/ReplaceWithRegister'
 
-" modifying surroundings by "s" target
+" modify surroundings by "s" target
 " e.g. cs"' changes surrounding quotes
 Plug 'tpope/vim-surround'
 
-" exchangin of two parts of a file...
+" exchange two parts of a file
 " cx{motion} and later cx{motion} swaps the two places
 Plug 'tommcdo/vim-exchange'
 
@@ -471,6 +469,9 @@ set textwidth=0
 
 " just show the autocomplete menu
 set completeopt=longest,menuone
+
+" delays on escape
+set timeoutlen=1000 ttimeoutlen=0
 
 " better escape: when naviating through suggestion menu, j and k will behave
 " normally, otherwise they behave like ESC
@@ -696,7 +697,6 @@ if g:user_mode == "1"
 
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
   colorscheme default
-  let g:airline_theme='papercolor'
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
@@ -764,15 +764,9 @@ if g:user_mode == "1"
 
 endif
 
-nnoremap <leader>oi :delmark a
-:norm ma*:%s//_&/g
-:norm `a:delmark a
-nnoremap <leader>oo :delmark a
-:norm ma*:%s//_&_/g
-:norm `a:delmark a
-nnoremap <leader>op :delmark a
-:norm ma*:%s//&_/g
-:norm `a:delmark a
+nnoremap <leader>oi :delmark a :norm ma*:%s//_&/g :norm `a:delmark a
+nnoremap <leader>oo :delmark a :norm ma*:%s//_&_/g :norm `a:delmark a
+nnoremap <leader>op :delmark a :norm ma*:%s//&_/g :norm `a:delmark a
 
 " Custom config
 if !empty(glob("~/.my.vimrc"))

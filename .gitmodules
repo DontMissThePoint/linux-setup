@@ -43,12 +43,15 @@
 [submodule "submodules/lolcat"]
 	path = submodules/lolcat
 	url = https://github.com/jaseg/lolcat
+  ignore = dirty
 [submodule "submodules/scrcpy"]
 	path = submodules/scrcpy
+  ignore = dirty
 	url = https://github.com/Genymobile/scrcpy
 [submodule "submodules/qutebrowser"]
 	path = submodules/qutebrowser
 	url = https://github.com/qutebrowser/qutebrowser
+  ignore = dirty
 [submodule "submodules/light"]
 	path = submodules/light
 	url = https://github.com/klaxalk/light
@@ -91,3 +94,6 @@
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts
+[submodule "submodules/cli-torrent-dl"]
+	path = submodules/cli-torrent-dl
+	url = https://github.com/X0R0X/cli-torrent-dl

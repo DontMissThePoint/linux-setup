@@ -6,6 +6,7 @@ $GIT_PATH/linux-setup/appconfig/i3/i3blocks/wifi_git, $GIT_PATH/linux-setup/appc
 $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery_git, $GIT_PATH/linux-setup/appconfig/i3/i3blocks/battery, \#\ %s
 $GIT_PATH/linux-setup/appconfig/fzf/dotFZF_DEFAULT_OPTS, ~/.FZF_DEFAULT_OPTS, \#\ %s
 $GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources, \!\ %s
+$GIT_PATH/linux-setup/appconfig/keyboard/dotXmodmap, ~/.Xmodmap, \!\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvimrc, ~/.vimrc, \"\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotmyvimrc, ~/.my.vimrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/go-whatsapp/dotgntrc, ~/.gntrc, \#\ %s
@@ -19,7 +20,6 @@ $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vimwiki_git.vim, $GIT_PA
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-clang-format_git.vim, $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-clang-format.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-startify_git.vim, $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-startify.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/silver_searcher/dotignore, ~/.ignore, \#\ %s
-$GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets_git, $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets, \#\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets_git, $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets, \#\ %s
 $GIT_PATH/linux-setup/appconfig/papis/papis/config_git, $GIT_PATH/linux-setup/appconfig/papis/papis/config, \#\ %s
 $GIT_PATH/linux-setup/appconfig/ranger/rc.conf_git, $GIT_PATH/linux-setup/appconfig/ranger/rc.conf, \#\ %s

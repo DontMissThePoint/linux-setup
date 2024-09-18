@@ -6,14 +6,15 @@ ytfzf_hist=1
 ytfzf_loop=0
 
 # set the video format
-ytfzf_pref="bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080]"
+# ytfzf_pref="bestvideo[ext=mp4][height<=1080]+bestaudio[ext=m4a]/best[ext=mp4][height<=1080]"
+ytfzf_pref="bestvideo[height<=?720]+bestaudio/best"
 
 # fzf colors are going to be the one from your fzf configuration
 ytfzf_enable_fzf_default_opts=1
 
 # sets the video player used by ytfzf (mpv by default), e.g. FZF_PLAYER="devour mpv";
 # you can also specify the YTFZF_PLAYER_FORMAT, e.g. YTFZF_PLAYER_FORMAT="devour mpv --ytdl-format="
-fzf_player="mpv"
+fzf_player="devour mpv"
 
 ##scrape 1 video link per channel instead of the default 2
 #sub_link_count=1

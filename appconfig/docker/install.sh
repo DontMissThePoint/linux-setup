@@ -51,7 +51,7 @@ while true; do
 
       echo \
         "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-        $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+        $(lsb_release -cs) stable" | \
         sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
       sudo apt-get update
     fi
@@ -66,6 +66,31 @@ while true; do
       sudo usermod -aG docker $USER
       groups $USER
     fi
+    sudo systemctl start docker
+    sudo systemctl enable docker
+
+    # plugins
+    curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+    curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
+
+    # freerdp
+    echo "Setup remote desktop..."
+    if [ ! -e /etc/apt/sources.list.d/freerdp-nightly.list ]; then
+
+      # GPG key
+      sudo install -m 0755 -d /etc/apt/keyrings
+      wget -O - http://pub.freerdp.com/repositories/ADD6BF6D97CE5D8D.asc | sudo gpg --dearmor -o /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
+      sudo chmod a+r /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
+
+      echo \
+        "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
+http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly main" | \
+        sudo tee /etc/apt/sources.list.d/freerdp-nightly.list > /dev/null
+      sudo apt-get update
+    fi
+
+    # install docker
+    sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     # quickemu
     sudo apt install -y qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
@@ -78,9 +103,25 @@ while true; do
        sudo apt install -y quickemu
     fi
 
-    # virtual machine
-    quickget windows 11
-    quickemu --vm windows-11.conf --screenpct 85
+    # VM
+    mkdir -p ~/VirtualMachines/Windows-Docker
+    # quickget windows 11
+    # quickemu --vm windows-11.conf --width 1920 --height 1080
+
+    # tex-cvbuilder: https://github.com/antkr10/tex-cvbuilder
+    if [ -e $HOME/Documents/cvbuilder ]; then
+      pv $APP_PATH/tex-cvbuilder > ~/Documents/cvbuilder/Dockerfile && cd ~/Documents/cvbuilder
+      docker build -t ubuntu:tex-cvbuilder .
+    fi
+
+    # dockurr
+    cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
+    # docker compose stop
+    # sudo docker compose up -d --force-recreate --build
+
+    # remove images unused & dangling (Careful !)
+    # docker system prune -af
+
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

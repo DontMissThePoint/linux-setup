@@ -31,7 +31,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 arch=`uname -i`
 
@@ -39,9 +39,7 @@ arch=`uname -i`
 sudo chown -R $USER: $MY_PATH
 find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
-# remotes
-# cd $MY_PATH/submodules
-# git clean -xdf && git fetch --recurse-submodules --jobs=10 || echo "It normally returns >0"
+# submodules
 cd $MY_PATH
 $docker && git submodule update --init --recursive --recommend-shallow
 ! $docker && git submodule update --init --recursive
@@ -50,7 +48,7 @@ $docker && git submodule update --init --recursive --recommend-shallow
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync visidata gawk bison byacc shellcheck pv atool moreutils
+sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck pv atool moreutils
 
 # python
 sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
@@ -64,7 +62,7 @@ if [ -n "$BEAVER" ]; then
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted gnome-shell-pomodoro gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs gnome-shell-extensions gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
 
 if [ "$unattended" == "0" ]
   then
@@ -149,37 +147,42 @@ fi
 # 24. Install VIM-STREAM
 ! $docker && bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
-# 25. Install GRUB CUSTOMIZER
+# 25. Install REFIND
 if [ "$arch" != "aarch64" ]; then
-    ! $docker && bash $APPCONFIG_PATH/grub-customizer/install.sh $subinstall_params
+    ! $docker && bash $APPCONFIG_PATH/refind/install.sh $subinstall_params
 fi
 
-# 26. Install YT-DLP
-! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
-
-# 27. Install TMUXINATOR
+# 26. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# 28. Install LOLCAT
+# 27. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
 
-# 29. Install SCRCPY
+# 28. Install DOCKER
+! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
+
+# 29. Install YT-DLP
+! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
+
+# 30. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 30. Install OBSIDIAN
+# 31. Install RCLONE
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 31. Install GO-WHATSAPP
+# 32. Install GO-WHATSAPP
 ! $docker && bash $APPCONFIG_PATH/go-whatsapp/install.sh $subinstall_params
 
-# 32. Install QUTEBROWSER
+# 33. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 33. Install FISH
-! $docker && bash $APPCONFIG_PATH/fish/install.sh $subinstall_params
+# 34. Install NIX
+! $docker && bash $APPCONFIG_PATH/nix/install.sh $subinstall_params
 
-# 34. Install DOCKER
-! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
+# the docker setup ends here
+if $docker; then
+  exit 0
+fi
 
 ##################################################
 # install inputs libraries when they are missing
@@ -204,11 +207,14 @@ sudo apt-get -y purge unity-lens-shopping unity-webapps-common
 sudo apt-get -y purge zeitgeist zeitgeist-core zeitgeist-datahub
 sudo apt-get -y purge apturl ubuntu-advantage-tools
 
+# disable firewall log
+sudo ufw logging off
+
 # Guest session & remote login disable for LightDm
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
-# Optimize resources
+# Optimize for performance
 #############################################
 
 # path
@@ -227,7 +233,7 @@ case $(< /etc/systemd/resolved.conf 2>/dev/null) in
     ;;
 esac
 
-# space
+# storage
 sudo apt -y autoremove
 sudo docker volume prune
 
@@ -244,6 +250,13 @@ sudo systemctl start tlp.service
 
 sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
+
+#############################################
+# use temporary folder in RAM
+#############################################
+
+sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
+sudo systemctl enable tmp.mount
 
 #############################################
 # link the scripts folder
@@ -278,3 +291,14 @@ toilet All Done
 
 # say some tips to the new user
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
+
+#############################################
+# set rEFInd boot
+#############################################
+
+str=`ps --no-headers -o comm 1`
+if [ "$str" = "systemd" ]; then
+  echo "rEFInd boot manager options"
+  echo "Rebooting... to EFI setup"
+  sudo systemctl reboot --firmware-setup
+fi

@@ -3,6 +3,9 @@ plugins=(git tmuxinator)
 # path to the git root
 export GIT_PATH=$HOME
 
+# brew
+eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+
 # run Tmux automatically in every normal terminal
 export RUN_TMUX=true
 
@@ -12,8 +15,19 @@ export USE_ATHAME=true
 # list (space-separated) of profile names for customizing configs
 export PROFILES="COLORSCHEME_GIT"
 
+# jump around
+eval "$(zoxide init zsh)"
+
+# load Liquidprompt in interactive shells
+[[ $- = *i* ]] && source ~/.liquidprompt/liquidprompt
+
+ # nixpkgs
+if [ -e /home/shafiq/.nix-profile/etc/profile.d/nix.sh ];
+  then . /home/shafiq/.nix-profile/etc/profile.d/nix.sh;
+fi
+
 # sourcing FZF
 source ~/.FZF_DEFAULT_OPTS
 
-# sourcing Tomas's linux setup
+# sourcing DMP's linux setup
 source $GIT_PATH/linux-setup/appconfig/zsh/dotzshrc

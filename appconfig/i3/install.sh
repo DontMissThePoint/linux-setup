@@ -22,7 +22,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 default=y
 while true; do
@@ -37,14 +37,14 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0
+    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0 redshift redshift-gtk
 
     if [ -n "$beaver" ]; then
       sudo apt-get -y install python-keybinder gir1.2-keybinder
     fi
 
     # required for i3-layout-manager
-    sudo apt-get -y install jq rofi xdotool x11-xserver-utils indent libanyevent-i3-perl
+    sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
 
     if [ "$unattended" == "0" ] && [ -z $travis ]; # if running interactively
     then
@@ -60,7 +60,25 @@ while true; do
       # systemd service file
       sudo systemctl disable gdm3
       sudo systemctl enable ly.service
+      sudo systemctl disable getty@tty2.service
       sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
+
+      # scripts on startup
+      sudo mkdir -p /etc/X11/xinit/xinitrc.d
+
+      # gnome-shell-pomodoro
+      num=`gnome-shell --version | awk '{ print $3 }' | cut -c -2`
+
+      sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev gnome-shell-pomodoro-data
+
+      cd /tmp
+      [ -e gnome-pomodoro ] && rm -rf gnome-pomodoro
+      git clone -b "gnome-$num" https://github.com/gnome-pomodoro/gnome-pomodoro.git
+      cd gnome-pomodoro
+      cp -f $APP_PATH/pomodoro-style.css ./data/resources/style.css
+      meson . build --prefix=/usr
+      meson compile -C build
+      sudo meson install -C build --no-rebuild
 
       # font size in virtual console (tty)
       # UTF-8
@@ -137,7 +155,7 @@ while true; do
     git clean -fd
 
     # for cpu usage in i3blocks
-    sudo apt-get -y install sysstat
+    sudo apt-get -y install sysstat dstat
 
     # for brightness and volume control
     sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr
@@ -150,8 +168,20 @@ while true; do
     # for making gtk look better
     sudo apt-get -y install lxappearance gtk-chtheme
 
+    # flashfocus
+    sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
+    pip install --upgrade flashfocus
+
+    # xbanish
+    cd /tmp
+    [ -e xbanish ] && rm -rf xbanish
+    git clone https://github.com/jcs/xbanish
+    cd xbanish
+    make -j8
+    sudo make install
+
     # indicator-sound-switcher
-    if [ -n "$JAMMY" ]; then
+    if [ -n "$NOBLE" ]; then
 	sudo apt -y install gir1.2-keybinder-3.0
     else
 	sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
@@ -178,21 +208,43 @@ while true; do
 
     # config
     echo "Configuring..."
-    mkdir -p ~/.config/rofi ~/.config/dunst
+    mkdir -p ~/.config/rofi ~/.config/dunst ~/.config/flashfocus
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
+    pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
+    pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
     pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
     pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
 
-    # i3 config
+    # i3
     pv $APP_PATH/doti3/config_git > ~/.i3/config
     pv $APP_PATH/doti3/i3blocks.conf_git > ~/.i3/i3blocks.conf
     pv $APP_PATH/i3blocks/wifi_git > $APP_PATH/i3blocks/wifi
     pv $APP_PATH/i3blocks/battery_git > $APP_PATH/i3blocks/battery
 
-    # xorg
+    # Xorg
     pv $APP_PATH/dotxinitrc > ~/.xinitrc
     pv $APP_PATH/dotxsession > ~/.xsession
-    pv $APP_PATH/dotxserverrc > ~/.xserverrc
+    pv $APP_PATH/picom.conf > ~/.config/picom.conf
+
+    # GTK
+    pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
+    pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
+    pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
+
+    # 4
+    if [ -d "~/.config/gtk-4.0" ] ; then
+        pv $APP_PATH/gtk.css > ~/.config/gtk-4.0/gtk.css
+        pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
+    fi
+
+    # autostart
+    cd /etc/xdg/autostart/
+    sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
+
+    # systemd
+    sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+    # sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
+    # sudo systemctl --global enable xidlehook
 
     # copy fonts
     # fontawesome 4.7
@@ -208,7 +260,7 @@ while true; do
     ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
 
     # install useful gui utils
-    sudo apt-get -y install thunar rofi compton systemd
+    sudo apt-get -y install thunar compton systemd
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
@@ -217,6 +269,10 @@ while true; do
 
     # scroll view not content
     gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+
+    # disable location
+    sudo systemctl restart geoclue.service
+    gsettings set org.gnome.system.location enabled false
 
     # install xkb layout state
     cd $APP_PATH/../../submodules/xkblayout-state/
@@ -243,7 +299,7 @@ while true; do
     pv $APP_PATH/custom-post.sh > ~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
-    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/space.jpg
+    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
 
     # pipes.sh -t7
     sudo apt install -y cmatrix cmatrix-xfont
@@ -252,6 +308,15 @@ while true; do
     git clone https://github.com/pipeseroni/pipes.sh
     cd pipes.sh
     sudo make install
+
+    # picom
+    cd /tmp
+    [ -e picom ] && rm -rf /tmp/picom
+    git clone https://github.com/jonaburg/picom
+    cd picom
+    meson --buildtype=release . build
+    ninja -C build
+    sudo ninja -C build install
 
     # install prime-select (for switching gpus)
     # sudo apt-get -y install nvidia-prime

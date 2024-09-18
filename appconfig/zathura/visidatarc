@@ -1,0 +1,152 @@
+from visidata import TableSheet, options
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                         Plugins                          │
+#  ╰──────────────────────────────────────────────────────────╯
+
+import dedupe
+import vpager
+import normcol
+import parent_navigation
+import vdrepl
+import vds3
+import vd_toml
+
+options.vds3_glob            =  False                  # disable glob matching for S3 paths
+
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                        WorkBook                          │
+#  ╰──────────────────────────────────────────────────────────╯
+
+options.encoding             =  'utf-8'
+options.default_width        =  20
+options.force_256_colors     =  True
+options.bulk_select_clear    =  True
+
+options.clipboard_copy_cmd   =  'xclip -selection primary'
+options.clean_names          =  True
+options.min_memory_mb        =  100
+options.disp_note_none       =  '⌀'                  #visible contents of a cell whose value is Nonedisp_truncator      …                      # indicator that the contents are only partially visible
+
+options.disp_oddspace        =  '·'                  # displayable character for odd whitespace
+options.disp_unprintable     =  '.'                  # substitute character for unprintables
+options.disp_column_sep      =  '│'                  # separator between columns
+options.disp_keycol_sep      =  '║' # ┃│┊┆ ┆┆        # separator between key columns and rest of columns
+options.disp_rowtop_sep      =  '┬' # ╷│┬╽⌜⌐▇
+options.disp_rowmid_sep      =  '╵' # ┃┊│█
+options.disp_rowbot_sep      =  '│' # ┊┴╿⌞█⍿╵⎢┴⌊
+options.disp_rowend_sep      =  '│' # ┊┴╿⌞█⍿╵⎢┴⌊
+options.disp_keytop_sep      =  '╖' # ╽╿┃╖╟
+options.disp_keymid_sep      =  '╢' # ╽╿┃
+options.disp_keybot_sep      =  '╜' # ╽╿┃╜‖
+options.disp_endtop_sep      =  '⌐' # ╽╿┃╖╢
+options.disp_endmid_sep      =  '⎢' # ╽╿┃
+options.disp_endbot_sep      =  '⌊' # ╽╿┃╜‖
+options.disp_lstatus_max     =  0                    # maximum length of left status line
+options.disp_status_sep      =  '|'                  # separator between statuses
+options.disp_edit_fill       =  '_'                  # edit field fill character
+options.disp_more_left       =  '<'                  # header note indicating more columns to the left
+options.disp_more_right      =  '>'                  # header note indicating more columns to the right
+options.disp_error_val       =  '!'                  # displayed contents for computation exception
+options.disp_ambig_width     =  1                    # width to use for unicode chars marked ambiguous
+options.disp_pending         =  '{PENDING}'          # string to display in pending cells
+options.disp_date_fmt        =  '%Y-%m-%d'           # default fmtstr to strftime for date values
+options.disp_status_fmt      =  '({sheet.cursorRowIndex},{sheet.cursorColIndex}) {sheet.name}'         # Add current position to status bar
+
+options.disp_menu            =  True                 # menu Ctrl+H, zCtrtl+H, gCtrl+H
+options.scroll_incr          =  -3                   # steps to scroll
+options.disp_scroll_context  =  5                    # lines to scroll
+options.numeric_binning      =  True
+options.save_filetype        =  'csv'                # saved file extension
+options.disp_float_fmt       =  '%.07f'              # format for float values
+options.disp_replay_play     =  '▶'                  # status indicator for active replay
+options.disp_histogram       =  '*'                  # histogram element character
+options.disp_pixel_random    =  False                # randomly choose attr from set of pixels instead of most common
+
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                        Colors                            │
+#  ╰──────────────────────────────────────────────────────────╯
+
+options.color_default        =  'lightsteelblue1 on teal'         # the default color
+# options.color_default        =  '246 grey58'         # the default color
+options.color_default_hdr    =  '44 darkturquoise bold underline'     # color of the column headers
+options.color_menu           =  '235 on 72'          # color of the menu
+options.color_menu_help      =  'cyan underline reverse'
+options.color_menu_spec      =  'yellow underline'   # color of the help
+options.color_menu_active    =  'yellow reverse'     # color of the menu selected
+options.color_current_row    =  '167 indianred'      # color of the cursor row
+options.color_current_col    =  '96 plum4 reverse'           # color of the cursor column
+options.color_current_hdr    =  'red bold reverse underline'         # color of the header for the cursor column
+options.color_current_cell   =  'bold'               # color of the cell
+options.color_column_sep     =  '133 mediumorchid3'  # color of column separators
+options.color_key_col        =  'blue'               # color of key columns
+options.color_hidden_col     =  '8'                  # color of hidden columns on metasheets
+options.color_selected_row   =  '215 yellow'         # color of selected rows
+options.color_keystrokes     =  'white'              # color of input keystrokes on status line
+options.color_cmdpalette     =  'black on 8'         # color of input commands on status line
+options.color_longname       =  'black on yellow'    # color of long names
+options.color_status         =  '145 grey69'         # status line color
+options.color_active_status  =  '145 grey69 bold'    # active status line color
+options.color_match          =  '202 bold'           # color for matches found
+options.color_code           =  'normal'
+options.color_error          =  'red'                # error message color
+options.color_warning        =  'yellow'             # warning message color
+options.color_edit_cell      =  'normal'             # cell color to use when editing cell
+options.color_note_pending   =  'bold magenta'       # color of note in pending cells
+options.color_note_type      =  '226 yellow'         # cell note for numeric types in anytype columns
+options.color_change_pending =  'reverse yellow'     # color for file attributes pending modification
+options.color_delete_pending =  'red'                # color for files pending delete
+options.color_heading        =  'black on yellow'    # color of tips heading
+options.color_working        =  'green'              # color of system running smoothly
+options.color_status_replay  =  'green'              # color of replay status indicator
+options.color_graph_hidden   =  '238 blue'           # color of legend for hidden attribute
+options.color_graph_selected =  'bold'               # color of selected graph points
+options.color_graph_axis     =  'bold'               # color for graph axis labels
+
+
+#  ╭──────────────────────────────────────────────────────────╮
+#  │                      KeyBinding                          │
+#  ╰──────────────────────────────────────────────────────────╯
+
+# Repeat
+Sheet.unbindkey('.')
+Sheet.bindkey('.', 'repeat-input')
+Sheet.bindkey('z.', 'repeat-last')
+
+# Cursor
+globalCommand('gm', 'mm, _ = curses.mousemask(-1); status("mouse "+("ON" if mm else "OFF"))', 'enable mouse events')
+globalCommand('zm', 'mm, _ = curses.mousemask(0); status("mouse "+("ON" if mm else "OFF"))', 'disable mouse events')
+
+# Insert mode
+TableSheet.unbindkey("i")
+TableSheet.bindkey("i", "edit-cell")
+
+# Use spacebar as a custom command prefix, and shuffle other bindings
+# around to accommodate that.
+BaseSheet.unbindkey(' ')
+vd.allPrefixes.append('Space')
+vd.bindkeys[';'] = {'BaseSheet': 'exec-longname'}
+BaseSheet.bindkey(' ;', 'split-col')
+
+# Tell `open-cell-pager` to invoke `bat` rather than $PAGER
+vd.options.vpager_cmd = 'bat --paging=always'
+
+# Space+e: Open a cell's values with the default viewer - `vpager_cmd`
+#              if it's defined, otherwise $PAGER.
+#
+# Space+i: Open a cell's value in `glow` for prettier rendered markdown
+#          in the terminal.
+BaseSheet.bindkey(" e", "open-cell-pager")
+BaseSheet.addCommand(" i", "open-cell-markdown", "cursorCol.pageValue(cursorRow, cmd='glow -p')")
+
+# Space+j: Navigate parent sheet
+# Space+k:
+# Space+Enter:
+TableSheet.bindkey(" j", "next-parent-row")
+TableSheet.bindkey(" k", "prev-parent-row")
+
+FreqTableSheet.bindkey(" j", "zoom-next-freqrow")
+FreqTableSheet.bindkey(" k", "zoom-prev-freqrow")
+FreqTableSheet.bindkey(" Enter", "zoom-cur-freqrow")
