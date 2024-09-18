@@ -22,7 +22,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 default=y
 while true; do
@@ -181,7 +181,7 @@ while true; do
     sudo make install
 
     # indicator-sound-switcher
-    if [ -n "$JAMMY" ]; then
+    if [ -n "$NOBLE" ]; then
 	sudo apt -y install gir1.2-keybinder-3.0
     else
 	sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
@@ -243,8 +243,8 @@ while true; do
 
     # systemd
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-    sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
-    sudo systemctl --global enable xidlehook
+    # sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
+    # sudo systemctl --global enable xidlehook
 
     # copy fonts
     # fontawesome 4.7

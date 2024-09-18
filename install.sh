@@ -31,7 +31,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 arch=`uname -i`
 
@@ -175,6 +175,9 @@ fi
 
 # 33. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
+
+# 34. Install NIX
+! $docker && bash $APPCONFIG_PATH/nix/install.sh $subinstall_params
 
 # the docker setup ends here
 if $docker; then

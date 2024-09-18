@@ -22,7 +22,7 @@ do
 done
 
 var=`lsb_release -r | awk '{ print $2 }'`
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 default=y
 while true; do
@@ -38,7 +38,7 @@ while true; do
   then
 
     # install urvxt
-    if [ -n "$JAMMY" ];
+    if [ -n "$NOBLE" ];
     then
       sudo apt-get -y install rxvt-unicode
     else

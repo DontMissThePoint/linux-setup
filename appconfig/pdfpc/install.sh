@@ -23,7 +23,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "20.04" ] && export FOCAL=1
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 default=y
 while true; do
@@ -39,7 +39,7 @@ while true; do
   then
 
     # install prerequisities
-    if [ -n "$JAMMY" ]; then
+    if [ -n "$NOBLE" ]; then
       sudo apt install -y libunwind-dev
     fi
 
