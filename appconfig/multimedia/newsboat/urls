@@ -10,6 +10,7 @@ https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "fa
 https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
 
 "query:Courses:tags # \"Courses\""
+https://dl4all.org/tutorials/rss.xml  "Courses" "Tutorials" "~dl4all"
 https://freecoursedl.com/feed/  "Courses" "video" "~FreeCoursedl"
 https://freecoursedl.com/comments/feed/  "Courses" "video" "~FreeCoursedl"
 
@@ -29,6 +30,7 @@ https://sunaku.github.io/index.atom "Blog" "linux" "~The Terminal Programmer"
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw "YouTube" "video" "~Lamborghini"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q  "YouTube" "video" "~Technology Connections"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCbzVRTkX3bzNZuBd9In4XyA  "YouTube" "video" "~Modern MBA"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCGZFoXmqMFOf9CJyV3BEBJA  "YouTube" "video" "~reMarkable"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "Comedy" "Youtube"                              #Technlinked
 https://www.youtube.com/feeds/videos.xml?channel_id=UCUuWlKrLVaR6_yTckhLG7hg "Linux" "YouTube"                              #linux leech
 https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "Linux" "YouTube"                              #Wolf Gang

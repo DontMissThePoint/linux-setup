@@ -72,12 +72,11 @@ while true; do
       sudo make install/strip
 
       # whatsapp
-      sudo cp -f /usr/lib/purple-2/libwhatsmeow.so ~/.purple/plugins/libwhatsmeow.so
-      sudo chown $USER: ~/.purple/plugins/libwhatsmeow.so
+      cmake -DPURPLE_DATA_DIR:PATH=~/.local/share -DPURPLE_PLUGIN_DIR:PATH=~/.purple/plugins ..
     fi
 
     # prefs
-    echo "Setup account with 256782564488@s.whatsapp.net"
+    echo "Setup account with <2567XXXXXXXX@s.whatsapp.net"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

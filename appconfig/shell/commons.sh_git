@@ -1,8 +1,6 @@
-# reload X configuration
-xrdb ~/.Xresources 2> /dev/null
-
-# set keyboard repeat rate
-xset r rate 350 55 2> /dev/null
+## HiDPI Interface scaling
+export GDK_SCALE=0
+export GDK_DPI_SCALE=0
 
 # fzf
 export FZF_DEFAULT_OPTS='--height 25%'
@@ -16,6 +14,9 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 # LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
 source ~/.local/share/icons-in-terminal/icons_bash.sh
+
+# nix
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |

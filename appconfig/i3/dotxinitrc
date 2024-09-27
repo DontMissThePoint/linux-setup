@@ -1,11 +1,10 @@
 #!/bin/sh
 
+# DPI
 xrandr --dpi 96
 
-# Interface scaling
-## HiDPI
-export GDK_SCALE=0
-export GDK_DPI_SCALE=0
+# set keyboard repeat rate
+xset r rate 350 55
 
 # Set screensaver settings
 xset s on
