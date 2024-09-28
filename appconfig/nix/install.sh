@@ -52,6 +52,7 @@ while true; do
 
     # home-manager
     home-manager switch
+    sudo update-desktop-database
     sudo -i nix upgrade-nix
 
     # clean

@@ -86,4 +86,10 @@
   home.pointerCursor.package = pkgs.afterglow-cursors-recolored;
   home.pointerCursor.name = "Afterglow-Recolored-Gruvbox-Black";
   home.pointerCursor.size = 32;
+
+  # icons:fonts:man:etc
+  fonts.fontconfig.enable = true;
+  targets.genericLinux.enable = true;
+  xdg.mime.enable = true;
+  # xdg.systemDirs.data = [ "${config.home.homeDirectory}/.nix-profile/share/applications" ];
 }
