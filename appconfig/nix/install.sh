@@ -48,7 +48,10 @@ while true; do
     cat $APP_PATH/pkgs.nix >> ~/.config/home-manager/home.nix
 
     # icons
+    mkdir -p ~/.local/share/icons/hicolor/scalable/apps
     rm -fr ~/.icons/default/index.theme
+    ln -sf ~/.nix-profile/share/applications/* ~/.local/share/applications/
+    ln -sf ~/.nix-profile/share/icons/hicolor/256x256/apps/* ~/.local/share/icons/hicolor/scalable/apps/
 
     # home-manager
     home-manager switch
