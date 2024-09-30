@@ -1,6 +1,6 @@
 return {
   "kevinhwang91/nvim-ufo",
-  enabled = true,
+  enabled = false,
   event = "VimEnter",
   init = function()
     vim.o.foldcolumn = "auto"

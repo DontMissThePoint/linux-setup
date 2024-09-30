@@ -35,7 +35,6 @@ while true; do
   then
 
     # Brew
-
     num=`cat ~/.bashrc | grep "linuxbrew" | wc -l`
     if [ "$num" -lt "1" ]; then
 

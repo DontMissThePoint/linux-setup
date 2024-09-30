@@ -24,7 +24,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "20.04" ] && export FOCAL=1
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 default=y
 while true; do
@@ -75,8 +75,8 @@ while true; do
 
     # mpv
     echo "Installing MPV"
-    if [ -n "$FOCAL" ] || [ -n "$JAMMY" ]; then
-      wget -c -P "$APP_PATH" https://apt.fruit.je/ubuntu/jammy/mpv/mpv_0.38.0+fruit.1_amd64.deb
+    if [ -n "$FOCAL" ] || [ -n "$NOBLE" ]; then
+      wget -c -P "$APP_PATH" https://apt.fruit.je/ubuntu/noble/mpv/mpv_0.38.0+fruit.1_amd64.deb
       wget -c -P "$APP_PATH" https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%200.9.8/xidel_0.9.8-1_amd64.deb
       sudo dpkg -i $APP_PATH/*.deb
       rm -f $APP_PATH/*.deb

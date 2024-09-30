@@ -23,7 +23,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "20.04" ] && export FOCAL=1
-[ "$var" = "22.04" ] && export JAMMY=1
+[ "$var" = "24.04" ] && export NOBLE=1
 
 default=n
 while true; do
@@ -40,7 +40,7 @@ while true; do
 
     sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texlive-pstricks latexmk texmaker texlive-font-utils texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
 
-    if [ -n "$FOCAL" ] || [ -n "$JAMMY" ]; then
+    if [ -n "$FOCAL" ] || [ -n "$NOBLE" ]; then
       sudo apt install -y pdftk
     fi
 

@@ -2,8 +2,8 @@
 
 |              |       |                                                                                                                                                                       |
 |--------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 22.04 Docker | AMD64 | [![Jammy](https://github.com/dontmissthepoint/linux-setup/actions/workflows/jammy.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/jammy.yml) |
-| 22.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
+| 24.04 Docker | AMD64 | [![Noble](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/noble.yml) |
+| 24.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
 =======
 | 20.04 Docker | AMD64 | [![Focal](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml)          |
 | 20.04        | AMD64 | [![Docker](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml)       |
@@ -13,7 +13,7 @@
 This repo contains settings of DMP's Linux work environment.
 
 It could be summarized as follows:
-* **Ubuntu 22.04**
+* **Ubuntu 24.04**
 * **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability to show images (when using the *ranger* file manager)

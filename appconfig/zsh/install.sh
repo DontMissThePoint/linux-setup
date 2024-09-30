@@ -66,8 +66,8 @@ while true; do
     $APP_PATH/install_k_plugin.sh
 
     # symlink the .zshrc
-    case $(< "$HOME/.zshrc") in *"dotzshrc"*) ;; *) cp "$APP_PATH/dotzshrc_template" "$HOME/.zshrc" ;; esac
-    case $(< "$HOME/.zprofile") in *"go"*) ;; *) cp "$APP_PATH/zprofile_template" "$HOME/.zprofile" && echo -e "Adding configs\nDone." ;; esac
+    case $(< "$HOME/.zshrc") in *"dotzshrc"*) ;; *) cp -f "$APP_PATH/dotzshrc_template" "$HOME/.zshrc" ;; esac
+    case $(< "$HOME/.zprofile") in *"go"*) ;; *) cp -f "$APP_PATH/zprofile_template" "$HOME/.zprofile" && echo -e "Adding configs\nDone." ;; esac
 
     # liquid prompt
     if [ ! -e $HOME/.liquidprompt ]; then

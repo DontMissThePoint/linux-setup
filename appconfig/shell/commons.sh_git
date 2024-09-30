@@ -1,8 +1,6 @@
-# reload X configuration
-xrdb ~/.Xresources 2> /dev/null
-
-# set keyboard repeat rate
-xset r rate 350 55 2> /dev/null
+## HiDPI Interface scaling
+export GDK_SCALE=0
+export GDK_DPI_SCALE=0
 
 # fzf
 export FZF_DEFAULT_OPTS='--height 25%'
@@ -17,6 +15,9 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 export LS_COLORS="$(vivid generate tokyonight-night)"
 source ~/.local/share/icons-in-terminal/icons_bash.sh
 
+# nix
+export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
+
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
@@ -29,6 +30,8 @@ alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
 alias tmx="tmuxinator double"
 alias ra="ranger"
+
+alias mega="megasync &> /dev/null &"
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
