@@ -2,7 +2,8 @@
 
 reload-time 30
 auto-reload yes
-text-width 80
+# text-width 72
+text-width 0
 max-items 500
 download-retries 4
 download-timeout 10
