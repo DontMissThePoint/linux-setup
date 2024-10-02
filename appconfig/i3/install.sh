@@ -46,39 +46,8 @@ while true; do
     # required for i3-layout-manager
     sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
 
-    if [ "$unattended" == "0" ] && [ -z $travis ]; # if running interactively
+    if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; # if running interactively
     then
-      sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev
-      # install tui backend with ly loading screen
-      cd /tmp
-      [ -e ly ] && rm -rf ly
-      git clone --recurse-submodules https://github.com/fairyglade/ly
-      cd ly
-      make -j8
-      sudo make install installsystemd
-
-      # systemd service file
-      sudo systemctl disable gdm3
-      sudo systemctl enable ly.service
-      sudo systemctl disable getty@tty2.service
-      sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
-
-      # scripts on startup
-      sudo mkdir -p /etc/X11/xinit/xinitrc.d
-
-      # gnome-shell-pomodoro
-      num=`gnome-shell --version | awk '{ print $3 }' | cut -c -2`
-
-      sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev gnome-shell-pomodoro-data
-
-      cd /tmp
-      [ -e gnome-pomodoro ] && rm -rf gnome-pomodoro
-      git clone -b "gnome-$num" https://github.com/gnome-pomodoro/gnome-pomodoro.git
-      cd gnome-pomodoro
-      cp -f $APP_PATH/pomodoro-style.css ./data/resources/style.css
-      meson . build --prefix=/usr
-      meson compile -C build
-      sudo meson install -C build --no-rebuild
 
       # font size in virtual console (tty)
       # UTF-8
@@ -96,7 +65,56 @@ while true; do
       read
     fi
 
+    # console
     sudo dpkg-reconfigure -plow console-setup
+
+    # ly backend
+    sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev systemd
+
+    # loading screen
+    cd /tmp
+    [ -e ly ] && rm -rf ly
+    git clone --recurse-submodules https://github.com/fairyglade/ly
+    cd ly
+    make -j8
+    sudo make install installsystemd
+
+    #  service
+    sudo systemctl disable gdm3
+    sudo systemctl enable ly.service
+    sudo systemctl disable getty@tty2.service
+    sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
+
+    # systemd
+    sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+    sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
+    systemctl --user daemon-reload
+    systemctl --user start megasync.service xidlehook.service
+    sudo systemctl --global enable megasync.service xidlehook.service
+    # loginctl enable-linger
+
+    # earlyoom
+    sudo apt install -y earlyoom libkeyutils-dev
+
+    # automounter for removable media
+    pip install -U udiskie keyutils
+
+    # scripts on startup
+    sudo mkdir -p /etc/X11/xinit/xinitrc.d
+
+    # gnome-shell-pomodoro
+    num=`gnome-shell --version | awk '{ print $3 }' | cut -c -2`
+
+    sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev gnome-shell-pomodoro-data
+
+    cd /tmp
+    [ -e gnome-pomodoro ] && rm -rf gnome-pomodoro
+    git clone -b "gnome-$num" https://github.com/gnome-pomodoro/gnome-pomodoro.git
+    cd gnome-pomodoro
+    cp -f $APP_PATH/pomodoro-style.css ./data/resources/style.css
+    meson . build --prefix=/usr
+    meson compile -C build
+    sudo meson install -C build --no-rebuild
 
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
@@ -241,11 +259,6 @@ while true; do
     cd /etc/xdg/autostart/
     sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
 
-    # systemd
-    sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-    # sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
-    # sudo systemctl --global enable xidlehook
-
     # copy fonts
     # fontawesome 4.7
     mkdir -p ~/.fonts
@@ -260,7 +273,7 @@ while true; do
     ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
 
     # install useful gui utils
-    sudo apt-get -y install thunar compton systemd
+    sudo apt-get -y install thunar compton
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 

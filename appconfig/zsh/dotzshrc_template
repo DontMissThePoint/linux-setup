@@ -21,11 +21,6 @@ eval "$(zoxide init zsh)"
 # load Liquidprompt in interactive shells
 [[ $- = *i* ]] && source ~/.liquidprompt/liquidprompt
 
- # nixpkgs
-if [ -e /home/shafiq/.nix-profile/etc/profile.d/nix.sh ];
-  then . /home/shafiq/.nix-profile/etc/profile.d/nix.sh;
-fi
-
 # sourcing FZF
 source ~/.FZF_DEFAULT_OPTS
 

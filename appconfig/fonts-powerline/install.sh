@@ -61,7 +61,7 @@ while true; do
     # NF
     toilet Installing Nerd Fonts
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
-    getnf -i "JetBrainsMono Meslo Monofur IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
+    getnf -i "JetBrainsMono Meslo Monofur Hermit IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
     getnf -U
     rm -fr ~/Downloads/getnf
 

@@ -83,7 +83,6 @@ while true; do
     # Register
     # Execute the following commands to obtain the Android device ID,
 
-    ~/.scripts/redroid.sh
     IP_ADDRESS=`hostname -I | awk '{print $1}'`
     adb -s $IP_ADDRESS:11101 root
 
@@ -91,13 +90,10 @@ while true; do
      "select * from main where name = \"android_id\";"'
     echo "https://www.google.com/android/uncertified go to Google website to register the device"
 
-    echo "wait 30 minutes and then restart the Redroid container. Then you can log in to Google Play."
-
-    # How to install APK on ReDroid
-    # adb -s "$(hostname -I | awk '{print $1}')":11101 install "jp.naver.line.android.apk"
-
     # modules load automatically
     sudo cp -f $APP_PATH/redroid.conf /etc/modules-load.d/redroid.conf
+    echo "Wait 30 minutes"
+    echo "Restart the Redroid container. Then log in to Google Play"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
