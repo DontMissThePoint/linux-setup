@@ -95,6 +95,8 @@ while true; do
 
     # earlyoom
     sudo apt install -y earlyoom libkeyutils-dev
+    sudo cp -f $APP_PATH/earlyoom /etc/default/earlyoom
+    sudo systemctl restart earlyoom
 
     # automounter for removable media
     pip install -U udiskie keyutils
@@ -245,15 +247,14 @@ while true; do
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
 
     # GTK
-    pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
-    pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
-    pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
-
-    # 4
     if [ -d "~/.config/gtk-4.0" ] ; then
         pv $APP_PATH/gtk.css > ~/.config/gtk-4.0/gtk.css
         pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
     fi
+
+    pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
+    pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
+    pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
 
     # autostart
     cd /etc/xdg/autostart/

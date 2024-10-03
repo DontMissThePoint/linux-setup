@@ -69,115 +69,115 @@ if [ "$unattended" == "0" ]
     if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
 fi
 
-# 1. Install LINUXBREW
+# 1. Install NIX
+! $docker && bash $APPCONFIG_PATH/nix/install.sh $subinstall_params
+
+# 2. Install LINUXBREW
 ! $docker && bash $APPCONFIG_PATH/brew/install.sh $subinstall_params
 
-# 2. Install TMUX
+# 3. Install TMUX
 ! $docker && bash $APPCONFIG_PATH/tmux/install.sh $subinstall_params
 
-# 3. Install ZSH with ATHAME
+# 4. Install ZSH with ATHAME
 ! $docker && bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 
-# 4. Install I3
+# 5. Install I3
 ! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
 
-# 5. Install URXVT
+# 6. Install URXVT
 ! $docker && bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
 
-# 6. Install FONTS POWERLINE
+# 7. Install FONTS POWERLINE
 ! $docker && bash $APPCONFIG_PATH/fonts-powerline/install.sh $subinstall_params
 
-# 7. Setup RANGER
+# 8. Setup RANGER
 ! $docker && bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 
-# 8. Install VIM
+# 9. Install VIM
 ! $docker && bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
 
-# 9. Install HTOP-VIM
+# 10. Install HTOP-VIM
 ! $docker && bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
 
-# 10. Install NVIM
+# 11. Install NVIM
 ! $docker && bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
 
-# 11. Install LATEX and PDF support
+# 12. Install LATEX and PDF support
 ! $docker && bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 
-# 12. Install PDFPC
+# 13. Install PDFPC
 ! $docker && bash $APPCONFIG_PATH/pdfpc/install.sh $subinstall_params
 
-# 13. Install MULTIMEDIA support
+# 14. Install MULTIMEDIA support
 ! $docker && bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
-# 14. Install LOBSTER
+# 15. Install LOBSTER
 ! $docker && bash $APPCONFIG_PATH/lobster/install.sh $subinstall_params
 
-# 15. Install PANDOC
+# 16. Install PANDOC
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 fi
 
-# 16. Install SHUTTER
+# 17. Install SHUTTER
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
 fi
 
-# 17. Install ZATHURA
+# 18. Install ZATHURA
 ! $docker && bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
 
-# 18. Install VIMIV
+# 19. Install VIMIV
 ! $docker && bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 
-# 19. Install SILVER SEARCHER (ag)
+# 20. Install SILVER SEARCHER (ag)
 ! $docker && bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
-# 20. Setup modified keyboard rules
+# 21. Setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
-# 21. Setup fuzzyfinder
+# 22. Setup fuzzyfinder
 ! $docker && bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
 
-# 22. Install PLAYERCTL
+# 23. Install PLAYERCTL
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 fi
 
-# 23. Install PAPIS
+# 24. Install PAPIS
 ! $docker && bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 
-# 24. Install VIM-STREAM
+# 25. Install VIM-STREAM
 ! $docker && bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
-# 25. Install REFIND
+# 26. Install REFIND
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/refind/install.sh $subinstall_params
 fi
 
-# 26. Install TMUXINATOR
+# 27. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# 27. Install LOLCAT
+# 28. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
 
-# 28. Install DOCKER
+# 29. Install DOCKER
 ! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
 
-# 29. Install YT-DLP
+# 30. Install YT-DLP
 ! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
 
-# 30. Install SCRCPY
+# 31. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 31. Install RCLONE
+# 32. Install RCLONE
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 32. Install GO-WHATSAPP
+# 33. Install GO-WHATSAPP
 ! $docker && bash $APPCONFIG_PATH/go-whatsapp/install.sh $subinstall_params
 
-# 33. Install QUTEBROWSER
+# 34. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
-
-# 34. Install NIX
-! $docker && bash $APPCONFIG_PATH/nix/install.sh $subinstall_params
 
 # the docker setup ends here
 if $docker; then

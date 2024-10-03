@@ -67,25 +67,46 @@
 
   # locale
   home.language = {
-      base = "en_US.UTF-8";
-      ctype = "en_US.UTF-8";
-      numeric = "en_US.UTF-8";
-      time = "en_US.UTF-8";
-      collate = "en_US.UTF-8";
-      monetary = "en_US.UTF-8";
-      messages = "en_US.UTF-8";
-      paper = "en_US.UTF-8";
-      name = "en_US.UTF-8";
-      address = "en_US.UTF-8";
-      telephone = "en_US.UTF-8";
-      measurement = "en_US.UTF-8";
+    base = "en_US.UTF-8";
+    ctype = "en_US.UTF-8";
+    numeric = "en_US.UTF-8";
+    time = "en_US.UTF-8";
+    collate = "en_US.UTF-8";
+    monetary = "en_US.UTF-8";
+    messages = "en_US.UTF-8";
+    paper = "en_US.UTF-8";
+    name = "en_US.UTF-8";
+    address = "en_US.UTF-8";
+    telephone = "en_US.UTF-8";
+    measurement = "en_US.UTF-8";
+  };
+
+  # theme
+  gtk = {
+    enable = false;
+    theme = {
+      name = "Catppuccin-Macchiato-Compact-Pink-Dark";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "pink" ];
+        size = "compact";
+        tweaks = [ "rimless" "black" ];
+        variant = "macchiato";
+      };
+    };
+    iconTheme = {
+      name = "colloid-icon-theme";
+      package = pkgs.colloid-icon-theme;
+    };
   };
 
   # cursor
-  home.pointerCursor.gtk.enable = true;
-  home.pointerCursor.package = pkgs.afterglow-cursors-recolored;
-  home.pointerCursor.name = "Afterglow-Recolored-Gruvbox-Black";
-  home.pointerCursor.size = 32;
+  home.pointerCursor = {
+    gtk.enable = false;
+    x11.enable = false;
+    name = "Afterglow-Recolored-Gruvbox-Black";
+    package = pkgs.afterglow-cursors-recolored;
+    size = 32;
+  };
 
   # icons:fonts:man:etc
   fonts.fontconfig.enable = true;
