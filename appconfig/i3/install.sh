@@ -98,9 +98,6 @@ while true; do
     sudo cp -f $APP_PATH/earlyoom /etc/default/earlyoom
     sudo systemctl restart earlyoom
 
-    # automounter for removable media
-    pip install -U udiskie keyutils
-
     # scripts on startup
     sudo mkdir -p /etc/X11/xinit/xinitrc.d
 
@@ -226,9 +223,12 @@ while true; do
     ninja -C build
     sudo ninja -C build install
 
+    # automounter for removable media
+    pip install -U udiskie keyutils
+
     # config
     echo "Configuring..."
-    mkdir -p ~/.config/rofi ~/.config/dunst ~/.config/flashfocus
+    mkdir -p ~/.config/{dunst,flashfocus,rofi}
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
     pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
     pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
