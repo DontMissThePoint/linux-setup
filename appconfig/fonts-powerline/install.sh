@@ -60,7 +60,7 @@ while true; do
 
     # NF
     toilet Installing Nerd Fonts
-    curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --branch=release-0.1
+    curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --tag=v0.1.0
     getnf -i "JetBrainsMono Meslo Monofur Hermit IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono"
     getnf -U
     rm -fr ~/Downloads/getnf
@@ -108,8 +108,8 @@ while true; do
     gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
     gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
-    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 11'
-    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 11'
+    gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 10'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 10'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
     gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'

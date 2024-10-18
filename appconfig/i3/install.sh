@@ -250,6 +250,7 @@ while true; do
     if [ -d "~/.config/gtk-4.0" ] ; then
         pv $APP_PATH/gtk.css > ~/.config/gtk-4.0/gtk.css
         pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
+        pv $APP_PATH/settings.ini > ~/.config/gtk-4.0/settings.ini
     fi
 
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
@@ -274,7 +275,7 @@ while true; do
     ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
 
     # install useful gui utils
-    sudo apt-get -y install thunar compton
+    sudo apt-get -y install thunar # compton
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 

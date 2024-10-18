@@ -3,7 +3,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
-    pkgs.megasync pkgs.gnomeExtensions.mock-tray
+    pkgs.megasync
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -81,28 +81,10 @@
     measurement = "en_US.UTF-8";
   };
 
-  # theme
-  gtk = {
-    enable = false;
-    theme = {
-      name = "Catppuccin-Macchiato-Compact-Pink-Dark";
-      package = pkgs.catppuccin-gtk.override {
-        accents = [ "pink" ];
-        size = "compact";
-        tweaks = [ "rimless" "black" ];
-        variant = "macchiato";
-      };
-    };
-    iconTheme = {
-      name = "colloid-icon-theme";
-      package = pkgs.colloid-icon-theme;
-    };
-  };
-
   # cursor
   home.pointerCursor = {
-    gtk.enable = false;
-    x11.enable = false;
+    gtk.enable = true;
+    # x11.enable = true;
     name = "Afterglow-Recolored-Gruvbox-Black";
     package = pkgs.afterglow-cursors-recolored;
     size = 32;
