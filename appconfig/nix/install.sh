@@ -34,13 +34,13 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet "Setting up nix"
+
     # nix
     if [ ! -e /nix/receipt.json ]; then
-      toilet "Setting up nix"
       curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
       nix run home-manager/master -- init --switch
     fi
-
 
     # packages
     echo "Configuring..."

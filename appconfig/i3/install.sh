@@ -95,9 +95,8 @@ while true; do
 
     # earlyoom
     sudo apt install -y earlyoom libkeyutils-dev
-
-    # automounter for removable media
-    pip install -U udiskie keyutils
+    sudo cp -f $APP_PATH/earlyoom /etc/default/earlyoom
+    sudo systemctl restart earlyoom
 
     # scripts on startup
     sudo mkdir -p /etc/X11/xinit/xinitrc.d
@@ -224,9 +223,12 @@ while true; do
     ninja -C build
     sudo ninja -C build install
 
+    # automounter for removable media
+    pip install -U udiskie keyutils
+
     # config
     echo "Configuring..."
-    mkdir -p ~/.config/rofi ~/.config/dunst ~/.config/flashfocus
+    mkdir -p ~/.config/{dunst,flashfocus,rofi}
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
     pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
     pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
@@ -245,15 +247,16 @@ while true; do
     pv $APP_PATH/picom.conf > ~/.config/picom.conf
 
     # GTK
-    pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
-    pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
-    pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
-
-    # 4
     if [ -d "~/.config/gtk-4.0" ] ; then
         pv $APP_PATH/gtk.css > ~/.config/gtk-4.0/gtk.css
         pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
+        pv $APP_PATH/settings.ini > ~/.config/gtk-4.0/settings.ini
     fi
+
+    pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
+    pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
+    pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
+    pv $APP_PATH/dotgtkrc-2.0 > ~/.gtkrc-2.0
 
     # autostart
     cd /etc/xdg/autostart/
@@ -273,7 +276,7 @@ while true; do
     ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
 
     # install useful gui utils
-    sudo apt-get -y install thunar compton
+    sudo apt-get -y install thunar # compton
 
     $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
 
@@ -312,7 +315,7 @@ while true; do
     pv $APP_PATH/custom-post.sh > ~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
-    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
+    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/cyberpunk-edgerunners-purple.jpg
 
     # pipes.sh -t7
     sudo apt install -y cmatrix cmatrix-xfont
