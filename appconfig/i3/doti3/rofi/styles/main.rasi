@@ -10,7 +10,8 @@
 window {
     location:           center;
     fullscreen:         false;
-    width:              50%;
+    width:              55%;
+    height:             21%;
 }
 
 mainbox {
@@ -18,8 +19,9 @@ mainbox {
 }
 
 inputbar {
-    padding:                     10%;
-    background-image:            url("~/linux-setup/miscellaneous/wallpapers/cyberpunk-edgerunners-purple.png", width);
+    padding:                     1%;
+    // padding:                     10%;
+    background-image:            url("~/linux-setup/miscellaneous/wallpapers/pexels-seun-oderinde", width);
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
 

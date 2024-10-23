@@ -256,6 +256,7 @@ while true; do
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
     pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
     pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
+    pv $APP_PATH/dotgtkrc-2.0 > ~/.gtkrc-2.0
 
     # autostart
     cd /etc/xdg/autostart/
@@ -314,7 +315,7 @@ while true; do
     pv $APP_PATH/custom-post.sh > ~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
-    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
+    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/cyberpunk-edgerunners-purple.jpg
 
     # pipes.sh -t7
     sudo apt install -y cmatrix cmatrix-xfont
