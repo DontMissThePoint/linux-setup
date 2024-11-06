@@ -36,8 +36,9 @@ while true; do
 
     toilet Installing qutebrowser
     cd $APP_PATH/../../submodules/qutebrowser
-    sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg libgl1-mesa-glx git ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libegl1-mesa libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 libasound2 gstreamer1.0-plugins-{bad,base,good,ugly}
+    sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg libgl1-mesa-glx git ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libegl1-mesa libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 libasound2 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl
 
+    /usr/bin/python3 -m pip install --upgrade pip
     /usr/bin/python3 -m pip install -r misc/requirements/requirements-docs.txt
     /usr/bin/python3 scripts/asciidoc2html.py
     /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.5
