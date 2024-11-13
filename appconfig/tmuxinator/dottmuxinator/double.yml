@@ -55,15 +55,15 @@ windows:
         - cd ~/VirtualMachines/Windows-Docker; bash
         - cd $GIT_PATH/linux-setup
         - btop
-  - logs:
-      layout: 55d7,136x34,0,0[136x27,0,0{67x27,0,0,3,68x27,68,0,7},136x6,0,28,8]
-      panes:
-        - bash
-        - oxker
-        # - multitail -D -f /var/log/*
-        - clear
-        # - journalctl -f | tspin
   - nvim:
       panes:
         - nvim -c 'lua require("persistence").load({ last = true })'
       layout: dc50,136x33,0,0,21
+  - logs:
+      layout: 55d7,136x34,0,0[136x27,0,0{67x27,0,0,3,68x27,68,0,7},136x6,0,28,8]
+      panes:
+        - bash
+        - clear
+        # - multitail -D -f /var/log/*
+        - glances
+        # - journalctl -f | tspin
