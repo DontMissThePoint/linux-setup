@@ -863,74 +863,135 @@ bleopt syntax_eval_polling_interval=50
 
 # The following settings specify graphic styles of each faces.
 
-ble-face -s region                    fg=white,bg=60
-ble-face -s region_insert             fg=blue,bg=252
-ble-face -s region_match              fg=white,bg=55
-ble-face -s region_target             fg=black,bg=153
-ble-face -s disabled                  fg=242
-ble-face -s overwrite_mode            fg=black,bg=51
-ble-face -s auto_complete             fg=238,bg=254
-ble-face -s menu_filter_fixed         bold
-ble-face -s menu_filter_input         fg=16,bg=229
-ble-face -s vbell                     reverse
-ble-face -s vbell_erase               bg=252
-ble-face -s vbell_flash               fg=green,reverse
-ble-face -s prompt_status_line        fg=231,bg=240
+# ble-face -s region                    fg=white,bg=60
+# ble-face -s region_insert             fg=blue,bg=252
+# ble-face -s region_match              fg=white,bg=55
+# ble-face -s region_target             fg=black,bg=153
+# ble-face -s disabled                  fg=242
+# ble-face -s overwrite_mode            fg=black,bg=51
+# ble-face -s auto_complete             fg=238,bg=254
+# ble-face -s menu_filter_fixed         bold
+# ble-face -s menu_filter_input         fg=16,bg=229
+# ble-face -s vbell                     reverse
+# ble-face -s vbell_erase               bg=252
+# ble-face -s vbell_flash               fg=green,reverse
+# ble-face -s prompt_status_line        fg=231,bg=240
 
-ble-face -s syntax_default            none
-ble-face -s syntax_command            fg=brown
-ble-face -s syntax_quoted             fg=green
-ble-face -s syntax_quotation          fg=green,bold
-ble-face -s syntax_escape             fg=magenta
-ble-face -s syntax_expr               fg=navy
-ble-face -s syntax_error              bg=203,fg=231
-ble-face -s syntax_varname            fg=202
-ble-face -s syntax_delimiter          bold
-ble-face -s syntax_param_expansion    fg=purple
-ble-face -s syntax_history_expansion  bg=94,fg=231
-ble-face -s syntax_function_name      fg=92,bold
-ble-face -s syntax_comment            fg=gray
-ble-face -s syntax_glob               fg=198,bold
-ble-face -s syntax_brace              fg=37,bold
-ble-face -s syntax_tilde              fg=navy,bold
-ble-face -s syntax_document           fg=94
-ble-face -s syntax_document_begin     fg=94,bold
-ble-face -s command_builtin_dot       fg=red,bold
-ble-face -s command_builtin           fg=red
-ble-face -s command_alias             fg=teal
-ble-face -s command_function          fg=92 # fg=purple
-ble-face -s command_file              fg=green
-ble-face -s command_keyword           fg=blue
-ble-face -s command_jobs              fg=red,bold
-ble-face -s command_directory         fg=navy,underline
-ble-face -s argument_option           fg=teal
-ble-face -s argument_option           fg=black,bg=225
-ble-face -s filename_directory        underline,fg=26
-ble-face -s filename_directory_sticky underline,fg=white,bg=26
-ble-face -s filename_link             underline,fg=teal
-ble-face -s filename_orphan           underline,fg=teal,bg=224
-ble-face -s filename_setuid           underline,fg=black,bg=220
-ble-face -s filename_setgid           underline,fg=black,bg=191
-ble-face -s filename_executable       underline,fg=green
-ble-face -s filename_other            underline
-ble-face -s filename_socket           underline,fg=cyan,bg=black
-ble-face -s filename_pipe             underline,fg=lime,bg=black
-ble-face -s filename_character        underline,fg=white,bg=black
-ble-face -s filename_block            underline,fg=yellow,bg=black
-ble-face -s filename_warning          underline,fg=red
-ble-face -s filename_url              underline,fg=blue
-ble-face -s filename_ls_colors        underline
-ble-face -s varname_array             fg=orange,bold
-ble-face -s varname_empty             fg=31
-ble-face -s varname_export            fg=200,bold
-ble-face -s varname_expr              fg=92,bold
-ble-face -s varname_hash              fg=70,bold
-ble-face -s varname_number            fg=64
-ble-face -s varname_readonly          fg=200
-ble-face -s varname_transform         fg=29,bold
-ble-face -s varname_unset             fg=124
+# ble-face -s syntax_default            none
+# ble-face -s syntax_command            fg=brown
+# ble-face -s syntax_quoted             fg=green
+# ble-face -s syntax_quotation          fg=green,bold
+# ble-face -s syntax_escape             fg=magenta
+# ble-face -s syntax_expr               fg=navy
+# ble-face -s syntax_error              bg=203,fg=231
+# ble-face -s syntax_varname            fg=202
+# ble-face -s syntax_delimiter          bold
+# ble-face -s syntax_param_expansion    fg=purple
+# ble-face -s syntax_history_expansion  bg=94,fg=231
+# ble-face -s syntax_function_name      fg=92,bold
+# ble-face -s syntax_comment            fg=gray
+# ble-face -s syntax_glob               fg=198,bold
+# ble-face -s syntax_brace              fg=37,bold
+# ble-face -s syntax_tilde              fg=navy,bold
+# ble-face -s syntax_document           fg=94
+# ble-face -s syntax_document_begin     fg=94,bold
+# ble-face -s command_builtin_dot       fg=red,bold
+# ble-face -s command_builtin           fg=red
+# ble-face -s command_alias             fg=teal
+# ble-face -s command_function          fg=92 # fg=purple
+# ble-face -s command_file              fg=green
+# ble-face -s command_keyword           fg=blue
+# ble-face -s command_jobs              fg=red,bold
+# ble-face -s command_directory         fg=navy,underline
+# ble-face -s argument_option           fg=teal
+# ble-face -s argument_option           fg=black,bg=225
+# ble-face -s filename_directory        underline,fg=26
+# ble-face -s filename_directory_sticky underline,fg=white,bg=26
+# ble-face -s filename_link             underline,fg=teal
+# ble-face -s filename_orphan           underline,fg=teal,bg=224
+# ble-face -s filename_setuid           underline,fg=black,bg=220
+# ble-face -s filename_setgid           underline,fg=black,bg=191
+# ble-face -s filename_executable       underline,fg=green
+# ble-face -s filename_other            underline
+# ble-face -s filename_socket           underline,fg=cyan,bg=black
+# ble-face -s filename_pipe             underline,fg=lime,bg=black
+# ble-face -s filename_character        underline,fg=white,bg=black
+# ble-face -s filename_block            underline,fg=yellow,bg=black
+# ble-face -s filename_warning          underline,fg=red
+# ble-face -s filename_url              underline,fg=blue
+# ble-face -s filename_ls_colors        underline
+# ble-face -s varname_array             fg=orange,bold
+# ble-face -s varname_empty             fg=31
+# ble-face -s varname_export            fg=200,bold
+# ble-face -s varname_expr              fg=92,bold
+# ble-face -s varname_hash              fg=70,bold
+# ble-face -s varname_number            fg=64
+# ble-face -s varname_readonly          fg=200
+# ble-face -s varname_transform         fg=29,bold
+# ble-face -s varname_unset             fg=124
 
-ble-face -s cmdinfo_cd_cdpath         fg=26,bg=155
+# ble-face -s cmdinfo_cd_cdpath         fg=26,bg=155
+
+# catppuccin mocha
+ble-face -s argument_error bg=#f38ba8,fg=#11111b  # Red background, Crust foreground for better contrast
+ble-face -s argument_option fg=#f2cdcd,italic  # Flamingo
+ble-face -s auto_complete fg=#9399b2,italic  # Overlay2
+
+ble-face -s cmdinfo_cd_cdpath fg=#89b4fa,bg=#11111b,italic  # Blue, Crust
+ble-face -s command_alias fg=#b4befe  # Lavender
+ble-face -s command_builtin fg=#fab387  # Peach
+ble-face -s command_directory fg=#89b4fa  # Blue
+ble-face -s command_file fg=#b4befe  # Lavender
+ble-face -s command_function fg=#b4befe  # Lavender
+ble-face -s command_keyword fg=#cba6f7  # Mauve
+ble-face -s disabled fg=#9399b2  # Overlay2
+
+ble-face -s filename_directory fg=#89b4fa  # Blue
+ble-face -s filename_directory_sticky fg=#11111b,bg=#a6e3a1  # Crust, Green
+ble-face -s filename_executable fg=#a6e3a1,bold  # Green
+ble-face -s filename_ls_colors none
+ble-face -s filename_orphan fg=#89dceb,bold  # Sky
+ble-face -s filename_other none
+ble-face -s filename_setgid fg=#11111b,bg=#f9e2af,underline  # Crust, Yellow
+ble-face -s filename_setuid fg=#11111b,bg=#fab387,underline  # Crust, Peach
+
+ble-face -s menu_filter_input fg=#11111b,bg=#f9e2af  # Crust, Yellow
+ble-face -s overwrite_mode fg=#11111b,bg=#89dceb  # Crust, Sky
+ble-face -s prompt_status_line bg=#9399b2  # Overlay2
+
+ble-face -s region bg=#45475a  # Surface1
+ble-face -s region_insert bg=#45475a  # Surface1
+ble-face -s region_match fg=#11111b,bg=#f9e2af  # Crust, Yellow
+ble-face -s region_target fg=#11111b,bg=#cba6f7  # Crust, Mauve
+
+ble-face -s syntax_brace fg=#6c7086  # Overlay0
+ble-face -s syntax_command fg=#b4befe  # Lavender
+ble-face -s syntax_comment fg=#f9e2af  # Yellow
+ble-face -s syntax_delimiter fg=#6c7086  # Overlay0
+ble-face -s syntax_document fg=#f5e0dc,bold  # Rosewater
+ble-face -s syntax_document_begin fg=#f5e0dc,bold  # Rosewater
+ble-face -s syntax_error bg=#f38ba8,fg=#11111b  # Red background, Crust foreground for better contrast
+ble-face -s syntax_escape fg=#f2cdcd  # Flamingo
+ble-face -s syntax_expr fg=#cba6f7  # Mauve
+ble-face -s syntax_function_name fg=#b4befe  # Lavender
+ble-face -s syntax_glob fg=#fab387  # Peach
+ble-face -s syntax_history_expansion fg=#b4befe,italic  # Lavender
+ble-face -s syntax_param_expansion fg=#f38ba8  # Red
+ble-face -s syntax_quotation fg=#a6e3a1  # Green
+ble-face -s syntax_tilde fg=#cba6f7  # Mauve
+ble-face -s syntax_varname fg=#f5e0dc  # Rosewater
+
+ble-face -s varname_array fg=#fab387  # Peach
+ble-face -s varname_empty fg=#fab387  # Peach
+ble-face -s varname_export fg=#fab387  # Peach
+ble-face -s varname_expr fg=#fab387  # Peach
+ble-face -s varname_hash fg=#fab387  # Peach
+ble-face -s varname_number fg=#f5e0dc  # Rosewater
+ble-face -s varname_readonly fg=#fab387  # Peach
+ble-face -s varname_transform fg=#fab387  # Peach
+ble-face -s varname_unset bg=#f38ba8,fg=#11111b  # Red background, Crust foreground for better contrast
+
+ble-face -s vbell_erase bg=#45475a  # Surface1
 
 #-----------------------------------------------------------------------------
 # Keybindings

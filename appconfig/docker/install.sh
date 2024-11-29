@@ -122,6 +122,13 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
     # remove images unused & dangling (Careful !)
     # docker system prune -af
 
+    # glances
+    sudo apt install -y python3-psutil
+    /usr/bin/python3 -m pip install -U 'glances[all]'
+
+    # config
+    mkdir ~/.config/glances
+    pv "$APP_PATH/glances.conf" > ~/.config/glances/glances.conf
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

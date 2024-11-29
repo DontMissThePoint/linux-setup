@@ -75,10 +75,16 @@ while true; do
 
     cd ~/.config/qutebrowser
     ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts
+    rm -fr $GIT_PATH/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
     # reader
     npm config set strict-ssl=false
     npm install -g jsdom qutejs punycode @mozilla/readability
+
+    # calcpy
+    echo "Installing.. using Python IPython & SymPy"
+    echo "terminal calculator and advanced math solver."
+    /usr/bin/python3 -m pip install git+https://github.com/idanpa/calcpy
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
