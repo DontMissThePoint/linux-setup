@@ -1,8 +1,5 @@
 # NewsBoat URL LIST
 
-"query:News:tags # \"News\""
-https://morss.it/:items=%7C%7C*[class=jobtitle]/https://www.greatugandajobs.com/jobs/  "News" "enterprise" "~Great Uganda Jobs"
-
 "query:Newsletter:tags # \"Newsletter\""
 https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "favourite" "~Swan"
 
@@ -10,8 +7,9 @@ https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "fa
 https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
 
 "query:Courses:tags # \"Courses\""
-https://freecoursedl.com/feed/  "Courses" "video" "~FreeCoursedl"
-https://freecoursedl.com/comments/feed/  "Courses" "video" "~FreeCoursedl"
+https://nulled.org/rss.xml "Courses" "Tutorials" "~NULLED | Best files everyday"
+https://freecoursedl.com/feed/ "Courses" "video" "~FreeCoursedl"
+https://freecoursedl.com/comments/feed/ "Courses" "video" "~FreeCoursedl Comments"
 
 "query:Podcast:tags # \"Podcast\""
 https://feeds.buzzsprout.com/1849151.rss   "Podcast" "favourite" "~Saifedan Ammous"
@@ -23,17 +21,10 @@ https://www.reddit.com/user/C4rnAg3.rss "Reddit" "~Bangladeshi Bash"
 "query:Blogs:tags # \"Blog\""
 https://www.chrisatmachine.com/rss.xml "Blog" "linux"
 https://www.topbug.net/blog/category/unix-variants/gnu-linux/feed/ "Blog" "linux"
-https://sunaku.github.io/index.atom "Blog" "linux" "~The Terminal Programmer"
 
 "query:YouTube:tags # \"YouTube\""
 https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw "YouTube" "video" "~Lamborghini"
 https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q  "YouTube" "video" "~Technology Connections"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCbzVRTkX3bzNZuBd9In4XyA  "YouTube" "video" "~Modern MBA"
-https://www.youtube.com/feeds/videos.xml?channel_id=UCeeFfhMcJa1kjtfZAGskOCA "Comedy" "Youtube"                              #Technlinked
-https://www.youtube.com/feeds/videos.xml?channel_id=UCUuWlKrLVaR6_yTckhLG7hg "Linux" "YouTube"                              #linux leech
-https://www.youtube.com/feeds/videos.xml?channel_id=UCsnGwSIHyoYN0kiINAGUKxg "Linux" "YouTube"                              #Wolf Gang
-https://www.youtube.com/feeds/videos.xml?channel_id=UCfLsPYDDrGaFc9XhfDM-ktA "Linux" "YouTube"                              #Null Byte
-https://www.youtube.com/feeds/videos.xml?channel_id=UCqwUrj10mAEsqezcItqvwEw "Comedy" "Yotube"                              #BB Ki Vines
 
 "query:PeerTube:tags # \"PeerTube\""
 # https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&isLocal=true "PeerTube" "video" "~Luke Smith"

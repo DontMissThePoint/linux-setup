@@ -2,14 +2,19 @@
 
 reload-time 30
 auto-reload yes
-text-width 80
+refresh-on-startup no
+# text-width 88
+text-width 0
 max-items 500
+max-downloads 10
 download-retries 4
 download-timeout 10
 keep-articles-days 90
 reload-threads 100
+mark-as-read-on-hover no
 browser "setsid -f qutebrowser --target tab %u > /dev/null 2>&1"
 cleanup-on-quit no
+scrolloff 5
 confirm-exit no
 
 history-limit 2000
@@ -21,23 +26,20 @@ error-log ".config/newsboat/error.log"
 prepopulate-query-feeds yes
 suppress-first-reload yes
 
-datetime-format "%d-%b-%Y"
-feedlist-title-format "Feeds (%u unread, %t total)"
-feedlist-format "%11u - %t"
-save-path ~/Documents/saved_articles
-
 # -- notifications -----------------------------------------------------------------
 
 notify-always yes
 notify-xterm yes
 notify-program "/usr/bin/dunstify"
-notify-format "Newsboat: %d new articles (%n unread articles, %f unread feeds)"
+# notify-format "Newsboat: %d new articles (%n unread articles, %f unread feeds)"
+notify-format      "Newsboat: %n unread articles in %f feeds %t"
 
 # -- bookmarks -----------------------------------------------------------------
 
 bookmark-cmd ~/.scripts/bookmark.sh
 bookmark-interactive no
 bookmark-autopilot yes
+save-path ~/.local/share/newsboat/saved_articles/
 
 
 # -- keybindings -----------------------------------------------------------------
@@ -89,33 +91,57 @@ bind-key SPACE macro-prefix
 
 # col  item       fg       bg
 color background default default        # the most bottom bar
-color listnormal cyan default
+color listnormal white default
 color listnormal_unread color77 default
-color listfocus color14 default
-color listfocus_unread color14 default standout bold
-color info color176 color0 bold
-color article default default
+color listfocus color50 default
+color listfocus_unread color50 default standout bold
+color info              color91 default bold
 
-highlight all "---.*---" color6
-highlight feedlist ".*(0/0))" color0
-highlight article "(^Feed:.*|^Title:.*|^Author:.*)" cyan default bold
-highlight article "(^Link:.*|^Date:.*)" default default
-highlight article "^(Feed|Link):.*$" color6 default bold
-highlight article "^(Title|Date|Author):.*$" color6 default bold
-highlight article "https?://[^ ]+" color10 default underline
-highlight article "\\[[0-9]+\\]" color10 default bold
+search-highlight-colors color18 default bold
 
-highlight article "^(Title):.*$" color77 default
-highlight article "\\[[0-9][0-9]*\\]" cyan default bold
-highlight article "\\[image\\ [0-9]+\\]" green default bold
-highlight article "\\[embedded flash: [0-9][0-9]*\\]" green default bold
-highlight article ":.*\\(link\\)$" cyan default
-highlight article ":.*\\(image\\)$" color77 default
+highlight all "---.*---" yellow
+highlight feedlist ".*(0/0))" black
+highlight article "https?://[^ ]+" green default
+highlight article "\\[[0-9][0-9]*\\]" magenta default bold
+highlight article ":.*\\(link\\)$"  color79 default
+highlight article ":.*\\(image\\)$" blue default
 highlight article ":.*\\(embedded flash\\)$" magenta default
+highlight article "\\[image\\ [0-9]+\\]" green default bold
+highlight article "\\[image\\ [0-9]+:.*\\]" green default bold
+
+highlight article "(^Feed:.*)" color19 default bold
+highlight article "(^Title:.*)" color45 default bold
+highlight article "(^Author:.*)" color88 default bold
+highlight article "(^Date:.*)" color52 default bold
+highlight article "(^Link:.*)" color12 default bold
+
+highlight article "/r/[^/ ]+"            color67 default
+highlight article "/u/[^/ ]+"            color81 default
+
+highlight article "\\`[^\\`]*\\`"        color2  default bold # Green text between ` and `
+highlight article "^# \\.*"              color13 default bold # Headings as bold blue
+highlight article "^## \\.*"             color14 default bold # Subheadings as bold cyan
+highlight article "^### \\.*"            color10 default bold # Subsubheadings as bold green
+highlight article "^(\t| )*(-|\\*) \\.*" color3  default bold # List items as yellow
+highlight article "[;:][-o][)/(|]"       color14 default bold # emoticons
+highlight article "[;:][)(|]"            color14 default bold # emoticons
+highlight article "[ ][*][^*]*[*][ ]?"   color14 default bold # more emoticon?
+highlight article "[ ]?[*][^*]*[*][ ]"   color14 default bold # more emoticon?
+highlight article "\\[\\.\\.\\.?\\]"     color12 default bold # [..] or [...]
+
+highlight article "(^| |\t)\\*[a-z0-9]([a-z0-9-]* ){,3}[a-z0-9,.!?-]*\\*" color28 default
+highlight article "(^| |\t)_[a-z0-9]([a-z0-9-]* ){,6}[a-z0-9,.!?-]+_" color28 default
+highlight article "(^| |\t)_[a-z0-9][a-z0-9,.!?_-]*_" color28 default
+
+highlight article "[0-9]{1,2}:[0-9]{2}(:[0-9]{2})?( ?(AM|PM|am|pm))?( +[+-][0-9]{4})?" color43 default
+highlight article "(\(19|20\)?[0-9]{2}/[01]?[0-9]/[0123]?[0-9]|[0123]?[0-9][/.][01]?[0-9][/.]\(19|20\)?[0-9]{2})(( at)? +[0-9]{1,2}:[0-9]{2}(:[0-9]{2})?( ?(AM|PM|am|pm))?( +[+-][0-9]{4})?)?" color43 default
+highlight article "((Sun(day)?|Mon(day)?|Tue(sday)?|Wed(nesday)?|Thu(sday)?|Fri(day)?|Sat(urday)?),? +)?(Jan(uary)?|Feb(ruary)?|Mar(ch)?|Apr(il)?|May|June?|July?|Aug(ust)?|Sep(ember)?|Oct(ober)?|Nov(ember)?|Dec(ember)?)[ .]+[0-9]{1,2}(st|nd|rd|th)?,?( +(19|20)[0-9]{2}(,?( at)? [0-9]{1,2}:[0-9]{2}(:[0-9]{2})?( ?(AM|PM|am|pm))?( +[+-][0-9]{4})?)?)?" color43 default
 
 feedlist-format "%?T?║%4i %n %8u %8T %t &╠═══════════════════════════════════════════════════════════════%t?"
 highlight feedlist "[║│]" color6 color0
 highlight feedlist "╠═.*" color6 color0
+articlelist-format "%4i %f %D  %?T?|%-17T|  ?%t"
+datetime-format    "%b %d %Y" # date example: Mar 01 2017
 
 # -- macros -----------------------------------------------------------------
 

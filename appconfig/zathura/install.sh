@@ -66,22 +66,23 @@ while true; do
       sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice
     fi
 
-    # zaread
+    # img2pdf
     echo "Configuring..."
+    sudo apt install -y python3-genshi python-lxml-doc img2pdf pdftk
     sh -c "$(wget -O - https://sweetohm.net/dist/md2pdf/install)"
-    mkdir -p ~/.config/zathura ~/.config/zaread
-    pv "$APP_PATH/zareadrc" > ~/.config/zaread/zareadrc
 
+    # Make PDF
+    # img2pdf *.jp* --output combined.pdf
 
-    cd /tmp
-    [ -e zaread ] && rm -rf zaread
-    git clone https://github.com/paoloap/zaread
-    cd zaread
-    sudo make install
+    #make a pdf file out of every jpg image without loss of either resolution or quality:
+    # ls -1 ./*jpg | xargs -L1 -I {} img2pdf {} -o {}.pdf
+
+    # concatenate the pdf pages into one document:
+    # pdftk *.pdf cat output combined.pdf
 
     # visidata
     pip install --upgrade visidata datapackage pypng pdfminer.six ptpython lxml xlrd openpyxl tomli PyYAML IPython
-    mkdir -p ~/.visidata
+    mkdir -p ~/.visidata ~/.config/zathura
     cp -f $APP_PATH/dotvisidata/* ~/.visidata
     pv "$APP_PATH/visidatarc" > ~/.visidatarc
 

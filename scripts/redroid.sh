@@ -42,10 +42,8 @@ adb shell am start-foreground-service com.lexa.fakegps/.FakeGPSService
 # 3rd-party apps list
 # adb shell pm list packages -3
 
-# activities
-# adb shell dumpsys package | grep -Eo "^[[:space:]]+[0-9a-f]+[[:space:]]+com.lexa.fakegps/[^[:space:]]+" | grep -oE "[^[:space:]]+$"
-# adb shell monkey --pct-syskeys 0 -p com.lexa.fakegps -c android.intent.category.LAUNCHER 1
-# adb shell am start -a android.intent.action.MAIN -n com.lexa.fakegps/.ui.Main &
+# How to install APK on ReDroid
+# adb -s "$(hostname -I | awk '{print $1}')":11101 install "jp.naver.line.android.apk"
 
 # Open your browser,and open your_ip:8000. Click on the H264 Converter
 

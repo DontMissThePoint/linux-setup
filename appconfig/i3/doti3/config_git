@@ -7,9 +7,9 @@ set $mod2 Mod4
 set $workspace1 "1: "
 set $workspace2 "2: "
 set $workspace3 "3: 󰨊"
-set $workspace4 "4: "
+set $workspace4 "4: 📑"
 set $workspace5 "5: "
-set $workspace6 "6: 󱎐"
+set $workspace6 "6: 🐬"
 set $workspace7 "7: "
 set $workspace8 "8: "
 set $workspace9 "9: "
@@ -272,7 +272,7 @@ for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
 for_window [class="mpv"] floating enable
 for_window [instance="mpvfloat"] floating enable, move container position center, focus
-for_window [class="qutebrowser"] move workspace $workspace2
+for_window [class="qutebrowser"] move workspace $workspace2, focus
 for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [title="File Transfer*"] floating enable
 for_window [instance="newsboatfs"] move container to workspace $ws5, focus
@@ -614,7 +614,6 @@ set $mode_gaps_inner inner gaps
 # # EPIGEN_ADD_BLOCK_THINKPAD }
 
 # exec dropbox start
-# exec owncloud
 
 # bindsym $mod+o exec ~/.scripts/i3_mark.sh
 # bindsym $mod+p exec ~/.scripts/i3_mark.sh jump
@@ -1267,7 +1266,6 @@ set $mode_gaps_inner inner gaps
 
 #  exec_always --no-startup-id setxkbmap -layout us,cz -option "grp:win_space_toggle"
 #  exec --no-startup-id dropbox start
-#  exec --no-startup-id /usr/bin/owncloud
 
 # EPIGEN_ADD_BLOCK_VASEK }
 

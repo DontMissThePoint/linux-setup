@@ -43,7 +43,6 @@ while true; do
     sudo apt-get -y install ninja-build gettext cmake unzip curl
 
     # compile neovim from sources
-    # cd $APP_PATH/../../submodules/nvim
     rm -fr /tmp/nvim && mkdir /tmp/nvim && cd /tmp/nvim
     git clone https://github.com/neovim/neovim.git
     cd neovim
@@ -52,18 +51,32 @@ while true; do
 
     cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
 
+    # nvim
+    sudo -H pip3 install wheel
+
+    sudo -H pip3 install neovim
+    sudo -H pip3 install neovim-remote
+
+    rm -rf "$DATA" "$CONFIG"
+
+    # Nvchad
+    git clone https://github.com/NvChad/starter "$CONFIG"
+    echo "Use :Mason to install the language servers."
+    cp -fr $APP_PATH/starter/lua/* $CONFIG/lua && nvim +MasonUpdate
+    rm -fr "$CONFIG/.git"
+
     # syntevo smartGit
     echo "Setup syntevo tools."
-    cp -f $APP_PATH/ssh_config ~/.ssh/config
-    rm -rf ~/.config/smartgit
+    cd $APP_PATH
     # Previews:  https://www.syntevo.com/downloads/smartgit/smartgit-24_1-preview-8.deb
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
+    wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
     # deepGit
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
+    wget -c https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
 
     # Activate
     sudo dpkg -i *.deb || sudo apt install -fy
+    rm -fr $APP_PATH/*.deb ~/.config/smartgit
     num=`cat /usr/share/smartgit/bin/smartgit.sh | grep "NEW_DATE" | wc -l`
     if [ "$num" -lt "1" ]; then
 
@@ -81,18 +94,8 @@ while true; do
 
     fi
 
-    # nvim
-    sudo -H pip3 install wheel
-
-    sudo -H pip3 install neovim
-    sudo -H pip3 install neovim-remote
-
-    rm -rf "$DATA" "$CONFIG"
-
-    # Nvchad
-    git clone https://github.com/NvChad/starter "$CONFIG"
-    cp -fr $APP_PATH/starter/lua/* $CONFIG/lua && nvim +MasonInstallAll
-    rm -fr "$CONFIG/.git"
+    # ID
+    cp -f ./ssh_config ~/.ssh/config
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

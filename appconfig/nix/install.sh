@@ -34,21 +34,36 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet "Setting up nix"
+
     # nix
-    num=`cat ~/.profile | grep "nix-profile" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-      toilet "Setting up nix"
-      bash <(curl -L https://nixos.org/nix/install) --no-daemon
-      pv "$APP_PATH/../zsh/dotzshrc_template" > ~/.zshrc
-
+    if [ ! -e /nix/receipt.json ]; then
+      curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+      nix run home-manager/master -- init --switch
     fi
 
     # packages
-    nix-env -iA nixpkgs.xidlehook nixpkgs.vivaldi nixpkgs.vivaldi-ffmpeg-codecs nixpkgs.megasync nixpkgs.gnomeExtensions.mock-tray
+    echo "Configuring..."
+    sed -i '/^ *home\.packages = \[ *$/,$d' ~/.config/home-manager/home.nix
+    cat $APP_PATH/pkgs.nix >> ~/.config/home-manager/home.nix
+
+    # icons
+    mkdir -p ~/.local/share/icons/hicolor/scalable/apps
+    rm -fr ~/.icons/default/index.theme
+    ln -sf ~/.nix-profile/share/applications/* ~/.local/share/applications/
+    ln -sf ~/.nix-profile/share/icons/hicolor/256x256/apps/* ~/.local/share/icons/hicolor/scalable/apps/
+
+    # home-manager
+    home-manager switch
+    sudo update-desktop-database
+    sudo -i nix upgrade-nix
+
+    # clean
+    nix store gc
+    echo "Done."
 
     # uninstall
-    # rm -rf /nix
+    # /nix/nix-installer uninstall
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
