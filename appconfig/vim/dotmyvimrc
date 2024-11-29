@@ -343,10 +343,10 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
   " xmap <buffer> <leader>l <Plug>(Limelight)
   " autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
   " function SneakStf()
-  "   nnoremap <buffer> S <Plug>Sneak_s
-  "   nnoremap <buffer> s <Plug>Sneak_S
+  "   " nnoremap <buffer> S <Plug>Sneak_s
+  "   " nnoremap <buffer> s <Plug>Sneak_S
   "   nnoremap <buffer> f <Plug>Sneak_s
-  "   nnoremap <buffer> F <Plug>Sneak_F
+  "   nnoremap <buffer> F <Plug>Sneak_S
   "   nnoremap <buffer> t <Plug>Sneak_t
   "   nnoremap <buffer> T <Plug>Sneak_T
   "   " focus

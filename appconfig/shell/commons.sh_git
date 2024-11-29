@@ -43,8 +43,7 @@ alias apt="apt-fast"
 alias apt-get="apt-fast"
 
 # quick acces to files
-alias a="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
-alias za="find ~ -type f -iregex '.*\.\(epub\|mobi\|md\|pdf\|[t|c]sv\|xl\w+\|do\w+\|pp\w+\)$' | fzf -m --height '~70%' --bind 'enter:become(zaread {} &>/dev/null)'"
+alias al="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
 
 # directories
 z() {
