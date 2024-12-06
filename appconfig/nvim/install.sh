@@ -36,7 +36,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing neovim
+    toilet Installing neovim -t --filter metal -f smmono12
 
     sudo apt-get -y remove neovim* || echo ""
 

@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing lolcat
+    toilet Installing lolcat -t --filter gay -f smmono12
 
     # install lolcat
     cd $APP_PATH/../../submodules/lolcat

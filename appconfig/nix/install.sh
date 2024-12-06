@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet "Setting up nix"
+    toilet Settingup nix -t -f future
 
     # nix
     if [ ! -e /nix/receipt.json ]; then

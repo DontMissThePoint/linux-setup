@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing silver searcher
+    toilet Installing silver searcher -t --filter metal -f smmono12
 
     sudo apt-get -y install automake pkg-config libpcre3-dev zlib1g-dev liblzma-dev
 

@@ -59,7 +59,7 @@ while true; do
     sudo apt install -y fonts-inter-variable fonts-symbola ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
     # NF
-    toilet Installing Nerd Fonts
+    toilet Installing Nerd Fonts -t --filter metal -f smmono12
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --tag=v0.1.0
     getnf -i "JetBrainsMono Meslo Monofur Hermit IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono CascadiaCode CascadiaMono"
     getnf -U

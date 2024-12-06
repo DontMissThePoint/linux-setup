@@ -56,7 +56,7 @@ while true; do
 
       EXISTING_GO=`cat ~/.profile 2> /dev/null | grep "go/bin" | wc -l`
       if [ "$EXISTING_GO" == "0" ]; then
-        toilet Setting up go
+        toilet Settingup go -t -f future
         (echo; echo 'export PATH=$PATH:/usr/local/go/bin') >> ~/.profile
       fi
       export PATH=$PATH:/usr/local/go/bin

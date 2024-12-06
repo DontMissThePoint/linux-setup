@@ -51,7 +51,7 @@ while true; do
     # adb --version
     # fastboot --version
 
-    toilet Installing scrcpy
+    toilet Installing scrcpy -t --filter metal -f smmono12
 
     # install lolcat
     cd $APP_PATH/../../submodules/scrcpy
