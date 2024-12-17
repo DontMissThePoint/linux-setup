@@ -52,6 +52,9 @@ if g:user_mode == "1"
 
   Plug 'frazrepo/vim-rainbow'
 
+  " RBQL structured data
+  Plug 'mechatroner/rainbow_csv', { 'for': ['tsv', 'csv'] }
+
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " Lean & mean status/tabline for vim that's light as air.
   "Plug 'bling/vim-airline'

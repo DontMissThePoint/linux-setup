@@ -6,7 +6,7 @@ config.load_autoconfig()
 
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
-catppuccin.setup(c, 'macchiato')
+catppuccin.setup(c, 'mocha')
 
 # colors
 c.colors.webpage.darkmode.enabled = False
@@ -188,7 +188,7 @@ c.url.searchengines = {
         }
 
 # fonts in pixels
-c.fonts.default_family = '"JetBrainsMono Nerd Font Mono", monospace'
+c.fonts.default_family = '"Hurmit Nerd Font Mono", monospace'
 c.fonts.default_size = '15px'
 
 mono = '14px monospace'

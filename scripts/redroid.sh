@@ -12,7 +12,7 @@ until docker run -itd --privileged --name scrcpy-web -p 8000:8000/tcp emptysuns/
 do
   # retry
   docker rm -f `docker ps -a | grep 'scrcpy-web' | awk '{print $1}'`
-  echo Connection refused, retrying in 1 seconds
+  echo Loading...
   sleep 1
 done
 

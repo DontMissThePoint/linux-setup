@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up powerline fonts
+    toilet Setting up powerline fonts -t -f future
 
     cd $APP_PATH/../../submodules/fonts
     cp -fr $APP_PATH/fonts ./fonts.orig
@@ -58,10 +58,10 @@ while true; do
     fi
     sudo apt install -y fonts-inter-variable fonts-symbola ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
-    # NF
-    toilet Installing Nerd Fonts -t --filter metal -f smmono12
+    # Nerd fonts
+    toilet Setting up Nerd Fonts -t -f future
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --tag=v0.1.0
-    getnf -i "JetBrainsMono Meslo Monofur Hermit IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono CascadiaCode CascadiaMono"
+    getnf -i "JetBrainsMono Meslo Monofur Hermit Hasklig IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono CascadiaCode"
     getnf -U
     rm -fr ~/Downloads/getnf
 
@@ -109,7 +109,7 @@ while true; do
     gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
     gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
     gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 10'
-    gsettings set org.gnome.desktop.interface monospace-font-name 'JetBrainsMono Nerd Font Mono 10'
+    gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 10'
     gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
     gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
     gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
