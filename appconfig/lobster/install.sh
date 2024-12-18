@@ -73,7 +73,7 @@ while true; do
     fi
 
     # tordl
-    toilet Setup cli-torrent-dl
+    toilet Settingup cli-torrent-dl -t -f future
 
     # Run JSON RPC Server
     cd $APP_PATH/../../submodules/cli-torrent-dl

@@ -38,7 +38,7 @@ while true; do
     num=`cat ~/.bashrc | grep "linuxbrew" | wc -l`
     if [ "$num" -lt "1" ]; then
 
-      toilet "Setting up brew"
+      toilet Setting up brew -t -f future
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -54,7 +54,7 @@ while true; do
       echo Connection refused, retrying in 10 seconds...
       sleep 10
     done
-    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow restic
+    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow  restic croc
     brew cleanup --prune=all
 
     # configs

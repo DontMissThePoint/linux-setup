@@ -98,7 +98,7 @@ while true; do
       then
 
         # set youcompleteme
-        toilet Setting up youcompleteme
+        toilet Settingup youcompleteme -t -f future
 
         # if not on 20.04, g++-8 has to be installed manually
         if [ -n "$BEAVER" ]; then
