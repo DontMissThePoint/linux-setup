@@ -61,7 +61,7 @@ while true; do
     # scrcpy -w --show-touches --window-width 2160 --window-height 920 --window-borderless -s '<DEVICE SERIAL>'
 
     # re-droid
-    echo "Setup redroid..."
+    toilet Setting up redroid -t -f future
     sudo apt install -y android-platform-tools-base lzip linux-modules-extra-`uname -r`
     sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 

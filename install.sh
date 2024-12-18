@@ -178,9 +178,6 @@ fi
 # 34. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
-# 35. Install MTKCLIENT
-! $docker && bash $APPCONFIG_PATH/mtkclient/install.sh $subinstall_params
-
 # the docker setup ends here
 if $docker; then
   exit 0

@@ -12,8 +12,7 @@ until docker run -itd --privileged --name scrcpy-web -p 8000:8000/tcp emptysuns/
 do
   # retry
   docker rm -f `docker ps -a | grep 'scrcpy-web' | awk '{print $1}'`
-  echo Loading...
-  sleep 1
+  sleep 2
 done
 
 # connect to android
@@ -21,7 +20,8 @@ docker exec -it scrcpy-web adb connect $deviceID
 
 # wireless display
 (scrcpy --tcpip=$deviceID --audio-codec=raw --no-cleanup &)
-sleep 5
+sleep 3
+echo OK.
 
 # options
 adb shell settings put system accelerometer_rotation 0  #disable auto-rotate
