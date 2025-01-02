@@ -35,34 +35,24 @@ while true; do
   then
 
     toilet Installing scrcpy -t --filter metal -f smmono12
-
-    # install lolcat
     cd $APP_PATH/../../submodules/scrcpy
     ./install_release.sh
 
+    # adb latest
     sudo apt install -y libsdl2-2.0-0 adb fastboot wget \
     	gcc git pkg-config meson ninja-build libsdl2-dev \
     	libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
     	libswresample-dev libusb-1.0-0 libusb-1.0-0-dev libavformat-dev libavutil-dev
 
-    # latest adb
     cd /tmp
     wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
     unzip \platform-tools-latest-linux.zip
     sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/
     sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
 
-    # check that it worked with:
-
-    # adb --version
-    # fastboot --version
-
-    # Screencast
-    # scrcpy -w --show-touches --window-width 2160 --window-height 920 --window-borderless -s '<DEVICE SERIAL>'
-
     # re-droid
     toilet Setting up redroid -t -f future
-    sudo apt install -y android-platform-tools-base lzip linux-modules-extra-`uname -r`
+    sudo apt install -y linux-headers-generic android-platform-tools-base lzip linux-modules-extra-`uname -r`
     sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 
     cd /tmp
@@ -84,7 +74,7 @@ while true; do
      # "select * from main where name = \"android_id\";"'
     echo "https://www.google.com/android/uncertified to register device"
 
-    # modules load automatically
+    # modules
     sudo cp -f $APP_PATH/redroid.conf /etc/modules-load.d/redroid.conf
     echo "Modules loded successfully."
 

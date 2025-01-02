@@ -315,7 +315,7 @@ while true; do
     pv $APP_PATH/custom-post.sh > ~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
-    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/cyberpunk-edgerunners-purple.jpg
+    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
 
     # pipes.sh -t7
     sudo apt install -y cmatrix cmatrix-xfont
