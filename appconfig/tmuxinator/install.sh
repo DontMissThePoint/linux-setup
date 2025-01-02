@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing tmuxinator
+    toilet Installing tmuxinator -t --filter metal -f smmono12
 
     # install tmuxinator
     # cd $APP_PATH/../../submodules/tmuxinator
