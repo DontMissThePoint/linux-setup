@@ -2,6 +2,7 @@ services:
   windows:
     image: dockurr/windows
     container_name: windows
+    privileged: true
     devices:
       - /dev/kvm
       # - /dev/bus/usb

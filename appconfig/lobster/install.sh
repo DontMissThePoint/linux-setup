@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing lobster
+    toilet Installing lobster -t --filter metal -f smmono12
 
     # ueberzug
     cd /tmp

@@ -3,7 +3,7 @@
 # host IP address
 deviceID="$(hostname -I | awk '{print $1}')":11101
 
-# start the container
+# deamon
 cd ~/VirtualMachines/Android-Docker
 docker compose up -d
 
@@ -12,16 +12,16 @@ until docker run -itd --privileged --name scrcpy-web -p 8000:8000/tcp emptysuns/
 do
   # retry
   docker rm -f `docker ps -a | grep 'scrcpy-web' | awk '{print $1}'`
-  sleep 2
+  echo Connection refused, retrying in 1 seconds
+  sleep 1
 done
 
 # connect to android
 docker exec -it scrcpy-web adb connect $deviceID
 
 # wireless display
-(scrcpy --tcpip=$deviceID --audio-codec=raw --no-cleanup &)
-sleep 3
-echo OK.
+(scrcpy --tcpip=$deviceID --audio-codec=raw --no-cleanup --force-adb-forward &)
+sleep 5
 
 # options
 adb shell settings put system accelerometer_rotation 0  #disable auto-rotate
@@ -46,5 +46,4 @@ adb shell am start-foreground-service com.lexa.fakegps/.FakeGPSService
 # adb -s "$(hostname -I | awk '{print $1}')":11101 install "jp.naver.line.android.apk"
 
 # Open your browser,and open your_ip:8000. Click on the H264 Converter
-
 # Pull up from the bottom of the screen

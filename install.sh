@@ -172,8 +172,8 @@ fi
 # 32. Install RCLONE
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 33. Install GO-WHATSAPP
-! $docker && bash $APPCONFIG_PATH/go-whatsapp/install.sh $subinstall_params
+# 33. Install NCHAT
+! $docker && bash $APPCONFIG_PATH/nchat/install.sh $subinstall_params
 
 # 34. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params

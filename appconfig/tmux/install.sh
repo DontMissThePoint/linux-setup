@@ -93,6 +93,7 @@ while true; do
     sudo apt -y install systemd-timesyncd
     timedatectl set-local-rtc 0 --adjust-system-clock
 
+    # tty
     num=`cat ~/.profile | grep "tty2" | wc -l`
     if [ "$num" -lt "1" ]; then
 

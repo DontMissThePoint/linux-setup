@@ -38,7 +38,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing vim
+    toilet Installing vim -t --filter metal -f smmono12
 
     sudo apt-get -y remove vim-* || echo ""
 
