@@ -373,7 +373,7 @@ rosparam set use_sim_time true
 endsnippet
 
 snippet "^update" "" Ar
-sudo apt update && sudo apt dist-upgrade -y
+sudo apt update && sudo apt dist-upgrade -y && $GIT_PATH/linux-setup/appconfig/brew/install.sh
 endsnippet
 
 # snippet "^updater" "" Ar

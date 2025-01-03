@@ -1,7 +1,7 @@
 services:
      redroid:
        # image: redroid/redroid:11.0.0_gapps_ndk_magisk_widevine
-       image: redroid/redroid:11.0.0_gapps_ndk
+       image: redroid/redroid:11.0.0_gapps_ndk_magisk
        stdin_open: true
        tty: true
        privileged: true
@@ -9,7 +9,7 @@ services:
        # - "5555:5555"
        - 11101:5555
        volumes:
-       # The data is stored in the current directory
+       # Data storage
        - ./redroid-11-data:/data
        - /etc/localtime:/etc/localtime:ro
        - /etc/timezone:/etc/timezone:ro

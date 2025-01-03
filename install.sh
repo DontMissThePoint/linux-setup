@@ -31,7 +31,6 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "24.04" ] && export NOBLE=1
 
 arch=`uname -i`
 
@@ -173,8 +172,8 @@ fi
 # 32. Install RCLONE
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 33. Install GO-WHATSAPP
-! $docker && bash $APPCONFIG_PATH/go-whatsapp/install.sh $subinstall_params
+# 33. Install NCHAT
+! $docker && bash $APPCONFIG_PATH/nchat/install.sh $subinstall_params
 
 # 34. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
@@ -287,7 +286,7 @@ cd $MY_PATH && ./deploy_configs.sh
 source "$APPCONFIG_PATH/bash/dotbashrc_template"
 
 # finally source the correct rc file
-toilet All Done
+toilet All Done -t --filter metal -f mono9
 
 # say some tips to the new user
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."

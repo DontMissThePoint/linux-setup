@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing docker
+    toilet Installing docker -t --filter metal -f smmono12
 
     # any conflict packages
     for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y $pkg; done
@@ -74,7 +74,7 @@ while true; do
     curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
 
     # freerdp
-    echo "Setup remote desktop..."
+    echo "Setting up remote desktop"
     if [ ! -e /etc/apt/sources.list.d/freerdp-nightly.list ]; then
 
       # GPG key

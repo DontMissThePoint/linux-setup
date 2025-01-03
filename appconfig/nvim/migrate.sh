@@ -1,52 +1,36 @@
 #!/bin/bash
-# Run the script from home dir
-cd ~
 
-nvim_config="$HOME/.config/nvim"
-nvim_data="$HOME/.local/share/nvim"
+# get the path to this script
+APP_PATH=`dirname "$0"`
+APP_PATH=`( cd "$APP_PATH" && pwd )`
 
-cp -r "$nvim_config" nvim_bak # backup nvim dir
-cp -r "$nvim_config/lua/custom" .
+# syntevo
+cd $APP_PATH
 
-# Remove prefix 'custom.' from all files
-find custom -type f -exec sed -i 's/custom\.//g' {} +
+# Previews:  https://www.syntevo.com/downloads/smartgit/smartgit-24_1-preview-8.deb
+wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
-# replace all plugins.configs -> nvchad.configs
-find custom -type f -exec sed -i 's/plugins.configs/nvchad.configs/g' {} +
+# deepGit
+wget -c https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
 
-cd custom
+# Activate
+toilet Setting up smartgit -t -f future
 
-# we will load this in main init.lua
-mv init.lua myinit.lua
+sudo dpkg -i *.deb || sudo apt install -fy
+rm -fr $APP_PATH/*.deb ~/.config/smartgit
+num=`cat /usr/share/smartgit/bin/smartgit.sh | grep "NEW_DATE" | wc -l`
+if [ "$num" -lt "1" ]; then
 
-# disable these fields in chadrc
-sed -Ei 's/M.mappings|M.plugins/-- &/g' chadrc.lua
+    echo "Activating..."
+    echo '
+# auto-reset trial period
+config="~/.config/smartgit/20.2/preferences.yml"
+# current date in msec + 25 days
+NEW_DATE=$(date -d"+25 days" +%s%3N)
+# sed is for change old date for new one in config
+sed -r -i "s/(listx: \{eUT: )[0-9]+/\1$NEW_DATE/g" $config
+sed -r -i "s/(, nRT: )[0-9]+/\1$NEW_DATE/g" $config' | \
+    sudo tee -a /usr/share/smartgit/bin/smartgit.sh > /dev/null
+    echo "Done."
 
-# add new module paths
-[ -e options.lua ] && sed -i '1s/^/require "nvchad.options"\n/' options.lua
-[ -e autocmds.lua ] && sed -i '1s/^/require "nvchad.autocmds"\n/' autocmds.lua
-[ -e mappings.lua ] && sed -i '1s/^/require "nvchad.mappings"\n/' mappings.lua
-
-cd ..
-
-rm -rf "$nvim_config" "$nvim_data"
-
-# setup new config
-git clone https://github.com/NvChad/starter "$nvim_config"
-
-if [ -e custom/configs ]; then
-	mv custom/configs/* "$nvim_config/lua/configs/"
-	rm -rf custom/configs
 fi
-
-mv custom/* "$nvim_config/lua"
-
-cd "$nvim_config"
-
-# load custom.init.lua if it exists
-[ -e lua/myinit.lua ] && echo "require 'myinit'" >> init.lua
-
-# Some users have plugins.lua instead of plugins dir/ so move it in the plugins dir
-[ -e lua/plugins.lua ] && mv lua/plugins.lua lua/plugins/myplugins.lua
-
-nvim

@@ -94,6 +94,26 @@ local plugins = {
     },
   },
 
+  {
+    'cameron-wags/rainbow_csv.nvim',
+    config = true,
+    ft = {
+        'csv',
+        'tsv',
+        'csv_semicolon',
+        'csv_whitespace',
+        'csv_pipe',
+        'rfc_csv',
+        'rfc_semicolon'
+    },
+    cmd = {
+        'RainbowDelim',
+        'RainbowDelimSimple',
+        'RainbowDelimQuoted',
+        'RainbowMultiDelim'
+    },
+  },
+
 	{
 		"kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
@@ -212,8 +232,8 @@ local plugins = {
     event = "VeryLazy",
     opts = {},
     keys = {
-      { "s", mode = { "n", "x", "o" },
-        function() require("flash").jump() end, desc = "Flash" },
+      -- { "s", mode = { "n", "x", "o" },
+        -- function() require("flash").jump() end, desc = "Flash" },
       { "S", mode = { "n", "x", "o" },
         function() require("flash").treesitter() end, desc = "Flash Treesitter" },
       { "r", mode = "o",

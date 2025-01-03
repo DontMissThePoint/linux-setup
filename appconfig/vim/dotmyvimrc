@@ -358,12 +358,15 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
   " NetisFleet
   autocmd FileType tsv,tex call DataViz()
   function DataViz()
-    let g:airline_theme='papercolor'
-    let g:github_colors_soft = 0
 
     silent! Goyo!
     set background=light
     colo github
+
+    let g:airline_theme='papercolor'
+    let g:github_colors_soft = 0
+
+    " prepend
     noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
 
     func! Swipe(card)
@@ -374,6 +377,10 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
       " Cursor pos
       call cursor('.',strwidth(getline('.')))
     endfunc
+
+    " docs compiler
+    nnoremap <leader>ll :w <bar> ! docker run --rm -v $PWD:/tex-cvbuilder ubuntu:tex-cvbuilder bash -c
+          \ "xelatex % && xelatex %" && zathura %:r.pdf<CR>
 
     " Preselect suppliers
     iabbrev <silent> ff <Cmd>:call fzf#run(fzf#wrap({

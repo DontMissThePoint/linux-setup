@@ -23,7 +23,7 @@ done
 
 var=`lsb_release -r | awk '{ print $2 }'`
 [ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "20.04" ] && export FOCAL=1
+[ "$var" = "22.04" ] && export NOBLE=1
 
 default=y
 while true; do
@@ -31,22 +31,35 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall whatsmeow (pidgin, go-whatsapp)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall nchat (whatsmeow, pidgin, go-whatsapp)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Setting up go-whatsapp
+    toilet Installing nchat -t --filter metal -f smmono12
+    sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev golang git html2md
 
+    # nchat
+    cd /tmp
+    [ -e nchat ] && rm -rf nchat
+    git clone https://github.com/d99kris/nchat.git
+    cd nchat && mkdir -p build && cd build && cmake ..
+    make -s -j8
+    sudo make install
+
+    # color
+    cp $(dirname $(which nchat))/../share/nchat/themes/tokyo-night/* ~/.config/nchat/
+
+    # pidgin
+    toilet Setting up go-whatsapp -t -f future
     sudo apt install -y finch pidgin pkg-config cmake make golang gcc libgdk-pixbuf2.0-dev libopusfile-dev libpurple-bin libpurple-dev
-    pip install html2text
 
     # config
     mkdir -p ~/.purple/plugins
 
-    if [ -n "$BEAVER" ] || [ -n "$FOCAL" ]; then
+    if [ -n "$BEAVER" ] || [ -n "$NOBLE" ]; then
       pv $APP_PATH/libwhatsmeow.so > ~/.purple/plugins/libwhatsmeow.so
     else
       # go
@@ -56,13 +69,15 @@ while true; do
 
       EXISTING_GO=`cat ~/.profile 2> /dev/null | grep "go/bin" | wc -l`
       if [ "$EXISTING_GO" == "0" ]; then
-        toilet Setting up go
+        toilet Settingup go -t -f future
         (echo; echo 'export PATH=$PATH:/usr/local/go/bin') >> ~/.profile
       fi
       export PATH=$PATH:/usr/local/go/bin
 
       # compile from sources
-      rm -fr /tmp/purple-gowhatsapp && cd /tmp
+
+      cd /tmp
+      [ -e purple-gowhatsapp ] && rm -rf purple-gowhatsapp
       git clone https://github.com/hoehermann/purple-gowhatsapp.git
       cd purple-gowhatsapp
       git submodule update --init
@@ -76,7 +91,8 @@ while true; do
     fi
 
     # prefs
-    echo "Setup account with <2567XXXXXXXX@s.whatsapp.net"
+    echo "nchat --setup to get started +2567XXXXXXXX"
+    echo "Pidgin: Setup account with 2567XXXXXXXX@s.whatsapp.net"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

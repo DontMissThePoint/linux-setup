@@ -3,7 +3,7 @@
 # host IP address
 deviceID="$(hostname -I | awk '{print $1}')":11101
 
-# start the container
+# deamon
 cd ~/VirtualMachines/Android-Docker
 docker compose up -d
 
@@ -20,7 +20,7 @@ done
 docker exec -it scrcpy-web adb connect $deviceID
 
 # wireless display
-(scrcpy --tcpip=$deviceID --audio-codec=raw --no-cleanup &)
+(scrcpy --tcpip=$deviceID --audio-codec=raw --no-cleanup --force-adb-forward &)
 sleep 5
 
 # options
@@ -46,5 +46,4 @@ adb shell am start-foreground-service com.lexa.fakegps/.FakeGPSService
 # adb -s "$(hostname -I | awk '{print $1}')":11101 install "jp.naver.line.android.apk"
 
 # Open your browser,and open your_ip:8000. Click on the H264 Converter
-
 # Pull up from the bottom of the screen

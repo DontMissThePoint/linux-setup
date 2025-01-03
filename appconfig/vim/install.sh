@@ -38,7 +38,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing vim
+    toilet Installing vim -t --filter metal -f smmono12
 
     sudo apt-get -y remove vim-* || echo ""
 
@@ -98,7 +98,7 @@ while true; do
       then
 
         # set youcompleteme
-        toilet Setting up youcompleteme
+        toilet Settingup youcompleteme -t -f future
 
         # if not on 20.04, g++-8 has to be installed manually
         if [ -n "$BEAVER" ]; then

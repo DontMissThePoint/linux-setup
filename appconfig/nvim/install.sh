@@ -36,7 +36,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing neovim
+    toilet Installing neovim -t --filter metal -f smmono12
 
     sudo apt-get -y remove neovim* || echo ""
 
@@ -65,34 +65,8 @@ while true; do
     cp -fr $APP_PATH/starter/lua/* $CONFIG/lua && nvim +MasonUpdate
     rm -fr "$CONFIG/.git"
 
-    # syntevo smartGit
-    echo "Setup syntevo tools."
-    cd $APP_PATH
-    # Previews:  https://www.syntevo.com/downloads/smartgit/smartgit-24_1-preview-8.deb
-    wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
-
-    # deepGit
-    wget -c https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
-
-    # Activate
-    sudo dpkg -i *.deb || sudo apt install -fy
-    rm -fr $APP_PATH/*.deb ~/.config/smartgit
-    num=`cat /usr/share/smartgit/bin/smartgit.sh | grep "NEW_DATE" | wc -l`
-    if [ "$num" -lt "1" ]; then
-
-        echo "Activating smartgit..."
-        echo '
-    # auto-reset trial period
-    config="~/.config/smartgit/20.2/preferences.yml"
-    # current date in msec + 25 days
-    NEW_DATE=$(date -d"+25 days" +%s%3N)
-    # sed is for change old date for new one in config
-    sed -r -i "s/(listx: \{eUT: )[0-9]+/\1$NEW_DATE/g" $config
-    sed -r -i "s/(, nRT: )[0-9]+/\1$NEW_DATE/g" $config' | \
-        sudo tee -a /usr/share/smartgit/bin/smartgit.sh > /dev/null
-        echo "Done."
-
-    fi
+    # smartGit
+    . $APP_PATH/migrate.sh
 
     # ID
     cp -f ./ssh_config ~/.ssh/config

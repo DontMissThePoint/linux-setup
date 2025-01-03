@@ -34,35 +34,25 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Installing scrcpy -t --filter metal -f smmono12
+    cd $APP_PATH/../../submodules/scrcpy
+    ./install_release.sh
+
+    # adb latest
     sudo apt install -y libsdl2-2.0-0 adb fastboot wget \
     	gcc git pkg-config meson ninja-build libsdl2-dev \
     	libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
     	libswresample-dev libusb-1.0-0 libusb-1.0-0-dev libavformat-dev libavutil-dev
 
-    # latest adb
     cd /tmp
     wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
     unzip \platform-tools-latest-linux.zip
     sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/
     sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
 
-    # check that it worked with:
-
-    # adb --version
-    # fastboot --version
-
-    toilet Installing scrcpy
-
-    # install lolcat
-    cd $APP_PATH/../../submodules/scrcpy
-    ./install_release.sh
-
-    # Screencast
-    # scrcpy -w --show-touches --window-width 2160 --window-height 920 --window-borderless -s '<DEVICE SERIAL>'
-
     # re-droid
-    echo "Setup redroid..."
-    sudo apt install -y android-platform-tools-base lzip linux-modules-extra-`uname -r`
+    toilet Setting up redroid -t -f future
+    sudo apt install -y linux-headers-generic android-platform-tools-base lzip linux-modules-extra-`uname -r`
     sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 
     cd /tmp
@@ -74,26 +64,19 @@ while true; do
 
     # GApps
     # venv/bin/python3 redroid.py -a 11.0.0 -gmnw
-    venv/bin/python3 redroid.py -a 11.0.0 -gn
+    venv/bin/python3 redroid.py -a 11.0.0 -gnm
 
     mkdir -p ~/VirtualMachines/Android-Docker
     cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Android-Docker
 
-    # ID
-    # Register
     # Execute the following commands to obtain the Android device ID,
+    # adb -s $IP_ADDRESS:11101 shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
+     # "select * from main where name = \"android_id\";"'
+    echo "https://www.google.com/android/uncertified to register device"
 
-    IP_ADDRESS=`hostname -I | awk '{print $1}'`
-    adb -s $IP_ADDRESS:11101 root
-
-    adb -s $IP_ADDRESS:11101 shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
-     "select * from main where name = \"android_id\";"'
-    echo "https://www.google.com/android/uncertified go to Google website to register the device"
-
-    # modules load automatically
+    # modules
     sudo cp -f $APP_PATH/redroid.conf /etc/modules-load.d/redroid.conf
-    echo "Wait 30 minutes"
-    echo "Restart the Redroid container. Then log in to Google Play"
+    echo "Modules loded successfully."
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

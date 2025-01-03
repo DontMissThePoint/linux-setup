@@ -5,5 +5,5 @@
 EARLYOOM_ARGS="-n \
   -m 5 \
   -r 3600 \
-  --avoid '(^|/)(init|systemd|Xorg|ssh|mpv|vim|xfreerdp)$' \
+  --avoid '(^|/)(init|systemd|dockerd|Xorg|i3|picom|ssh|adb|mpv|vim|xfreerdp|scrcpy)$' \
   --prefer '(^|/)(java|qutebrowser|vivaldi)$'"

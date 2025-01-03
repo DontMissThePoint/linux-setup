@@ -38,7 +38,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing multimedia
+    toilet Installing multimedia -t --filter metal -f smmono12
 
     # ffmpeg
     cd /tmp

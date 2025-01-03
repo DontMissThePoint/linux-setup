@@ -6,7 +6,7 @@ config.load_autoconfig()
 
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
-catppuccin.setup(c, 'macchiato')
+catppuccin.setup(c, 'mocha')
 
 # colors
 c.colors.webpage.darkmode.enabled = False
@@ -139,7 +139,7 @@ c.url.default_page = "about:blank"
 ## save web pages in MHTML format
 ## ,sm to do that
 config.bind(',sm', 'cmd-set-text :download --mhtml')
-c.downloads.location.directory = '~/Downloads/2024-Q4'
+c.downloads.location.directory = '~/Downloads/2025-Q1'
 c.downloads.location.suggestion = 'both'
 c.downloads.remove_finished = 60000
 c.confirm_quit = ['downloads']
@@ -188,7 +188,7 @@ c.url.searchengines = {
         }
 
 # fonts in pixels
-c.fonts.default_family = '"JetBrainsMono Nerd Font Mono", monospace'
+c.fonts.default_family = '"Hurmit Nerd Font Mono", monospace'
 c.fonts.default_size = '15px'
 
 mono = '14px monospace'

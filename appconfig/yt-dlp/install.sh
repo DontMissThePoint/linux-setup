@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing yt-dlp
+    toilet Installing yt-dlp -t --filter metal -f smmono12
 
     # opencv
     sudo apt install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
