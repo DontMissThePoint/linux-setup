@@ -1,7 +1,7 @@
 #!/bin/sh
 
 RESTIC_PASSWORD_FILE=$GIT_PATH/linux-setup/appconfig/rclone/restic.txt
-RESTIC_REPOSITORY=/media/$USER/Envy/00-09.Library/07.OS
+RESTIC_REPOSITORY=/media/$USER/AUTORESTIC/07.OS/linux-setup
 LINUX_SETUP=$GIT_PATH/linux-setup
 
 # init
