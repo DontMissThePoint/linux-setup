@@ -49,8 +49,9 @@ while true; do
     make -s -j8
     sudo make install
 
-    # color
-    cp $(dirname $(which nchat))/../share/nchat/themes/tokyo-night/* ~/.config/nchat/
+    # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
+    # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
+    cp $(dirname $(which nchat))/../share/nchat/themes/tomorrow-night/* ~/.config/nchat/
 
     # pidgin
     toilet Setting up go-whatsapp -t -f future
