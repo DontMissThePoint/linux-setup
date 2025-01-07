@@ -224,7 +224,19 @@ while true; do
     sudo ninja -C build install
 
     # automounter for removable media
-    pip install -U udiskie keyutils
+    sudo apt install -y python-setuptools udisks2 python3-pip python3-gi python3-gi-cairo gir1.2-gtk-4.0 python3-yaml libglib2.0-dev gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7
+    sudo pip install -U udiskie keyutils
+
+    sudo mkdir -p /etc/polkit-1/localauthority/50-local.d
+    sudo cp -f $APP_PATH/consolekit.pkla /etc/polkit-1/localauthority/50-local.d/
+
+    # add group permission
+    num=`cat /etc/group | cut -d: -f1 | grep "plugdev" | wc -l`
+    if [ "$num" -lt "1" ]; then
+      sudo groupadd plugdev
+      sudo usermod -aG plugdev $USER
+      groups $USER
+    fi
 
     # config
     echo "Configuring..."
