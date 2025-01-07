@@ -47,7 +47,7 @@ root: ~/
 # tmux list-windows
 windows:
   - docker:
-      layout: 5ab2,136x33,0,0[136x6,0,0{68x6,0,0,19,67x6,69,0,23},136x26,0,7,22]
+      layout: 5ab2,136x33,0,0[127x2,0,0{63x2,0,0,2,63x2,64,0,5},127x31,0,3,6]
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
