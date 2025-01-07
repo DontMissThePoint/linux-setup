@@ -1,0 +1,16 @@
+[mount]
+Identity=unix-group:plugdev
+Action=org.freedesktop.udisks.filesystem-mount
+ResultAny=yes
+[unlock]
+Identity=unix-group:plugdev
+Action=org.freedesktop.udisks.luks-unlock
+ResultAny=yes
+[eject]
+Identity=unix-group:plugdev
+Action=org.freedesktop.udisks.drive-eject
+ResultAny=yes
+[detach]
+Identity=unix-group:plugdev
+Action=org.freedesktop.udisks.drive-detach
+ResultAny=yes
