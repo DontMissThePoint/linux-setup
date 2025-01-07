@@ -51,7 +51,7 @@ while true; do
 
     # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
     # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
-    cp $(dirname $(which nchat))/../share/nchat/themes/tomorrow-night/* ~/.config/nchat/
+    cp $(dirname $(which nchat))/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
 
     # pidgin
     toilet Setting up go-whatsapp -t -f future
