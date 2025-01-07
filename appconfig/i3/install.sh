@@ -89,8 +89,8 @@ while true; do
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
     sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
     systemctl --user daemon-reload
-    systemctl --user start megasync.service xidlehook.service
-    sudo systemctl --global enable megasync.service xidlehook.service
+    systemctl --user start megasync.service xidlehook.service udiskie.service
+    sudo systemctl --global enable megasync.service xidlehook.service udiskie.service
     # loginctl enable-linger
 
     # earlyoom

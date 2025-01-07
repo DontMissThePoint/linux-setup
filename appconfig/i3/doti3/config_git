@@ -1533,10 +1533,6 @@ exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 # news feed
 exec --no-startup-id "newsboat -r -q"
 
-# removable media
-exec --no-startup-id "udiskie -a -q"
-
-
 # #}
 
 # #{ window-specific settings
