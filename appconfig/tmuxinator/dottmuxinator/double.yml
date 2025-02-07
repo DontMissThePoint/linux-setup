@@ -60,7 +60,8 @@ windows:
       panes:
         - calcpy
         # - multitail -D -f /var/log/*
-        - btop
+        # - btop
+        - curl rate.sx/btc@90d
         # - journalctl -f | tspin
         - cd $GIT_PATH/linux-setup
   - nvim:

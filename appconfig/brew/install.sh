@@ -38,7 +38,6 @@ while true; do
     num=`cat ~/.bashrc | grep "linuxbrew" | wc -l`
     if [ "$num" -lt "1" ]; then
 
-      toilet Setting up brew -t -f future
       NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
       (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ~/.bashrc
       eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
@@ -49,6 +48,7 @@ while true; do
     ulimit -n2048
 
     # swiss knife
+    toilet Setting up brew -t -f future
     until source $HOME/.bashrc && brew update && brew upgrade
     do
       echo Connection refused, retrying in 10 seconds...
