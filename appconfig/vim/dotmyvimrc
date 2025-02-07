@@ -302,6 +302,17 @@ nnoremap <leader>fw :Lines<CR>
 " Indent
 nnoremap <leader>idl :IndentLinesToggle<CR>
 
+" Highlight
+nnoremap g<CR> <Cmd>Hi><CR>
+nnoremap g<BS> <Cmd>Hi<<CR>
+nnoremap - <Cmd>Hi/next<CR>
+nnoremap _ <Cmd>Hi/previous<CR>
+
+" jump key mappings
+nnoremap n <Cmd>call HiSearch('n')<CR>
+nnoremap N <Cmd>call HiSearch('N')<CR>
+nnoremap <Esc>n <Cmd>noh<CR>
+
 " Slime
 let g:slime_no_mappings = 0
 xmap <leader>s <Plug>SlimeRegionSend
@@ -345,10 +356,6 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
   " function SneakStf()
   "   " nnoremap <buffer> S <Plug>Sneak_s
   "   " nnoremap <buffer> s <Plug>Sneak_S
-  "   nnoremap <buffer> f <Plug>Sneak_s
-  "   nnoremap <buffer> F <Plug>Sneak_S
-  "   nnoremap <buffer> t <Plug>Sneak_t
-  "   nnoremap <buffer> T <Plug>Sneak_T
   "   " focus
   "   set background=dark
   "   silent! Goyo

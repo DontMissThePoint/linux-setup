@@ -61,7 +61,7 @@ windows:
         - calcpy
         # - multitail -D -f /var/log/*
         # - btop
-        - curl rate.sx/btc@4M
+        - curl rate.sx/btc@90d
         # - journalctl -f | tspin
         - cd $GIT_PATH/linux-setup
   - nvim:
