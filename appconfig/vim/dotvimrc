@@ -298,6 +298,9 @@ Plug 'ardagnir/united-front'
 " powerful targeting of text parts
 Plug 'wellle/targets.vim'
 
+" highlight words and expressions
+Plug 'azabiong/vim-highlighter'
+
 " replace text without paste into register by gr
 " yank or delete something, then past it in by e.g. griw (go replace in)
 Plug 'vim-scripts/ReplaceWithRegister'

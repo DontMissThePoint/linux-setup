@@ -18,6 +18,16 @@ map("n", "<leader><leader>", function() require("fzf-lua").command_history() end
 -- conform
 map("n", "<leader>fm", function() require("conform").format() end, {desc = "formatting"})
 
+-- highlight
+map("n", "g<CR>", "<Cmd>Hi><CR>", {desc = "jump forth highlight"})
+map("n", "g<BS>", "<Cmd>Hi<<CR>", {desc = "jump back highlight"})
+map("n", "-", "<Cmd>Hi/next<CR>", {desc = "jump next highlight history"})
+map("n", "_", "<Cmd>Hi/previous<CR>", {desc = "jump previous highlight history"})
+
+map("n", "n", "<Cmd>call HiSearch('n')<CR>", {desc = "jump next highlight search"})
+map("n", "N", "<Cmd>call HiSearch('N')<CR>", {desc = "jump previous highlight search"})
+map("n", "<Esc>n", "<Cmd>noh<CR>", {desc = "off highlight search"})
+
 -- spectre
 map("n", "<leader>s", "<cmd> Spectre <cr>", {desc = "search replace"})
 
