@@ -49,13 +49,13 @@ while true; do
     make -j8 CMAKE_BUILD_TYPE=RelWithDebInfo \
     CMAKE_INSTALL_PREFIX=/usr/bin/nvim
 
-    cd build && cpack -G DEB && sudo dpkg -i nvim-linux64.deb
+    cd build && cpack -G DEB && sudo dpkg -i /tmp/nvim/neovim/build/nvim-linux-x86_64.deb
 
     # nvim
-    sudo -H pip3 install wheel
+    sudo -H pip3 install --break-system-packages wheel
 
-    sudo -H pip3 install neovim
-    sudo -H pip3 install neovim-remote
+    sudo -H pip3 install --break-system-packages neovim
+    sudo -H pip3 install --break-system-packages neovim-remote
 
     rm -rf "$DATA" "$CONFIG"
 

@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lobster (stream hollywood movies)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lobster (stream all movies)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -43,14 +43,14 @@ while true; do
     git clone https://github.com/jstkdng/ueberzugpp.git
     cd ueberzugpp
     mkdir build && cd build
-    cmake -DCMAKE_BUILD_TYPE=Release ..
+    cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_OPENCV=OFF ..
     cmake --build .
     sudo cp -f ueberzug /usr/local/bin/ueberzug
     sudo ln -sf /usr/local/bin/ueberzug /usr/bin/ueberzugpp
 
     # lobster
-    sudo curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o /usr/local/bin/lobster &&
-    sudo chmod +x /usr/local/bin/lobster
+    curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o "$(brew --prefix)"/bin/lobster &&
+    chmod +x "$(brew --prefix)"/bin/lobster
     touch $HOME/.local/share/lobster/lobster_history.txt
 
     # libg-fzf

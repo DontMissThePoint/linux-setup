@@ -63,6 +63,7 @@ while true; do
     curl https://raw.githubusercontent.com/jarun/advcpmv/master/install.sh --create-dirs -o ./advcpmv/install.sh && (cd advcpmv && sh install.sh)
     sudo mv ./advcpmv/advcp /usr/local/bin/
     sudo mv ./advcpmv/advmv /usr/local/bin/
+    mkdir -p ~/.config/clifm/profiles/default ~/.config/clifm/colors
     pv $APP_PATH/clifmrc > ~/.config/clifm/profiles/default/clifmrc
     pv $APP_PATH/default-256.clifm > ~/.config/clifm/colors/default-256.clifm
 

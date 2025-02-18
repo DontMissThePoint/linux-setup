@@ -63,7 +63,7 @@ while true; do
 
     else
 
-      sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice
+      sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pdf-presenter-console
     fi
 
     # img2pdf
@@ -81,13 +81,13 @@ while true; do
     # pdftk *.pdf cat output combined.pdf
 
     # visidata
-    pip install --upgrade visidata datapackage pypng pdfminer.six ptpython lxml xlrd openpyxl tomli PyYAML IPython
+    pip install --break-system-packages --upgrade visidata datapackage pypng pdfminer.six ptpython lxml xlrd openpyxl tomli PyYAML IPython
     mkdir -p ~/.visidata ~/.config/zathura
     cp -f $APP_PATH/dotvisidata/* ~/.visidata
     pv "$APP_PATH/visidatarc" > ~/.visidatarc
 
     # epy
-    pip install epy-reader
+    pip install --break-system-packages epy-reader
 
     # Calibre
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000

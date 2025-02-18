@@ -46,7 +46,7 @@ while true; do
 
     rm -fr ~/.oh-my-zsh
     # install oh-my-zsh
-    [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget -c https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
+    [ ! -e "~/.oh-my-zsh" ] && sh -c "$(wget -c https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
 
     # fzf-tab
     if [ ! -e ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab ]; then
@@ -54,23 +54,32 @@ while true; do
     fi
 
     # plugins
-    if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-      ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting $HOME/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+    if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+      ln -sf $APP_PATH/../../submodules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
     fi
 
-    if [ ! -e $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
-      ln -sf $APP_PATH/../../submodules/zsh-autosuggestions $HOME/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+    if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+      ln -sf $APP_PATH/../../submodules/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
     fi
 
     # k
     $APP_PATH/install_k_plugin.sh
 
     # symlink the .zshrc
-    case $(< "$HOME/.zshrc") in *"dotzshrc"*) ;; *) cp -f "$APP_PATH/dotzshrc_template" "$HOME/.zshrc" ;; esac
-    case $(< "$HOME/.zprofile") in *"go"*) ;; *) cp -f "$APP_PATH/zprofile_template" "$HOME/.zprofile" && echo -e "Adding configs\nDone." ;; esac
+    num=`cat $HOME/.zshrc | grep "dotzshrc" | wc -l`
+    if [ "$num" -lt "1" ]; then
+      cp $APP_PATH/dotzshrc_template $HOME/.zshrc
+    fi
+
+    # symlink the .zprofile
+    num=`cat $HOME/.zshrc | grep "go" | wc -l`
+    if [ "$num" -lt "1" ]; then
+      cp $APP_PATH/zprofile_template $HOME/.zprofile
+    fi
+    echo -e "Adding configs\nDone."
 
     # liquid prompt
-    if [ ! -e $HOME/.liquidprompt ]; then
+    if [ ! -e ~/.liquidprompt ]; then
       git clone --branch stable https://github.com/nojhan/liquidprompt.git ~/.liquidprompt
     fi
 

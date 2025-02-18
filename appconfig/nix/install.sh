@@ -39,11 +39,11 @@ while true; do
     # nix
     if [ ! -e /nix/receipt.json ]; then
       curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-      nix run home-manager/master -- init --switch
     fi
 
     # packages
     echo "Configuring..."
+    nix run home-manager/master -- init --switch
     sed -i '/^ *home\.packages = \[ *$/,$d' ~/.config/home-manager/home.nix
     cat $APP_PATH/pkgs.nix >> ~/.config/home-manager/home.nix
 

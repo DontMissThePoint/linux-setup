@@ -49,12 +49,8 @@ while true; do
 
     # swiss knife
     toilet Setting up brew -t -f future
-    until source $HOME/.bashrc && brew update && brew upgrade
-    do
-      echo Connection refused, retrying in 10 seconds...
-      sleep 10
-    done
-    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow  restic croc
+    source $HOME/.bashrc && brew update && brew upgrade
+    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust zig aria2 glow restic croc
     brew cleanup --prune=all
 
     # configs
@@ -69,7 +65,7 @@ while true; do
 
     # update bt-trackers
     echo "Updating bt-trackers... "
-    $GIT_PATH/linux-setup/scripts/aria2-trackers-update.sh
+    ~/linux-setup/scripts/aria2-trackers-update.sh
 
     # RPC extension: https://aria2e.com/
     # aria2c --enable-rpc --rpc-listen-all --max-concurrent-downloads=40 --max-connection-per-server=16 --min-split-size=20M --split=16 --continue=true --dir=/home/$USER/Downloads

@@ -41,7 +41,7 @@ while true; do
     sudo apt-get -y install texlive texlive-latex-extra texlive-lang-czechslovak texlive-science texlive-pstricks latexmk texmaker texlive-font-utils texlive-fonts-extra texlive-bibtex-extra biber okular pdf-presenter-console dvipng sketch
 
     # latex2text
-    pip install pylatexenc
+    pip install --break-system-packages pylatexenc
 
     if [ -n "$FOCAL" ] || [ -n "$NOBLE" ]; then
       sudo apt install -y pdftk

@@ -581,6 +581,7 @@ bar {
 # #{ i3-gaps settings
 
 smart_gaps on # EPIGEN_DEL_LINE_TOMAS
+smart_gaps inverse_outer # EPIGEN_DEL_LINE_TOMAS
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 {
@@ -597,6 +598,12 @@ gaps outer $default_gaps_outer
 set $mode_gaps gaps
 set $mode_gaps_outer outer gaps
 set $mode_gaps_inner inner gaps
+
+# #}
+
+# #{ rounded window corners
+
+border_radius 5
 
 # #}
 

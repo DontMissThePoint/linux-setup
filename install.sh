@@ -38,20 +38,15 @@ arch=`uname -i`
 sudo chown -R $USER: $MY_PATH
 find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
-# submodules
-cd $MY_PATH
-$docker && git submodule update --init --recursive --recommend-shallow
-! $docker && git submodule update --init --recursive
-
 # install packages
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck pv atool moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck pv atool moreutils
 
 # python
-sudo apt-get -y install python2.7-dev python3-dev python-setuptools python3-setuptools python3-pip
-pip3 install --upgrade openpyxl xlrd virtualenv
+sudo apt-get -y install python3-full python3-dev python3-setuptools python3-pip
+pip install --upgrade --break-system-packages openpyxl xlrd virtualenv
 
 if [ -n "$BEAVER" ]; then
     sudo apt-get -y install python-git
@@ -62,6 +57,11 @@ fi
 
 # other stuff
 sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs gnome-shell-extensions gnome-control-center gnome-tweaks espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
+
+# submodules
+cd $MY_PATH
+$docker && git submodule update --init --recursive --recommend-shallow
+! $docker && git submodule update --init --recursive
 
 if [ "$unattended" == "0" ]
   then
@@ -80,102 +80,99 @@ fi
 # 4. Install ZSH with ATHAME
 ! $docker && bash $APPCONFIG_PATH/zsh/install.sh $subinstall_params
 
-# 5. Install I3
-! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
-
-# 6. Install URXVT
+# 5. Install URXVT
 ! $docker && bash $APPCONFIG_PATH/urxvt/install.sh $subinstall_params
 
-# 7. Install FONTS POWERLINE
+# 6. Install FONTS POWERLINE
 ! $docker && bash $APPCONFIG_PATH/fonts-powerline/install.sh $subinstall_params
 
-# 8. Setup RANGER
-! $docker && bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
-
-# 9. Install VIM
+# 7. Install VIM
 ! $docker && bash $APPCONFIG_PATH/vim/install.sh $subinstall_params
 
-# 10. Install HTOP-VIM
-! $docker && bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
-
-# 11. Install NVIM
+# 8. Install NVIM
 ! $docker && bash $APPCONFIG_PATH/nvim/install.sh $subinstall_params
 
-# 12. Install LATEX and PDF support
+# 9. Install HTOP-VIM
+! $docker && bash $APPCONFIG_PATH/htop-vim/install.sh $subinstall_params
+
+# 10. Install I3
+! $docker && bash $APPCONFIG_PATH/i3/install.sh $subinstall_params
+
+# 11. Install LATEX and PDF support
 ! $docker && bash $APPCONFIG_PATH/latex/install.sh $subinstall_params
 
-# 13. Install PDFPC
-! $docker && bash $APPCONFIG_PATH/pdfpc/install.sh $subinstall_params
-
-# 14. Install MULTIMEDIA support
+# 12. Install MULTIMEDIA support
 ! $docker && bash $APPCONFIG_PATH/multimedia/install.sh $subinstall_params
 
-# 15. Install LOBSTER
-! $docker && bash $APPCONFIG_PATH/lobster/install.sh $subinstall_params
+# 13. Setup RANGER
+! $docker && bash $APPCONFIG_PATH/ranger/install.sh $subinstall_params
 
-# 16. Install PANDOC
+# 14. Install PANDOC
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/pandoc/install.sh $subinstall_params
 fi
 
-# 17. Install SHUTTER
+# 15. Install SHUTTER
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/shutter/install.sh $subinstall_params
 fi
 
-# 18. Install ZATHURA
+# 16. Install ZATHURA
 ! $docker && bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
 
-# 19. Install VIMIV
+# 17. Install VIMIV
 ! $docker && bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
 
-# 20. Install SILVER SEARCHER (ag)
+# 18. Install SILVER SEARCHER (ag)
 ! $docker && bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params
 
-# 21. Setup modified keyboard rules
+# 19. Setup modified keyboard rules
 ! $docker && bash $APPCONFIG_PATH/keyboard/install.sh $subinstall_params
 
-# 22. Setup fuzzyfinder
+# 20. Setup fuzzyfinder
 ! $docker && bash $APPCONFIG_PATH/fzf/install.sh $subinstall_params
 
-# 23. Install PLAYERCTL
+# 21. Install PLAYERCTL
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/playerctl/install.sh $subinstall_params
 fi
 
-# 24. Install PAPIS
+# 22. Install PAPIS
 ! $docker && bash $APPCONFIG_PATH/papis/install.sh $subinstall_params
 
-# 25. Install VIM-STREAM
+# 23. Install VIM-STREAM
 ! $docker && bash $APPCONFIG_PATH/vim-stream/install.sh $subinstall_params
 
-# 26. Install REFIND
+# 24. Install REFIND
 if [ "$arch" != "aarch64" ]; then
     ! $docker && bash $APPCONFIG_PATH/refind/install.sh $subinstall_params
 fi
 
-# 27. Install TMUXINATOR
+# 25. Install TMUXINATOR
 ! $docker && bash $APPCONFIG_PATH/tmuxinator/install.sh $subinstall_params
 
-# 28. Install LOLCAT
+# 26. Install LOLCAT
 ! $docker && bash $APPCONFIG_PATH/lolcat/install.sh $subinstall_params
 
-# 29. Install DOCKER
+# 27. Install DOCKER
 ! $docker && bash $APPCONFIG_PATH/docker/install.sh $subinstall_params
 
-# 30. Install YT-DLP
+# 28. Install YT-DLP
 ! $docker && bash $APPCONFIG_PATH/yt-dlp/install.sh $subinstall_params
 
-# 31. Install SCRCPY
+# 29. Install LOBSTER
+! $docker && bash $APPCONFIG_PATH/lobster/install.sh $subinstall_params
+
+# 30. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 32. Install RCLONE
+# 31. Install RCLONE
 ! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
 
-# 33. Install NCHAT
+# 32. Install NCHAT
 ! $docker && bash $APPCONFIG_PATH/nchat/install.sh $subinstall_params
 
-# 34. Install QUTEBROWSER
+# 33. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
 
 # the docker setup ends here

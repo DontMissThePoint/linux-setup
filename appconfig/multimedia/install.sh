@@ -121,12 +121,12 @@ MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image
     git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
 
     # imdb
-    pip install --upgrade guessit git+https://github.com/cinemagoer/cinemagoer
+    pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer
     git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
     git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
 
     # autosubsync
-    sudo pip install -U subliminal ffsubsync
+    sudo pip install -U --break-system-packages subliminal ffsubsync
     git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
 
     break

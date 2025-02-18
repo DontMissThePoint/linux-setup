@@ -73,11 +73,11 @@ while true; do
 
     # loading screen
     cd /tmp
-    [ -e ly ] && rm -rf ly
+    [ -e ly ] && sudo rm -rf ly
     git clone --recurse-submodules https://github.com/fairyglade/ly
     cd ly
-    make -j8
-    sudo make install installsystemd
+    zig build
+    sudo `which zig` build installsystemd
 
     #  service
     sudo systemctl disable gdm3
@@ -86,6 +86,7 @@ while true; do
     sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
 
     # systemd
+    sudo mkdir -p /etc/X11/xinit/xinitrc.d
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
     sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
     systemctl --user daemon-reload
@@ -118,15 +119,6 @@ while true; do
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
 
-    cd /tmp
-    [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
-    git clone https://github.com/airblader/xcb-util-xrm
-    cd xcb-util-xrm
-    git submodule update --init
-    ./autogen.sh --prefix=/usr
-    make -j8
-    sudo make install
-
     # install light for display backlight control
     # compile light
     sudo apt-get -y install help2man
@@ -140,25 +132,27 @@ while true; do
     # clean up after the compilation
     make clean
     git clean -fd
-
-    # compile i3
-    sudo pip3 install meson
+    sudo pip3 install --break-system-packages meson
     # cd $APP_PATH/../../submodules/i3/
 
-    # build from sources
-    rm -fr /tmp/build && mkdir /tmp/build
-    cd /tmp/build
-    git clone https://www.github.com/airblader/i3 i3-gaps
-    cd i3-gaps
-    git checkout gaps && git pull
-    sudo apt install meson asciidoc
-    meson -Ddocs=true -Dmans=true ../build
-    meson compile -C ../build
-    sudo meson install -C ../build
+    # i3 gaps rounded corners
+    sudo apt install -y git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
+        libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
+        libstartup-notification0-dev libxcb-randr0-dev \
+        libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
+        libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
+        autoconf libxcb-xrm0 libxcb-xrm-dev automake i3status \
+        ninja-build meson libxcb-shape0-dev build-essential -y
 
-    # clean after myself
-    git reset --hard
-    git clean -fd
+    # Compile
+    cd /tmp
+    [ -e i3 ] && rm -rf i3
+    git clone https://github.com/ntk148v/i3.git
+    cd i3/
+    mkdir -p build && cd build
+    meson ..
+    ninja
+    sudo ninja install
 
     # compile i3 blocks
     cd $APP_PATH/../../submodules/i3blocks/
