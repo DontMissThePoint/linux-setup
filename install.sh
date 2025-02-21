@@ -45,8 +45,7 @@ sudo apt-get -y update -qq
 sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck pv atool moreutils
 
 # python
-sudo apt-get -y install python3-full python3-dev python3-setuptools python3-pip
-pip install --upgrade --break-system-packages openpyxl xlrd virtualenv
+sudo apt-get -y install python3-full python3-dev python3-setuptools python3-pip pipx
 
 if [ -n "$BEAVER" ]; then
     sudo apt-get -y install python-git
@@ -167,7 +166,7 @@ fi
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
 # 31. Install RCLONE
-! $docker && bash $APPCONFIG_PATH/obsidian/install.sh $subinstall_params
+! $docker && bash $APPCONFIG_PATH/rclone/install.sh $subinstall_params
 
 # 32. Install NCHAT
 ! $docker && bash $APPCONFIG_PATH/nchat/install.sh $subinstall_params
@@ -207,6 +206,7 @@ sudo apt-get -y purge apturl ubuntu-advantage-tools
 sudo ufw logging off
 
 # Guest session & remote login disable for LightDm
+sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
@@ -214,7 +214,7 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 #############################################
 
 # path
-remove_duplicates_from_path
+# remove_duplicates_from_path
 
 # network
 case $(< /etc/systemd/resolved.conf 2>/dev/null) in
@@ -232,6 +232,9 @@ esac
 # storage
 sudo apt -y autoremove
 sudo docker volume prune
+
+# packages
+sudo apt dist-upgrade
 
 # power
 the_ppa=linrunner/tlp

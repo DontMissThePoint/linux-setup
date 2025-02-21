@@ -36,13 +36,13 @@ while true; do
 
     toilet Installing scrcpy -t --filter metal -f smmono12
     cd $APP_PATH/../../submodules/scrcpy
-    ./install_release.sh
 
     # adb latest
     sudo apt install -y libsdl2-2.0-0 adb fastboot wget \
     	gcc git pkg-config meson ninja-build libsdl2-dev \
     	libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
     	libswresample-dev libusb-1.0-0 libusb-1.0-0-dev libavformat-dev libavutil-dev
+    ./install_release.sh
 
     cd /tmp
     wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip

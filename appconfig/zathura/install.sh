@@ -81,13 +81,11 @@ while true; do
     # pdftk *.pdf cat output combined.pdf
 
     # visidata
-    pip install --break-system-packages --upgrade visidata datapackage pypng pdfminer.six ptpython lxml xlrd openpyxl tomli PyYAML IPython
+    pip install --user --break-system-packages --upgrade visidata datapackage epy-reader pypng pdfminer.six ptpython \
+     openpyxl xlrd virtualenv lxml xlrd openpyxl tomli PyYAML IPython 2> /dev/null
     mkdir -p ~/.visidata ~/.config/zathura
     cp -f $APP_PATH/dotvisidata/* ~/.visidata
     pv "$APP_PATH/visidatarc" > ~/.visidatarc
-
-    # epy
-    pip install --break-system-packages epy-reader
 
     # Calibre
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000

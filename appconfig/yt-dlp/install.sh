@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-	  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp (videos, image galleries, collections)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+	  [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-dlp (youtube videos, gallery downloader)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -40,7 +40,7 @@ while true; do
     sudo apt install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
 
     # gallery-dl
-    /usr/bin/python3 -m pip install -U yt-dlp gallery-dl
+    pipx install yt-dlp gallery-dl
 
     # ytfzf
     cd /tmp

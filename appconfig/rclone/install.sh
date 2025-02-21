@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up rclone? (Encrypted backups, restic, syncthing) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up rclone? (Encrypted backups, syncthing) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -55,8 +55,8 @@ while true; do
 
     # Obsidian
     cd /tmp
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.6.7/obsidian_1.6.7_amd64.deb
-    sudo dpkg -i /tmp/obsidian_1.6.7_amd64.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.7/obsidian_1.8.7_amd64.deb
+    sudo dpkg -i /tmp/obsidian_1.8.7_amd64.deb
     mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
     cp -fr $APP_PATH/dotobsidian/* ~/vaults/.obsidian
     pv $APP_PATH/obsidian.vimrc > ~/vaults/.obsidian.vimrc
@@ -73,7 +73,7 @@ $ rclone config'
     # GDrive
     mkdir -p ~/.elinks
     pv $APP_PATH/elinks.conf > ~/.elinks/elinks.conf
-    pip install --upgrade gdown
+    pipx install gdown
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

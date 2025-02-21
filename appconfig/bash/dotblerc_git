@@ -288,7 +288,7 @@ bleopt allow_exit_with_jobs=
 # value is specified the cursor position is the beginning or the end of the
 # command lines when the move is to a newer or older entry, respectively.
 
-bleopt history_preserve_point=
+history_default_point=
 
 
 # The following setting controls the history sharing. If it has non-empty

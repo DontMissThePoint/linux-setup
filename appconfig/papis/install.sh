@@ -36,19 +36,13 @@ while true; do
 
     # install papis
     cd $APP_PATH/../../submodules/papis/
-    make -j8
-    sudo make install
-
-    sudo pip3 install --upgrade whoosh
-
-    # clean up after the compilation
-    make clean
-    git clean -fd
-    git reset --hard
+    # make
+    # sudo make install
+    pipx install papis papis-zotero whoosh
 
     # install papis-zotero
     cd $APP_PATH/../../submodules/papis-zotero/
-    sudo python3 setup.py install
+    # sudo python3 setup.py install
 
     # symlink the settings
     rm -rf $HOME/.config/papis

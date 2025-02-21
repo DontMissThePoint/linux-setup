@@ -31,7 +31,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall nchat (whatsmeow, pidgin, go-whatsapp)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall nchat (go-whatsapp, pidgin)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -39,11 +39,11 @@ while true; do
   then
 
     toilet Installing nchat -t --filter metal -f smmono12
-    sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev golang git html2md
+    sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev golang
 
     # nchat
     cd /tmp
-    [ -e nchat ] && rm -rf nchat
+    [ -e nchat ] && sudo rm -rf nchat
     git clone https://github.com/d99kris/nchat.git
     cd nchat && mkdir -p build && cd build && cmake ..
     make -s -j8
@@ -51,6 +51,7 @@ while true; do
 
     # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
     # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
+    mkdir -p ~/.config/nchat
     cp $(dirname $(which nchat))/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
 
     # pidgin

@@ -38,7 +38,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing refind -t ---filter metal -f smmono12
+    toilet Installing refind -t --filter metal -f smmono12
 
     the_ppa=rodsmith/refind
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
@@ -90,6 +90,7 @@ while true; do
     # boot
     echo "Hide kernel messages from the console."
     sudo cp -f $APP_PATH/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
+    sudo systemctl daemon-reload
     echo "Done."
 
     break

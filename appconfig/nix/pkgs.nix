@@ -3,7 +3,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
-    pkgs.megasync
+    # pkgs.megasync
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
