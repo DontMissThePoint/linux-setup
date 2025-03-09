@@ -37,6 +37,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Installing i3 -t --filter metal -f smmono12
+
     sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0 redshift redshift-gtk
 
     if [ -n "$beaver" ]; then
@@ -71,13 +73,13 @@ while true; do
     # ly backend
     sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev systemd
 
-    # loading screen
+    # login console
     cd /tmp
     [ -e ly ] && sudo rm -rf ly
-    git clone --recurse-submodules https://github.com/fairyglade/ly
+    git clone https://github.com/fairyglade/ly
     cd ly
     zig build
-    sudo `which zig` build installsystemd
+    sudo `which zig` build installexe
 
     #  service
     sudo systemctl disable gdm3
@@ -122,7 +124,6 @@ while true; do
     # install light for display backlight control
     # compile light
     sudo apt-get -y install help2man
-
     cd $APP_PATH/../../submodules/light/
     ./autogen.sh
     ./configure && make
@@ -132,27 +133,37 @@ while true; do
     # clean up after the compilation
     make clean
     git clean -fd
-    sudo pip3 install --break-system-packages meson
+
+    # i3
+    sudo apt remove -y i3* || echo "Installing i3..."
+
+    # compile i3
+    sudo pip3 install --break-system-packages meson 2> /dev/null
     # cd $APP_PATH/../../submodules/i3/
 
-    # i3 gaps rounded corners
-    sudo apt install -y git libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev \
-        libxcb-util0-dev libxcb-icccm4-dev libyajl-dev \
-        libstartup-notification0-dev libxcb-randr0-dev \
-        libev-dev libxcb-cursor-dev libxcb-xinerama0-dev \
-        libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev \
-        autoconf libxcb-xrm0 libxcb-xrm-dev automake i3status \
-        ninja-build meson libxcb-shape0-dev build-essential -y
-
-    # Compile
+    # build from sources
+    sudo apt install -y i3status ninja-build
+    # rm -fr /tmp/build && mkdir /tmp/build
+    # cd /tmp/build
+    # git clone https://www.github.com/airblader/i3 i3-gaps
+    # cd i3-gaps
+    # git checkout gaps && git pull
+    # sudo apt install meson asciidoc
+    # meson -Ddocs=true -Dmans=true ../build
+    # meson compile -C ../build
+    # sudo meson install -C ../build
     cd /tmp
-    [ -e i3 ] && rm -rf i3
-    git clone https://github.com/ntk148v/i3.git
-    cd i3/
+    [ -e i3-gaps-rounded ] && rm -rf i3-gaps-rounded
+    git clone https://github.com/jbenden/i3-gaps-rounded.git
+    cd i3-gaps-rounded
     mkdir -p build && cd build
     meson ..
     ninja
     sudo ninja install
+
+    # clean after myself
+    git reset --hard
+    git clean -fd
 
     # compile i3 blocks
     cd $APP_PATH/../../submodules/i3blocks/
@@ -181,7 +192,8 @@ while true; do
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
-    pip install --upgrade flashfocus
+    pip install --break-system-packages flashfocus -U 2> /dev/null
+
 
     # xbanish
     cd /tmp
@@ -207,7 +219,7 @@ while true; do
     fi
 
     # rofi
-    sudo apt-get -y remove rofi* || echo "Installing rofi"
+    sudo apt-get -y remove rofi* || echo "Installing rofi..."
     sudo apt install -y libxcb-ewmh-dev flex
 
     rm -fr /tmp/rofi && cd /tmp
@@ -218,8 +230,8 @@ while true; do
     sudo ninja -C build install
 
     # automounter for removable media
-    sudo apt install -y python-setuptools udisks2 python3-pip python3-gi python3-gi-cairo gir1.2-gtk-4.0 python3-yaml libglib2.0-dev gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7
-    sudo pip install -U udiskie keyutils
+    sudo apt install -y udisks2 python3-pip python3-gi python3-gi-cairo gir1.2-gtk-4.0 python3-yaml libglib2.0-dev gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7 libkeyutils-dev keyutils
+    sudo pip install --break-system-packages udiskie -U 2> /dev/null
 
     sudo mkdir -p /etc/polkit-1/localauthority/50-local.d
     sudo cp -f $APP_PATH/consolekit.pkla /etc/polkit-1/localauthority/50-local.d/
@@ -332,7 +344,11 @@ while true; do
     sudo make install
 
     # picom
+
+    toilet Settingup picom -t -f future
+
     cd /tmp
+    sudo apt install -y libxcb-damage0-dev libxcb-sync-dev libxcb-present-dev uthash-dev
     [ -e picom ] && rm -rf /tmp/picom
     git clone https://github.com/jonaburg/picom
     cd picom

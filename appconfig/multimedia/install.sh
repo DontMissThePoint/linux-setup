@@ -67,17 +67,15 @@ while true; do
     sudo apt-get -y install gstreamer1.0-libav libxpresent1
 
     # for video, photo, audio, ..., viewing and editing
-    sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol newsboat
-
-    # newsboat
-    cp -rf "$APP_PATH/newsboat" ~/.config/
+    sudo apt-get -y install gimp screenkey vlc audacity rawtherapee pavucontrol
 
     # mpv
     echo "Installing MPV"
+    sudo apt install -y libopencore-amrnb0 libopencore-amrwb0
     if [ -n "$NOBLE" ]; then
       wget -c -P "$APP_PATH" https://apt.fruit.je/ubuntu/noble/mpv/mpv_0.38.0+fruit.1_amd64.deb
       wget -c -P "$APP_PATH" https://sourceforge.net/projects/videlibri/files/Xidel/Xidel%200.9.8/xidel_0.9.8-1_amd64.deb
-      sudo dpkg -i $APP_PATH/*.deb
+      sudo dpkg -i $APP_PATH/*.deb || sudo apt install -f
       rm -f $APP_PATH/*.deb
     else
       sudo apt install -y mpv
@@ -121,12 +119,12 @@ MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image
     git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
 
     # imdb
-    pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer
+    pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer 2> /dev/null
     git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
     git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
 
     # autosubsync
-    sudo pip install -U --break-system-packages subliminal ffsubsync
+    sudo pip install -U --break-system-packages subliminal ffsubsync 2> /dev/null
     git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
 
     break

@@ -108,10 +108,11 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
     # quickemu --vm windows-11.conf --width 1920 --height 1080
 
     # tex-cvbuilder: https://github.com/antkr10/tex-cvbuilder
-    if [ -e $HOME/Documents/cvbuilder ]; then
-      pv $APP_PATH/tex-cvbuilder > ~/Documents/cvbuilder/Dockerfile && cd ~/Documents/cvbuilder
-      docker build -t ubuntu:tex-cvbuilder .
-    fi
+    # if [ ! -e ~/Documents/cvbuilder ]; then
+    #   mkdir -p ~/Downloads/cvbuilder
+    #   pv $APP_PATH/tex-cvbuilder > ~/Documents/cvbuilder/Dockerfile
+    #   cd ~/Documents/cvbuilder && docker build -t ubuntu:tex-cvbuilder .
+    # fi
 
     # dockurr
     toilet Settingup dockurr -t -f future

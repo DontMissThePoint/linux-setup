@@ -358,7 +358,7 @@ set_from_resource $term_color15 color15
 # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL {
 # exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/white.jpg
 # # EPIGEN_DEL_BLOCK_MATOUS EPIGEN_DEL_BLOCK_DANIEL }
-# for_window [class="^.*"] border pixel 3
+# for_window [class="^.*"] border pixel 0
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
@@ -413,13 +413,11 @@ set_from_resource $term_color15 color15
 # set $urgent                   #f7768e
 # set $i3bar_bg                 #1a1b26
 # exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/121212.jpg
-# for_window [class="^.*"] border pixel 1
+# for_window [class="^.*"] border pixel 0
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
 # #}
-
-hide_edge_borders both
 
 # window colors
 # class                        border                 background          text            indicator        child_border
@@ -436,14 +434,17 @@ client.background       $background_color
 bar {
 
   position top
-  # mode invisible
-  mode dock
+  mode invisible
+  # mode dock
   hidden_state hide
   modifier $mod2
   strip_workspace_numbers yes
   status_command i3blocks -c ~/.i3/i3blocks.conf
   i3bar_command i3bar -t
   # separator_symbol " "
+
+  # Height in pixels
+  height 30
 
   font pango: Terminus, FontAwesome 8
   tray_output primary # EPIGEN_DEL_LINE_PETR
@@ -581,7 +582,14 @@ bar {
 # #{ i3-gaps settings
 
 smart_gaps on # EPIGEN_DEL_LINE_TOMAS
-smart_gaps inverse_outer # EPIGEN_DEL_LINE_TOMAS
+# smart_gaps inverse_outer # EPIGEN_DEL_LINE_TOMAS
+
+# Hide edge borders only one window
+hide_edge_borders smart_no_gaps
+
+# Smart borders
+# smart_borders on
+smart_borders no_gaps
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 {
@@ -589,8 +597,8 @@ smart_gaps inverse_outer # EPIGEN_DEL_LINE_TOMAS
 # # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-set $default_gaps_inner 14
-set $default_gaps_outer -2
+set $default_gaps_inner 12
+set $default_gaps_outer 0
 
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer
@@ -603,7 +611,7 @@ set $mode_gaps_inner inner gaps
 
 # #{ rounded window corners
 
-border_radius 5
+border_radius 7
 
 # #}
 

@@ -82,7 +82,7 @@ while true; do
 
     # visidata
     pip install --user --break-system-packages --upgrade visidata datapackage epy-reader pypng pdfminer.six ptpython \
-     openpyxl xlrd virtualenv lxml xlrd openpyxl tomli PyYAML IPython 2> /dev/null
+     PyYAML lxml pandas xlrd openpyxl pyxlsb h5py xport savReaderWriter virtualenv tomli IPython tabulate 2> /dev/null
     mkdir -p ~/.visidata ~/.config/zathura
     cp -f $APP_PATH/dotvisidata/* ~/.visidata
     pv "$APP_PATH/visidatarc" > ~/.visidatarc

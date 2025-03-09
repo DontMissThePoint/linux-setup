@@ -50,7 +50,9 @@ while true; do
     # swiss knife
     toilet Setting up brew -t -f future
     source $HOME/.bashrc && brew update && brew upgrade
-    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust zig aria2 glow restic croc
+    brew install webtorrent-cli zoxide grc vivid \
+      fzf bat ripgrep universal-ctags miller ctop btop \
+      eza fd s-search dust zig aria2 glow restic croc newsboat
     brew cleanup --prune=all
 
     # configs
@@ -62,6 +64,10 @@ while true; do
     pv "$APP_PATH/s.config" > ~/.config/s/config
     pv "$APP_PATH/aria2.conf" > ~/.config/aria2/aria2.conf
     pv "$APP_PATH/glow.yml" > ~/.config/glow/glow.yml
+
+    # newsboat
+    cp -rf "$APP_PATH/newsboat" ~/
+    mv ~/newsboat ~/.newsboat
 
     # update bt-trackers
     echo "Updating bt-trackers... "

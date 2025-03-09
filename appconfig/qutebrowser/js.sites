@@ -1,6 +1,11 @@
 *://*.mail.google.com
+*://*.google.com/*
 *://*.localhost:*
 *://*.127.0.0.1:*
 *://*.mega.nz/*
 *://*.nixos.org/*
+*://*.reddit.com/*
 *://*.deepseek.com/*
+*://*.coda.io/*
+*://*.lido.app/*
+*://*.learn.deeplearning.ai/*
