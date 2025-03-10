@@ -597,7 +597,7 @@ smart_borders no_gaps
 # # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-set $default_gaps_inner 12
+set $default_gaps_inner 13
 set $default_gaps_outer 0
 
 gaps inner $default_gaps_inner
@@ -1567,6 +1567,9 @@ for_window [title="optic_flow"] floating disable
 # for_window [class="^Gimp$"] move workspace $workspace9
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
+
+# fullscreen all windows
+for_window [class="^.*"] fullscreen enable
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # for_window [title="Gazebo"] move workspace $workspace9
