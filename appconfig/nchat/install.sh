@@ -93,8 +93,8 @@ while true; do
     fi
 
     # prefs
-    echo "nchat --setup to get started +2567XXXXXXXX"
-    echo "Pidgin: Setup account with 2567XXXXXXXX@s.whatsapp.net"
+    echo "nchat --setup to get started."
+    echo "Pidgin: 2567XXXXXXXX@s.whatsapp.net"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -98,7 +98,7 @@ end
 -- Fix libuv
 autocmd({ "VimLeave" }, {
 	callback = function()
-		vim.cmd("sleep 25m")
+		vim.cmd("sleep 10m")
 	end,
 })
 

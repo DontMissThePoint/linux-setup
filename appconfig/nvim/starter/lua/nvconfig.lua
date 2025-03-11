@@ -1,13 +1,13 @@
 local options = {
 
   base46 = {
-    theme = "oxocarbon", -- default theme
+    theme = "gatekeeper", -- default theme
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = true,
-    theme_toggle = { "oxocarbon", "one_light" },
+    theme_toggle = { "gatekeeper", "one_light" },
   },
 
   ui = {
@@ -44,7 +44,7 @@ local options = {
   },
 
   nvdash = {
-    load_on_startup = false,
+    load_on_startup = true,
     header = {
       "                            ",
       "     ▄▄         ▄ ▄▄▄▄▄▄▄   ",
