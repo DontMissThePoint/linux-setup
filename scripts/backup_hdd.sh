@@ -12,8 +12,8 @@ LINUX_SETUP=$GIT_PATH/linux-setup
 CV_SETUP=~/Documents/cvbuilder
 
 # init
-[ ! -e "$LINUX_REPOSITORY" ] && restic init --repo $LINUX_REPOSITORY --password-file $RESTIC_PASSWORD_FILE
-[ ! -e "$CV_REPOSITORY" ] && restic init --repo $CV_REPOSITORY --password-file $RESTIC_PASSWORD_FILE
+[ ! -e "$LINUX_REPOSITORY/config" ] && restic init --repo $LINUX_REPOSITORY --password-file $RESTIC_PASSWORD_FILE
+[ ! -e "$CV_REPOSITORY/config" ] && restic init --repo $CV_REPOSITORY --password-file $RESTIC_PASSWORD_FILE
 
 # backup
 restic -r $LINUX_REPOSITORY --verbose --password-file $RESTIC_PASSWORD_FILE backup $LINUX_SETUP
