@@ -210,17 +210,6 @@ sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
-# SSH key
-#############################################
-
-if [ ! -e ~/.ssh/id_ed25519 ]; then
-    echo "Generating a new SSH key..."
-    ssh-keygen -t ed25519 -C "kiguddeshafiq@gmail.com"
-    eval "$(ssh-agent -s)"
-    ssh-add ~/.ssh/id_ed25519
-fi
-
-#############################################
 # Optimize for performance
 #############################################
 

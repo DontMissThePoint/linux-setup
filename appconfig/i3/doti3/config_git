@@ -597,8 +597,8 @@ smart_borders no_gaps
 # # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 }
 # EPIGEN_ADD_BLOCK_TOMAS }
 
-set $default_gaps_inner 13
-set $default_gaps_outer 0
+set $default_gaps_inner 8
+set $default_gaps_outer -1
 
 gaps inner $default_gaps_inner
 gaps outer $default_gaps_outer

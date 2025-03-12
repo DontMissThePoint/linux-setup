@@ -31,7 +31,8 @@ local plugins = {
 	{
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
-      ensure_installed = {"vim", "html", "bash"},
+      ensure_installed = {"vim", "regex", "lua", "bash",
+        "markdown", "markdown_inline", "html"},
 			auto_install = true,
 		},
 	},
@@ -41,7 +42,23 @@ local plugins = {
 	},
 
 	-- Install a plugin
+  {
+    "nvchad/ui",
+     config = function()
+       require "nvchad"
+     end
+  },
 
+  {
+     "nvchad/base46",
+     lazy = true,
+     build = function()
+       require("base46").load_all_highlights()
+     end,
+  },
+
+  "nvchad/volt", -- optional, needed for theme switcher
+  -- or just use Telescope themes
 	{
 		"max397574/better-escape.nvim",
 		event = "InsertEnter",

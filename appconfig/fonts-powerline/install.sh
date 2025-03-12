@@ -56,12 +56,12 @@ while true; do
         sudo apt update
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
     fi
-    sudo apt install -y fonts-inter-variable fonts-symbola ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
+    sudo apt install -y fonts-inter-variable fonts-symbola unifont ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
     # Nerd fonts
     toilet Setting up Nerd Fonts -t -f future
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --tag=v0.1.0
-    getnf -i "JetBrainsMono Meslo Monofur Hermit Hasklig IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono CascadiaCode"
+    getnf -i "JetBrainsMono FiraMono Meslo Monofur Hermit Hasklig IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono CascadiaCode"
     getnf -U
     rm -fr ~/Downloads/getnf
 
