@@ -4,4 +4,4 @@ Split date and time into two different columns
 Convert mileage columns to numeric datatype
 Then remove comma separators from cell values.
 
-Also align all columns in the sheet
+Also align all columns in the sheets.

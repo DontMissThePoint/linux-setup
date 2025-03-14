@@ -66,8 +66,8 @@ while true; do
     pv "$APP_PATH/glow.yml" > ~/.config/glow/glow.yml
 
     # newsboat
-    cp -rf "$APP_PATH/newsboat" ~/
-    mv ~/newsboat ~/.newsboat
+    mkdir -p ~/.newsboat
+    cp -rf $APP_PATH/newsboat/* ~/.newsboat/
 
     # update bt-trackers
     echo "Updating bt-trackers... "

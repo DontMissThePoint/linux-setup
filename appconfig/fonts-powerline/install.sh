@@ -56,7 +56,7 @@ while true; do
         sudo apt update
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
     fi
-    sudo apt install -y fonts-inter-variable fonts-symbola unifont ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
+    sudo apt install -y fonts-inter-variable fonts-symbola unifont fonts-font-awesome ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
 
     # Nerd fonts
     toilet Setting up Nerd Fonts -t -f future

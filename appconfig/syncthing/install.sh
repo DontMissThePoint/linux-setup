@@ -27,18 +27,21 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up rclone? (Encrypted backups, syncthing) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up syncthing? (Encrypted backups, rclone) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Settingup syncthing -t -f future
+
+    # sources
     sudo rm -f /etc/apt/sources.list.d/syncthing.list
 
     # Syncthing
-    sudo apt install -y curl apt-transport-https
-    curl -s https://syncthing.net/release-key.txt | sudo apt-key add -
+    sudo apt install -y gnupg2 curl apt-transport-https
+    curl -fsSL https://syncthing.net/release-key.txt | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/syncthing.gpg
     echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
     sudo apt update
     sudo apt install -y syncthing
@@ -55,8 +58,8 @@ while true; do
 
     # Obsidian
     cd /tmp
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.7/obsidian_1.8.7_amd64.deb
-    sudo dpkg -i /tmp/obsidian_1.8.7_amd64.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb
+    sudo dpkg -i /tmp/obsidian_1.8.9_amd64.deb
     mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
     cp -fr $APP_PATH/dotobsidian/* ~/vaults/.obsidian
     pv $APP_PATH/obsidian.vimrc > ~/vaults/.obsidian.vimrc
