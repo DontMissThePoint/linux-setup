@@ -213,6 +213,10 @@ while true; do
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo /usr/bin/python3 setup.py install
 
+    # indicator-ram
+    cd $APP_PATH/../../submodules/i3blocks-contrib/memory2
+    make
+
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
       ln -sf $APP_PATH/doti3 ~/.i3
