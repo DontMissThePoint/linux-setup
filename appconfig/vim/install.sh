@@ -48,15 +48,13 @@ while true; do
 
     sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
 
-    sudo -H pip3 install --break-system-packages rospkg
+    sudo -H pip3 install --break-system-packages rospkg 2> /dev/null
 
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
     ./configure --with-features=huge \
       --enable-multibyte \
-      --enable-python3interp=yes \
-      --with-python3-command=python3 \
-      --enable-pythoninterp=yes \
+      --with-python3-command=/usr/bin/python3 \
       --enable-python3interp=yes \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
@@ -110,7 +108,7 @@ while true; do
           sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11 main"
           # if 18.04, python3-clang has to be installed throught pip3 with prequisites manually from apt
           sudo apt-get -y install clang-11 libclang-11-dev
-          sudo pip3 install --break-system-packages clang
+          sudo pip3 install --break-system-packages clang 2> /dev/null
         else
           # if 22.04, just install python3-clang from apt
           sudo apt-get -y install python3-clang libclang-18-dev

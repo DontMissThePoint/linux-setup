@@ -75,8 +75,10 @@ while true; do
     echo "https://www.google.com/android/uncertified to register device"
 
     # modules
+    BGREEN='\033[1;32m'
+    NC='\033[0m' # No Color
     sudo cp -f $APP_PATH/redroid.conf /etc/modules-load.d/redroid.conf
-    echo "Modules loded successfully."
+    echo -e "${BGREEN}Modules loded successfully.${NC}"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

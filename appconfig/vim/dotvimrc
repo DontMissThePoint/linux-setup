@@ -134,7 +134,7 @@ if g:user_mode == "1"
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " make vim and ROS friends
-  Plug 'klaxalk/vim-ros'
+  " Plug 'klaxalk/vim-ros'
 
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " airline extension for tmux
@@ -517,9 +517,9 @@ au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 au FileType cpp,c set foldmethod=marker
 au FileType cpp,c set foldmarker=//{,//}
 
-au BufNewFile,BufRead *.test setf roslaunch.xml
-au FileType roslaunch.xml set foldmethod=marker
-au FileType roslaunch.xml set foldmarker=//{,//}
+" au BufNewFile,BufRead *.test setf roslaunch.xml
+" au FileType roslaunch.xml set foldmethod=marker
+" au FileType roslaunch.xml set foldmarker=//{,//}
 
 au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
@@ -621,7 +621,7 @@ if g:user_mode == "1"
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " config for vim-ros
-  source ~/.vim/pluginconfig/vim-ros.vim
+  " source ~/.vim/pluginconfig/vim-ros.vim
 
   " config for tmuxline
   "source ~/.vim/pluginconfig/tmuxline.vim

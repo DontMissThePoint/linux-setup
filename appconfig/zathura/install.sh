@@ -48,6 +48,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Installing zathura -t --filter metal -f smmono12
+
     if [ -n "$BEAVER" ]; then
 
       sudo apt-get -y remove zathura libgirara-dev
@@ -68,8 +70,10 @@ while true; do
 
     # img2pdf
     echo "Configuring..."
-    sudo apt install -y python3-genshi python-lxml-doc img2pdf pdftk
-    sh -c "$(wget -O - https://sweetohm.net/dist/md2pdf/install)"
+    sudo apt install -y python3-genshi python-lxml-doc img2pdf datamash pdftk
+
+    # number of pages
+    # pdftk my.pdf dump_data | grep NumberOfPages | awk '{print $2}'
 
     # Make PDF
     # img2pdf *.jp* --output combined.pdf
@@ -80,9 +84,16 @@ while true; do
     # concatenate the pdf pages into one document:
     # pdftk *.pdf cat output combined.pdf
 
+    # number of columns csv
+    # csvcut -n data.csv
+    # in2csv 1033_data.xlsx | csvcut -c county,item_name,quantity | csvlook | head
+
+    toilet Settingup visidata -t -f future
+
     # visidata
-    pip install --user --break-system-packages --upgrade visidata datapackage epy-reader pypng pdfminer.six ptpython \
-     PyYAML lxml pandas xlrd openpyxl pyxlsb h5py xport savReaderWriter virtualenv tomli IPython tabulate 2> /dev/null
+    pip install --user --break-system-packages --upgrade visidata \
+      datapackage epy-reader pypng pdfminer.six ptpython PyYAML lxml pandas \
+      xlrd openpyxl pyxlsb h5py xport savReaderWriter virtualenv tomli IPython tabulate 2> /dev/null
     mkdir -p ~/.visidata ~/.config/zathura
     cp -f $APP_PATH/dotvisidata/* ~/.visidata
     pv "$APP_PATH/visidatarc" > ~/.visidatarc

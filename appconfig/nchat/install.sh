@@ -93,8 +93,10 @@ while true; do
     fi
 
     # prefs
+    UGREEN='\033[4;32m'
+    NC='\033[0m' # No Color
     echo "nchat --setup to get started."
-    echo "Pidgin: 2567XXXXXXXX@s.whatsapp.net"
+    echo -e "Pidgin: 2567XXXXXXXX${UGREEN}@s.whatsapp.net${NC}"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

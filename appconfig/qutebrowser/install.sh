@@ -75,9 +75,14 @@ while true; do
     ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts
     rm -fr $GIT_PATH/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
-    # reader
+    toilet Setting up llamaparse -t -f future
+
+    # llama-parse-cli
+    GREEN='\033[0;32m'
+    NC='\033[0m' # No Color
     npm config set strict-ssl=false
-    npm install -g jsdom qutejs punycode @mozilla/readability
+    npm install -g llama-parse-cli jsdom qutejs punycode @mozilla/readability
+    echo -e "${GREEN}llama-parse auth  ${NC}to get started."
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
