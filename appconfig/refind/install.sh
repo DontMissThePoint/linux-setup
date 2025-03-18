@@ -47,16 +47,6 @@ while true; do
       sudo apt install -y refind
     fi
 
-    # grub-customizer
-    if [ -n "$BEAVER" ] || [ -n "$NOBLE" ]; then
-      the_ppa=danielrichter2007/grub-customizer
-      if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-        sudo add-apt-repository -y ppa:danielrichter2007/grub-customizer
-        sudo apt update
-        sudo apt install -y grub-customizer
-      fi
-    fi
-
     # plymouth
     sudo apt install -y plymouth
     sudo mkdir -p /etc/plymouth
@@ -88,6 +78,7 @@ while true; do
     # sudo rm -r /boot/efi/EFI/refind
 
     # boot
+    # 3 3 3 3 for logs
     echo "Hide kernel messages from the console."
     sudo cp -f $APP_PATH/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
     sudo systemctl daemon-reload

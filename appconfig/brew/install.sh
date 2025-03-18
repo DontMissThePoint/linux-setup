@@ -50,8 +50,8 @@ while true; do
     # swiss knife
     toilet Setting up brew -t -f future
     source $HOME/.bashrc && brew update && brew upgrade
-    brew install webtorrent-cli zoxide grc vivid viu \
-      fzf bat ripgrep universal-ctags miller ctop btop \
+    brew install webtorrent-cli zoxide grc vivid viu pipx \
+      fzf bat ripgrep universal-ctags miller ctop btop csvkit \
       eza fd s-search dust zig aria2 glow restic croc newsboat
     brew cleanup --prune=all
 

@@ -55,12 +55,14 @@ while true; do
       # UTF-8
       # Guess optimal character set
       # Let the system select a suitable font
-      # 10x20 (framebuffer only)
+      # 11x22 (framebuffer only)
+      UGREEN='\033[4;32m'
+      NC='\033[0m' # No Color
       echo ""
       echo "-----------------------------------------------------------------"
       echo "installing custom tty font. it might require manual action."
       echo "-----------------------------------------------------------------"
-      echo "if so, please select \"10x20 (framebuffer only)\", after hitting enter"
+      echo -e "if so, please select \"${UGREEN}11x22 (framebuffer only)${NC}\", after hitting enter"
       echo ""
       echo "waiting for enter..."
       echo ""

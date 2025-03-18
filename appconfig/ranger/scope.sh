@@ -79,8 +79,14 @@ case "$extension" in
         try 7z -p l "$path" && { dump | trim; exit 0; } || exit 1;;
     # PDF documents:
     pdf)
-        try pdftotext -l 10 -nopgbrk -q "$path" - && \
-            { dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
+        try pdftoppm -f 1 -l 1 -scale-to-x "${DEFAULT_SIZE%x*}" \
+          -scale-to-y -1 -singlefile -jpeg -tiffcompression jpeg -- "$path" \
+          "${IMAGE_CACHE_PATH%.*}" && { exit 0; } || exit 1;;
+        # try pdftotext -l 10 -nopgbrk -q "$path" - && \
+            # { dump | trim | fmt -s -w $width; exit 0; } || exit 1;;
+    xlsx)
+        try in2csv "$path" | sed -n '1,2p' | datamash -t"," \
+          transpose | column -s"," -t && { dump | trim; exit 0; } || exit 1;;
     # BitTorrent Files
     torrent)
         try transmission-show "$path" && { dump | trim; exit 5; } || exit 1;;

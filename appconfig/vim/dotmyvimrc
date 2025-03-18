@@ -369,6 +369,7 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
     silent! Goyo!
     set background=light
     colo github
+    Hi Load
 
     let g:airline_theme='papercolor'
     let g:github_colors_soft = 0
