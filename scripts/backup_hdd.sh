@@ -3,7 +3,7 @@
 set -e
 
 # passkey
-RESTIC_PASSWORD_FILE=$GIT_PATH/linux-setup/appconfig/rclone/restic.txt
+RESTIC_PASSWORD_FILE=$GIT_PATH/linux-setup/appconfig/syncthing/restic.txt
 
 # repos
 CV_REPOSITORY=/media/$USER/AUTORESTIC/Documents/cvbuilder
