@@ -77,9 +77,6 @@ while true; do
 
     toilet Setting up llamaparse -t -f future
 
-    # pdf2csv
-    pipx install --verbose pdf2csv
-
     # llama-parse-cli
     GREEN='\033[0;32m'
     NC='\033[0m' # No Color
