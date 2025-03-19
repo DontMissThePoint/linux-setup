@@ -60,6 +60,7 @@ options.disp_scroll_context  =  5                    # lines to scroll
 options.numeric_binning      =  True
 options.save_filetype        =  'csv'                # saved file extension
 options.disp_float_fmt       =  '%.07f'              # format for float values
+options.fmt_expand_list      =  '%s'                 # format for names of columns expanded from list / dict
 options.disp_replay_play     =  '▶'                  # status indicator for active replay
 options.disp_histogram       =  '*'                  # histogram element character
 options.disp_pixel_random    =  False                # randomly choose attr from set of pixels instead of most common

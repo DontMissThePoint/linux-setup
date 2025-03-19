@@ -102,7 +102,13 @@ remove_duplicates_from_path() {
 cd_media() {
 
   cd /media/$USER
-  ranger
+  walk --preview --with-border
+}
+
+# #{ walk
+
+lk() {
+  cd "$(walk "$@")"
 }
 
 # #}
