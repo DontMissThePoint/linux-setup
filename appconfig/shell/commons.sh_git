@@ -107,8 +107,8 @@ cd_media() {
 
 # #{ walk
 
-lk() {
-  cd "$(walk "$@")"
+kl() {
+  cd "$(walk --preview "$@")"
 }
 
 # #}
