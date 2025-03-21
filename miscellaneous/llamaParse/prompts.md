@@ -7,3 +7,4 @@ Convert mileage columns to numeric datatype
 
 # User prompt
 Also align all columns in the sheets.
+Concatenate the tables.

@@ -1,19 +1,19 @@
 local options = {
 
   base46 = {
-    theme = "gatekeeper", -- default theme
+    theme = "jabuti", -- default theme
     hl_add = {},
     hl_override = {},
     integrations = {},
     changed_themes = {},
     transparency = true,
-    theme_toggle = { "gatekeeper", "one_light" },
+    theme_toggle = { "jabuti", "one_light" },
   },
 
   ui = {
     cmp = {
       icons_left = false, -- only for non-atom styles!
-      style = "default", -- default/flat_light/flat_dark/atom/atom_colored
+      style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
       abbr_maxwidth = 60,
       format_colors = {
         tailwind = false, -- will work for css lsp too
@@ -25,7 +25,7 @@ local options = {
 
     statusline = {
       enabled = true,
-      theme = "default", -- default/vscode/vscode_colored/minimal
+      theme = "vscode", -- default/vscode/vscode_colored/minimal
       -- default/round/block/arrow separators work only for default statusline theme
       -- round and block will work for minimal theme only
       separator_style = "default",

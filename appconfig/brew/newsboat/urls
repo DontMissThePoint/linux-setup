@@ -8,6 +8,7 @@ https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
 
 "query:Jobs:tags # \"Jobs\""
 https://truenorthafrica.com/job_category/oil-gas/feed/ "Jobs" "Oil & Gas Jobs at True North" "~True North Consult Ltd"
+https://truenorthafrica.com/job_category/others/feed/ "Jobs" "Other Jobs at True North" "~True North Consult Ltd"
 
 "query:Courses:tags # \"Courses\""
 https://freecoursedl.com/feed/ "Courses" "video" "~FreeCoursedl"
