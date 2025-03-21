@@ -32,7 +32,7 @@ local plugins = {
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
       ensure_installed = {"vim", "regex", "lua", "bash",
-        "markdown", "markdown_inline", "html"},
+        "markdown", "markdown_inline", "html", "json"},
 			auto_install = true,
 		},
 	},
@@ -111,6 +111,27 @@ local plugins = {
   },
 
   {
+    "nvim-telescope/telescope.nvim",
+    dependencies = {
+        "Myzel394/jsonfly.nvim",
+    },
+    keys = {
+        {
+            "<leader>fj",
+            "<cmd>Telescope jsonfly<cr>",
+            desc = "Open json(fly)",
+            ft = { "json", "xml", "yaml" },
+            mode = "n"
+        }
+    },
+  },
+
+  {
+    "VPavliashvili/json-nvim",
+    ft = "json", -- only load for json filetype
+  },
+
+  {
     "jiaoshijie/undotree",
     dependencies = "nvim-lua/plenary.nvim",
     config = true,
@@ -145,8 +166,21 @@ local plugins = {
     opts = {},
   },
 
-	{
-		"kylechui/nvim-surround",
+  {
+    'Kicamon/markdown-table-mode.nvim',
+    ft = "markdown",
+    config = function()
+      require('markdown-table-mode').setup({
+        insert = true, -- when typing "|"
+        insert_leave = true, -- when leaving insert
+        pad_separator_line = false, -- add space in separator line
+        alig_style = 'default', -- default, left, center, right
+      })
+    end,
+  },
+
+    {
+      "kylechui/nvim-surround",
 		version = "*", -- Use for stability; omit to use `main` branch for the latest features
 		event = "VeryLazy",
 		config = function()

@@ -1556,7 +1556,7 @@ exec --no-startup-id i3-sensible-terminal
 # #{ window-specific settings
 
 # find the window parameters by running "xprop"
-for_window [class="^Thunar$"] floating disable
+for_window [class="^Nautilus$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^Google-chrome$"] floating disable
@@ -1573,6 +1573,7 @@ for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Previe
 
 # fullscreen all windows
 for_window [class="^.*"] fullscreen enable
+for_window [window_role="pop-up"] floating enable
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # for_window [title="Gazebo"] move workspace $workspace9

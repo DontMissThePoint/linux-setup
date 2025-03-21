@@ -619,20 +619,11 @@ markup=none
 # #}
 
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA {
-# [weather]
-# command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
-# interval=3600
-# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
-# color=#a4c2f4 # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
-
-[rofi-wttr]
-command=$GIT_PATH/linux-setup/submodules/i3blocks-contrib/rofi-wttr/rofi-wttr
+[weather]
+command=curl -Ss 'https://wttr.in?0&T&Q' | cut -c 16- | head -2 | xargs echo
 interval=3600
-#BAR_POSITION=top
-#FONT=Monospace 10
-#LABEL=🌡️
-LOCATION=Kampala
-ROFI_CONFIG_FILE=/dev/null
+# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+color=#a4c2f4 # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 
 [load]
 interval=5

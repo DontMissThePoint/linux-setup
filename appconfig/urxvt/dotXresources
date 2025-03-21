@@ -497,7 +497,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 
 ! ! GitHub Theme
-! URxvt.foreground: #cdd6f4
+! URxvt.foreground: [98]#cdd6f4
 ! URxvt.background: [85]#1a1c1e
 ! URxvt.cursorColor: #9aedfe
 
