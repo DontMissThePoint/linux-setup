@@ -11,6 +11,9 @@ LINUX_REPOSITORY=/media/$USER/AUTORESTIC/07.OS/linux-setup
 LINUX_SETUP=$GIT_PATH/linux-setup
 CV_SETUP=~/Documents/cvbuilder
 
+# mount
+. $GIT_PATH/linux-setup/scripts/tmux_mount.sh
+
 # init
 [ ! -e "$LINUX_REPOSITORY/config" ] && restic init --repo $LINUX_REPOSITORY --password-file $RESTIC_PASSWORD_FILE
 [ ! -e "$CV_REPOSITORY/config" ] && restic init --repo $CV_REPOSITORY --password-file $RESTIC_PASSWORD_FILE

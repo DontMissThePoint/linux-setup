@@ -22,7 +22,8 @@ do
     else
       my_cmd+=(\"${drives[i]} ${spaces[i]}\")
       my_cmd+=("$j")
-      mount_cmd=$(echo "if-shell -b \"udisksctl mount -b /dev/${drives[i]:2}\"" \"new-window\; send-keys cd_media\" \"menu -x R -t 0 -T Error \"could_not_mount_the_device\" \"Esc\" \"none\"\")
+      # mount_cmd=$(echo "if-shell -b \"udisksctl mount -b /dev/${drives[i]:2}\"" \"new-window\; send-keys cd_media\" \"menu -x R -t 0 -T Error \"could_not_mount_the_device\" \"Esc\" \"none\"\")
+      mount_cmd=$(echo "if-shell -b \"udisksctl mount -b /dev/${drives[i]:2}\"" \"display Mounted\" \"menu -x R -t 0 -T Error \"could_not_mount_the_device\" \"Esc\" \"none\"\")
       my_cmd+=("'$mount_cmd'")
     fi
     j=$((j+1))

@@ -2,38 +2,54 @@
 
 set -e
 
+#######################################
+#   Table extration with User prompt  #
+#######################################
 DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
 
-# Table extraction
+# Llama Prompt
 llama-parse parse "$DIR/Live_Netis_Fuel_UG.pdf" \
-  -o "$DIR/Live_Netis_Fuel_UG.json" \
-  -f json \
+  -o "$DIR/Live_Netis_Fuel_UG.md" \
+  -f markdown \
   -pi "Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the sheets. Concatenate the tables."
 
-# Input JSON
-input_json="$DIR/Live_Netis_Fuel_UG.json"
-output_xlsx="$DIR/Live_Netis_Fuel_UG.xlsx"
-temp_tsv=$(mktemp)
+# markdown
+MD_FILE="$DIR/Live_Netis_Fuel_UG.md"
+OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
 
-# Extract all tables
-# Identify objects with type "table" and extract their rows
-jq -r '.[] | select(.type == "table") | .rows[] | @tsv' "$input_json" > "$temp_tsv"
+# Extract tables
+echo "Extracting tables..."
+sed -n '/^|/p' "$MD_FILE" > "tables.md"
 
-# Extract the header from the first table's rows
-header=$(jq -r '.[] | select(.type == "table") | .rows[0] | keys_unsorted | @tsv' "$input_json")
-echo "$header" | cat - "$temp_tsv" > "${temp_tsv}_with_header"
+# Remove separator rows (---...)
+sed '/^|[-| ]*|$/d' tables.md > tables_no_separators.md
+sed '/^| *Date *|/d' tables_no_separators.md > tables_cleaned.md
 
 # XLSX
 /usr/bin/python3 - <<EOF
 import pandas as pd
+import re
 
-# Read the TSV file
-df = pd.read_csv("${temp_tsv}_with_header", sep="\t")
+# Read cleaned table data
+with open("tables_cleaned.md", "r") as file:
+    lines = file.readlines()
 
-# Write to Excel
-df.to_excel("$output_xlsx", index=False, engine="openpyxl")
+table = []
+
+for line in lines:
+    if re.match(r'^\|.*\|$', line):  # Identify table rows
+        columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
+        if columns:
+            table.append(columns)
+
+# DataFrame
+df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
+
+# Spreadsheet
+df.to_excel("$OUTPUT_XLSX", sheet_name="NFB_UG", index=False)
+
+print("Excel file saved:", "$OUTPUT_XLSX")
 EOF
 
-# Clean up temporary files
-rm "$temp_tsv" "${temp_tsv}_with_header"
-echo "Tables extracted and saved to $output_xlsx"
+# Cleanup
+rm -f "tables.md" "tables_no_separators.md" "tables_cleaned.md"
