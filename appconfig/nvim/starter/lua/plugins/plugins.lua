@@ -127,11 +127,6 @@ local plugins = {
   },
 
   {
-    "VPavliashvili/json-nvim",
-    ft = "json", -- only load for json filetype
-  },
-
-  {
     "jiaoshijie/undotree",
     dependencies = "nvim-lua/plenary.nvim",
     config = true,

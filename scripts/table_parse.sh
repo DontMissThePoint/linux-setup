@@ -52,4 +52,7 @@ print("Excel file saved:", "$OUTPUT_XLSX")
 EOF
 
 # Cleanup
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 rm -f "tables.md" "tables_no_separators.md" "tables_cleaned.md"
+echo -e "${GREEN}Done${NC}"

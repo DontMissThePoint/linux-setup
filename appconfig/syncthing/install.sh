@@ -34,7 +34,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Settingup syncthing -t -f future
+    toilet Installing syncthing -t --filter metal -f smmono12
 
     # sources
     sudo rm -f /etc/apt/sources.list.d/syncthing.list
@@ -57,6 +57,7 @@ while true; do
     mkdir -p ~/Journal
 
     # Obsidian
+    echo "Configuring obsidian..."
     cd /tmp
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb
     sudo dpkg -i /tmp/obsidian_1.8.9_amd64.deb
@@ -77,6 +78,25 @@ $ rclone config'
     mkdir -p ~/.elinks
     pv $APP_PATH/elinks.conf > ~/.elinks/elinks.conf
     pipx install gdown
+
+    # MegaSync
+    toilet Settingup megasync -t -f future
+
+    # Add MEGA’s public signing key
+    if [ ! -e /etc/apt/sources.list.d/megasync.list ]; then
+      curl -fsSL "https://mega.nz/linux/repo/xUbuntu_$(lsb_release -r | awk '{ print $2 }')/Release.key"  | gpg --dearmor | \
+        sudo tee /usr/share/keyrings/mega-nz.gpg > /dev/null
+      sudo chmod a+r /usr/share/keyrings/mega-nz.gpg
+
+      echo \
+        "deb [signed-by=/usr/share/keyrings/mega-nz.gpg] \
+        https://mega.nz/linux/repo/xUbuntu_$(lsb_release -r | awk '{ print $2 }')/ ./" | \
+        sudo tee /etc/apt/sources.list.d/megasync.list > /dev/null
+      sudo apt-get update
+    fi
+
+    # install megasync
+    sudo apt-get install -y megasync nautilus-megasync
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

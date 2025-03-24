@@ -271,10 +271,14 @@ bindsym $mod+plus scratchpad show; floating disable
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
 for_window [class="mpv"] floating enable
+for_window [class="URxvt"] fullscreen enable
+for_window [class="MuPDF"] fullscreen enable
 for_window [instance="mpvfloat"] floating enable, move container position center, focus
-for_window [class="qutebrowser"] move workspace $workspace2, focus
+for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
+
 for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [title="File Transfer*"] floating enable
+for_window [window_role="pop-up"] floating enable
 for_window [instance="newsboatfs"] move container to workspace $ws5, focus
 for_window [instance="xfreerdp"] move container to workspace $ws6, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
@@ -1570,10 +1574,6 @@ for_window [title="optic_flow"] floating disable
 # for_window [class="^Gimp$"] move workspace $workspace9
 for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
 for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
-
-# fullscreen all windows
-for_window [class="^.*"] fullscreen enable
-for_window [window_role="pop-up"] floating enable
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # for_window [title="Gazebo"] move workspace $workspace9
