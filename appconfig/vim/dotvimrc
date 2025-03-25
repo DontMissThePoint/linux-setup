@@ -204,22 +204,23 @@ if g:user_mode == "1"
   Plug 'preservim/vim-colors-pencil'
   Plug 'logico/typewriter-vim'
 
-  " Registers view
+  " PTA
+  Plug 'ledger/vim-ledger'
+
+  " Registers
   Plug 'junegunn/vim-peekaboo'
 
   " Focus
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
   Plug 'junegunn/seoul256.vim'
+  Plug 'bluz71/vim-moonfly-colors'
 
-  " Autosave your work
+  " Autosave
   Plug '907th/vim-auto-save'
 
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'itchyny/lightline.vim'
-
-  " live REPL in vim
-  Plug 'jpalardy/vim-slime'
 
   " Visual math with v{motion}++
   Plug 'nixon/vim-vmath'

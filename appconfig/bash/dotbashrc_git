@@ -115,7 +115,7 @@ runVim() {
 alias vim=runVim
 
 # by default, athame should be off
-export ATHAME_ENABLED=0
+export ATHAME_ENABLED=1
 export ATHAME_SHOW_MODE=0
 export ATHAME_VIM_PERSIST=0
 export ATHAME_SHOW_ERROR=0
@@ -147,10 +147,4 @@ if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
     fi
   fi
 
-  # Drop to fish? Just use zsh.
-  # if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
-  # then
-  #   shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
-  #   exec fish $LOGIN_OPTION
-  # fi
 fi

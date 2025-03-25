@@ -274,6 +274,7 @@ for_window [class="mpv"] floating enable
 for_window [class="URxvt"] fullscreen enable
 for_window [class="MuPDF"] fullscreen enable
 for_window [instance="mpvfloat"] floating enable, move container position center, focus
+for_window [class="vivaldi*"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 
 for_window [class="SmartGit"] move workspace $workspace3, focus

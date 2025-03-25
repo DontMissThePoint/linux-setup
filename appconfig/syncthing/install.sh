@@ -95,8 +95,9 @@ $ rclone config'
       sudo apt-get update
     fi
 
-    # install megasync
+    # install
     sudo apt-get install -y megasync nautilus-megasync
+    # QT_SCALE_FACTOR=1.2 megasync
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

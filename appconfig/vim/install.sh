@@ -46,16 +46,19 @@ while true; do
       sudo apt-get -y install libgnome2-dev libgnomeui-dev libbonoboui2-dev
     fi
 
-    sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format
+    sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format libpython3-all-dev
 
     sudo -H pip3 install --break-system-packages rospkg 2> /dev/null
 
     # compile vim from sources
     cd $APP_PATH/../../submodules/vim
+    make distclean
     ./configure --with-features=huge \
       --enable-multibyte \
+      --enable-fontset \
       --with-python3-command=/usr/bin/python3 \
-      --enable-python3interp=yes \
+      --with-python3-config-dir=/usr/lib/python3.12/config-* \
+      --enable-python3interp \
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-rubyinterp \
@@ -66,7 +69,7 @@ while true; do
       cd src
       make -j8
       cd ../
-      make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim90
+      make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim91
       sudo make install
 
     # set vim as a default git mergetool
@@ -110,14 +113,14 @@ while true; do
           sudo apt-get -y install clang-11 libclang-11-dev
           sudo pip3 install --break-system-packages clang 2> /dev/null
         else
-          # if 22.04, just install python3-clang from apt
-          sudo apt-get -y install python3-clang libclang-18-dev
+          # if 24.04, just install python3-clang from apt
+          sudo apt-get -y install python3-clang libclang-19-dev
         fi
         # install prequisites for YCM
         sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
         # set clangd to 18 latest by default
-        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-18 999
+        sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-19 999
         sudo apt-get -y install libboost-all-dev
 
         cd ~/.vim/plugged

@@ -219,7 +219,7 @@ kzsh() {
 
 # by default, athame should be off
 export ATHAME_ENABLED=0
-export ATHAME_SHOW_MODE=1
+export ATHAME_SHOW_MODE=0
 export ATHAME_SHOW_COMMAND=0
 export ATHAME_VIM_PERSIST=0
 export ATHAME_SHOW_ERROR=0
