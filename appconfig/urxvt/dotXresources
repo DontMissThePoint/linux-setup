@@ -547,11 +547,8 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! Xft*hinting                   : true
 ! Xft*hintstyle                 : hintslight
 ! Xft*lcdfilter                 : lcddefault
-! !Xft.dpi                      : 170   ! https://dpi.lv
 ! Xft.dpi                       : 150
 
-!! URxvt.font: xft:JetBrainsMono Nerd Font Mono:size=11,xft:MesloLGSDZ Nerd Font Mono:size=11,xft:Symbola
-!! URxvt.font: xft:Hasklug Nerd Font Mono:size=11,xft:Symbola
 ! URxvt.font: xft:Hurmit Nerd Font Mono:size=11,\
 !             xft:MesloLGSDZ Nerd Font Mono:size=11,\
 !             xft:FiraMono Nerd Font Mono:size=11,\

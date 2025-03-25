@@ -59,6 +59,7 @@ options.scroll_incr          =  -3                   # steps to scroll
 options.disp_scroll_context  =  5                    # lines to scroll
 options.numeric_binning      =  True
 options.save_filetype        =  'csv'                # saved file extension
+options.quitguard            =  True                 # prevent quit
 options.disp_float_fmt       =  '%.07f'              # format for float values
 options.disp_replay_play     =  '▶'                  # status indicator for active replay
 options.disp_histogram       =  '*'                  # histogram element character
@@ -89,10 +90,10 @@ options.color_cmdpalette     =  'black on 8'         # color of input commands o
 # options.color_longname       =  'black on yellow'    # color of long names
 options.color_status         =  '145 grey69'         # status line color
 options.color_active_status  =  '145 grey69 bold'    # active status line color
-options.color_match          =  '202 bold'           # color for matches found
+options.color_match          =  '202'           # color for matches found
 options.color_code           =  'normal'
 options.color_error          =  'red'                # error message color
-options.color_warning        =  'yellow'             # warning message color
+options.color_warning        =  'khaki1'             # warning message color
 options.color_edit_cell      =  'normal'             # cell color to use when editing cell
 options.color_note_pending   =  'bold magenta'       # color of note in pending cells
 options.color_note_type      =  '226 yellow'         # cell note for numeric types in anytype columns
@@ -123,30 +124,5 @@ globalCommand('zm', 'mm, _ = curses.mousemask(0); status("mouse "+("ON" if mm el
 TableSheet.unbindkey("i")
 TableSheet.bindkey("i", "edit-cell")
 
-# Use spacebar as a custom command prefix, and shuffle other bindings
-# around to accommodate that.
-BaseSheet.unbindkey(' ')
-vd.allPrefixes.append('Space')
-vd.bindkeys[';'] = {'BaseSheet': 'exec-longname'}
-BaseSheet.bindkey(' ;', 'split-col')
-
 # Tell `open-cell-pager` to invoke `bat` rather than $PAGER
 vd.options.vpager_cmd = 'bat --paging=always'
-
-# Space+e: Open a cell's values with the default viewer - `vpager_cmd`
-#              if it's defined, otherwise $PAGER.
-#
-# Space+i: Open a cell's value in `glow` for prettier rendered markdown
-#          in the terminal.
-BaseSheet.bindkey(" e", "open-cell-pager")
-BaseSheet.addCommand(" i", "open-cell-markdown", "cursorCol.pageValue(cursorRow, cmd='glow -p')")
-
-# Space+j: Navigate parent sheet
-# Space+k:
-# Space+Enter:
-TableSheet.bindkey(" j", "next-parent-row")
-TableSheet.bindkey(" k", "prev-parent-row")
-
-FreqTableSheet.bindkey(" j", "zoom-next-freqrow")
-FreqTableSheet.bindkey(" k", "zoom-prev-freqrow")
-FreqTableSheet.bindkey(" Enter", "zoom-cur-freqrow")

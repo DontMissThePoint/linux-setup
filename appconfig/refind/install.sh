@@ -47,6 +47,9 @@ while true; do
       sudo apt install -y refind
     fi
 
+    # 3 3 3 3 for logs
+    sudo cp -f $APP_PATH/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
+
     # plymouth
     sudo apt install -y plymouth
     sudo mkdir -p /etc/plymouth
@@ -76,13 +79,7 @@ while true; do
 
     # uninstall
     # sudo rm -r /boot/efi/EFI/refind
-
-    # boot
-    # 3 3 3 3 for logs
-    echo "Hide kernel messages from the console."
-    sudo cp -f $APP_PATH/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
     sudo systemctl daemon-reload
-    echo "Done."
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

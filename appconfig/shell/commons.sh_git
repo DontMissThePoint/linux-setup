@@ -22,6 +22,7 @@ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
 
+alias python="python3"
 alias q=exit
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"

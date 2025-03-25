@@ -52,7 +52,7 @@ while true; do
     # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
     # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
     mkdir -p ~/.config/nchat
-    cp $(dirname $(which nchat))/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
+    cp -f $(dirname $(which nchat))/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
 
     # pidgin
     toilet Setting up go-whatsapp -t -f future
@@ -66,7 +66,7 @@ while true; do
     else
       # go
       sudo rm -rf /usr/local/go
-      wget -c https://go.dev/dl/go1.21.6.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+      wget -c https://go.dev/dl/go1.24.1.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
       # wget -c https://buildbot.hehoe.de/purple-whatsmeow/builds/libwhatsmeow.so -P /usr/lib/purple-2/
 
       EXISTING_GO=`cat ~/.profile 2> /dev/null | grep "go/bin" | wc -l`
@@ -77,7 +77,6 @@ while true; do
       export PATH=$PATH:/usr/local/go/bin
 
       # compile from sources
-
       cd /tmp
       [ -e purple-gowhatsapp ] && rm -rf purple-gowhatsapp
       git clone https://github.com/hoehermann/purple-gowhatsapp.git

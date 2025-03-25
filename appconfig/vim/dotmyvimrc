@@ -111,8 +111,15 @@ if !exists(":DiffOrig")
         \ | wincmd p | diffthis
 endif
 
-" Datasets
+" Ledger
 au BufNewFile,BufRead *.tsv set filetype=tsv
+au BufNewFile,BufRead *.dat set filetype=ledger
+
+let g:ledger_maxwidth = 80
+let g:ledger_fillstring = '    -'
+let g:ledger_detailed_first = 0
+let g:ledger_fold_blanks = 0
+let g:ledger_fuzzy_account_completion = 1
 
 " Fullscreen for datasets
 autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
@@ -218,11 +225,23 @@ let g:limelight_priority = -1
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+" Moonfly
+let g:moonflyCursorColor = v:true
+let g:moonflyItalics = v:true
+let g:moonflyNormalFloat = v:true
+let g:moonflyTerminalColors = v:true
+
+let g:moonflyTransparent = v:true
+let g:moonflyUndercurls = v:true
+let g:moonflyUnderlineMatchParen = v:true
+let g:moonflyVirtualTextColor = v:true
+let g:moonflyWinSeparator = 2
+
 " Sneak
 let g:sneak#label = 1
 let g:sneak#s_next = 0
 let g:sneak#use_ic_scs = 1
-let g:sneak#prompt = '🎯'
+let g:sneak#prompt = '>'
 let g:sneak#target_labels = "sftunq/;SFGHLTUNRMQZ?0"
 
 " Rainbow
@@ -266,29 +285,6 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates.
 let g:ycm_clangd_binary_path = exepath("clangd")
-
-" Target for REPL
-let g:slime_dont_ask_default = 1
-let g:slime_cell_delimiter = "```"
-let g:slime_target = "vimterminal"
-let g:slime_vimterminal_config = { "term_finish": "close",
-      \ "term_name": "R",
-      \ "horizontal": 1,
-      \ "term_rows": &columns * 1/3,}
-
-" R
-autocmd FileType r call ToSlime()
-function ToSlime()
-  inoremap <C-S-n> %>%<Space>
-  " Create new R terminal
-  terminal
-  " Get terminal buffer number
-  let bufnr = term_list()[0]
-  " Set Slime to pick terminal
-  let g:slime_default_config = {"bufnr": bufnr}
-  call term_sendkeys(bufnr, "R --silent\<CR>")
-endfunc
-
 "}}}
 
 "{{{ REMAP
@@ -312,12 +308,6 @@ nnoremap _ <Cmd>Hi/previous<CR>
 nnoremap n <Cmd>call HiSearch('n')<CR>
 nnoremap N <Cmd>call HiSearch('N')<CR>
 nnoremap <Esc>n <Cmd>noh<CR>
-
-" Slime
-let g:slime_no_mappings = 0
-xmap <leader>s <Plug>SlimeRegionSend
-nmap <leader>s <Plug>SlimeMotionSend
-nmap <leader>ss <Plug>SlimeLineSend
 
 " Command-line
 cnoremap q qa

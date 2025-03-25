@@ -92,7 +92,7 @@ bind-key SPACE macro-prefix
 # col  item       fg       bg
 color background default default        # the most bottom bar
 color listnormal white default
-color listnormal_unread color77 default
+color listnormal_unread color84 default
 color listfocus color50 default
 color listfocus_unread color50 default standout bold
 color info              color91 default bold
