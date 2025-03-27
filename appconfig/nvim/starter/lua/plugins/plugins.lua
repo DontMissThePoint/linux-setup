@@ -111,18 +111,24 @@ local plugins = {
   },
 
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-        "Myzel394/jsonfly.nvim",
-    },
-    keys = {
-        {
-            "<leader>fj",
-            "<cmd>Telescope jsonfly<cr>",
-            desc = "Open json(fly)",
-            ft = { "json", "xml", "yaml" },
-            mode = "n"
-        }
+    "gennaro-tedesco/nvim-jqx",
+    event = {"BufReadPost"},
+    ft = { "json", "yaml" },
+  },
+
+  {
+  "nvim-telescope/telescope.nvim",
+  dependencies = {
+      "Myzel394/jsonfly.nvim",
+  },
+  keys = {
+      {
+          "<leader>fj",
+          "<cmd>Telescope jsonfly<cr>",
+          desc = "Open json(fly)",
+          ft = { "json", "xml", "yaml" },
+          mode = "n"
+      }
     },
   },
 

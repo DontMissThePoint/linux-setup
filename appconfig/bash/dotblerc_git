@@ -1157,10 +1157,10 @@ function blerc/vim-load-hook {
   ## RET and C-m always causes the execution of the command even in the
   ## multiline mode or when the command is not syntactically completed.
 
-  #ble-bind -m vi_imap -f 'C-m' accept-line
-  ble-bind -m vi_imap -f 'RET' accept-line
-  ble-bind -m vi_nmap -f 'C-m' accept-line
-  ble-bind -m vi_nmap -f 'RET' accept-line
+  ble-bind -m vi_imap -f 'C-m' accept-line
+  # ble-bind -m vi_imap -f 'RET' accept-line
+  # ble-bind -m vi_nmap -f 'C-m' accept-line
+  # ble-bind -m vi_nmap -f 'RET' accept-line
 
 
   # The default mapping of C-o is vi_imap/single-command-mode.  If you want to

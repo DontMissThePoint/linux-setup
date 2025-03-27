@@ -207,7 +207,8 @@ sudo ufw logging off
 
 # Guest session & remote login disable for LightDm
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
-sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
+sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > \
+  /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
 # Optimize for performance
@@ -256,6 +257,25 @@ sudo systemctl mask systemd-rfkill.socket
 
 sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
 sudo systemctl enable tmp.mount
+
+#############################################
+# access to Dbus SESSION address
+#############################################
+
+mkdir -p $HOME/.dbus && touch $HOME/.dbus/Xdbus
+chmod 600 $HOME/.dbus/Xdbus
+env | grep DBUS_SESSION_BUS_ADDRESS > $HOME/.dbus/Xdbus
+echo 'export DBUS_SESSION_BUS_ADDRESS' >> $HOME/.dbus/Xdbus
+
+# XAUTHORITY on startup
+env | grep XAUTHORITY >> $HOME/.dbus/Xdbus
+echo 'export XAUTHORITY' >> $HOME/.dbus/Xdbus
+
+# add new cron JOBS
+crontab -l | { cat; echo 'MAILTO=""'; } |  sort | uniq | crontab -
+crontab -l | { cat; echo "* * * * * source ~/.dbus/Xdbus; \
+ $GIT_PATH/linux-setup/scripts/battery_notification.sh 2>&1 | logger -t BAT1"; } | \
+  sort | uniq | crontab -
 
 #############################################
 # link the scripts folder
