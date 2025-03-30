@@ -165,11 +165,11 @@ fi
 # 30. Install SCRCPY
 ! $docker && bash $APPCONFIG_PATH/scrcpy/install.sh $subinstall_params
 
-# 31. Install SYNCTHING
-! $docker && bash $APPCONFIG_PATH/syncthing/install.sh $subinstall_params
-
-# 32. Install NCHAT
+# 31. Install NCHAT
 ! $docker && bash $APPCONFIG_PATH/nchat/install.sh $subinstall_params
+
+# 32. Install SYNCTHING
+! $docker && bash $APPCONFIG_PATH/syncthing/install.sh $subinstall_params
 
 # 33. Install QUTEBROWSER
 ! $docker && bash $APPCONFIG_PATH/qutebrowser/install.sh $subinstall_params
@@ -207,7 +207,8 @@ sudo ufw logging off
 
 # Guest session & remote login disable for LightDm
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
-sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
+sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > \
+  /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
 # Optimize for performance

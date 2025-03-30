@@ -204,9 +204,6 @@ if g:user_mode == "1"
   Plug 'preservim/vim-colors-pencil'
   Plug 'logico/typewriter-vim'
 
-  " PTA
-  Plug 'ledger/vim-ledger'
-
   " Registers
   Plug 'junegunn/vim-peekaboo'
 
@@ -283,7 +280,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Snippets
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
+
+" PTA
+Plug 'ledger/vim-ledger'
 
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
@@ -672,7 +672,7 @@ autocmd BufWritePost *.sk AsyncRun bash -c '%:p:h/compile_sketch.sh %:t'
 source ~/.vim/pluginconfig/vim-multiple-cursors.vim
 
 " config for UltiSnips
-source ~/.vim/pluginconfig/ultisnips.vim
+" source ~/.vim/pluginconfig/ultisnips.vim
 
 " config for vim-commentary
 source ~/.vim/pluginconfig/vim-commentary.vim

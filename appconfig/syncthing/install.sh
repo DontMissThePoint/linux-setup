@@ -55,9 +55,13 @@ while true; do
     #access the web UI
     # 127.0.0.1:8384/
     mkdir -p ~/Journal
+    
+    # ledger
+    echo "Configuring ledger..."
+    go install github.com/howeyc/ledger/ledger@latest
+    sudo ln -sf ~/go/bin/ledger /usr/local/go/bin/ledger
 
     # Obsidian
-    echo "Configuring obsidian..."
     cd /tmp
     aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb
     sudo dpkg -i /tmp/obsidian_1.8.9_amd64.deb

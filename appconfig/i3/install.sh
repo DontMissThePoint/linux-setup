@@ -89,14 +89,15 @@ while true; do
     sudo systemctl disable getty@tty2.service
     sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
 
-    # systemd
+    # systemd & timers
     sudo mkdir -p /etc/X11/xinit/xinitrc.d
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-    sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
+    sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
-    systemctl --user start xidlehook.service udiskie.service # megasync.service 
-    sudo systemctl --global enable xidlehook.service udiskie.service # megasync.service 
+    systemctl --user start xidlehook.service udiskie.service battery_notification.{service,timer} 
+    sudo systemctl --global enable xidlehook.service udiskie.service battery_notification.{service,timer}  
     # loginctl enable-linger
+    # systemctl --user list-timers
 
     # earlyoom
     sudo apt install -y earlyoom libkeyutils-dev

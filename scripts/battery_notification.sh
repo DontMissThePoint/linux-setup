@@ -14,7 +14,7 @@ send_notification() {
     local title="$1"
     local message="$2"
     local icon="$3"
-    dunstify -t  5000 -u critical -i "$icon" "$title" "$message"
+    /usr/bin/dunstify -t  5000 -u critical -i "$icon" "$title" "$message"
 }
 
 # Check battery status and send notifications
