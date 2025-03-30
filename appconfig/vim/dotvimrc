@@ -204,9 +204,6 @@ if g:user_mode == "1"
   Plug 'preservim/vim-colors-pencil'
   Plug 'logico/typewriter-vim'
 
-  " PTA
-  Plug 'ledger/vim-ledger'
-
   " Registers
   Plug 'junegunn/vim-peekaboo'
 
@@ -284,6 +281,9 @@ Plug 'junegunn/fzf.vim'
 
 " Snippets
 " Plug 'SirVer/ultisnips'
+
+" PTA
+Plug 'ledger/vim-ledger'
 
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'

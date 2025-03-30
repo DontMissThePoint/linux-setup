@@ -112,14 +112,13 @@ if !exists(":DiffOrig")
 endif
 
 " Ledger
-au BufNewFile,BufRead *.tsv set filetype=tsv
-au BufNewFile,BufRead *.dat set filetype=ledger
-
+let g:ledger_bin = 'ledger'
 let g:ledger_maxwidth = 80
 let g:ledger_fillstring = '    -'
 let g:ledger_detailed_first = 0
 let g:ledger_fold_blanks = 0
 let g:ledger_fuzzy_account_completion = 1
+let g:ledger_date_format = '%Y/%m/%d'
 
 " Fullscreen for datasets
 autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
@@ -191,9 +190,12 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
       \ 'options': '--ansi --delimiter : --nth 3..',
       \ 'reducer': { lines -> join(split(lines[0], ':\zs')[2:], '') }}))
 
-" Hide statusline
+" statusline
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
       \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
+
+au BufNewFile,BufRead *.tsv set filetype=tsv
+au BufNewFile,BufRead *.dat set filetype=ledger
 
 " seoul256
 let g:seoul256_srgb = 1
@@ -280,10 +282,15 @@ let g:ycm_clangd_args = ['-log=verbose', '-pretty']
 " Clear YCM blacklist
 let g:ycm_filetype_blacklist = {}
 
+" disable for Ledger files
+if exists('g:ycm_filetype_blacklist')
+  call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
+endif
+
 " Let clangd fully control code completion
 let g:ycm_clangd_uses_ycmd_caching = 0
 
-" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates
 let g:ycm_clangd_binary_path = exepath("clangd")
 "}}}
 
