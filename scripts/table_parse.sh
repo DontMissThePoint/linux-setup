@@ -18,7 +18,9 @@ MD_FILE="$DIR/Live_Netis_Fuel_UG.md"
 OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
 
 # Extract tables
-echo "Extracting tables..."
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+echo "${GREEN}Extracting tables...${NC}"
 sed -n '/^|/p' "$MD_FILE" > "tables.md"
 
 # Remove separator rows (---...)
@@ -52,7 +54,5 @@ print("Excel file saved:", "$OUTPUT_XLSX")
 EOF
 
 # Cleanup
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
 rm -f "tables.md" "tables_no_separators.md" "tables_cleaned.md"
-echo "${GREEN}Done${NC}"
+echo "Done."

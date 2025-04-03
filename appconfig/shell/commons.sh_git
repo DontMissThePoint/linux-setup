@@ -14,7 +14,7 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 # LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
 source ~/.local/share/icons-in-terminal/icons_bash.sh
-export LEDGER_FILE='~/Journal/ledger.dat'
+export LEDGER_FILE="$HOME/Journal/ledger.dat"
 
 # nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive

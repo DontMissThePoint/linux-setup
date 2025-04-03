@@ -39,7 +39,7 @@ while true; do
 
     toilet Installing i3 -t --filter metal -f smmono12
 
-    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0 redshift redshift-gtk
+    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk
 
     if [ -n "$beaver" ]; then
       sudo apt-get -y install python-keybinder gir1.2-keybinder
@@ -94,8 +94,8 @@ while true; do
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
     sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
-    systemctl --user start xidlehook.service udiskie.service battery_notification.{service,timer} 
-    sudo systemctl --global enable xidlehook.service udiskie.service battery_notification.{service,timer}  
+    systemctl --user start xidlehook.service udiskie.service battery_notification.{service,timer}
+    sudo systemctl --global enable xidlehook.service udiskie.service battery_notification.{service,timer}
     # loginctl enable-linger
     # systemctl --user list-timers
 
@@ -235,21 +235,6 @@ while true; do
     meson setup build
     ninja -C build
     sudo ninja -C build install
-
-    # automounter for removable media
-    sudo apt install -y udisks2 python3-pip python3-gi python3-gi-cairo gir1.2-gtk-4.0 python3-yaml libglib2.0-dev gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7 libkeyutils-dev keyutils
-    sudo pip install --break-system-packages udiskie -U 2> /dev/null
-
-    sudo mkdir -p /etc/polkit-1/localauthority/50-local.d
-    sudo cp -f $APP_PATH/consolekit.pkla /etc/polkit-1/localauthority/50-local.d/
-
-    # add group permission
-    num=`cat /etc/group | cut -d: -f1 | grep "plugdev" | wc -l`
-    if [ "$num" -lt "1" ]; then
-      sudo groupadd plugdev
-      sudo usermod -aG plugdev $USER
-      groups $USER
-    fi
 
     # config
     echo "Configuring..."
