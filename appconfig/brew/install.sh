@@ -52,8 +52,8 @@ while true; do
     source $HOME/.bashrc && brew update && brew upgrade
     brew install webtorrent-cli zoxide grc vivid viu fzf pipx \
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
-      eza fd s-search dust zig aria2 glow restic croc newsboat walk jless \
-      tailspin
+      eza fd s-search dust zig aria2 glow restic croc newsboat walk tailspin \
+      gron jc jo jless 
     brew cleanup --prune=all
 
     # configs

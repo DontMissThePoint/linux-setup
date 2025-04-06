@@ -32,6 +32,7 @@ alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
 alias gx="tmuxinator double"
 alias ra="ranger"
+alias ungron="gron -u"
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"

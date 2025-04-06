@@ -7,11 +7,20 @@ set -e
 #######################################
 DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
 
+# echo "json markdown"
+# find . -type f |
+#   parallel -j10 -X rsync -zR -Ha ./{} fooserver:/dest-dir/
+# Adjust -j10 until you find the optimal number
+
 # Llama Prompt
 llama-parse parse "$DIR/Live_Netis_Fuel_UG.pdf" \
   -o "$DIR/Live_Netis_Fuel_UG.md" \
   -f markdown \
   -pi "Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the sheets. Concatenate the tables."
+
+# JSON
+JSON_FILE="$DIR/Live_Netis_Fuel_UG.json"
+# jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
 
 # markdown
 MD_FILE="$DIR/Live_Netis_Fuel_UG.md"

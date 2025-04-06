@@ -107,13 +107,9 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
     # quickget windows 11
     # quickemu --vm windows-11.conf --width 1920 --height 1080
 
-    # tex-cvbuilder: https://github.com/antkr10/tex-cvbuilder
-    # if [ ! -e ~/Documents/cvbuilder ]; then
-    #   mkdir -p ~/Downloads/cvbuilder
-    #   pv $APP_PATH/tex-cvbuilder > ~/Documents/cvbuilder/Dockerfile
-    #   cd ~/Documents/cvbuilder && docker build -t ubuntu:tex-cvbuilder .
-    # fi
-
+    # Office 365
+    # focus cell: #87ff87
+    
     # dockurr
     toilet Settingup dockurr -t -f future
     cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
@@ -122,6 +118,9 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
 
     # remove images unused & dangling (Careful !)
     # docker system prune -af
+    BGREEN='\033[1;32m'
+    NC='\033[0m' # No Color
+    echo -e "${BGREEN}> Run windows HWID activation${NC}"
 
     # calcpy
     echo "Advanced math solver.. using Python IPython, SymPy"

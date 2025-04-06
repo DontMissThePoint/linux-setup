@@ -17,7 +17,7 @@ fi
 # add LOCALES variables
 #############################################
 
-echo "Adding locales"
+echo "Adding locales..."
 echo 'LANG=en_US.UTF-8
 LANGUAGE=en_US
 LC_CTYPE="en_US.UTF-8"
@@ -71,7 +71,7 @@ fi
 # add zoxide
 #############################################
 
-# smarter cd
+# z
 num=`cat ~/.bashrc | grep "zoxide" | wc -l`
 if [ "$num" -lt "1" ]; then
 
