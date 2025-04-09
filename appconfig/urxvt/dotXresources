@@ -14,6 +14,28 @@ URxvt.utf8: 1
 URxvt.pointerBlank: 1
 URxvt.pointerBlankDelay: 3
 
+URxvt.depth              : 32
+URxvt.iso14755_52        : false
+URxvt.loginShell         : true
+URxvt.clipboard.autocopy : true
+URxvt.transparent: false
+URxvt.visualBell: true
+
+URxvt*cursorBlink: true
+URxvt*scrollBar: false
+URxvt*mouseWheelScrollPage: false
+
+XTerm*reverseVideo: on
+XTerm*selectToClipboard: true
+
+Xft*rgba      : rgb
+Xft*antialias : true
+Xft*autohint  : false
+Xft*hinting   : true
+Xft*hintstyle : hintslight
+Xft*lcdfilter : lcddefault
+Xft.dpi       : 150
+
 Xcursor.size: 32
 Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
 
@@ -108,7 +130,7 @@ xterm*ttyModes: erase ^?
 ! ! EPIGEN_ADD_BLOCK_DESKTOP {
 
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=11
+! ! ! URxvt.font: xft:Source Code Pro for Powerline
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
 ! ! ! EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
 ! ! ! URxvt.font: xft:Source Code Pro for Powerline:size=13
@@ -329,10 +351,10 @@ URxvt.color15: #E8E8D3
 ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
 !! URxvt COLORS --------------------------------------------------------
-URxvt*depth                   : 32
+! URxvt*depth                   : 32
 ! URxvt.fading                  : 25
 ! URxvt.fadeColor               : #101010
-URxvt*visualBell              : false
+! URxvt*visualBell              : false
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
@@ -497,79 +519,73 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 
 ! ! GitHub Theme
-! URxvt.foreground: [98]#cdd6f4
-! URxvt.background: [85]#1a1c1e
-! URxvt.cursorColor: #9aedfe
+! XTerm*background: [85]#161b25
+! XTerm*foreground: [95]#cdd6f4
+! XTerm*pointerColor: #1abb9b
+
+! *background: [85]#161b25
+! *foreground: [95]#cdd6f4
+! *fading: 8
+! *fadeColor: black
+! *cursorColor: #9aedfe
+! *pointerColorBackground: #2b2c2b
+! *pointerColorForeground: #16a085
 
 ! !! black dark/light
-! URxvt.color0: #33303b
-! URxvt.color8: #4f4b58
+! *color0: #222d31
+! *color8: #585858
 
 ! !! red dark/light
-! URxvt.color1: #ff5c57
-! URxvt.color9: #ff5c57
+! *color1: #ab4642
+! *color9: #ab4642
 
 ! !! green dark/light
-! URxvt.color2: #5af78e
-! URxvt.color10: #5af78e
+! *color2: #16a085
+! *color10: #4fd6be
 
 ! !! yellow dark/light
-! URxvt.color3: #f3f99d
-! URxvt.color11: #f3f99d
+! *color3: #f7ca88
+! *color11: #f7ca88
 
 ! !! blue dark/light
-! URxvt.color4: #57c7ff
-! URxvt.color12: #57c7ff
+! *color4: #7cafc2
+! *color12: #7cafc2
 
 ! !! magenta dark/light
-! URxvt.color5: #ff6ac1
-! URxvt.color13: #ff6ac1
+! *color5: #ba8baf
+! *color13: #ba8baf
 
 ! !! cyan dark/light
-! URxvt.color6: #9aedfe
-! URxvt.color14: #9aedfe
+! *color6: #1abb9b
+! *color14: #1abb9b
 
 ! !! white dark/light
-! URxvt.color7: #eff0eb
-! URxvt.color15: #eff0eb
-
-! !! Bold, Italic, Underline
-! URxvt.colorBD: [36]#69ff47
-! URxvt.colorIT: [36]#7d7d7d
-! URxvt.colorUL: [36]#57c7ff
-! URxvt.underlineColor: #57c7ff
+! *color7: #d8d8d8
+! *color15: #f8f8f8
 
 ! !! URxvt COLORS --------------------------------------------------------
 
-! Xft*rgba                      : rgb
-! Xft*antialias                 : true
-! Xft*autohint                  : false
-! Xft*hinting                   : true
-! Xft*hintstyle                 : hintslight
-! Xft*lcdfilter                 : lcddefault
-! Xft.dpi                       : 150
+! URxvt.background              : [85]#161b25
+! URxvt*background              : black
+! URxvt*foreground              : [95]#cdd6f4
+
+! !! Bold, Italic, Underline
+! URxvt.colorBD                 : [36]#1ABB9B
+! URxvt.colorIT                 : [36]#7d7d7d
+! URxvt.colorUL                 : [36]#57c7ff
+! URxvt.underlineColor          : #57c7ff
 
 ! URxvt.font: xft:Hurmit Nerd Font Mono:size=11,\
 !             xft:MesloLGSDZ Nerd Font Mono:size=11,\
 !             xft:FiraMono Nerd Font Mono:size=11,\
-!             xft:Symbola,xft:FontAwesome:size=11,\
-!             xft:Noto Color Emoji,xft:Unifont:size=11,\
+!             xft:Symbola,xft:FontAwesome,\
+!             xft:Noto Color Emoji,xft:Unifont,\
 !             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 ! URxvt.boldFont: xft:Hurmit Nerd Font:bold:size=11, xft:Symbola
 ! URxvt.italicFont: xft:Hurmit Nerd Font:italic:size=11, xft:Symbola
 ! URxvt.boldItalicFont: xft:Hurmit Nerd Font:bold:italic:size=11, xft:Symbola
 ! URxvt.letterSpace: 0
 ! URxvt.intensityStyles: false
-
-! URxvt.depth                   : 32
-! URxvt.fading                  : 30
-! URxvt.shading                 : 25  ! Shading 0 to 99 darkens, 101 to 200 lightens
-! URxvt.visualBell              : true
-! URxvt.transparent             : false
-
-! URxvt.iso14755_52             : false
-! URxvt.loginShell              : true
-! URxvt.clipboard.autocopy      : true
 
 ! ! ------------------------------------------------------------------------------
 ! ! ROFI Color theme
