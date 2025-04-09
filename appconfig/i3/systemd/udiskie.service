@@ -5,7 +5,7 @@ After=graphical.target
 [Service]
 User=user
 Group=plugdev
-ExecStart=/usr/bin/udiskie --verbose --automount --no-config --notify --tray --appindicator
+ExecStart=%h/.nix-profile/bin/udiskie --verbose --automount --no-config --notify --tray --appindicator
 
 Restart=on-failure
 RestartSec=3s

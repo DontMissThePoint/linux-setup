@@ -14,7 +14,7 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 # LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
 source ~/.local/share/icons-in-terminal/icons_bash.sh
-export LEDGER_FILE='~/Journal/ledger.dat'
+export LEDGER_FILE="$HOME/Journal/ledger.dat"
 
 # nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
@@ -32,6 +32,7 @@ alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
 alias gx="tmuxinator double"
 alias ra="ranger"
+alias ungron="gron -u"
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"

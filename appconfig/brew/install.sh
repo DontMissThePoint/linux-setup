@@ -50,24 +50,29 @@ while true; do
     # swiss knife
     toilet Setting up brew -t -f future
     source $HOME/.bashrc && brew update && brew upgrade
-    brew install webtorrent-cli zoxide grc vivid viu fzf pipx \
+    brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
-      eza fd s-search dust zig aria2 glow restic croc newsboat walk jless
+      eza fd s-search dust zig aria2 glow restic croc newsboat walk tailspin \
+      yq gron jc jo jless
     brew cleanup --prune=all
 
+    # newsboat
+    mkdir -p ~/.newsboat
+    cp -rf $APP_PATH/newsboat/* ~/.newsboat/
+    
     # configs
-    echo "Configuring..."
-    mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow ~/.config/s ~/.config/autorestic
-    pv "$APP_PATH/key_bindings.ron" > ~/.config/gitui/key_bindings.ron
+    mkdir -p ~/.config/{aria2,btop,bat,glow,s,topgrade}
     pv "$APP_PATH/btop.conf" > ~/.config/btop/btop.conf
     pv "$APP_PATH/bat.config" > ~/.config/bat/config
     pv "$APP_PATH/s.config" > ~/.config/s/config
     pv "$APP_PATH/aria2.conf" > ~/.config/aria2/aria2.conf
     pv "$APP_PATH/glow.yml" > ~/.config/glow/glow.yml
+    pv "$APP_PATH/topgrade.toml" > ~/.config/topgrade/topgrade.toml
+    pv "$APP_PATH/pqivrc" > ~/.pqivrc
 
-    # newsboat
-    mkdir -p ~/.newsboat
-    cp -rf $APP_PATH/newsboat/* ~/.newsboat/
+    # mimeapps
+    echo "Updating mimeapps list..."
+    pv $APP_PATH/mimeapps.list > ~/.config/mimeapps.list
 
     # update bt-trackers
     echo "Updating bt-trackers... "

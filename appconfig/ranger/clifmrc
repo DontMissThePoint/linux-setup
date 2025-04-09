@@ -221,7 +221,7 @@ ColorScheme=default-256
 # Nerd-fonts and icons-in-terminal are supported as well, though clifm
 # needs to be recompiled in order to enable support. Consult our Wiki
 # (https://github.com/leo-arch/clifm/wiki) for more information.
-Icons=true
+Icons=false
 
 
 #=====================================#

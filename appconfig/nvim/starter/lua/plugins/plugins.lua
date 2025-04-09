@@ -68,14 +68,48 @@ local plugins = {
 	},
 
   {
+    "ggandor/leap.nvim",
+    config = function()
+      require("leap").add_default_mappings()
+    end,
+    lazy = false,
+  },
+
+  {
+    "ggandor/flit.nvim",
+    config = function()
+      require("flit").setup({})
+    end,
+    lazy = false,
+  },
+
+  {
+    "dstein64/nvim-scrollview",
+    setup = function()
+      require('scrollview').setup({
+        excluded_filetypes = {'nerdtree'},
+        current_only = true,
+        base = 'buffer',
+        column = 80,
+        signs_on_startup = {'all'},
+        diagnostics_severities = {vim.diagnostic.severity.ERROR}
+      })
+    end,
+		event = "VeryLazy",
+  },
+
+  {
+    "RRethy/vim-illuminate",
+    setup = function()
+      require("illuminate").setup({})
+    end,
+		event = "VeryLazy",
+  },
+
+  {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
   },
-
-	{
-    "HiPhish/rainbow-delimiters.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-	},
 
   {
     "azabiong/vim-highlighter",
@@ -84,6 +118,11 @@ local plugins = {
       -- settings
     end,
   },
+
+	{
+    "HiPhish/rainbow-delimiters.nvim",
+    event = { "BufReadPre", "BufNewFile" },
+	},
 
 	{
 		"stevearc/conform.nvim",
@@ -137,7 +176,7 @@ local plugins = {
     dependencies = "nvim-lua/plenary.nvim",
     config = true,
     keys = { -- load the plugin only when using it's keybinding:
-      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", desc = "undotree" },
+      { "<leader>ud", "<cmd>lua require('undotree').toggle()<cr>", desc = "undotree" },
     },
   },
 

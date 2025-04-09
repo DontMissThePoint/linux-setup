@@ -1,13 +1,13 @@
 #!/bin/bash
 
-# Define thresholds for battery notifications
-LOW_THRESHOLD=10
-CRITICAL_THRESHOLD=5
+# battery notifications
+LOW_THRESHOLD=20
+CRITICAL_THRESHOLD=11
 CHARGED_THRESHOLD=95
 
-# Get current battery percentage and charging status
-BATTERY_PERCENTAGE=$(cat /sys/class/power_supply/BAT1/capacity)
-STATUS=$(cat /sys/class/power_supply/BAT1/status)
+# percentage and charging status
+BATTERY_PERCENTAGE=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+AC_POWER=$(acpi -b | grep -c "Full")
 
 # Function to send a notification
 send_notification() {
@@ -18,10 +18,15 @@ send_notification() {
 }
 
 # Check battery status and send notifications
-if (( BATTERY_PERCENTAGE <= LOW_THRESHOLD && STATUS != "Charging" )); then
-    send_notification "Low Battery" "Your battery is below $LOW_THRESHOLD%. Please connect charger." "battery-caution"
-elif (( BATTERY_PERCENTAGE <= CRITICAL_THRESHOLD && STATUS != "Charging" )); then
-    send_notification "Critical Battery" "Your battery is critically low! Connect charger immediately!" "battery-alert"
-elif [[ "$STATUS" == "Full" ]]; then
-    send_notification "Battery Fully Charged" "Your battery is fully charged." "battery-full"
+if [[ $BATTERY_PERCENTAGE -ge $CHARGED_THRESHOLD ]] && [[ $AC_POWER -eq 1 ]];
+then
+  send_notification "Battery Fully Charged" "Your battery is fully charged." "battery-full" && mpg123 \
+    /home/$USER/linux-setup/miscellaneous/notifications/notificacioncool.mp3
+  elif [[ $BATTERY_PERCENTAGE -le $LOW_THRESHOLD ]] && [[ $AC_POWER -eq 0 ]];
+  then
+    send_notification "Low Battery" "Your battery is below $LOW_THRESHOLD%. Please connect charger." "battery-caution" && mpg123 \
+      /home/$USER/linux-setup/miscellaneous/notifications/low_battery.mp3
+    elif [[ $BATTERY_PERCENTAGE -le $CRITICAL_THRESHOLD ]] && [[ $AC_POWER -eq 0 ]];
+    then
+      send_notification "Critical Battery" "Your battery is critically low! Connect charger immediately!" "battery-alert"
 fi

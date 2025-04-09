@@ -81,7 +81,7 @@ while true; do
     GREEN='\033[0;32m'
     NC='\033[0m' # No Color
     npm config set strict-ssl=false
-    npm install -g llama-parse-cli jsdom qutejs punycode @mozilla/readability
+    npm install -g llama-parse-cli jsonrepair jsdom qutejs punycode @mozilla/readability
     echo -e "${GREEN}llama-parse auth  ${NC}to get started."
 
     break

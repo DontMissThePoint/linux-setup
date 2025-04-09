@@ -64,7 +64,7 @@ while true; do
 
     # uninstall
     # /nix/nix-installer uninstall
-
+    
     break
   elif [[ $response =~ ^(n|N)=$ ]]
   then

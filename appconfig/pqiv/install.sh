@@ -34,10 +34,34 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Installing pqiv -t --filter metal -f smmono12
+
     # install missing dependecies
     sudo apt-get -y install python3-setuptools
 
-    # link the configuration
+    # pqiv
+    cd /tmp
+    [ -e pqiv ] && sudo rm -rf pqiv
+    git clone https://github.com/phillipberndt/pqiv
+    cd pqiv
+    ./configure && make -j8
+    sudo make install
+
+    echo "
+[Desktop Entry]
+Type=Application
+Name=eog
+GenericName=pqiv
+Comment=Powerful image viewer with minimal UI
+Icon=mpv
+Terminal=false
+Exec=pqiv
+Categories=Graphics;GTK
+MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image/png;image/svg;image/tiff;" | \
+    sudo tee /usr/share/applications/pqiv.desktop > /dev/null
+    xdg-mime default pqiv.desktop `grep 'MimeType=' /usr/share/applications/pqiv.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
+
+    # vimiv
     cd $APP_PATH/../../submodules/vimiv/
     sudo make install
 

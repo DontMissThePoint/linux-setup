@@ -272,7 +272,6 @@ for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
 for_window [class="mpv"] floating enable
 for_window [class="URxvt"] fullscreen enable
-for_window [class="MuPDF"] fullscreen enable
 for_window [instance="mpvfloat"] floating enable, move container position center, focus
 for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus

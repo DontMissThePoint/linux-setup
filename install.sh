@@ -34,7 +34,7 @@ var=`lsb_release -r | awk '{ print $2 }'`
 
 arch=`uname -i`
 
-# owner
+# ownership
 sudo chown -R $USER: $MY_PATH
 find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
@@ -119,8 +119,8 @@ fi
 # 16. Install ZATHURA
 ! $docker && bash $APPCONFIG_PATH/zathura/install.sh $subinstall_params
 
-# 17. Install VIMIV
-! $docker && bash $APPCONFIG_PATH/vimiv/install.sh $subinstall_params
+# 17. Install PQIV
+! $docker && bash $APPCONFIG_PATH/pqiv/install.sh $subinstall_params
 
 # 18. Install SILVER SEARCHER (ag)
 ! $docker && bash $APPCONFIG_PATH/silver_searcher/install.sh $subinstall_params

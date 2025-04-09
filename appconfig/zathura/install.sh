@@ -92,8 +92,13 @@ while true; do
 
     # visidata
     pip install --user --break-system-packages --upgrade visidata \
-      datapackage epy-reader pypng pdfminer.six ptpython PyYAML lxml pandas \
-      xlrd openpyxl pyxlsb h5py xport savReaderWriter virtualenv tomli IPython tabulate 2> /dev/null
+      datapackage pypng pdfminer.six ptpython PyYAML lxml pandas xlrd \
+      openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
+      virtualenv tomli tabulate 2> /dev/null
+
+    # pipx
+    pipx install epy-reader
+
     mkdir -p ~/.visidata ~/.config/zathura
     cp -f $APP_PATH/dotvisidata/* ~/.visidata
     pv "$APP_PATH/visidatarc" > ~/.visidatarc
@@ -102,9 +107,6 @@ while true; do
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000
     sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
     #sudo calibre-uninstall
-
-    # mimeapps
-    pv $APP_PATH/mimeapps.list > ~/.config/mimeapps.list
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

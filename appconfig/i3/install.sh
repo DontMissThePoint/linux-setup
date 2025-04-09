@@ -39,7 +39,7 @@ while true; do
 
     toilet Installing i3 -t --filter metal -f smmono12
 
-    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0 redshift redshift-gtk
+    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk
 
     if [ -n "$beaver" ]; then
       sudo apt-get -y install python-keybinder gir1.2-keybinder
@@ -83,20 +83,38 @@ while true; do
     zig build
     sudo `which zig` build installexe
 
+    # auto-detect connected display
+    cd /tmp
+    [ -e autorandr-launcher ] && sudo rm -rf autorandr-launcher
+    git clone https://github.com/smac89/autorandr-launcher
+    cd autorandr-launcher
+    sudo make install
+
+    # restore graphical session properties
+    cd /tmp
+    [ -e autorandr ] && sudo rm -rf autorandr
+    git clone https://github.com/phillipberndt/autorandr
+    cd autorandr
+    sudo make install
+
     #  service
-    sudo systemctl disable gdm3
-    sudo systemctl enable ly.service
-    sudo systemctl disable getty@tty2.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable autorandr.service autorandr-lid-listener.service ly.service
+    sudo systemctl disable gdm3 getty@tty2.service
     sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
+
+    # udev
+    sudo udevadm control --reload-rules
 
     # systemd & timers
     sudo mkdir -p /etc/X11/xinit/xinitrc.d
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
     sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
-    systemctl --user start xidlehook.service udiskie.service battery_notification.{service,timer} 
-    sudo systemctl --global enable xidlehook.service udiskie.service battery_notification.{service,timer}  
-    # loginctl enable-linger
+    systemctl --user --now enable autorandr_launcher.service
+    systemctl --user start xidlehook.service udiskie.service battery_notification.{service,timer}
+    sudo systemctl --global enable xidlehook.service udiskie.service battery_notification.{service,timer}
+    # journalctl --follow --identifier='autorandr-launcher-service'
     # systemctl --user list-timers
 
     # earlyoom
@@ -129,7 +147,7 @@ while true; do
     sudo apt-get -y install help2man
     cd $APP_PATH/../../submodules/light/
     ./autogen.sh
-    ./configure && make
+    ./configure && make -j8
     sudo make install
     # set the minimal backlight value to 5%
     light -n 5
@@ -235,21 +253,6 @@ while true; do
     meson setup build
     ninja -C build
     sudo ninja -C build install
-
-    # automounter for removable media
-    sudo apt install -y udisks2 python3-pip python3-gi python3-gi-cairo gir1.2-gtk-4.0 python3-yaml libglib2.0-dev gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7 libkeyutils-dev keyutils
-    sudo pip install --break-system-packages udiskie -U 2> /dev/null
-
-    sudo mkdir -p /etc/polkit-1/localauthority/50-local.d
-    sudo cp -f $APP_PATH/consolekit.pkla /etc/polkit-1/localauthority/50-local.d/
-
-    # add group permission
-    num=`cat /etc/group | cut -d: -f1 | grep "plugdev" | wc -l`
-    if [ "$num" -lt "1" ]; then
-      sudo groupadd plugdev
-      sudo usermod -aG plugdev $USER
-      groups $USER
-    fi
 
     # config
     echo "Configuring..."

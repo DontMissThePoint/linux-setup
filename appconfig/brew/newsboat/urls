@@ -2,13 +2,13 @@
 
 "query:Newsletter:tags # \"Newsletter\""
 https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "favourite" "~Swan"
+https://kill-the-newsletter.com/feeds/zx5s91llt4fiikmqfz92.xml "Newsletter" "favourite" "~DevGem"
 
 "query:Magazine:tags # \"Magazine\""
 https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
 
 "query:Jobs:tags # \"Jobs\""
-https://truenorthafrica.com/job_category/oil-gas/feed/ "Jobs" "Oil & Gas Jobs at True North" "~True North Consult Ltd"
-https://truenorthafrica.com/job_category/others/feed/ "Jobs" "Other Jobs at True North" "~True North Consult Ltd"
+https://kill-the-newsletter.com/feeds/g8yteciyc8cwfoq566i1.xml "Jobs" "Jobs in Uganda" "~Jobs in Uganda"
 
 "query:Courses:tags # \"Courses\""
 https://freecoursedl.com/feed/ "Courses" "video" "~FreeCoursedl"
@@ -18,7 +18,6 @@ https://freecoursedl.com/comments/feed/ "Courses" "video" "~FreeCoursedl Comment
 https://feeds.buzzsprout.com/1849151.rss   "Podcast" "favourite" "~Saifedan Ammous"
 
 "query:Reddit:tags # \"Reddit\""
-https://www.reddit.com/r/daylightcomputer.rss "Reddit" "~Dalylight Computer"
 https://www.reddit.com/user/C4rnAg3.rss "Reddit" "~Bangladeshi Bash"
 
 "query:Blogs:tags # \"Blog\""
