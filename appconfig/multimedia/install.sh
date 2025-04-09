@@ -91,23 +91,9 @@ while true; do
     cp -rf $APP_PATH/mpv-config/* "$CONFIG"
 
     # image-viewer
-    echo "Installing image-viewer"
+    echo "Installing mvi..."
     cp -rf $APP_PATH/mvi ~/.config/
     mkdir -p ~/.cache/thumbnails/mpv-gallery
-
-    echo "
-[Desktop Entry]
-Type=Application
-Name=mvi
-GenericName=Image Viewer
-Comment=An image viewer with mpv
-Icon=mpv
-Terminal=false
-Exec=mpv --config-dir=$HOME/.config/mvi %U
-Categories=Graphics;GTK
-MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image/png;image/svg;image/tiff;" | \
-    sudo tee /usr/share/applications/mvi.desktop > /dev/null
-    xdg-mime default mvi.desktop `grep 'MimeType=' /usr/share/applications/mvi.desktop | sed -e 's/.*=//' -e 's/;/ /g'`
 
     # audio
     aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
@@ -119,7 +105,7 @@ MimeType=image/bmp;image/gif;image/jpeg;image/jp2;image/jpeg2000;image/jpx;image
     git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
 
     # imdb
-    pip install --upgrade --break-system-packages yq guessit git+https://github.com/cinemagoer/cinemagoer 2> /dev/null
+    pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer 2> /dev/null
     git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
     git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
 

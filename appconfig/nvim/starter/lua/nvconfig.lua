@@ -12,7 +12,7 @@ local options = {
 
   ui = {
     cmp = {
-      icons_left = false, -- only for non-atom styles!
+      icons_left = true, -- only for non-atom styles!
       style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
       abbr_maxwidth = 60,
       format_colors = {
@@ -25,19 +25,20 @@ local options = {
 
     statusline = {
       enabled = true,
-      theme = "vscode", -- default/vscode/vscode_colored/minimal
+      theme = "vscode_colored", -- default/vscode/vscode_colored/minimal
       -- default/round/block/arrow separators work only for default statusline theme
       -- round and block will work for minimal theme only
-      separator_style = "default",
+      separator_style = "arrow",
       order = nil,
       modules = nil,
     },
 
     -- lazyload it when there are 1+ buffers
     tabufline = {
-      enabled = true,
+      enabled = false,
       lazyload = true,
-      order = { "treeOffset", "buffers", "tabs", "btns" },
+      -- order = { "treeOffset", "buffers", "tabs", "btns" },
+      order = { "treeOffset", "buffers", "tabs" },
       modules = nil,
       bufwidth = 21,
     },

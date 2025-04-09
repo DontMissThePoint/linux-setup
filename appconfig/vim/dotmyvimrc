@@ -209,10 +209,10 @@ let g:limelight_conceal_guifg = 'DarkGray'
 let g:limelight_conceal_guifg = '#777777'
 
 " Default: 0.5
-let g:limelight_default_coefficient = 0.7
+let g:limelight_default_coefficient = 0.9
 
 " Number of preceding/following paragraphs to include (default: 0)
-let g:limelight_paragraph_span = 1
+let g:limelight_paragraph_span = 3
 
 " Beginning/end of paragraph
 "   When there's no empty line between the paragraphs
@@ -224,27 +224,26 @@ let g:limelight_eop = '\ze\n^\s'
 "   Set it to -1 not to overrule hlsearch
 let g:limelight_priority = -1
 
-autocmd! User GoyoEnter Limelight
+autocmd! User GoyoEnter
+      \ Limelight
+      \ | IlluminationEnable
 autocmd! User GoyoLeave Limelight!
 
-" Moonfly
-let g:moonflyCursorColor = v:true
-let g:moonflyItalics = v:true
-let g:moonflyNormalFloat = v:true
-let g:moonflyTerminalColors = v:true
-
-let g:moonflyTransparent = v:true
-let g:moonflyUndercurls = v:true
-let g:moonflyUnderlineMatchParen = v:true
-let g:moonflyVirtualTextColor = v:true
-let g:moonflyWinSeparator = 2
+let g:Illuminate_ftHighlightGroups = {
+      \ 'vim:blacklist': ['vimVar', 'vimString', 'vimLineComment',
+      \         'vimFuncName', 'vimFunction', 'vimUserFunc', 'vimFunc']
+      \ }
+let g:Illuminate_ftblacklist = ['nerdtree']
 
 " Sneak
 let g:sneak#label = 1
-let g:sneak#s_next = 0
+let g:sneak#s_next = 1
 let g:sneak#use_ic_scs = 1
-let g:sneak#prompt = '>'
-let g:sneak#target_labels = "sftunq/;SFGHLTUNRMQZ?0"
+let g:sneak#prompt = '🔎'
+
+" colors
+highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
+highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 
 " Rainbow
 let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
@@ -311,10 +310,20 @@ nnoremap g<BS> <Cmd>Hi<<CR>
 nnoremap - <Cmd>Hi/next<CR>
 nnoremap _ <Cmd>Hi/previous<CR>
 
+" better f, F, t, and T
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
+
 " jump key mappings
 nnoremap n <Cmd>call HiSearch('n')<CR>
 nnoremap N <Cmd>call HiSearch('N')<CR>
 nnoremap <Esc>n <Cmd>noh<CR>
+
+" remove the default , and ;
+map gS <Plug>Sneak_,
+map gs <Plug>Sneak_;
 
 " Command-line
 cnoremap q qa

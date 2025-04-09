@@ -83,20 +83,38 @@ while true; do
     zig build
     sudo `which zig` build installexe
 
+    # auto-detect connected display
+    cd /tmp
+    [ -e autorandr-launcher ] && sudo rm -rf autorandr-launcher
+    git clone https://github.com/smac89/autorandr-launcher
+    cd autorandr-launcher
+    sudo make install
+
+    # restore graphical session properties
+    cd /tmp
+    [ -e autorandr ] && sudo rm -rf autorandr
+    git clone https://github.com/phillipberndt/autorandr
+    cd autorandr
+    sudo make install
+
     #  service
-    sudo systemctl disable gdm3
-    sudo systemctl enable ly.service
-    sudo systemctl disable getty@tty2.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable autorandr.service autorandr-lid-listener.service ly.service
+    sudo systemctl disable gdm3 getty@tty2.service
     sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
+
+    # udev
+    sudo udevadm control --reload-rules
 
     # systemd & timers
     sudo mkdir -p /etc/X11/xinit/xinitrc.d
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
     sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
+    systemctl --user --now enable autorandr_launcher.service
     systemctl --user start xidlehook.service udiskie.service battery_notification.{service,timer}
     sudo systemctl --global enable xidlehook.service udiskie.service battery_notification.{service,timer}
-    # loginctl enable-linger
+    # journalctl --follow --identifier='autorandr-launcher-service'
     # systemctl --user list-timers
 
     # earlyoom
@@ -129,7 +147,7 @@ while true; do
     sudo apt-get -y install help2man
     cd $APP_PATH/../../submodules/light/
     ./autogen.sh
-    ./configure && make
+    ./configure && make -j8
     sudo make install
     # set the minimal backlight value to 5%
     light -n 5

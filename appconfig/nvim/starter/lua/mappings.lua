@@ -30,7 +30,14 @@ map("n", "N", "<Cmd>call HiSearch('N')<CR>", { desc = "jump previous highlight s
 map("n", "<Esc>n", "<Cmd>noh<CR>", { desc = "off highlight search" })
 
 -- spectre
-map("n", "<leader>s", "<cmd> Spectre <cr>", { desc = "search replace" })
+map("n", "<leader>sr", "<Cmd> Spectre <cr>", { desc = "search replace" })
+map('n', '<leader>sw', '<Cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
+map('v', '<leader>sw', '<ESC><Cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
+map('n', '<leader>sp', '<Cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search on current file" })
+map('n', '<leader>S', '<Cmd>lua require("spectre").toggle()<CR>', { desc = "Toggle Spectre" })
+
+-- scrollview
+map("n", "<leader>sv", "<cmd> ScrollViewRefresh <cr>", { desc = "scrollbar decorate" })
 
 -- toggler
 map("n", "<leader>ti", function() require("nvim-toggler").toggle() end, { desc = "toggler" })

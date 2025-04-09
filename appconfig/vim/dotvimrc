@@ -199,19 +199,13 @@ if g:user_mode == "1"
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
-  " iA Writer
-  Plug 'cormacrelf/vim-colors-github'
-  Plug 'preservim/vim-colors-pencil'
-  Plug 'logico/typewriter-vim'
-
   " Registers
   Plug 'junegunn/vim-peekaboo'
 
   " Focus
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
-  Plug 'junegunn/seoul256.vim'
-  Plug 'bluz71/vim-moonfly-colors'
+  Plug 'cormacrelf/vim-colors-github'
 
   " Autosave
   Plug '907th/vim-auto-save'
@@ -237,6 +231,12 @@ if g:user_mode == "1"
   " The missing motion
   Plug 'justinmk/vim-sneak'
 
+  " highlight words and expressions
+  Plug 'azabiong/vim-highlighter'
+
+  " PTA
+  Plug 'ledger/vim-ledger'
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
@@ -246,7 +246,6 @@ if g:user_mode == "1"
 "   Plug 'tikhomirov/vim-glsl'
 
 "   " Papis vim integration
-"   Plug 'junegunn/fzf'
 "   Plug 'papis/papis-vim'
 "   nnoremap <localleader>pp :Papis<cr>
 "   nnoremap <localleader>pv :PapisView<cr>
@@ -282,9 +281,6 @@ Plug 'junegunn/fzf.vim'
 " Snippets
 " Plug 'SirVer/ultisnips'
 
-" PTA
-Plug 'ledger/vim-ledger'
-
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
 
@@ -293,14 +289,17 @@ Plug 'jszakmeister/vim-togglecursor'
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
 
+" highlighting under cursor
+Plug 'RRethy/vim-illuminate'
+
+" colors
+Plug 'junegunn/seoul256.vim'
+
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
 
 " powerful targeting of text parts
 Plug 'wellle/targets.vim'
-
-" highlight words and expressions
-Plug 'azabiong/vim-highlighter'
 
 " replace text without paste into register by gr
 " yank or delete something, then past it in by e.g. griw (go replace in)
@@ -420,29 +419,6 @@ else
   cnoreabbrev st Term
 
 endif
-
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
-nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
 au BufNewFile,BufRead *.cl setlocal ft=c
 

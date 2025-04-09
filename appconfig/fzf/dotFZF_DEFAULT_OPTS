@@ -14,7 +14,7 @@ export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
   --cycle
   --border --highlight-line
   --marker ▏ --pointer ▌ --prompt "▌ "
-  --info inline-right --layout reverse
+  --info inline-right
   --preview="preview {}"
   --bind "space:jump,jump:accept,jump-cancel:transform:[[ $FZF_KEY =~ ctrl-c ]] && echo abort"
   --bind "ctrl-/:toggle-preview,focus:transform-preview-label:echo [ {} ] | lolcat -f"'
