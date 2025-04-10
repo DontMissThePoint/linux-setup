@@ -14,10 +14,10 @@ URxvt.utf8: 1
 URxvt.pointerBlank: 1
 URxvt.pointerBlankDelay: 3
 
-URxvt.depth              : 32
-URxvt.iso14755_52        : false
-URxvt.loginShell         : true
-URxvt.clipboard.autocopy : true
+URxvt.depth: 32
+URxvt.iso14755_52: false
+URxvt.loginShell: true
+URxvt.clipboard.autocopy: true
 URxvt.transparent: false
 URxvt.visualBell: true
 
@@ -25,16 +25,16 @@ URxvt*cursorBlink: true
 URxvt*scrollBar: false
 URxvt*mouseWheelScrollPage: false
 
-XTerm*reverseVideo: on
-XTerm*selectToClipboard: true
+xterm*reverseVideo: on
+xterm*selectToClipboard: true
 
-Xft*rgba      : rgb
-Xft*antialias : true
-Xft*autohint  : false
-Xft*hinting   : true
-Xft*hintstyle : hintslight
-Xft*lcdfilter : lcddefault
-Xft.dpi       : 150
+Xft*rgba: rgb
+Xft*antialias: true
+Xft*autohint: false
+Xft*hinting: true
+Xft*hintstyle: hintslight
+Xft*lcdfilter: lcddefault
+Xft.dpi: 150
 
 Xcursor.size: 32
 Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
@@ -351,10 +351,10 @@ URxvt.color15: #E8E8D3
 ! EPIGEN_ADD_BLOCK_VIKTOR_BIGBOX EPIGEN_ADD_BLOCK_VIKTOR_THINKPAD }
 
 !! URxvt COLORS --------------------------------------------------------
-! URxvt*depth                   : 32
-! URxvt.fading                  : 25
-! URxvt.fadeColor               : #101010
-! URxvt*visualBell              : false
+! URxvt*depth: 32
+! URxvt.fading: 25
+! URxvt.fadeColor: #101010
+! URxvt*visualBell: false
 
 ! ------------------------------------------------------------------------------
 ! ROFI Color theme
@@ -496,10 +496,10 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.color15: #E8E8D3
 
 ! ! URxvt COLORS --------------------------------------------------------
-! URxvt*depth                   : 32
-! ! URxvt.fading                : 25
-! ! URxvt.fadeColor             : #101010
-! URxvt*visualBell              : false
+! URxvt*depth: 32
+! ! URxvt.fading: 25
+! ! URxvt.fadeColor: #101010
+! URxvt*visualBell: false
 
 ! ! ------------------------------------------------------------------------------
 ! ! ROFI Color theme
@@ -519,12 +519,9 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 
 ! ! GitHub Theme
-! XTerm*background: [85]#161b25
-! XTerm*foreground: [95]#cdd6f4
-! XTerm*pointerColor: #1abb9b
+! *.background: #161b25
+! *.foreground: [95]#cdd6f4
 
-! *background: [85]#161b25
-! *foreground: [95]#cdd6f4
 ! *fading: 8
 ! *fadeColor: black
 ! *cursorColor: #9aedfe
@@ -565,15 +562,14 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! !! URxvt COLORS --------------------------------------------------------
 
-! URxvt.background              : [85]#161b25
-! URxvt*background              : black
-! URxvt*foreground              : [95]#cdd6f4
+! URxvt.background: [100]#161b25
+! URxvt*background: black
 
 ! !! Bold, Italic, Underline
-! URxvt.colorBD                 : [36]#1ABB9B
-! URxvt.colorIT                 : [36]#7d7d7d
-! URxvt.colorUL                 : [36]#57c7ff
-! URxvt.underlineColor          : #57c7ff
+! URxvt.colorBD: [36]#1ABB9B
+! URxvt.colorIT: [36]#7d7d7d
+! URxvt.colorUL: [36]#57c7ff
+! URxvt.underlineColor: #57c7ff
 
 ! URxvt.font: xft:Hurmit Nerd Font Mono:size=11,\
 !             xft:MesloLGSDZ Nerd Font Mono:size=11,\

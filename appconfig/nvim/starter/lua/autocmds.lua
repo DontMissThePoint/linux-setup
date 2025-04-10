@@ -89,7 +89,7 @@ vim.cmd([[autocmd OptionSet * noautocmd set guicursor=n-v-c:block,i-ci-ve:ver25,
 if vim.fn.exists("$TMUX") then
 	vim.cmd([[
         augroup TmuxStatusToggle
-            autocmd VimEnter,BufEnter,VimResume * silent !tmux setw status off
+            autocmd VimEnter,FocusGained,BufEnter,VimResume * silent !tmux setw status off
             autocmd VimLeave,VimSuspend * silent !tmux setw status on
         augroup end
     ]])
@@ -118,7 +118,7 @@ create_cmd("AutosaveToggle", function()
   vim.g.autosave = not vim.g.autosave
 
   if vim.g.autosave then
-    vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+    autocmd({ "InsertLeave", "TextChanged" }, {
       group = vim.api.nvim_create_augroup("Autosave", {}),
       callback = function()
         if vim.api.nvim_buf_get_name(0) and #vim.bo.buftype ==0 then

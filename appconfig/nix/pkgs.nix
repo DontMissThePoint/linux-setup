@@ -3,7 +3,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
-    pkgs.udiskie pkgs.libgen-cli
+    pkgs.activityWatch pkgs.libgen-cli
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -79,18 +79,6 @@
     address = "en_US.UTF-8";
     telephone = "en_US.UTF-8";
     measurement = "en_US.UTF-8";
-  };
-
-  # systemd
-    services.udiskie = {
-    enable = true;
-    notify = false;
-    tray = "never";
-    settings = {
-      program_options = {
-        file_manager = null;
-      };
-    };
   };
 
   # cursor

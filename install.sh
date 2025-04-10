@@ -235,7 +235,7 @@ sudo apt -y autoremove
 sudo docker volume prune
 
 # packages
-sudo apt dist-upgrade
+topgrade
 
 # power
 the_ppa=linrunner/tlp
