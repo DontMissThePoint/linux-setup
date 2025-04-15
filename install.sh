@@ -231,11 +231,9 @@ case $(< /etc/systemd/resolved.conf 2>/dev/null) in
 esac
 
 # storage
+topgrade
 sudo apt -y autoremove
 sudo docker volume prune
-
-# packages
-sudo apt dist-upgrade
 
 # power
 the_ppa=linrunner/tlp

@@ -26,36 +26,44 @@ set guioptions ""
 # clipboard
 set selection-clipboard clipboard
 
-# zathurarc-dark
-
 set font "Hurmit Nerd Font 10.5"
-# set default-bg "#30303a"
-set default-bg "#ff7eb6"
-set default-fg "#d6d6d6"
+# set default-bg                  "#30303a"
+# set default-bg                  "#ff7eb6"
+# set default-fg                  "#d6d6d6"
 
-set statusbar-fg "#B0B0B0" #04
-set statusbar-bg "#30303a" #01
+# OneDark
+set default-bg                  "#282c34"
+set default-fg                  "#5c6370"
 
-set inputbar-bg "#30303a" #00
-set inputbar-fg "#FFFFFF" #02
+set statusbar-bg                "#3e4452"
+set statusbar-fg                "#abb2bf"
 
-set notification-error-bg "#AC4142" #08
-set notification-error-fg "#151515" #00
+set inputbar-bg                 "#3e4452"
+set inputbar-fg                 "#abb2bf"
 
-set notification-warning-bg "#AC4142" #08
-set notification-warning-fg "#151515" #00
+set notification-bg             "#282c34"
+set notification-fg             "#abb2bf"
 
-set highlight-color "#F4BF75" #0A
-set highlight-active-color "#6A9FB5" #0D
+set notification-error-bg       "#282c34"
+set notification-error-fg       "#e06c75"
 
-set completion-highlight-fg "#151515" #02
-set completion-highlight-bg "#90A959" #0C
+set notification-warning-bg     "#282c34"
+set notification-warning-fg     "#e5c07b"
 
-set completion-bg "#303030" #02
-set completion-fg "#E0E0E0" #0C
+set highlight-color             "rgba(229, 192, 123, .5)" # '#e5c07b' with 0.5 opacity
+set highlight-active-color      "rgba(97, 175, 239, .5)"  # '#61afef' with 0.5 opacity
 
-set notification-bg "#90A959" #0B
-set notification-fg "#151515" #00
+set completion-bg               "#3e4452"
+set completion-fg               "#61afef"
+
+set completion-highlight-fg     "#5c6370"
+set completion-highlight-bg     "#61afef"
+
+set recolor-lightcolor          "#282c34"
+set recolor-darkcolor           "#abb2bf"
+
+set recolor                     "true"
+set recolor-keephue             "true"
 
 set recolor "false"
 set recolor-lightcolor "#FCC0C0"
@@ -78,3 +86,7 @@ map u navigate next
 map i navigate previous
 
 map [normal] ; focus_inputbar :
+
+# Smooth scrolling for j and k
+map j feedkeys "<C-Down>"
+map k feedkeys "<C-Up>"
