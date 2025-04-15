@@ -1552,7 +1552,7 @@ exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 # news feed
 exec --no-startup-id "newsboat -r -q"
 
-# gx terminal
+# (gx) terminal
 exec --no-startup-id i3-sensible-terminal
 
 # #}

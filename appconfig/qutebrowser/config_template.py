@@ -19,14 +19,14 @@ config.set(
 # Variables
 leader = " "
 ss_dir = "~/Pictures/Screenshots/"
-timestamp = strftime("%Y-%m-%d-%H-%M-%S", localtime())  # updates on every config-source
+timestamp = strftime("%Y-%m-%d-%H-%M-%S", localtime())
 terminal = "urxvt"
 editor = "nvim"
 homepage = "https://yandex.com"
 
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
-catppuccin.setup(c, 'mocha')
+catppuccin.setup(c, 'latte')
 
 # Colors
 c.colors.webpage.darkmode.enabled = False
@@ -277,14 +277,14 @@ c.fonts.prompts = font
 c.fonts.contextmenu = font
 
 c.fonts.hints = small_font
-c.fonts.keyhint = font
+c.fonts.keyhint = small_font
 c.fonts.tooltip = small_font
 c.fonts.messages.error = small_font
 c.fonts.messages.info = "bold " + font
 c.fonts.messages.warning = small_font
 c.fonts.statusbar = "italic " + font
 c.fonts.tabs.selected = "italic " + font
-c.fonts.tabs.unselected = "italic " + font
+c.fonts.tabs.unselected = "italic " + small_font
 
 # leader
 config.bind(leader + "dd", "devtools")

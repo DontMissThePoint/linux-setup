@@ -59,6 +59,31 @@ local plugins = {
 
   "nvchad/volt", -- optional, needed for theme switcher
   -- or just use Telescope themes
+
+  {
+    "folke/snacks.nvim",
+    priority = 1000,
+    lazy = false,
+    -- -@type snacks.Config
+    opts = {
+      -- your configuration comes here
+      -- or leave it empty to use the default settings
+      -- refer to the configuration section below
+      bigfile = { enabled = true },
+      dashboard = { enabled = true },
+      explorer = { enabled = true },
+      indent = { enabled = true },
+      input = { enabled = true },
+      picker = { enabled = true },
+      notifier = { enabled = true },
+      quickfile = { enabled = true },
+      scope = { enabled = true },
+      scroll = { enabled = true },
+      statuscolumn = { enabled = true },
+      words = { enabled = true },
+    },
+  },
+
 	{
 		"max397574/better-escape.nvim",
 		event = "InsertEnter",
@@ -109,6 +134,19 @@ local plugins = {
   {
     "kevinhwang91/nvim-bqf",
     ft = "qf",
+  },
+
+  {
+    "lowitea/aw-watcher.nvim",
+    event = "VimEnter",
+    opts = {  -- required, but can be empty table: {}
+      -- add any options here
+      -- for example:
+      aw_server = {
+          host = "127.0.0.1",
+          port = 5600,
+      },
+    },
   },
 
   {

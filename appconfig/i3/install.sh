@@ -39,7 +39,7 @@ while true; do
 
     toilet Installing i3 -t --filter metal -f smmono12
 
-    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk
+    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk libinput-tools
 
     if [ -n "$beaver" ]; then
       sudo apt-get -y install python-keybinder gir1.2-keybinder
@@ -112,8 +112,8 @@ while true; do
     sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
     systemctl --user --now enable autorandr_launcher.service
-    systemctl --user start xidlehook.service udiskie.service battery_notification.{service,timer}
-    sudo systemctl --global enable xidlehook.service udiskie.service battery_notification.{service,timer}
+    systemctl --user start xidlehook.service activitywatch.service battery_notification.{service,timer}
+    sudo systemctl --global enable xidlehook.service activitywatch.service battery_notification.{service,timer}
     # journalctl --follow --identifier='autorandr-launcher-service'
     # systemctl --user list-timers
 
@@ -281,6 +281,8 @@ while true; do
         pv $APP_PATH/settings.ini > ~/.config/gtk-4.0/settings.ini
     fi
 
+    mkdir -p ~/.config/gtk-2.0
+    pv $APP_PATH/gtkfilechooser.ini > ~/.config/gtk-2.0/gtkfilechooser.ini
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
     pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
     pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css

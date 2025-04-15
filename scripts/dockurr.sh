@@ -1,11 +1,11 @@
 #!/bin/sh
 
-GREEN='\033[0;32m'
+RED='\033[0;31m'
 NC='\033[0m' # No Color
 
 # read -p "Username: " username
 # win11
-echo "${GREEN}🔑 [ Enter user credentials ]${NC}"
+echo "${RED}🔑 [ Enter user credentials ]${NC}"
 username=Quickemu
 echo Username: "$username"
 stty -echo

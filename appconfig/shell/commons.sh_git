@@ -78,10 +78,8 @@ fw() (
       --query "$*"
 )
 
-# remove from PATH
-# export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | xargs | tr " " ":"`
-
 # #{ remove_duplicates_from_path()
+
 remove_duplicates_from_path() {
     OLD_IFS=$IFS
     IFS=:

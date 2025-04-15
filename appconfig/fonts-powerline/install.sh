@@ -57,6 +57,7 @@ while true; do
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
     fi
     sudo apt install -y fonts-inter-variable fonts-symbola unifont fonts-font-awesome ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
+    papirus-folders -t ePapirus-Dark -C breeze
 
     # Nerd fonts
     toilet Setting up Nerd Fonts -t -f future
@@ -91,6 +92,29 @@ while true; do
 
     # Test with:
     # fc-match -s monospace
+
+    # qt6ct
+    sudo apt install -y qt6-base-dev qt6-base-dev-tools qt6-base-private-dev qt6-tools-dev qt6-tools-dev-tools linguist-qt6
+
+    cd /tmp
+    [ -e qt6ct ] && rm -rf qt6ct
+    git clone https://github.com/trialuser02/qt6ct
+    cd qt6ct
+    cmake -S . -B build
+    cmake --build build --config Release
+    make -j8
+    sudo make install
+
+    EXISTING_QT=`cat ~/.profile 2> /dev/null | grep "qt6ct" | wc -l`
+    if [ "$EXISTING_QT" == "0" ]; then
+      toilet Settingup qt6ct -t -f future
+      (echo; echo 'export QT_QPA_PLATFORMTHEME=qt6ct') >> ~/.profile
+    fi
+    export QT_QPA_PLATFORMTHEME=qt6ct
+
+    mkdir -p ~/.config/qt{5,6}ct
+    pv $APP_PATH/qt5ct.conf > ~/.config/qt5ct/qt5ct.conf
+    pv $APP_PATH/qt6ct.conf > ~/.config/qt6ct/qt6ct.conf
 
     # cursor
     cd /tmp

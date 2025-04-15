@@ -75,6 +75,9 @@ while true; do
     ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts
     rm -fr $GIT_PATH/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
+    # screenshots <space>dp
+    mkdir -p ~/Pictures/Screenshots
+
     toilet Setting up llamaparse -t -f future
 
     # llama-parse-cli
