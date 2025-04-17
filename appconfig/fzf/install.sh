@@ -34,8 +34,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    cd $APP_PATH/../../submodules/fzf/
-    ./install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
+    # cd $APP_PATH/../../submodules/fzf/
+    # ./install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
 
     mkdir -p ~/.config/fzf 2> /dev/null
 

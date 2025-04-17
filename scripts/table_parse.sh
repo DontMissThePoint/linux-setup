@@ -16,7 +16,7 @@ DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
 llama-parse parse "$DIR/Live_Netis_Fuel_UG.pdf" \
   -o "$DIR/Live_Netis_Fuel_UG.md" \
   -f markdown \
-  -pi "Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the sheets. Concatenate the tables."
+  -pi "Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the sheets. Parse document with Agent. Concatenate the tables."
 
 # JSON
 JSON_FILE="$DIR/Live_Netis_Fuel_UG.json"

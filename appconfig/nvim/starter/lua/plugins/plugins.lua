@@ -13,6 +13,18 @@ local plugins = {
 
   {
     "nvim-telescope/telescope.nvim",
+    dependencies = {
+        "Myzel394/jsonfly.nvim",
+    },
+    keys = {
+      {
+          "<leader>fj",
+          "<cmd>Telescope jsonfly<cr>",
+          desc = "Open json(fly)",
+          ft = { "json", "xml", "yaml" },
+          mode = "n"
+      }
+      },
     opts = {
       defaults = {
           layout_strategy = "horizontal",
@@ -27,6 +39,17 @@ local plugins = {
       },
     },
   },
+
+  {
+     "nvchad/base46",
+     lazy = true,
+     build = function()
+       require("base46").load_all_highlights()
+     end,
+  },
+
+  "nvchad/volt", -- optional, needed for theme switcher
+  -- or just use Telescope themes
 
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -50,17 +73,6 @@ local plugins = {
   },
 
   {
-     "nvchad/base46",
-     lazy = true,
-     build = function()
-       require("base46").load_all_highlights()
-     end,
-  },
-
-  "nvchad/volt", -- optional, needed for theme switcher
-  -- or just use Telescope themes
-
-  {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
@@ -75,7 +87,7 @@ local plugins = {
       indent = { enabled = true },
       input = { enabled = true },
       picker = { enabled = true },
-      notifier = { enabled = true },
+      notifier = { enabled = false },
       quickfile = { enabled = true },
       scope = { enabled = true },
       scroll = { enabled = true },
@@ -106,6 +118,33 @@ local plugins = {
       require("flit").setup({})
     end,
     lazy = false,
+  },
+
+  {
+    "sustech-data/wildfire.nvim",
+    enabled = false,
+    event = "VeryLazy",
+    dependencies = { "nvim-treesitter/nvim-treesitter" },
+    config = function()
+      require("wildfire").setup()
+    end,
+  },
+
+  {
+    "lukas-reineke/virt-column.nvim",
+    enabled = false,
+    opts = {
+      char = "│",
+      highlight = "VertSplit",
+    },
+  },
+
+  {
+    "szw/vim-maximizer",
+
+    keys = {
+      { "<leader>sm", "<cmd>MaximizerToggle<CR>", { desc = "Maximize/minimize a split" } },
+    },
   },
 
   {
@@ -191,22 +230,6 @@ local plugins = {
     "gennaro-tedesco/nvim-jqx",
     event = {"BufReadPost"},
     ft = { "json", "yaml" },
-  },
-
-  {
-  "nvim-telescope/telescope.nvim",
-  dependencies = {
-      "Myzel394/jsonfly.nvim",
-  },
-  keys = {
-      {
-          "<leader>fj",
-          "<cmd>Telescope jsonfly<cr>",
-          desc = "Open json(fly)",
-          ft = { "json", "xml", "yaml" },
-          mode = "n"
-      }
-    },
   },
 
   {

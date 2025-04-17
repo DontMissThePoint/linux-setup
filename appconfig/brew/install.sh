@@ -52,14 +52,14 @@ while true; do
     source $HOME/.bashrc && brew update && brew upgrade
     brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
-      eza fd s-search dust zig aria2 glow restic croc newsboat walk tailspin \
-      yq gron jc jo jless
+      eza fd s-search dust zig aria2 glow restic croc newsboat walk \
+      poetry npm tailspin yq gron jc jo jless
     brew cleanup --prune=all
 
     # newsboat
     mkdir -p ~/.newsboat
     cp -rf $APP_PATH/newsboat/* ~/.newsboat/
-    
+
     # configs
     mkdir -p ~/.config/{aria2,btop,bat,glow,s,topgrade}
     pv "$APP_PATH/btop.conf" > ~/.config/btop/btop.conf

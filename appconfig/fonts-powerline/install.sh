@@ -57,7 +57,7 @@ while true; do
         sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
     fi
     sudo apt install -y fonts-inter-variable fonts-symbola unifont fonts-font-awesome ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
-    papirus-folders -t ePapirus-Dark -C breeze
+    papirus-folders -t ePapirus -C nordic
 
     # Nerd fonts
     toilet Setting up Nerd Fonts -t -f future

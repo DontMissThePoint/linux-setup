@@ -310,12 +310,6 @@ nnoremap g<BS> <Cmd>Hi<<CR>
 nnoremap - <Cmd>Hi/next<CR>
 nnoremap _ <Cmd>Hi/previous<CR>
 
-" better f, F, t, and T
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T
-
 " jump key mappings
 nnoremap n <Cmd>call HiSearch('n')<CR>
 nnoremap N <Cmd>call HiSearch('N')<CR>
@@ -360,8 +354,13 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
   " xmap <buffer> <leader>l <Plug>(Limelight)
   " autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
   " function SneakStf()
-  "   " nnoremap <buffer> S <Plug>Sneak_s
-  "   " nnoremap <buffer> s <Plug>Sneak_S
+  "   " better f, F, t, and T
+  "   nnoremap <buffer> s <Plug>Sneak_s
+  "   nnoremap <buffer> S <Plug>Sneak_S
+  "   nnoremap <buffer> f <Plug>Sneak_f
+  "   nnoremap <buffer> F <Plug>Sneak_F
+  "   nnoremap <buffer> t <Plug>Sneak_t
+  "   nnoremap <buffer> T <Plug>Sneak_T
   "   " focus
   "   set background=dark
   "   silent! Goyo
@@ -375,7 +374,6 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
     silent! Goyo!
     set background=light
     colo github
-    Hi Load
 
     let g:airline_theme='papercolor'
     let g:github_colors_soft = 0
@@ -397,7 +395,7 @@ nmap <F11> <Cmd>set background=dark <bar> silent! Goyo
           \ "xelatex % && xelatex %" && zathura %:r.pdf<CR>
 
     " Preselect suppliers
-    iabbrev <silent> ff <Cmd>:call fzf#run(fzf#wrap({
+    iabbrev <silent> f <Cmd>:call fzf#run(fzf#wrap({
           \ 'source': readfile(expand('$HOME/.cards.txt')),
           \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
           \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },

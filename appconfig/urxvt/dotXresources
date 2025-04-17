@@ -571,15 +571,15 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.colorUL: [36]#57c7ff
 ! URxvt.underlineColor: #57c7ff
 
-! URxvt.font: xft:Hurmit Nerd Font Mono:size=11,\
-!             xft:MesloLGSDZ Nerd Font Mono:size=11,\
-!             xft:FiraMono Nerd Font Mono:size=11,\
+! URxvt.font: xft:Hurmit Nerd Font Mono:size=10.5,\
+!             xft:MesloLGSDZ Nerd Font Mono:size=10.5,\
+!             xft:FiraMono Nerd Font Mono:size=10.5,\
 !             xft:Symbola,xft:FontAwesome,\
 !             xft:Noto Color Emoji,xft:Unifont,\
 !             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-! URxvt.boldFont: xft:Hurmit Nerd Font:bold:size=11, xft:Symbola
-! URxvt.italicFont: xft:Hurmit Nerd Font:italic:size=11, xft:Symbola
-! URxvt.boldItalicFont: xft:Hurmit Nerd Font:bold:italic:size=11, xft:Symbola
+! URxvt.boldFont: xft:Hurmit Nerd Font:bold:size=10.5, xft:Symbola
+! URxvt.italicFont: xft:Hurmit Nerd Font:italic:size=10.5, xft:Symbola
+! URxvt.boldItalicFont: xft:Hurmit Nerd Font:bold:italic:size=10.5, xft:Symbola
 ! URxvt.letterSpace: 0
 ! URxvt.intensityStyles: false
 

@@ -118,7 +118,7 @@ c.completion.height = "33%"
 c.messages.timeout = 5000
 c.content.geolocation = True
 c.qt.force_platform = 'xcb'
-c.zoom.default = "90%"
+c.zoom.default = "86%"
 c.window.hide_decoration = True
 c.content.headers.do_not_track = True
 
