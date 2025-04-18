@@ -62,6 +62,8 @@ while true; do
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-rubyinterp \
+      --with-ruby-command=$HOMEBREW_PREFIX/bin/ruby \
+      --with-tlib=ncurses \
       --enable-gui=no \
       --enable-cscope \
       --prefix=/usr

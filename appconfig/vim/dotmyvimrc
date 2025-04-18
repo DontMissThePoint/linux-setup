@@ -241,12 +241,13 @@ let g:sneak#s_next = 1
 let g:sneak#use_ic_scs = 1
 let g:sneak#prompt = '🔎'
 
-" colors
 highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
 highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
 
 " Rainbow
-let g:rainbow_active = 1 "set to 0 if you want to enable it later via :RainbowToggle
+let g:rainbow_active = 1
+let g:rbql_with_headers = 1
+let g:rbql_use_system_python = 1
 
 " IndentLine
 let g:indentLine_defaultGroup         = 'SpecialKey'
@@ -301,14 +302,21 @@ nnoremap <Space><Space> :History:<CR>
 nnoremap <leader>ff :FZF ~/<CR>
 nnoremap <leader>fw :Lines<CR>
 
-" Indent
-nnoremap <leader>idl :IndentLinesToggle<CR>
-
 " Highlight
 nnoremap g<CR> <Cmd>Hi><CR>
 nnoremap g<BS> <Cmd>Hi<<CR>
 nnoremap - <Cmd>Hi/next<CR>
 nnoremap _ <Cmd>Hi/previous<CR>
+
+" rainbow_csv
+nnoremap <expr> <C-Left> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoLeft<CR>' : '<C-Left>'
+nnoremap <expr> <C-Right> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoRight<CR>' : '<C-Right>'
+nnoremap <expr> <C-Up> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoUp<CR>' : '<C-Up>'
+nnoremap <expr> <C-Down> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoDown<CR>' : '<C-Down>'
+nnoremap <F5> :RainbowQuery<CR>
+
+" Indent
+nnoremap <leader>idl :IndentLinesToggle<CR>
 
 " jump key mappings
 nnoremap n <Cmd>call HiSearch('n')<CR>

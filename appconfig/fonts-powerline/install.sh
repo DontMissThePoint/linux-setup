@@ -81,14 +81,14 @@ while true; do
     printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
     pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
 
-    # icons-in-terminal
-    cd /tmp
-    [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
-    git clone https://github.com/sebastiencs/icons-in-terminal.git
-    cd icons-in-terminal
-    ./install.sh
-    pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
-    find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
+    # # icons-in-terminal
+    # cd /tmp
+    # [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
+    # git clone https://github.com/sebastiencs/icons-in-terminal.git
+    # cd icons-in-terminal
+    # ./install.sh
+    # pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
+    # find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
 
     # Test with:
     # fc-match -s monospace

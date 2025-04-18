@@ -61,9 +61,9 @@ windows:
         - calcpy
         # - multitail -D -f /var/log/*
         # - btop
-        - curl rate.sx/btc
+        - countdown 1s && curl rate.sx/btc
         - cd $GIT_PATH/linux-setup
   - nvim:
       layout: dc50,136x33,0,0,21
       panes:
-        - countdown 1s && nvim -c 'lua require("persistence").load({ last = true })'
+        - nvim -c 'lua require("persistence").load({ last = true })'

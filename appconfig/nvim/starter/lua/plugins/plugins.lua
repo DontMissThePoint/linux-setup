@@ -5,6 +5,16 @@ local plugins = {
 	-- Override plugin definition options
 	{
 		"neovim/nvim-lspconfig",
+    dependencies = {
+      {
+        "SmiteshP/nvim-navbuddy",
+        dependencies = {
+            "SmiteshP/nvim-navic",
+            "MunifTanjim/nui.nvim"
+        },
+        opts = { lsp = { auto_attach = true } }
+      }
+    },
 		config = function()
 			require("nvchad.configs.lspconfig")
 			require("configs.lspconfig")
@@ -55,7 +65,7 @@ local plugins = {
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
       ensure_installed = {"vim", "regex", "lua", "bash",
-        "markdown", "markdown_inline", "html", "json"},
+        "markdown", "markdown_inline", "html", "json", "yaml"},
 			auto_install = true,
 		},
 	},
@@ -196,10 +206,25 @@ local plugins = {
     end,
   },
 
-	{
-    "HiPhish/rainbow-delimiters.nvim",
-    event = { "BufReadPre", "BufNewFile" },
-	},
+  {
+    "mhanberg/output-panel.nvim",
+    version = "*",
+    event = "VeryLazy",
+    config = function()
+      require("output_panel").setup({
+        max_buffer_size = 5000 -- default
+      })
+    end,
+    cmd = { "OutputPanel" },
+    keys = {
+      {
+        "<leader>o",
+        vim.cmd.OutputPanel,
+        mode = "n",
+        desc = "Toggle the output panel",
+      },
+    }
+  },
 
 	{
 		"stevearc/conform.nvim",
@@ -258,7 +283,17 @@ local plugins = {
         'RainbowDelimSimple',
         'RainbowDelimQuoted',
         'RainbowMultiDelim'
+    }
+  },
+
+  {
+    enabled = true,
+    "denstiny/styledoc.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
     },
+    opts = true,
+    ft = "markdown",
   },
 
   {
@@ -399,7 +434,7 @@ local plugins = {
 		config = function()
 			require("notify").setup({
 				stages = "fade_in_slide_out",
-				background_colour = "FloatShadow",
+				background_colour = "#181825", -- transparent background
 				timeout = 3000,
 			})
 		end,
@@ -439,6 +474,18 @@ local plugins = {
       flake = {'*', '.'},
       minutesUntilRest = 20
     }
+  },
+
+  {
+    "Wansmer/symbol-usage.nvim",
+    enabled = false,
+    event = "LspAttach",
+    opts = {
+      hl = { link = "NonText" },
+      references = { enabled = true, include_declaration = false },
+      definition = { enabled = true },
+      implementation = { enabled = true },
+    },
   },
 
 	-- To make a plugin not be loaded

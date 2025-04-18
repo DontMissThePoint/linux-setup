@@ -86,7 +86,6 @@ while true; do
     npm config set strict-ssl=false
     npm install -g llama-parse-cli jsonrepair jsdom qutejs punycode @mozilla/readability
     echo -e "${GREEN}llama-parse auth  ${NC}to get started."
-    npm create llama@latest
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
