@@ -53,8 +53,8 @@ while true; do
     brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
       eza fd s-search dust zig aria2 glow restic croc newsboat walk \
-      lazygit poetry npm tailspin yq gron jc jo jless
-    brew cleanup --prune=all
+      lazygit delta poetry npm tailspin yq gron jc jo jless
+    brew clea  nup --prune=all
 
     # newsboat
     mkdir -p ~/.newsboat

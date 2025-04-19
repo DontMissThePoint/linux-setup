@@ -1,11 +1,18 @@
+# Worktrees #
+###################
+.worktrees/
+
 # Compiled source #
 ###################
+.venv/
+.venv
 *.com
 *.class
 *.dll
 *.exe
 *.o
 *.so
+*.pyc
 
 # Temporary files #
 ###################
@@ -26,15 +33,49 @@
 
 # Logs #
 ######################
+.yangcp/
+nohup.out
 *.log
+ModCache.lua
 
 # OS generated files #
 ######################
 .DS_Store*
+Desktop.ini
 ehthumbs.db
 Icon?
 Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+.classpath
+.factorypath
+.project
+.settings/
 
 # Editor files #
 ################
+.idea/
 .vscode
+.netrwhist
+workbench.xmi
+Session.vim
+
+# etags, ctags, gtags, & cscope #
+################
+TAGS
+!TAGS/
+tags
+!tags/
+.tags
+.tags1
+gtags.files
+tags.lock
+tags.temp
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out

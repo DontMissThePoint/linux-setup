@@ -308,12 +308,12 @@ nnoremap g<BS> <Cmd>Hi<<CR>
 nnoremap - <Cmd>Hi/next<CR>
 nnoremap _ <Cmd>Hi/previous<CR>
 
-" rainbow_csv
+" RBQL
 nnoremap <expr> <C-Left> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoLeft<CR>' : '<C-Left>'
 nnoremap <expr> <C-Right> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoRight<CR>' : '<C-Right>'
 nnoremap <expr> <C-Up> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoUp<CR>' : '<C-Up>'
 nnoremap <expr> <C-Down> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoDown<CR>' : '<C-Down>'
-nnoremap <F5> :RainbowQuery<CR>
+" nnoremap <F5> :RainbowQuery<CR>
 
 " Indent
 nnoremap <leader>idl :IndentLinesToggle<CR>
@@ -336,14 +336,7 @@ map ; :
 " Math
 vmap <expr>  ++  VMATH_YankAndAnalyse()
 
-" VimDiff
-nmap <F6> :DiffOrig<CR>
-
-" Tags
-nnoremap <silent> <F9> :TagbarToggle<CR>
-
-" Functions
-
+" Plugs
 nnoremap i :noh<CR>i
 nnoremap <silent> <S-r> :nohlsearch<CR><S-r>
 nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>

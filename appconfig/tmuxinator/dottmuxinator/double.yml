@@ -60,8 +60,8 @@ windows:
       panes:
         - calcpy
         # - multitail -D -f /var/log/*
-        # - btop
-        - countdown 1s && curl rate.sx/btc
+        # - countdown 1s && btop
+        - curl rate.sx/btc
         - cd $GIT_PATH/linux-setup
   - nvim:
       layout: dc50,136x33,0,0,21
