@@ -5,7 +5,7 @@ NC='\033[0m' # No Color
 
 # read -p "Username: " username
 # win11
-echo "${RED}🔑 [ Enter user credentials ]${NC}"
+echo "${RED}🔑 [ Login credentials ]${NC}"
 username=Quickemu
 echo Username: "$username"
 stty -echo

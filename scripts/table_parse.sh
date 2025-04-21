@@ -58,8 +58,7 @@ df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as 
 
 # Spreadsheet
 df.to_excel("$OUTPUT_XLSX", sheet_name="NFB_UG", index=False)
-
-print("Excel file saved:", "$OUTPUT_XLSX")
+# print("Excel file saved:", "$OUTPUT_XLSX")
 EOF
 
 # Cleanup

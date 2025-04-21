@@ -150,14 +150,6 @@ local plugins = {
   },
 
   {
-    "szw/vim-maximizer",
-
-    keys = {
-      { "<leader>sm", "<cmd>MaximizerToggle<CR>", { desc = "Maximize/minimize a split" } },
-    },
-  },
-
-  {
     "dstein64/nvim-scrollview",
     setup = function()
       require('scrollview').setup({
@@ -262,7 +254,7 @@ local plugins = {
     dependencies = "nvim-lua/plenary.nvim",
     config = true,
     keys = { -- load the plugin only when using it's keybinding:
-      { "<leader>ud", "<cmd>lua require('undotree').toggle()<cr>", desc = "undotree" },
+      { "<leader>uu", "<cmd>lua require('undotree').toggle()<cr>", desc = "undotree" },
     },
   },
 
@@ -398,7 +390,6 @@ local plugins = {
     -- optional for icon support
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
-      -- calling `setup` is optional for customization
       -- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
       require("fzf-lua").setup({ { "fzf-native", "fzf-tmux" }, winopts = { preview = { default = "bat" } } })
     end
@@ -424,18 +415,6 @@ local plugins = {
     opts = {
       -- add any custom options here
     }
-  },
-
-  {
-    "rcarriga/nvim-notify",
-    lazy = false,
-    config = function()
-      require("notify").setup({
-        stages = "fade_in_slide_out",
-        background_colour = "#181825", -- transparent background
-        timeout = 3000,
-      })
-    end,
   },
 
   {

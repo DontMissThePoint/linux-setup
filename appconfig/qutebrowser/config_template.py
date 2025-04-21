@@ -28,13 +28,27 @@ homepage = "https://yandex.com"
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 catppuccin.setup(c, 'latte')
 
-# Colors
+# Dark mode
 c.colors.webpage.darkmode.enabled = False
-c.colors.webpage.darkmode.policy.images = 'never'
+c.colors.webpage.preferred_color_scheme = 'dark'
+c.colors.webpage.darkmode.policy.images = 'always'
+c.colors.webpage.darkmode.algorithm = "lightness-cielab"
 c.colors.webpage.darkmode.threshold.foreground = 50
 c.colors.webpage.darkmode.threshold.background = 105
-c.qt.args = ["force-light-mode", "light-mode-settings"]
 
+# QT
+c.content.plugins = True
+c.qt.args = [
+    'force-light-mode',
+    'light-mode-settings',
+    'disable-pinch',
+    'ignore-gpu-blocklist',
+    'enable-gpu-rasterization',
+    'enable-accelerated-video-decode',
+    'enable-quic',
+    'enable-zero-copy',
+    'enable-features=VaapiVideoDecoder,VaapiVideoEncoder'
+]
 accent = "#1688f0"
 blue = "#0f1d91"
 black = "#000000"
@@ -90,7 +104,15 @@ c.qt.highdpi = True
 c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
 
-## Adblock Plus
+# Privacy
+c.content.canvas_reading = True # Breaks 9gag, wolt if False
+c.content.geolocation = False
+c.content.webrtc_ip_handling_policy = "default-public-interface-only"
+c.content.cookies.accept = "no-unknown-3rdparty"
+# c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
+c.content.headers.accept_language = "en-US,en;q=0.5"
+
+# Adblock
 c.content.javascript.enabled = False
 c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
 c.content.blocking.method = 'both'
@@ -183,10 +205,14 @@ config.bind('gl', 'tab-focus last')
 config.bind('<Ctrl-=>', 'zoom-in')
 config.bind('<Ctrl-->', 'zoom-out')
 
-# Layout
+# Tabs
 c.tabs.title.format = '{audio}{private}{index}: {current_title}'
+c.tabs.title.format_pinned = c.tabs.title.format
+c.tabs.pinned.frozen = False
+c.tabs.pinned.shrink = False
 c.tabs.background = False
 c.tabs.favicons.scale = 0.9
+
 c.tabs.select_on_remove = 'prev'
 c.tabs.mode_on_change = 'restore'
 c.tabs.position = 'right'
@@ -194,7 +220,6 @@ c.tabs.show = 'switching'
 c.tabs.last_close = 'close'
 c.tabs.padding = {'bottom': 3, 'left': 5, 'right': 5, 'top': 2}
 c.tabs.indicator.width = 0
-c.tabs.pinned.frozen = False
 
 c.new_instance_open_target = 'tab-silent'
 c.new_instance_open_target_window = 'last-focused'

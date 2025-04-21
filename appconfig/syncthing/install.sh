@@ -54,8 +54,8 @@ while true; do
 
     #access the web UI
     # 127.0.0.1:8384/
-    mkdir -p ~/Journal
-    
+    mkdir -p ~/Journal ~/Documents/Scorecard ~/Pictures/Android Camera
+
     # ledger
     echo "Configuring ledger..."
     go install github.com/howeyc/ledger/ledger@latest
@@ -71,10 +71,7 @@ while true; do
 
     # Rclone
     sudo apt install -y fuse3
-    sudo -v ; wget https://rclone.org/install.sh | sudo bash || echo 'Configure cloud storage: Mega, GDrive, ...
-$ rclone config'
-
-    # Cloud
+    sudo -v ; wget https://rclone.org/install.sh | sudo bash || echo 'Configure cloud storage: Mega, GDrive, ... etc'
     # rclone config
     # rclone rcd --rc-web-gui
 
@@ -99,9 +96,9 @@ $ rclone config'
       sudo apt-get update
     fi
 
-    # install
-    sudo apt-get install -y megasync nautilus-megasync
-    # QT_SCALE_FACTOR=1.2 megasync
+    # MegaCMD
+    sudo apt-get install -y megacmd megasync nautilus-megasync
+    . $APP_PATH/dotsync.sh
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
