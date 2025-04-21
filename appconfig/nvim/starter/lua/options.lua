@@ -7,7 +7,7 @@ local o = vim.o
 local g = vim.g
 
 -------------------------------------- globals -----------------------------------------
-g.toggle_theme_icon = "   "
+g.toggle_theme_icon = ""
 
 -------------------------------------- options ------------------------------------------
 o.laststatus = 3
@@ -26,14 +26,26 @@ o.tabstop = 2
 o.softtabstop = 2
 
 -- Numbers
-o.number = false
-o.numberwidth = 3
+o.number = true
+o.numberwidth = 2
 o.ruler = false
 o.relativenumber = true
 o.conceallevel = 2
 
 -- disable nvim intro
 opt.shortmess:append "sI"
+
+opt.pumheight = 5
+opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
+opt.gcr = {
+  "i-c-ci-ve:-block-TermCursor",
+  "n-v:block-Curosr/lCursor",
+  "o:hor50-Curosr/lCursor",
+  "r-cr:hor20-Curosr/lCursor",
+}
+
+vim.cmd("set whichwrap+=<,>,[,],h,l")
+vim.cmd([[set iskeyword+=-]])
 
 o.signcolumn = "yes"
 o.splitbelow = true

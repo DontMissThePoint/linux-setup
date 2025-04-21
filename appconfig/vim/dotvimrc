@@ -133,8 +133,15 @@ if g:user_mode == "1"
   let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
+  " multi-language debugging
+  Plug 'puremourning/vimspector'
+  " mappings for debugger console
+  let g:vimspector_enable_mappings = 'HUMAN'
+
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_GIT }
 
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " airline extension for tmux
@@ -199,27 +206,19 @@ if g:user_mode == "1"
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
-  " iA Writer
-  Plug 'cormacrelf/vim-colors-github'
-  Plug 'preservim/vim-colors-pencil'
-  Plug 'logico/typewriter-vim'
-
-  " Registers view
+  " Registers
   Plug 'junegunn/vim-peekaboo'
 
   " Focus
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'
-  Plug 'junegunn/seoul256.vim'
+  Plug 'cormacrelf/vim-colors-github'
 
-  " Autosave your work
+  " Autosave
   Plug '907th/vim-auto-save'
 
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'itchyny/lightline.vim'
-
-  " live REPL in vim
-  Plug 'jpalardy/vim-slime'
 
   " Visual math with v{motion}++
   Plug 'nixon/vim-vmath'
@@ -239,6 +238,12 @@ if g:user_mode == "1"
   " The missing motion
   Plug 'justinmk/vim-sneak'
 
+  " highlight words and expressions
+  Plug 'azabiong/vim-highlighter'
+
+  " PTA
+  Plug 'ledger/vim-ledger'
+
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
@@ -248,7 +253,6 @@ if g:user_mode == "1"
 "   Plug 'tikhomirov/vim-glsl'
 
 "   " Papis vim integration
-"   Plug 'junegunn/fzf'
 "   Plug 'papis/papis-vim'
 "   nnoremap <localleader>pp :Papis<cr>
 "   nnoremap <localleader>pv :PapisView<cr>
@@ -282,7 +286,10 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " Snippets
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
+
+" Time tracker
+Plug 'ActivityWatch/aw-watcher-vim'
 
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
@@ -292,14 +299,17 @@ Plug 'jszakmeister/vim-togglecursor'
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
 
+" highlighting under cursor
+Plug 'RRethy/vim-illuminate'
+
+" colors
+Plug 'junegunn/seoul256.vim'
+
 " sharing registers between multiple instances of vim
 Plug 'ardagnir/united-front'
 
 " powerful targeting of text parts
 Plug 'wellle/targets.vim'
-
-" highlight words and expressions
-Plug 'azabiong/vim-highlighter'
 
 " replace text without paste into register by gr
 " yank or delete something, then past it in by e.g. griw (go replace in)
@@ -408,7 +418,7 @@ au FileType python,r call EnableCursorLines()
 
 " should fix colors in tmux
 if !has("nvim")
-  set term=screen-256color
+  set term=tmux-256color
 
   cnoreabbrev vt vertical terminal
   cnoreabbrev st terminal
@@ -419,29 +429,6 @@ else
   cnoreabbrev st Term
 
 endif
-
-" Highlight all instances of word under cursor, when idle.
-" Useful when studying strange source code.
-" Type z/ to toggle highlighting on/off.
-function! AutoHighlightToggle()
-  let @/ = ''
-  if exists('#auto_highlight')
-    au! auto_highlight
-    augroup! auto_highlight
-    setl updatetime=4000
-    echo 'Highlight current word: off'
-    return 0
-  else
-    augroup auto_highlight
-      au!
-      au CursorHold * let @/ = '\V\<'.escape(expand('<cword>'), '\').'\>'
-    augroup end
-    setl updatetime=500
-    echo 'Highlight current word: ON'
-    return 1
-  endif
-endfunction
-nnoremap <leader>a :call AutoHighlightToggle()<cr>
 
 au BufNewFile,BufRead *.cl setlocal ft=c
 
@@ -483,6 +470,7 @@ set timeoutlen=1000 ttimeoutlen=0
 " normally, otherwise they behave like ESC
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 imap <expr> jj (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
+imap <expr> kk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 
 " clever brackets
 imap <leader>( ()<Esc>i
@@ -517,9 +505,9 @@ au FileType bib,yml,yaml,sh,conf,python set foldmarker=#\ #{,#\ #}
 au FileType cpp,c set foldmethod=marker
 au FileType cpp,c set foldmarker=//{,//}
 
-au BufNewFile,BufRead *.test setf roslaunch.xml
-au FileType roslaunch.xml set foldmethod=marker
-au FileType roslaunch.xml set foldmarker=//{,//}
+" au BufNewFile,BufRead *.test setf roslaunch.xml
+" au FileType roslaunch.xml set foldmethod=marker
+" au FileType roslaunch.xml set foldmarker=//{,//}
 
 au BufNewFile,BufRead *.sk setf sketch
 au FileType sk,sketch set foldmethod=marker
@@ -621,7 +609,7 @@ if g:user_mode == "1"
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " config for vim-ros
-  source ~/.vim/pluginconfig/vim-ros.vim
+  " source ~/.vim/pluginconfig/vim-ros.vim
 
   " config for tmuxline
   "source ~/.vim/pluginconfig/tmuxline.vim
@@ -671,7 +659,7 @@ autocmd BufWritePost *.sk AsyncRun bash -c '%:p:h/compile_sketch.sh %:t'
 source ~/.vim/pluginconfig/vim-multiple-cursors.vim
 
 " config for UltiSnips
-source ~/.vim/pluginconfig/ultisnips.vim
+" source ~/.vim/pluginconfig/ultisnips.vim
 
 " config for vim-commentary
 source ~/.vim/pluginconfig/vim-commentary.vim
@@ -702,7 +690,7 @@ if g:user_mode == "1"
   " set vim and airline colorscheme
 
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
-  colorscheme default
+  " colorscheme default
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
@@ -716,21 +704,13 @@ if g:user_mode == "1"
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-  "let g:github_colors_soft = 1
-  "let g:github_colors_block_diffmark = 1
-  "colorscheme github
+  " let g:github_colors_soft = 1
+  " let g:github_colors_block_diffmark = 1
+  " colorscheme github
 
-  "" enable lightline
-  ""let g:airline_theme = "github"
-  "let g:lightline = { 'colorscheme': 'selenized_white' }
-
-  "" iA
-  "let g:pencil_higher_contrast_ui = 1  " 0=low (def), 1=high
-  "let g:pencil_neutral_headings = 1    " 0=blue (def), 1=normal
-  "let g:pencil_neutral_code_bg = 1     " 0=gray (def), 1=normal
-  "let g:pencil_gutter_color = 1        " 0=mono (def), 1=color
-  "let g:pencil_spell_undercurl = 1     " 0=underline, 1=undercurl (def)
-  "let g:pencil_terminal_italics = 0
+  " " enable lightline
+  " " let g:airline_theme = "github"
+  " let g:lightline = { 'colorscheme': 'selenized_white' }
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {

@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 """
 moonphase.py - Calculate Lunar Phase
 Author: Sean B. Palmer, inamidst.com

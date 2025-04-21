@@ -14,15 +14,24 @@ export FZF_DEFAULT_OPTS='--height=~45% --min-height=12
   --cycle
   --border --highlight-line
   --marker ▏ --pointer ▌ --prompt "▌ "
-  --info inline-right --layout reverse
+  --info inline-right
   --preview="preview {}"
   --bind "space:jump,jump:accept,jump-cancel:transform:[[ $FZF_KEY =~ ctrl-c ]] && echo abort"
   --bind "ctrl-/:toggle-preview,focus:transform-preview-label:echo [ {} ] | lolcat -f"'
 
-# Color schemes
+# Color
 export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
- --color=fg:#cdd6f4,hl:#268bd2
- --color=fg+:241,bg+:#181818,hl+:#87d75f
- --color=info:#b58900,prompt:#b58900,pointer:168
- --color=marker:168,spinner:#b58900,header:#91aadf
- --color gutter:-1,selected-bg:238,selected-fg:146,current-fg:189'
+  --color bg:#080808 \
+  --color bg+:#262626 \
+  --color border:#2e2e2e \
+  --color fg:#b2b2b2 \
+  --color fg+:#e4e4e4 \
+  --color gutter:#262626 \
+  --color header:#80a0ff \
+  --color hl+:#f09479 \
+  --color hl:#f09479 \
+  --color info:#cfcfb0 \
+  --color marker:#f09479 \
+  --color pointer:#ff5189 \
+  --color prompt:#80a0ff \
+  --color spinner:#36c692'

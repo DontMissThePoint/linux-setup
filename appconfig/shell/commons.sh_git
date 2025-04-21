@@ -13,7 +13,7 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 
 # LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
-source ~/.local/share/icons-in-terminal/icons_bash.sh
+export LEDGER_FILE="$HOME/Journal/ledger.dat"
 
 # nix
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
@@ -22,6 +22,7 @@ export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------
 
+alias python="python3"
 alias q=exit
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
@@ -30,10 +31,11 @@ alias lobc="lobster -i --rofi -x -c"
 alias vimdiff="nvim -d"
 alias gx="tmuxinator double"
 alias ra="ranger"
+alias ungron="gron -u"
 
-alias mega="megasync &> /dev/null &"
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
+alias fuelings="$GIT_PATH/linux-setup/scripts/table_parse.sh"
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
@@ -75,10 +77,8 @@ fw() (
       --query "$*"
 )
 
-# remove from PATH
-# export PATH=`echo $PATH | tr ":" "\n" | grep -v "anaconda" | xargs | tr " " ":"`
-
 # #{ remove_duplicates_from_path()
+
 remove_duplicates_from_path() {
     OLD_IFS=$IFS
     IFS=:
@@ -102,7 +102,13 @@ remove_duplicates_from_path() {
 cd_media() {
 
   cd /media/$USER
-  ranger
+  walk --preview --with-border
+}
+
+# #{ walk
+
+kl() {
+  cd "$(walk --preview "$@")"
 }
 
 # #}

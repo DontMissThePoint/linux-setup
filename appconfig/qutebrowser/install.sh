@@ -36,18 +36,16 @@ while true; do
 
     toilet Installing qutebrowser -t --filter metal -f smmono12
     cd $APP_PATH/../../submodules/qutebrowser
-    sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg libgl1-mesa-glx git ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libegl1-mesa libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 libasound2 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl
+    sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl asciidoc
 
-    /usr/bin/python3 -m pip install --upgrade pip
-    /usr/bin/python3 -m pip install -r misc/requirements/requirements-docs.txt
-    /usr/bin/python3 scripts/asciidoc2html.py
-    /usr/bin/python3 scripts/mkvenv.py --pyqt-version 6.5
+    # env
+    python3 scripts/mkvenv.py
 
     #.venv/bin/python3 -m qutebrowser
     mkdir -p ~/.qutebrowser
     rm -fr ~/.qutebrowser/.venv && mv .venv ~/.qutebrowser/
 
-    # Wrapper script
+    # wrapper script
     printf '#!/bin/bash\n' > $APP_PATH/qutebrowser_env
 
     echo -e '~/.qutebrowser/.venv/bin/python3 -m qutebrowser "$@"' >> ${APP_PATH}/qutebrowser_env
@@ -57,11 +55,11 @@ while true; do
     sudo ln -sf /bin/qutebrowser /usr/local/bin/qutebrowser
     sudo cp $APP_PATH/../../submodules/qutebrowser/misc/org.qutebrowser.qutebrowser.desktop /usr/share/applications/org.qutebrowser.qutebrowser.desktop
 
-    # browser
+    # default
     sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/qutebrowser 210
 
     # flavor
-    mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/sessions
+    mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/{greasemonkey,sessions}
     cp -fr $APP_PATH/catppuccin ~/.config/qutebrowser/
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
     ln -sf $APP_PATH/js.sites ~/.config/qutebrowser/js.sites
@@ -77,14 +75,22 @@ while true; do
     ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts
     rm -fr $GIT_PATH/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
-    # reader
-    npm config set strict-ssl=false
-    npm install -g jsdom qutejs punycode @mozilla/readability
+    # greasmonkey
+    echo "Greasymonkey scripts loading..."
+    cd ~/.local/share/qutebrowser/greasemonkey
+    cat $APP_PATH/js.greasyforks | xargs -n1 curl -LO
 
-    # calcpy
-    echo "Installing.. using Python IPython & SymPy"
-    echo "terminal calculator and advanced math solver."
-    /usr/bin/python3 -m pip install git+https://github.com/idanpa/calcpy
+    # screenshots <space>dp
+    mkdir -p ~/Pictures/Screenshots
+
+    toilet Setting up llamaparse -t -f future
+
+    # llama-parse-cli
+    GREEN='\033[0;32m'
+    NC='\033[0m' # No Color
+    npm config set strict-ssl=false
+    npm install -g llama-parse-cli jsonrepair jsdom qutejs punycode @mozilla/readability
+    echo -e "${GREEN}llama-parse auth  ${NC}to get started."
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

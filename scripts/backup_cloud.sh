@@ -1,4 +1,7 @@
 #!/bin/bash
+
+set -e
+
 # Sync chat logs
 # Use parallel
 

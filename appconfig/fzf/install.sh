@@ -43,8 +43,10 @@ while true; do
     ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
 
     # fnf's not fzy
+    toilet Settingup fnf -t -f future
+
     cd /tmp
-    [ -e build ] && mkdir build && cd build
+    [ -e fnf ] && rm -rf fnf
     git clone https://github.com/leo-arch/fnf
     cd fnf
     make -j8

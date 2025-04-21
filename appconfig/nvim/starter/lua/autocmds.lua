@@ -11,7 +11,7 @@ augroup('YankHighlight', { clear = true })
 autocmd('TextYankPost', {
   group = 'YankHighlight',
   callback = function()
-    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = '1000' })
+    vim.highlight.on_yank({ higroup = 'Visual', timeout = '1000' })
   end
 })
 
@@ -47,6 +47,30 @@ autocmd('Filetype', {
     'yaml', 'lua'
   },
   command = 'setlocal shiftwidth=2 tabstop=2'
+})
+
+-- close some filetypes with <q>
+autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
+  pattern = {
+    "PlenaryTestPopup",
+    "help",
+    "lspinfo",
+    "man",
+    "notify",
+    "qf",
+    "spectre_panel",
+    "startuptime",
+    "tsplayground",
+    "neotest-output",
+    "checkhealth",
+    "neotest-summary",
+    "neotest-output-panel",
+  },
+  callback = function(event)
+    vim.bo[event.buf].buflisted = false
+    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
+  end,
 })
 
 -----------------------------------------------------------
@@ -89,7 +113,7 @@ vim.cmd([[autocmd OptionSet * noautocmd set guicursor=n-v-c:block,i-ci-ve:ver25,
 if vim.fn.exists("$TMUX") then
 	vim.cmd([[
         augroup TmuxStatusToggle
-            autocmd VimEnter,BufEnter,VimResume * silent !tmux setw status off
+            autocmd VimEnter,FocusGained,BufEnter,VimResume * silent !tmux setw status off
             autocmd VimLeave,VimSuspend * silent !tmux setw status on
         augroup end
     ]])
@@ -98,16 +122,27 @@ end
 -- Fix libuv
 autocmd({ "VimLeave" }, {
 	callback = function()
-		vim.cmd("sleep 25m")
+		vim.cmd("sleep 10m")
 	end,
 })
 
 -- Autosave
+autocmd({ "BufLeave", "FocusLost" }, {
+  desc = "Auto save",
+  group = vim.api.nvim_create_augroup("group", { clear = true }),
+  callback = function()
+    local file_path = vim.fn.expand("%") or ""
+    if vim.bo.modifiable and vim.bo.buftype == "" and vim.bo.buflisted and vim.fn.filereadable(file_path) == 1 then
+      vim.cmd([[silent noa up]]) -- save but without triggering autocmds (no format)
+    end
+  end,
+})
+
 create_cmd("AutosaveToggle", function()
   vim.g.autosave = not vim.g.autosave
 
   if vim.g.autosave then
-    vim.api.nvim_create_autocmd({ "InsertLeave", "TextChanged" }, {
+    autocmd({ "InsertLeave", "TextChanged" }, {
       group = vim.api.nvim_create_augroup("Autosave", {}),
       callback = function()
         if vim.api.nvim_buf_get_name(0) and #vim.bo.buftype ==0 then
@@ -131,7 +166,57 @@ create_cmd("AutosaveToggle", function()
 
 end, {})
 
--- Auto command for saving cursor position
-vim.cmd [[autocmd BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif]]
-vim.cmd [[autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif]]
-vim.cmd [[autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o]]
+-- opening a buffer
+-- at the last position
+autocmd("BufReadPost", {
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 0 and mark[1] <= lcount then
+      pcall(vim.api.nvim_win_set_cursor, 0, mark)
+    end
+  end,
+})
+
+-- toggle relative number on the basis of mode
+local ngroup = augroup("numbertoggle", {})
+
+autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
+  pattern = "*",
+  group = ngroup,
+  callback = function()
+    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
+      vim.opt.relativenumber = true
+    end
+  end,
+})
+
+autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
+  pattern = "*",
+  group = ngroup,
+  callback = function()
+    if vim.o.nu then
+      vim.opt.relativenumber = false
+      vim.cmd("redraw")
+    end
+  end,
+})
+
+-- to make border as same as neovim ColorScheme
+autocmd({ "UIEnter", "ColorScheme" }, {
+  callback = function()
+    local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
+    if not normal.bg then
+      return
+    end
+    io.write(string.format("\027Ptmux;\027\027]11;#%06x\007\027\\", normal.bg))
+    io.write(string.format("\027]11;#%06x\027\\", normal.bg))
+  end,
+})
+
+autocmd("UILeave", {
+  callback = function()
+    io.write("\027Ptmux;\027\027]111;\007\027\\")
+    io.write("\027]111\027\\")
+  end,
+})

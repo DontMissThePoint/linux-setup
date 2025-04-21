@@ -37,7 +37,9 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev dunst libkeybinder-3.0-0 redshift redshift-gtk
+    toilet Installing i3 -t --filter metal -f smmono12
+
+    sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk libinput-tools
 
     if [ -n "$beaver" ]; then
       sudo apt-get -y install python-keybinder gir1.2-keybinder
@@ -53,12 +55,14 @@ while true; do
       # UTF-8
       # Guess optimal character set
       # Let the system select a suitable font
-      # 10x20 (framebuffer only)
+      # 11x22 (framebuffer only)
+      UGREEN='\033[4;32m'
+      NC='\033[0m' # No Color
       echo ""
       echo "-----------------------------------------------------------------"
       echo "installing custom tty font. it might require manual action."
       echo "-----------------------------------------------------------------"
-      echo "if so, please select \"10x20 (framebuffer only)\", after hitting enter"
+      echo -e "if so, please select \"${UGREEN}11x22 (framebuffer only)${NC}\", after hitting enter"
       echo ""
       echo "waiting for enter..."
       echo ""
@@ -71,27 +75,47 @@ while true; do
     # ly backend
     sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev systemd
 
-    # loading screen
+    # login console
     cd /tmp
-    [ -e ly ] && rm -rf ly
-    git clone --recurse-submodules https://github.com/fairyglade/ly
+    [ -e ly ] && sudo rm -rf ly
+    git clone https://github.com/fairyglade/ly
     cd ly
-    make -j8
-    sudo make install installsystemd
+    zig build
+    sudo `which zig` build installexe
+
+    # auto-detect connected display
+    cd /tmp
+    [ -e autorandr-launcher ] && sudo rm -rf autorandr-launcher
+    git clone https://github.com/smac89/autorandr-launcher
+    cd autorandr-launcher
+    sudo make install
+
+    # restore graphical session properties
+    cd /tmp
+    [ -e autorandr ] && sudo rm -rf autorandr
+    git clone https://github.com/phillipberndt/autorandr
+    cd autorandr
+    sudo make install
 
     #  service
-    sudo systemctl disable gdm3
-    sudo systemctl enable ly.service
-    sudo systemctl disable getty@tty2.service
+    sudo systemctl daemon-reload
+    sudo systemctl enable autorandr.service autorandr-lid-listener.service ly.service
+    sudo systemctl disable gdm3 getty@tty2.service
     sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
 
-    # systemd
+    # udev
+    sudo udevadm control --reload-rules
+
+    # systemd & timers
+    sudo mkdir -p /etc/X11/xinit/xinitrc.d
     sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-    sudo cp -f $APP_PATH/systemd/*.service /usr/lib/systemd/user/
+    sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
-    systemctl --user start megasync.service xidlehook.service udiskie.service
-    sudo systemctl --global enable megasync.service xidlehook.service udiskie.service
-    # loginctl enable-linger
+    systemctl --user --now enable autorandr_launcher.service
+    systemctl --user start xidlehook.service activitywatch.service battery_notification.{service,timer}
+    sudo systemctl --global enable xidlehook.service activitywatch.service battery_notification.{service,timer}
+    # journalctl --follow --identifier='autorandr-launcher-service'
+    # systemctl --user list-timers
 
     # earlyoom
     sudo apt install -y earlyoom libkeyutils-dev
@@ -118,22 +142,12 @@ while true; do
     # compile i3 dependency which is not present in the repo
     sudo apt-get -y install libtool xutils-dev
 
-    cd /tmp
-    [ -e xcb-util-xrm ] && rm -rf /tmp/xcb-util-xrm
-    git clone https://github.com/airblader/xcb-util-xrm
-    cd xcb-util-xrm
-    git submodule update --init
-    ./autogen.sh --prefix=/usr
-    make -j8
-    sudo make install
-
     # install light for display backlight control
     # compile light
     sudo apt-get -y install help2man
-
     cd $APP_PATH/../../submodules/light/
     ./autogen.sh
-    ./configure && make
+    ./configure && make -j8
     sudo make install
     # set the minimal backlight value to 5%
     light -n 5
@@ -141,20 +155,32 @@ while true; do
     make clean
     git clean -fd
 
+    # i3
+    sudo apt remove -y i3* || echo "Installing i3..."
+
     # compile i3
-    sudo pip3 install meson
+    sudo pip3 install --break-system-packages meson 2> /dev/null
     # cd $APP_PATH/../../submodules/i3/
 
     # build from sources
-    rm -fr /tmp/build && mkdir /tmp/build
-    cd /tmp/build
-    git clone https://www.github.com/airblader/i3 i3-gaps
-    cd i3-gaps
-    git checkout gaps && git pull
-    sudo apt install meson asciidoc
-    meson -Ddocs=true -Dmans=true ../build
-    meson compile -C ../build
-    sudo meson install -C ../build
+    sudo apt install -y i3status ninja-build
+    # rm -fr /tmp/build && mkdir /tmp/build
+    # cd /tmp/build
+    # git clone https://www.github.com/airblader/i3 i3-gaps
+    # cd i3-gaps
+    # git checkout gaps && git pull
+    # sudo apt install meson asciidoc
+    # meson -Ddocs=true -Dmans=true ../build
+    # meson compile -C ../build
+    # sudo meson install -C ../build
+    cd /tmp
+    [ -e i3-gaps-rounded ] && rm -rf i3-gaps-rounded
+    git clone https://github.com/jbenden/i3-gaps-rounded.git
+    cd i3-gaps-rounded
+    mkdir -p build && cd build
+    meson ..
+    ninja
+    sudo ninja install
 
     # clean after myself
     git reset --hard
@@ -187,7 +213,8 @@ while true; do
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
-    pip install --upgrade flashfocus
+    pip install --break-system-packages flashfocus -U 2> /dev/null
+
 
     # xbanish
     cd /tmp
@@ -207,13 +234,17 @@ while true; do
     cd $APP_PATH/../../submodules/indicator-sound-switcher
     sudo /usr/bin/python3 setup.py install
 
+    # indicator-ram
+    cd $APP_PATH/../../submodules/i3blocks-contrib/memory2
+    make
+
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
       ln -sf $APP_PATH/doti3 ~/.i3
     fi
 
     # rofi
-    sudo apt-get -y remove rofi* || echo "Installing rofi"
+    sudo apt-get -y remove rofi* || echo "Installing rofi..."
     sudo apt install -y libxcb-ewmh-dev flex
 
     rm -fr /tmp/rofi && cd /tmp
@@ -222,21 +253,6 @@ while true; do
     meson setup build
     ninja -C build
     sudo ninja -C build install
-
-    # automounter for removable media
-    sudo apt install -y python-setuptools udisks2 python3-pip python3-gi python3-gi-cairo gir1.2-gtk-4.0 python3-yaml libglib2.0-dev gobject-introspection libgtk2.0-0 libnotify4 gettext gir1.2-notify-0.7
-    sudo pip install -U udiskie keyutils
-
-    sudo mkdir -p /etc/polkit-1/localauthority/50-local.d
-    sudo cp -f $APP_PATH/consolekit.pkla /etc/polkit-1/localauthority/50-local.d/
-
-    # add group permission
-    num=`cat /etc/group | cut -d: -f1 | grep "plugdev" | wc -l`
-    if [ "$num" -lt "1" ]; then
-      sudo groupadd plugdev
-      sudo usermod -aG plugdev $USER
-      groups $USER
-    fi
 
     # config
     echo "Configuring..."
@@ -265,6 +281,8 @@ while true; do
         pv $APP_PATH/settings.ini > ~/.config/gtk-4.0/settings.ini
     fi
 
+    mkdir -p ~/.config/gtk-2.0
+    pv $APP_PATH/gtkfilechooser.ini > ~/.config/gtk-2.0/gtkfilechooser.ini
     pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
     pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
     pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
@@ -338,7 +356,11 @@ while true; do
     sudo make install
 
     # picom
+
+    toilet Settingup picom -t -f future
+
     cd /tmp
+    sudo apt install -y libxcb-damage0-dev libxcb-sync-dev libxcb-present-dev uthash-dev
     [ -e picom ] && rm -rf /tmp/picom
     git clone https://github.com/jonaburg/picom
     cd picom

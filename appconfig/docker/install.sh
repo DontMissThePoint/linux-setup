@@ -64,8 +64,9 @@ while true; do
     if [ "$num" -lt "1" ]; then
       sudo groupadd docker
       sudo usermod -aG docker $USER
-      groups $USER
+      newgrp docker
     fi
+    groups
     sudo systemctl start docker
     sudo systemctl enable docker
 
@@ -93,14 +94,12 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
     sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     # quickemu
-    sudo apt install -y qemu bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip
-    sudo apt install -y --no-install-recommends samba
-
     the_ppa=flexiondotorg/quickemu
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
        sudo apt-add-repository ppa:flexiondotorg/quickemu
        sudo apt update
-       sudo apt install -y quickemu
+       sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
+       sudo apt install -y --no-install-recommends samba
     fi
 
     # VM
@@ -108,26 +107,31 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
     # quickget windows 11
     # quickemu --vm windows-11.conf --width 1920 --height 1080
 
-    # tex-cvbuilder: https://github.com/antkr10/tex-cvbuilder
-    if [ -e $HOME/Documents/cvbuilder ]; then
-      pv $APP_PATH/tex-cvbuilder > ~/Documents/cvbuilder/Dockerfile && cd ~/Documents/cvbuilder
-      docker build -t ubuntu:tex-cvbuilder .
-    fi
-
+    # Office 365
+    # focus cell: #87ff87
+    
     # dockurr
+    toilet Settingup dockurr -t -f future
     cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
     # docker compose stop
     # sudo docker compose up -d --force-recreate --build
 
     # remove images unused & dangling (Careful !)
     # docker system prune -af
+    BGREEN='\033[1;32m'
+    NC='\033[0m' # No Color
+    echo -e "${BGREEN}> Run windows HWID activation${NC}"
+
+    # calcpy
+    echo "Advanced math solver.. using Python IPython, SymPy"
+    pipx install git+https://github.com/idanpa/calcpy
 
     # glances
     sudo apt install -y python3-psutil
-    /usr/bin/python3 -m pip install -U 'glances[all]'
+    pipx install 'glances[all]'
 
     # config
-    mkdir ~/.config/glances
+    mkdir -p ~/.config/glances
     pv "$APP_PATH/glances.conf" > ~/.config/glances/glances.conf
 
     break

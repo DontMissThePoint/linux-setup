@@ -4,7 +4,7 @@ set -e
 
 distro=`lsb_release -r | awk '{ print $2 }'`
 [ "$distro" = "18.04" ] && ROS_DISTRO="melodic"
-[ "$distro" = "20.04" ] && ROS_DISTRO="noetic"
+[ "$distro" = "24.04" ] && ROS_DISTRO="jazzy"
 
 sudo apt-get -y install git
 

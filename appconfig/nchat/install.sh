@@ -31,7 +31,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall nchat (whatsmeow, pidgin, go-whatsapp)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall nchat (go-whatsapp, pidgin)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
@@ -39,11 +39,11 @@ while true; do
   then
 
     toilet Installing nchat -t --filter metal -f smmono12
-    sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev golang git html2md
+    sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev golang
 
     # nchat
     cd /tmp
-    [ -e nchat ] && rm -rf nchat
+    [ -e nchat ] && sudo rm -rf nchat
     git clone https://github.com/d99kris/nchat.git
     cd nchat && mkdir -p build && cd build && cmake ..
     make -s -j8
@@ -51,7 +51,8 @@ while true; do
 
     # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
     # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
-    cp $(dirname $(which nchat))/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
+    mkdir -p ~/.config/nchat
+    cp -f $(dirname $(which nchat))/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
 
     # pidgin
     toilet Setting up go-whatsapp -t -f future
@@ -65,7 +66,7 @@ while true; do
     else
       # go
       sudo rm -rf /usr/local/go
-      wget -c https://go.dev/dl/go1.21.6.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+      wget -c https://go.dev/dl/go1.24.1.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
       # wget -c https://buildbot.hehoe.de/purple-whatsmeow/builds/libwhatsmeow.so -P /usr/lib/purple-2/
 
       EXISTING_GO=`cat ~/.profile 2> /dev/null | grep "go/bin" | wc -l`
@@ -76,7 +77,6 @@ while true; do
       export PATH=$PATH:/usr/local/go/bin
 
       # compile from sources
-
       cd /tmp
       [ -e purple-gowhatsapp ] && rm -rf purple-gowhatsapp
       git clone https://github.com/hoehermann/purple-gowhatsapp.git
@@ -92,8 +92,10 @@ while true; do
     fi
 
     # prefs
-    echo "nchat --setup to get started +2567XXXXXXXX"
-    echo "Pidgin: Setup account with 2567XXXXXXXX@s.whatsapp.net"
+    UGREEN='\033[4;32m'
+    NC='\033[0m' # No Color
+    echo "nchat --setup to get started."
+    echo -e "Pidgin: 2567XXXXXXXX${UGREEN}@s.whatsapp.net${NC}"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

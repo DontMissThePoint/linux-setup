@@ -9,6 +9,19 @@ M.override = {
 	Comment = {
 		italic = true,
 	},
+	Search = {
+		bg = '#8bcd5b',
+		fg = '#202020',
+	},
+	CursorLine = {
+		bg = '#1A1A1F',
+	},
+	CursorColumn = {
+		bg = '#1A1A1F',
+	},
+	Visual = {
+		bg = '#103070',
+	},
 }
 
 ---@type HLTable

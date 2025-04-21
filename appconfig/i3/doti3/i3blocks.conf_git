@@ -633,6 +633,19 @@ command=cat /proc/loadavg | cut -d' ' -f1-3
 color=#00a5ff # EPIGEN_DEL_LINE_COLORSCHEME_LIGHT
 # EPIGEN_DEL_BLOCK_PAVEL EPIGEN_DEL_BLOCK_VOJTA EPIGEN_DEL_BLOCK_MATEJ EPIGEN_DEL_BLOCK_ONDRA }
 
+[docker]
+command=$GIT_PATH/linux-setup/submodules/i3blocks-contrib/docker/docker
+color=#0db7ed
+interval=10
+LABEL=🐳
+
+# User
+[user]
+# label= # Install fontawesome for use this
+label=User:
+command=lslogins | grep $USER | awk '{print $5,$NF}'
+interval=once
+
 # [disk-io]
 # label=
 # interval=persist
@@ -666,10 +679,20 @@ label=
 # separator=false
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
 
-[online-status]
-command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
-color=#FF0000
-interval=20
+[iface]
+command=$GIT_PATH/linux-setup/submodules/i3blocks-contrib/iface/iface
+#LABEL=wlan0:
+#IFACE=wlan0
+#ADDRESS_FAMILY=inet6?
+color=#00FF00
+interval=10
+# set this to 1 to display the name of the connected WIFI interface instead of the IP address.
+
+# display_wifi_name=0
+# [online-status]
+# command=ping -c 1 google.com >> /dev/null||echo 'No Internet'
+# color=#FF0000
+# interval=20
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA {
 # separator=false
 # EPIGEN_ADD_BLOCK_PAVEL EPIGEN_ADD_BLOCK_VOJTA }
@@ -831,11 +854,25 @@ command=~/.i3/show_keyboard_layout.sh
 
 # Date Time
 #
-[time]
-command=date '+%Y-%m-%d %H:%M:%S'
-interval=1
-separator=true
-# color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+# [time]
+# command=date '+%Y-%m-%d %H:%M:%S'
+# interval=1
+# separator=true
+# # color=#000000 # EPIGEN_ADD_LINE_COLORSCHEME_LIGHT
+
+[rofi-calendar]
+command=$GIT_PATH/linux-setup/submodules/i3blocks-contrib/rofi-calendar/rofi-calendar
+interval=3600
+#BAR_POSITION=bottom
+#WEEK_START=monday
+#DATEFTM=+%a %d %b %Y
+#SHORTFMT=+%d/%m/%Y
+#LABEL=
+#FONT=Monospace 10
+#LEFTCLICK_PREV_MONTH=false
+#PREV_MONTH_TEXT=« previous month «
+#NEXT_MONTH_TEXT=» next month »
+#ROFI_CONFIG_FILE=/dev/null
 
 [clickme]
 full_text=

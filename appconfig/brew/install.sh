@@ -49,27 +49,35 @@ while true; do
 
     # swiss knife
     toilet Setting up brew -t -f future
-    until source $HOME/.bashrc && brew update && brew upgrade
-    do
-      echo Connection refused, retrying in 10 seconds...
-      sleep 10
-    done
-    brew install webtorrent-cli zoxide grc vivid fzf bat ripgrep universal-ctags miller ctop btop eza fd s-search dust aria2 glow  restic croc
-    brew cleanup --prune=all
+    source $HOME/.bashrc && brew update && brew upgrade
+    brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
+      bat ripgrep universal-ctags miller countdown ctop btop csvkit \
+      eza fd s-search dust zig aria2 glow restic croc newsboat walk \
+      lazygit delta poetry npm tailspin yq gron jc jo jless
+    brew clea  nup --prune=all
+
+    # newsboat
+    mkdir -p ~/.newsboat
+    cp -rf $APP_PATH/newsboat/* ~/.newsboat/
 
     # configs
-    echo "Configuring..."
-    mkdir -p ~/.config/gitui ~/.config/btop ~/.config/bat ~/.aria2 ~/.config/aria2 ~/.config/glow ~/.config/s ~/.config/autorestic
-    pv "$APP_PATH/key_bindings.ron" > ~/.config/gitui/key_bindings.ron
+    mkdir -p ~/.config/{aria2,btop,bat,glow,s,topgrade,lazygit}
     pv "$APP_PATH/btop.conf" > ~/.config/btop/btop.conf
     pv "$APP_PATH/bat.config" > ~/.config/bat/config
+    pv "$APP_PATH/config.yml" > ~/.config/lazygit/config.yml
     pv "$APP_PATH/s.config" > ~/.config/s/config
     pv "$APP_PATH/aria2.conf" > ~/.config/aria2/aria2.conf
     pv "$APP_PATH/glow.yml" > ~/.config/glow/glow.yml
+    pv "$APP_PATH/topgrade.toml" > ~/.config/topgrade/topgrade.toml
+    pv "$APP_PATH/pqivrc" > ~/.pqivrc
+
+    # mimeapps
+    echo "Updating mimeapps list..."
+    pv $APP_PATH/mimeapps.list > ~/.config/mimeapps.list
 
     # update bt-trackers
     echo "Updating bt-trackers... "
-    $GIT_PATH/linux-setup/scripts/aria2-trackers-update.sh
+    ~/linux-setup/scripts/aria2-trackers-update.sh
 
     # RPC extension: https://aria2e.com/
     # aria2c --enable-rpc --rpc-listen-all --max-concurrent-downloads=40 --max-connection-per-server=16 --min-split-size=20M --split=16 --continue=true --dir=/home/$USER/Downloads

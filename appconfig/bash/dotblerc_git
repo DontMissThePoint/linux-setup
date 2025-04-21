@@ -288,7 +288,7 @@ bleopt allow_exit_with_jobs=
 # value is specified the cursor position is the beginning or the end of the
 # command lines when the move is to a newer or older entry, respectively.
 
-bleopt history_preserve_point=
+history_default_point=
 
 
 # The following setting controls the history sharing. If it has non-empty
@@ -1157,10 +1157,10 @@ function blerc/vim-load-hook {
   ## RET and C-m always causes the execution of the command even in the
   ## multiline mode or when the command is not syntactically completed.
 
-  #ble-bind -m vi_imap -f 'C-m' accept-line
+  # ble-bind -m vi_imap -f 'C-m' accept-line
   ble-bind -m vi_imap -f 'RET' accept-line
-  ble-bind -m vi_nmap -f 'C-m' accept-line
-  ble-bind -m vi_nmap -f 'RET' accept-line
+  # ble-bind -m vi_nmap -f 'C-m' accept-line
+  # ble-bind -m vi_nmap -f 'RET' accept-line
 
 
   # The default mapping of C-o is vi_imap/single-command-mode.  If you want to

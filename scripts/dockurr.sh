@@ -1,9 +1,12 @@
 #!/bin/sh
 
+RED='\033[0;31m'
+NC='\033[0m' # No Color
+
 # read -p "Username: " username
 # win11
+echo "${RED}🔑 [ Login credentials ]${NC}"
 username=Quickemu
-echo "🔑 [ Enter user credentials ]"
 echo Username: "$username"
 stty -echo
 read -p "Password: " password; echo

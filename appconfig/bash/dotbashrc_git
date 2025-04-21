@@ -35,9 +35,10 @@ case "$-" in
 esac
 
 # set vi mode in bash
-set -o vi # EPIGEN_ADD_LINE_TOMAS
+set -o vi
 bind '"jj":vi-movement-mode'
 bind '"jk":vi-movement-mode'
+bind '"kk":vi-movement-mode'
 
 # running new tmux (or attaching) with session name derived from parent bash pid
 runTmux() {
@@ -115,13 +116,17 @@ runVim() {
 alias vim=runVim
 
 # by default, athame should be off
-export ATHAME_ENABLED=0
+export ATHAME_ENABLED=1
 export ATHAME_SHOW_MODE=0
 export ATHAME_VIM_PERSIST=0
 export ATHAME_SHOW_ERROR=0
 
 # fzf
 eval "$(fzf --bash)"
+
+# prompt
+source ~/.liquidprompt/themes/unfold/unfold.theme
+lp_theme unfold
 
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
 # and if user want to use athame, use it
@@ -147,10 +152,4 @@ if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
     fi
   fi
 
-  # Drop to fish? Just use zsh.
-  # if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]
-  # then
-  #   shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
-  #   exec fish $LOGIN_OPTION
-  # fi
 fi

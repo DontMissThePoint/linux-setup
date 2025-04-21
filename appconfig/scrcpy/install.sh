@@ -36,13 +36,13 @@ while true; do
 
     toilet Installing scrcpy -t --filter metal -f smmono12
     cd $APP_PATH/../../submodules/scrcpy
-    ./install_release.sh
 
     # adb latest
     sudo apt install -y libsdl2-2.0-0 adb fastboot wget \
     	gcc git pkg-config meson ninja-build libsdl2-dev \
     	libavcodec-dev libavdevice-dev libavformat-dev libavutil-dev \
     	libswresample-dev libusb-1.0-0 libusb-1.0-0-dev libavformat-dev libavutil-dev
+    ./install_release.sh
 
     cd /tmp
     wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
@@ -55,28 +55,30 @@ while true; do
     sudo apt install -y linux-headers-generic android-platform-tools-base lzip linux-modules-extra-`uname -r`
     sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 
-    cd /tmp
-    [ -e redroid-script ] && rm -rf redroid-script
-    git clone https://github.com/ayasa520/redroid-script
-    cd redroid-script
-    /usr/bin/python3 -m venv venv
-    venv/bin/pip install -r requirements.txt
+    # cd /tmp
+    # [ -e redroid-script ] && rm -rf redroid-script
+    # git clone https://github.com/ayasa520/redroid-script
+    # cd redroid-script
+    # /usr/bin/python3 -m venv venv
+    # venv/bin/pip install -r requirements.txt
 
     # GApps
     # venv/bin/python3 redroid.py -a 11.0.0 -gmnw
-    venv/bin/python3 redroid.py -a 11.0.0 -gnm
+    # venv/bin/python3 redroid.py -a 11.0.0 -gnm
 
-    mkdir -p ~/VirtualMachines/Android-Docker
-    cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Android-Docker
+    # mkdir -p ~/VirtualMachines/Android-Docker
+    # cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Android-Docker
 
     # Execute the following commands to obtain the Android device ID,
     # adb -s $IP_ADDRESS:11101 shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
      # "select * from main where name = \"android_id\";"'
-    echo "https://www.google.com/android/uncertified to register device"
+    # echo "https://www.google.com/android/uncertified to register device"
 
     # modules
+    BGREEN='\033[1;32m'
+    NC='\033[0m' # No Color
     sudo cp -f $APP_PATH/redroid.conf /etc/modules-load.d/redroid.conf
-    echo "Modules loded successfully."
+    echo -e "${BGREEN}Modules loded successfully${NC}"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

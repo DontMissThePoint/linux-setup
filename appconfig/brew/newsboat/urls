@@ -1,0 +1,33 @@
+# NewsBoat URL LIST
+
+"query:Newsletter:tags # \"Newsletter\""
+https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "favourite" "~Swan"
+https://kill-the-newsletter.com/feeds/zx5s91llt4fiikmqfz92.xml "Newsletter" "favourite" "~DevGem"
+
+"query:Magazine:tags # \"Magazine\""
+https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
+
+"query:Jobs:tags # \"Jobs\""
+https://kill-the-newsletter.com/feeds/g8yteciyc8cwfoq566i1.xml "Jobs" "Jobs in Uganda" "~Jobs in Uganda"
+
+"query:Courses:tags # \"Courses\""
+https://freecoursedl.com/feed/ "Courses" "video" "~FreeCoursedl"
+https://freecoursedl.com/comments/feed/ "Courses" "video" "~FreeCoursedl Comments"
+
+"query:Podcast:tags # \"Podcast\""
+https://feeds.buzzsprout.com/1849151.rss   "Podcast" "favourite" "~Saifedan Ammous"
+
+"query:Reddit:tags # \"Reddit\""
+https://www.reddit.com/user/C4rnAg3.rss "Reddit" "~Bangladeshi Bash"
+
+"query:Blogs:tags # \"Blog\""
+https://www.chrisatmachine.com/rss.xml "Blog" "linux"
+https://www.topbug.net/blog/category/unix-variants/gnu-linux/feed/ "Blog" "linux"
+
+"query:YouTube:tags # \"YouTube\""
+https://www.youtube.com/feeds/videos.xml?channel_id=UC9DXZC8BCDOW6pYAQKgozqw "YouTube" "video" "~Lamborghini"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCy0tKL1T7wFoYcxCe0xjN6Q  "YouTube" "video" "~Technology Connections"
+https://www.youtube.com/feeds/videos.xml?channel_id=UCy-7_W7Qm3-kBw6AVVN5Ltw  "YouTube" "video" "~Daylight Computer"
+
+"query:PeerTube:tags # \"PeerTube\""
+# https://videos.lukesmith.xyz/feeds/videos.xml?sort=-publishedAt&isLocal=true "PeerTube" "video" "~Luke Smith"
