@@ -54,13 +54,13 @@ windows:
       panes:
         - bash
         - cd ~/VirtualMachines/Windows-Docker; bash
-        - countdown 1s && nchat &; journalctl -f | tspin -f
+        - nchat &; journalctl -f | tspin -f
   - logs:
       layout: 64a7,127x34,0,0[127x27,0,0{42x27,0,0,4,84x27,43,0,7},127x6,0,28,8]
       panes:
         - calcpy
         # - multitail -D -f /var/log/*
-        # - btop
+        # - countdown 1s && btop
         - curl rate.sx/btc
         - cd $GIT_PATH/linux-setup
   - nvim:

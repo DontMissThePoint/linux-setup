@@ -133,8 +133,15 @@ if g:user_mode == "1"
   let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
+  " multi-language debugging
+  Plug 'puremourning/vimspector'
+  " mappings for debugger console
+  let g:vimspector_enable_mappings = 'HUMAN'
+
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
   " make vim and ROS friends
-  " Plug 'klaxalk/vim-ros'
+  Plug 'klaxalk/vim-ros'
+  " EPIGEN_DEL_BLOCK_COLORSCHEME_GIT }
 
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD {
   " airline extension for tmux
@@ -411,7 +418,7 @@ au FileType python,r call EnableCursorLines()
 
 " should fix colors in tmux
 if !has("nvim")
-  set term=screen-256color
+  set term=tmux-256color
 
   cnoreabbrev vt vertical terminal
   cnoreabbrev st terminal
@@ -463,6 +470,7 @@ set timeoutlen=1000 ttimeoutlen=0
 " normally, otherwise they behave like ESC
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 imap <expr> jj (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
+imap <expr> kk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 
 " clever brackets
 imap <leader>( ()<Esc>i
@@ -682,7 +690,7 @@ if g:user_mode == "1"
   " set vim and airline colorscheme
 
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN {
-  colorscheme default
+  " colorscheme default
   " EPIGEN_DEL_BLOCK_COLORSCHEME_DARK EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT EPIGEN_DEL_BLOCK_COLORSCHEME_GIT EPIGEN_DEL_BLOCK_COLORSCHEME_GRUN }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
@@ -696,21 +704,13 @@ if g:user_mode == "1"
   " EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-  "let g:github_colors_soft = 1
-  "let g:github_colors_block_diffmark = 1
-  "colorscheme github
+  " let g:github_colors_soft = 1
+  " let g:github_colors_block_diffmark = 1
+  " colorscheme github
 
-  "" enable lightline
-  ""let g:airline_theme = "github"
-  "let g:lightline = { 'colorscheme': 'selenized_white' }
-
-  "" iA
-  "let g:pencil_higher_contrast_ui = 1  " 0=low (def), 1=high
-  "let g:pencil_neutral_headings = 1    " 0=blue (def), 1=normal
-  "let g:pencil_neutral_code_bg = 1     " 0=gray (def), 1=normal
-  "let g:pencil_gutter_color = 1        " 0=mono (def), 1=color
-  "let g:pencil_spell_undercurl = 1     " 0=underline, 1=undercurl (def)
-  "let g:pencil_terminal_italics = 0
+  " " enable lightline
+  " " let g:airline_theme = "github"
+  " let g:lightline = { 'colorscheme': 'selenized_white' }
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
   " EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {

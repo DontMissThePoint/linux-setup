@@ -10,6 +10,10 @@
 	pager = delta
 	packedGitLimit = 512m
 	packedGitWindowSize = 512m
+  whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+  autocrlf = input
+[apply]
+  whitespace = fix
 [pack]
 	deltaCacheSize = 2047m
 	packSizeLimit = 2047m
@@ -44,11 +48,22 @@
 	changed = yellow bold
 	untracked = red bold
 [diff]
-	tool = vimdiff
+  algorithm = histogram
+  colorMoved = true
+  colorMovedWS = allow-indentation-change
+  mnemonicPrefix = true
+  tool = vimdiff
+  submodule = diff
 [merge]
   tool = vimdiff
+  log = true
 [difftool]
-	prompt = false
+  prompt = true
+  trustExitCode = true
+[mergetool]
+  prompt = true
+  trustExitCode = true
+  hideResolved = true
 [delta]
 	features = line-numbers decorations
 	line-numbers = true

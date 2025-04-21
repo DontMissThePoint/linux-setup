@@ -60,7 +60,7 @@ sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exube
 # submodules
 cd $MY_PATH
 $docker && git submodule update --init --recursive --recommend-shallow
-! $docker && git submodule update --init --recursive
+! $docker && git submodule update --init --recursive && git submodule sync --recursive
 
 if [ "$unattended" == "0" ]
   then

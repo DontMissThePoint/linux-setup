@@ -1563,17 +1563,10 @@ exec --no-startup-id i3-sensible-terminal
 for_window [class="^Nautilus$"] floating disable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
+for_window [class="^(P|p)qiv$"] fullscreen enable, focus
+for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable
-for_window [title="^Figure"] floating disable
-for_window [title="market"] floating disable
 for_window [instance="scratchpad"] move scratchpad, scratchpad show
-# for_window [title="GIMP Startup"] move workspace $workspace8
-for_window [title="Figure"] floating enable
-for_window [title="float_pls"] floating enable
-for_window [title="optic_flow"] floating disable
-# for_window [class="^Gimp$"] move workspace $workspace9
-for_window [title="Microsoft Teams Notification" class="microsoft teams - preview"] floating enable
-for_window [title="Microsoft Teams Notification" class="Microsoft Teams - Preview"] floating enable
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # for_window [title="Gazebo"] move workspace $workspace9

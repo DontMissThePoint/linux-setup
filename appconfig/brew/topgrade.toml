@@ -6,13 +6,13 @@
 
 [misc]
 # Don't ask for confirmations
-#assume_yes = true
+assume_yes = true
 
 # Disable specific steps - same options as the command line flag
-disable = ["containers", "gem", "ruby_gems"]
+disable = ["gcloud", "pnpm", "gem", "ruby_gems"]
 
 # Ignore failures for these steps
-ignore_failures = ["tmux"]
+ignore_failures = ["tmux", "git"]
 
 # Run specific steps - same options as the command line flag
 #only = ["system", "emacs"]
@@ -28,7 +28,7 @@ no_retry = true
 # pre_sudo = false
 
 # Run inside tmux
-# run_in_tmux = false
+run_in_tmux = false
 
 # List of remote machines with Topgrade installed on them
 #remote_topgrades = ["toothless", "pi", "parnas"]
@@ -80,7 +80,7 @@ skip_notify = false
 #pipupgrade_arguments = "-y -u --pip-path pip"    ###disabled by default
 
 [composer]
-#self_update = true
+self_update = true
 
 [brew]
 #greedy_cask = true
@@ -111,7 +111,7 @@ skip_notify = false
 [git]
 max_concurrency = 8
 # Additional git repositories to pull
-repos = ["$GIT_PATH/linux-setup/submodules/**"]
+repos = ["$GIT_PATH/linux-setup/submodules/*/"]
 
 # Don't pull the predefined git repos
 #pull_predefined = false
@@ -138,11 +138,11 @@ self_rename = true
 
 [vim]
 # For `vim-plug`, execute `PlugUpdate!` instead of `PlugUpdate`
-#force_plug_update = true
+force_plug_update = true
 
 [firmware]
 # Offer to update firmware; if false just check for and display available updates
-#upgrade = true
+upgrade = true
 
 [vagrant]
 # Vagrant directories
@@ -156,7 +156,7 @@ self_rename = true
 
 [flatpak]
 # Use sudo for updating the system-wide installation
-#use_sudo = true
+use_sudo = true
 
 [distrobox]
 #use_root = false

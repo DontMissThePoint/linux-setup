@@ -59,7 +59,7 @@ while true; do
     sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/qutebrowser 210
 
     # flavor
-    mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/sessions
+    mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/{greasemonkey,sessions}
     cp -fr $APP_PATH/catppuccin ~/.config/qutebrowser/
     ln -sf $APP_PATH/config_template.py ~/.config/qutebrowser/config.py
     ln -sf $APP_PATH/js.sites ~/.config/qutebrowser/js.sites
@@ -74,6 +74,11 @@ while true; do
     cd ~/.config/qutebrowser
     ln -sf $APP_PATH/../../submodules/qutebrowser/misc/userscripts ./userscripts
     rm -fr $GIT_PATH/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
+
+    # greasmonkey
+    echo "Greasymonkey scripts loading..."
+    cd ~/.local/share/qutebrowser/greasemonkey
+    cat $APP_PATH/js.greasyforks | xargs -n1 curl -LO
 
     # screenshots <space>dp
     mkdir -p ~/Pictures/Screenshots

@@ -55,7 +55,7 @@ while true; do
     [ -e clifm ] && rm -rf /tmp/clifm
     git clone https://github.com/leo-arch/clifm.git
     cd clifm
-    export CPPFLAGS="$CPPFLAGS -D_ICONS_IN_TERMINAL"
+    export CPPFLAGS="$CPPFLAGS -D_NERD"
     make -j8 && sudo make install
 
     # advcpmv

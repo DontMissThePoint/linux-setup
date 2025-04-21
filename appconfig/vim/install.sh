@@ -62,6 +62,8 @@ while true; do
       --enable-perlinterp=yes \
       --enable-luainterp=yes \
       --enable-rubyinterp \
+      --with-ruby-command="$(brew --prefix)"/bin/ruby \
+      --with-tlib=ncurses \
       --enable-gui=no \
       --enable-cscope \
       --prefix=/usr
@@ -132,6 +134,16 @@ while true; do
 
         # link .ycm_extra_conf.py
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py
+
+        # vimspector
+        cd ~/.vim/plugged
+        rm -fr vimspector
+        git clone https://github.com/puremourning/vimspector
+        cd vimspector
+        /usr/bin/python3 ./install_gadget.py --all --disable-tcl --verbose
+
+        # debugger
+        ln -fs $APP_PATH/bash.json ./configurations/linux/_all/bash.json
 
         break
       elif [[ $response =~ ^(n|N)=$ ]]
