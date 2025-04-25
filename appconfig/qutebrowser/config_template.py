@@ -80,7 +80,7 @@ c.colors.hints.fg = white
 c.colors.hints.match.fg = green
 c.colors.messages.info.bg = black
 c.colors.statusbar.command.bg = black
-c.colors.statusbar.insert.bg = accent
+c.colors.statusbar.insert.bg = black
 c.colors.statusbar.insert.fg = white
 c.colors.statusbar.normal.bg = black
 c.colors.statusbar.passthrough.bg = purple
@@ -131,7 +131,7 @@ except FileNotFoundError:
 
 # General
 c.editor.command = [terminal, "-e", editor, "{}"]
-c.auto_save.session = True
+c.auto_save.session = False
 c.completion.shrink = True
 c.completion.scrollbar.width = 0
 c.completion.scrollbar.padding = 0
