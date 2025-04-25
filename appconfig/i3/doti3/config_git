@@ -434,7 +434,6 @@ client.urgent            $inactive_text_color   $urgent            $active_backg
 client.background       $background_color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
 bar {
 
   position top
@@ -443,8 +442,8 @@ bar {
   hidden_state hide
   modifier $mod2
   strip_workspace_numbers yes
-  status_command i3blocks -c ~/.i3/i3blocks.conf
-  i3bar_command i3bar -t
+#   status_command i3blocks -c ~/.i3/i3blocks.conf # EPIGEN_DEL_LINE_COLORSCHEME_GIT
+#   i3bar_command i3bar -t # EPIGEN_DEL_LINE_COLORSCHEME_GIT
   # separator_symbol " "
 
   # Height in pixels
@@ -453,7 +452,7 @@ bar {
   font pango: Terminus, FontAwesome 8
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
-  tray_output DP-1-2
+  # tray_output DP-1-2
   tray_padding 4
 
   # #{ TOMAS font
@@ -1551,6 +1550,9 @@ exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 
 # news feed
 exec --no-startup-id "newsboat -r -q"
+
+# polybar
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
 
 # (gx) terminal
 exec --no-startup-id i3-sensible-terminal

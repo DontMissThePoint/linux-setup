@@ -54,7 +54,7 @@ while true; do
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
       eza fd s-search dust zig aria2 glow restic croc newsboat walk \
       lazygit delta poetry npm tailspin yq gron jc jo jless
-    brew clea  nup --prune=all
+    brew cleanup --prune=all
 
     # newsboat
     mkdir -p ~/.newsboat
