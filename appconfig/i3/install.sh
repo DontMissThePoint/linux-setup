@@ -198,7 +198,7 @@ while true; do
     if [ "$arch" != "aarch64" ]; then
       sudo apt-get -y install acpi
     fi
-    
+
     # cava
     cd /tmp
     [ -e cava ] && rm -rf cava
@@ -207,6 +207,9 @@ while true; do
     ./autogen.sh && ./configure
     make -j8
     sudo make install
+
+    # snd_aloop
+    sudo cp -f $APP_PATH/cava/cava.conf /etc/modules-load.d/
 
     # for making gtk look better
     sudo apt-get -y install lxappearance gtk-chtheme polybar
@@ -256,10 +259,11 @@ while true; do
 
     # config
     echo "Configuring..."
-    mkdir -p ~/.config/{dunst,flashfocus,rofi}
+    mkdir -p ~/.config/{dunst,flashfocus,rofi,cava}
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
     pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
     pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
+    pv $APP_PATH/cava/config > ~/.config/cava/config
     pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
     pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
 

@@ -14,7 +14,7 @@ xset s 900 180
 xset b off
 
 # Update font path
-xset +fp ~/.local/share/fonts
+xset +fp ~/.fonts
 xset fp rehash
 fc-cache -fv &
 

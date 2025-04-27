@@ -52,10 +52,7 @@ while true; do
     cd build && cpack -G DEB && sudo dpkg -i /tmp/nvim/neovim/build/nvim-linux-x86_64.deb
 
     # nvim
-    sudo -H pip3 install --break-system-packages wheel
-
-    sudo -H pip3 install --break-system-packages neovim
-    sudo -H pip3 install --break-system-packages neovim-remote
+    sudo -H pip3 install --break-system-packages wheel neovim neovim-remote 2> /dev/null
 
     rm -rf "$DATA" "$CONFIG"
 
