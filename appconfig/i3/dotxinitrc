@@ -70,13 +70,14 @@ f="/etc/X11/xinit/xinitrc.d/50-systemd-user.sh"; [[ -f "$f" ]] && source "$f"
 
 # Start applets, daemons, etc.
 # watcher
-aw-qt &
+
+# redshift
+redshift-gtk -l 0.314757:32.577754 &
 
 # mega
 megasync &
 
-# redshift
-redshift-gtk -l 0.314757:32.577754 &
+aw-qt &
 
 # nm-applet
 # ...

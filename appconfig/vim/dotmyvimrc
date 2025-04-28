@@ -123,6 +123,15 @@ let g:ledger_date_format = '%Y/%m/%d'
 " Fullscreen for datasets
 autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
+" hide bars
+autocmd VimEnter,VimResume,FocusGained * call HidePolybar()
+function! HidePolybar()
+  " polybar
+  silent! call system('polybar-msg cmd hide')
+  " maximize
+  silent! call system('i3-msg fullscreen enable')
+endfunction
+
 " cursors
 let g:togglecursor_force = 'xterm'
 
