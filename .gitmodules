@@ -1,99 +1,127 @@
 [submodule "submodules/i3blocks-contrib"]
 	path = submodules/i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib.git
+	branch = master
 [submodule "submodules/vim-plug"]
 	path = submodules/vim-plug
 	url = https://github.com/junegunn/vim-plug.git
+	branch = master
 [submodule "submodules/athame"]
 	path = submodules/athame
 	url = http://github.com/ardagnir/athame.git
+	branch = master
 [submodule "submodules/vimiv"]
 	path = submodules/vimiv
 	url = https://github.com/karlch/vimiv
 [submodule "submodules/xkblayout-state"]
 	path = submodules/xkblayout-state
 	url = https://github.com/nonpop/xkblayout-state.git
+	branch = master
 [submodule "submodules/pa-applet"]
 	path = submodules/pa-applet
 	url = https://github.com/fernandotcl/pa-applet
+	branch = master
 [submodule "submodules/vim"]
 	path = submodules/vim
 	url = https://github.com/vim/vim
 [submodule "submodules/git-sync"]
 	path = submodules/git-sync
 	url = https://github.com/simonthum/git-sync
+	branch = master
 [submodule "wiki"]
 	path = wiki
 	url = https://github.com/klaxalk/linux-setup.wiki
 [submodule "submodules/the_silver_searcher"]
 	path = submodules/the_silver_searcher
 	url = https://github.com/ggreer/the_silver_searcher.git
+	branch = master
 [submodule "submodules/profile_manager"]
 	path = submodules/profile_manager
 	url = https://github.com/klaxalk/profile_manager
+	branch = master
 [submodule "submodules/zsh-autosuggestions"]
 	path = submodules/zsh-autosuggestions
 	url = https://github.com/zsh-users/zsh-autosuggestions
+	branch = master
 [submodule "submodules/zsh-syntax-highlighting"]
 	path = submodules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
+	branch = master
 [submodule "submodules/indicator-sound-switcher"]
 	path = submodules/indicator-sound-switcher
 	url = https://github.com/yktoo/indicator-sound-switcher.git
+	branch = master
 [submodule "submodules/lolcat"]
 	path = submodules/lolcat
 	url = https://github.com/jaseg/lolcat
+	branch = master
   ignore = dirty
 [submodule "submodules/scrcpy"]
 	path = submodules/scrcpy
-  ignore = dirty
 	url = https://github.com/Genymobile/scrcpy
+	branch = master
+  ignore = dirty
 [submodule "submodules/qutebrowser"]
 	path = submodules/qutebrowser
 	url = https://github.com/qutebrowser/qutebrowser
+	branch = main
   ignore = dirty
 [submodule "submodules/light"]
 	path = submodules/light
 	url = https://github.com/klaxalk/light
+	branch = master
 [submodule "submodules/i3-layout-manager"]
 	path = submodules/i3-layout-manager
 	url = https://github.com/klaxalk/i3-layout-manager
+	branch = master
 [submodule "submodules/pandoc-goodies"]
 	path = submodules/pandoc-goodies
 	url = https://github.com/tajmone/pandoc-goodies
+	branch = master
 [submodule "submodules/papis"]
 	path = submodules/papis
 	url = https://github.com/klaxalk/papis
+	branch = master
 [submodule "submodules/papis-zotero"]
 	path = submodules/papis-zotero
 	url = http://github.com/papis/papis-zotero
+	branch = main
 [submodule "submodules/fzf"]
 	path = submodules/fzf
 	url = https://github.com/junegunn/fzf.git
+	branch = master
 [submodule "submodules/i3blocks"]
 	path = submodules/i3blocks
 	url = https://github.com/vivien/i3blocks.git
+	branch = master
 [submodule "submodules/ranger"]
 	path = submodules/ranger
 	url = https://github.com/ranger/ranger
+	branch = master
 [submodule "submodules/htop-vim"]
 	path = submodules/htop-vim
 	url = https://github.com/KoffeinFlummi/htop-vim
+	branch = master
 [submodule "submodules/libevent"]
 	path = submodules/libevent
 	url = https://github.com/libevent/libevent
+	branch = master
 [submodule "submodules/vim-stream"]
 	path = submodules/vim-stream
 	url = https://github.com/MilesCranmer/vim-stream.git
+	branch = master
 [submodule "submodules/keychron-k2-function-keys-linux"]
 	path = submodules/keychron-k2-function-keys-linux
 	url = https://github.com/adam-savard/keychron-k2-function-keys-linux.git
+	branch = master
 [submodule "submodules/pdfpc"]
 	path = submodules/pdfpc
 	url = https://github.com/pdfpc/pdfpc.git
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts
+	branch = master
 [submodule "submodules/cli-torrent-dl"]
 	path = submodules/cli-torrent-dl
 	url = https://github.com/X0R0X/cli-torrent-dl
+	branch = master

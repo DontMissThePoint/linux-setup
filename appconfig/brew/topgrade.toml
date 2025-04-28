@@ -12,7 +12,7 @@ assume_yes = true
 disable = ["gcloud", "pnpm", "gem", "ruby_gems"]
 
 # Ignore failures for these steps
-ignore_failures = ["tmux", "git"]
+ignore_failures = ["tmux"]
 
 # Run specific steps - same options as the command line flag
 #only = ["system", "emacs"]
@@ -111,7 +111,7 @@ self_update = true
 [git]
 max_concurrency = 8
 # Additional git repositories to pull
-repos = ["$GIT_PATH/linux-setup/submodules/*/"]
+# repos = ["$GIT_PATH/linux-setup/submodules/*/"]
 
 # Don't pull the predefined git repos
 #pull_predefined = false

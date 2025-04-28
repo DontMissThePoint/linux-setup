@@ -49,6 +49,43 @@ autocmd('Filetype', {
   command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
+autocmd("BufWritePost", {
+  pattern = { "*.sh", "*.py" },
+  callback = function()
+    local file = vim.fn.expand("<afile>")
+    if vim.fn.getline(1):match("^#!") then
+      vim.fn.jobstart({ "chmod", "+x", file }, {
+        detach = true,
+        on_exit = function()
+          vim.schedule(function()
+            vim.notify("chmod +x " .. file, vim.log.levels.INFO, { title = "Saved!" })
+          end)
+        end,
+      })
+    end
+  end,
+  desc = "Auto chmod +x script",
+})
+
+-- run shell commands silently
+local function silent_cmd(cmd)
+  vim.fn.jobstart(cmd, { detach = true })
+end
+
+--  hide bars
+autocmd({ "VimEnter", "VimResume", "FocusGained"}, {
+  pattern = "*",
+  callback = function()
+    -- Hide Polybar
+    silent_cmd({ "polybar-msg", "cmd", "hide" })
+
+    -- Maximize Neovim window (depends on your WM)
+    -- i3:
+    silent_cmd({ "i3-msg", "fullscreen", "enable" })
+    -- If you're using bspwm, you might need a different command
+  end,
+})
+
 -- close some filetypes with <q>
 autocmd("FileType", {
   group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),

@@ -40,6 +40,7 @@ sed '/^| *Date *|/d' tables_no_separators.md > tables_cleaned.md
 /usr/bin/python3 - <<EOF
 import pandas as pd
 import re
+import os
 
 # Read cleaned table data
 with open("tables_cleaned.md", "r") as file:
@@ -58,9 +59,10 @@ df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as 
 
 # Spreadsheet
 df.to_excel("$OUTPUT_XLSX", sheet_name="NFB_UG", index=False)
-# print("Excel file saved:", "$OUTPUT_XLSX")
+table_workbook = os.path.basename("$OUTPUT_XLSX")
+print("Saving to workbook:", table_workbook)
 EOF
 
 # Cleanup
 rm -f "tables.md" "tables_no_separators.md" "tables_cleaned.md"
-echo "Done."
+echo "OK"

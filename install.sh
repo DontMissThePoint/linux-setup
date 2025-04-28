@@ -60,7 +60,7 @@ sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exube
 # submodules
 cd $MY_PATH
 $docker && git submodule update --init --recursive --recommend-shallow
-! $docker && git submodule update --init --recursive && git submodule sync --recursive
+! $docker && git submodule sync --recursive && git submodule update --remote --recursive
 
 if [ "$unattended" == "0" ]
   then
@@ -218,17 +218,17 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # remove_duplicates_from_path
 
 # network
-case $(< /etc/systemd/resolved.conf 2>/dev/null) in
-  *"^DNS"*)
-    ;;
-  *)
+num=`cat /etc/systemd/resolved.conf | grep "^DNS" | wc -l`
+if [ "$num" -lt "1" ]; then
+
     echo "Override DNS..."
-    echo -e \
-      "DNS=1.1.1.1 8.8.8.8 \
-      \nFallbackDNS=8.8.4.4" | \
-      sudo tee -a /etc/systemd/resolved.conf > /dev/null
-    ;;
-esac
+    # set bashrc
+    echo 'DNSSEC=no
+DNS=1.1.1.1 8.8.8.8 9.9.9.9
+FallbackDNS=8.8.4.4' | \
+  sudo tee -a /etc/systemd/resolved.conf > /dev/null
+
+fi
 
 # storage
 topgrade

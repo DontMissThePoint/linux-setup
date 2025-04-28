@@ -140,7 +140,7 @@ while true; do
     sudo meson install -C build --no-rebuild
 
     # compile i3 dependency which is not present in the repo
-    sudo apt-get -y install libtool xutils-dev
+    sudo apt-get -y install libtool xutils-dev libfftw3-dev libasound2-dev libpulse-dev libiniparser-dev libsdl2-2.0-0 libsdl2-dev libpipewire-0.3-dev libjack-jackd2-dev pkgconf
 
     # install light for display backlight control
     # compile light
@@ -161,18 +161,9 @@ while true; do
     # compile i3
     sudo pip3 install --break-system-packages meson 2> /dev/null
     # cd $APP_PATH/../../submodules/i3/
+    sudo apt install -y i3status ninja-build
 
     # build from sources
-    sudo apt install -y i3status ninja-build
-    # rm -fr /tmp/build && mkdir /tmp/build
-    # cd /tmp/build
-    # git clone https://www.github.com/airblader/i3 i3-gaps
-    # cd i3-gaps
-    # git checkout gaps && git pull
-    # sudo apt install meson asciidoc
-    # meson -Ddocs=true -Dmans=true ../build
-    # meson compile -C ../build
-    # sudo meson install -C ../build
     cd /tmp
     [ -e i3-gaps-rounded ] && rm -rf i3-gaps-rounded
     git clone https://github.com/jbenden/i3-gaps-rounded.git
@@ -208,13 +199,25 @@ while true; do
       sudo apt-get -y install acpi
     fi
 
+    # cava
+    cd /tmp
+    [ -e cava ] && rm -rf cava
+    git clone https://github.com/karlstav/cava
+    cd cava
+    ./autogen.sh && ./configure
+    make -j8
+    sudo make install
+
+    # snd_aloop
+    sudo cp -f $APP_PATH/cava/cava.conf /etc/modules-load.d/
+
     # for making gtk look better
-    sudo apt-get -y install lxappearance gtk-chtheme
+    sudo apt-get -y install lxappearance gtk-chtheme polybar
+    cp -fr $APP_PATH/polybar ~/.config/
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
     pip install --break-system-packages flashfocus -U 2> /dev/null
-
 
     # xbanish
     cd /tmp
@@ -256,10 +259,11 @@ while true; do
 
     # config
     echo "Configuring..."
-    mkdir -p ~/.config/{dunst,flashfocus,rofi}
+    mkdir -p ~/.config/{dunst,flashfocus,rofi,cava}
     pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
     pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
     pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
+    pv $APP_PATH/cava/config > ~/.config/cava/config
     pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
     pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
 

@@ -574,8 +574,8 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.font: xft:Hurmit Nerd Font Mono:size=10.5,\
 !             xft:MesloLGSDZ Nerd Font Mono:size=10.5,\
 !             xft:FiraMono Nerd Font Mono:size=10.5,\
-!             xft:Symbola,xft:FontAwesome,\
-!             xft:Noto Color Emoji,xft:Unifont,\
+!             xft:FontAwesome,xft:Material Design Icons,\
+!             xft:Symbola,xft:Noto Color Emoji,xft:Unifont,\
 !             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
 ! URxvt.boldFont: xft:Hurmit Nerd Font:bold:size=10.5, xft:Symbola
 ! URxvt.italicFont: xft:Hurmit Nerd Font:italic:size=10.5, xft:Symbola
