@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if ! updates_brew=$(brew outdated 2> /dev/null | wc -l ); then
     updates_brew=0
