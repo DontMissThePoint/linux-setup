@@ -1,20 +1,25 @@
 #!/bin/sh
 
-# DPI
+# dpi
 xrandr --dpi 96
 
 # set keyboard repeat rate
 xset r rate 350 55
 
-# Set screensaver settings
-xset s on
-xset s 900 180
+# No screensaver
+xset s off
+xset -dpms
+xset r off
+
+# Music
+mount -a &
+# mpd &
 
 # bell
 xset b off
 
-# Update font path
-xset +fp ~/.local/share/fonts
+# font
+xset +fp ~/.fonts
 xset fp rehash
 fc-cache -fv &
 
@@ -70,19 +75,24 @@ f="/etc/X11/xinit/xinitrc.d/50-systemd-user.sh"; [[ -f "$f" ]] && source "$f"
 
 # Start applets, daemons, etc.
 # watcher
-aw-qt &
+
+# redshift
+redshift-gtk -l 0.314757:32.577754 &
 
 # mega
 megasync &
 
-# redshift
-redshift-gtk -l 0.314757:32.577754 &
+# watcher
+aw-qt &
+
+# terminal
+urxvtd -q &
 
 # nm-applet
 # ...
 
 # compositor
-picom -b --experimental-backends &
+picom --experimental-backends --backend glx -b &
 
 # Start i3wm
 exec i3

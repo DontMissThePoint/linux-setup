@@ -163,7 +163,8 @@ bindsym $mod+s layout stacking
 bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
-bindsym $mod+b bar mode toggle
+bindsym $mod+b bar mode toggle # EPIGEN_DEL_LINE_COLORSCHEME_GIT
+bindsym $mod+b exec "killall -q polybar"
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -251,7 +252,7 @@ bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 # shutdown/logout menu
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
-bindsym $mod2+e exec nautilus
+# bindsym $mod2+e exec nautilus
 bindsym $mod2+b exec qutebrowser
 bindsym $mod2+s exec /usr/share/smartgit/bin/smartgit.sh
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
@@ -274,7 +275,7 @@ for_window [class="mpv"] floating enable
 for_window [class="URxvt"] fullscreen enable
 for_window [instance="mpvfloat"] floating enable, move container position center, focus
 for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
-for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
+for_window [class="qutebrowser"] fullscreen disable, move workspace $workspace2, focus
 
 for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [title="File Transfer*"] floating enable
@@ -416,7 +417,7 @@ set_from_resource $term_color15 color15
 # set $split_indicator          #1a1b26
 # set $urgent                   #f7768e
 # set $i3bar_bg                 #1a1b26
-# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/151515.jpg
+# exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/cloud-computing.jpg
 # for_window [class="^.*"] border pixel 0
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
@@ -434,7 +435,7 @@ client.urgent            $inactive_text_color   $urgent            $active_backg
 client.background       $background_color
 
 # Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
+# EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
 bar {
 
   position top
@@ -453,120 +454,8 @@ bar {
   font pango: Terminus, FontAwesome 8
   tray_output primary # EPIGEN_DEL_LINE_PETR
   tray_output eDP-1
-  tray_output DP-1-2
+  # tray_output DP-1-2
   tray_padding 4
-
-  # #{ TOMAS font
-
-  # EPIGEN_ADD_BLOCK_TOMAS {
-
-#   # EPIGEN_ADD_BLOCK_THINKPAD {
-# #   font pango: Inconsolata, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #   font pango: LiberationMono, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION {
-# # #   font pango: LiberationMono, FontAwesome 13
-# #   # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION }
-#   # EPIGEN_ADD_BLOCK_THINKPAD }
-
-#   # EPIGEN_ADD_BLOCK_DESKTOP {
-# #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
-# # #   font pango: Terminus, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
-# #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
-# #   # font pango: Terminus, FontAwesome 13
-# #   # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
-# #   # EPIGEN_ADD_BLOCK_MONITOR_4K {
-# # #   font pango: Terminus, FontAwesome 20
-# #   # EPIGEN_ADD_BLOCK_MONITOR_4K }
-#   # EPIGEN_ADD_BLOCK_DESKTOP }
-
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 {
-# #   font pango: Terminus, FontAwesome 10
-#   # EPIGEN_ADD_BLOCK_DESKTOP2 }
-
-  # EPIGEN_ADD_BLOCK_TOMAS }
-
-  # #}
-
-  # #{ DANIEL font
-
-  # EPIGEN_ADD_BLOCK_DANIEL {
-
-#   # EPIGEN_ADD_BLOCK_LENOVO {
-# #   font pango: Inconsolata, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-# # #   font pango: LiberationMono, FontAwesome 10
-# #   # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
-#   # EPIGEN_ADD_BLOCK_LENOVO }
-  # EPIGEN_ADD_BLOCK_DANIEL }
-
-  # #}
-
-  # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
-
-  # the default option
-  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
-  # set $i3bar_bg #121212FF
-  # EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
-
-  # #{ PETER's i3bar bg
-
-  # EPIGEN_ADD_BLOCK_PETR {
-  # set $i3bar_bg #060606CF
-  # EPIGEN_ADD_BLOCK_PETR }
-
-  # #}
-
-  # #{ DANIEL's i3bar bg
-
-  # EPIGEN_ADD_BLOCK_DANIEL {
-
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
-  # # set $i3bar_bg #4a3c87
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
-
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
-  # # set $i3bar_bg #383838
-  # # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
-
-  # EPIGEN_ADD_BLOCK_DANIEL }
-
-  # #}
-
-# #{ TOMAS's i3bar bg
-
-# EPIGEN_ADD_BLOCK_TOMAS {
-# # EPIGEN_ADD_BLOCK_DESKTOP {
-# # set $i3bar_bg #12121200
-# # EPIGEN_ADD_BLOCK_DESKTOP }
-# # EPIGEN_ADD_BLOCK_DESKTOP2 {
-# # set $i3bar_bg #12121200
-# # EPIGEN_ADD_BLOCK_DESKTOP2 }
-# # EPIGEN_ADD_BLOCK_THINKPAD {
-# # set $i3bar_bg #121212FF
-# # EPIGEN_ADD_BLOCK_THINKPAD }
-# EPIGEN_ADD_BLOCK_TOMAS }
-
-# #}
-
-  # #{ PEPPE
-
-  # EPIGEN_ADD_BLOCK_PEPPE {
-  # font pango: Terminus, FontAwesome 10
-  # EPIGEN_ADD_BLOCK_PEPPE }
-
-  # #}
-
-  # EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
-
-  # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
-
-#   set $i3bar_bg #FFFFFFFF
-#   set $urgent #FF0000
-
-  # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
   colors {
 
@@ -582,6 +471,119 @@ bar {
     binding_mode       $i3bar_bg          $i3bar_bg            $urgent
   }
 }
+# EPIGEN_DEL_BLOCK_COLORSCHEME_GIT }
+
+#{ TOMAS font
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+
+# # EPIGEN_ADD_BLOCK_THINKPAD {
+# # # font pango: Inconsolata, FontAwesome 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # # font pango: LiberationMono, FontAwesome 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION {
+# # # font pango: LiberationMono, FontAwesome 13
+# # # EPIGEN_ADD_BLOCK_MONITOR_PRESENTATION }
+# # EPIGEN_ADD_BLOCK_THINKPAD }
+
+# # EPIGEN_ADD_BLOCK_DESKTOP {
+# # # EPIGEN_ADD_BLOCK_MONITOR_NORMAL {
+# # # font pango: Terminus, FontAwesome 10
+# # # EPIGEN_ADD_BLOCK_MONITOR_NORMAL }
+# # # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST {
+# # # font pango: Terminus, FontAwesome 13
+# # # EPIGEN_ADD_BLOCK_MONITOR_SCREENCAST }
+# # # EPIGEN_ADD_BLOCK_MONITOR_4K {
+# # # font pango: Terminus, FontAwesome 20
+# # EPIGEN_ADD_BLOCK_MONITOR_4K }
+# # EPIGEN_ADD_BLOCK_DESKTOP }
+
+# # EPIGEN_ADD_BLOCK_DESKTOP2 {
+# # font pango: Terminus, FontAwesome 10
+# # EPIGEN_ADD_BLOCK_DESKTOP2 }
+
+# EPIGEN_ADD_BLOCK_TOMAS }
+
+#}
+
+#{ DANIEL font
+
+# EPIGEN_ADD_BLOCK_DANIEL {
+
+# EPIGEN_ADD_BLOCK_LENOVO {
+# # font pango: Inconsolata, FontAwesome 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+# # # font pango: LiberationMono, FontAwesome 10
+# # # EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
+# # EPIGEN_ADD_BLOCK_LENOVO }
+# EPIGEN_ADD_BLOCK_DANIEL }
+
+# #}
+
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT {
+
+# the default option
+# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL {
+# # set $i3bar_bg #121212FF
+# EPIGEN_DEL_BLOCK_PETR EPIGEN_DEL_BLOCK_TOMAS EPIGEN_DEL_BLOCK_DANIEL }
+
+# #{ PETER's i3bar bg
+
+# EPIGEN_ADD_BLOCK_PETR {
+# # set $i3bar_bg #060606CF
+# EPIGEN_ADD_BLOCK_PETR }
+
+# #}
+
+# #{ DANIEL's i3bar bg
+
+# EPIGEN_ADD_BLOCK_DANIEL {
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK {
+# # set $i3bar_bg #4a3c87
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_DARK }
+
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN {
+# # set $i3bar_bg #383838
+# # EPIGEN_ADD_BLOCK_COLORSCHEME_GRUN }
+
+# EPIGEN_ADD_BLOCK_DANIEL }
+
+# #}
+
+#{ TOMAS's i3bar bg
+
+# EPIGEN_ADD_BLOCK_TOMAS {
+# EPIGEN_ADD_BLOCK_DESKTOP {
+# # set $i3bar_bg #12121200
+# EPIGEN_ADD_BLOCK_DESKTOP }
+# EPIGEN_ADD_BLOCK_DESKTOP2 {
+# # set $i3bar_bg #12121200
+# EPIGEN_ADD_BLOCK_DESKTOP2 }
+# EPIGEN_ADD_BLOCK_THINKPAD {
+# # set $i3bar_bg #121212FF
+# EPIGEN_ADD_BLOCK_THINKPAD }
+# EPIGEN_ADD_BLOCK_TOMAS }
+
+#}
+
+# #{ PEPPE
+
+# EPIGEN_ADD_BLOCK_PEPPE {
+# # font pango: Terminus, FontAwesome 10
+# EPIGEN_ADD_BLOCK_PEPPE }
+
+# #}
+
+# EPIGEN_DEL_BLOCK_COLORSCHEME_LIGHT }
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT {
+
+# set $i3bar_bg #FFFFFFFF
+# set $urgent #FF0000
+
+# EPIGEN_ADD_BLOCK_COLORSCHEME_LIGHT }
 
 # #{ i3-gaps settings
 
@@ -614,9 +616,7 @@ set $mode_gaps_inner inner gaps
 # #}
 
 # #{ rounded window corners
-
 border_radius 7
-
 # #}
 
 # #}
@@ -1538,6 +1538,12 @@ exec --no-startup-id nm-applet
 # enables transparency
 # exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
 
+# polybar
+# exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
+
+# (gx) terminal
+exec --no-startup-id i3-sensible-terminal
+
 # animations
 exec_always --no-startup-id flashfocus
 
@@ -1551,9 +1557,6 @@ exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 
 # news feed
 exec --no-startup-id "newsboat -r -q"
-
-# (gx) terminal
-exec --no-startup-id i3-sensible-terminal
 
 # #}
 

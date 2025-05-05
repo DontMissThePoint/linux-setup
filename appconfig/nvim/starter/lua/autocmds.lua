@@ -49,6 +49,24 @@ autocmd('Filetype', {
   command = 'setlocal shiftwidth=2 tabstop=2'
 })
 
+autocmd("BufWritePost", {
+  pattern = { "*.sh", "*.py" },
+  callback = function()
+    local file = vim.fn.expand("<afile>")
+    if vim.fn.getline(1):match("^#!") then
+      vim.fn.jobstart({ "chmod", "+x", file }, {
+        detach = true,
+        on_exit = function()
+          vim.schedule(function()
+            vim.notify("chmod +x " .. file, vim.log.levels.INFO, { title = "Saved!" })
+          end)
+        end,
+      })
+    end
+  end,
+  desc = "Auto chmod +x script",
+})
+
 -- close some filetypes with <q>
 autocmd("FileType", {
   group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),

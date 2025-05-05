@@ -7,11 +7,6 @@ set -e
 #######################################
 DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
 
-# echo "json markdown"
-# find . -type f |
-#   parallel -j10 -X rsync -zR -Ha ./{} fooserver:/dest-dir/
-# Adjust -j10 until you find the optimal number
-
 # Llama Prompt
 llama-parse parse "$DIR/Live_Netis_Fuel_UG.pdf" \
   -o "$DIR/Live_Netis_Fuel_UG.md" \
@@ -19,7 +14,7 @@ llama-parse parse "$DIR/Live_Netis_Fuel_UG.pdf" \
   -pi "Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the sheets. Parse document with Agent. Concatenate the tables."
 
 # JSON
-JSON_FILE="$DIR/Live_Netis_Fuel_UG.json"
+# csvjson "$DIR/Live_Netis_Fuel_UG.csv" | jsonrepair -o "$DIR/Live_Netis_Fuel_UG.json"
 # jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
 
 # markdown
@@ -40,6 +35,7 @@ sed '/^| *Date *|/d' tables_no_separators.md > tables_cleaned.md
 /usr/bin/python3 - <<EOF
 import pandas as pd
 import re
+import os
 
 # Read cleaned table data
 with open("tables_cleaned.md", "r") as file:
@@ -58,9 +54,10 @@ df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as 
 
 # Spreadsheet
 df.to_excel("$OUTPUT_XLSX", sheet_name="NFB_UG", index=False)
-# print("Excel file saved:", "$OUTPUT_XLSX")
+table_workbook = os.path.basename("$OUTPUT_XLSX")
+print("Saving to workbook:", table_workbook)
 EOF
 
 # Cleanup
 rm -f "tables.md" "tables_no_separators.md" "tables_cleaned.md"
-echo "Done."
+echo "OK"

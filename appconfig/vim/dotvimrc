@@ -299,6 +299,9 @@ Plug 'jszakmeister/vim-togglecursor'
 " ctrl+p to go back and ctrl+x to skip
 Plug 'terryma/vim-multiple-cursors'
 
+" scrolling
+Plug 'cskeeters/vim-smooth-scroll'
+
 " highlighting under cursor
 Plug 'RRethy/vim-illuminate'
 

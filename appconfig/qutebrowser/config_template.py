@@ -15,6 +15,7 @@ config.set(
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
     "*",
 )
+c.backend = 'webengine'
 
 # Variables
 leader = " "
@@ -49,6 +50,11 @@ c.qt.args = [
     'enable-zero-copy',
     'enable-features=VaapiVideoDecoder,VaapiVideoEncoder'
 ]
+
+# upgrade
+c.changelog_after_upgrade = 'minor'
+
+# colors
 accent = "#1688f0"
 blue = "#0f1d91"
 black = "#000000"
@@ -73,14 +79,22 @@ c.colors.completion.item.selected.match.fg = white
 c.colors.completion.match.fg = accent
 c.colors.completion.odd.bg = black
 c.colors.completion.scrollbar.fg = white
+c.colors.contextmenu.selected.fg = white
+c.colors.contextmenu.selected.bg = accent
 c.colors.downloads.bar.bg = black
 c.colors.downloads.error.bg = red
+c.colors.downloads.error.bg = white
+c.colors.downloads.start.fg = white
+c.colors.downloads.stop.fg = white
+c.colors.downloads.start.bg = green
+c.colors.downloads.stop.bg = green
+c.colors.downloads.system.fg = 'rgb'
 c.colors.hints.bg = black
 c.colors.hints.fg = white
 c.colors.hints.match.fg = green
 c.colors.messages.info.bg = black
 c.colors.statusbar.command.bg = black
-c.colors.statusbar.insert.bg = accent
+c.colors.statusbar.insert.bg = black
 c.colors.statusbar.insert.fg = white
 c.colors.statusbar.normal.bg = black
 c.colors.statusbar.passthrough.bg = purple
@@ -131,18 +145,25 @@ except FileNotFoundError:
 
 # General
 c.editor.command = [terminal, "-e", editor, "{}"]
-c.auto_save.session = True
+c.auto_save.interval = 15000
+c.auto_save.session = False
+
+# completion
 c.completion.shrink = True
 c.completion.scrollbar.width = 0
 c.completion.scrollbar.padding = 0
 c.completion.height = "33%"
+c.completion.delay = 0
+c.completion.quick = True
+c.completion.cmd_history_max_items = 100
 
 c.messages.timeout = 5000
-c.content.geolocation = True
+c.content.geolocation = 'ask'
 c.qt.force_platform = 'xcb'
-c.zoom.default = "86%"
+c.zoom.default = "82%"
 c.window.hide_decoration = True
 c.content.headers.do_not_track = True
+c.content.headers.referer = 'same-domain'
 
 # Status bar
 c.statusbar.show = 'in-mode'
@@ -294,12 +315,12 @@ small_font = "13px" + " " + font_family
 c.fonts.default_size = font_size
 c.fonts.default_family = font_family
 
+c.fonts.contextmenu = font
 c.fonts.completion.entry = font
 c.fonts.completion.category = "bold " + font
 c.fonts.debug_console = font
 c.fonts.downloads = font
 c.fonts.prompts = font
-c.fonts.contextmenu = font
 
 c.fonts.hints = small_font
 c.fonts.keyhint = small_font

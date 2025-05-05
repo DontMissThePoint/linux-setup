@@ -54,42 +54,32 @@ while true; do
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
         sudo add-apt-repository -y ppa:papirus/papirus
         sudo apt update
-        sudo apt install -y papirus-icon-theme  # Papirus, Papirus-Dark, and Papirus-Light
+        sudo apt install -y papirus-icon-theme
     fi
-    sudo apt install -y fonts-inter-variable fonts-symbola unifont fonts-font-awesome ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
-    papirus-folders -t ePapirus -C nordic
+    sudo apt install -y fonts-inter-variable fonts-symbola unifont fonts-font-awesome fonts-noto-color-emoji ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
+    papirus-folders -t Papirus-Dark -C darkcyan
 
     # Nerd fonts
     toilet Setting up Nerd Fonts -t -f future
     curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --tag=v0.1.0
-    getnf -i "JetBrainsMono FiraMono Meslo Monofur Hermit Hasklig IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono CascadiaCode"
+    getnf -i "JetBrainsMono Terminus FiraMono Meslo Monofur Hermit Hasklig IBMPlexMono iA-Writer NerdFontsSymbolsOnly UbuntuMono CascadiaCode"
     getnf -U
     rm -fr ~/Downloads/getnf
 
     # emoji
     sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
-    wget -c -P "$APP_PATH" https://github.com/13rac1/twemoji-color-font/releases/download/v14.0.2/TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
-    cd $APP_PATH
-    tar zxf TwitterColorEmoji-SVGinOT-Linux-14.0.2.tar.gz
-    cd TwitterColorEmoji-SVGinOT-Linux-14.0.2
-    ./install.sh
-    rm -fr $APP_PATH/TwitterColorEmoji-*
 
-    # config
-    echo "Configuring..."
-    mkdir -p ~/.config/environment.d ~/.config/Kvantum
-    printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
-    pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
-
-    # # icons-in-terminal
-    # cd /tmp
-    # [ -e icons-in-terminal ] && rm -rf /tmp/icons-in-terminal
-    # git clone https://github.com/sebastiencs/icons-in-terminal.git
-    # cd icons-in-terminal
-    # ./install.sh
+    # siji
+    cd /tmp
+    [ -e siji ] && rm -rf /tmp/siji
+    git clone git clone https://github.com/stark/siji
+    cd siji
+    ./install.sh -d ~/.fonts
     # pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
     # find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
-
+    sed -i -e 's/terminess powerline/Terminess Nerd Font/g' \
+      ~/.config/fontconfig/conf.d/50-enable-terminess-powerline.conf
+    #
     # Test with:
     # fc-match -s monospace
 
@@ -116,6 +106,12 @@ while true; do
     pv $APP_PATH/qt5ct.conf > ~/.config/qt5ct/qt5ct.conf
     pv $APP_PATH/qt6ct.conf > ~/.config/qt6ct/qt6ct.conf
 
+    # config
+    echo "Configuring..."
+    mkdir -p ~/.config/environment.d ~/.config/Kvantum
+    printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
+    pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
+
     # cursor
     cd /tmp
     [ -e Afterglow-Cursors-Recolored ] && rm -rf /tmp/Afterglow-Cursors-Recolored
@@ -134,9 +130,9 @@ while true; do
     gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
     gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 10'
     gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 10'
-    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
     gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
-    gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
+    gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-dark'
 
     # cursor
     gsettings set org.gnome.desktop.interface locate-pointer true

@@ -51,7 +51,7 @@ options.disp_more_right      =  '>'                  # header note indicating mo
 options.disp_error_val       =  '!'                  # displayed contents for computation exception
 options.disp_ambig_width     =  1                    # width to use for unicode chars marked ambiguous
 options.disp_pending         =  '{PENDING}'          # string to display in pending cells
-options.disp_date_fmt        =  '%Y-%m-%d'           # default fmtstr to strftime for date values
+options.disp_date_fmt        =  '%m/%d/%Y'           # default fmtstr to strftime for date values
 options.disp_status_fmt      =  '({sheet.cursorRowIndex},{sheet.cursorColIndex}) {sheet.name}'         # Add current position to status bar
 
 options.disp_menu            =  False                 # menu Ctrl+H, zCtrtl+H, gCtrl+H
@@ -82,7 +82,7 @@ options.color_current_col    =  '44 darkturquoise'   # color of the cursor colum
 options.color_current_hdr    =  'bold italic underline'  # color of the header for the cursor column
 options.color_current_cell   =  '190 underline bold'         # color of the cell
 options.color_column_sep     =  '238 mediumorchid3'  # color of column separators
-options.color_key_col        =  'blue'               # color of key columns
+options.color_key_col        =  '25 blue'               # color of key columns
 options.color_hidden_col     =  '8'                  # color of hidden columns on metasheets
 options.color_selected_row   =  '215 yellow'         # color of selected rows
 options.color_keystrokes     =  'white'              # color of input keystrokes on status line
@@ -123,5 +123,6 @@ globalCommand('zm', 'mm, _ = curses.mousemask(0); status("mouse "+("ON" if mm el
 TableSheet.unbindkey("i")
 TableSheet.bindkey("i", "edit-cell")
 
-# Tell `open-cell-pager` to invoke `bat` rather than $PAGER
-vd.options.vpager_cmd = 'bat --paging=always'
+# Scroll
+Sheet.addCommand(None, 'scroll-top', 'sheet.topRowIndex = cursorRowIndex', 'scroll current row to top of screen')
+Sheet.addCommand(None, 'scroll-bottom', 'sheet.topRowIndex = cursorRowIndex-nScreenRows', 'scroll current row to bottom of screen')

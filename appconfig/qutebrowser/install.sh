@@ -76,7 +76,7 @@ while true; do
     rm -fr $GIT_PATH/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
     # greasmonkey
-    echo "Greasymonkey scripts loading..."
+    echo "Greasymonkey ..."
     cd ~/.local/share/qutebrowser/greasemonkey
     cat $APP_PATH/js.greasyforks | xargs -n1 curl -LO
 
@@ -89,7 +89,7 @@ while true; do
     GREEN='\033[0;32m'
     NC='\033[0m' # No Color
     npm config set strict-ssl=false
-    npm install -g llama-parse-cli jsonrepair jsdom qutejs punycode @mozilla/readability
+    npm install --loglevel=error -g llama-parse-cli jsonrepair jsdom qutejs punycode @mozilla/readability
     echo -e "${GREEN}llama-parse auth  ${NC}to get started."
 
     break
