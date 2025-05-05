@@ -1,19 +1,24 @@
 #!/bin/sh
 
-# DPI
+# dpi
 xrandr --dpi 96
 
 # set keyboard repeat rate
 xset r rate 350 55
 
-# Set screensaver settings
-xset s on
-xset s 900 180
+# No screensaver
+xset s off
+xset -dpms
+xset r off
+
+# Music
+mount -a &
+# mpd &
 
 # bell
 xset b off
 
-# Update font path
+# font
 xset +fp ~/.fonts
 xset fp rehash
 fc-cache -fv &
@@ -77,13 +82,17 @@ redshift-gtk -l 0.314757:32.577754 &
 # mega
 megasync &
 
+# watcher
 aw-qt &
+
+# terminal
+urxvtd -q &
 
 # nm-applet
 # ...
 
 # compositor
-picom -b --experimental-backends &
+picom --experimental-backends --backend glx -b &
 
 # Start i3wm
 exec i3
