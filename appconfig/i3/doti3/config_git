@@ -164,7 +164,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+b bar mode toggle # EPIGEN_DEL_LINE_COLORSCHEME_GIT
-bindsym $mod+b exec "killall -q polybar"
+bindsym $mod+b exec "killall -q polybar || ~/.config/polybar/launch.sh"
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle

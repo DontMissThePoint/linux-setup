@@ -14,8 +14,10 @@ llama-parse parse "$DIR/Live_Netis_Fuel_UG.pdf" \
   -pi "Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the sheets. Parse document with Agent. Concatenate the tables."
 
 # JSON
+# csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
 # csvjson "$DIR/Live_Netis_Fuel_UG.csv" | jsonrepair -o "$DIR/Live_Netis_Fuel_UG.json"
 # jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
+
 
 # markdown
 MD_FILE="$DIR/Live_Netis_Fuel_UG.md"
@@ -55,7 +57,7 @@ df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as 
 # Spreadsheet
 df.to_excel("$OUTPUT_XLSX", sheet_name="NFB_UG", index=False)
 table_workbook = os.path.basename("$OUTPUT_XLSX")
-print("Saving to workbook:", table_workbook)
+print("Saving workbook:", table_workbook)
 EOF
 
 # Cleanup

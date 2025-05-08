@@ -294,12 +294,7 @@ Plug 'ActivityWatch/aw-watcher-vim'
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
 
-" Multiple cursors
-" in visual press ctrl+n to select next occurance
-" ctrl+p to go back and ctrl+x to skip
-Plug 'terryma/vim-multiple-cursors'
-
-" scrolling
+" smooth scroll
 Plug 'cskeeters/vim-smooth-scroll'
 
 " highlighting under cursor
