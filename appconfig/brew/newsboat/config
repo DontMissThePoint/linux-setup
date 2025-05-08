@@ -95,7 +95,7 @@ color listnormal white default
 color listnormal_unread color84 default
 color listfocus color50 default
 color listfocus_unread color50 default standout bold
-color info              color91 default bold
+color info              color240 default bold
 
 search-highlight-colors color18 default bold
 

@@ -15,7 +15,7 @@ config.set(
     "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36",
     "*",
 )
-c.backend = 'webengine'
+c.backend = "webengine"
 
 # Variables
 leader = " "
@@ -27,12 +27,12 @@ homepage = "https://yandex.com"
 
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
-catppuccin.setup(c, 'latte')
+catppuccin.setup(c, "latte")
 
 # Dark mode
 c.colors.webpage.darkmode.enabled = False
-c.colors.webpage.preferred_color_scheme = 'dark'
-c.colors.webpage.darkmode.policy.images = 'always'
+c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.darkmode.policy.images = "always"
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"
 c.colors.webpage.darkmode.threshold.foreground = 50
 c.colors.webpage.darkmode.threshold.background = 105
@@ -40,19 +40,19 @@ c.colors.webpage.darkmode.threshold.background = 105
 # QT
 c.content.plugins = True
 c.qt.args = [
-    'force-light-mode',
-    'light-mode-settings',
-    'disable-pinch',
-    'ignore-gpu-blocklist',
-    'enable-gpu-rasterization',
-    'enable-accelerated-video-decode',
-    'enable-quic',
-    'enable-zero-copy',
-    'enable-features=VaapiVideoDecoder,VaapiVideoEncoder'
+    "force-light-mode",
+    "light-mode-settings",
+    "disable-pinch",
+    "ignore-gpu-blocklist",
+    "enable-gpu-rasterization",
+    "enable-accelerated-video-decode",
+    "enable-quic",
+    "enable-zero-copy",
+    "enable-features=VaapiVideoDecoder,VaapiVideoEncoder",
 ]
 
 # upgrade
-c.changelog_after_upgrade = 'minor'
+c.changelog_after_upgrade = "minor"
 
 # colors
 accent = "#1688f0"
@@ -88,7 +88,7 @@ c.colors.downloads.start.fg = white
 c.colors.downloads.stop.fg = white
 c.colors.downloads.start.bg = green
 c.colors.downloads.stop.bg = green
-c.colors.downloads.system.fg = 'rgb'
+c.colors.downloads.system.fg = "rgb"
 c.colors.hints.bg = black
 c.colors.hints.fg = white
 c.colors.hints.match.fg = green
@@ -119,7 +119,7 @@ c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
 
 # Privacy
-c.content.canvas_reading = True # Breaks 9gag, wolt if False
+c.content.canvas_reading = True  # Breaks 9gag, wolt if False
 c.content.geolocation = False
 c.content.webrtc_ip_handling_policy = "default-public-interface-only"
 c.content.cookies.accept = "no-unknown-3rdparty"
@@ -128,20 +128,22 @@ c.content.headers.accept_language = "en-US,en;q=0.5"
 
 # Adblock
 c.content.javascript.enabled = False
-c.content.blocking.adblock.lists = ['https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts']
-c.content.blocking.method = 'both'
+c.content.blocking.adblock.lists = [
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
+]
+c.content.blocking.method = "both"
 
 # js
 try:
-    with (config.configdir / 'js.sites').open() as js_file:
+    with (config.configdir / "js.sites").open() as js_file:
         js_sites = js_file.read().split("\n")
         js_file.close()
 
     for js_site in js_sites:
-        if js_site != '':
-            config.set('content.javascript.enabled', True, js_site)
+        if js_site != "":
+            config.set("content.javascript.enabled", True, js_site)
 except FileNotFoundError:
-    print('js.sites not found')
+    print("js.sites not found")
 
 # General
 c.editor.command = [terminal, "-e", editor, "{}"]
@@ -158,135 +160,143 @@ c.completion.quick = True
 c.completion.cmd_history_max_items = 100
 
 c.messages.timeout = 5000
-c.content.geolocation = 'ask'
-c.qt.force_platform = 'xcb'
+c.content.geolocation = "ask"
+c.qt.force_platform = "xcb"
 c.zoom.default = "82%"
 c.window.hide_decoration = True
 c.content.headers.do_not_track = True
-c.content.headers.referer = 'same-domain'
+c.content.headers.referer = "same-domain"
 
 # Status bar
-c.statusbar.show = 'in-mode'
-c.scrolling.bar = 'when-searching'
+c.statusbar.show = "in-mode"
+c.scrolling.bar = "when-searching"
 c.scrolling.smooth = False
 
 # Spellcheck
-c.spellcheck.languages = ['en-US']
+c.spellcheck.languages = ["en-US"]
 
 ## Aliases
-c.aliases = {'q': 'quit --save', 'qa': 'quit',
-           'w': 'session-save', 'wq': 'quit --save',
-           'wq': 'quit --save',
-           'x': 'quit --save',
-           'X': 'spawn --userscript ~/.config/qutebrowser/userscripts/view_in_mpv',
-           'reader' : 'spawn --userscript readability-js'}
+c.aliases = {
+    "q": "quit --save",
+    "qa": "quit",
+    "w": "session-save",
+    "wq": "quit --save",
+    "wq": "quit --save",
+    "x": "quit --save",
+    "X": "spawn --userscript ~/.config/qutebrowser/userscripts/view_in_mpv",
+    "reader": "spawn --userscript readability-js",
+}
 
 ## mode
-c.bindings.commands['normal'] = {
-# commands
-    ';': 'cmd-set-text :',
-    'q;': 'cmd-set-text q:',
+c.bindings.commands["normal"] = {
+    # commands
+    ";": "cmd-set-text :",
+    "q;": "cmd-set-text q:",
 }
 
-c.bindings.commands['hint'] = {
-# hints
-    'x': 'tab-close',
-    'jk': 'mode-leave',
-    'jj': 'mode-leave',
+c.bindings.commands["hint"] = {
+    # hints
+    "x": "tab-close",
+    "jk": "mode-leave",
+    "jj": "mode-leave",
 }
 
-c.bindings.commands['insert'] = {
-# insert
-    'jk': 'mode-leave',
-    'jj': 'mode-leave',
+c.bindings.commands["insert"] = {
+    # insert
+    "jk": "mode-leave",
+    "jj": "mode-leave",
 }
 
 ## Hints
-c.hints.auto_follow = 'always'
+c.hints.auto_follow = "always"
 c.hints.auto_follow_timeout = 400
-c.hints.mode = 'letter'
-c.hints.chars = 'asdhfeiotr'
-c.hints.border = '0px'
+c.hints.mode = "letter"
+c.hints.chars = "asdhfeiotr"
+c.hints.border = "0px"
 
 # hints
-config.bind('f', 'hint')
-config.bind('td', 'hint links download')
-config.bind('tf', 'hint --rapid links tab-bg')
-config.bind('tr', 'hint links right-click')
-config.bind('F', 'hint links tab-fg')
-config.bind('yl', 'hint links yank')
+config.bind("f", "hint")
+config.bind("td", "hint links download")
+config.bind("tf", "hint --rapid links tab-bg")
+config.bind("tr", "hint links right-click")
+config.bind("F", "hint links tab-fg")
+config.bind("yl", "hint links yank")
 
 # navigation
-config.bind('tj', 'tab-prev')
-config.bind('tt', 'tab-next')
-config.bind('xx', 'tab-close')
-config.bind('gl', 'tab-focus last')
+config.bind("tj", "tab-prev")
+config.bind("tt", "tab-next")
+config.bind("xx", "tab-close")
+config.bind("gl", "tab-focus last")
 
 # zoom
-config.bind('<Ctrl-=>', 'zoom-in')
-config.bind('<Ctrl-->', 'zoom-out')
+config.bind("<Ctrl-=>", "zoom-in")
+config.bind("<Ctrl-->", "zoom-out")
 
 # Tabs
-c.tabs.title.format = '{audio}{private}{index}: {current_title}'
+c.tabs.title.format = "{audio}{private}{index}: {current_title}"
 c.tabs.title.format_pinned = c.tabs.title.format
 c.tabs.pinned.frozen = False
 c.tabs.pinned.shrink = False
 c.tabs.background = False
 c.tabs.favicons.scale = 0.9
 
-c.tabs.select_on_remove = 'prev'
-c.tabs.mode_on_change = 'restore'
-c.tabs.position = 'right'
-c.tabs.show = 'switching'
-c.tabs.last_close = 'close'
-c.tabs.padding = {'bottom': 3, 'left': 5, 'right': 5, 'top': 2}
+c.tabs.select_on_remove = "prev"
+c.tabs.mode_on_change = "restore"
+c.tabs.position = "right"
+c.tabs.show = "switching"
+c.tabs.last_close = "close"
+c.tabs.padding = {"bottom": 3, "left": 5, "right": 5, "top": 2}
 c.tabs.indicator.width = 0
 
-c.new_instance_open_target = 'tab-silent'
-c.new_instance_open_target_window = 'last-focused'
+c.new_instance_open_target = "tab-silent"
+c.new_instance_open_target_window = "last-focused"
 c.content.dns_prefetch = False
 
 # userscripts
-config.bind('gr', 'spawn --userscript ~/.config/qutebrowser/userscripts/readability-js')
-config.bind('sd', 'spawn --userscript ~/.config/qutebrowser/userscripts/open_download')
-config.bind('ps', 'spawn --userscript ~/.config/qutebrowser/userscripts/password_fill')
+config.bind("gr", "spawn --userscript ~/.config/qutebrowser/userscripts/readability-js")
+config.bind("sd", "spawn --userscript ~/.config/qutebrowser/userscripts/open_download")
+config.bind("ps", "spawn --userscript ~/.config/qutebrowser/userscripts/password_fill")
 
 ## start page(s) and default page blank
 c.url.start_pages = ["about:blank"]
 c.url.default_page = "about:blank"
 
 # downloads
-c.downloads.location.directory = '~/Downloads'
-c.downloads.location.suggestion = 'both'
+c.downloads.location.directory = "~/Downloads"
+c.downloads.location.suggestion = "both"
 c.downloads.remove_finished = 50000
 c.downloads.position = "bottom"
-c.confirm_quit = ['downloads']
+c.confirm_quit = ["downloads"]
 
 ## save web pages in MHTML format
 ## ,sm to do that
-config.bind(',sm', 'cmd-set-text :download --mhtml')
+config.bind(",sm", "cmd-set-text :download --mhtml")
 
 ## ,yc “yank asciidoc-formatted link”
-config.bind(',yc', 'yank inline {url:pretty}[{title}]')
+config.bind(",yc", "yank inline {url:pretty}[{title}]")
 
 ## ,ym “yank markdown-formatted link”
 ## ym (without a leading comma) also works because it is built-in
-config.bind(',ym', 'yank inline [{title}]({url:pretty})')
-config.bind('ys', 'yank selection')
+config.bind(",ym", "yank inline [{title}]({url:pretty})")
+config.bind("ys", "yank selection")
 
-config.bind(',P', 'open -b -- {primary}')
-config.bind(',p', 'open -b -- {clipboard}')
+config.bind(",P", "open -b -- {primary}")
+config.bind(",p", "open -b -- {clipboard}")
 
 # qrcode for website
-config.bind(',q', 'spawn --userscript ~/.scripts/qrcode_url.sh')
+config.bind(",q", "spawn --userscript ~/.scripts/qrcode_url.sh")
 
 # gallery-dl
-config.bind(',i', 'hint images spawn -dv mvi {hint-url} --input-ipc-server=/tmp/mpvsocket')
+config.bind(
+    ",i", "hint images spawn -dv mvi {hint-url} --input-ipc-server=/tmp/mpvsocket"
+)
 
 # mpv
-config.bind('ya', 'hint links spawn -dv ~/.scripts/fillplaylist.sh push {hint-url}')
-config.bind('yp', 'spawn -dv ~/.scripts/fillplaylist.sh play')
-config.bind('yx', 'hint links spawn -dv mpv {hint-url} --input-ipc-server=/tmp/mpvsocket')
+config.bind("ya", "hint links spawn -dv ~/.scripts/fillplaylist.sh push {hint-url}")
+config.bind("yp", "spawn -dv ~/.scripts/fillplaylist.sh play")
+config.bind(
+    "yx", "hint links spawn -dv mpv {hint-url} --input-ipc-server=/tmp/mpvsocket"
+)
 
 # Home page
 c.url.default_page = homepage
@@ -294,17 +304,17 @@ c.url.start_pages = homepage
 
 ## search
 c.url.searchengines = {
-        'DEFAULT': 'https://google.com/search?q={}',
-        'qw': 'https://lite.qwant.com/?q={}',
-        'dd': 'https://duckduckgo.com/?q={}',
-        'ec': 'https://www.ecosia.org/search?q={}',
-        'gi': 'https://github.com/search?q={}',
-        'ji': 'http://jisho.org/search/{}',
-        'ra': 'https://rateyourmusic.com/search?searchtype=a&searchterm={}',
-        'wikt': 'https://en.wiktionary.org/wiki/Special:Search?search={}',
-        'wi': 'https://en.wikipedia.org/wiki/Special:Search?search={}',
-        'yo': 'https://youtube.com/results?search_query={}'
-        }
+    "DEFAULT": "https://google.com/search?q={}",
+    "qw": "https://lite.qwant.com/?q={}",
+    "dd": "https://duckduckgo.com/?q={}",
+    "ec": "https://www.ecosia.org/search?q={}",
+    "gi": "https://github.com/search?q={}",
+    "ji": "http://jisho.org/search/{}",
+    "ra": "https://rateyourmusic.com/search?searchtype=a&searchterm={}",
+    "wikt": "https://en.wiktionary.org/wiki/Special:Search?search={}",
+    "wi": "https://en.wikipedia.org/wiki/Special:Search?search={}",
+    "yo": "https://youtube.com/results?search_query={}",
+}
 
 # font
 font_size = "14px"
@@ -317,7 +327,7 @@ c.fonts.default_family = font_family
 
 c.fonts.contextmenu = font
 c.fonts.completion.entry = font
-c.fonts.completion.category = "bold " + font
+c.fonts.completion.category = font
 c.fonts.debug_console = font
 c.fonts.downloads = font
 c.fonts.prompts = font

@@ -1542,7 +1542,7 @@ exec --no-startup-id nm-applet
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
 
 # (gx) terminal
-exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id "i3-sensible-terminal -e $SHELL -c 'tmuxinator double;$SHELL -i'"
 
 # animations
 exec_always --no-startup-id flashfocus

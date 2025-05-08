@@ -4,7 +4,7 @@
     # pkgs.hello
     pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
       pkgs.activitywatch pkgs.bluetuith pkgs.libgen-cli
-      pkgs.material-design-icons
+      pkgs.material-icons
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

@@ -133,11 +133,6 @@ if g:user_mode == "1"
   let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
-  " multi-language debugging
-  Plug 'puremourning/vimspector'
-  " mappings for debugger console
-  let g:vimspector_enable_mappings = 'HUMAN'
-
   " EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'

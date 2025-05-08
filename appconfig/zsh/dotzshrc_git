@@ -20,7 +20,8 @@ if [ -e $HOME/.oh-my-zsh/custom/plugins/k ]; then
 fi
 
 # accept
-bindkey '^F' autosuggest-accept
+bindkey '^E' autosuggest-accept
+bindkey -e
 
 # EPIGEN_ADD_BLOCK_BETTER_YCM {
 # export EDITOR="/usr/bin/vim --servername dog --cmd 'let g:user_mode=1'"
@@ -126,13 +127,6 @@ export KEYTIMEOUT=20
 # vi mode
 bindkey -M viins 'jj' vi-cmd-mode
 bindkey -M viins 'jk' vi-cmd-mode
-
-## more keys for easier editing
-bindkey "^A" beginning-of-line
-bindkey "^E" end-of-line
-bindkey "^H" backward-delete-char
-bindkey "^W" backward-kill-word
-bindkey "^I" fzf-tab
 
 # running new tmux (or attaching) with session name derived from parent zsh pid
 runTmux() {
