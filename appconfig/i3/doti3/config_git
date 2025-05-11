@@ -164,7 +164,7 @@ bindsym $mod+w layout tabbed
 bindsym $mod+e layout toggle split
 
 bindsym $mod+b bar mode toggle # EPIGEN_DEL_LINE_COLORSCHEME_GIT
-bindsym $mod+b exec "killall -q polybar"
+bindsym $mod+b exec "killall -q polybar || ~/.config/polybar/launch.sh"
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
@@ -271,9 +271,9 @@ bindsym $mod+plus scratchpad show; floating disable
 # xprop. To get the instance and class
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
-for_window [class="mpv"] floating enable
+for_window [class="mpv"] fullscreen disable, floating enable, focus
 for_window [class="URxvt"] fullscreen enable
-for_window [instance="mpvfloat"] floating enable, move container position center, focus
+for_window [instance="mpvfloat"] fullscreen disable, floating enable, focus
 for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen disable, move workspace $workspace2, focus
 
@@ -1542,7 +1542,7 @@ exec --no-startup-id nm-applet
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
 
 # (gx) terminal
-exec --no-startup-id i3-sensible-terminal
+exec --no-startup-id "i3-sensible-terminal -e $SHELL -c 'tmuxinator double;$SHELL -i'"
 
 # animations
 exec_always --no-startup-id flashfocus

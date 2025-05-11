@@ -94,8 +94,8 @@ color background default default        # the most bottom bar
 color listnormal white default
 color listnormal_unread color84 default
 color listfocus color50 default
-color listfocus_unread color50 default standout bold
-color info              color91 default bold
+color listfocus_unread color49 default standout bold
+color info              color38 default bold
 
 search-highlight-colors color18 default bold
 
@@ -110,7 +110,7 @@ highlight article "\\[image\\ [0-9]+\\]" green default bold
 highlight article "\\[image\\ [0-9]+:.*\\]" green default bold
 
 highlight article "(^Feed:.*)" color19 default bold
-highlight article "(^Title:.*)" color45 default bold
+highlight article "(^Title:.*)" color117 default standout
 highlight article "(^Author:.*)" color88 default bold
 highlight article "(^Date:.*)" color52 default bold
 highlight article "(^Link:.*)" color12 default bold

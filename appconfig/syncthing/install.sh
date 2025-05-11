@@ -57,9 +57,13 @@ while true; do
     mkdir -p ~/Journal ~/Documents/Scorecard ~/Pictures/Android Camera
 
     # ledger
-    echo "Configuring ledger..."
+    echo "Setup go pakages..."
     go install github.com/howeyc/ledger/ledger@latest
     sudo ln -sf ~/go/bin/ledger /usr/local/go/bin/ledger
+
+    # shfmt
+    go install mvdan.cc/sh/v3/cmd/shfmt@latest
+    sudo ln -sf ~/go/bin/shfmt /usr/local/go/bin/shfmt
 
     # Obsidian
     cd /tmp

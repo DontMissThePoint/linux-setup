@@ -213,7 +213,14 @@ while true; do
 
     # for making gtk look better
     sudo apt-get -y install lxappearance gtk-chtheme polybar
+
+    # polybar
     cp -fr $APP_PATH/polybar ~/.config/
+
+    # pulseaudio-control
+    sudo sed -i -e 's/load-module module-stream-restore/load-module module-stream-restore restore_device=false/g' \
+      /etc/pulse/default.pa
+    ln -sf $APP_PATH/polybar/scripts/pulseaudio-control.sh ~/.local/bin/pulseaudio-control
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
@@ -229,7 +236,7 @@ while true; do
 
     # indicator-sound-switcher
     if [ -n "$NOBLE" ]; then
-	sudo apt -y install gir1.2-keybinder-3.0
+	sudo apt -y install rustup gir1.2-keybinder-3.0
     else
 	sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
     fi

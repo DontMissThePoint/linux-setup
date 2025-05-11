@@ -11,9 +11,15 @@ map("n", "<leader>.", ":cd %:p:h<CR>:pwd <cr>", { desc = "change workspace onto 
 map("n", "<leader>,", ":RainbowAlign <cr>", { desc = "align column data" })
 
 --  fzf-lua
-map("n", "<C-p>", function() require("fzf-lua").files({ cwd = '~/' }) end, { desc = "fzf-lua files" })
-map("n", "<leader>ff", function() require("fzf-lua").files({ cwd = '~/' }) end, { desc = "Find files" })
-map("n", "<leader><leader>", function() require("fzf-lua").command_history() end, { desc = "command history" })
+map("n", "<C-p>", function()
+  require("fzf-lua").files { cwd = "~/" }
+end, { desc = "fzf-lua files" })
+map("n", "<leader>ff", function()
+  require("fzf-lua").files { cwd = "~/" }
+end, { desc = "Find files" })
+map("n", "<leader><leader>", function()
+  require("fzf-lua").command_history()
+end, { desc = "command history" })
 
 -- json
 map("n", "<leader>jf", "<Cmd>JsonFormatFile<CR>", { desc = "json format" })
@@ -36,8 +42,12 @@ map("n", "<Tab>", "<Cmd>Screenkey<CR>", { desc = "screencast keystrokes" })
 map("n", "<leader>sv", "<cmd> ScrollViewRefresh <cr>", { desc = "scrollbar decorate" })
 
 -- toggler
-map("n", "<leader>ti", function() require("nvim-toggler").toggle() end, { desc = "toggler" })
-map("v", "<leader>ti", function() require("nvim-toggler").toggle() end, { desc = "toggler" })
+map("n", "<leader>ti", function()
+  require("nvim-toggler").toggle()
+end, { desc = "toggler" })
+map("v", "<leader>ti", function()
+  require("nvim-toggler").toggle()
+end, { desc = "toggler" })
 
 -- trouble
 map("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "trouble toggle" })
@@ -78,10 +88,6 @@ map("n", "<leader>mx", function()
   require("myeyeshurt").stop()
 end, { desc = "myeyes stop flakes" })
 
--- autosave
-map("n", "gq", "<cmd> AutosaveToggle <cr>", { desc = "autosave toggle" })
-map("n", "<leader>qs", "<cmd> AutosaveToggle <cr>", { desc = "autosave toggle" })
-
 -- zen
 map("n", "<leader>za", ":ZenMode <cr>", { desc = "zen mode" })
 map("n", "<leader>zz", ":ZenMode | TwilightEnable <cr>", { desc = "better focus" })
@@ -97,37 +103,19 @@ map("n", "<C-l>", "<cmd> NavigatorRight <cr>", { desc = "Right" })
 map("n", "<C-Space>", "<cmd> NavigatorPrevious <cr>", { desc = "Previous" })
 
 -- spider
-map(
-  { "n", "o", "x" },
-  "w",
-  "<cmd>lua require('spider').motion('w')<CR>",
-  { desc = "Spider-w" }
-)
-map(
-  { "n", "o", "x" },
-  "e",
-  "<cmd>lua require('spider').motion('e')<CR>",
-  { desc = "Spider-e" }
-)
-map(
-  { "n", "o", "x" },
-  "b",
-  "<cmd>lua require('spider').motion('b')<CR>",
-  { desc = "Spider-b" }
-)
+map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 
-map(
-  { "n", "o", "x" },
-  "ge",
-  "<cmd>lua require('spider').motion('ge')<CR>",
-  { desc = "Spider-ge" }
-)
+map({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
 
 -- windows
-map("n", "<leader>wz", function() require("windows").setup() end, { desc = "window autosize" })
+map("n", "<leader>wz", function()
+  require("windows").setup()
+end, { desc = "window autosize" })
 
 local function cmd(command)
-  return table.concat({ '<Cmd>', command, '<CR>' })
+  return table.concat { "<Cmd>", command, "<CR>" }
 end
 
 map("n", "<C-w>z", cmd "WindowsMaximize", { desc = "Max window" })
@@ -135,11 +123,18 @@ map("n", "<C-w>_", cmd "WindowsMaximizeVertically", { desc = "Max out the height
 map("n", "<C-w>|", cmd "WindowsMaximizeHorizontally", { desc = "Max out the width" })
 map("n", "<C-w>=", cmd "WindowsEqualize", { desc = "Equally high and wide" })
 
--- persistence
-map("n", "<leader>qd", [[<cmd>lua require("persistence").stop()<cr>]], { desc = "restore stop" })
-map("n", "<leader>ql", [[<cmd>lua require("persistence").load()<cr>]], { desc = "restore current directory" })
-map("n", "<leader>qr", [[<cmd>lua require("persistence").load({ last = true })<cr>]], { desc = "restore last session" })
-map("n", "<leader>qS", [[<cmd>lua require("persistence").select()<cr>]], { desc = "select a session to load" })
+-- autosession
+map("n", "<leader>sa", "<cmd> SessionToggleAutoSave <cr>", { desc = "toggle autosave" })
+map("n", "<leader>sl", "<cmd> SessionRestore <cr>", { desc = "load current directory" })
+map("n", "<leader>ss", "<cmd> SessionSave <cr>", { desc = "save current directory" })
+map("n", "<leader>sd", "<cmd> SessionPurgeOrphaned <cr>", { desc = "removes all orphaned sessions" })
+map("n", "<leader>fs", "<cmd> SessionSearch <cr>", { desc = "open a session picker" })
 
--- quit
-map("n", "<leader>qa", [[<cmd>quitall<cr>]], { desc = "quit all", noremap = true, silent = false })
+-- sniprun
+map({ "n", "v" }, "<leader>rr", "<Plug>SnipRun", { desc = "run snip" }, { silent = true })
+map("n", "<leader>rx", "<Plug>SnipRunOperator", { desc = "run snip motion" }, { silent = true })
+
+-- lsp
+map("n", "<leader>tg", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })

@@ -133,11 +133,6 @@ if g:user_mode == "1"
   let g:airline#extensions#ycm#enabled = 1
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
-  " multi-language debugging
-  Plug 'puremourning/vimspector'
-  " mappings for debugger console
-  let g:vimspector_enable_mappings = 'HUMAN'
-
   " EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
   " make vim and ROS friends
   Plug 'klaxalk/vim-ros'
@@ -294,12 +289,7 @@ Plug 'ActivityWatch/aw-watcher-vim'
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
 
-" Multiple cursors
-" in visual press ctrl+n to select next occurance
-" ctrl+p to go back and ctrl+x to skip
-Plug 'terryma/vim-multiple-cursors'
-
-" scrolling
+" smooth scroll
 Plug 'cskeeters/vim-smooth-scroll'
 
 " highlighting under cursor

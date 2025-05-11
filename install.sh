@@ -42,7 +42,7 @@ find $MY_PATH/appconfig $MY_PATH/scripts -type f -iname '*.sh' | xargs sudo chmo
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc shellcheck pv atool moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
 
 # python
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip

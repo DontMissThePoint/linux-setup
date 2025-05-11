@@ -37,6 +37,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Settingup urxvt -t -f future
+
     # install urvxt
     if [ -n "$NOBLE" ];
     then
@@ -45,12 +47,20 @@ while true; do
       sudo apt-get -y install rxvt-unicode-256color rxvt-ml
     fi
 
+    # xseturgent
+    cd /tmp
+    [ -e xseturgent ] && rm -rf xseturgent
+    git clone https://github.com/lpenz/xseturgent
+    cd xseturgent && mkdir -p build && cd build && cmake ..
+    make -s -j8
+    sudo make install
+
     EXTENSION_PATH="/usr/lib/x86_64-linux-gnu/urxvt/perl"
     sudo mkdir -p $EXTENSION_PATH
 
     # link extensions
     for file in `ls $APP_PATH/extensions/`; do
-      sudo ln -fs $APP_PATH/extensions/$file $EXTENSION_PATH/$file
+      sudo ln -sf $APP_PATH/extensions/$file $EXTENSION_PATH/$file
     done
 
     # default

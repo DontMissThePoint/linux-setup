@@ -99,7 +99,7 @@ source ~/.local/share/blesh/ble.sh
 # sourcing FZF
 source ~/.FZF_DEFAULT_OPTS
 
-# load Liquidprompt in interactive shells, not from script
+# load Liquidprompt interactive shells, not from script
 [[ $var = *i* ]] && source ~/.liquidprompt/liquidprompt
 
 # sourcing DMP's linux setup

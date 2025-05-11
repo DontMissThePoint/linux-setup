@@ -52,9 +52,14 @@ while true; do
     source $HOME/.bashrc && brew update && brew upgrade
     brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
-      eza fd s-search dust zig aria2 glow restic croc newsboat walk \
-      lazygit delta poetry npm tailspin yq gron jc jo jless
+      eza fd dust zig aria2 glow restic croc newsboat walk s-search \
+      lazygit delta shellcheck shfmt poetry npm tailspin \
+      yq gron jc jo jless
     brew cleanup --prune=all
+
+    # s completion
+    sudo bash -c "`which s` --completion bash > /etc/bash_completion.d/s"
+    sudo zsh -c "`which s` --completion zsh > /usr/local/share/zsh/site-functions/_s"
 
     # newsboat
     mkdir -p ~/.newsboat
