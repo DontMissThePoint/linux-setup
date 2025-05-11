@@ -1,6 +1,7 @@
 # theme
-import catppuccin
 from time import localtime, strftime
+
+import catppuccin
 
 # Reassign to avoid lsp(ruff_lsp) errors
 config = config  # noqa: F821
@@ -83,7 +84,6 @@ c.colors.contextmenu.selected.fg = white
 c.colors.contextmenu.selected.bg = accent
 c.colors.downloads.bar.bg = black
 c.colors.downloads.error.bg = red
-c.colors.downloads.error.bg = white
 c.colors.downloads.start.fg = white
 c.colors.downloads.stop.fg = white
 c.colors.downloads.start.bg = green
@@ -336,7 +336,7 @@ c.fonts.hints = small_font
 c.fonts.keyhint = small_font
 c.fonts.tooltip = small_font
 c.fonts.messages.error = small_font
-c.fonts.messages.info = "bold " + font
+c.fonts.messages.info = font
 c.fonts.messages.warning = small_font
 c.fonts.statusbar = "italic " + font
 c.fonts.tabs.selected = "italic " + font

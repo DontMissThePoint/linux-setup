@@ -10,14 +10,14 @@ local plugins = {
         "SmiteshP/nvim-navbuddy",
         dependencies = {
           "SmiteshP/nvim-navic",
-          "MunifTanjim/nui.nvim"
+          "MunifTanjim/nui.nvim",
         },
-        opts = { lsp = { auto_attach = true } }
-      }
+        opts = { lsp = { auto_attach = true } },
+      },
     },
     config = function()
-      require("nvchad.configs.lspconfig")
-      require("configs.lspconfig")
+      require "nvchad.configs.lspconfig"
+      require "configs.lspconfig"
     end, -- Override to setup mason-lspconfig
   },
 
@@ -32,8 +32,8 @@ local plugins = {
         "<cmd>Telescope jsonfly<cr>",
         desc = "Open json(fly)",
         ft = { "json", "xml", "yaml" },
-        mode = "n"
-      }
+        mode = "n",
+      },
     },
     opts = {
       defaults = {
@@ -64,8 +64,17 @@ local plugins = {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = {
-      ensure_installed = { "vim", "regex", "lua", "bash",
-        "markdown", "markdown_inline", "html", "json", "yaml" },
+      ensure_installed = {
+        "vim",
+        "regex",
+        "lua",
+        "bash",
+        "markdown",
+        "markdown_inline",
+        "html",
+        "json",
+        "yaml",
+      },
       auto_install = true,
     },
   },
@@ -79,7 +88,7 @@ local plugins = {
     "nvchad/ui",
     config = function()
       require "nvchad"
-    end
+    end,
   },
 
   {
@@ -125,7 +134,7 @@ local plugins = {
   {
     "ggandor/flit.nvim",
     config = function()
-      require("flit").setup({})
+      require("flit").setup {}
     end,
     lazy = false,
   },
@@ -141,6 +150,23 @@ local plugins = {
   },
 
   {
+    "michaelb/sniprun",
+    branch = "master",
+    build = "sh install.sh",
+    -- force compile locally requires Rust >= 1.65
+    lazy = false,
+    config = function()
+      require("sniprun").setup {
+        display = {
+          "Classic",
+          "VirtualTextOk",
+          "TempFloatingWindow",
+        },
+      }
+    end,
+  },
+
+  {
     "lukas-reineke/virt-column.nvim",
     enabled = false,
     opts = {
@@ -152,14 +178,14 @@ local plugins = {
   {
     "dstein64/nvim-scrollview",
     setup = function()
-      require('scrollview').setup({
-        excluded_filetypes = { 'nerdtree' },
+      require("scrollview").setup {
+        excluded_filetypes = { "nerdtree" },
         current_only = true,
-        base = 'buffer',
+        base = "buffer",
         column = 80,
-        signs_on_startup = { 'all' },
-        diagnostics_severities = { vim.diagnostic.severity.ERROR }
-      })
+        signs_on_startup = { "all" },
+        diagnostics_severities = { vim.diagnostic.severity.ERROR },
+      }
     end,
     event = "VeryLazy",
   },
@@ -167,7 +193,7 @@ local plugins = {
   {
     "RRethy/vim-illuminate",
     setup = function()
-      require("illuminate").setup({})
+      require("illuminate").setup {}
     end,
     event = "VeryLazy",
   },
@@ -203,9 +229,9 @@ local plugins = {
     version = "*",
     event = "VeryLazy",
     config = function()
-      require("output_panel").setup({
-        max_buffer_size = 5000 -- default
-      })
+      require("output_panel").setup {
+        max_buffer_size = 5000, -- default
+      }
     end,
     cmd = { "OutputPanel" },
     keys = {
@@ -215,7 +241,7 @@ local plugins = {
         mode = "n",
         desc = "Toggle the output panel",
       },
-    }
+    },
   },
 
   {
@@ -223,8 +249,15 @@ local plugins = {
     --  for users those who want auto-save conform + lazyloading!
     -- event = "BufWritePre"
     config = function()
-      require("configs.conform")
+      require "configs.conform"
     end,
+  },
+
+  {
+    "willothy/savior.nvim",
+    dependencies = { "j-hui/fidget.nvim" },
+    event = { "InsertEnter", "TextChanged" },
+    config = true,
   },
 
   {
@@ -234,12 +267,12 @@ local plugins = {
       [[vim.opt.termguicolors = true]],
     },
     config = function()
-      require("ccc").setup({
+      require("ccc").setup {
         highlighter = {
           auto_enable = true,
           lsp = true,
         },
-      })
+      }
     end,
   },
 
@@ -259,23 +292,23 @@ local plugins = {
   },
 
   {
-    'cameron-wags/rainbow_csv.nvim',
+    "cameron-wags/rainbow_csv.nvim",
     config = true,
     ft = {
-      'csv',
-      'tsv',
-      'csv_semicolon',
-      'csv_whitespace',
-      'csv_pipe',
-      'rfc_csv',
-      'rfc_semicolon'
+      "csv",
+      "tsv",
+      "csv_semicolon",
+      "csv_whitespace",
+      "csv_pipe",
+      "rfc_csv",
+      "rfc_semicolon",
     },
     cmd = {
-      'RainbowDelim',
-      'RainbowDelimSimple',
-      'RainbowDelimQuoted',
-      'RainbowMultiDelim'
-    }
+      "RainbowDelim",
+      "RainbowDelimSimple",
+      "RainbowDelimQuoted",
+      "RainbowMultiDelim",
+    },
   },
 
   {
@@ -289,21 +322,21 @@ local plugins = {
   },
 
   {
-    'MeanderingProgrammer/render-markdown.nvim',
-    dependencies = { 'nvim-treesitter/nvim-treesitter', 'nvim-tree/nvim-web-devicons' }, -- if you prefer nvim-web-devicons
+    "MeanderingProgrammer/render-markdown.nvim",
+    dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
     opts = {},
   },
 
   {
-    'Kicamon/markdown-table-mode.nvim',
+    "Kicamon/markdown-table-mode.nvim",
     ft = "markdown",
     config = function()
-      require('markdown-table-mode').setup({
-        insert = true,              -- when typing "|"
-        insert_leave = true,        -- when leaving insert
+      require("markdown-table-mode").setup {
+        insert = true, -- when typing "|"
+        insert_leave = true, -- when leaving insert
         pad_separator_line = false, -- add space in separator line
-        alig_style = 'default',     -- default, left, center, right
-      })
+        alig_style = "default", -- default, left, center, right
+      }
     end,
   },
 
@@ -312,9 +345,9 @@ local plugins = {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-      require("nvim-surround").setup({
+      require("nvim-surround").setup {
         -- Configuration here
-      })
+      }
     end,
   },
 
@@ -323,11 +356,11 @@ local plugins = {
     event = "BufRead",
     config = function()
       require("numb").setup {
-        show_numbers = true,         -- Enable 'number' for the window while peeking
-        show_cursorline = true,      -- Enable 'cursorline' for the window while peeking
+        show_numbers = true, -- Enable 'number' for the window while peeking
+        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
         hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
-        number_only = false,         -- Peek only when the command is only a number instead of when it starts with a number
-        centered_peeking = true,     -- Peeked line will be centered relative to window
+        number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
+        centered_peeking = true, -- Peeked line will be centered relative to window
       }
     end,
   },
@@ -375,13 +408,13 @@ local plugins = {
     event = "VeryLazy",
     config = function()
       require("Comment").setup()
-    end
+    end,
   },
 
   {
-    'akinsho/git-conflict.nvim',
+    "akinsho/git-conflict.nvim",
     version = "*",
-    config = true
+    config = true,
   },
 
   {
@@ -391,8 +424,8 @@ local plugins = {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       -- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
-      require("fzf-lua").setup({ { "fzf-native", "fzf-tmux" }, winopts = { preview = { default = "bat" } } })
-    end
+      require("fzf-lua").setup { { "fzf-native", "fzf-tmux" }, winopts = { preview = { default = "bat" } } }
+    end,
   },
 
   {
@@ -400,7 +433,7 @@ local plugins = {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     config = function()
-      require('hardtime').setup({ enabled = true })
+      require("hardtime").setup { enabled = true }
     end,
   },
 
@@ -410,11 +443,20 @@ local plugins = {
   },
 
   {
-    "folke/persistence.nvim",
-    event = "BufReadPre", -- this will only start session saving when an actual file was opened
+    "rmagatti/auto-session",
+    lazy = false,
+    ---enables autocomplete for opts
+    ---@module "auto-session"
+    ---@type AutoSession.Config
     opts = {
-      -- add any custom options here
-    }
+      suppressed_dirs = { "$GIT_PATH", "~/VirtualMachines/*", "/" },
+      -- log_level = 'debug',
+    },
+    config = function()
+      require("auto-session").setup {
+        auto_restore_last_session = vim.loop.cwd() == vim.loop.os_homedir(),
+      }
+    end,
   },
 
   {
@@ -431,11 +473,11 @@ local plugins = {
     "numToStr/Navigator.nvim",
     event = "VeryLazy",
     config = function()
-      require("Navigator").setup({
-        auto_save = 'current',
+      require("Navigator").setup {
+        auto_save = "current",
         disable_on_zoom = false,
-        mux = 'auto',
-      })
+        mux = "auto",
+      }
     end,
   },
 
@@ -448,9 +490,9 @@ local plugins = {
       maxFlakes = 750,
       nextFrameDelay = 175,
       useDefaultKeymaps = true,
-      flake = { '*', '.' },
-      minutesUntilRest = 20
-    }
+      flake = { "*", "." },
+      minutesUntilRest = 20,
+    },
   },
 
   {
@@ -479,7 +521,6 @@ local plugins = {
   --   "mg979/vim-visual-multi",
   --   lazy = false,
   -- }
-
 }
 
 return plugins

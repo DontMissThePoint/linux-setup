@@ -98,6 +98,9 @@ historyRead() {
 }
 alias history='historyRead'
 
+# dedupe path
+eval "typeset -aU path"
+
 # is the shell running interactively
 case "$-" in
   *i*) INTERACTIVE_SHELL=1

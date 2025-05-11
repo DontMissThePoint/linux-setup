@@ -29,6 +29,9 @@ alias sb="source ~/.bashrc"
 
 source "$REPO_PATH/appconfig/shell/commons.sh"
 
+# dedupe path
+remove_duplicates_from_path
+
 # is the shell running interactively
 case "$-" in
   *i*) INTERACTIVE_SHELL=1

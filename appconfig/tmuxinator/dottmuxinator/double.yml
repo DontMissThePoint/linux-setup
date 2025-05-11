@@ -66,4 +66,4 @@ windows:
   - nvim:
       layout: dc50,136x33,0,0,21
       panes:
-        - nvim -c 'lua require("persistence").load({ last = true })'
+        - nvim

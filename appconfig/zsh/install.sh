@@ -34,6 +34,8 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
+    toilet Settingup athame -t -f future
+
     sudo apt-get -y install curl
 
     # compile athame from sources
@@ -47,6 +49,11 @@ while true; do
     rm -fr ~/.oh-my-zsh
     # install oh-my-zsh
     [ ! -e "~/.oh-my-zsh" ] && sh -c "$(wget -c https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
+
+    # notify-urxvt
+    if [ ! -e ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-notify-urxvt ]; then
+      git clone https://github.com/lpenz/zsh-notify-urxvt ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-notify-urxvt
+    fi
 
     # fzf-tab
     if [ ! -e ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/fzf-tab ]; then

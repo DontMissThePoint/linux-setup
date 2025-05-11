@@ -219,7 +219,7 @@ URxvt.keysym.C-question:  resize-font:show
 ! URxvt.keysym.Shift-Control-V: perl:clipboard:paste
 URxvt.keysym.M-period: perl:clipboard:paste
 URxvt.iso14755: False
-URxvt.perl-ext-common: default,clipboard,matcher
+URxvt.perl-ext-common: default,clipboard,notify-osc,matcher
 
 ! clickable urls
 URxvt.url-launcher: /usr/bin/xdg-open

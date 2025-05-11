@@ -57,9 +57,10 @@ df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as 
 # Spreadsheet
 df.to_excel("$OUTPUT_XLSX", sheet_name="NFB_UG", index=False)
 table_workbook = os.path.basename("$OUTPUT_XLSX")
-print("Saving workbook:", table_workbook)
+# print("Saving workbook:", table_workbook)
+print("OK")
 EOF
 
 # Cleanup
 rm -f "tables.md" "tables_no_separators.md" "tables_cleaned.md"
-echo "OK"
+echo "Saved workbook."

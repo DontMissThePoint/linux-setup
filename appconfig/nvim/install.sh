@@ -53,12 +53,19 @@ while true; do
 
     # nvim
     sudo -H pip3 install --break-system-packages wheel neovim neovim-remote 2> /dev/null
-
     rm -rf "$DATA" "$CONFIG"
+
+    echo "Configuring lsp..."
+    rustup default stable
+    rustup update
+    cargo install cargo-update cargo-cache shellharden
+    # rustup self uninstall
+
+    # LSP
+    pipx install beautysh isort proselint codespell
 
     # Nvchad
     git clone https://github.com/NvChad/starter "$CONFIG"
-    echo "Use :Mason to install the language servers."
     cp -fr $APP_PATH/starter/lua/* $CONFIG/lua && nvim +MasonUpdate
     rm -fr "$CONFIG/.git"
 

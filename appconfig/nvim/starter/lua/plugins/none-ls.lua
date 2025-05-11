@@ -16,7 +16,14 @@ return {
       ensure_installed = {
         "prettier", -- prettier formatter
         "biome",
+        "isort",
+        "beautysh",
+        "docker-compose-language-service",
+        "bash-language-server",
+        "awk-language-server",
+        "vim-language-server",
         "marksman",
+        "shellharden",
         "shellcheck", -- sh linter
         "shfmt", -- sh formatter
         "stylua", -- lua formatter
@@ -57,10 +64,10 @@ return {
         formatting.isort,
         formatting.black,
         formatting.marksman,
-        formatting.shfmt,
+        formatting.beautysh,
         diagnostics.write_good,
-        diagnostics.shellcheck,
-        diagnostics.zsh,
+        diagnostics.codespell,
+        diagnostics.shellharden,
         diagnostics.flake8,
         diagnostics.pylint,
         -- diagnostics.eslint_d.with({ -- js/ts linter

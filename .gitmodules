@@ -121,7 +121,3 @@
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts
 	branch = master
-[submodule "submodules/cli-torrent-dl"]
-	path = submodules/cli-torrent-dl
-	url = https://github.com/X0R0X/cli-torrent-dl
-	branch = master
