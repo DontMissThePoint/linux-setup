@@ -158,9 +158,9 @@ local plugins = {
     config = function()
       require("sniprun").setup {
         display = {
-          "Classic",
           "VirtualTextOk",
-          "TempFloatingWindow",
+          "LongTempFloatingWindow",
+          "NvimNotify",
         },
       }
     end,

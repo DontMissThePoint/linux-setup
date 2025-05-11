@@ -112,6 +112,7 @@ while true; do
     sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
     systemctl --user --now enable autorandr_launcher.service
+    systemctl --user --now enable pipewire pipewire-pulse wireplumber
     systemctl --user start xidlehook.service activitywatch.service battery_notification.{service,timer}
     sudo systemctl --global enable xidlehook.service activitywatch.service battery_notification.{service,timer}
     # journalctl --follow --identifier='autorandr-launcher-service'
@@ -218,9 +219,9 @@ while true; do
     cp -fr $APP_PATH/polybar ~/.config/
 
     # pulseaudio-control
-    sudo sed -i -e 's/load-module module-stream-restore/load-module module-stream-restore restore_device=false/g' \
+    sudo sed -i -e 's/^\(load-module module-stream-restore\).*/\1 restore_device=false/g' \
       /etc/pulse/default.pa
-    ln -sf $APP_PATH/polybar/scripts/pulseaudio-control.sh ~/.local/bin/pulseaudio-control
+    ln -sf ~/.config/polybar/scripts/pulseaudio-control.sh ~/.local/bin/pulseaudio-control
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
