@@ -124,7 +124,7 @@ focus_follows_mouse no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # scratchpad
-bindsym $mod+v exec "urxvt -name scratchpad -e vim"
+bindsym $mod+v exec "urxvtc -name scratchpad -e vim"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -790,7 +790,7 @@ border_radius 7
 
 # bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
 
-# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
+# bindsym XF86Tools exec "urxvtc -e zsh -c 'vim ~/.i3/config'"
 
 # EPIGEN_ADD_BLOCK_TP490NV }
 
