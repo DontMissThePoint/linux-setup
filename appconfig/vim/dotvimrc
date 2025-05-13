@@ -215,9 +215,6 @@ if g:user_mode == "1"
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'itchyny/lightline.vim'
 
-  " Visual math with v{motion}++
-  Plug 'nixon/vim-vmath'
-
   " Syntax highlighting for jinja
   Plug 'lepture/vim-jinja'
 

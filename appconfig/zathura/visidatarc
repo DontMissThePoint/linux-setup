@@ -60,7 +60,8 @@ options.disp_scroll_context  =  5                    # lines to scroll
 options.numeric_binning      =  True
 options.save_filetype        =  'csv'                # saved file extension
 options.quitguard            =  True                 # prevent quit
-options.disp_float_fmt       =  '%.07f'              # format for float values
+options.disp_float_fmt       =  '{:.02f}'             # format for float values
+options.disp_int_fmt         =  '{:d}'                # format for integer values
 options.disp_replay_play     =  '▶'                  # status indicator for active replay
 options.disp_histogram       =  '*'                  # histogram element character
 options.disp_pixel_random    =  False                # randomly choose attr from set of pixels instead of most common
@@ -71,7 +72,6 @@ options.disp_pixel_random    =  False                # randomly choose attr from
 #  ╰──────────────────────────────────────────────────────────╯
 
 options.color_default        =  '96 plum4'         # the default color
-# options.color_default        =  '246 grey58'         # the default color
 options.color_default_hdr    =  'bold underline'     # color of the column headers
 options.color_menu           =  '235 on 72'          # color of the menu
 options.color_menu_help      =  'grey80'
@@ -80,6 +80,7 @@ options.color_menu_active    =  'reverse'            # color of the menu selecte
 options.color_current_row    =  '215 yellow'      # color of the cursor row
 options.color_current_col    =  '44 darkturquoise'   # color of the cursor column
 options.color_current_hdr    =  'bold italic reverse'  # color of the header for the cursor column
+options.color_bottom_hdr    =  'reverse'             # color of bottom header row
 options.color_current_cell   =  'white on black underline italic'         # color of the cell
 options.color_column_sep     =  '238 mediumorchid3'  # color of column separators
 options.color_key_col        =  '25 blue on black'               # color of key columns
@@ -93,18 +94,20 @@ options.color_active_status  =  '145 grey69 bold'    # active status line color
 options.color_match          =  '202'           # color for matches found
 options.color_code           =  'normal'
 options.color_error          =  'red'                # error message color
-options.color_warning        =  'khaki1'             # warning message color
+options.color_warning        =  'italic'             # warning message color
 options.color_edit_cell      =  'normal'             # cell color to use when editing cell
 options.color_note_pending   =  'bold magenta'       # color of note in pending cells
 options.color_note_type      =  '226 yellow'         # cell note for numeric types in anytype columns
-options.color_change_pending =  'reverse yellow'     # color for file attributes pending modification
+options.color_change_pending =  'bold reverse'       # color for file attributes pending modification
 options.color_delete_pending =  'red'                # color for files pending delete
-options.color_heading        =  'black on yellow'    # color of tips heading
+options.color_heading        =  '235 on 72'          # color of tips heading
 options.color_working        =  'green'              # color of system running smoothly
 options.color_status_replay  =  'green'              # color of replay status indicator
 options.color_graph_hidden   =  '238 blue'           # color of legend for hidden attribute
 options.color_graph_selected =  'bold'               # color of selected graph points
 options.color_graph_axis     =  'bold'               # color for graph axis labels
+options.color_f5log_logid_warn = 'bold'              # color of warnings
+options.color_f5log_logid_notice = 'bold reverse'         # color of notice
 
 
 #  ╭──────────────────────────────────────────────────────────╮
