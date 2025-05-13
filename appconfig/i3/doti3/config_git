@@ -124,7 +124,7 @@ focus_follows_mouse no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # scratchpad
-bindsym $mod+v exec "urxvt -name scratchpad -e vim"
+bindsym $mod+v exec "urxvtc -name scratchpad -e vim"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -271,10 +271,10 @@ bindsym $mod+plus scratchpad show; floating disable
 # xprop. To get the instance and class
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
-for_window [class="mpv"] fullscreen disable, floating enable, focus
+for_window [class="mpv"] floating enable, move workspace $workspace3, focus
 for_window [class="URxvt"] fullscreen enable
-for_window [instance="mpvfloat"] fullscreen disable, floating enable, focus
-for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
+for_window [instance="mpvfloat"] floating enable, move workspace $workspace5, focus
+for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace5, focus
 for_window [class="qutebrowser"] fullscreen disable, move workspace $workspace2, focus
 
 for_window [class="SmartGit"] move workspace $workspace3, focus
@@ -790,7 +790,7 @@ border_radius 7
 
 # bindsym XF86WLAN exec "if [ `nmcli radio wifi` = 'enabled' ]; then; nmcli radio wifi off; else; nmcli radio wifi on; fi"
 
-# bindsym XF86Tools exec "urxvt -e zsh -c 'vim ~/.i3/config'"
+# bindsym XF86Tools exec "urxvtc -e zsh -c 'vim ~/.i3/config'"
 
 # EPIGEN_ADD_BLOCK_TP490NV }
 

@@ -9,6 +9,7 @@ map("n", "gh", "<Home>", { desc = "move cursor beginning of line" })
 map("n", "gl", "<End>", { desc = "move cursor end of line" })
 map("n", "<leader>.", ":cd %:p:h<CR>:pwd <cr>", { desc = "change workspace onto current location" })
 map("n", "<leader>,", ":RainbowAlign <cr>", { desc = "align column data" })
+map("c", "<F2>", [[\(.*\)]], { desc = "regex capture" })
 
 --  fzf-lua
 map("n", "<C-p>", function()

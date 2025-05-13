@@ -75,13 +75,10 @@ while true; do
     git clone git clone https://github.com/stark/siji
     cd siji
     ./install.sh -d ~/.fonts
-    # pv $APP_PATH/30-icons.conf > ~/.config/fontconfig/conf.d/30-icons.conf
-    # find ~/.config/fontconfig/conf.d ! -name '30-icons.conf' ! -name '50-enable-terminess-powerline.conf' -type f -exec rm -f {} +
+
+    # terminus
     sed -i -e 's/terminess powerline/Terminess Nerd Font/g' \
       ~/.config/fontconfig/conf.d/50-enable-terminess-powerline.conf
-    #
-    # Test with:
-    # fc-match -s monospace
 
     # qt6ct
     sudo apt install -y qt6-base-dev qt6-base-dev-tools qt6-base-private-dev qt6-tools-dev qt6-tools-dev-tools linguist-qt6

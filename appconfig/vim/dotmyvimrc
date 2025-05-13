@@ -336,8 +336,8 @@ noremap ;; ;
 vnoremap ; :
 map ; :
 
-" Math
-vmap <expr>  ++  VMATH_YankAndAnalyse()
+" Regex groups e.g `\(.*\)`
+cnoremap <F2> \(.*\)
 
 " Plugs
 nnoremap i :noh<CR>i
