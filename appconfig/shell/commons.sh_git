@@ -27,7 +27,7 @@ alias q=exit
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
-alias lobc="lobster -i --rofi -x -c"
+alias top="htop"
 alias vimdiff="nvim -d"
 alias gx="tmuxinator double"
 alias ra="ranger"

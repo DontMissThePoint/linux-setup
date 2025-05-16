@@ -272,6 +272,16 @@ augroup load_ycm
                      \| autocmd! load_ycm
 augroup END
 
+" lsp
+let g:ycm_language_server =
+      \ [
+      \   {
+      \     'name': 'bash',
+      \     'cmdline': [ 'bash-language-server', 'start' ],
+      \     'filetypes': [ 'sh' ],
+      \   }
+      \ ]
+
 " compatibility, with the helper of supertab
 let g:SuperTabCrMapping                = 0
 let g:SuperTabDefaultCompletionType    = '<C-n>'
@@ -326,8 +336,6 @@ nnoremap <expr> <C-Down> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoDown<CR>' : '
 nnoremap <leader>idl :IndentLinesToggle<CR>
 
 " jump key mappings
-nnoremap n <Cmd>call HiSearch('n')<CR>
-nnoremap N <Cmd>call HiSearch('N')<CR>
 nnoremap <Esc>n <Cmd>noh<CR>
 
 " Command-line

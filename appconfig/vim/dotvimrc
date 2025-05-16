@@ -81,9 +81,6 @@ if g:user_mode == "1"
   " file manager (leader+n)
   Plug 'scrooloose/nerdtree'
 
-  " home screen (necessary to have a barking dog)
-  Plug 'mhinz/vim-startify'
-
   " visualizing marks
   " show marks left to line numbers
   Plug 'kshenoy/vim-signature'
@@ -233,9 +230,6 @@ if g:user_mode == "1"
   " highlight words and expressions
   Plug 'azabiong/vim-highlighter'
 
-  " PTA
-  Plug 'ledger/vim-ledger'
-
   " EPIGEN_ADD_BLOCK_TOMAS EPIGEN_ADD_BLOCK_AFZAL {
 
 "   " Grammar checking
@@ -280,6 +274,9 @@ Plug 'junegunn/fzf.vim'
 " Snippets
 " Plug 'SirVer/ultisnips'
 
+" PTA
+Plug 'ledger/vim-ledger'
+
 " Time tracker
 Plug 'ActivityWatch/aw-watcher-vim'
 
@@ -288,6 +285,9 @@ Plug 'jszakmeister/vim-togglecursor'
 
 " smooth scroll
 Plug 'cskeeters/vim-smooth-scroll'
+
+" home screen (necessary to have a barking dog)
+Plug 'mhinz/vim-startify'
 
 " highlighting under cursor
 Plug 'RRethy/vim-illuminate'

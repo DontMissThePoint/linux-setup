@@ -67,8 +67,9 @@ while true; do
 
     # Obsidian
     cd /tmp
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://github.com/obsidianmd/obsidian-releases/releases/download/v1.8.9/obsidian_1.8.9_amd64.deb
-    sudo dpkg -i /tmp/obsidian_1.8.9_amd64.deb
+    aria2c -c -j 8 -x 16 -s 16 -k 1M "$(wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest \
+      | grep 'deb"$' | awk -F'"' ' {print $4} ')"
+    sudo dpkg -i /tmp/obsidian*.deb
     mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
     cp -fr $APP_PATH/dotobsidian/* ~/vaults/.obsidian
     pv $APP_PATH/obsidian.vimrc > ~/vaults/.obsidian.vimrc

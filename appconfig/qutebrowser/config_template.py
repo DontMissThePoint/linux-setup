@@ -178,7 +178,6 @@ c.spellcheck.languages = ["en-US"]
 ## Aliases
 c.aliases = {
     "q": "quit --save",
-    "qa": "quit",
     "w": "session-save",
     "wq": "quit --save",
     "wq": "quit --save",
