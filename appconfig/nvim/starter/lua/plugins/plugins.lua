@@ -258,7 +258,7 @@ local plugins = {
 
   {
     "lukas-reineke/lsp-format.nvim",
-    event = { "InsertLeave" },
+    event = { "InsertEnter", "TextChanged" },
     config = function()
       require("lsp-format").setup {}
       vim.api.nvim_create_autocmd('LspAttach', {

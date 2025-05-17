@@ -61,7 +61,6 @@ while true; do
     # go
     sudo rm -rf /usr/local/go
     wget -c https://go.dev/dl/go1.24.3.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
-    # wget -c https://buildbot.hehoe.de/purple-whatsmeow/builds/libwhatsmeow.so -P /usr/lib/purple-2/
 
     EXISTING_GO=$(cat ~/.profile 2>/dev/null | grep "go/bin" | wc -l)
     if [ "$EXISTING_GO" == "0" ]; then
