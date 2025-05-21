@@ -6,13 +6,12 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
-APP_PATH=`dirname "$0"`
-APP_PATH=`( cd "$APP_PATH" && pwd )`
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
 
 unattended=0
 subinstall_params=""
-for param in "$@"
-do
+for param in "$@"; do
   echo $param
   if [ $param="--unattended" ]; then
     echo "installing in unattended mode"
@@ -23,16 +22,14 @@ done
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]
-  then
+  if [[ "$unattended" == "1" ]]; then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall docker? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall docker? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
   fi
-  response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+  response=$(echo $resp | sed -r 's/(.*)$/\1=/')
 
-  if [[ $response =~ ^(y|Y)=$ ]]
-  then
+  if [[ $response =~ ^(y|Y)=$ ]]; then
 
     toilet Installing docker -t --filter metal -f smmono12
 
@@ -51,8 +48,8 @@ while true; do
 
       echo \
         "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-        $(lsb_release -cs) stable" | \
-        sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+        $(lsb_release -cs) stable" |
+        sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
       sudo apt-get update
     fi
 
@@ -60,7 +57,7 @@ while true; do
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
     # add group permission
-    num=`cat /etc/group | cut -d: -f1 | grep "docker" | wc -l`
+    num=$(cat /etc/group | cut -d: -f1 | grep "docker" | wc -l)
     if [ "$num" -lt "1" ]; then
       sudo groupadd docker
       sudo usermod -aG docker $USER
@@ -85,8 +82,8 @@ while true; do
 
       echo \
         "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
-http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly main" | \
-        sudo tee /etc/apt/sources.list.d/freerdp-nightly.list > /dev/null
+http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly main" |
+        sudo tee /etc/apt/sources.list.d/freerdp-nightly.list >/dev/null
       sudo apt-get update
     fi
 
@@ -96,10 +93,10 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
     # quickemu
     the_ppa=flexiondotorg/quickemu
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-       sudo apt-add-repository ppa:flexiondotorg/quickemu
-       sudo apt update
-       sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
-       sudo apt install -y --no-install-recommends samba
+      sudo apt-add-repository ppa:flexiondotorg/quickemu
+      sudo apt update
+      sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
+      sudo apt install -y --no-install-recommends samba
     fi
 
     # VM
@@ -109,10 +106,10 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
 
     # Office 365
     # focus cell: #87ff87
-    
+
     # dockurr
     toilet Settingup dockurr -t -f future
-    cp -f $APP_PATH/docker-compose.yml ~/VirtualMachines/Windows-Docker
+    cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Windows-Docker
     # docker compose stop
     # sudo docker compose up -d --force-recreate --build
 
@@ -120,7 +117,7 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
     # docker system prune -af
     BGREEN='\033[1;32m'
     NC='\033[0m' # No Color
-    echo -e "${BGREEN}> Run windows HWID activation${NC}"
+    echo -e "${BGREEN}> Windows HWID activation pending..${NC}"
 
     # calcpy
     echo "Advanced math solver.. using Python IPython, SymPy"
@@ -132,11 +129,10 @@ http://pub.freerdp.com/repositories/deb/"$(lsb_release -cs)"/ freerdp-nightly ma
 
     # config
     mkdir -p ~/.config/glances
-    pv "$APP_PATH/glances.conf" > ~/.config/glances/glances.conf
+    pv "$APP_PATH/glances.conf" >~/.config/glances/glances.conf
 
     break
-  elif [[ $response =~ ^(n|N)=$ ]]
-  then
+  elif [[ $response =~ ^(n|N)=$ ]]; then
     break
   else
     echo " What? \"$resp\" is not a correct answer. Try y+Enter."

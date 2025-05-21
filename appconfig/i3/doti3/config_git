@@ -124,7 +124,7 @@ focus_follows_mouse no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # scratchpad
-bindsym $mod+v exec "urxvtc -name scratchpad -e vim"
+bindsym $mod+v exec "urxvtc -name scratchpad -e /usr/bin/vim -c :Startify"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -271,15 +271,18 @@ bindsym $mod+plus scratchpad show; floating disable
 # xprop. To get the instance and class
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
-for_window [class="mpv"] floating enable, move workspace $workspace3, focus
-for_window [class="URxvt"] fullscreen enable
-for_window [instance="mpvfloat"] floating enable, move workspace $workspace5, focus
-for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace5, focus
+for_window [class="mpv"] fullscreen enable, focus
+for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
+for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen disable, move workspace $workspace2, focus
 
 for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [title="File Transfer*"] floating enable
 for_window [window_role="pop-up"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_role="Preferences"] floating enable
+for_window [window_role="dialog"] floating enable
 for_window [instance="newsboatfs"] move container to workspace $ws5, focus
 for_window [instance="xfreerdp"] move container to workspace $ws6, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
@@ -590,12 +593,21 @@ bar {
 smart_gaps on # EPIGEN_DEL_LINE_TOMAS
 # smart_gaps inverse_outer # EPIGEN_DEL_LINE_TOMAS
 
-# Hide edge borders only one window
-hide_edge_borders smart_no_gaps
-
 # Smart borders
-# smart_borders on
 smart_borders no_gaps
+
+# don't steal focus
+focus_on_window_activation smart
+
+# disable focus follows mouse
+focus_follows_mouse no
+
+# wrap
+focus_wrapping no
+
+# Hide edge borders only one window
+# hide_edge_borders smart_no_gaps
+hide_edge_borders smart
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # EPIGEN_DEL_BLOCK_DESKTOP EPIGEN_DEL_BLOCK_DESKTOP2 {
@@ -1541,8 +1553,8 @@ exec --no-startup-id nm-applet
 # polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
 
-# (gx) terminal
-exec --no-startup-id "i3-sensible-terminal -e $SHELL -c 'tmuxinator double;$SHELL -i'"
+# double session
+exec --no-startup-id "i3-sensible-terminal -name launcher -e $SHELL -c 'tmuxinator double;$SHELL -i'"
 
 # animations
 exec_always --no-startup-id flashfocus
@@ -1563,13 +1575,14 @@ exec --no-startup-id "newsboat -r -q"
 # #{ window-specific settings
 
 # find the window parameters by running "xprop"
-for_window [class="^Nautilus$"] floating disable
+for_window [class="^Nautilus$"] floating enable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable
 for_window [instance="scratchpad"] move scratchpad, scratchpad show
+for_window [instance="launcher"] fullscreen disable, move workspace $workspace1, focus
 
 # EPIGEN_ADD_BLOCK_TOMAS {
 # # for_window [title="Gazebo"] move workspace $workspace9

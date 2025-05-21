@@ -3,22 +3,22 @@
 local plugins = {
 
   -- Override plugin definition options
+
   {
-    "neovim/nvim-lspconfig",
-    dependencies = {
-      {
-        "SmiteshP/nvim-navbuddy",
-        dependencies = {
-          "SmiteshP/nvim-navic",
-          "MunifTanjim/nui.nvim",
-        },
-        opts = { lsp = { auto_attach = true } },
-      },
-    },
+    "mason-org/mason.nvim"
+  },
+
+  {
+    "mason-org/mason-lspconfig.nvim",
+    lazy = false,
     config = function()
-      require "nvchad.configs.lspconfig"
-      require "configs.lspconfig"
-    end, -- Override to setup mason-lspconfig
+      require("mason-lspconfig").setup {
+        automatic_installation = true,
+        ensure_installed = {
+          "rust_analyzer", "pyright", "ts_ls", "bashls", "lua_ls",
+        },
+      }
+    end,
   },
 
   {
@@ -77,10 +77,6 @@ local plugins = {
       },
       auto_install = true,
     },
-  },
-
-  {
-    "williamboman/mason.nvim",
   },
 
   -- Install a plugin
@@ -160,7 +156,7 @@ local plugins = {
         display = {
           "VirtualTextOk",
           "LongTempFloatingWindow",
-          "NvimNotify",
+          -- "NvimNotify",
         },
       }
     end,
@@ -256,8 +252,22 @@ local plugins = {
   {
     "willothy/savior.nvim",
     dependencies = { "j-hui/fidget.nvim" },
-    event = { "InsertEnter", "TextChanged" },
+    event = { "FileChangedShellPost", "TextChanged" },
     config = true,
+  },
+
+  {
+    "lukas-reineke/lsp-format.nvim",
+    event = { "InsertLeavePre", "CursorMoved" },
+    config = function()
+      require("lsp-format").setup {}
+      vim.api.nvim_create_autocmd('LspAttach', {
+        callback = function(args)
+          local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
+          require("lsp-format").on_attach(client, args.buf)
+        end,
+      })
+    end,
   },
 
   {
@@ -332,10 +342,10 @@ local plugins = {
     ft = "markdown",
     config = function()
       require("markdown-table-mode").setup {
-        insert = true, -- when typing "|"
-        insert_leave = true, -- when leaving insert
+        insert = true,              -- when typing "|"
+        insert_leave = true,        -- when leaving insert
         pad_separator_line = false, -- add space in separator line
-        alig_style = "default", -- default, left, center, right
+        alig_style = "default",     -- default, left, center, right
       }
     end,
   },
@@ -356,11 +366,11 @@ local plugins = {
     event = "BufRead",
     config = function()
       require("numb").setup {
-        show_numbers = true, -- Enable 'number' for the window while peeking
-        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
+        show_numbers = true,         -- Enable 'number' for the window while peeking
+        show_cursorline = true,      -- Enable 'cursorline' for the window while peeking
         hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
-        number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
-        centered_peeking = true, -- Peeked line will be centered relative to window
+        number_only = false,         -- Peek only when the command is only a number instead of when it starts with a number
+        centered_peeking = true,     -- Peeked line will be centered relative to window
       }
     end,
   },
@@ -445,9 +455,6 @@ local plugins = {
   {
     "rmagatti/auto-session",
     lazy = false,
-    ---enables autocomplete for opts
-    ---@module "auto-session"
-    ---@type AutoSession.Config
     opts = {
       suppressed_dirs = { "$GIT_PATH", "~/VirtualMachines/*", "/" },
       -- log_level = 'debug',

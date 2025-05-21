@@ -126,7 +126,7 @@ map("n", "<C-w>=", cmd "WindowsEqualize", { desc = "Equally high and wide" })
 
 -- autosession
 map("n", "<leader>sa", "<cmd> SessionToggleAutoSave <cr>", { desc = "toggle autosave" })
-map("n", "<leader>sl", "<cmd> SessionRestore <cr>", { desc = "load current directory" })
+map("n", "<leader>sr", "<cmd> SessionRestore <cr>", { desc = "load current directory" })
 map("n", "<leader>ss", "<cmd> SessionSave <cr>", { desc = "save current directory" })
 map("n", "<leader>sd", "<cmd> SessionPurgeOrphaned <cr>", { desc = "removes all orphaned sessions" })
 map("n", "<leader>fs", "<cmd> SessionSearch <cr>", { desc = "open a session picker" })
@@ -136,6 +136,10 @@ map({ "n", "v" }, "<leader>rr", "<Plug>SnipRun", { desc = "run snip" }, { silent
 map("n", "<leader>rx", "<Plug>SnipRunOperator", { desc = "run snip motion" }, { silent = true })
 
 -- lsp
-map("n", "<leader>tg", function()
+map("n", "<leader>dt", function()
   vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })
+
+-- format
+map("n", "<leader>q", vim.cmd [[cabbrev wq execute "Format sync" <bar> wq]],
+  { silent = true, noremap = true }, { desc = "save quit" })

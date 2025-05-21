@@ -13,7 +13,7 @@ xset r off
 
 # Music
 mount -a &
-# mpd &
+mpd &
 
 # bell
 xset b off

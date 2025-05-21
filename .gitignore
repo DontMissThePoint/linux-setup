@@ -1,3 +1,5 @@
+# Project
+###################
 *.swp
 *.orig
 *.pyc
@@ -16,3 +18,87 @@ html/
 appconfig/qutebrowser/catppuccin/
 appconfig/qutebrowser/sessions/
 appconfig/qutebrowser/.venv/
+/.env
+
+# Worktrees
+###################
+.worktrees/
+
+# Compiled source
+###################
+.venv/
+.venv
+.env
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+*.pyc
+
+# Temporary files
+###################
+*.swp
+*.swo
+*~
+
+# Packages
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs
+######################
+.yangcp/
+nohup.out
+*.log
+ModCache.lua
+
+# OS generated files
+######################
+.DS_Store*
+Desktop.ini
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+.Spotlight-V100
+.Trashes
+.classpath
+.factorypath
+.project
+.settings/
+
+# Editor files
+################
+.idea/
+.vscode
+.netrwhist
+workbench.xmi
+Session.vim
+
+# etags, ctags, gtags, & cscope
+################
+TAGS
+!TAGS/
+tags
+!tags/
+.tags
+.tags1
+gtags.files
+tags.lock
+tags.temp
+GTAGS
+GRTAGS
+GPATH
+cscope.files
+cscope.out
+cscope.in.out
+cscope.po.out

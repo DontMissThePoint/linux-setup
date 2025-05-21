@@ -66,6 +66,13 @@ xterm*metaSendsEscape: true
 xterm*backarrowKey: false
 xterm*ttyModes: erase ^?
 
+xterm*directColor: true
+XTerm*allowTcapOps: true
+XTerm*disallowedTcapOps:
+XTerm*decGraphicsID: 340
+XTerm*decTerminalID: 420
+XTerm*numColorRegisters: 256
+
 ! ! ------------------------------------------------------------------------------
 ! ! PROFILES
 ! ! ------------------------------------------------------------------------------
