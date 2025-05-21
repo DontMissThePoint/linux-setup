@@ -36,8 +36,8 @@ while true; do
 
     toilet Settingup playerctl -t -f future
 
-    wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb -O "$APP_PATH/libplayerctl2_2.0.1-1_amd64.deb"
-    wget http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb -O "$APP_PATH/playerctl_2.0.1-1_amd64.deb"
+    wget -c http://ftp.nl.debian.org/debian/pool/main/p/playerctl/libplayerctl2_2.0.1-1_amd64.deb -O "$APP_PATH/libplayerctl2_2.0.1-1_amd64.deb"
+    wget -c http://ftp.nl.debian.org/debian/pool/main/p/playerctl/playerctl_2.0.1-1_amd64.deb -O "$APP_PATH/playerctl_2.0.1-1_amd64.deb"
     sudo dpkg -i "$APP_PATH/libplayerctl2_2.0.1-1_amd64.deb" "$APP_PATH/playerctl_2.0.1-1_amd64.deb"
     rm "$APP_PATH/libplayerctl2_2.0.1-1_amd64.deb" "$APP_PATH/playerctl_2.0.1-1_amd64.deb"
 
