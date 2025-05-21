@@ -206,9 +206,6 @@ if g:user_mode == "1"
   Plug 'junegunn/limelight.vim'
   Plug 'cormacrelf/vim-colors-github'
 
-  " Autosave
-  Plug '907th/vim-auto-save'
-
   " Lean & mean status/tabline for vim that's light as air.
   Plug 'itchyny/lightline.vim'
 
@@ -288,6 +285,9 @@ Plug 'cskeeters/vim-smooth-scroll'
 
 " home screen (necessary to have a barking dog)
 Plug 'mhinz/vim-startify'
+
+" Autosave
+Plug '907th/vim-auto-save'
 
 " highlighting under cursor
 Plug 'RRethy/vim-illuminate'
@@ -460,7 +460,6 @@ set timeoutlen=1000 ttimeoutlen=0
 " normally, otherwise they behave like ESC
 imap <expr> jk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 imap <expr> jj (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
-imap <expr> kk (pumvisible()?(empty(v:completed_item)?("<Esc>l"):("\<C-n>\<C-p>")):("\<Esc>l"))
 
 " clever brackets
 imap <leader>( ()<Esc>i

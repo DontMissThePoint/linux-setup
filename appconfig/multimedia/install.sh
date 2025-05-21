@@ -21,7 +21,7 @@ for param in "$@"; do
   fi
 done
 
-var=`lsb_release -r | awk '{ print $2 }'`
+var=$(lsb_release -r | awk '{ print $2 }')
 [ "$var" = "24.04" ] && export NOBLE=1
 
 default=y
@@ -66,7 +66,7 @@ while true; do
     # for video, photo, audio, ..., viewing and editing
     sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
 
-    # ncmpcpp
+    # music
     toilet Settingup ncmpcpp -t -f future
 
     # mpd
@@ -75,7 +75,11 @@ while true; do
     sudo systemctl disable mpd.socket
 
     mkdir -p ~/.mpd
-    pv "$APP_PATH/mpd.conf" > ~/.mpd/mpd.conf
+    pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
+
+    # ncmpcpp
+    mkdir -p ~/.ncmpcpp
+    cp -fr "$APP_PATH"/ncmpcpp/* ~/.ncmpcpp/
 
     # mpv
     toilet Settingup mpv -t -f future

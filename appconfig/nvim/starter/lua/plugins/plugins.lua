@@ -252,7 +252,7 @@ local plugins = {
   {
     "willothy/savior.nvim",
     dependencies = { "j-hui/fidget.nvim" },
-    event = { "InsertEnter", "TextChanged" },
+    event = { "FileChangedShellPost", "TextChanged" },
     config = true,
   },
 

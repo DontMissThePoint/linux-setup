@@ -9,9 +9,9 @@ DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
 
 # Llama Prompt
 llama-parse parse "$DIR/Live_Netis_Fuel_UG.pdf" \
-  -o "$DIR/Live_Netis_Fuel_UG.md" \
-  -f markdown \
-  -pi "Recognize and extract all number plates accurately. Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the sheets. Parse document with Agent. Concatenate the tables."
+	-o "$DIR/Live_Netis_Fuel_UG.md" \
+	-f markdown \
+	-pi "Recognize vehicle IDs. Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype. Also align all columns in the table."
 
 # JSON
 # csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
@@ -59,6 +59,7 @@ table_workbook = os.path.basename("$OUTPUT_XLSX")
 # print("Saving workbook:", table_workbook)
 EOF
 
+# echo "✅ Excel file saved as: $OUTPUT_XLSX"
 # Cleanup
 rm -f "tables.md" "tables_no_separators.md" "tables_cleaned.md"
-echo "[ ${GREEN}OK${NC} ] save workbook"
+echo "${GREEN}✅ Excel file saved as: $OUTPUT_XLSX${NC}"

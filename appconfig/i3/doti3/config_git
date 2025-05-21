@@ -271,9 +271,8 @@ bindsym $mod+plus scratchpad show; floating disable
 # xprop. To get the instance and class
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
-for_window [class="mpv"] floating enable, move workspace $workspace3, focus
-for_window [class="URxvt"] border pixel 1, fullscreen enable
-for_window [instance="mpvfloat"] floating enable, move workspace $workspace5, focus
+for_window [class="mpv"] fullscreen enable, focus
+for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
 for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen disable, move workspace $workspace2, focus
 
@@ -1582,7 +1581,7 @@ for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable
-for_window [instance="scratchpad"] move scratchpad, scratchpad show, border none
+for_window [instance="scratchpad"] move scratchpad, scratchpad show
 for_window [instance="launcher"] fullscreen disable, move workspace $workspace1, focus
 
 # EPIGEN_ADD_BLOCK_TOMAS {
