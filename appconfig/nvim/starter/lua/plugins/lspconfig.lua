@@ -94,6 +94,11 @@ return {
       capabilities = capabilities,
       on_attach = on_attach,
     }
+    -- configure markdown server
+    lspconfig["ltex-ls-plus"].setup {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    }
     -- configure html server
     lspconfig["html"].setup {
       capabilities = capabilities,

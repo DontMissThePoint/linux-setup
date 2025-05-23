@@ -53,15 +53,6 @@ while true; do
     # 127.0.0.1:8384/
     mkdir -p ~/Journal ~/Documents/Scorecard ~/Pictures/Android Camera
 
-    # ledger
-    echo "Setup go pakages..."
-    go install github.com/howeyc/ledger/ledger@latest
-    sudo ln -sf ~/go/bin/ledger /usr/local/go/bin/ledger
-
-    # shfmt
-    go install mvdan.cc/sh/v3/cmd/shfmt@latest
-    sudo ln -sf ~/go/bin/shfmt /usr/local/go/bin/shfmt
-
     # Obsidian
     cd /tmp
     aria2c -c -j 8 -x 16 -s 16 -k 1M "$(wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest |

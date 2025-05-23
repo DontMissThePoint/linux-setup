@@ -46,7 +46,7 @@ autocmd("Filetype", {
   command = "setlocal shiftwidth=2 tabstop=2",
 })
 
-autocmd({ "BufWritePost" }, {
+autocmd({ "BufLeave", "CompleteDone" }, {
   pattern = { "*.sh", "*.py" },
   callback = function()
     local file = vim.fn.expand "<afile>"
