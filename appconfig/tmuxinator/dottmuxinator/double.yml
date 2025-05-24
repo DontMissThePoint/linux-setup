@@ -52,7 +52,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - k
+        - k -cr ; moonphase
         - cd ~/VirtualMachines/Windows-Docker
         - nchat &; journalctl -f | tspin -f
   - logs:

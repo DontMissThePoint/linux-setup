@@ -2,18 +2,12 @@
 
 set -e
 
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
 
-# JSON
-# csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
-# jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
-
-# XLSX
+# LLAMA_CLOUD
 /usr/bin/python3 - <<EOF
 import os
 import json
-import markdown
 import asyncio
 
 from dotenv import load_dotenv
@@ -22,8 +16,7 @@ from pathlib import Path
 dotenv_path = Path("$HOME/.env")
 load_dotenv(dotenv_path=dotenv_path)
 
-DATA_DIR = "$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
-output_xlsx = DATA_DIR / "Live_Netis_Fuel_UG.xlsx"
+DATA_DIR = Path(os.path.expandvars("$DIR"))
 
 def get_pdfs(data_dir=DATA_DIR) -> list[str]:
     files = []
@@ -42,62 +35,94 @@ parser = LlamaParse(
     num_workers=4,        # if multiple files passed, split API calls
     verbose=True,
     language="en",
-    preserve_layout_alignment_across_pages=True,
+    parse_mode="parse_page_with_llm",
     system_prompt_append="Recognize vehicle IDs. Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype.",
-    user_prompt="You are provided with a long table that spans multiple pages. Combine all rows to form a dataset. Also align all columns in the table.",
-    show_progress=False,
+    user_prompt="You are provided a document with tables that span multiple pages. Combine all rows to form a dataset. Align the columns.",
     # invalidate_cache=False,
+    show_progress=False,
     result_type="markdown",
 )
 
-print(f"Parsing text...")
-
 async def main():
 
-  import pandas as pd
-  from bs4 import BeautifulSoup
+  print("Parsing text...")
 
-  md_json_objs = parser.get_json_result(files)
-  md_json_list = md_json_objs[0]["pages"]
+  documents = []
+
+  for file_path in files:
+    extra_info = {"file_name": file_path}
+    with open(file_path, "rb") as f:
+      # must provide extra_info with file_name key when passing file object
+      docs = parser.load_data(f, extra_info=extra_info)
+      documents.extend(docs)
+
+  # Write the output to a file
+  with open(DATA_DIR / "Live_Netis_Fuel_UG.md", "w", encoding="utf-8") as f:
+    for doc in documents:
+      f.write(doc.text)
+
+  # result = await parser.aparse(files)
+  # documents = result.get_text_documents(split_by_page=True)
+  # print(documents[0].get_content()[10:1000])
+
+  # agentic_json_output = parser.get_json_result(files)[0]
+  # for page in agentic_json_output["pages"]:
+  #       print(f"Page {page['page']}: {page['items']}")
+
+  # md_json_objs = parser.get_json_result(files)
+  # print(md_json_objs)
+  # md_json_list = md_json_objs[0]["pages"]
   # for i, page in enumerate(md_json_list):
   #     print(f"Page {i}:", page.get("md", "No 'md' key"))
-
-  # save all tables
-  all_rows = []
-  header = None
-
-  print("🔍 Extracting tables...")
-
-  for i, page in enumerate(md_json_list):
-    md_content = page.get("md", "")
-    if not md_content.strip() or md_content.strip() == "---":
-      continue  # Skip empty or separator-only pages
-
-    # Convert markdown to HTML
-    html = markdown.markdown(md_content)
-    soup = BeautifulSoup(html, "html.parser")
-    table = soup.find("table")
-
-    if not table:
-      continue  # No table in this markdown content
-
-    # Extract headers
-    if header is None:
-      header = [th.get_text(strip=True) for th in table.find_all("th")]
-
-    # Extract rows
-    for tr in table.find_all("tr")[1:]:  # skip header row
-      row = [td.get_text(strip=True) for td in tr.find_all(["td", "th"])]
-      if row:
-        all_rows.append(row)
-
-  # Create DataFrame and write to Excel
-  df = pd.DataFrame(all_rows, columns=header)
-  df.to_excel(output_xlsx, index=False)
 
 # Run the async function
 asyncio.run(main())
 
 EOF
 
+# # JSON
+# csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
+# jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
+
+MD_FILE="$DIR/Live_Netis_Fuel_UG.md"
+OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
+
+# save all tables
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
+echo "${GREEN}  Extracting..${NC}"
+sed -n '/^|/p' "$MD_FILE" >tables.md
+
+# Remove separator rows (---...)
+sed -i '/^|[-| ]*|$/d' tables.md
+sed -i '/^| *Date *|/d' tables.md
+
+# XLSX
+/usr/bin/python3 - <<EOF
+import pandas as pd
+import re
+import os
+
+# Read cleaned table data
+with open("tables.md", "r") as file:
+    lines = file.readlines()
+
+table = []
+
+for line in lines:
+    if re.match(r'^\|.*\|$', line):  # Identify table rows
+        columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
+        if columns:
+            table.append(columns)
+
+# DataFrame
+df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
+
+# Spreadsheet
+df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
+table_workbook = os.path.basename("$OUTPUT_XLSX")
+EOF
+
+# Cleanup
+rm -f tables.md
 echo "${GREEN} ✔ ${NC}Saved workbook"

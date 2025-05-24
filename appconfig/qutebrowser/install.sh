@@ -86,7 +86,8 @@ while true; do
     pipx install llama-cloud-services
 
     # modules
-    pip install --break-system-packages -U llama-cloud-services dotenv flake8 flake8-print 2>/dev/null
+    pip install --break-system-packages -U llama-cloud-services \
+      markdown beautifulsoup4 dotenv flake8 flake8-print 2>/dev/null
 
     npm config set strict-ssl=false
     npm install --loglevel=error -g @mozilla/readability \

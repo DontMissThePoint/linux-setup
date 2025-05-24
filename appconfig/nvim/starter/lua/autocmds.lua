@@ -53,11 +53,6 @@ autocmd({ "BufLeave", "CompleteDone" }, {
     if vim.fn.getline(1):match "^#!" then
       vim.fn.jobstart({ "chmod", "+x", file }, {
         detach = true,
-        on_exit = function()
-          vim.schedule(function()
-            vim.notify("chmod +x " .. file, vim.log.levels.INFO, { title = "Saved!" })
-          end)
-        end,
       })
     end
   end,
