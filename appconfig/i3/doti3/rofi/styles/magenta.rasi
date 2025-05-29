@@ -1,0 +1,86 @@
+@import "color.rasi"
+
+* {
+    background-color:   @base0A;
+    text-color:         @text;
+    border-color:       rgba(0,0,1,0.5);
+    border-radius:      10px;
+}
+
+window {
+    location:           center;
+    fullscreen:         false;
+    width:              55%;
+    height:             21%;
+}
+
+mainbox {
+    background-color:   rgba(0, 0, 0, 0.6);
+}
+
+inputbar {
+    padding:                     1%;
+    // padding:                     10%;
+    // background-image:            url("~/linux-setup/miscellaneous/wallpapers/pexels-seun-oderinde.jpg", width);
+    children:                    [ "textbox-prompt-colon", "entry" ];
+}
+
+textbox-prompt-colon {
+    expand:             false;
+    str:                "";
+    margin:             1em 1em;
+    padding:            0.75em 1.25em;
+}
+
+entry {
+    enabled:            true;
+    margin:             1em 1em;
+    padding:            0.75em 1.25em;
+    border-radius:      20px;
+    background-color:   transparent;
+    text-color:         @base00;
+    cursor-color:       rgb(154 237 254);
+    cursor-width:       8px;
+
+}
+
+listview {
+    columns:            1;
+    lines:              10;
+    spacing:            5px;
+    layout:             horizontal;
+    cycle:              false;
+    dynamic:            false;
+    scrollbar:          true;
+    fixed-height:       false;
+    margin:             0 0 0.75em;
+}
+
+textbox {
+    text-color:         @base0D;
+    padding:            0.75em 1.25em;
+}
+
+element {
+    margin:             0 1em;
+    padding:            0.5em;
+}
+
+element-icon {
+    padding:            0 0.5em;
+    size:               2%;
+}
+
+element-text {
+    highlight:          @base0B;
+}
+
+element-text selected {
+    text-color:         @base00;
+}
+
+scrollbar {
+    handle-width : 4px;
+    handle-color : @base00;
+    padding      : 0 4px;
+}

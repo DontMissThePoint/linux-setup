@@ -6,12 +6,11 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
-APP_PATH=`dirname "$0"`
-APP_PATH=`( cd "$APP_PATH" && pwd )`
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
 
 unattended=0
-for param in "$@"
-do
+for param in "$@"; do
   echo $param
   if [ $param="--unattended" ]; then
     echo "installing in unattended mode"
@@ -20,22 +19,20 @@ do
   fi
 done
 
-var=`lsb_release -r | awk '{ print $2 }'`
+var=$(lsb_release -r | awk '{ print $2 }')
 [ "$var" = "18.04" ] && export BEAVER=1
 [ "$var" = "24.04" ] && export NOBLE=1
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]
-  then
+  if [[ "$unattended" == "1" ]]; then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall i3? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall i3? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
   fi
-  response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+  response=$(echo $resp | sed -r 's/(.*)$/\1=/')
 
-  if [[ $response =~ ^(y|Y)=$ ]]
-  then
+  if [[ $response =~ ^(y|Y)=$ ]]; then
 
     toilet Installing i3 -t --filter metal -f smmono12
 
@@ -48,8 +45,7 @@ while true; do
     # required for i3-layout-manager
     sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
 
-    if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; # if running interactively
-    then
+    if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; then # if running interactively
 
       # font size in virtual console (tty)
       # UTF-8
@@ -81,7 +77,7 @@ while true; do
     git clone https://github.com/fairyglade/ly
     cd ly
     zig build
-    sudo `which zig` build installexe
+    sudo $(which zig) build installexe
 
     # auto-detect connected display
     cd /tmp
@@ -127,7 +123,7 @@ while true; do
     sudo mkdir -p /etc/X11/xinit/xinitrc.d
 
     # gnome-shell-pomodoro
-    num=`gnome-shell --version | awk '{ print $3 }' | cut -c -2`
+    num=$(gnome-shell --version | awk '{ print $3 }' | cut -c -2)
 
     sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev gnome-shell-pomodoro-data
 
@@ -160,7 +156,7 @@ while true; do
     sudo apt remove -y i3* || echo "Installing i3..."
 
     # compile i3
-    sudo pip3 install --break-system-packages meson 2> /dev/null
+    sudo pip3 install --break-system-packages meson 2>/dev/null
     # cd $APP_PATH/../../submodules/i3/
     sudo apt install -y i3status ninja-build
 
@@ -195,7 +191,7 @@ while true; do
     # for brightness and volume control
     sudo apt-get -y install xbacklight alsa-utils pulseaudio feh arandr
 
-    arch=$( uname -i )
+    arch=$(uname -i)
     if [ "$arch" != "aarch64" ]; then
       sudo apt-get -y install acpi
     fi
@@ -225,7 +221,7 @@ while true; do
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
-    pip install --break-system-packages flashfocus -U 2> /dev/null
+    pip install --break-system-packages flashfocus -U 2>/dev/null
 
     # xbanish
     cd /tmp
@@ -237,9 +233,9 @@ while true; do
 
     # indicator-sound-switcher
     if [ -n "$NOBLE" ]; then
-	sudo apt -y install rustup gir1.2-keybinder-3.0
+      sudo apt -y install rustup gir1.2-keybinder-3.0
     else
-	sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
+      sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
     fi
 
     cd $APP_PATH/../../submodules/indicator-sound-switcher
@@ -268,37 +264,37 @@ while true; do
     # config
     echo "Configuring..."
     mkdir -p ~/.config/{dunst,flashfocus,rofi,cava}
-    pv $APP_PATH/dunstrc > ~/.config/dunst/dunstrc
-    pv $APP_PATH/flashfocus.yml > ~/.config/flashfocus/flashfocus.yml
-    pv $APP_PATH/redshift.conf > ~/.config/redshift.conf
-    pv $APP_PATH/cava/config > ~/.config/cava/config
-    pv $APP_PATH/doti3/rofi/config.rasi > ~/.config/rofi/config.rasi
-    pv $APP_PATH/doti3/rofi/color.rasi > ~/.config/rofi/color.rasi
+    pv $APP_PATH/dunstrc >~/.config/dunst/dunstrc
+    pv $APP_PATH/flashfocus.yml >~/.config/flashfocus/flashfocus.yml
+    pv $APP_PATH/redshift.conf >~/.config/redshift.conf
+    pv $APP_PATH/cava/config >~/.config/cava/config
+    pv $APP_PATH/doti3/rofi/config.rasi >~/.config/rofi/config.rasi
+    pv $APP_PATH/doti3/rofi/color.rasi >~/.config/rofi/color.rasi
 
     # i3
-    pv $APP_PATH/doti3/config_git > ~/.i3/config
-    pv $APP_PATH/doti3/i3blocks.conf_git > ~/.i3/i3blocks.conf
-    pv $APP_PATH/i3blocks/wifi_git > $APP_PATH/i3blocks/wifi
-    pv $APP_PATH/i3blocks/battery_git > $APP_PATH/i3blocks/battery
+    pv $APP_PATH/doti3/config_git >~/.i3/config
+    pv $APP_PATH/doti3/i3blocks.conf_git >~/.i3/i3blocks.conf
+    pv $APP_PATH/i3blocks/wifi_git >$APP_PATH/i3blocks/wifi
+    pv $APP_PATH/i3blocks/battery_git >$APP_PATH/i3blocks/battery
 
     # Xorg
-    pv $APP_PATH/dotxinitrc > ~/.xinitrc
-    pv $APP_PATH/dotxsession > ~/.xsession
-    pv $APP_PATH/picom.conf > ~/.config/picom.conf
+    pv $APP_PATH/dotxinitrc >~/.xinitrc
+    pv $APP_PATH/dotxsession >~/.xsession
+    pv $APP_PATH/picom.conf >~/.config/picom.conf
 
     # GTK
-    if [ -d "~/.config/gtk-4.0" ] ; then
-        pv $APP_PATH/gtk.css > ~/.config/gtk-4.0/gtk.css
-        pv $APP_PATH/gtk-mine.css > ~/.config/gtk-4.0/gtk-mine.css
-        pv $APP_PATH/settings.ini > ~/.config/gtk-4.0/settings.ini
+    if [ -d "~/.config/gtk-4.0" ]; then
+      pv $APP_PATH/gtk.css >~/.config/gtk-4.0/gtk.css
+      pv $APP_PATH/gtk-mine.css >~/.config/gtk-4.0/gtk-mine.css
+      pv $APP_PATH/settings.ini >~/.config/gtk-4.0/settings.ini
     fi
 
     mkdir -p ~/.config/gtk-2.0
-    pv $APP_PATH/gtkfilechooser.ini > ~/.config/gtk-2.0/gtkfilechooser.ini
-    pv $APP_PATH/settings.ini > ~/.config/gtk-3.0/settings.ini
-    pv $APP_PATH/gtk.css > ~/.config/gtk-3.0/gtk.css
-    pv $APP_PATH/gtk-mine.css > ~/.config/gtk-3.0/gtk-mine.css
-    pv $APP_PATH/dotgtkrc-2.0 > ~/.gtkrc-2.0
+    pv $APP_PATH/gtkfilechooser.ini >~/.config/gtk-2.0/gtkfilechooser.ini
+    pv $APP_PATH/settings.ini >~/.config/gtk-3.0/settings.ini
+    pv $APP_PATH/gtk.css >~/.config/gtk-3.0/gtk.css
+    pv $APP_PATH/gtk-mine.css >~/.config/gtk-3.0/gtk-mine.css
+    pv $APP_PATH/dotgtkrc-2.0 >~/.gtkrc-2.0
 
     # autostart
     cd /etc/xdg/autostart/
@@ -353,8 +349,8 @@ while true; do
     # lockscreen with effects!
     wget -c https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
     mkdir -p ~/.config/betterlockscreen/
-    pv $APP_PATH/betterlockscreenrc > ~/.config/betterlockscreen/betterlockscreenrc
-    pv $APP_PATH/custom-post.sh > ~/.config/betterlockscreen/custom-post.sh
+    pv $APP_PATH/betterlockscreenrc >~/.config/betterlockscreen/betterlockscreenrc
+    pv $APP_PATH/custom-post.sh >~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
     betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
@@ -384,8 +380,7 @@ while true; do
     # sudo apt-get -y install nvidia-prime
 
     break
-  elif [[ $response =~ ^(n|N)=$ ]]
-  then
+  elif [[ $response =~ ^(n|N)=$ ]]; then
     break
   else
     echo " What? \"$resp\" is not a correct answer. Try y+Enter."

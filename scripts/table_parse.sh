@@ -2,7 +2,14 @@
 
 set -e
 
+# -----------------------------
+# LLAMA-PARSE
+# Parse pdfs and extract tables
+# -----------------------------
+
 DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
+MD_FILE="$DIR/Live_Netis_Fuel_UG.md"
+OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
 
 # LLAMA_CLOUD
 /usr/bin/python3 - <<EOF
@@ -16,7 +23,7 @@ from pathlib import Path
 dotenv_path = Path("$HOME/.env")
 load_dotenv(dotenv_path=dotenv_path)
 
-DATA_DIR = Path(os.path.expandvars("$DIR"))
+DATA_DIR = Path("$DIR")
 
 def get_pdfs(data_dir=DATA_DIR) -> list[str]:
     files = []
@@ -57,7 +64,7 @@ async def main():
       documents.extend(docs)
 
   # Write the output to a file
-  with open(DATA_DIR / "Live_Netis_Fuel_UG.md", "w", encoding="utf-8") as f:
+  with open("$MD_FILE", "w", encoding="utf-8") as f:
     for doc in documents:
       f.write(doc.text)
 
@@ -65,11 +72,11 @@ async def main():
   # documents = result.get_text_documents(split_by_page=True)
   # print(documents[0].get_content()[10:1000])
 
-  # agentic_json_output = parser.get_json_result(files)[0]
+  # agentic_json_output = await parser.get_json_result(files)[0]
   # for page in agentic_json_output["pages"]:
   #       print(f"Page {page['page']}: {page['items']}")
 
-  # md_json_objs = parser.get_json_result(files)
+  # md_json_objs = await parser.get_json_result(files)
   # print(md_json_objs)
   # md_json_list = md_json_objs[0]["pages"]
   # for i, page in enumerate(md_json_list):
@@ -80,22 +87,18 @@ asyncio.run(main())
 
 EOF
 
-# # JSON
+# JSON
 # csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
 # jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
-
-MD_FILE="$DIR/Live_Netis_Fuel_UG.md"
-OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
 
 # save all tables
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
-echo "${GREEN}  Extracting..${NC}"
+echo "${GREEN} ░ Extracting..${NC}"
 sed -n '/^|/p' "$MD_FILE" >tables.md
 
 # Remove separator rows (---...)
-sed -i '/^|[-| ]*|$/d' tables.md
-sed -i '/^| *Date *|/d' tables.md
+sed -i '/^|[-| ]*|$/d; /^| *\(Date\|Time\) *|/d' tables.md
 
 # XLSX
 /usr/bin/python3 - <<EOF
@@ -111,9 +114,9 @@ table = []
 
 for line in lines:
     if re.match(r'^\|.*\|$', line):  # Identify table rows
-        columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
-        if columns:
-            table.append(columns)
+      columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
+      if columns:
+        table.append(columns)
 
 # DataFrame
 df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
@@ -123,6 +126,6 @@ df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
 table_workbook = os.path.basename("$OUTPUT_XLSX")
 EOF
 
-# Cleanup
-rm -f tables.md
+# Archive
+mv tables.md "$DIR"/../../WinAutomation/
 echo "${GREEN} ✔ ${NC}Saved workbook"

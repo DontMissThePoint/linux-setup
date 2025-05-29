@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+<head>
+<title>Podcasts</title>
+</head>
+<body>
+
+    <outline title="Talking Simpsons"
+             text="Talking Simpsons"
+             type="rss"
+             version="RSS"
+             xmlUrl="https://feeds.buzzsprout.com/1849151.rss"
+             htmlUrl="https://saifedean.com/podcast" />
+
+</body>
+</opml>

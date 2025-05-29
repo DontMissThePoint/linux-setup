@@ -1,51 +1,55 @@
-@import "color.rasi"
+/**
+ * Catppuccin Mocha theme
+ * Color palette copied from https://catppuccin.com/palette
+ * https://github.com/hiimsergey/rofi-catppuccin
+ */
 
 * {
-    background-color:   @base0A;
-    text-color:         @text;
-    border-color:       rgba(0,0,1,0.5);
-    border-radius:      10px;
+    base: #1e1e2e;
+    surface0: #313244;
+    overlay0: #6c7086;
+    text: #cdd6f4;
+
+    mauve: #cba6f7;
+    red: #f38ba8;
+    peach: #fab387;
+    green: #a6e3a1;
+    lavender: #b4befe;
+
+    background-color: @base;
 }
 
 window {
-    location:           center;
+    // location:           center;
     fullscreen:         false;
-    width:              55%;
-    height:             21%;
+    width:              50%;
+    height:             15%;
+    // height: 600;
+    // width: 600;
+
+    border: 1;
+    border-radius: 10;
+    border-color: @lavender;
 }
 
 mainbox {
-    background-color:   rgba(0, 0, 0, 0.6);
+    spacing: 0;
+    children: [inputbar, message, listview];
 }
 
 inputbar {
-    padding:                     1%;
-    // padding:                     10%;
-    // background-image:            url("~/linux-setup/miscellaneous/wallpapers/pexels-seun-oderinde.jpg", width);
-    children:                    [ "textbox-prompt-colon", "entry" ];
+    color: @text;
+    padding: 14;
+    background-color: @base;
 }
 
-textbox-prompt-colon {
-    expand:             false;
-    str:                "";
-    margin:             1em 1em;
-    padding:            0.75em 1.25em;
-}
-
-entry {
-    enabled:            true;
-    margin:             1em 1em;
-    padding:            0.75em 1.25em;
-    border-radius:      20px;
-    background-color:   transparent;
-    text-color:         @base00;
-    cursor-color:       rgb(154 237 254);
-    cursor-width:       8px;
-
+message {
+    padding: 10;
+    background-color: @overlay0;
 }
 
 listview {
-    columns:            1;
+    columns:            2;
     lines:              10;
     spacing:            5px;
     layout:             horizontal;
@@ -54,33 +58,71 @@ listview {
     scrollbar:          true;
     fixed-height:       false;
     margin:             0 0 0.75em;
+    padding: 8;
+    border-radius: 0 0 10 10;
+    border: 2 2 2 2;
+    border-color: @base;
+    background-color: @base;
 }
 
 textbox {
-    text-color:         @base0D;
-    padding:            0.75em 1.25em;
+    text-color: @text;
+    background-color: inherit;
+}
+
+error-message {
+    border: 20 20 20 20;
+}
+
+entry, prompt, case-indicator {
+    text-color: inherit;
+}
+
+prompt {
+    margin: 0 10 0 0;
 }
 
 element {
-    margin:             0 1em;
-    padding:            0.5em;
+    padding: 5;
+    vertical-align: 0.5;
+    border-radius: 10;
+    background-color: @surface0;
 }
 
-element-icon {
-    padding:            0 0.5em;
-    size:               2%;
+element.selected.normal {
+    background-color: @overlay0;
 }
 
-element-text {
-    highlight:          @base0B;
+element.alternate.normal {
+    background-color: inherit;
 }
 
-element-text selected {
-    text-color:         @base00;
+element.normal.active, element.alternate.active {
+    background-color: @peach;
 }
 
-scrollbar {
-    handle-width : 4px;
-    handle-color : @base00;
-    padding      : 0 4px;
+element.selected.active {
+    background-color: @green;
+}
+
+element.normal.urgent, element.alternate.urgent {
+    background-color: @red;
+}
+
+element.selected.urgent {
+    background-color: @mauve;
+}
+
+element-text, element-icon {
+    size:               5%;
+    // size: 40;
+    padding:            0 0.3em;
+    margin: 0 10 0 0;
+    vertical-align: 0.5;
+    background-color: inherit;
+    text-color: @text;
+}
+
+element-text .active, element-text .urgent {
+    text-color: @base;
 }

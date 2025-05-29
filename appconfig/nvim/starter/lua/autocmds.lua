@@ -46,7 +46,7 @@ autocmd("Filetype", {
   command = "setlocal shiftwidth=2 tabstop=2",
 })
 
-autocmd({ "BufLeave", "CompleteDone" }, {
+autocmd({ "BufModifiedSet", "FocusGained", }, {
   pattern = { "*.sh", "*.py" },
   callback = function()
     local file = vim.fn.expand "<afile>"
@@ -112,6 +112,12 @@ autocmd("BufLeave", {
 autocmd("VimResized", {
   pattern = "*",
   command = "tabdo wincmd =",
+})
+
+-- Render
+autocmd("BufEnter", {
+  pattern = { "*.md" },
+  command = "RenderMarkdown",
 })
 
 -- Screen cast

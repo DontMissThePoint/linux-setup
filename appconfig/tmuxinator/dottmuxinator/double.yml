@@ -61,7 +61,7 @@ windows:
         - calcpy
         # - multitail -D -f /var/log/*
         # - countdown 1s && btop
-        - curl rate.sx/btc
+        - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc
         - cd $GIT_PATH/linux-setup; bash
   - nvim:
       layout: dc50,136x33,0,0,21

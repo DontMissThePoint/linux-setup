@@ -5,7 +5,7 @@ local plugins = {
   -- Override plugin definition options
 
   {
-    "mason-org/mason.nvim"
+    "mason-org/mason.nvim",
   },
 
   {
@@ -15,7 +15,11 @@ local plugins = {
       require("mason-lspconfig").setup {
         automatic_installation = true,
         ensure_installed = {
-          "rust_analyzer", "pyright", "ts_ls", "bashls", "lua_ls",
+          "rust_analyzer",
+          "pyright",
+          "ts_ls",
+          "bashls",
+          "lua_ls",
         },
       }
     end,
@@ -72,6 +76,8 @@ local plugins = {
         "markdown",
         "markdown_inline",
         "html",
+        "python",
+        "javascript",
         "json",
         "yaml",
       },
@@ -252,7 +258,8 @@ local plugins = {
   {
     "willothy/savior.nvim",
     dependencies = { "j-hui/fidget.nvim" },
-    event = { "FileChangedShellPost", "ModeChanged", "ExitPre" },
+    event = { "FileChangedShellPost", "FocusLost",
+      "BufModifiedSet", "ExitPre" },
     config = true,
   },
 
@@ -261,7 +268,7 @@ local plugins = {
     event = { "InsertLeave", "TextChanged" },
     config = function()
       require("lsp-format").setup {}
-      vim.api.nvim_create_autocmd('LspAttach', {
+      vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(args)
           local client = assert(vim.lsp.get_client_by_id(args.data.client_id))
           require("lsp-format").on_attach(client, args.buf)
@@ -322,19 +329,19 @@ local plugins = {
   },
 
   {
-    enabled = true,
-    "denstiny/styledoc.nvim",
-    dependencies = {
-      "nvim-treesitter/nvim-treesitter",
-    },
-    opts = true,
-    ft = "markdown",
-  },
-
-  {
     "MeanderingProgrammer/render-markdown.nvim",
+    cmd = { "RenderMarkdown" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
     opts = {},
+    config = function()
+      require("render-markdown").setup {
+        completions = {
+          lsp = {
+            enabled = true,
+          },
+        },
+      }
+    end,
   },
 
   {

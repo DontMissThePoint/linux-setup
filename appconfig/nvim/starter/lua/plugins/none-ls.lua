@@ -2,12 +2,12 @@ return {
   "nvimtools/none-ls.nvim",
   dependencies = {
     "gbprod/none-ls-shellcheck.nvim", -- shellcheck
-    "nvimtools/none-ls-extras.nvim", -- eslint_d
+    "nvimtools/none-ls-extras.nvim",  -- eslint_d
   },
   config = function()
     -- https://github.com/nvimtools/none-ls.nvim/blob/main/doc/BUILTINS.md
-    local null_ls = require("null-ls")
-    null_ls.setup({
+    local null_ls = require "null-ls"
+    null_ls.setup {
       sources = {
         -------------------        JAVA       ------------------------
         -- formatting -- ***WE USE FTPLUGIN/JAVA.LUA***
@@ -23,17 +23,17 @@ return {
         -------------------        BASH       ------------------------
         null_ls.builtins.formatting.shfmt,
         null_ls.builtins.formatting.shellharden,
-        require("none-ls-shellcheck.diagnostics"),
-        require("none-ls-shellcheck.code_actions"),
+        require "none-ls-shellcheck.diagnostics",
+        require "none-ls-shellcheck.code_actions",
         ----------------                              ----------------
 
         -------------------        TS | JS       ------------------------
         -- formatting: PRETTIER FORMATTER
-        require("none-ls.diagnostics.eslint_d"), -- TS | JS
-        require("none-ls.code_actions.eslint_d"),
-        require("none-ls.formatting.beautysh"),
-        require("none-ls.formatting.eslint_d"),
-        require("none-ls.formatting.jq"),
+        require "none-ls.diagnostics.eslint_d", -- TS | JS
+        require "none-ls.code_actions.eslint_d",
+        require "none-ls.formatting.beautysh",
+        require "none-ls.formatting.eslint_d",
+        require "none-ls.formatting.jq",
         ----------------                              ----------------
 
         -------------------        HTML       ------------------------
@@ -61,16 +61,18 @@ return {
         -------------------        PYTHON       ------------------------
         null_ls.builtins.formatting.black,
         -- null_ls.builtins.formatting.isort,
-        null_ls.builtins.diagnostics.flake8,
+        null_ls.builtins.diagnostics.flake8.with {
+          extra_args = { "--max-line-length", "88" },
+        },
         ----------------                              ----------------
 
         -----------------        XML       ------------------------
-        null_ls.builtins.formatting.tidy.with({
+        null_ls.builtins.formatting.tidy.with {
           filetypes = { "xml" },
-        }),
-        null_ls.builtins.diagnostics.tidy.with({
+        },
+        null_ls.builtins.diagnostics.tidy.with {
           filetypes = { "xml" },
-        }),
+        },
         ----------------                              ----------------
         ----------------                              ----------------
 
@@ -90,7 +92,7 @@ return {
         ----------------                              ----------------
 
         -------------------        PRETTIER FORMATTER       ------------------------
-        null_ls.builtins.formatting.prettierd.with({
+        null_ls.builtins.formatting.prettierd.with {
           filetypes = {
             "javascript",
             "javascriptreact",
@@ -110,10 +112,10 @@ return {
             "handlebars",
           },
           extra_filetypes = { "toml", "svelte" },
-        }),
+        },
         ----------------                              ----------------
       },
-    })
+    }
 
     vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, {})
   end,
