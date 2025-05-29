@@ -37,7 +37,7 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Settingup urxvt -t -f future
+    toilet Settingup urxvtc -t -f future
 
     # install urvxt
     if [ -n "$NOBLE" ];

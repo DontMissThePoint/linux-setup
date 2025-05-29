@@ -8,11 +8,11 @@ ExecStart=%h/.nix-profile/bin/xidlehook \
                   --not-when-fullscreen \
                   --not-when-audio \
                   --timer 500 \
-                      'screensaver' '' \
-                  --timer 360 \
-                      'betterlockscreen -l dimpixel' '' \
+                      'i3lock -e -f -c 1d2021; xset dpms force off' '' \
+                  --timer 10800 \
+                      'systemctl poweroff' '' \
                   --timer 240 \
-                      'xset dpms force off; pidof i3lock || screenlock' '' \
+                      'pipes.sh -t3' '' \
                   --socket "/tmp/xidlehook.sock"
 Restart=on-failure
 RestartSec=3s

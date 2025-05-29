@@ -52,7 +52,7 @@ windows:
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
       panes:
-        - k
+        - k -cr ; moonphase
         - cd ~/VirtualMachines/Windows-Docker
         - nchat &; journalctl -f | tspin -f
   - logs:
@@ -61,7 +61,7 @@ windows:
         - calcpy
         # - multitail -D -f /var/log/*
         # - countdown 1s && btop
-        - curl rate.sx/btc
+        - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc
         - cd $GIT_PATH/linux-setup; bash
   - nvim:
       layout: dc50,136x33,0,0,21

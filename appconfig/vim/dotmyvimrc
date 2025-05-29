@@ -272,6 +272,16 @@ augroup load_ycm
                      \| autocmd! load_ycm
 augroup END
 
+" lsp
+let g:ycm_language_server =
+      \ [
+      \   {
+      \     'name': 'bash',
+      \     'cmdline': [ 'bash-language-server', 'start' ],
+      \     'filetypes': [ 'sh' ],
+      \   }
+      \ ]
+
 " compatibility, with the helper of supertab
 let g:SuperTabCrMapping                = 0
 let g:SuperTabDefaultCompletionType    = '<C-n>'
@@ -326,8 +336,6 @@ nnoremap <expr> <C-Down> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoDown<CR>' : '
 nnoremap <leader>idl :IndentLinesToggle<CR>
 
 " jump key mappings
-nnoremap n <Cmd>call HiSearch('n')<CR>
-nnoremap N <Cmd>call HiSearch('N')<CR>
 nnoremap <Esc>n <Cmd>noh<CR>
 
 " Command-line
@@ -336,8 +344,8 @@ noremap ;; ;
 vnoremap ; :
 map ; :
 
-" Math
-vmap <expr>  ++  VMATH_YankAndAnalyse()
+" Regex groups e.g `\(.*\)`
+cnoremap <F2> \(.*\)
 
 " Plugs
 nnoremap i :noh<CR>i
@@ -396,7 +404,7 @@ function DataViz()
         \ "xelatex % && xelatex %" && zathura %:r.pdf<CR>
 
   " Preselect suppliers
-  iabbrev <silent> f <Cmd>:call fzf#run(fzf#wrap({
+  iabbrev <silent> i <Cmd>:call fzf#run(fzf#wrap({
         \ 'source': readfile(expand('$HOME/.cards.txt')),
         \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
         \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },

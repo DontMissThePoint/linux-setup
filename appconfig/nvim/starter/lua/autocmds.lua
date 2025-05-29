@@ -1,5 +1,4 @@
 local autocmd = vim.api.nvim_create_autocmd
-local create_cmd = vim.api.nvim_create_user_command
 local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 
 -----------------------------------------------------------
@@ -47,18 +46,13 @@ autocmd("Filetype", {
   command = "setlocal shiftwidth=2 tabstop=2",
 })
 
-autocmd("BufWritePost", {
+autocmd({ "BufModifiedSet", "FocusGained", }, {
   pattern = { "*.sh", "*.py" },
   callback = function()
     local file = vim.fn.expand "<afile>"
     if vim.fn.getline(1):match "^#!" then
       vim.fn.jobstart({ "chmod", "+x", file }, {
         detach = true,
-        on_exit = function()
-          vim.schedule(function()
-            vim.notify("chmod +x " .. file, vim.log.levels.INFO, { title = "Saved!" })
-          end)
-        end,
       })
     end
   end,
@@ -120,7 +114,13 @@ autocmd("VimResized", {
   command = "tabdo wincmd =",
 })
 
--- Screen cast 
+-- Render
+autocmd("BufEnter", {
+  pattern = { "*.md" },
+  command = "RenderMarkdown",
+})
+
+-- Screen cast
 autocmd("VimEnter", {
   pattern = "",
   command = "Screenkey",
@@ -139,11 +139,6 @@ if vim.fn.exists "$TMUX" then
             autocmd VimLeave,VimSuspend * silent !tmux setw status on
         augroup end
     ]]
-end
-
--- Formatting
-if client.resolved_capabilities.document_formatting then
-  vim.cmd "autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()"
 end
 
 -- Fix libuv
