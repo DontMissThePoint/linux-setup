@@ -1,12 +1,13 @@
 configuration {
-	font: "Liga SFMono Nerd Font 17";
+	font: "Liga SFMono Nerd Font 14.5";
   show-icons: true;
-  icon-theme: "Papirus";
-  display-run: "";
-  display-drun:   "";
-  display-combi: "  ";
-  display-window: "﩯 ";
-  display-ssh:    "";
+  // icon-theme: "Papirus-dark";
+  display-ssh:    "󰣀 ssh:";
+  display-run:    "󱓞 run:";
+  display-drun:   "󰣖 drun:";
+  display-window: "󱂬 window:";
+  display-combi:  "󰕘 combi:";
+  display-filebrowser: "󰉋 filebrowser:";
 	kb-remove-char-back: "BackSpace";
 	kb-remove-to-eol: "Control+Shift+e";
 	kb-accept-entry: "Return";

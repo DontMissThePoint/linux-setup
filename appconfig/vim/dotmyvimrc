@@ -404,7 +404,7 @@ function DataViz()
         \ "xelatex % && xelatex %" && zathura %:r.pdf<CR>
 
   " Preselect suppliers
-  iabbrev <silent> f <Cmd>:call fzf#run(fzf#wrap({
+  iabbrev <silent> i <Cmd>:call fzf#run(fzf#wrap({
         \ 'source': readfile(expand('$HOME/.cards.txt')),
         \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
         \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },

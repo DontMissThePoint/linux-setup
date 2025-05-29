@@ -72,6 +72,15 @@ while true; do
     fi
     export PATH=$PATH:/usr/local/go/bin
 
+    # ledger
+    echo "Setup go pakages..."
+    go install github.com/howeyc/ledger/ledger@latest
+    sudo ln -sf ~/go/bin/ledger /usr/local/go/bin/ledger
+
+    # shfmt
+    go install mvdan.cc/sh/v3/cmd/shfmt@latest
+    sudo ln -sf ~/go/bin/shfmt /usr/local/go/bin/shfmt
+
     # compile from sources
     cd /tmp
     [ -e purple-gowhatsapp ] && rm -rf purple-gowhatsapp

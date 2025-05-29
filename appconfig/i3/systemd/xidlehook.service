@@ -9,8 +9,8 @@ ExecStart=%h/.nix-profile/bin/xidlehook \
                   --not-when-audio \
                   --timer 500 \
                       'i3lock -e -f -c 1d2021; xset dpms force off' '' \
-                  --timer 360 \
-                      'betterlockscreen -l dimpixel; xset dpms force off' '' \
+                  --timer 10800 \
+                      'systemctl poweroff' '' \
                   --timer 240 \
                       'pipes.sh -t3' '' \
                   --socket "/tmp/xidlehook.sock"

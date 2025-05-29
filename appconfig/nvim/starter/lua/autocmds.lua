@@ -46,18 +46,13 @@ autocmd("Filetype", {
   command = "setlocal shiftwidth=2 tabstop=2",
 })
 
-autocmd({ "BufWritePost" }, {
+autocmd({ "BufModifiedSet", "FocusGained", }, {
   pattern = { "*.sh", "*.py" },
   callback = function()
     local file = vim.fn.expand "<afile>"
     if vim.fn.getline(1):match "^#!" then
       vim.fn.jobstart({ "chmod", "+x", file }, {
         detach = true,
-        on_exit = function()
-          vim.schedule(function()
-            vim.notify("chmod +x " .. file, vim.log.levels.INFO, { title = "Saved!" })
-          end)
-        end,
       })
     end
   end,
@@ -117,6 +112,12 @@ autocmd("BufLeave", {
 autocmd("VimResized", {
   pattern = "*",
   command = "tabdo wincmd =",
+})
+
+-- Render
+autocmd("BufEnter", {
+  pattern = { "*.md" },
+  command = "RenderMarkdown",
 })
 
 -- Screen cast

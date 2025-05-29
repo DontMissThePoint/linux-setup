@@ -26,6 +26,7 @@ export CTAGS_FILE_ONCE="~/tags-once"
 
 # create alisases
 alias sb="source ~/.bashrc"
+alias k="ls -lcr"
 
 source "$REPO_PATH/appconfig/shell/commons.sh"
 
