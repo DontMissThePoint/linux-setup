@@ -124,7 +124,7 @@ focus_follows_mouse no
 bindsym $mod+Return exec i3-sensible-terminal
 
 # scratchpad
-bindsym $mod+v exec "urxvtc -name scratchpad -e /usr/bin/vim -c :Startify"
+# bindsym $mod+v exec "urxvtc -name scratchpad -e /usr/bin/vim -c :Startify"
 
 # kill focused window
 bindsym $mod+Shift+q kill
