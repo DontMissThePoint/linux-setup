@@ -244,7 +244,7 @@ bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen b
 bindsym Print exec shutter --select
 
 # highlight cursor position
-bindsym F13 exec "find-cursor -r1 -f -o2 -O magenta -s320 -d40 -w400 -l1 -c black"
+bindsym F13 exec "find-cursor -r1 -f -o2 -t -O \#b4befe -s320 -d40 -w400 -l1 -c \#1e1e2e"
 
 # toggling touchpad
 bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh

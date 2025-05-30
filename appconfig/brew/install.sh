@@ -54,6 +54,10 @@ while true; do
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
       eza fd dust zig aria2 glow restic croc newsboat walk s-search \
       lazygit delta shellcheck shfmt poetry npm tailspin yq jless
+
+    # node
+    brew upgrade node
+    brew link --overwrite node
     brew cleanup --prune=all
 
     # s completion

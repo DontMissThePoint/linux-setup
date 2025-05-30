@@ -6,19 +6,21 @@ bluetooth_is_on() {
 
 icon() {
   if bluetooth_is_on; then
-    echo 󰂯
+    echo "󰂯 "
     exit 0
   else
-    echo 󰂲
+    echo "󰂲 "
     exit 1
   fi
 }
 
 toggle() {
   if bluetooth_is_on; then
-    bluetoothctl power off
+    bluetoothctl power off >> /dev/null
+    sleep 1
   else
-    bluetoothctl power on
+    bluetoothctl power on >> /dev/null
+    sleep 1
   fi
 }
 

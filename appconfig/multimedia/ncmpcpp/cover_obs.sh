@@ -2,6 +2,11 @@
 
 DEBUG=false
 
+music_dir="$HOME/Music"
+previewdir="$XDG_CONFIG_HOME/ncmpcpp/previews"
+filename="$(mpc --format "$music_dir"/%file% current)"
+previewname="$previewdir/$(mpc --format %album% current | base64).png"
+
 COVER="/tmp/album_cover.png"
 EMB_COVER="/tmp/album_cover_embedded.png"
 file="$MUSIC_DIR/$(mpc --format %file% current 2>/dev/null)"  
@@ -51,4 +56,6 @@ else
   art="$HOME/.config/ncmpcpp/default_cover.png" 
 fi
 
-notify-send -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current 2>/dev/null)" -i "$COVER"
+[ -e "$previewname" ] || ffmpeg -y -i "$filename" -an -vf scale=128:128 "$previewname" > /dev/null 2>&1
+
+notify-send -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current)" -i "$previewname"

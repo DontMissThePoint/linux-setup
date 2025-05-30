@@ -111,7 +111,7 @@ self_update = true
 [git]
 max_concurrency = 8
 # Additional git repositories to pull
-repos = ["$GIT_PATH/linux-setup/submodules/**"]
+# repos = ["~/linux-setup/submodules/**"]
 
 # Don't pull the predefined git repos
 #pull_predefined = false

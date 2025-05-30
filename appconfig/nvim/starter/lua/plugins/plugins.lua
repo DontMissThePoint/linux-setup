@@ -329,6 +329,16 @@ local plugins = {
   },
 
   {
+      "2kabhishek/nerdy.nvim",
+      dependencies = {
+        "stevearc/dressing.nvim",
+        "nvim-telescope/telescope.nvim",
+      },
+      cmd = "Nerdy",
+      vim.keymap.set("n", "<Leader>si", "<cmd>Nerdy<cr>", opts), --> nerd icons
+  },
+
+  {
     "MeanderingProgrammer/render-markdown.nvim",
     cmd = { "RenderMarkdown" },
     dependencies = { "nvim-treesitter/nvim-treesitter", "nvim-tree/nvim-web-devicons" }, -- if you prefer nvim-web-devicons
