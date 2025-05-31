@@ -60,5 +60,5 @@ current_item_suffix                 = $(end)
 current_item_inactive_column_prefix = red
 current_item_inactive_column_suffix = red
 color1 = "white"
-execute_on_song_change = "~/.config/ncmpcpp/track_change.sh -m ~/Music"
+execute_on_song_change = "~/.config/ncmpcpp/track_change.sh -m ~/Music 2>/dev/null"
 color2 = "red"

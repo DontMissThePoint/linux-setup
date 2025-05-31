@@ -57,7 +57,7 @@ while true; do
 
     # node
     brew upgrade node
-    brew link --overwrite node
+    brew link --overwrite node ruby
     brew cleanup --prune=all
 
     # s completion
