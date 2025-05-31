@@ -80,6 +80,13 @@ local plugins = {
         "javascript",
         "json",
         "yaml",
+        "latex",
+        "norg",
+        "scss",
+        "svelte",
+        "tsx",
+        "typst",
+        "vue",
       },
       auto_install = true,
     },
@@ -114,6 +121,7 @@ local plugins = {
       scroll = { enabled = true },
       statuscolumn = { enabled = true },
       words = { enabled = true },
+      image = { enabled = true },
     },
   },
 
@@ -326,6 +334,16 @@ local plugins = {
       "RainbowDelimQuoted",
       "RainbowMultiDelim",
     },
+  },
+
+  {
+      "2kabhishek/nerdy.nvim",
+      dependencies = {
+        "stevearc/dressing.nvim",
+        "nvim-telescope/telescope.nvim",
+      },
+      cmd = "Nerdy",
+      vim.keymap.set("n", "<Leader>si", "<cmd>Nerdy<cr>", opts), --> nerd icons
   },
 
   {

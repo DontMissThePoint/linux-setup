@@ -4,7 +4,7 @@ DEBUG=false
 
 COVER="/tmp/album_cover.png"
 EMB_COVER="/tmp/album_cover_embedded.png"
-file="$MUSIC_DIR/$(mpc --format %file% current 2>/dev/null)"  
+file="$MUSIC_DIR/$(mpc --format %file% current 2>/dev/null)"
 debug() {
   if [ "$DEBUG" = true ]; then
     echo "$1"
@@ -21,7 +21,7 @@ debug "Album Art URL: $art"
 if [[ $art =~ ^file:// ]]; then
   art="${art#file://}" # Remove 'file://' prefix
 
-  cp "$art" "$COVER" > /dev/null 2>&1
+  cp "$art" "$COVER" >/dev/null 2>&1
 
   if [ $? -eq 0 ]; then
     debug "Cover copied successfully from local file: $COVER"
@@ -35,11 +35,11 @@ elif [[ $art =~ ^http ]]; then
 
   if [ $? -ne 0 ]; then
     debug "Failed to download cover from URL."
-    art="$HOME/.config/ncmpcpp/default_cover.png" 
+    art="$HOME/.config/ncmpcpp/default_cover.png"
   else
     if [ -f "$COVER" ]; then
       debug "Cover downloaded successfully: $COVER"
-      ls -lh "$COVER" > /dev/null 2>&1 
+      ls -lh "$COVER" >/dev/null 2>&1
     else
       debug "Failed to download cover."
       art="$HOME/.config/ncmpcpp/default_cover.png"
@@ -48,7 +48,7 @@ elif [[ $art =~ ^http ]]; then
 
 else
   debug "No valid album art found. Using default cover."
-  art="$HOME/.config/ncmpcpp/default_cover.png" 
+  art="$HOME/.config/ncmpcpp/default_cover.png"
 fi
 
 notify-send -r 27072 "Now Playing" "$(mpc --format '%title% \n%artist% - %album%' current 2>/dev/null)" -i "$COVER"

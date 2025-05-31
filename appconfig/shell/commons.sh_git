@@ -2,12 +2,21 @@
 export GDK_SCALE=0
 export GDK_DPI_SCALE=0
 
-# fzf
+# FZF
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
 export _Z_CMD='d'
 
-# homebrew
+#YT-X
+export YT_X_FZF_OPTS=$FZF_DEFAULT_OPTS'
+--color=fg:#e0def4,fg+:#e0def4,bg:#232136,bg+:#44415a
+--color=hl:#3e8fb0,hl+:#9ccfd8,info:#f6c177,marker:#3e8fb0
+--color=prompt:#eb6f92,spinner:#c4a7e7,pointer:#c4a7e7,header:#3e8fb0
+--color=border:#44415a,label:#ea9a97,query:#f6c177
+--border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
+--marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
+
+# HOMEBREW
 export HOMEBREW_NO_EMOJI=1
 export NODE_PATH=$NODE_PATH:$(npm root -g)
 
@@ -15,7 +24,7 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 export LS_COLORS="$(vivid generate tokyonight-night)"
 export LEDGER_FILE="$HOME/Journal/ledger.dat"
 
-# nix
+# NIX
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
 ## --------------------------------------------------------------

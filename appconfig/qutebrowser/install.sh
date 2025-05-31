@@ -90,9 +90,9 @@ while true; do
       dotenv flake8 flake8-print 2>/dev/null
 
     npm config set strict-ssl=false
-    npm install --loglevel=error -g @mozilla/readability \
-      write-good cspell bash-language-server htmx-lsp emmet-ls \
-      jsonrepair jsdom tailwindcss-language-server qutejs pyright punycode
+    npm install --loglevel=error -g @mozilla/readability tree-sitter-cli \
+      write-good cspell bash-language-server htmx-lsp emmet-ls pyright \
+      jsonrepair jsdom tailwindcss-language-server qutejs punycode
 
     # .env
     GREEN='\033[0;32m'

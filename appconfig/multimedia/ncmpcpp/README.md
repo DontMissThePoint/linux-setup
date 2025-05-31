@@ -1,44 +1,23 @@
-# ncmpcpp with cover-art and Mopidy-Spotify support
+# ncmpcpp-setup
+Supporting files and instructions for my ncmpcpp setup.
 
-Setup for displaying cover art in ncmpcpp with Mopidy-Spotify Support and Song Change Notifications with cover art.
+On my desktop this results in something like this:
 
+![Screenshot of ncmpcpp running in a kitty terminal, with album cover art and a
+track change notification](screenshot.png)
 
-Note: I use kitty and my tmux pane numbering start from 1 by default it starts from 0 so u have to edit that in `ncmp` file
+There's a [blog
+article](https://strugglers.net/~andy/blog/2023/12/26/ncmpcpp-a-modernish-text-based-music-setup-on-linux)
+with more discussion of these files and their use, but basically:
 
-
-## Dependencies
-
-- `tmux`           (to encapsulate everything in one window)  
-- `inotify-tools`  (for changing album art when switching songs)  
-- `kitty`       (for image rendering)  
-- `ffmpeg`         (used in scaling the album art)  
-- `mpc`            (cli client for MPD and notifications)  
-- `mopidy-mpris`            (connecting to dubs)  
-- `playerctl`            (for images)  
-
-## Install
-Drop all the files in your `~/.config/ncmpcpp` directory and add copy  the ```ncmp``` file into your `~/.local/bin/` dir.
-
-
-Run it with `ncmp`.
-
-## Screenshot
-![image1](https://github.com/user-attachments/assets/3ba50d36-b5d5-4fa4-94cc-cebb1a9f6af2)
-
-![image](https://github.com/user-attachments/assets/b38a1247-646a-44d9-b9e8-7af601fb6095)
-
-![image](https://github.com/user-attachments/assets/297c8c97-3d01-431c-8935-a5557d9c40ad)
-
-![image](https://github.com/user-attachments/assets/df054a43-86a8-4996-93b9-1ef869dd416a)
-
-
-For Any Help or Suggestions you can open a pull request or
-
-Contact me on discord @tr1x_em
-
-Other Socials: https://trix.is-a.dev/
-
-
-_The Linux philosophy is 'Laugh in the face of danger'. Oops. Wrong One. 'Do it yourself'. Yes, that's it._
-
-_-Linus Torvalds_
+- Put the following in **$HOME/.ncmpcpp/**:
+  - [album_cover_poller.sh](album_cover_poller)
+  - [default_cover.jpg](default_cover.jpg)
+  - [track_change.sh](track_change.sh)
+  - [viz.conf](viz.conf)
+- Put [ncmpcpp.session](ncmpcpp.session) in **$HOME/.config/kitty/**.
+- Put [mpd-mpris.service](mpd-mpris.service) in **$HOME/.config/systemd/user/**.
+- Add ```execute_on_song_change =
+"~/.ncmpcpp/track_change.sh -m /path/to/your/music/dir"``` to your
+**$HOME/.ncmpcpp/config**. The **/path/to/your/music/dir** is the same as what
+is set in your MPD configuration for its library.
