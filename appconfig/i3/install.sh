@@ -108,7 +108,7 @@ while true; do
     sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
     systemctl --user --now enable autorandr_launcher.service
-    systemctl --user --now enable pipewire pipewire-pulse wireplumber
+    systemctl --user --now enable mpd-mpris pipewire pipewire-pulse wireplumber
     systemctl --user start xidlehook.service activitywatch.service battery_notification.{service,timer}
     sudo systemctl --global enable xidlehook.service activitywatch.service battery_notification.{service,timer}
     # journalctl --follow --identifier='autorandr-launcher-service'
@@ -212,7 +212,7 @@ while true; do
     sudo apt-get -y install lxappearance gtk-chtheme polybar
 
     # polybar
-    cp -fr $APP_PATH/polybar ~/.config/
+    cp -fr --preserve $APP_PATH/polybar ~/.config/
 
     # pulseaudio-control
     sudo sed -i -e 's/^\(load-module module-stream-restore\).*/\1 restore_device=false/g' \

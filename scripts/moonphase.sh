@@ -5,7 +5,7 @@ import math, decimal, datetime, shutil
 import pytz
 
 # lunar calculation: high precision
-decimal.getcontext().prec = 21
+decimal.getcontext().prec = 28
 dec = decimal.Decimal
 
 # Emoji for each phase
@@ -80,7 +80,7 @@ def main():
 
     # output
     print(color + phase_text.rjust(columns) + RESET)
-    print(f"[ full moon ]  {countdown}  |  {next_full_str}")
+    print(f"[ Full moon ]  {countdown}  |  {next_full_str}")
 
 if __name__ == "__main__":
     main()

@@ -27,8 +27,8 @@ playlist_display_mode = "columns"
 browser_display_mode  = "columns"
 colors_enabled 		  = "yes"
 
-#user_interface       = classic
-user_interface 		  = alternative
+user_interface       = classic
+# user_interface 		  = alternative
 volume_color 		  = "white"
 
 ### Window ###
@@ -40,7 +40,7 @@ titles_visibility 		 = "no"
 ### Progress bar ###
 progressbar_look 			= "▂▂▂"
 progressbar_color 			= "black"
-progressbar_elapsed_color   = "red"
+progressbar_elapsed_color   = 7
 
 ### Alternative UI ###
 alternative_ui_separator_color 		  = "black"
@@ -60,5 +60,5 @@ current_item_suffix                 = $(end)
 current_item_inactive_column_prefix = red
 current_item_inactive_column_suffix = red
 color1 = "white"
-execute_on_song_change = "~/.config/ncmpcpp/cover_obs.sh"
+execute_on_song_change = "~/.config/ncmpcpp/track_change.sh -m ~/Music"
 color2 = "red"
