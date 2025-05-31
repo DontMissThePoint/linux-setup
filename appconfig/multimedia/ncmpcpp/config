@@ -6,6 +6,7 @@ mpd_host 		  	= "127.0.0.1"
 mpd_port 		  	= "6600"
 mpd_crossfade_time 	= "2"
 mpd_connection_timeout = 60
+
 ### Behaviour ###
 message_delay_time 				 = 1
 autocenter_mode 				 = "yes"
@@ -13,6 +14,7 @@ centered_cursor 				 = "yes"
 ignore_leading_the 				 = "yes"
 playlist_disable_highlight_delay = 2
 allow_for_physical_item_deletion = "no"
+
 ### Visualizer ###
 visualizer_data_source = "localhost:5555"
 visualizer_output_name = "mpd_visualizer"
@@ -25,8 +27,8 @@ playlist_display_mode = "columns"
 browser_display_mode  = "columns"
 colors_enabled 		  = "yes"
 
-#user_interface       = classic
-user_interface 		  = alternative
+user_interface       = classic
+# user_interface 		  = alternative
 volume_color 		  = "white"
 
 ### Window ###
@@ -38,7 +40,7 @@ titles_visibility 		 = "no"
 ### Progress bar ###
 progressbar_look 			= "▂▂▂"
 progressbar_color 			= "black"
-progressbar_elapsed_color   = "red"
+progressbar_elapsed_color   = 7
 
 ### Alternative UI ###
 alternative_ui_separator_color 		  = "black"
@@ -58,5 +60,5 @@ current_item_suffix                 = $(end)
 current_item_inactive_column_prefix = red
 current_item_inactive_column_suffix = red
 color1 = "white"
-execute_on_song_change = "~/.config/ncmpcpp/cover_obs.sh"
+execute_on_song_change = "~/.config/ncmpcpp/track_change.sh -m ~/Music 2>/dev/null"
 color2 = "red"

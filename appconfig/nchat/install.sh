@@ -81,6 +81,10 @@ while true; do
     go install mvdan.cc/sh/v3/cmd/shfmt@latest
     sudo ln -sf ~/go/bin/shfmt /usr/local/go/bin/shfmt
 
+    # mpd-mpris
+    go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest
+    sudo ln -sf ~/go/bin/mpd-mpris /usr/local/go/bin/mpd-mpris
+
     # compile from sources
     cd /tmp
     [ -e purple-gowhatsapp ] && rm -rf purple-gowhatsapp

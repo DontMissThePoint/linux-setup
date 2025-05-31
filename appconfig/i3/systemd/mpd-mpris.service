@@ -1,0 +1,12 @@
+[Unit]
+Description=mpd-mpris: An implementation of the MPRIS protocol for MPD
+After=mpd.service
+
+[Service]
+ExecStart=%h/go/bin/mpd-mpris -no-instance
+Restart=on-failure
+Type=dbus
+BusName=org.mpris.MediaPlayer2.mpd
+
+[Install]
+WantedBy=default.target

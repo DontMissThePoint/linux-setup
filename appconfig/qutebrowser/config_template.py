@@ -1,6 +1,4 @@
-# theme
 from time import localtime, strftime
-
 import catppuccin
 
 # Reassign to avoid lsp(ruff_lsp) errors
@@ -26,6 +24,7 @@ terminal = "urxvt"
 editor = "nvim"
 homepage = "https://yandex.com"
 
+# theme
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
 catppuccin.setup(c, "latte")

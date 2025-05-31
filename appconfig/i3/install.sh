@@ -108,7 +108,7 @@ while true; do
     sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
     systemctl --user --now enable autorandr_launcher.service
-    systemctl --user --now enable pipewire pipewire-pulse wireplumber
+    systemctl --user --now enable mpd-mpris pipewire pipewire-pulse wireplumber
     systemctl --user start xidlehook.service activitywatch.service battery_notification.{service,timer}
     sudo systemctl --global enable xidlehook.service activitywatch.service battery_notification.{service,timer}
     # journalctl --follow --identifier='autorandr-launcher-service'
@@ -212,7 +212,7 @@ while true; do
     sudo apt-get -y install lxappearance gtk-chtheme polybar
 
     # polybar
-    cp -fr $APP_PATH/polybar ~/.config/
+    cp -fr --preserve $APP_PATH/polybar ~/.config/
 
     # pulseaudio-control
     sudo sed -i -e 's/^\(load-module module-stream-restore\).*/\1 restore_device=false/g' \
@@ -264,18 +264,18 @@ while true; do
     # config
     echo "Configuring..."
     mkdir -p ~/.config/{dunst,flashfocus,rofi,cava}
-    pv $APP_PATH/dunstrc >~/.config/dunst/dunstrc
-    pv $APP_PATH/flashfocus.yml >~/.config/flashfocus/flashfocus.yml
-    pv $APP_PATH/redshift.conf >~/.config/redshift.conf
-    pv $APP_PATH/cava/config >~/.config/cava/config
-    pv $APP_PATH/doti3/rofi/config.rasi >~/.config/rofi/config.rasi
-    pv $APP_PATH/doti3/rofi/color.rasi >~/.config/rofi/color.rasi
+    pv "$APP_PATH"/dunstrc >~/.config/dunst/dunstrc
+    pv "$APP_PATH"/flashfocus.yml >~/.config/flashfocus/flashfocus.yml
+    pv "$APP_PATH"/redshift.conf >~/.config/redshift.conf
+    pv "$APP_PATH"/cava/config >~/.config/cava/config
+    pv "$APP_PATH"/doti3/rofi/config.rasi >~/.config/rofi/config.rasi
+    pv "$APP_PATH"/doti3/rofi/color.rasi >~/.config/rofi/color.rasi
 
     # i3
-    pv $APP_PATH/doti3/config_git >~/.i3/config
-    pv $APP_PATH/doti3/i3blocks.conf_git >~/.i3/i3blocks.conf
-    pv $APP_PATH/i3blocks/wifi_git >$APP_PATH/i3blocks/wifi
-    pv $APP_PATH/i3blocks/battery_git >$APP_PATH/i3blocks/battery
+    pv "$APP_PATH"/doti3/config_git >~/.i3/config
+    pv "$APP_PATH"/doti3/i3blocks.conf_git >~/.i3/i3blocks.conf
+    pv "$APP_PATH"/i3blocks/wifi_git >"$APP_PATH"/i3blocks/wifi
+    pv "$APP_PATH"/i3blocks/battery_git >"$APP_PATH"/i3blocks/battery
 
     # Xorg
     pv $APP_PATH/dotxinitrc >~/.xinitrc

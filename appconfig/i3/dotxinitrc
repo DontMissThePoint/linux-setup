@@ -11,10 +11,13 @@ xset s off
 xset -dpms
 xset r off
 
-# Music
+# music
 mount -a &
 mpd &
 mopidy &
+
+# bluetooth
+bluetoothctl power off &
 
 # bell
 xset b off

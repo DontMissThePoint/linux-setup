@@ -16,13 +16,12 @@ ZATHURA_VERSION=0.3.6
 ZATHURA_PDF_POPPLER_VERSION=0.2.7
 
 # get the path to this script
-APP_PATH=`dirname "$0"`
-APP_PATH=`( cd "$APP_PATH" && pwd )`
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
 
 unattended=0
 subinstall_params=""
-for param in "$@"
-do
+for param in "$@"; do
   echo $param
   if [ $param="--unattended" ]; then
     echo "installing in unattended mode"
@@ -32,21 +31,19 @@ do
 done
 
 var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
+var2=$(lsb_release -r | awk '{ print $2 }')
 [ "$var2" = "$var1" ] && export BEAVER=1
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]
-  then
+  if [[ "$unattended" == "1" ]]; then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall Zathura? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall Zathura? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
   fi
-  response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+  response=$(echo $resp | sed -r 's/(.*)$/\1=/')
 
-  if [[ $response =~ ^(y|Y)=$ ]]
-  then
+  if [[ $response =~ ^(y|Y)=$ ]]; then
 
     toilet Installing zathura -t --filter metal -f smmono12
 
@@ -92,16 +89,16 @@ while true; do
 
     # visidata
     pip install --user --break-system-packages --upgrade visidata \
-      datapackage pypng pdfminer.six ptpython PyYAML lxml pandas xlrd \
-      openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
-      virtualenv tomli tabulate 2> /dev/null
+      datapackage pypng pdfminer.six ptpython pytz PyYAML lxml pandas \
+      xlrd openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
+      virtualenv tomli tabulate 2>/dev/null
 
     # pipx
     pipx install epy-reader
 
     mkdir -p ~/.visidata ~/.config/zathura
     cp -f $APP_PATH/dotvisidata/* ~/.visidata
-    pv "$APP_PATH/visidatarc" > ~/.visidatarc
+    pv "$APP_PATH/visidatarc" >~/.visidatarc
 
     # Calibre
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000
@@ -109,8 +106,7 @@ while true; do
     #sudo calibre-uninstall
 
     break
-  elif [[ $response =~ ^(n|N)=$ ]]
-  then
+  elif [[ $response =~ ^(n|N)=$ ]]; then
     break
   else
     echo " What? \"$resp\" is not a correct answer. Try y+Enter."
