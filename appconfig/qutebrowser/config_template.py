@@ -16,6 +16,10 @@ config.set(
 )
 c.backend = "webengine"
 
+### When to show a changelog after qutebrowser was upgraded.
+## Type: String "major", "minor", "patch"
+c.changelog_after_upgrade = "minor"
+
 # Variables
 leader = " "
 ss_dir = "~/Pictures/Screenshots/"
@@ -32,10 +36,20 @@ catppuccin.setup(c, "latte")
 # Dark mode
 c.colors.webpage.darkmode.enabled = False
 c.colors.webpage.preferred_color_scheme = "dark"
-c.colors.webpage.darkmode.policy.images = "always"
+c.colors.webpage.darkmode.policy.page = "smart"
+c.colors.webpage.darkmode.policy.images = "smart"
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"
 c.colors.webpage.darkmode.threshold.foreground = 50
 c.colors.webpage.darkmode.threshold.background = 105
+
+## Background color for webpages if unset (or empty to use the theme's
+## color).
+c.colors.webpage.bg = white
+
+## Contrast for dark mode. This only has an effect when
+## `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
+## `brightness-rgb`.
+c.colors.webpage.darkmode.contrast = 0.0
 
 # QT
 c.content.plugins = True
@@ -51,9 +65,6 @@ c.qt.args = [
     "enable-features=VaapiVideoDecoder,VaapiVideoEncoder",
 ]
 
-# upgrade
-c.changelog_after_upgrade = "minor"
-
 # colors
 accent = "#1688f0"
 blue = "#0f1d91"
@@ -65,74 +76,178 @@ yellow = "#f1c200"
 purple = "#390d91"
 
 c.colors.completion.category.bg = (
-    "qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #000000, stop:1 #111)"
+    "qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #888888, stop:1 #111)"
 )
 
+# completion
 c.colors.completion.category.border.bottom = accent
 c.colors.completion.category.border.top = accent
 c.colors.completion.category.fg = accent
-c.colors.completion.even.bg = black
-c.colors.completion.fg = white
+c.colors.completion.even.bg = '#333333'
+c.colors.completion.fg = ['white', 'white', 'white']
 c.colors.completion.item.selected.bg = accent
 c.colors.completion.item.selected.fg = black
-c.colors.completion.item.selected.match.fg = white
+c.colors.completion.item.selected.border.bottom = '#bbbb00'
+c.colors.completion.item.selected.border.top = '#bbbb00'
+c.colors.completion.item.selected.match.fg = '#ff4444'
 c.colors.completion.match.fg = accent
-c.colors.completion.odd.bg = black
+c.colors.completion.odd.bg = '#444444'
 c.colors.completion.scrollbar.fg = white
+c.colors.completion.scrollbar.bg = '#333333'
+
+# context-menu
 c.colors.contextmenu.selected.fg = white
 c.colors.contextmenu.selected.bg = accent
+
+# downloads
 c.colors.downloads.bar.bg = black
 c.colors.downloads.error.bg = red
 c.colors.downloads.start.fg = white
 c.colors.downloads.stop.fg = white
 c.colors.downloads.start.bg = green
 c.colors.downloads.stop.bg = green
+
+## Color gradient interpolation
+c.colors.downloads.system.bg = "rgb"
 c.colors.downloads.system.fg = "rgb"
+
+# hints
+c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
 c.colors.hints.bg = black
 c.colors.hints.fg = white
 c.colors.hints.match.fg = green
+c.colors.keyhint.suffix.fg = '#FFFF00'
+
+# error
 c.colors.messages.info.bg = black
+c.colors.messages.error.border = '#bb0000'
+c.colors.messages.error.fg = white
+c.colors.messages.info.fg = white
+c.colors.messages.warning.bg = 'darkorange'
+c.colors.messages.warning.border = '#d47300'
+c.colors.messages.warning.fg = black
+
+# prompts
+c.colors.prompts.bg = '#444444'
+c.colors.prompts.border = '1px solid gray'
+c.colors.prompts.fg = white
+
+c.colors.prompts.selected.bg = 'grey'
+c.colors.prompts.selected.fg = white
+
+# caret
+
+c.colors.statusbar.caret.bg = 'purple'
+c.colors.statusbar.caret.fg = white
+c.colors.statusbar.caret.selection.bg = '#a12dff'
+c.colors.statusbar.caret.selection.fg = white
+
+# statusbar
 c.colors.statusbar.command.bg = black
-c.colors.statusbar.insert.bg = black
+c.colors.statusbar.command.fg = white
+c.colors.statusbar.command.private.bg = 'darkslategray'
+c.colors.statusbar.command.private.fg = white
+c.colors.statusbar.command.private.bg = 'darkslategray'
+c.colors.statusbar.command.private.fg = white
+c.colors.statusbar.insert.bg = 'darkgreen'
 c.colors.statusbar.insert.fg = white
 c.colors.statusbar.normal.bg = black
+c.colors.statusbar.normal.fg = white
+c.colors.statusbar.private.bg = '#666666'
+c.colors.statusbar.private.fg = white
+c.colors.statusbar.progress.bg = white
 c.colors.statusbar.passthrough.bg = purple
-c.colors.statusbar.private.bg = yellow
+c.colors.statusbar.url.error.fg = 'orange'
 c.colors.statusbar.url.fg = accent
 c.colors.statusbar.url.warn.fg = yellow
-c.colors.tabs.bar.bg = black
-c.colors.tabs.even.bg = black
-c.colors.tabs.odd.bg = black
-c.colors.tabs.pinned.even.bg = blue
-c.colors.tabs.pinned.odd.bg = blue
+c.colors.statusbar.url.hover.fg = 'aqua'
+c.colors.statusbar.url.success.http.fg = white
+c.colors.statusbar.url.success.https.fg = 'lime'
+
+# tabs
+c.colors.tabs.bar.bg = '#555555'
+c.colors.tabs.even.bg = 'darkgrey'
+c.colors.tabs.even.fg = white
+c.colors.tabs.odd.bg = 'grey'
+c.colors.tabs.odd.fg = white
+c.colors.tabs.indicator.error = '#ff0000'
+c.colors.tabs.indicator.start = '#0000aa'
+c.colors.tabs.indicator.stop = '#00aa00'
+c.colors.tabs.indicator.system = 'rgb'
+c.colors.tabs.pinned.even.bg = 'darkseagreen'
+c.colors.tabs.pinned.even.fg = white
+c.colors.tabs.pinned.odd.bg = 'seagreen'
+c.colors.tabs.pinned.odd.fg = white
+c.colors.tabs.pinned.selected.even.bg = black
+c.colors.tabs.pinned.selected.even.fg = 'white'
 c.colors.tabs.pinned.selected.even.bg = accent
 c.colors.tabs.pinned.selected.odd.bg = accent
 c.colors.tabs.selected.even.bg = accent
 c.colors.tabs.selected.odd.bg = accent
 
-## Media
+# tooltip
+## Background color of tooltips. set to null, the Qt default is used.
+c.colors.tooltip.bg = None
+c.colors.tooltip.fg = None
+
+## media
 c.content.autoplay = False
 c.content.pdfjs = True
 c.qt.highdpi = True
+c.content.images = True
 c.content.media.audio_video_capture = False
 c.content.media.video_capture = False
+c.content.hyperlink_auditing = False
 
-# Privacy
-c.content.canvas_reading = True  # Breaks 9gag, wolt if False
-c.content.geolocation = False
-c.content.webrtc_ip_handling_policy = "default-public-interface-only"
-c.content.cookies.accept = "no-unknown-3rdparty"
-# c.content.headers.user_agent = "Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0"
-c.content.headers.accept_language = "en-US,en;q=0.5"
+# cookies
+c.content.cookies.accept = "all"
+c.content.cookies.store = True
+c.content.default_encoding = "iso-8859-1"
 
-# Adblock
-c.content.javascript.enabled = False
+# privacy
+c.content.canvas_reading = True
+c.content.geolocation = "ask"
+c.content.desktop_capture = "ask"
+c.content.dns_prefetch = True
+c.content.frame_flattening = False
+c.content.fullscreen.overlay_timeout = 3000
+c.content.fullscreen.window = False
+
+# headers
+c.content.headers.accept_language = "en-US,en;q=0.9"
+c.content.headers.custom = {}
+c.content.headers.do_not_track = True
+c.content.headers.referer = "same-domain"
+c.content.headers.user_agent = "Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}"
+
+# webrtc
+c.content.webrtc_ip_handling_policy = "all-interfaces"
+
+# ads
 c.content.blocking.adblock.lists = [
+    "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts",
+    "https://easylist.to/easylist/easylist.txt",
+    "https://easylist.to/easylist/easyprivacy.txt"
+]
+c.content.blocking.method = "auto"
+c.content.blocking.enabled = True
+c.content.blocking.hosts.block_subdomains = True
+
+c.content.blocking.hosts.lists = [
     "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
 ]
-c.content.blocking.method = "both"
+c.content.blocking.whitelist = []
+c.content.cache.appcache = True
+c.content.cache.maximum_pages = 0
+c.content.cache.size = None
+c.content.canvas_reading = True
 
-# js
+# javascript
+c.content.javascript.alert = True
+c.content.javascript.can_close_tabs = False
+c.content.javascript.can_open_tabs_automatically = False
+c.content.javascript.clipboard = "ask"
+c.content.javascript.enabled = False
 try:
     with (config.configdir / "js.sites").open() as js_file:
         js_sites = js_file.read().split("\n")
@@ -144,19 +259,38 @@ try:
 except FileNotFoundError:
     print("js.sites not found")
 
+c.content.javascript.legacy_touch_events = "never"
+c.content.javascript.log = {'unknown': 'debug', 'info': 'debug',
+                            'warning': 'debug', 'error': 'debug'}
+c.content.javascript.log_message.excludes = {'userscript:_qute_stylesheet': [
+    '*Refused to apply inline style because it violates the following Content Security Policy directive: *'
+]}
+c.content.javascript.log_message.levels = {'qute:*': ['error'], 'userscript:GM-*': [], 'userscript:*': ['error']}
+c.content.javascript.modal_dialog = False
+c.content.javascript.prompt = True
+
 # General
 c.editor.command = [terminal, "-e", editor, "{}"]
 c.auto_save.interval = 15000
 c.auto_save.session = False
 
 # completion
-c.completion.shrink = True
-c.completion.scrollbar.width = 0
-c.completion.scrollbar.padding = 0
+c.completion.shrink = False
+c.completion.scrollbar.padding = 2
+c.completion.scrollbar.width = 12
+c.completion.show = "always"
 c.completion.height = "33%"
 c.completion.delay = 0
 c.completion.quick = True
 c.completion.cmd_history_max_items = 100
+c.completion.min_chars = 1
+c.completion.favorite_paths = []
+c.completion.open_categories = ['searchengines', 'quickmarks',
+                                'bookmarks', 'history', 'filesystem']
+c.completion.timestamp_format = '%Y-%m-%d %H:%M'
+c.completion.use_best_match = False
+c.completion.web_history.exclude = []
+c.completion.web_history.max_items = -1
 
 c.messages.timeout = 5000
 c.content.geolocation = "ask"

@@ -50,7 +50,7 @@ while true; do
     sudo ufw allow 22000/tcp
 
     #access the web UI
-    # 127.0.0.1:8384/
+    # localhost:8384/
     mkdir -p ~/Journal ~/Documents/Scorecard ~/Pictures/Android Camera
 
     # Obsidian

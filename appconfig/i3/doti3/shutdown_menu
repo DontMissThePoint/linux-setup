@@ -119,7 +119,7 @@ menu=(
   [󰒲  Hibernate]="systemctl hibernate"
   [󰔢  Suspend]="systemctl suspend"
   [  Halt]="systemctl halt"
-  [  Lock]="${LOCKSCRIPT:-betterlockscreen -q -l pixel & xset dpms force off}"
+  [  Lock]="${LOCKSCRIPT:-xset dpms force off & betterlockscreen -q -l pixel}"
   [  Logout]="i3-msg exit"
   [󰜺  Cancel]=""
 )

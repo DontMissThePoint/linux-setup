@@ -87,7 +87,7 @@ while true; do
 
     # modules
     pip install --break-system-packages -U llama-cloud-services \
-      dotenv flake8 flake8-print 2>/dev/null
+      dotenv flake8 flake8-print halo 2>/dev/null
 
     npm config set strict-ssl=false
     npm install --loglevel=error -g @mozilla/readability tree-sitter-cli \

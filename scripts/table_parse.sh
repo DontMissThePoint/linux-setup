@@ -56,6 +56,11 @@ async def main():
 
   documents = []
 
+  from halo import Halo
+
+  spinner = Halo(text=" ", spinner="dots", color="magenta")
+  spinner.start()
+
   for file_path in files:
     extra_info = {"file_name": file_path}
     with open(file_path, "rb") as f:
@@ -68,19 +73,7 @@ async def main():
     for doc in documents:
       f.write(doc.text)
 
-  # result = await parser.aparse(files)
-  # documents = result.get_text_documents(split_by_page=True)
-  # print(documents[0].get_content()[10:1000])
-
-  # agentic_json_output = await parser.get_json_result(files)[0]
-  # for page in agentic_json_output["pages"]:
-  #       print(f"Page {page['page']}: {page['items']}")
-
-  # md_json_objs = await parser.get_json_result(files)
-  # print(md_json_objs)
-  # md_json_list = md_json_objs[0]["pages"]
-  # for i, page in enumerate(md_json_list):
-  #     print(f"Page {i}:", page.get("md", "No 'md' key"))
+  spinner.stop()
 
 # Run the async function
 asyncio.run(main())
@@ -91,7 +84,14 @@ EOF
 # csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
 # jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
 
-# save all tables
+# MD_OBJS async
+# md_json_objs = await parser.get_json_result(files)
+# print(md_json_objs)
+# md_json_list = md_json_objs[0]["pages"]
+# for i, page in enumerate(md_json_list):
+#     print(f"Page {i}:", page.get("md", "No 'md' key"))
+
+# MD
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 echo "${GREEN} ░ Extracting..${NC}"
