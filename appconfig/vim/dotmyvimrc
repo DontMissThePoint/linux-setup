@@ -122,6 +122,7 @@ let g:ledger_date_format = '%Y/%m/%d'
 
 " Fullscreen for datasets
 " autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+autocmd FileType tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
 " cursors
 let g:togglecursor_force = 'xterm'

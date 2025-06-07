@@ -14,6 +14,7 @@ OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
 # LLAMA_CLOUD
 /usr/bin/python3 - <<EOF
 import os
+import time
 import json
 import asyncio
 
@@ -73,6 +74,7 @@ async def main():
     for doc in documents:
       f.write(doc.text)
 
+  time.sleep(1)
   spinner.stop()
 
 # Run the async function
@@ -92,11 +94,7 @@ EOF
 #     print(f"Page {i}:", page.get("md", "No 'md' key"))
 
 # MD
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
-echo "${GREEN} ░ Extracting..${NC}"
 sed -n '/^|/p' "$MD_FILE" >tables.md
-
 # Remove separator rows (---...)
 sed -i '/^|[-| ]*|$/d; /^| *\(Date\|Time\) *|/d' tables.md
 
@@ -112,20 +110,23 @@ with open("tables.md", "r") as file:
 
 table = []
 
-for line in lines:
-    if re.match(r'^\|.*\|$', line):  # Identify table rows
-      columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
-      if columns:
-        table.append(columns)
+from halo import Halo
 
-# DataFrame
-df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
+with Halo(text="Extracting tables", text_color="green", spinner="dots") as spinner:
+   for line in lines:
+       if re.match(r'^\|.*\|$', line):  # Identify table rows
+         columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
+         if columns:
+           table.append(columns)
 
-# Spreadsheet
-df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
-table_workbook = os.path.basename("$OUTPUT_XLSX")
+   # DataFrame
+   df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
+
+   # Spreadsheet
+   df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
+   table_workbook = os.path.basename("$OUTPUT_XLSX")
+   spinner.succeed("Saved workbook")
 EOF
 
 # Archive
 mv tables.md "$DIR"/../../WinAutomation/
-echo "${GREEN} ✔ ${NC}Saved workbook"

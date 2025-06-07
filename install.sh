@@ -154,8 +154,8 @@ fi
 # 27. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
 
-# 28. Install YT-DLP
-! "$docker" && bash "$APPCONFIG_PATH"/yt-dlp/install.sh "$subinstall_params"
+# 28. Install YT-X
+! "$docker" && bash "$APPCONFIG_PATH"/yt-x/install.sh "$subinstall_params"
 
 # 29. Install LOBSTER
 ! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"

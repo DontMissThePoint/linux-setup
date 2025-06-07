@@ -24,8 +24,8 @@ c.changelog_after_upgrade = "minor"
 leader = " "
 ss_dir = "~/Pictures/Screenshots/"
 timestamp = strftime("%Y-%m-%d-%H-%M-%S", localtime())
-terminal = "urxvt"
-editor = "nvim"
+terminal = "/usr/bin/urxvtc"
+editor = "/usr/bin/nvim"
 homepage = "https://yandex.com"
 
 # theme
@@ -44,7 +44,7 @@ c.colors.webpage.darkmode.threshold.background = 105
 
 ## Background color for webpages if unset (or empty to use the theme's
 ## color).
-c.colors.webpage.bg = white
+c.colors.webpage.bg = 'white'
 
 ## Contrast for dark mode. This only has an effect when
 ## `colors.webpage.darkmode.algorithm` is set to `lightness-hsl` or
@@ -84,7 +84,7 @@ c.colors.completion.category.border.bottom = accent
 c.colors.completion.category.border.top = accent
 c.colors.completion.category.fg = accent
 c.colors.completion.even.bg = '#333333'
-c.colors.completion.fg = ['white', 'white', 'white']
+c.colors.completion.fg = [white, 'white', 'white']
 c.colors.completion.item.selected.bg = accent
 c.colors.completion.item.selected.fg = black
 c.colors.completion.item.selected.border.bottom = '#bbbb00'
@@ -92,18 +92,18 @@ c.colors.completion.item.selected.border.top = '#bbbb00'
 c.colors.completion.item.selected.match.fg = '#ff4444'
 c.colors.completion.match.fg = accent
 c.colors.completion.odd.bg = '#444444'
-c.colors.completion.scrollbar.fg = white
+c.colors.completion.scrollbar.fg = 'white'
 c.colors.completion.scrollbar.bg = '#333333'
 
 # context-menu
-c.colors.contextmenu.selected.fg = white
+c.colors.contextmenu.selected.fg = 'white'
 c.colors.contextmenu.selected.bg = accent
 
 # downloads
 c.colors.downloads.bar.bg = black
 c.colors.downloads.error.bg = red
-c.colors.downloads.start.fg = white
-c.colors.downloads.stop.fg = white
+c.colors.downloads.start.fg = 'white'
+c.colors.downloads.stop.fg = 'white'
 c.colors.downloads.start.bg = green
 c.colors.downloads.stop.bg = green
 
@@ -114,15 +114,15 @@ c.colors.downloads.system.fg = "rgb"
 # hints
 c.colors.hints.bg = 'qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))'
 c.colors.hints.bg = black
-c.colors.hints.fg = white
+c.colors.hints.fg = 'white'
 c.colors.hints.match.fg = green
-c.colors.keyhint.suffix.fg = '#FFFF00'
+c.colors.keyhint.suffix.fg = "darkslategray"
 
 # error
 c.colors.messages.info.bg = black
 c.colors.messages.error.border = '#bb0000'
-c.colors.messages.error.fg = white
-c.colors.messages.info.fg = white
+c.colors.messages.error.fg = 'white'
+c.colors.messages.info.fg = 'white'
 c.colors.messages.warning.bg = 'darkorange'
 c.colors.messages.warning.border = '#d47300'
 c.colors.messages.warning.fg = black
@@ -130,54 +130,54 @@ c.colors.messages.warning.fg = black
 # prompts
 c.colors.prompts.bg = '#444444'
 c.colors.prompts.border = '1px solid gray'
-c.colors.prompts.fg = white
+c.colors.prompts.fg = 'white'
 
 c.colors.prompts.selected.bg = 'grey'
-c.colors.prompts.selected.fg = white
+c.colors.prompts.selected.fg = 'white'
 
 # caret
 
 c.colors.statusbar.caret.bg = 'purple'
-c.colors.statusbar.caret.fg = white
+c.colors.statusbar.caret.fg = 'white'
 c.colors.statusbar.caret.selection.bg = '#a12dff'
-c.colors.statusbar.caret.selection.fg = white
+c.colors.statusbar.caret.selection.fg = 'white'
 
 # statusbar
 c.colors.statusbar.command.bg = black
-c.colors.statusbar.command.fg = white
+c.colors.statusbar.command.fg = 'white'
 c.colors.statusbar.command.private.bg = 'darkslategray'
-c.colors.statusbar.command.private.fg = white
+c.colors.statusbar.command.private.fg = 'white'
 c.colors.statusbar.command.private.bg = 'darkslategray'
-c.colors.statusbar.command.private.fg = white
+c.colors.statusbar.command.private.fg = 'white'
 c.colors.statusbar.insert.bg = 'darkgreen'
-c.colors.statusbar.insert.fg = white
+c.colors.statusbar.insert.fg = 'white'
 c.colors.statusbar.normal.bg = black
-c.colors.statusbar.normal.fg = white
+c.colors.statusbar.normal.fg = 'white'
 c.colors.statusbar.private.bg = '#666666'
-c.colors.statusbar.private.fg = white
-c.colors.statusbar.progress.bg = white
+c.colors.statusbar.private.fg = 'white'
+c.colors.statusbar.progress.bg = 'white'
 c.colors.statusbar.passthrough.bg = purple
 c.colors.statusbar.url.error.fg = 'orange'
 c.colors.statusbar.url.fg = accent
 c.colors.statusbar.url.warn.fg = yellow
 c.colors.statusbar.url.hover.fg = 'aqua'
-c.colors.statusbar.url.success.http.fg = white
+c.colors.statusbar.url.success.http.fg = 'white'
 c.colors.statusbar.url.success.https.fg = 'lime'
 
 # tabs
 c.colors.tabs.bar.bg = '#555555'
 c.colors.tabs.even.bg = 'darkgrey'
-c.colors.tabs.even.fg = white
+c.colors.tabs.even.fg = 'white'
 c.colors.tabs.odd.bg = 'grey'
-c.colors.tabs.odd.fg = white
+c.colors.tabs.odd.fg = 'white'
 c.colors.tabs.indicator.error = '#ff0000'
 c.colors.tabs.indicator.start = '#0000aa'
 c.colors.tabs.indicator.stop = '#00aa00'
 c.colors.tabs.indicator.system = 'rgb'
 c.colors.tabs.pinned.even.bg = 'darkseagreen'
-c.colors.tabs.pinned.even.fg = white
+c.colors.tabs.pinned.even.fg = 'white'
 c.colors.tabs.pinned.odd.bg = 'seagreen'
-c.colors.tabs.pinned.odd.fg = white
+c.colors.tabs.pinned.odd.fg = 'white'
 c.colors.tabs.pinned.selected.even.bg = black
 c.colors.tabs.pinned.selected.even.fg = 'white'
 c.colors.tabs.pinned.selected.even.bg = accent
@@ -195,9 +195,31 @@ c.content.autoplay = False
 c.content.pdfjs = True
 c.qt.highdpi = True
 c.content.images = True
-c.content.media.audio_video_capture = False
-c.content.media.video_capture = False
+c.content.media.audio_capture = "ask"
+c.content.media.audio_video_capture = "ask"
+c.content.media.video_capture = "ask"
 c.content.hyperlink_auditing = False
+c.content.mouse_lock = "ask"
+c.content.mute = False
+c.content.netrc_file = None
+c.content.persistent_storage = 'ask'
+c.content.plugins = False
+c.content.prefers_reduced_motion = False
+c.content.print_element_backgrounds = True
+c.content.private_browsing = False
+
+# proxy
+c.content.proxy = 'system'
+c.content.register_protocol_handler = 'ask'
+c.content.site_specific_quirks.enabled = True
+c.content.site_specific_quirks.skip = []
+c.content.tls.certificate_errors = 'ask'
+c.content.unknown_url_scheme_policy = 'allow-from-user-interaction'
+c.content.user_stylesheets = []
+
+# notifications
+c.content.notifications.enabled = "ask"
+c.content.notifications.show_origin = True
 
 # cookies
 c.content.cookies.accept = "all"
@@ -208,8 +230,6 @@ c.content.default_encoding = "iso-8859-1"
 c.content.canvas_reading = True
 c.content.geolocation = "ask"
 c.content.desktop_capture = "ask"
-c.content.dns_prefetch = True
-c.content.frame_flattening = False
 c.content.fullscreen.overlay_timeout = 3000
 c.content.fullscreen.window = False
 
@@ -220,7 +240,9 @@ c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
 c.content.headers.user_agent = "Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}"
 
-# webrtc
+# webgl
+c.content.webgl = True
+c.content.xss_auditing = False
 c.content.webrtc_ip_handling_policy = "all-interfaces"
 
 # ads
@@ -237,14 +259,11 @@ c.content.blocking.hosts.lists = [
     "https://raw.githubusercontent.com/StevenBlack/hosts/master/hosts"
 ]
 c.content.blocking.whitelist = []
-c.content.cache.appcache = True
-c.content.cache.maximum_pages = 0
 c.content.cache.size = None
 c.content.canvas_reading = True
 
 # javascript
 c.content.javascript.alert = True
-c.content.javascript.can_close_tabs = False
 c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.clipboard = "ask"
 c.content.javascript.enabled = False
@@ -279,7 +298,7 @@ c.completion.shrink = False
 c.completion.scrollbar.padding = 2
 c.completion.scrollbar.width = 12
 c.completion.show = "always"
-c.completion.height = "33%"
+c.completion.height = "56%"
 c.completion.delay = 0
 c.completion.quick = True
 c.completion.cmd_history_max_items = 100
@@ -292,10 +311,9 @@ c.completion.use_best_match = False
 c.completion.web_history.exclude = []
 c.completion.web_history.max_items = -1
 
-c.messages.timeout = 5000
 c.content.geolocation = "ask"
 c.qt.force_platform = "xcb"
-c.zoom.default = "82%"
+c.zoom.default = "88%"
 c.window.hide_decoration = True
 c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
@@ -339,14 +357,46 @@ c.bindings.commands["insert"] = {
     "jj": "mode-leave",
 }
 
-## Hints
-c.hints.auto_follow = "always"
-c.hints.auto_follow_timeout = 400
-c.hints.mode = "letter"
-c.hints.chars = "asdhfeiotr"
-c.hints.border = "0px"
+# history
+c.history_gap_interval = 30
+c.input.escape_quits_reporter = True
+c.input.forward_unbound_keys = 'auto'
+
+# input
+c.input.insert_mode.auto_leave = True
+c.input.insert_mode.auto_load = False
+c.input.insert_mode.leave_on_load = True
+c.input.insert_mode.plugins = False
+c.input.links_included_in_focus_chain = True
+c.input.match_counts = True
+c.input.media_keys = True
+c.input.mode_override = None
+c.input.mouse.back_forward_buttons = True
+c.input.mouse.rocker_gestures = False
+c.input.partial_timeout = 0
+c.input.spatial_navigation = False
+c.keyhint.blacklist = []
+c.keyhint.delay = 500
+c.keyhint.radius = 6
+
+# logging
+c.logging.level.ram = 'debug'
+
+# messages
+c.messages.timeout = 3000
 
 # hints
+c.hints.auto_follow = "unique-match"
+c.hints.auto_follow_timeout = 0
+c.hints.border = '1px solid #E3BE23'
+c.hints.mode = "letter"
+c.hints.chars = "asdhfeiotr"
+c.hints.min_chars = 1
+c.hints.dictionary = '/usr/share/dict/words'
+c.hints.find_implementation = 'python'
+c.hints.hide_unmatched_rapid_hints = True
+c.hints.leave_on_load = False
+
 config.bind("f", "hint")
 config.bind("td", "hint links download")
 config.bind("tf", "hint --rapid links tab-bg")
@@ -380,14 +430,26 @@ c.tabs.last_close = "close"
 c.tabs.padding = {"bottom": 3, "left": 5, "right": 5, "top": 2}
 c.tabs.indicator.width = 0
 
-c.new_instance_open_target = "tab-silent"
+c.new_instance_open_target = "tab"
 c.new_instance_open_target_window = "last-focused"
-c.content.dns_prefetch = False
+
+# prompt
+c.prompt.filebrowser = True
+c.prompt.radius = 8
 
 # userscripts
 config.bind("gr", "spawn --userscript ~/.config/qutebrowser/userscripts/readability-js")
 config.bind("sd", "spawn --userscript ~/.config/qutebrowser/userscripts/open_download")
 config.bind("ps", "spawn --userscript ~/.config/qutebrowser/userscripts/password_fill")
+
+# editor
+c.editor.command = ['nvim', '-f', '{file}', '-c', 'normal {line}G{column0}l']
+c.editor.encoding = 'utf-8'
+c.editor.remove_file = True
+c.fileselect.folder.command = ['urxvtc', '-e', 'ranger', '--choosedir={}']
+c.fileselect.handler = 'default'
+c.fileselect.multiple_files.command = ['urxvtc', '-e', 'ranger', '--choosefiles={}']
+c.fileselect.multiple_files.command = ['urxvtc', '-e', 'ranger', '--choosefiles={}']
 
 ## start page(s) and default page blank
 c.url.start_pages = ["about:blank"]
@@ -398,6 +460,8 @@ c.downloads.location.directory = "~/Downloads"
 c.downloads.location.suggestion = "both"
 c.downloads.remove_finished = 50000
 c.downloads.position = "bottom"
+c.downloads.prevent_mixed_content = True
+c.downloads.remove_finished = -1
 c.confirm_quit = ["downloads"]
 
 ## save web pages in MHTML format
@@ -449,10 +513,10 @@ c.url.searchengines = {
 }
 
 # font
-font_size = "14px"
+font_size = "13px"
 font_family = "Hurmit Nerd Font Mono"
 font = font_size + " " + font_family
-small_font = "13px" + " " + font_family
+small_font = "12px" + " " + font_family
 
 c.fonts.default_size = font_size
 c.fonts.default_family = font_family

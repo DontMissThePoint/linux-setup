@@ -48,11 +48,7 @@ while true; do
     # lobster
     curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o "$(brew --prefix)"/bin/lobster &&
       chmod +x "$(brew --prefix)"/bin/lobster
-    touch $HOME/.local/share/lobster/lobster_history.txt
-
-    # yt-x
-    toilet Settingup yt-x -t -f future
-    curl -sL "https://raw.githubusercontent.com/Benexl/yt-x/refs/heads/master/yt-x" -o ~/.local/bin/yt-x && chmod +x ~/.local/bin/yt-x
+    touch "$HOME/.local/share/lobster/lobster_history.txt"
 
     # libg-fzf
     echo "Adding Library Genesis.."
@@ -60,8 +56,7 @@ while true; do
       sudo chmod +x /usr/local/bin/libg
 
     # config
-    echo "Configuring..."
-    mkdir -p ~/.config/lobster ~/.config/libg
+    mkdir -p ~/.config/{lobster,libg}
     pv "$APP_PATH/lobster_config.txt" >~/.config/lobster/lobster_config.txt
     pv "$APP_PATH/libg.sh" >~/.config/libg/libg.sh
 

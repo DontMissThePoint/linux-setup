@@ -91,8 +91,7 @@ while true; do
 
     npm config set strict-ssl=false
     npm install --loglevel=error -g @mozilla/readability tree-sitter-cli \
-      write-good cspell bash-language-server htmx-lsp emmet-ls pyright \
-      jsonrepair jsdom tailwindcss-language-server qutejs punycode
+      jsonrepair
 
     # .env
     GREEN='\033[0;32m'

@@ -17,10 +17,15 @@ allow_for_physical_item_deletion = "no"
 
 ### Visualizer ###
 visualizer_data_source = "localhost:5555"
-visualizer_output_name = "mpd_visualizer"
+visualizer_output_name = "mopidy_visualizer"
 visualizer_in_stereo   = "yes"
 visualizer_look 	   = ●●
 visualizer_type 	   = "spectrum"
+
+### Lyrics ###
+lyrics_database  = 1
+follow_now_playing_lyrics = yes
+lyrics_fetchers = genius, azlyrics, justsomelyrics, jahlyrics, tekstowo
 
 ### Appearance ###
 playlist_display_mode = "columns"

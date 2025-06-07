@@ -61,18 +61,20 @@ while true; do
     sudo make install
 
     # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav libxpresent1
+    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity
 
     # for video, photo, audio, ..., viewing and editing
     sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
 
-    # music
     toilet Settingup ncmpcpp -t -f future
 
-    # mpd
+    # ncmpcpp
     sudo apt-get install -y mpd mpc ncmpcpp timg libnotify-bin inotify-tools screenkey pavucontrol
     sudo systemctl disable mpd.service mpd.socket
+    mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
+    cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
 
+    # mpd
     mkdir -p ~/.mpd
     pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
 
@@ -82,15 +84,21 @@ while true; do
     sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
       /etc/pulse/default.pa
 
-    mkdir -p ~/.config/mopidy ~/.config/mopidy/podcast
+    # ext
+    sudo -H pip3 install --break-system-packages pylast 2>/dev/null
+    /usr/bin/python3 -m pip install --break-system-packages -U yt-dlp gallery-dl \
+      Mopidy-Youtube Mopidy-Bookmarks Mopidy-Mowecl 2>/dev/null
+
+    mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/{mopidy,podcast}
+    pv "$APP_PATH/mopidy.conf" >~/.config/mopidy/mopidy.conf
     pv "$APP_PATH/Podcasts.opml" >~/.config/mopidy/podcast/Podcasts.opml
+    pv "$APP_PATH/yt-dlp.conf" >~/.config/yt-dlp/yt-dlp.conf
+    pv "$APP_PATH/config.json" >~/.config/gallery-dl/config.json
 
-    # ncmpcpp
-    mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
-    cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
-
-    #access the web UI
-    # 127.0.0.1:6680/
+    # web; http://127.0.0.1:6680/
+    echo "Scanning database..."
+    mopidy local scan
+    mopidy deps
 
     # mpv
     toilet Settingup mpv -t -f future
