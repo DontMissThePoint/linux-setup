@@ -13,7 +13,8 @@ xset r off
 
 # multimedia
 mount -a &
-mopidy &
+mpd &
+/usr/bin/mopidy &
 
 # bluetooth
 bluetoothctl power off &

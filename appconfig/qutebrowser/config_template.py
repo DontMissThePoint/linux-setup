@@ -393,7 +393,6 @@ c.hints.mode = "letter"
 c.hints.chars = "asdhfeiotr"
 c.hints.min_chars = 1
 c.hints.dictionary = '/usr/share/dict/words'
-c.hints.find_implementation = 'python'
 c.hints.hide_unmatched_rapid_hints = True
 c.hints.leave_on_load = False
 
@@ -479,14 +478,6 @@ config.bind("ys", "yank selection")
 config.bind(",P", "open -b -- {primary}")
 config.bind(",p", "open -b -- {clipboard}")
 
-# qrcode for website
-config.bind(",q", "spawn --userscript ~/.scripts/qrcode_url.sh")
-
-# gallery-dl
-config.bind(
-    ",i", "hint images spawn -dv mvi {hint-url} --input-ipc-server=/tmp/mpvsocket"
-)
-
 # mpv
 config.bind("ya", "hint links spawn -dv ~/.scripts/fillplaylist.sh push {hint-url}")
 config.bind("yp", "spawn -dv ~/.scripts/fillplaylist.sh play")
@@ -555,6 +546,8 @@ config.bind(leader + "fp", "hint links run :open -p {hint-url}")
 config.bind(leader + "fv", "hint links spawn mpv {hint-url}")
 config.bind(leader + "fy", "hint links yank")
 
+config.bind(leader + "qc", "spawn --userscript ~/.scripts/qrcode_url.sh")
+config.bind(leader + "qi", "hint images spawn -dv mvi {hint-url} --input-ipc-server=/tmp/mpvsocket")
 config.bind(leader + "qd", "tab-close")
 config.bind(leader + "qq", "close")
 config.bind(leader + "qr", "restart")

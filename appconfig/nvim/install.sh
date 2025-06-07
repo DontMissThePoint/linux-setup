@@ -49,7 +49,7 @@ while true; do
     cd build && cpack -G DEB && sudo dpkg -i /tmp/nvim/neovim/build/nvim-linux-x86_64.deb
 
     # nvim
-    sudo -H pip3 install --break-system-packages wheel neovim neovim-remote 2>/dev/null
+    /usr/bin/python3 -m pip install --break-system-packages --ignore-installed wheel neovim neovim-remote
     rm -rf "$DATA" "$CONFIG"
 
     echo "Configuring lsp..."
@@ -57,9 +57,6 @@ while true; do
     rustup update
     cargo install cargo-update cargo-cache shellharden
     # rustup self uninstall
-
-    # LSP
-    pipx install beautysh isort proselint codespell
 
     # Nvchad
     git clone https://github.com/NvChad/starter "$CONFIG"

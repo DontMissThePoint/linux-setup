@@ -156,7 +156,7 @@ while true; do
     sudo apt remove -y i3* || echo "Installing i3..."
 
     # compile i3
-    sudo pip3 install --break-system-packages meson 2>/dev/null
+    /usr/bin/python3 -m pip install --break-system-packages meson
     # cd $APP_PATH/../../submodules/i3/
     sudo apt install -y i3status ninja-build
 
@@ -221,7 +221,7 @@ while true; do
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
-    pip install --break-system-packages flashfocus -U 2>/dev/null
+    pip install --break-system-packages flashfocus -U
 
     # xbanish
     cd /tmp

@@ -68,15 +68,15 @@ while true; do
 
     toilet Settingup ncmpcpp -t -f future
 
-    # ncmpcpp
-    sudo apt-get install -y mpd mpc ncmpcpp timg libnotify-bin inotify-tools screenkey pavucontrol
-    sudo systemctl disable mpd.service mpd.socket
-    mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
-    cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
-
     # mpd
     mkdir -p ~/.mpd
     pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
+
+    # ncmpcpp
+    sudo apt-get install -y mpd mpc ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
+    sudo systemctl disable mpd.service mpd.socket
+    mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
+    cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
 
     # mopidy
     sudo apt-get install -y mopidy mopidy-mpd mopidy-mpris mopidy-doc mopidy-podcast mopidy-local
@@ -84,10 +84,9 @@ while true; do
     sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
       /etc/pulse/default.pa
 
-    # ext
-    sudo -H pip3 install --break-system-packages pylast 2>/dev/null
-    /usr/bin/python3 -m pip install --break-system-packages -U yt-dlp gallery-dl \
-      Mopidy-Youtube Mopidy-Bookmarks Mopidy-Mowecl 2>/dev/null
+    # yt-dlp
+    /usr/bin/python3 -m pip install --break-system-packages -U pylast yt-dlp gallery-dl \
+      Mopidy-Youtube Mopidy-Bookmarks Mopidy-Mowecl mopidytermart
 
     mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/{mopidy,podcast}
     pv "$APP_PATH/mopidy.conf" >~/.config/mopidy/mopidy.conf
@@ -142,7 +141,7 @@ while true; do
     git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
 
     # autosubsync
-    sudo pip install -U --break-system-packages subliminal ffsubsync 2>/dev/null
+    /usr/bin/python3 -m pip install --break-system-packages -U subliminal ffsubsync
     git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
 
     # audio
