@@ -43,7 +43,20 @@ while true; do
     fi
 
     # required for i3-layout-manager
-    sudo apt-get -y install jq xdotool x11-xserver-utils indent libanyevent-i3-perl
+    sudo apt-get -y install xdotool x11-xserver-utils indent libanyevent-i3-perl
+
+    # jq
+    cd /tmp
+    [ -e jq ] && rm -rf jq
+    git clone https://github.com/jqlang/jq
+    cd jq
+    git submodule update --init # if building from git to get oniguruma
+    autoreconf -i               # if building from git
+    ./configure --with-oniguruma=builtin
+    make clean # if upgrading from a version previously built from source
+    make -j8
+    make check
+    sudo make install
 
     if [ "$unattended" == "0" ] && [ -z $TRAVIS ]; then # if running interactively
 
@@ -156,7 +169,7 @@ while true; do
     sudo apt remove -y i3* || echo "Installing i3..."
 
     # compile i3
-    sudo pip3 install --break-system-packages meson 2>/dev/null
+    /usr/bin/python3 -m pip install --break-system-packages meson
     # cd $APP_PATH/../../submodules/i3/
     sudo apt install -y i3status ninja-build
 
@@ -206,7 +219,8 @@ while true; do
     sudo make install
 
     # snd_aloop
-    sudo cp -f $APP_PATH/cava/cava.conf /etc/modules-load.d/
+    echo "snd_aloop" |
+      sudo tee /etc/modules-load.d/cava.conf >/dev/null
 
     # for making gtk look better
     sudo apt-get -y install lxappearance gtk-chtheme polybar
@@ -221,7 +235,7 @@ while true; do
 
     # flashfocus
     sudo apt-get -y install libxcb-render0-dev libffi-dev python3-dev python3-cffi
-    pip install --break-system-packages flashfocus -U 2>/dev/null
+    pip install --break-system-packages flashfocus -U
 
     # xbanish
     cd /tmp

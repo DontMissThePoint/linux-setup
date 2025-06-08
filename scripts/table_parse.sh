@@ -14,6 +14,7 @@ OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
 # LLAMA_CLOUD
 /usr/bin/python3 - <<EOF
 import os
+import time
 import json
 import asyncio
 
@@ -56,6 +57,11 @@ async def main():
 
   documents = []
 
+  from halo import Halo
+
+  spinner = Halo(text=" ", spinner="dots", color="magenta")
+  spinner.start()
+
   for file_path in files:
     extra_info = {"file_name": file_path}
     with open(file_path, "rb") as f:
@@ -68,19 +74,8 @@ async def main():
     for doc in documents:
       f.write(doc.text)
 
-  # result = await parser.aparse(files)
-  # documents = result.get_text_documents(split_by_page=True)
-  # print(documents[0].get_content()[10:1000])
-
-  # agentic_json_output = await parser.get_json_result(files)[0]
-  # for page in agentic_json_output["pages"]:
-  #       print(f"Page {page['page']}: {page['items']}")
-
-  # md_json_objs = await parser.get_json_result(files)
-  # print(md_json_objs)
-  # md_json_list = md_json_objs[0]["pages"]
-  # for i, page in enumerate(md_json_list):
-  #     print(f"Page {i}:", page.get("md", "No 'md' key"))
+  time.sleep(1)
+  spinner.stop()
 
 # Run the async function
 asyncio.run(main())
@@ -91,12 +86,15 @@ EOF
 # csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
 # jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
 
-# save all tables
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
-echo "${GREEN} ░ Extracting..${NC}"
-sed -n '/^|/p' "$MD_FILE" >tables.md
+# MD_OBJS async
+# md_json_objs = await parser.get_json_result(files)
+# print(md_json_objs)
+# md_json_list = md_json_objs[0]["pages"]
+# for i, page in enumerate(md_json_list):
+#     print(f"Page {i}:", page.get("md", "No 'md' key"))
 
+# MD
+sed -n '/^|/p' "$MD_FILE" >tables.md
 # Remove separator rows (---...)
 sed -i '/^|[-| ]*|$/d; /^| *\(Date\|Time\) *|/d' tables.md
 
@@ -112,20 +110,23 @@ with open("tables.md", "r") as file:
 
 table = []
 
-for line in lines:
-    if re.match(r'^\|.*\|$', line):  # Identify table rows
-      columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
-      if columns:
-        table.append(columns)
+from halo import Halo
 
-# DataFrame
-df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
+with Halo(text="Extracting tables", text_color="green", spinner="dots") as spinner:
+   for line in lines:
+       if re.match(r'^\|.*\|$', line):  # Identify table rows
+         columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
+         if columns:
+           table.append(columns)
 
-# Spreadsheet
-df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
-table_workbook = os.path.basename("$OUTPUT_XLSX")
+   # DataFrame
+   df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
+
+   # Spreadsheet
+   df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
+   table_workbook = os.path.basename("$OUTPUT_XLSX")
+   spinner.succeed("Saved workbook")
 EOF
 
 # Archive
 mv tables.md "$DIR"/../../WinAutomation/
-echo "${GREEN} ✔ ${NC}Saved workbook"

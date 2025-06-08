@@ -1,20 +1,19 @@
-# klaxalk's Linux environment
+# DMP's Linux environment
 
 |              |       |                                                                                                                                                                       |
 |--------------|-------|-----|
-| 24.04 Docker | AMD64 | [![Noble](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/noble.yml) |
+| 24.04 Docker | AMD64 | [![Noble](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml) |
 | 24.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
-|--------------|-------|-----|
-| 20.04 Docker | AMD64 | [![Focal](https://github.com/dontmissthepoint/linux-setup/actions/workflows/focal.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/focal.yml)          |
-| 20.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/klaxalk/linux-setup/actions/workflows/docker.yml)       |
+| 20.04 Docker | AMD64 | [![Focal](https://github.com/dontmissthepoint/linux-setup/actions/workflows/focal.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/focal.yml)          |
+| 20.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
 
 ## Summary
 
-This repo contains settings of DMP's Linux work environment.
+Tmux foundation, i3 structure, and vim system.
 
 It could be summarized as follows:
 * **Ubuntu 24.04**
-* **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
+* **i3** (i3gaps) tiling window manager with i3/polybar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability to show images (when using the *ranger* file manager)
 * **tmux** terminal multiplexer is running all the time

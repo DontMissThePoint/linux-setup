@@ -6,13 +6,12 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
-APP_PATH=`dirname "$0"`
-APP_PATH=`( cd "$APP_PATH" && pwd )`
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
 
 unattended=0
 subinstall_params=""
-for param in "$@"
-do
+for param in "$@"; do
   echo $param
   if [ $param="--unattended" ]; then
     echo "installing in unattended mode"
@@ -22,21 +21,19 @@ do
 done
 
 var1="18.04"
-var2=`lsb_release -r | awk '{ print $2 }'`
+var2=$(lsb_release -r | awk '{ print $2 }')
 [ "$var2" = "$var1" ] && export BEAVER=1
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]
-  then
+  if [[ "$unattended" == "1" ]]; then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall vim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
   fi
-  response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+  response=$(echo $resp | sed -r 's/(.*)$/\1=/')
 
-  if [[ $response =~ ^(y|Y)=$ ]]
-  then
+  if [[ $response =~ ^(y|Y)=$ ]]; then
 
     toilet Installing vim -t --filter metal -f smmono12
 
@@ -48,10 +45,10 @@ while true; do
 
     sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format libpython3-all-dev
 
-    sudo -H pip3 install --break-system-packages rospkg 2> /dev/null
+    /usr/bin/python3 -m pip install --break-system-packages --ignore-installed rospkg
 
     # compile vim from sources
-    cd $APP_PATH/../../submodules/vim
+    cd "$APP_PATH"/../../submodules/vim
     make distclean
     ./configure --with-features=huge \
       --enable-multibyte \
@@ -68,11 +65,11 @@ while true; do
       --enable-cscope \
       --prefix=/usr
 
-      cd src
-      make -j8
-      cd ../
-      make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim91
-      sudo make install
+    cd src
+    make -j8
+    cd ../
+    make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim91
+    sudo make install
 
     # set vim as a default git mergetool
     git config --global merge.tool vimdiff
@@ -89,16 +86,14 @@ while true; do
 
     default=y
     while true; do
-      if [[ "$unattended" == "1" ]]
-      then
+      if [[ "$unattended" == "1" ]]; then
         resp=$default
       else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mCompile YouCompleteMe? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
       fi
-      response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+      response=$(echo $resp | sed -r 's/(.*)$/\1=/')
 
-      if [[ $response =~ ^(y|Y)=$ ]]
-      then
+      if [[ $response =~ ^(y|Y)=$ ]]; then
 
         # set youcompleteme
         toilet Settingup youcompleteme -t -f future
@@ -113,7 +108,7 @@ while true; do
           sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11 main"
           # if 18.04, python3-clang has to be installed throught pip3 with prequisites manually from apt
           sudo apt-get -y install clang-11 libclang-11-dev
-          sudo pip3 install --break-system-packages clang 2> /dev/null
+          /usr/bin/python3 -m pip install --break-system-packages --ignore-installed clang
         else
           # if 24.04, just install python3-clang from apt
           sudo apt-get -y install python3-clang libclang-19-dev
@@ -136,8 +131,7 @@ while true; do
         ln -fs $APP_PATH/dotycm_extra_conf.py ~/.ycm_extra_conf.py
 
         break
-      elif [[ $response =~ ^(n|N)=$ ]]
-      then
+      elif [[ $response =~ ^(n|N)=$ ]]; then
         break
       else
         echo " What? \"$resp\" is not a correct answer. Try y+Enter."
@@ -145,8 +139,7 @@ while true; do
     done
 
     break
-  elif [[ $response =~ ^(n|N)=$ ]]
-  then
+  elif [[ $response =~ ^(n|N)=$ ]]; then
     break
   else
     echo " What? \"$resp\" is not a correct answer. Try y+Enter."

@@ -5,27 +5,6 @@ local plugins = {
   -- Override plugin definition options
 
   {
-    "mason-org/mason.nvim",
-  },
-
-  {
-    "mason-org/mason-lspconfig.nvim",
-    lazy = false,
-    config = function()
-      require("mason-lspconfig").setup {
-        automatic_installation = true,
-        ensure_installed = {
-          "rust_analyzer",
-          "pyright",
-          "ts_ls",
-          "bashls",
-          "lua_ls",
-        },
-      }
-    end,
-  },
-
-  {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "Myzel394/jsonfly.nvim",
@@ -70,6 +49,7 @@ local plugins = {
     opts = {
       ensure_installed = {
         "vim",
+        "vimdoc",
         "regex",
         "lua",
         "bash",
@@ -286,6 +266,14 @@ local plugins = {
   },
 
   {
+    {
+      "nvzone/minty",
+      cmd = { "Shades", "Huefy" },
+      dependencies = { "nvzone/volt", lazy = true },
+    },
+  },
+
+  {
     "uga-rosa/ccc.nvim",
     cmd = { "CccHighlighterToggle", "CccConvert", "CccPick" },
     opts = {
@@ -337,13 +325,38 @@ local plugins = {
   },
 
   {
-      "2kabhishek/nerdy.nvim",
-      dependencies = {
-        "stevearc/dressing.nvim",
-        "nvim-telescope/telescope.nvim",
-      },
-      cmd = "Nerdy",
-      vim.keymap.set("n", "<Leader>si", "<cmd>Nerdy<cr>", opts), --> nerd icons
+    "OXY2DEV/helpview.nvim",
+    lazy = false, -- Recommended
+    ft = "help",
+    preview = {
+      icon_provider = "mini", -- "internal" or "devicons"
+    }
+  },
+
+  {
+    "echasnovski/mini.icons",
+    opts = {},
+    lazy = true,
+    specs = {
+      { "nvim-tree/nvim-web-devicons", enabled = false, optional = true },
+    },
+    init = function()
+      package.preload["nvim-web-devicons"] = function()
+        package.loaded["nvim-web-devicons"] = {}
+        require("mini.icons").mock_nvim_web_devicons()
+        return package.loaded["nvim-web-devicons"]
+      end
+    end,
+  },
+
+  {
+    "2kabhishek/nerdy.nvim",
+    dependencies = {
+      "stevearc/dressing.nvim",
+      "nvim-telescope/telescope.nvim",
+    },
+    cmd = "Nerdy",
+    vim.keymap.set("n", "<Leader>si", "<cmd>Nerdy<cr>", opts), --> nerd icons
   },
 
   {

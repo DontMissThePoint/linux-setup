@@ -35,18 +35,18 @@ while true; do
   then
 
     # install papis
-    cd $APP_PATH/../../submodules/papis/
+    cd "$APP_PATH"/../../submodules/papis/
     # make
     # sudo make install
-    pipx install papis papis-zotero whoosh
+    /usr/bin/python3 -m pip install papis-zotero --break-system-packages --ignore-installed
 
     # install papis-zotero
-    cd $APP_PATH/../../submodules/papis-zotero/
+    cd "$APP_PATH"/../../submodules/papis-zotero/
     # sudo python3 setup.py install
 
     # symlink the settings
-    rm -rf $HOME/.config/papis
-    ln -sf $APP_PATH/papis $HOME/.config/papis
+    rm -rf "$HOME/.config/papi"s
+    ln -sf "$APP_PATH/papis" "$HOME/.config/papis"
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]
