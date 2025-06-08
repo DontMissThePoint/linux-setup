@@ -1,9 +1,6 @@
 #!/usr/bin/env bash
 
-# $HOME/.config/ncmpcpp/album_cover_poller.sh
-
-# © Andy Smith <andy@strugglers.net>
-# SPDX-License-Identifier: 0BSD
+# $HOME/.config/ncmpcpp/album_cover_art.sh
 
 ncmpcpp_home="$HOME/.config/ncmpcpp"
 default_cover="$ncmpcpp_home/default_cover.jpg"

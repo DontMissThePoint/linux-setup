@@ -89,11 +89,11 @@ fi
 # 8. Install NVIM
 ! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
 
-# 9. Install HTOP-VIM
-! "$docker" && bash "$APPCONFIG_PATH"/htop-vim/install.sh "$subinstall_params"
-
-# 10. Install I3
+# 9. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
+
+# 10. Install HTOP-VIM
+! "$docker" && bash "$APPCONFIG_PATH"/htop-vim/install.sh "$subinstall_params"
 
 # 11. Install LATEX and PDF support
 ! "$docker" && bash "$APPCONFIG_PATH"/latex/install.sh "$subinstall_params"

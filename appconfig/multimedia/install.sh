@@ -47,21 +47,8 @@ while true; do
     sudo chmod 755 ~/.local/bin/ffprobe
     sudo chmod 755 ~/.local/bin/alass
 
-    # jq
-    cd /tmp
-    [ -e jq ] && rm -rf jq
-    git clone https://github.com/jqlang/jq
-    cd jq
-    git submodule update --init # if building from git to get oniguruma
-    autoreconf -i               # if building from git
-    ./configure --with-oniguruma=builtin
-    make clean # if upgrading from a version previously built from source
-    make -j8
-    make check
-    sudo make install
-
     # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity
+    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity python3-dbus
 
     # for video, photo, audio, ..., viewing and editing
     sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
@@ -73,7 +60,7 @@ while true; do
     pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
 
     # ncmpcpp
-    sudo apt-get install -y mpd mpc ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
+    sudo apt-get install -y mpd mpc ncmpcpp timg sxiv libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
     sudo systemctl disable mpd.service mpd.socket
     mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
     cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
@@ -84,9 +71,16 @@ while true; do
     sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
       /etc/pulse/default.pa
 
+    # album-art
+    cd /tmp
+    [ -e kunst ] && rm -rf kunst
+    git clone https://github.com/sdushantha/kunst
+    cd kunst
+    sudo make install
+
     # yt-dlp
     /usr/bin/python3 -m pip install --break-system-packages -U pylast yt-dlp gallery-dl \
-      Mopidy-Youtube Mopidy-Bookmarks Mopidy-Mowecl mopidytermart
+      Mopidy-Youtube Mopidy-Bookmarks Mopidy-Mowecl
 
     mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/{mopidy,podcast}
     pv "$APP_PATH/mopidy.conf" >~/.config/mopidy/mopidy.conf
@@ -136,7 +130,7 @@ while true; do
     git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
 
     # imdb
-    pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer 2>/dev/null
+    pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer
     git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
     git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
 

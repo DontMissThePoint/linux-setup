@@ -9,11 +9,11 @@
 
 ## Summary
 
-This repo contains settings of DMP's Linux work environment.
+Tmux foundation, i3 structure, and vim system.
 
 It could be summarized as follows:
 * **Ubuntu 24.04**
-* **i3** (i3gaps) tiling window manager with i3bar and vim-like controls
+* **i3** (i3gaps) tiling window manager with i3/polybar and vim-like controls
   * **i3-layout-manager** for saving and loading window layouts
 * **urxvt** terminal emulator with ability to show images (when using the *ranger* file manager)
 * **tmux** terminal multiplexer is running all the time

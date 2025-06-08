@@ -36,6 +36,7 @@ return {
         "bashls",
         "svelte",
         "lua_ls",
+        "yamlls",
         "graphql",
         "emmet_ls",
         "prismals",
@@ -53,6 +54,7 @@ return {
 
         "lua-language-server",
         "vim-language-server",
+        "yaml-language-server",
         "prettier", -- prettier formatter
         "biome",    -- js formatter
         "isort",    -- python formatter

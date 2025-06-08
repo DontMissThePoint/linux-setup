@@ -88,10 +88,10 @@ while true; do
     toilet Settingup visidata -t -f future
 
     # visidata
-    pip install --user --break-system-packages --upgrade visidata \
+    /usr/bin/python3 -m pip install --user --break-system-packages -U visidata \
       datapackage pypng pdfminer.six ptpython pytz PyYAML lxml pandas \
       xlrd openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
-      virtualenv tomli tabulate 2>/dev/null
+      virtualenv tomli tabulate
 
     # pipx
     pipx install epy-reader
