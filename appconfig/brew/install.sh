@@ -69,13 +69,14 @@ while true; do
     cp -rf $APP_PATH/newsboat/* ~/.newsboat/
 
     # configs
-    mkdir -p ~/.config/{aria2,btop,bat,glow,s,topgrade,lazygit}
+    mkdir -p ~/.config/{aria2,btop,bat,glow,s,topgrade,lazygit,neofetch}
     pv "$APP_PATH/btop.conf" >~/.config/btop/btop.conf
     pv "$APP_PATH/bat.config" >~/.config/bat/config
     pv "$APP_PATH/config.yml" >~/.config/lazygit/config.yml
     pv "$APP_PATH/s.config" >~/.config/s/config
     pv "$APP_PATH/aria2.conf" >~/.config/aria2/aria2.conf
     pv "$APP_PATH/glow.yml" >~/.config/glow/glow.yml
+    pv "$APP_PATH/config.conf" >~/.config/neofetch/config.conf
     pv "$APP_PATH/topgrade.toml" >~/.config/topgrade/topgrade.toml
     pv "$APP_PATH/pqivrc" >~/.pqivrc
 

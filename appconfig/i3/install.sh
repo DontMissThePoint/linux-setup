@@ -223,10 +223,10 @@ while true; do
       sudo tee /etc/modules-load.d/cava.conf >/dev/null
 
     # for making gtk look better
-    sudo apt-get -y install lxappearance gtk-chtheme polybar
+    sudo apt-get -y install lxappearance gtk-chtheme blueman polybar
 
     # polybar
-    cp -fr --preserve $APP_PATH/polybar ~/.config/
+    cp -fr --preserve "$APP_PATH"/polybar ~/.config/
 
     # pulseaudio-control
     sudo sed -i -e 's/^\(load-module module-stream-restore\).*/\1 restore_device=false/g' \

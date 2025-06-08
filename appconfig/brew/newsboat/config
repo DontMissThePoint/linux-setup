@@ -1,15 +1,17 @@
 # -- general -----------------------------------------------------------------
 
-reload-time 30
 auto-reload yes
+reload-time 180
+reload-threads 4
 refresh-on-startup no
-# text-width 88
 text-width 0
 max-items 500
 max-downloads 10
-download-retries 4
+download-retries 2
 download-timeout 10
-keep-articles-days 90
+download-full-page yes
+scrolloff 11
+keep-articles-days 10
 reload-threads 100
 mark-as-read-on-hover no
 browser "setsid -f qutebrowser --target tab %u > /dev/null 2>&1"

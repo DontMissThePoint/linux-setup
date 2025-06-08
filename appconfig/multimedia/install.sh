@@ -60,7 +60,7 @@ while true; do
     pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
 
     # ncmpcpp
-    sudo apt-get install -y mpd mpc ncmpcpp timg sxiv libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
+    sudo apt-get install -y mpd mpc ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
     sudo systemctl disable mpd.service mpd.socket
     mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
     cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
@@ -70,13 +70,6 @@ while true; do
     sudo systemctl disable mopidy.service
     sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
       /etc/pulse/default.pa
-
-    # album-art
-    cd /tmp
-    [ -e kunst ] && rm -rf kunst
-    git clone https://github.com/sdushantha/kunst
-    cd kunst
-    sudo make install
 
     # yt-dlp
     /usr/bin/python3 -m pip install --break-system-packages -U pylast yt-dlp gallery-dl \

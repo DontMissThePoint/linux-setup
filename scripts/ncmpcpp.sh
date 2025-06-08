@@ -4,6 +4,7 @@
 # systemctl --user --now enable mpd-mpris &
 
 # player
-tmux new-window -n 'music' 'ncmpcpp --screen playlist' \; \
-  split-window -h -p 36 '~/.config/ncmpcpp/album_cover_art.sh'
-tmux split-pane -v -p 40 'cava' \; select-pane -t 0 \; send-keys End
+tmux new-window -n 'music' 'ncmpcpp --screen playlist --config=~/.config/ncmpcpp/config' \; \
+  split-pane -v -l 45% 'cava' \; select-pane -t 0
+tmux split-window -h -l 35% "$HOME/.config/ncmpcpp/cover.sh 2>/dev/null" \; \
+  select-pane -t 0 \; send-keys Home

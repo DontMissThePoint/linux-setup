@@ -1,4 +1,4 @@
-# DMP's Linux environment
+# Linux environment
 
 |              |       |                                                                                                                                                                       |
 |--------------|-------|-----|
@@ -26,7 +26,6 @@ It could be summarized as follows:
   * shared clipboards between vim, tmux and OS
   * Ctrl+P
   * smooth latex development with vimtex and zathura
-  * Tim Pope is the king
 * **athame** gives you vim in the terminal (zsh)
   * handfull of plugins in terminal: ultisnips, vim-surround, targets.vim, vim-exchange, etc.
 * **zsh** better shell for everyday use

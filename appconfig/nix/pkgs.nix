@@ -3,8 +3,8 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
-      pkgs.activitywatch pkgs.bluetuith pkgs.libgen-cli
-      pkgs.material-icons pkgs.xidel pkgs.zscroll
+      pkgs.activitywatch pkgs.libgen-cli pkgs.zscroll
+      pkgs.material-icons pkgs.xidel
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
