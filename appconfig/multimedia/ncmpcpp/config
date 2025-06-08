@@ -17,7 +17,7 @@ allow_for_physical_item_deletion = "no"
 
 ### Visualizer ###
 visualizer_data_source = "localhost:5555"
-visualizer_output_name = "mpd_visualizer"
+visualizer_output_name = "mopidy_visualizer"
 visualizer_in_stereo   = "yes"
 visualizer_look 	   = ●●
 visualizer_type 	   = "spectrum"
@@ -49,7 +49,7 @@ alternative_header_second_line_format = {$b{$2  %a$9}{ - $7  %b$9}}
 
 ### Song list ###
 song_status_format		 = "$7%t"
-song_list_format 		 = "$(blue){%a}$(end) $(red){%t}$(end)$(red)({%l})$(end)
+song_list_format 		 = $(blue){%a}$(end) $(red){%t}$(end)$(red)({%l})$(end)
 song_library_format 	 = {{%a - %t} (%b)}|{%f}
 song_columns_list_format = "(49)[white]{tr}$C(5f)[red]{l}(50)[blue]{a}"
 

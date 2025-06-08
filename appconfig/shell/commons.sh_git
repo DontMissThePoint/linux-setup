@@ -50,9 +50,12 @@ alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 
-# apt get multiple connections simultaneously
+# apt get multiple connections
 alias apt="apt-fast"
 alias apt-get="apt-fast"
+
+# info
+alias info="info --vi-keys"
 
 # quick acces to files
 alias al="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
