@@ -313,7 +313,7 @@ c.completion.web_history.max_items = -1
 
 c.content.geolocation = "ask"
 c.qt.force_platform = "xcb"
-c.zoom.default = "88%"
+c.zoom.default = "84%"
 c.window.hide_decoration = True
 c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
