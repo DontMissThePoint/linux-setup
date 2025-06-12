@@ -6,13 +6,12 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
-APP_PATH=`dirname "$0"`
-APP_PATH=`( cd "$APP_PATH" && pwd )`
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
 
 unattended=0
 subinstall_params=""
-for param in "$@"
-do
+for param in "$@"; do
   echo $param
   if [ $param="--unattended" ]; then
     echo "installing in unattended mode"
@@ -23,16 +22,14 @@ done
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]
-  then
+  if [[ "$unattended" == "1" ]]; then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall powerline fonts? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall powerline fonts? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
   fi
-  response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+  response=$(echo $resp | sed -r 's/(.*)$/\1=/')
 
-  if [[ $response =~ ^(y|Y)=$ ]]
-  then
+  if [[ $response =~ ^(y|Y)=$ ]]; then
 
     toilet Setting up powerline fonts -t -f future
 
@@ -52,9 +49,9 @@ while true; do
     # Look and feel
     the_ppa=papirus/papirus
     if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-        sudo add-apt-repository -y ppa:papirus/papirus
-        sudo apt update
-        sudo apt install -y papirus-icon-theme
+      sudo add-apt-repository -y ppa:papirus/papirus
+      sudo apt update
+      sudo apt install -y papirus-icon-theme
     fi
     sudo apt install -y fonts-inter-variable fonts-symbola unifont fonts-font-awesome fonts-noto-color-emoji ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
     papirus-folders -t Papirus-Dark -C darkcyan
@@ -92,22 +89,25 @@ while true; do
     make -j8
     sudo make install
 
-    EXISTING_QT=`cat ~/.profile 2> /dev/null | grep "qt6ct" | wc -l`
+    EXISTING_QT=$(cat ~/.profile 2>/dev/null | grep "qt6ct" | wc -l)
     if [ "$EXISTING_QT" == "0" ]; then
       toilet Settingup qt6ct -t -f future
-      (echo; echo 'export QT_QPA_PLATFORMTHEME=qt6ct') >> ~/.profile
+      (
+        echo
+        echo 'export QT_QPA_PLATFORMTHEME=qt6ct'
+      ) >>~/.profile
     fi
     export QT_QPA_PLATFORMTHEME=qt6ct
 
     mkdir -p ~/.config/qt{5,6}ct
-    pv $APP_PATH/qt5ct.conf > ~/.config/qt5ct/qt5ct.conf
-    pv $APP_PATH/qt6ct.conf > ~/.config/qt6ct/qt6ct.conf
+    pv "$APP_PATH"/qt5ct.conf >~/.config/qt5ct/qt5ct.conf
+    pv "$APP_PATH"/qt6ct.conf >~/.config/qt6ct/qt6ct.conf
 
     # config
     echo "Configuring..."
     mkdir -p ~/.config/environment.d ~/.config/Kvantum
-    printf 'QT_STYLE_OVERRIDE=kvantum' > ~/.config/environment.d/qt.conf
-    pv $APP_PATH/kvantum.kvconfig > ~/.config/Kvantum/kvantum.kvconfig
+    printf 'QT_STYLE_OVERRIDE=kvantum' >~/.config/environment.d/qt.conf
+    pv "$APP_PATH"/kvantum.kvconfig >~/.config/Kvantum/kvantum.kvconfig
 
     # cursor
     cd /tmp
@@ -149,8 +149,7 @@ while true; do
     # git reset --hard
 
     break
-  elif [[ $response =~ ^(n|N)=$ ]]
-  then
+  elif [[ $response =~ ^(n|N)=$ ]]; then
     break
   else
     echo " What? \"$resp\" is not a correct answer. Try y+Enter."

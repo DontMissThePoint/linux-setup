@@ -87,8 +87,6 @@
     per_monitor_dpi = false
 
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks
-    # Otherwise the "#" and following would be interpreted as a comment
     background = "#1a1c1d"
     foreground = "#c5c8c6"
     timeout = 10

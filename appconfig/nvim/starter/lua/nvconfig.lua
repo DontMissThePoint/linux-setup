@@ -12,7 +12,7 @@ local options = {
 
   ui = {
     cmp = {
-      icons_left = true, -- only for non-atom styles!
+      icons_left = true,      -- only for non-atom styles!
       style = "atom_colored", -- default/flat_light/flat_dark/atom/atom_colored
       abbr_maxwidth = 60,
       format_colors = {
@@ -62,11 +62,11 @@ local options = {
     },
 
     buttons = {
-      { txt = "  Find File", keys = "ff", cmd = "Telescope find_files" },
-      { txt = "  Recent Files", keys = "fo", cmd = "Telescope oldfiles" },
-      { txt = "󰈭  Find Word", keys = "fw", cmd = "Telescope live_grep" },
-      { txt = "󱥚  Themes", keys = "th", cmd = ":lua require('nvchad.themes').open()" },
-      { txt = "  Mappings", keys = "ch", cmd = "NvCheatsheet" },
+      { txt = "  Find File", keys = "f", cmd = "Telescope find_files" },
+      { txt = "  Recent Files", keys = "o", cmd = "Telescope oldfiles" },
+      { txt = "󰈭  Find Word", keys = "w", cmd = "Telescope live_grep" },
+      { txt = "󱥚  Sessions", keys = "s", cmd = ":lua require('nvim-possession').list()" },
+      { txt = "  Mappings", keys = "h", cmd = "NvCheatsheet" },
 
       { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },
 
@@ -85,6 +85,7 @@ local options = {
   },
 
   term = {
+    base46_colors = true,
     winopts = { number = false, relativenumber = false },
     sizes = { sp = 0.3, vsp = 0.2, ["bo sp"] = 0.3, ["bo vsp"] = 0.2 },
     float = {
@@ -100,7 +101,7 @@ local options = {
   lsp = { signature = true },
 
   cheatsheet = {
-    theme = "grid", -- simple/grid
+    theme = "grid",                                                     -- simple/grid
     excluded_groups = { "terminal (t)", "autopairs", "Nvim", "Opens" }, -- can add group name or with mode
   },
 

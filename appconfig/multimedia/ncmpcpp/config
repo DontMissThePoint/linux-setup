@@ -9,6 +9,8 @@ mpd_port 		  	= "6600"
 mpd_crossfade_time 	= "2"
 mpd_connection_timeout = 5
 
+export mpd_host=$HOME/.mpd/socket
+
 message_delay_time 				 = 1
 autocenter_mode 				 = "yes"
 centered_cursor 				 = "yes"
@@ -54,6 +56,7 @@ playlist_display_mode = columns
 browser_display_mode = columns
 search_engine_display_mode = columns
 playlist_editor_display_mode = columns
+default_place_to_search_in = database
 colors_enabled 		  = "yes"
 volume_color 		    = white
 startup_screen      = playlist
@@ -76,7 +79,7 @@ block_search_constraints_change_if_items_found = "yes"
 mouse_support = "yes"
 mouse_list_scroll_whole_page = "no"
 lines_scrolled = 1
-empty_tag_marker=" -- ‼ -- "
+empty_tag_marker="x________"
 search_engine_default_search_mode = 2
 external_editor = nvim
 use_console_editor = "yes"

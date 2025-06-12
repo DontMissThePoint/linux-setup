@@ -48,19 +48,29 @@ while true; do
     sudo chmod 755 ~/.local/bin/alass
 
     # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity python3-dbus
+    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity python3-dbus libmpdclient-dev
 
     # for video, photo, audio, ..., viewing and editing
     sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
 
     toilet Settingup ncmpcpp -t -f future
 
+    # mpc
+    cd /tmp
+    [ -e mpc ] && sudo rm -rf mpc
+    git clone https://github.com/MusicPlayerDaemon/mpc
+    cd mpc
+    meson setup build
+    ninja -C build
+    sudo ninja -C build install
+
     # mpd
-    mkdir -p ~/.mpd
+    mkdir -p ~/.mpd/playlists
     pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
+    mpc update
 
     # ncmpcpp
-    sudo apt-get install -y mpd mpc ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
+    sudo apt-get install -y ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
     sudo systemctl disable mpd.service mpd.socket
     mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
     cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/

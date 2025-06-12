@@ -1,203 +1,148 @@
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
+require "nvchad.mappings"
 
------------------------------------------------------------
--- General settings
------------------------------------------------------------
+-- more keybinds!
+local map = vim.keymap.set
 
--- Highlight on yank
-augroup("YankHighlight", { clear = true })
-autocmd("TextYankPost", {
-  group = "YankHighlight",
-  callback = function()
-    vim.highlight.on_yank { higroup = "Visual", timeout = "1000" }
-  end,
-})
+-- general
+map("n", ";", ":", { desc = "Enter command mode" })
+map("n", "gh", "<Home>", { desc = "move cursor beginning of line" })
+map("n", "gl", "<End>", { desc = "move cursor end of line" })
+map("n", "<leader>.", ":cd %:p:h<CR>:pwd <cr>", { desc = "change workspace onto current location" })
+map("n", "<leader>,", ":RainbowAlign <cr>", { desc = "align column data" })
+map("c", "<F2>", [[\(.*\)]], { desc = "regex capture" })
 
--- Remove whitespace on save
-autocmd("BufWritePre", {
-  pattern = "",
-  command = ":%s/\\s\\+$//e",
-})
+--  fzf-lua
+map("n", "<C-p>", function()
+  require("fzf-lua").files { cwd = "~/" }
+end, { desc = "fzf-lua files" })
+map("n", "<leader>ff", function()
+  require("fzf-lua").files { cwd = "~/" }
+end, { desc = "Find files" })
+map("n", "<leader><leader>", function()
+  require("fzf-lua").command_history()
+end, { desc = "command history" })
 
--- Don't auto commenting new lines
-autocmd("BufEnter", {
-  pattern = "",
-  command = "set fo-=c fo-=r fo-=o",
-})
+-- json
+map("n", "<leader>jf", "<Cmd>JsonFormatFile<CR>", { desc = "json format" })
+map("n", "<leader>jm", "<Cmd>JsonMinifyFile<CR>", { desc = "json minify" })
 
------------------------------------------------------------
--- Settings for filetypes
------------------------------------------------------------
+-- highlight
+map("n", "g<CR>", "<Cmd>Hi><CR>", { desc = "jump forth highlight" })
+map("n", "g<BS>", "<Cmd>Hi<<CR>", { desc = "jump back highlight" })
+map("n", "-", "<Cmd>Hi/next<CR>", { desc = "jump next highlight history" })
+map("n", "_", "<Cmd>Hi/previous<CR>", { desc = "jump previous highlight history" })
 
--- Disable line length marker
-augroup("setLineLength", { clear = true })
-autocmd("Filetype", {
-  group = "setLineLength",
-  pattern = { "text", "markdown", "html", "xhtml", "javascript", "typescript" },
-  command = "setlocal cc=0",
-})
+map("n", "n", "<Cmd>call HiSearch('n')<CR>", { desc = "jump next highlight search" })
+map("n", "N", "<Cmd>call HiSearch('N')<CR>", { desc = "jump previous highlight search" })
+map("n", "<Esc>n", "<Cmd>noh<CR>", { desc = "off highlight search" })
 
--- Set indentation to 2 spaces
-augroup("setIndent", { clear = true })
-autocmd("Filetype", {
-  group = "setIndent",
-  pattern = { "xml", "html", "xhtml", "css", "scss", "javascript", "typescript", "yaml", "lua" },
-  command = "setlocal shiftwidth=2 tabstop=2",
-})
+-- sreenkey
+map("n", "<Tab>", "<Cmd>Screenkey<CR>", { desc = "screencast keystrokes" })
 
-autocmd({ "BufLeave", "CompleteDone" }, {
-  pattern = { "*.sh", "*.py" },
-  callback = function()
-    local file = vim.fn.expand "<afile>"
-    if vim.fn.getline(1):match "^#!" then
-      vim.fn.jobstart({ "chmod", "+x", file }, {
-        detach = true,
-        on_exit = function()
-          vim.schedule(function()
-            vim.notify("chmod +x " .. file, vim.log.levels.INFO, { title = "Saved!" })
-          end)
-        end,
-      })
-    end
-  end,
-  desc = "Auto chmod +x script",
-})
+-- scrollview
+map("n", "<leader>sv", "<cmd> ScrollViewRefresh <cr>", { desc = "scrollbar decorate" })
 
--- close some filetypes with <q>
-autocmd("FileType", {
-  group = vim.api.nvim_create_augroup("close_with_q", { clear = true }),
-  pattern = {
-    "PlenaryTestPopup",
-    "help",
-    "lspinfo",
-    "man",
-    "notify",
-    "qf",
-    "spectre_panel",
-    "startuptime",
-    "tsplayground",
-    "neotest-output",
-    "checkhealth",
-    "neotest-summary",
-    "neotest-output-panel",
-  },
-  callback = function(event)
-    vim.bo[event.buf].buflisted = false
-    vim.keymap.set("n", "q", "<cmd>close<cr>", { buffer = event.buf, silent = true })
-  end,
-})
+-- toggler
+map("n", "<leader>ti", function()
+  require("nvim-toggler").toggle()
+end, { desc = "toggler" })
+map("v", "<leader>ti", function()
+  require("nvim-toggler").toggle()
+end, { desc = "toggler" })
 
------------------------------------------------------------
--- Terminal settings
------------------------------------------------------------
+-- trouble
+map("n", "<leader>tr", ":TroubleToggle<CR>", { desc = "trouble toggle" })
+map("n", "<leader>wd", ":TroubleToggle workspace_diagnostics<CR>", { desc = "trouble workspace diagnostics" })
+map("n", "<leader>cq", "<CMD>TroubleToggle quickfix<CR>", { desc = "trouble quickfix" })
+map("n", "<leader>td", "<CMD>TodoTrouble<CR>", { desc = "trouble todo" })
+map("n", "gd", "<CMD>Trouble lsp_definitions<CR>", { desc = "trouble definition" })
+map("n", "gi", "<CMD>Trouble lsp_implementations<CR>", { desc = "trouble implementations" })
+map("n", "gD", "<CMD>Trouble lsp_type_definitions<CR>", { desc = "trouble type definition" })
 
--- Open a Terminal on the right tab
-autocmd("CmdlineEnter", {
-  command = "command! Term :botright vsplit term://$SHELL",
-})
-
--- Enter insert mode when switching to terminal
-autocmd("TermOpen", {
-  command = "setlocal listchars= nonumber norelativenumber nocursorline",
-})
-
-autocmd("TermOpen", {
-  pattern = "",
-  command = "startinsert",
-})
-
--- Close terminal buffer on process exit
-autocmd("BufLeave", {
-  pattern = "term://*",
-  command = "stopinsert",
-})
-
--- Auto resize panes when resizing nvim window
-autocmd("VimResized", {
-  pattern = "*",
-  command = "tabdo wincmd =",
-})
-
--- Screen cast
-autocmd("VimEnter", {
-  pattern = "",
-  command = "Screenkey",
-})
-
--- Unset guicursor whenever it is changed
-vim.cmd [[autocmd OptionSet * noautocmd set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-		  \,a:blinkwait750-blinkoff150-blinkon175-Cursor/lCursor
-		  \,sm:block-blinkwait175-blinkoff150-blinkon175]]
-
--- Status
-if vim.fn.exists "$TMUX" then
-  vim.cmd [[
-        augroup TmuxStatusToggle
-            autocmd VimEnter,FocusGained,BufEnter,VimResume * silent !tmux setw status off
-            autocmd VimLeave,VimSuspend * silent !tmux setw status on
-        augroup end
-    ]]
+-- pomodoro timer
+local ok, pomo = pcall(require, "pomo")
+if not ok then
+  return
+end
+local function start_new_timer()
+  local timer = pomo.get_first_to_finish()
+  if timer then
+    vim.notify("a Timer is already running", vim.log.levels.INFO)
+    return
+  end
+  pomo.start_timer(25 * 60, "work")
 end
 
--- Fix libuv
-autocmd({ "VimLeave" }, {
-  callback = function()
-    vim.cmd "sleep 10m"
-  end,
-})
+-- track milestones
+map("n", "<leader>pm", function()
+  start_new_timer()
+end, { desc = "Pomo - Start new Timer", noremap = true, silent = true })
+map("n", "<leader>ps", function()
+  pomo.stop_timer()
+end, { desc = "Pomo - Stop Timer", noremap = true, silent = true })
 
--- opening a buffer
--- at the last position
-autocmd("BufReadPost", {
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 0 and mark[1] <= lcount then
-      pcall(vim.api.nvim_win_set_cursor, 0, mark)
-    end
-  end,
-})
+-- myeyes
+map("n", "<leader>ms", function()
+  require("myeyeshurt").start()
+end, { desc = "myeyes start break" })
+map("n", "<leader>mx", function()
+  require("myeyeshurt").stop()
+end, { desc = "myeyes stop flakes" })
 
--- toggle relative number on the basis of mode
-local ngroup = augroup("numbertoggle", {})
+-- zen
+map("n", "<leader>za", ":ZenMode <cr>", { desc = "zen mode" })
+map("n", "<leader>zz", ":ZenMode | TwilightEnable <cr>", { desc = "better focus" })
+map("n", "<leader>zf", ":Twilight <cr>", { desc = "lime light" })
 
-autocmd({ "BufEnter", "FocusGained", "InsertLeave", "CmdlineLeave", "WinEnter" }, {
-  pattern = "*",
-  group = ngroup,
-  callback = function()
-    if vim.o.nu and vim.api.nvim_get_mode().mode ~= "i" then
-      vim.opt.relativenumber = true
-    end
-  end,
-})
+map("v", "<leader>zf", ":'<,'>ZenMode <cr>", { desc = "narrow text region" })
 
-autocmd({ "BufLeave", "FocusLost", "InsertEnter", "CmdlineEnter", "WinLeave" }, {
-  pattern = "*",
-  group = ngroup,
-  callback = function()
-    if vim.o.nu then
-      vim.opt.relativenumber = false
-      vim.cmd "redraw"
-    end
-  end,
-})
+-- navigator
+map("n", "<C-h>", "<cmd> NavigatorLeft <cr>", { desc = "Left" })
+map("n", "<C-j>", "<cmd> NavigatorDown <cr>", { desc = "Down" })
+map("n", "<C-k>", "<cmd> NavigatorUp <cr>", { desc = "Up" })
+map("n", "<C-l>", "<cmd> NavigatorRight <cr>", { desc = "Right" })
+map("n", "<C-Space>", "<cmd> NavigatorPrevious <cr>", { desc = "Previous" })
 
--- to make border as same as neovim ColorScheme
-autocmd({ "UIEnter", "ColorScheme" }, {
-  callback = function()
-    local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-    if not normal.bg then
-      return
-    end
-    io.write(string.format("\027Ptmux;\027\027]11;#%06x\007\027\\", normal.bg))
-    io.write(string.format("\027]11;#%06x\027\\", normal.bg))
-  end,
-})
+-- spider
+map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
 
-autocmd("UILeave", {
-  callback = function()
-    io.write "\027Ptmux;\027\027]111;\007\027\\"
-    io.write "\027]111\027\\"
-  end,
-})
+map({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { desc = "Spider-ge" })
+
+-- windows
+map("n", "<leader>wz", function()
+  require("windows").setup()
+end, { desc = "window autosize" })
+
+local function cmd(command)
+  return table.concat { "<Cmd>", command, "<CR>" }
+end
+
+map("n", "<C-w>z", cmd "WindowsMaximize", { desc = "Max window" })
+map("n", "<C-w>_", cmd "WindowsMaximizeVertically", { desc = "Max out the height" })
+map("n", "<C-w>|", cmd "WindowsMaximizeHorizontally", { desc = "Max out the width" })
+map("n", "<C-w>=", cmd "WindowsEqualize", { desc = "Equally high and wide" })
+
+-- persistence
+-- load the session for the current directory
+map("n", "<leader>sn", function() require("persistence").load() end)
+-- select a session to load
+map("n", "<leader>sl", function() require("persistence").select() end)
+-- load the last session
+map("n", "<leader>su", function() require("persistence").load({ last = true }) end)
+-- stop Persistence => session won't be saved on exit
+map("n", "<leader>sd", function() require("persistence").stop() end)
+
+-- sniprun
+map({ "n", "v" }, "<leader>rr", "<Plug>SnipRun", { desc = "run snip" }, { silent = true })
+map("n", "<leader>rx", "<Plug>SnipRunOperator", { desc = "run snip motion" }, { silent = true })
+
+-- lsp
+map("n", "<leader>dt", function()
+  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })
+
+-- format
+map("n", "q", vim.cmd [[cabbrev q execute "Format sync" <bar> wqa]],
+  { silent = true, noremap = true }, { desc = "save quit" })

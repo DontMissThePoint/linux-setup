@@ -52,8 +52,8 @@ while true; do
     source $HOME/.bashrc && brew update && brew upgrade
     brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
-      eza fd dust zig aria2 glow restic croc newsboat walk s-search \
-      lazygit delta shellcheck shfmt poetry npm tailspin yq jless
+      rg fd dust zig aria2 glow restic croc newsboat walk s-search \
+      eza lazygit delta shellcheck shfmt poetry npm tailspin yq jless tealdeer
 
     # node
     brew upgrade node
@@ -66,13 +66,14 @@ while true; do
 
     # newsboat
     mkdir -p ~/.newsboat
-    cp -rf $APP_PATH/newsboat/* ~/.newsboat/
+    cp -rf "$APP_PATH"/newsboat/* ~/.newsboat/
 
-    # configs
-    mkdir -p ~/.config/{aria2,btop,bat,glow,s,topgrade,lazygit,neofetch}
+    # config
+    mkdir -p ~/.config/{aria2,btop,bat,glow,rg,s,tealdeer,topgrade,lazygit,neofetch}
     pv "$APP_PATH/btop.conf" >~/.config/btop/btop.conf
     pv "$APP_PATH/bat.config" >~/.config/bat/config
     pv "$APP_PATH/config.yml" >~/.config/lazygit/config.yml
+    pv "$APP_PATH/ripgreprc" >~/.config/rg/ripgreprc
     pv "$APP_PATH/s.config" >~/.config/s/config
     pv "$APP_PATH/aria2.conf" >~/.config/aria2/aria2.conf
     pv "$APP_PATH/glow.yml" >~/.config/glow/glow.yml
