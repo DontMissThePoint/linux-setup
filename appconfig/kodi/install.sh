@@ -68,6 +68,9 @@ while true; do
       sudo apt install -y qbittorrent
     fi
 
+    mkdir -p ~/.config/qBittorrent
+    pv "$APP_PATH/qBittorrent.conf" >~/.config/qBittorrent/qBittorrent.conf
+
     break
   elif [[ $response =~ ^(n|N)=$ ]]; then
     break

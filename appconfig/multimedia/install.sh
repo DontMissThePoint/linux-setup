@@ -48,19 +48,29 @@ while true; do
     sudo chmod 755 ~/.local/bin/alass
 
     # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity python3-dbus
+    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity python3-dbus libmpdclient-dev
 
     # for video, photo, audio, ..., viewing and editing
     sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
 
     toilet Settingup ncmpcpp -t -f future
 
+    # mpc
+    cd /tmp
+    [ -e mpc ] && sudo rm -rf mpc
+    git clone https://github.com/MusicPlayerDaemon/mpc
+    cd mpc
+    meson setup build
+    ninja -C build
+    sudo ninja -C build install
+
     # mpd
-    mkdir -p ~/.mpd
+    mkdir -p ~/.mpd/playlists
     pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
+    mpc update
 
     # ncmpcpp
-    sudo apt-get install -y mpd mpc ncmpcpp timg sxiv libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
+    sudo apt-get install -y ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
     sudo systemctl disable mpd.service mpd.socket
     mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
     cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
@@ -70,13 +80,6 @@ while true; do
     sudo systemctl disable mopidy.service
     sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
       /etc/pulse/default.pa
-
-    # album-art
-    cd /tmp
-    [ -e kunst ] && rm -rf kunst
-    git clone https://github.com/sdushantha/kunst
-    cd kunst
-    sudo make install
 
     # yt-dlp
     /usr/bin/python3 -m pip install --break-system-packages -U pylast yt-dlp gallery-dl \

@@ -55,10 +55,6 @@ while true; do
     sudo update-desktop-database
     sudo -i nix upgrade-nix
 
-    # bluetuith
-    mkdir -p ~/.config/bluetuith
-    pv "$APP_PATH"/bluetuith.conf >~/.config/bluetuith/bluetuith.conf
-
     # clean
     nix store gc
     echo "Done."
