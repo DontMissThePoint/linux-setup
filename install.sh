@@ -117,8 +117,8 @@ fi
 # 16. Install ZATHURA
 ! "$docker" && bash "$APPCONFIG_PATH"/zathura/install.sh "$subinstall_params"
 
-# 17. Install PQIV
-! "$docker" && bash "$APPCONFIG_PATH"/pqiv/install.sh "$subinstall_params"
+# 17. Install VIMIV
+! "$docker" && bash "$APPCONFIG_PATH"/vimiv/install.sh "$subinstall_params"
 
 # 18. Install SILVER SEARCHER (ag)
 ! "$docker" && bash "$APPCONFIG_PATH"/silver_searcher/install.sh "$subinstall_params"
@@ -157,7 +157,7 @@ fi
 # 28. Install YT-X
 ! "$docker" && bash "$APPCONFIG_PATH"/yt-x/install.sh "$subinstall_params"
 
-# 29. Install LOBSTER
+# 29. Install KODI
 ! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
 
 # 30. Install SCRCPY

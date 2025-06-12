@@ -288,7 +288,7 @@ for_window [instance="xfreerdp"] move container to workspace $ws6, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 # bluetooth applet
-# exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
+exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
 
 # colors from Xresources
 set_from_resource $term_background background
@@ -1564,10 +1564,10 @@ exec_always --no-startup-id indicator-sound-switcher
 
 # exec_always --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
-# stretch
+# breaks
 exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 
-# news feed
+# newsbeuter
 exec --no-startup-id "newsboat -r -q"
 
 # #}

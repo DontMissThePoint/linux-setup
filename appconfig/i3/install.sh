@@ -110,18 +110,18 @@ while true; do
     sudo systemctl daemon-reload
     sudo systemctl enable autorandr.service autorandr-lid-listener.service ly.service
     sudo systemctl disable gdm3 getty@tty2.service
-    sudo cp -f $APP_PATH/config.ini /etc/ly/config.ini
+    sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
 
     # udev
     sudo udevadm control --reload-rules
 
     # systemd & timers
     sudo mkdir -p /etc/X11/xinit/xinitrc.d
-    sudo cp -f $APP_PATH/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
-    sudo cp -f $APP_PATH/systemd/*.{service,timer} /usr/lib/systemd/user/
+    sudo cp -f "$APP_PATH"/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
+    sudo cp -f "$APP_PATH"/systemd/*.{service,timer} /usr/lib/systemd/user/
     systemctl --user daemon-reload
     systemctl --user --now enable autorandr_launcher.service
-    systemctl --user --now enable mpd-mpris pipewire pipewire-pulse wireplumber
+    systemctl --user --now enable pipewire pipewire-pulse wireplumber
     systemctl --user start xidlehook.service activitywatch.service battery_notification.{service,timer}
     sudo systemctl --global enable xidlehook.service activitywatch.service battery_notification.{service,timer}
     # journalctl --follow --identifier='autorandr-launcher-service'
@@ -129,7 +129,7 @@ while true; do
 
     # earlyoom
     sudo apt install -y earlyoom libkeyutils-dev
-    sudo cp -f $APP_PATH/earlyoom /etc/default/earlyoom
+    sudo cp -f "$APP_PATH"/earlyoom /etc/default/earlyoom
     sudo systemctl restart earlyoom
 
     # scripts on startup
@@ -144,7 +144,7 @@ while true; do
     [ -e gnome-pomodoro ] && rm -rf gnome-pomodoro
     git clone -b "gnome-$num" https://github.com/gnome-pomodoro/gnome-pomodoro.git
     cd gnome-pomodoro
-    cp -f $APP_PATH/pomodoro-style.css ./data/resources/style.css
+    cp -f "$APP_PATH"/pomodoro-style.css ./data/resources/style.css
     meson . build --prefix=/usr
     meson compile -C build
     sudo meson install -C build --no-rebuild
@@ -155,7 +155,7 @@ while true; do
     # install light for display backlight control
     # compile light
     sudo apt-get -y install help2man
-    cd $APP_PATH/../../submodules/light/
+    cd "$APP_PATH"/../../submodules/light/
     ./autogen.sh
     ./configure && make -j8
     sudo make install
@@ -170,7 +170,7 @@ while true; do
 
     # compile i3
     /usr/bin/python3 -m pip install --break-system-packages meson
-    # cd $APP_PATH/../../submodules/i3/
+    # cd "$APP_PATH"/../../submodules/i3/
     sudo apt install -y i3status ninja-build
 
     # build from sources
@@ -188,7 +188,7 @@ while true; do
     git clean -fd
 
     # compile i3 blocks
-    cd $APP_PATH/../../submodules/i3blocks/
+    cd "$APP_PATH"/../../submodules/i3blocks/
     ./autogen.sh
     ./configure
     make
@@ -223,10 +223,10 @@ while true; do
       sudo tee /etc/modules-load.d/cava.conf >/dev/null
 
     # for making gtk look better
-    sudo apt-get -y install lxappearance gtk-chtheme polybar
+    sudo apt-get -y install lxappearance gtk-chtheme blueman polybar
 
     # polybar
-    cp -fr --preserve $APP_PATH/polybar ~/.config/
+    cp -fr --preserve "$APP_PATH"/polybar ~/.config/
 
     # pulseaudio-control
     sudo sed -i -e 's/^\(load-module module-stream-restore\).*/\1 restore_device=false/g' \
@@ -252,16 +252,16 @@ while true; do
       sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
     fi
 
-    cd $APP_PATH/../../submodules/indicator-sound-switcher
+    cd "$APP_PATH"/../../submodules/indicator-sound-switcher
     sudo /usr/bin/python3 setup.py install
 
     # indicator-ram
-    cd $APP_PATH/../../submodules/i3blocks-contrib/memory2
+    cd "$APP_PATH"/../../submodules/i3blocks-contrib/memory2
     make
 
     # symlink settings folder
     if [ ! -e ~/.i3 ]; then
-      ln -sf $APP_PATH/doti3 ~/.i3
+      ln -sf "$APP_PATH"/doti3 ~/.i3
     fi
 
     # rofi
@@ -292,23 +292,23 @@ while true; do
     pv "$APP_PATH"/i3blocks/battery_git >"$APP_PATH"/i3blocks/battery
 
     # Xorg
-    pv $APP_PATH/dotxinitrc >~/.xinitrc
-    pv $APP_PATH/dotxsession >~/.xsession
-    pv $APP_PATH/picom.conf >~/.config/picom.conf
+    pv "$APP_PATH"/dotxinitrc >~/.xinitrc
+    pv "$APP_PATH"/dotxsession >~/.xsession
+    pv "$APP_PATH"/picom.conf >~/.config/picom.conf
 
     # GTK
-    if [ -d "~/.config/gtk-4.0" ]; then
-      pv $APP_PATH/gtk.css >~/.config/gtk-4.0/gtk.css
-      pv $APP_PATH/gtk-mine.css >~/.config/gtk-4.0/gtk-mine.css
-      pv $APP_PATH/settings.ini >~/.config/gtk-4.0/settings.ini
+    if [ -d "$HOME/.config/gtk-4.0" ]; then
+      pv "$APP_PATH"/gtk.css >~/.config/gtk-4.0/gtk.css
+      pv "$APP_PATH"/gtk-mine.css >~/.config/gtk-4.0/gtk-mine.css
+      pv "$APP_PATH"/settings.ini >~/.config/gtk-4.0/settings.ini
     fi
 
     mkdir -p ~/.config/gtk-2.0
-    pv $APP_PATH/gtkfilechooser.ini >~/.config/gtk-2.0/gtkfilechooser.ini
-    pv $APP_PATH/settings.ini >~/.config/gtk-3.0/settings.ini
-    pv $APP_PATH/gtk.css >~/.config/gtk-3.0/gtk.css
-    pv $APP_PATH/gtk-mine.css >~/.config/gtk-3.0/gtk-mine.css
-    pv $APP_PATH/dotgtkrc-2.0 >~/.gtkrc-2.0
+    pv "$APP_PATH"/gtkfilechooser.ini >~/.config/gtk-2.0/gtkfilechooser.ini
+    pv "$APP_PATH"/settings.ini >~/.config/gtk-3.0/settings.ini
+    pv "$APP_PATH"/gtk.css >~/.config/gtk-3.0/gtk.css
+    pv "$APP_PATH"/gtk-mine.css >~/.config/gtk-3.0/gtk-mine.css
+    pv "$APP_PATH"/dotgtkrc-2.0 >~/.gtkrc-2.0
 
     # autostart
     cd /etc/xdg/autostart/
@@ -317,20 +317,20 @@ while true; do
     # copy fonts
     # fontawesome 4.7
     mkdir -p ~/.fonts
-    cp $APP_PATH/fonts/* ~/.fonts/
+    cp "$APP_PATH"/fonts/* ~/.fonts/
 
     # link fonts.conf file
     mkdir -p ~/.config/fontconfig
-    ln -sf $APP_PATH/fonts.conf ~/.config/fontconfig/fonts.conf
+    ln -sf "$APP_PATH"/fonts.conf ~/.config/fontconfig/fonts.conf
 
     # link layouts
     mkdir -p ~/.config/i3-layout-manager/layouts
-    ln -sf $APP_PATH/layouts/* ~/.config/i3-layout-manager/layouts
+    ln -sf "$APP_PATH"/layouts/* ~/.config/i3-layout-manager/layouts
 
     # install useful gui utils
     sudo apt-get -y install thunar # compton
 
-    $APP_PATH/make_launchers.sh $APP_PATH/../../scripts
+    "$APP_PATH"/make_launchers.sh "$APP_PATH"/../../scripts
 
     # disable nautilus
     gsettings set org.gnome.desktop.background show-desktop-icons false
@@ -343,9 +343,9 @@ while true; do
     gsettings set org.gnome.system.location enabled false
 
     # install xkb layout state
-    cd $APP_PATH/../../submodules/xkblayout-state/
+    cd "$APP_PATH"/../../submodules/xkblayout-state/
     make
-    sudo cp -f $APP_PATH/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
+    sudo cp -f "$APP_PATH"/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
     rm -f xkblayout-state
 
     # required for i3lock-color
@@ -363,11 +363,11 @@ while true; do
     # lockscreen with effects!
     wget -c https://raw.githubusercontent.com/betterlockscreen/betterlockscreen/main/install.sh -O - -q | sudo bash -s system latest true
     mkdir -p ~/.config/betterlockscreen/
-    pv $APP_PATH/betterlockscreenrc >~/.config/betterlockscreen/betterlockscreenrc
-    pv $APP_PATH/custom-post.sh >~/.config/betterlockscreen/custom-post.sh
+    pv "$APP_PATH"/betterlockscreenrc >~/.config/betterlockscreen/betterlockscreenrc
+    pv "$APP_PATH"/custom-post.sh >~/.config/betterlockscreen/custom-post.sh
 
     # [ falcon_heavy.jpg, lightning.jpg ]
-    betterlockscreen -u $APP_PATH/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
+    betterlockscreen -u "$APP_PATH"/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
 
     # pipes.sh -t7
     sudo apt install -y cmatrix cmatrix-xfont

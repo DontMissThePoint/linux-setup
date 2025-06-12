@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# $HOME/.config/ncmpcpp/album_cover_art.sh
-
 ncmpcpp_home="$HOME/.config/ncmpcpp"
 default_cover="$ncmpcpp_home/default_cover.jpg"
 cover_dir="$XDG_RUNTIME_DIR/ncmpcpp"

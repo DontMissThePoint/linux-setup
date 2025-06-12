@@ -108,10 +108,10 @@ self_update = true
 #rpm_ostree = false
 #nix_arguments = "--flake"
 
-[git]
-max_concurrency = 8
+# [git]
+# max_concurrency = 8
 # Additional git repositories to pull
-# repos = ["~/linux-setup/submodules/**"]
+# repos = ["$GIT_PATH/linux-setup/submodules/"]
 
 # Don't pull the predefined git repos
 #pull_predefined = false

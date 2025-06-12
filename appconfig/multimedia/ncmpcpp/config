@@ -1,64 +1,130 @@
-### Directories ###
+[global]
 ncmpcpp_directory 	= ~/.config/ncmpcpp
 lyrics_directory  	= ~/.config/ncmpcpp/lyrics
 mpd_music_dir     	= ~/Music
+
+[mpd]
 mpd_host 		  	= "127.0.0.1"
 mpd_port 		  	= "6600"
 mpd_crossfade_time 	= "2"
-mpd_connection_timeout = 60
+mpd_connection_timeout = 5
 
-### Behaviour ###
+export mpd_host=$HOME/.mpd/socket
+
 message_delay_time 				 = 1
 autocenter_mode 				 = "yes"
 centered_cursor 				 = "yes"
 ignore_leading_the 				 = "yes"
-playlist_disable_highlight_delay = 2
+playlist_disable_highlight_delay = 1
 allow_for_physical_item_deletion = "no"
 
-### Visualizer ###
-visualizer_data_source = "localhost:5555"
+[visualizer]
+visualizer_data_source = "127.0.0.1:5555"
 visualizer_output_name = "mopidy_visualizer"
 visualizer_in_stereo   = "yes"
 visualizer_look 	   = ●●
 visualizer_type 	   = "spectrum"
+visualizer_autoscale = "yes"
+visualizer_fps = 60
+visualizer_color = "blue, cyan, green, yellow, magenta, red"
+visualizer_spectrum_smooth_look = "yes"
+visualizer_spectrum_dft_size = 4
+visualizer_spectrum_gain = 20
+visualizer_spectrum_hz_min = 20
+visualizer_spectrum_hz_max = 20000
 
-### Appearance ###
-playlist_display_mode = "columns"
-browser_display_mode  = "columns"
+[misc]
+discard_colors_if_item_is_selected = "yes"
+show_duplicate_tags = "no"
+incremental_seeking = "yes"
+seek_time = 2
+volume_change_step = 5
+data_fetching_delay = "no"
+media_library_primary_tag = "album_artist"
+media_library_sort_by_mtime = "yes"
+default_find_mode = "wrapped"
+lyrics_fetchers = "genius, azlyrics, justsomelyrics, jahlyrics, tekstowo, internet"
+follow_now_playing_lyrics = "yes"
+fetch_lyrics_for_current_song_in_background = "yes"
+store_lyrics_in_song_dir = "no"
+generate_win32_compatible_filenames = "no"
+show_hidden_files_in_local_browser = "no"
+space_add_mode = "add_remove"
+
+[modes]
+playlist_display_mode = columns
+browser_display_mode = columns
+search_engine_display_mode = columns
+playlist_editor_display_mode = columns
+default_place_to_search_in = database
 colors_enabled 		  = "yes"
+volume_color 		    = white
+startup_screen      = playlist
+startup_slave_screen =
+startup_slave_screen_focus = "no"
 
-user_interface       = classic
-# user_interface 		  = alternative
-volume_color 		  = "white"
+locked_screen_width_part = 44
+ask_for_locked_screen_width_part = "no"
+jump_to_now_playing_song_at_start = "yes"
 
-### Window ###
+ask_before_clearing_playlists = "no"
+clock_display_seconds = "no"
+display_volume_level = "yes"
+display_bitrate = "yes"
+display_remaining_time = "no"
+regular_expressions = basic
+
+ignore_diacritics = "yes"
+block_search_constraints_change_if_items_found = "yes"
+mouse_support = "yes"
+mouse_list_scroll_whole_page = "no"
+lines_scrolled = 1
+empty_tag_marker="x________"
+search_engine_default_search_mode = 2
+external_editor = nvim
+use_console_editor = "yes"
+
+empty_tag_color = 8
+header_window_color = 13
+state_line_color = blue
+state_flags_color = green:b
+main_window_color = white
+statusbar_color = magenta
+statusbar_time_color = cyan:b
+player_state_color = default
+alternative_ui_separator_color = blue
+
 song_window_title_format = "{%a - }{%t}|{%f}"
 statusbar_visibility 	 = "no"
-header_visibility 		 = "no"
 titles_visibility 		 = "no"
 
-### Progress bar ###
-progressbar_look 			= "▂▂▂"
-progressbar_color 			= "black"
-progressbar_elapsed_color   = 7
+[appearance]
+[[progressbar]]
+# progressbar_look     = "▃▃▃"
+progressbar_look       = "▒▓░"
+progressbar_color      = 1_1
+# progressbar_elapsed_color = blue:b
+progressbar_elapsed_color   = 7:b
 
-### Alternative UI ###
-alternative_ui_separator_color 		  = "black"
-alternative_header_first_line_format  = $b$5$/b  $b$8{%t}|{%f}$/b $/b
-alternative_header_second_line_format = {$b{$2  %a$9}{ - $7  %b$9}}
+ui]
+header_visibility   = "no"
+user_interface      = classic
+enable_window_title = no
+connected_message_on_startup = no
+song_status_format = $b{{$8%t}} $3by {$4%a{ $3in $7%b{ (%y)}} $3}|{$8%f}
+song_library_format = {%n - }{%t}|{%f}
+alternative_header_first_line_format = $b$1$aqqu$/a$9 {%t}|{%f} $1$atqq$/a$9$/b
+alternative_header_second_line_format = {$b{$6%a$9}{ - $7%b$9}{ ($4%y$9)}}|{%D}
 
-### Song list ###
-song_status_format		 = "$7%t"
-song_list_format 		 = $(blue){%a}$(end) $(red){%t}$(end)$(red)({%l})$(end)
-song_library_format 	 = {{%a - %t} (%b)}|{%f}
-song_columns_list_format = "(49)[white]{tr}$C(5f)[red]{l}(50)[blue]{a}"
+now_playing_prefix = "$b$3$8 "
+now_playing_suffix = $/b$8
+current_item_prefix = "$(cyan)$b>>"
+current_item_suffix = $(end)$/b
+current_item_inactive_column_prefix = $(green)
+current_item_inactive_column_suffix = $(end)
+song_list_format = {$4%a - }{%t}|{$8%f$9}$R{$3%l$9}
+song_columns_list_format = (49)[white]{tr}$C(5f)[magenta]{l}(50)[cyan]{a}$C(25f)[black]{b}
 
-### Colors ###
-main_window_color 					= "white"
-current_item_prefix                 = >>
-current_item_suffix                 = $(end)
-current_item_inactive_column_prefix = red
-current_item_inactive_column_suffix = red
-color1 = "white"
+browser_sort_mode = name
+browser_sort_format = {%l} {%a - }{%t}|{%f}
 execute_on_song_change = "~/.config/ncmpcpp/track_change.sh -m ~/Music 2>/dev/null"
-color2 = "red"
