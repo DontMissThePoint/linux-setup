@@ -4,7 +4,7 @@
     # pkgs.hello
     pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
       pkgs.activitywatch pkgs.libgen-cli pkgs.zscroll
-      pkgs.mpd pkgs.material-icons pkgs.xidel
+      pkgs.mpd pkgs.material-icons pkgs.xidel pkgs.texlab
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

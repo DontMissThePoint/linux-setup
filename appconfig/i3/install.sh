@@ -90,7 +90,7 @@ while true; do
     git clone https://github.com/fairyglade/ly
     cd ly
     zig build
-    sudo $(which zig) build installexe
+    sudo "$(which zig)" build installexe
 
     # auto-detect connected display
     cd /tmp

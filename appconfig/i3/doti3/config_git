@@ -1579,6 +1579,7 @@ for_window [class="^Nautilus$"] floating enable
 for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
+for_window [class="^(V|v)imiv$"] floating enable, focus
 for_window [class="^(N|n)extcloud$"] floating enable, focus
 for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable

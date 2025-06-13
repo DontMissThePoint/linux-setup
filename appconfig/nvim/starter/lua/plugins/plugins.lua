@@ -50,7 +50,10 @@ local plugins = {
       ensure_installed = {
         "vim",
         "vimdoc",
+        "toml",
+        "fish",
         "regex",
+        "printf",
         "lua",
         "bash",
         "markdown",
@@ -69,6 +72,12 @@ local plugins = {
         "vue",
       },
       auto_install = true,
+      highlight = {
+        enable = true,
+        use_languagetree = true,
+      },
+
+      indent = { enable = true },
     },
   },
 
@@ -214,7 +223,15 @@ local plugins = {
     --  for users those who want auto-save conform + lazyloading!
     -- event = "BufWritePre"
     config = function()
-      require "configs.conform"
+      require("configs.conform").setup {
+        formatters = {
+          format_on_save = {
+            -- These options will be passed to conform.format()
+            timeout_ms = 100,
+            lsp_fallback = true,
+          },
+        },
+      }
     end,
   },
 

@@ -65,7 +65,7 @@ local options = {
       { txt = "  Find File", keys = "f", cmd = "Telescope find_files" },
       { txt = "  Recent Files", keys = "o", cmd = "Telescope oldfiles" },
       { txt = "󰈭  Find Word", keys = "w", cmd = "Telescope live_grep" },
-      { txt = "󱥚  Sessions", keys = "s", cmd = ":lua require('nvim-possession').list()" },
+      { txt = "󱥚  Sessions", keys = "s", cmd = ":lua require('persistence').select()" },
       { txt = "  Mappings", keys = "h", cmd = "NvCheatsheet" },
 
       { txt = "─", hl = "NvDashFooter", no_gap = true, rep = true },

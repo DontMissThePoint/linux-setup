@@ -4,6 +4,8 @@ return {
   dependencies = {
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
+    "mfussenegger/nvim-lint",
+    "rshkarin/mason-nvim-lint",
   },
   config = function()
     -- import mason
@@ -11,7 +13,10 @@ return {
 
     -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
-    local mason_tool_installer = require("mason-tool-installer")
+
+    -- import lint
+    local lint = require("lint").setup()
+    local mason_nvim_lint = require("mason-nvim-lint").setup()
 
     -- icons
     mason.setup({
@@ -59,7 +64,9 @@ return {
         "biome",    -- js formatter
         "isort",    -- python formatter
         "black",    -- python formatter
+        "prettierd",
         "stylua",
+        "beautysh",
         "pylint",
         "eslint_d",
         "luacheck",
@@ -76,6 +83,36 @@ return {
         "vint",
       },
       auto_update = false,
+    })
+
+    -- linters
+    mason_nvim_lint.setup({
+      ensure_installed = { 'beautysh' },
+      ignore_install = { 'custom-linter' }, -- avoid trying to install an unknown linter
+    })
+
+    lint.linters_by_ft = {
+      lua = { "luacheck" },
+      sh = { "beautysh" },
+      -- haskell = { "hlint" },
+      -- python = { "flake8" },
+    }
+
+    lint.linters.luacheck.args = {
+      "--globals",
+      "love",
+      "vim",
+      "--formatter",
+      "plain",
+      "--codes",
+      "--ranges",
+      "-",
+    }
+
+    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+      callback = function()
+        lint.try_lint()
+      end,
     })
   end,
 }
