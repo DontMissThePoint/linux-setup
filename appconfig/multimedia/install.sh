@@ -48,42 +48,32 @@ while true; do
     sudo chmod 755 ~/.local/bin/alass
 
     # use in pdfpc to play videos
-    sudo apt-get -y install gstreamer1.0-libav gstreamer1.0-plugins-bad libxpresent1 timidity python3-dbus libmpdclient-dev
+    sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev
 
     # for video, photo, audio, ..., viewing and editing
     sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
 
     toilet Settingup ncmpcpp -t -f future
 
-    # mpc
-    cd /tmp
-    [ -e mpc ] && sudo rm -rf mpc
-    git clone https://github.com/MusicPlayerDaemon/mpc
-    cd mpc
-    meson setup build
-    ninja -C build
-    sudo ninja -C build install
-
-    # mpd
-    mkdir -p ~/.mpd/playlists
-    pv "$APP_PATH/mpd.conf" >~/.mpd/mpd.conf
-    mpc update
-
     # ncmpcpp
-    sudo apt-get install -y ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol
-    sudo systemctl disable mpd.service mpd.socket
+    sudo apt-get install -y mpc mpd mopidy mopidy-doc ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol qtchooser yad
     mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
     cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
 
-    # mopidy
-    sudo apt-get install -y mopidy mopidy-mpd mopidy-mpris mopidy-doc mopidy-podcast mopidy-local
-    sudo systemctl disable mopidy.service
+    # mpd
+    mkdir -p ~/.config/mpd/playlists ~/.local/state/mpd
+    pv "$APP_PATH/mpd.conf" >~/.config/mpd/mpd.conf
+    sudo systemctl disable mpd.service mpd.socket
+    systemctl --user enable mpd.service mpd.socket &
+
+    # mpc
     sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
       /etc/pulse/default.pa
 
-    # yt-dlp
-    /usr/bin/python3 -m pip install --break-system-packages -U pylast yt-dlp gallery-dl \
-      Mopidy-Youtube Mopidy-Bookmarks Mopidy-Mowecl
+    # ext
+    /usr/bin/python3 -m pip install --break-system-packages -U pylast pykka yt-dlp gallery-dl \
+      Mopidy-Mpd Mopidy-Mpris Mopidy-Podcast Mopidy-Local \
+      Mopidy-Youtube Mopidy-Mobile Mopidy-Bookmarks Mopidy-Mowecl
 
     mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/{mopidy,podcast}
     pv "$APP_PATH/mopidy.conf" >~/.config/mopidy/mopidy.conf
@@ -91,10 +81,11 @@ while true; do
     pv "$APP_PATH/yt-dlp.conf" >~/.config/yt-dlp/yt-dlp.conf
     pv "$APP_PATH/config.json" >~/.config/gallery-dl/config.json
 
+    # mopidy
     # web; http://127.0.0.1:6680/
     echo "Scanning database..."
     mopidy local scan
-    mopidy deps
+    # mopidy deps
 
     # mpv
     toilet Settingup mpv -t -f future

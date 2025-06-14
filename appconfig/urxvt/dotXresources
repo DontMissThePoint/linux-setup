@@ -526,7 +526,8 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 
 ! ! GitHub Theme
-! *.background: #161b25
+! ! *.background: #161b25
+! *.background: rgba:3000/2300/5100/d000
 ! *.foreground: [95]#cdd6f4
 
 ! *fading: 8

@@ -10,8 +10,8 @@ fi
 
 updates=$((updates_brew + updates_apt))
 
-if [ "$updates" -gt 0 ]; then
-  echo "$updates"
+if [ "$updates" -gt 1 ]; then
+  echo ""
 else
   echo ""
 fi

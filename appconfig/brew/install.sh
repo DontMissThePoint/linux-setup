@@ -51,7 +51,7 @@ while true; do
     toilet Setting up brew -t -f future
     source $HOME/.bashrc && brew update && brew upgrade
     brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
-      ripgrep universal-ctags miller countdown ctop btop csvkit \
+      bat ripgrep universal-ctags miller countdown ctop btop csvkit \
       rg fd dust zig aria2 glow restic croc newsboat walk s-search \
       eza lazygit delta shellcheck shfmt poetry npm tailspin yq jless rich
 

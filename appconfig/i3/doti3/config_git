@@ -1553,7 +1553,7 @@ exec --no-startup-id nm-applet
 # polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
 
-# double session
+# tmux
 exec --no-startup-id "i3-sensible-terminal -name launcher -e $SHELL -c 'tmuxinator double;$SHELL -i'"
 
 # animations
@@ -1564,7 +1564,7 @@ exec_always --no-startup-id indicator-sound-switcher
 
 # exec_always --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
-# breaks
+# watch
 exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"
 
 # newsbeuter

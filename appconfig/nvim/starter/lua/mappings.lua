@@ -86,12 +86,8 @@ map("n", "<leader>mx", function()
   require("myeyeshurt").stop()
 end, { desc = "myeyes stop flakes" })
 
--- zen
-map("n", "<leader>za", ":ZenMode <cr>", { desc = "zen mode" })
-map("n", "<leader>zz", ":ZenMode | TwilightEnable <cr>", { desc = "better focus" })
-map("n", "<leader>zf", ":Twilight <cr>", { desc = "lime light" })
-
-map("v", "<leader>zf", ":'<,'>ZenMode <cr>", { desc = "narrow text region" })
+-- icons
+map("n", "<Leader>si", "<cmd>Nerdy<cr>", { desc = "nerd icons" })
 
 -- navigator
 map("n", "<C-h>", "<cmd> NavigatorLeft <cr>", { desc = "Left" })
@@ -99,6 +95,28 @@ map("n", "<C-j>", "<cmd> NavigatorDown <cr>", { desc = "Down" })
 map("n", "<C-k>", "<cmd> NavigatorUp <cr>", { desc = "Up" })
 map("n", "<C-l>", "<cmd> NavigatorRight <cr>", { desc = "Right" })
 map("n", "<C-Space>", "<cmd> NavigatorPrevious <cr>", { desc = "Previous" })
+map("n", "<Tab>", "<cmd> NavigatorPrevious <cr>", { desc = "Next" })
+
+-- splits
+-- <Tab>: move to left window or, if none, go to previous tab
+map("n", "<Tab>", function()
+  -- if there's a window to the left, go there; else go to previous tab
+  if vim.fn.winnr("h") ~= vim.fn.winnr() then
+    vim.cmd("wincmd h")
+  else
+    vim.cmd("tabprevious")
+  end
+end, { desc = "Window left or Previous tab" })
+
+-- <S-Tab>: move to right window or, if none, go to next tab
+map("n", "<S-Tab>", function()
+  -- if there's a window to the right, go there; else go to next tab
+  if vim.fn.winnr("l") ~= vim.fn.winnr() then
+    vim.cmd("wincmd l")
+  else
+    vim.cmd("tabnext")
+  end
+end, { desc = "Window right or Next tab" })
 
 -- spider
 map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
