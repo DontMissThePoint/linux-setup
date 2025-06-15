@@ -1,8 +1,8 @@
 #!/bin/bash
 
 # get the path to this script
-APP_PATH=`dirname "$0"`
-APP_PATH=`( cd "$APP_PATH" && pwd )`
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
 
 # syntevo
 cd $APP_PATH
@@ -18,19 +18,19 @@ toilet Setting up smartgit -t -f future
 
 sudo dpkg -i *.deb || sudo apt install -fy
 rm -fr $APP_PATH/*.deb ~/.config/smartgit
-num=`cat /usr/share/smartgit/bin/smartgit.sh | grep "NEW_DATE" | wc -l`
+num=$(cat /usr/share/smartgit/bin/smartgit.sh | grep "NEW_DATE" | wc -l)
 if [ "$num" -lt "1" ]; then
 
-    echo "Activating..."
-    echo '
+  echo "Activating..."
+  echo '
 # auto-reset trial period
 config="~/.config/smartgit/20.2/preferences.yml"
 # current date in msec + 25 days
 NEW_DATE=$(date -d"+25 days" +%s%3N)
 # sed is for change old date for new one in config
 sed -r -i "s/(listx: \{eUT: )[0-9]+/\1$NEW_DATE/g" $config
-sed -r -i "s/(, nRT: )[0-9]+/\1$NEW_DATE/g" $config' | \
-    sudo tee -a /usr/share/smartgit/bin/smartgit.sh > /dev/null
-    echo "Done."
+sed -r -i "s/(, nRT: )[0-9]+/\1$NEW_DATE/g" $config' |
+    sudo tee -a /usr/share/smartgit/bin/smartgit.sh >/dev/null
+  echo "Done."
 
 fi

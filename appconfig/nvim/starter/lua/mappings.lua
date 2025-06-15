@@ -36,9 +36,6 @@ map("n", "n", "<Cmd>call HiSearch('n')<CR>", { desc = "jump next highlight searc
 map("n", "N", "<Cmd>call HiSearch('N')<CR>", { desc = "jump previous highlight search" })
 map("n", "<Esc>n", "<Cmd>noh<CR>", { desc = "off highlight search" })
 
--- sreenkey
-map("n", "<Tab>", "<Cmd>Screenkey<CR>", { desc = "screencast keystrokes" })
-
 -- scrollview
 map("n", "<leader>sv", "<cmd> ScrollViewRefresh <cr>", { desc = "scrollbar decorate" })
 
@@ -89,12 +86,8 @@ map("n", "<leader>mx", function()
   require("myeyeshurt").stop()
 end, { desc = "myeyes stop flakes" })
 
--- zen
-map("n", "<leader>za", ":ZenMode <cr>", { desc = "zen mode" })
-map("n", "<leader>zz", ":ZenMode | TwilightEnable <cr>", { desc = "better focus" })
-map("n", "<leader>zf", ":Twilight <cr>", { desc = "lime light" })
-
-map("v", "<leader>zf", ":'<,'>ZenMode <cr>", { desc = "narrow text region" })
+-- icons
+map("n", "<Leader>si", "<cmd>Nerdy<cr>", { desc = "nerd icons" })
 
 -- navigator
 map("n", "<C-h>", "<cmd> NavigatorLeft <cr>", { desc = "Left" })
@@ -102,6 +95,28 @@ map("n", "<C-j>", "<cmd> NavigatorDown <cr>", { desc = "Down" })
 map("n", "<C-k>", "<cmd> NavigatorUp <cr>", { desc = "Up" })
 map("n", "<C-l>", "<cmd> NavigatorRight <cr>", { desc = "Right" })
 map("n", "<C-Space>", "<cmd> NavigatorPrevious <cr>", { desc = "Previous" })
+map("n", "<Tab>", "<cmd> NavigatorPrevious <cr>", { desc = "Next" })
+
+-- splits
+-- <Tab>: move to left window or, if none, go to previous tab
+map("n", "<Tab>", function()
+  -- if there's a window to the left, go there; else go to previous tab
+  if vim.fn.winnr("h") ~= vim.fn.winnr() then
+    vim.cmd("wincmd h")
+  else
+    vim.cmd("tabprevious")
+  end
+end, { desc = "Window left or Previous tab" })
+
+-- <S-Tab>: move to right window or, if none, go to next tab
+map("n", "<S-Tab>", function()
+  -- if there's a window to the right, go there; else go to next tab
+  if vim.fn.winnr("l") ~= vim.fn.winnr() then
+    vim.cmd("wincmd l")
+  else
+    vim.cmd("tabnext")
+  end
+end, { desc = "Window right or Next tab" })
 
 -- spider
 map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
@@ -125,14 +140,10 @@ map("n", "<C-w>|", cmd "WindowsMaximizeHorizontally", { desc = "Max out the widt
 map("n", "<C-w>=", cmd "WindowsEqualize", { desc = "Equally high and wide" })
 
 -- persistence
--- load the session for the current directory
-map("n", "<leader>sn", function() require("persistence").load() end)
--- select a session to load
-map("n", "<leader>sl", function() require("persistence").select() end)
--- load the last session
-map("n", "<leader>su", function() require("persistence").load({ last = true }) end)
--- stop Persistence => session won't be saved on exit
-map("n", "<leader>sd", function() require("persistence").stop() end)
+map("n", "<leader>sn", function() require("persistence").load() end, { desc = "cwd session" })
+map("n", "<leader>sl", function() require("persistence").select() end, { desc = "list sessions" })
+map("n", "<leader>su", function() require("persistence").load({ last = true }) end, { desc = "last session" })
+map("n", "<leader>sd", function() require("persistence").stop() end, { desc = "stop session" })
 
 -- sniprun
 map({ "n", "v" }, "<leader>rr", "<Plug>SnipRun", { desc = "run snip" }, { silent = true })
@@ -144,5 +155,5 @@ map("n", "<leader>dt", function()
 end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })
 
 -- format
-map("n", "q", vim.cmd [[cabbrev q execute "Format sync" <bar> wqa]],
+map("n", "qa", vim.cmd [[cabbrev q execute "Format sync" <bar> wqa]],
   { silent = true, noremap = true }, { desc = "save quit" })
