@@ -1553,6 +1553,9 @@ exec --no-startup-id nm-applet
 # polybar
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
 
+# mopidy
+exec_always --no-startup-id mopidy
+
 # tmux
 exec --no-startup-id "i3-sensible-terminal -name launcher -e $SHELL -c 'tmuxinator double;$SHELL -i'"
 

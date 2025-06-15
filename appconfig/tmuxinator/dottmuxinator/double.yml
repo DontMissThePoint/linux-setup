@@ -54,7 +54,7 @@ windows:
       panes:
         - k -cr ; moonphase
         - cd ~/VirtualMachines/Windows-Docker
-        - blueman-applet & bluetoothctl power off &; nchat &; journalctl -f | tspin -f
+        - blueman-applet & bluetoothctl power off &; nchat &; journalctl -f | tl --merge
   - nvim:
       layout: dc50,136x33,0,0,21
       panes:

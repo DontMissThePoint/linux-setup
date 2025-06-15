@@ -63,7 +63,7 @@ while true; do
     # mpd
     mkdir -p ~/.config/mpd/playlists ~/.local/state/mpd
     pv "$APP_PATH/mpd.conf" >~/.config/mpd/mpd.conf
-    sudo systemctl disable mpd.service mpd.socket
+    sudo systemctl disable mopidy mpd.service mpd.socket
     systemctl --user enable mpd.service mpd.socket &
 
     # mpc

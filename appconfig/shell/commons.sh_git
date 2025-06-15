@@ -27,6 +27,9 @@ export LEDGER_FILE="$HOME/Journal/ledger.dat"
 # NIX
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
 
+# RICH
+export PYTHONWARNINGS="ignore:The parameter -j is used more than once:UserWarning:click.core:"
+
 ## --------------------------------------------------------------
 ## |                general aliases and functions               |
 ## --------------------------------------------------------------

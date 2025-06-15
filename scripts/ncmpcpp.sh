@@ -3,9 +3,10 @@
 SESSION="double"
 WINDOW="Music"
 
-# player
+# daemon
 systemctl --user enable mpd.service mpd.socket &
 
+# player
 if ! tmux has-session -t "$SESSION" 2>/dev/null; then
   echo "Error: tmux session '$SESSION' does not exist."
   exit 1
@@ -25,11 +26,7 @@ tmux new-window -t "$SESSION:" -n "$WINDOW" \; \
   send-keys -Rt "$SESSION:$WINDOW".1 'cava' Enter \; \
   select-pane -t "$SESSION:$WINDOW".0 \; \
   select-pane -t "$SESSION:$WINDOW".0 # playlist
-# split-window -h -l 35% \; \
-# right 35%: (cover)
-# send-keys -Rt "$SESSION:$WINDOW".2 "\$HOME/.config/ncmpcpp/cover.sh" Enter \; \
 
-# 'q' to quit
-# tmux bind-key -T root q if-shell '[ "#{window_name}" = "'"$WINDOW"'" ]' "kill-window"
+# '&' to quit
 # <Prefix> & for killing a window
 # <Prefix> x for killing a pane
