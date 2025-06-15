@@ -13,12 +13,12 @@ CONFIG="$HOME/.config/mpv"
 unattended=0
 subinstall_params=""
 for param in "$@"; do
-  echo "$param"
-  if [ "$param=--unattended" ]; then
-    echo "installing in unattended mode"
-    unattended=1
-    subinstall_params="--unattended"
-  fi
+    echo "$param"
+    if [ "$param=--unattended" ]; then
+        echo "installing in unattended mode"
+        unattended=1
+        subinstall_params="--unattended"
+    fi
 done
 
 var=$(lsb_release -r | awk '{ print $2 }')
@@ -26,119 +26,119 @@ var=$(lsb_release -r | awk '{ print $2 }')
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]; then
-    resp=$default
-  else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall multimedia (players, ...)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
-  fi
-  response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
-
-  if [[ $response =~ ^(y|Y)=$ ]]; then
-
-    toilet Installing multimedia -t --filter metal -f smmono12
-
-    # ffmpeg
-    cd /tmp
-    wget -c -O ~/.local/bin/alass https://github.com/kaegi/alass/releases/download/v2.0.0/alass-linux64
-    aria2c -c -j 8 -x 16 -s 16 -k 1M https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
-    tar -xf ffmpeg-release-amd64-static.tar.xz
-    cp ffmpeg-7.0.2-amd64-static/ff* ~/.local/bin
-    sudo chmod 755 ~/.local/bin/ffmpeg
-    sudo chmod 755 ~/.local/bin/ffprobe
-    sudo chmod 755 ~/.local/bin/alass
-
-    # use in pdfpc to play videos
-    sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev
-
-    # for video, photo, audio, ..., viewing and editing
-    sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
-
-    toilet Settingup ncmpcpp -t -f future
-
-    # ncmpcpp
-    sudo apt-get install -y mpc mpd mopidy mopidy-doc ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol qtchooser yad
-    mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
-    cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
-
-    # mpd
-    mkdir -p ~/.config/mpd/playlists ~/.local/state/mpd
-    pv "$APP_PATH/mpd.conf" >~/.config/mpd/mpd.conf
-    sudo systemctl disable mopidy mpd.service mpd.socket
-    systemctl --user enable mpd.service mpd.socket &
-
-    # mpc
-    sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
-      /etc/pulse/default.pa
-
-    # ext
-    /usr/bin/python3 -m pip install --break-system-packages -U pylast pykka yt-dlp gallery-dl \
-      Mopidy-Mpd Mopidy-Mpris Mopidy-Podcast Mopidy-Local \
-      Mopidy-Youtube Mopidy-Mobile Mopidy-Bookmarks Mopidy-Mowecl
-
-    mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/{mopidy,podcast}
-    pv "$APP_PATH/mopidy.conf" >~/.config/mopidy/mopidy.conf
-    pv "$APP_PATH/Podcasts.opml" >~/.config/mopidy/podcast/Podcasts.opml
-    pv "$APP_PATH/yt-dlp.conf" >~/.config/yt-dlp/yt-dlp.conf
-    pv "$APP_PATH/config.json" >~/.config/gallery-dl/config.json
-
-    # mopidy
-    # web; http://127.0.0.1:6680/
-    echo "Scanning database..."
-    mopidy local scan
-    # mopidy deps
-
-    # mpv
-    toilet Settingup mpv -t -f future
-
-    # Add the repository to apt sources
-    if [ ! -e /etc/apt/sources.list.d/fruit.list ]; then
-
-      # Add mpv GPG key
-      sudo curl --output-dir /etc/apt/trusted.gpg.d -O https://apt.fruit.je/fruit.gpg
-
-      echo \
-        "deb https://apt.fruit.je/ubuntu $(lsb_release -cs) mpv" |
-        sudo tee /etc/apt/sources.list.d/fruit.list >/dev/null
-      sudo apt-get update
-      sudo apt install -y libopencore-amrnb0 libopencore-amrwb0 mpv-mpris mpv
+    if [[ "$unattended" == "1" ]]; then
+        resp=$default
+    else
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall multimedia (players, ...)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
+    response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
-    # high-quality mpv
-    echo "🎥 High-quality configuration for mpv"
-    echo "Installing..."
-    rm -rf "$CONFIG"
+    if [[ $response =~ ^(y|Y)=$ ]]; then
 
-    # uosc
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
-    cp -rf "$APP_PATH"/mpv-config/* "$CONFIG"
+        toilet Installing multimedia -t --filter metal -f smmono12
 
-    # image-viewer
-    echo "Installing mvi..."
-    rm -fr ~/.config/mvi && cp -rf "$APP_PATH"/mvi ~/.config/
-    mkdir -p ~/.cache/thumbnails/mpv-gallery
+        # ffmpeg
+        cd /tmp
+        wget -c -O ~/.local/bin/alass https://github.com/kaegi/alass/releases/download/v2.0.0/alass-linux64
+        aria2c -c -j 8 -x 16 -s 16 -k 1M https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+        tar -xf ffmpeg-release-amd64-static.tar.xz
+        cp ffmpeg-7.0.2-amd64-static/ff* ~/.local/bin
+        sudo chmod 755 ~/.local/bin/ffmpeg
+        sudo chmod 755 ~/.local/bin/ffprobe
+        sudo chmod 755 ~/.local/bin/alass
 
-    # gallery-dl
-    git clone https://github.com/noctuid/gallery-dl-view ~/.config/mvi/scripts/gallery-dl-view
+        # use in pdfpc to play videos
+        sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev libcaca-dev
 
-    # webtorrent
-    git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
+        # for video, photo, audio, ..., viewing and editing
+        sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
 
-    # imdb
-    pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer
-    git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
-    git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
+        toilet Settingup ncmpcpp -t -f future
 
-    # autosubsync
-    /usr/bin/python3 -m pip install --break-system-packages -U subliminal ffsubsync
-    git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
+        # ncmpcpp
+        sudo apt-get install -y mpc mpd mopidy mopidy-doc ncmpcpp timg libnotify-bin inotify-tools libxres-dev screenkey pavucontrol qtchooser yad
+        mkdir -p ~/.config/ncmpcpp ~/.config/ncmpcpp/lyrics
+        cp -fr --preserve "$APP_PATH"/ncmpcpp/* ~/.config/ncmpcpp/
 
-    # audio
-    aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
+        # mpd
+        mkdir -p ~/.config/mpd/playlists ~/.local/state/mpd
+        pv "$APP_PATH/mpd.conf" >~/.config/mpd/mpd.conf
+        sudo systemctl disable mopidy mpd.service mpd.socket
+        systemctl --user enable mpd.service mpd.socket &
 
-    break
-  elif [[ $response =~ ^(n|N)=$ ]]; then
-    break
-  else
-    echo " What? \"$resp\" is not a correct answer. Try y+Enter."
-  fi
+        # mpc
+        sudo sed -i -e 's/^#*\s*\(load-module module-native-protocol-tcp\).*/\1 auth-ip-acl=127.0.0.1/g' \
+            /etc/pulse/default.pa
+
+        # ext
+        /usr/bin/python3 -m pip install --break-system-packages -U pylast pykka yt-dlp gallery-dl setuptools \
+            Mopidy-Mpd Mopidy-Mpris Mopidy-Podcast Mopidy-Local \
+            Mopidy-Youtube Mopidy-Mobile Mopidy-Bookmarks Mopidy-Mowecl
+
+        mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/{mopidy,podcast}
+        pv "$APP_PATH/mopidy.conf" >~/.config/mopidy/mopidy.conf
+        pv "$APP_PATH/Podcasts.opml" >~/.config/mopidy/podcast/Podcasts.opml
+        pv "$APP_PATH/yt-dlp.conf" >~/.config/yt-dlp/yt-dlp.conf
+        pv "$APP_PATH/config.json" >~/.config/gallery-dl/config.json
+
+        # mopidy
+        # web; http://127.0.0.1:6680/
+        echo "Scanning database..."
+        mopidy local scan
+        # mopidy deps
+
+        # mpv
+        toilet Settingup mpv -t -f future
+
+        # Add the repository to apt sources
+        if [ ! -e /etc/apt/sources.list.d/fruit.list ]; then
+
+            # Add mpv GPG key
+            sudo curl --output-dir /etc/apt/trusted.gpg.d -O https://apt.fruit.je/fruit.gpg
+
+            echo \
+                "deb https://apt.fruit.je/ubuntu $(lsb_release -cs) mpv" |
+            sudo tee /etc/apt/sources.list.d/fruit.list >/dev/null
+            sudo apt-get update
+            sudo apt install -y libopencore-amrnb0 libopencore-amrwb0 mpv-mpris mpv
+        fi
+
+        # high-quality mpv
+        echo "🎥 High-quality configuration for mpv"
+        echo "Installing..."
+        rm -rf "$CONFIG"
+
+        # uosc
+        /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/tomasklaen/uosc/HEAD/installers/unix.sh)"
+        cp -rf "$APP_PATH"/mpv-config/* "$CONFIG"
+
+        # image-viewer
+        echo "Installing mvi..."
+        rm -fr ~/.config/mvi && cp -rf "$APP_PATH"/mvi ~/.config/
+        mkdir -p ~/.cache/thumbnails/mpv-gallery
+
+        # gallery-dl
+        git clone https://github.com/noctuid/gallery-dl-view ~/.config/mvi/scripts/gallery-dl-view
+
+        # webtorrent
+        git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
+
+        # imdb
+        pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer
+        git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
+        git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
+
+        # autosubsync
+        /usr/bin/python3 -m pip install --break-system-packages -U subliminal ffsubsync
+        git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
+
+        # audio
+        aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
+
+        break
+    elif [[ $response =~ ^(n|N)=$ ]]; then
+        break
+    else
+        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+    fi
 done

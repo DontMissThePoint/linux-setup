@@ -46,7 +46,7 @@ root: ~/
 
 # tmux list-windows
 windows:
-  - docker:
+  - tdab:
       layout: 5d4f,127x34,0,0{63x34,0,0[63x12,0,0,2,63x21,0,13,5],63x34,64,0,6}
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
@@ -54,7 +54,7 @@ windows:
       panes:
         - k -cr ; moonphase
         - cd ~/VirtualMachines/Windows-Docker
-        - blueman-applet & bluetoothctl power off &; nchat &; journalctl -f | tl --merge
+        - blueman-applet & bluetoothctl power off &; nchat &; journalctl -f | tspin -f
   - nvim:
       layout: dc50,136x33,0,0,21
       panes:

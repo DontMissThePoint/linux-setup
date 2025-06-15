@@ -3,7 +3,6 @@
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -227,7 +226,7 @@ local plugins = {
         -- Customize or remove this keymap to your liking
         "<leader>fg",
         function()
-          require("conform").format({ async = true })
+          require("conform").format { async = true }
         end,
         mode = "",
         desc = "Format buffer",
@@ -265,8 +264,7 @@ local plugins = {
   {
     "willothy/savior.nvim",
     dependencies = { "j-hui/fidget.nvim" },
-    event = { "FileChangedShellPost", "CmdlineEnter",
-      "BufModifiedSet", "ExitPre" },
+    event = { "FileChangedShellPost", "CmdlineEnter", "BufModifiedSet", "ExitPre" },
     config = true,
   },
 
@@ -349,7 +347,7 @@ local plugins = {
     ft = "help",
     preview = {
       icon_provider = "mini", -- "internal" or "devicons"
-    }
+    },
   },
 
   {
@@ -398,10 +396,10 @@ local plugins = {
     ft = "markdown",
     config = function()
       require("markdown-table-mode").setup {
-        insert = true,              -- when typing "|"
-        insert_leave = true,        -- when leaving insert
+        insert = true, -- when typing "|"
+        insert_leave = true, -- when leaving insert
         pad_separator_line = false, -- add space in separator line
-        alig_style = "default",     -- default, left, center, right
+        alig_style = "default", -- default, left, center, right
       }
     end,
   },
@@ -422,11 +420,11 @@ local plugins = {
     event = "BufRead",
     config = function()
       require("numb").setup {
-        show_numbers = true,         -- Enable 'number' for the window while peeking
-        show_cursorline = true,      -- Enable 'cursorline' for the window while peeking
+        show_numbers = true, -- Enable 'number' for the window while peeking
+        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
         hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
-        number_only = false,         -- Peek only when the command is only a number instead of when it starts with a number
-        centered_peeking = true,     -- Peeked line will be centered relative to window
+        number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
+        centered_peeking = true, -- Peeked line will be centered relative to window
       }
     end,
   },
@@ -513,7 +511,7 @@ local plugins = {
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     opts = {
       -- add any custom options here
-    }
+    },
   },
 
   {
