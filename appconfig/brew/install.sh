@@ -53,7 +53,7 @@ while true; do
     brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
       bat ripgrep universal-ctags miller countdown ctop btop csvkit \
       rg fd dust zig aria2 glow restic croc newsboat walk s-search \
-      eza lazygit delta shellcheck shfmt poetry npm tailspin yq jless tealdeer
+      eza lazygit delta shellcheck shfmt poetry npm tailspin yq jless
 
     # node
     brew upgrade node
@@ -69,11 +69,12 @@ while true; do
     cp -rf "$APP_PATH"/newsboat/* ~/.newsboat/
 
     # config
-    mkdir -p ~/.config/{aria2,btop,bat,glow,rg,s,tealdeer,topgrade,lazygit,neofetch}
+    mkdir -p ~/.config/{aria2,btop,bat,glow,rg,s,wget,topgrade,lazygit,neofetch}
     pv "$APP_PATH/btop.conf" >~/.config/btop/btop.conf
     pv "$APP_PATH/bat.config" >~/.config/bat/config
     pv "$APP_PATH/config.yml" >~/.config/lazygit/config.yml
     pv "$APP_PATH/ripgreprc" >~/.config/rg/ripgreprc
+    pv "$APP_PATH/wgetrc" >~/.config/wget/ripgreprc
     pv "$APP_PATH/s.config" >~/.config/s/config
     pv "$APP_PATH/aria2.conf" >~/.config/aria2/aria2.conf
     pv "$APP_PATH/glow.yml" >~/.config/glow/glow.yml

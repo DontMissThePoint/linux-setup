@@ -13,13 +13,11 @@ return {
     },
   },
   config = function()
-    require "nvchad.configs.lspconfig"
-    require "configs.lspconfig"
-    -- import lspconfig plugin
-    local lspconfig = require "lspconfig"
-    -- import cmp-nvim-lsp plugin
-    -- local cmp_nvim_lsp = require("cmp_nvim_lsp")
+    local on_attach = require("nvchad.configs.lspconfig").on_attach
+    -- local on_init = require("nvchad.configs.lspconfig").on_init
+    local capabilities = require("nvchad.configs.lspconfig").capabilities
 
+    local lspconfig = require("lspconfig")
     local map = vim.keymap.set -- for conciseness
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -187,6 +185,26 @@ return {
     lspconfig["lua_ls"].setup {
       capabilities = capabilities,
       on_attach = on_attach,
+      settings = {
+        Lua = {
+          diagnostics = {
+            enable = true, -- Disable all diagnostics from lua_ls
+            globals = { 'vim' },
+            -- globals = { "vim" },
+          },
+          workspace = {
+            library = {
+              vim.fn.expand("$VIMRUNTIME/lua"),
+              vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
+              vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
+              vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
+              "${3rd}/love2d/library",
+            },
+            maxPreload = 100000,
+            preloadFileSize = 10000,
+          },
+        },
+      },
     }
 
     -- local x = vim.diagnostic.severity

@@ -88,17 +88,17 @@ while true; do
     toilet Settingup visidata -t -f future
 
     # visidata
-    /usr/bin/python3 -m pip install --user --break-system-packages -U visidata \
+    /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
       datapackage pypng pdfminer.six ptpython pytz PyYAML lxml pandas \
       xlrd openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
-      virtualenv tomli tabulate
+      virtualenv tomli tabulate visidata
 
     # pipx
-    pipx install epy-reader
+    pipx toolong install epy-reader
 
     mkdir -p ~/.visidata ~/.config/zathura
-    cp -f $APP_PATH/dotvisidata/* ~/.visidata
-    pv "$APP_PATH/visidatarc" >~/.visidatarc
+    cp -f "$APP_PATH"/dotvisidata/* ~/.visidata
+    pv "$APP_PATH"/visidatarc >~/.visidatarc
 
     # Calibre
     # Green scheme background: #b9edcd foreground: #384f45 links: #000000

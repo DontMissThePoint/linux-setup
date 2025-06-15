@@ -526,7 +526,8 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
 
 ! ! GitHub Theme
-! *.background: #161b25
+! ! *.background: rgba:3000/2300/5100/d000
+! *.background: #080808
 ! *.foreground: [95]#cdd6f4
 
 ! *fading: 8
@@ -569,8 +570,9 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! !! URxvt COLORS --------------------------------------------------------
 
-! URxvt.background: [100]#161b25
-! URxvt*background: black
+! ! URxvt.background: rgba:3000/2300/5100/d000
+! URxvt.background: #080808
+! URxvt*background: [100]#080808
 
 ! !! Bold, Italic, Underline
 ! URxvt.colorBD: [36]#1ABB9B

@@ -3,7 +3,6 @@
 local plugins = {
 
   -- Override plugin definition options
-
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -50,7 +49,10 @@ local plugins = {
       ensure_installed = {
         "vim",
         "vimdoc",
+        "toml",
+        "fish",
         "regex",
+        "printf",
         "lua",
         "bash",
         "markdown",
@@ -69,6 +71,12 @@ local plugins = {
         "vue",
       },
       auto_install = true,
+      highlight = {
+        enable = true,
+        use_languagetree = true,
+      },
+
+      indent = { enable = true },
     },
   },
 
@@ -211,18 +219,52 @@ local plugins = {
 
   {
     "stevearc/conform.nvim",
-    --  for users those who want auto-save conform + lazyloading!
-    -- event = "BufWritePre"
-    config = function()
-      require "configs.conform"
+    event = { "BufWritePre" },
+    cmd = { "ConformInfo" },
+    keys = {
+      {
+        -- Customize or remove this keymap to your liking
+        "<leader>fg",
+        function()
+          require("conform").format { async = true }
+        end,
+        mode = "",
+        desc = "Format buffer",
+      },
+    },
+    -- This will provide type hinting with LuaLS
+    ---@module "conform"
+    opts = {
+      -- Define your formatters
+      formatters_by_ft = {
+        lua = { "stylua" },
+        python = { "black", "isort" },
+        sh = { "beautysh", "shellharden" },
+        javascript = { "prettierd", "prettier", stop_after_first = true },
+      },
+      -- Set default options
+      default_format_opts = {
+        lsp_format = "fallback",
+      },
+      -- Set up format-on-save
+      format_on_save = { timeout_ms = 500 },
+      -- Customize formatters
+      formatters = {
+        shfmt = {
+          prepend_args = { "-i", "2" },
+        },
+      },
+    },
+    init = function()
+      -- If you want the formatexpr, here is the place to set it
+      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
   },
 
   {
     "willothy/savior.nvim",
     dependencies = { "j-hui/fidget.nvim" },
-    event = { "FileChangedShellPost", "FocusLost",
-      "BufModifiedSet", "ExitPre" },
+    event = { "FileChangedShellPost", "CmdlineEnter", "BufModifiedSet", "ExitPre" },
     config = true,
   },
 
@@ -305,7 +347,7 @@ local plugins = {
     ft = "help",
     preview = {
       icon_provider = "mini", -- "internal" or "devicons"
-    }
+    },
   },
 
   {
@@ -326,12 +368,11 @@ local plugins = {
 
   {
     "2kabhishek/nerdy.nvim",
+    cmd = "Nerdy",
     dependencies = {
       "stevearc/dressing.nvim",
       "nvim-telescope/telescope.nvim",
     },
-    cmd = "Nerdy",
-    vim.keymap.set("n", "<Leader>si", "<cmd>Nerdy<cr>", opts), --> nerd icons
   },
 
   {
@@ -355,10 +396,10 @@ local plugins = {
     ft = "markdown",
     config = function()
       require("markdown-table-mode").setup {
-        insert = true,              -- when typing "|"
-        insert_leave = true,        -- when leaving insert
+        insert = true, -- when typing "|"
+        insert_leave = true, -- when leaving insert
         pad_separator_line = false, -- add space in separator line
-        alig_style = "default",     -- default, left, center, right
+        alig_style = "default", -- default, left, center, right
       }
     end,
   },
@@ -379,11 +420,11 @@ local plugins = {
     event = "BufRead",
     config = function()
       require("numb").setup {
-        show_numbers = true,         -- Enable 'number' for the window while peeking
-        show_cursorline = true,      -- Enable 'cursorline' for the window while peeking
+        show_numbers = true, -- Enable 'number' for the window while peeking
+        show_cursorline = true, -- Enable 'cursorline' for the window while peeking
         hide_relativenumbers = true, -- Enable turning off 'relativenumber' for the window while peeking
-        number_only = false,         -- Peek only when the command is only a number instead of when it starts with a number
-        centered_peeking = true,     -- Peeked line will be centered relative to window
+        number_only = false, -- Peek only when the command is only a number instead of when it starts with a number
+        centered_peeking = true, -- Peeked line will be centered relative to window
       }
     end,
   },
@@ -470,7 +511,7 @@ local plugins = {
     event = "BufReadPre", -- this will only start session saving when an actual file was opened
     opts = {
       -- add any custom options here
-    }
+    },
   },
 
   {
