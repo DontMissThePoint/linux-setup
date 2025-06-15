@@ -14,6 +14,9 @@ return {
     -- import mason-lspconfig
     local mason_lspconfig = require("mason-lspconfig")
 
+    -- import tool-installer
+    local mason_tool_installer = require("mason-tool-installer")
+
     -- import lint
     local lint = require("lint").setup()
     local mason_nvim_lint = require("mason-nvim-lint").setup()
