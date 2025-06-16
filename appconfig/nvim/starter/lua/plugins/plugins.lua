@@ -264,7 +264,7 @@ local plugins = {
   {
     "willothy/savior.nvim",
     dependencies = { "j-hui/fidget.nvim" },
-    event = { "FileChangedShellPost", "CmdlineEnter", "BufModifiedSet", "ExitPre" },
+    event = { "BufLeave", "BufModifiedSet", "ExitPre" },
     config = true,
   },
 

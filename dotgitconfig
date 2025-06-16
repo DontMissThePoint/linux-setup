@@ -93,3 +93,5 @@
 	initializenew = true
 [push]
 	recurseSubmodules = check
+[alias]
+	dunk = !git diff | dunk

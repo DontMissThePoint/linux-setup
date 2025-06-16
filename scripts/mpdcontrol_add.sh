@@ -23,7 +23,7 @@ case "$CHOICE" in
         else
             result=$(mpc --host "$MPD_HOST" list title | pick)
         fi
-        clearmode
+
         while IFS= read -r title; do
             mpc --host "$MPD_HOST" findadd title "$title"
             mpc --host "$MPD_HOST" play
