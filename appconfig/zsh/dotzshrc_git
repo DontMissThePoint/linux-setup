@@ -65,8 +65,8 @@ function zle-keymap-select {
   elif [[ ${KEYMAP} == main ]] ||
        [[ ${KEYMAP} == viins ]] ||
        [[ ${KEYMAP} = '' ]] ||
-       [[ $1 = 'beam' ]]; then
-    echo -ne '\e[5 q'
+       [[ $1 = 'underscore' ]]; then
+    echo -ne '\e[3 q'
   fi
 }
 zle -N zle-keymap-select
@@ -75,8 +75,8 @@ zle-line-init() {
     echo -ne "\e[5 q"
 }
 zle -N zle-line-init
-echo -ne '\e[5 q' # Use beam shape cursor on startup.
-preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+echo -ne '\e[3 q' # Use underscore shape cursor on startup.
+preexec() { echo -ne '\e[3 q' ;} # Use underscore shape cursor for each new prompt.
 
 # I dont like shared history between terminals, does not play well with tmux
 unsetopt share_history

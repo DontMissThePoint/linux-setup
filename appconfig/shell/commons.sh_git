@@ -48,10 +48,11 @@ alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
 alias moonphase="$GIT_PATH/linux-setup/scripts/moonphase.sh"
-alias fuelings="$GIT_PATH/linux-setup/scripts/table_parse.sh"
+alias fuelings="sidebar $GIT_PATH/linux-setup/scripts/table_parse.sh"
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
+alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
 
 # apt get multiple connections
 alias apt="apt-fast"

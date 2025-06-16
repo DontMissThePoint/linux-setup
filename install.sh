@@ -16,16 +16,16 @@ subinstall_params=""
 unattended=0
 docker=false
 for param in "$@"; do
-  echo "$param"
-  if [ "$param=--unattended" ]; then
-    echo "installing in unattended mode"
-    unattended=1
-    subinstall_params="--unattended"
-  fi
-  if [ "$param=--docker" ]; then
-    echo "installing in docker mode"
-    docker=true
-  fi
+    echo "$param"
+    if [ "$param=--unattended" ]; then
+        echo "installing in unattended mode"
+        unattended=1
+        subinstall_params="--unattended"
+    fi
+    if [ "$param=--docker" ]; then
+        echo "installing in docker mode"
+        docker=true
+    fi
 done
 
 var=$(lsb_release -r | awk '{ print $2 }')
@@ -47,10 +47,10 @@ sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automa
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
 
 if [ "$BEAVER" != "" ]; then
-  sudo apt-get -y install python-git
-  sudo ln -sf /bin/python2.7 /bin/python
+    sudo apt-get -y install python-git
+    sudo ln -sf /bin/python2.7 /bin/python
 else
-  sudo apt-get -y install python3-git
+    sudo apt-get -y install python3-git
 fi
 
 # other stuff
@@ -62,7 +62,7 @@ cd "$MY_PATH"
 ! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive
 
 if [ "$unattended" == "0" ]; then
-  if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
+    if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
 fi
 
 # 1. Install NIX
@@ -106,12 +106,12 @@ fi
 
 # 14. Install PANDOC
 if [ "$arch" != "aarch64" ]; then
-  ! "$docker" && bash "$APPCONFIG_PATH"/pandoc/install.sh "$subinstall_params"
+    ! "$docker" && bash "$APPCONFIG_PATH"/pandoc/install.sh "$subinstall_params"
 fi
 
 # 15. Install SHUTTER
 if [ "$arch" != "aarch64" ]; then
-  ! "$docker" && bash "$APPCONFIG_PATH"/shutter/install.sh "$subinstall_params"
+    ! "$docker" && bash "$APPCONFIG_PATH"/shutter/install.sh "$subinstall_params"
 fi
 
 # 16. Install ZATHURA
@@ -131,7 +131,7 @@ fi
 
 # 21. Install PLAYERCTL
 if [ "$arch" != "aarch64" ]; then
-  ! "$docker" && bash "$APPCONFIG_PATH"/playerctl/install.sh "$subinstall_params"
+    ! "$docker" && bash "$APPCONFIG_PATH"/playerctl/install.sh "$subinstall_params"
 fi
 
 # 22. Install PAPIS
@@ -142,7 +142,7 @@ fi
 
 # 24. Install REFIND
 if [ "$arch" != "aarch64" ]; then
-  ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
+    ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
 fi
 
 # 25. Install TMUXINATOR
@@ -174,7 +174,7 @@ fi
 
 # the docker setup ends here
 if "$docker"; then
-  exit 0
+    exit 0
 fi
 
 ##################################################
@@ -206,7 +206,7 @@ sudo ufw logging off
 # Guest session & remote login disable for LightDm
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > \
-  /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
+    /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
 # Optimize for performance
@@ -219,11 +219,11 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 num=$(cat /etc/systemd/resolved.conf | grep "^DNS" | wc -l)
 if [ "$num" -lt "1" ]; then
 
-  echo "Override DNS..."
-  # set bashrc
-  echo 'DNSSEC=no
+    echo "Override DNS..."
+    # set bashrc
+    echo 'DNSSEC=no
 DNS=1.1.1.1 8.8.8.8 9.9.9.9
-FallbackDNS=8.8.4.4' |
+    FallbackDNS=8.8.4.4' |
     sudo tee -a /etc/systemd/resolved.conf >/dev/null
 
 fi
@@ -236,9 +236,9 @@ sudo docker volume prune
 # power
 the_ppa=linrunner/tlp
 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-  sudo add-apt-repository -y ppa:linrunner/tlp
-  sudo apt update -qq
-  sudo apt -y install tlp tlp-rdw smartmontools
+    sudo add-apt-repository -y ppa:linrunner/tlp
+    sudo apt update -qq
+    sudo apt -y install tlp tlp-rdw smartmontools
 fi
 
 sudo systemctl enable tlp.service
@@ -259,7 +259,7 @@ sudo systemctl enable tmp.mount
 #############################################
 
 if [ ! -e ~/.scripts ]; then
-  ln -sf "$MY_PATH"/scripts ~/.scripts
+    ln -sf "$MY_PATH"/scripts ~/.scripts
 fi
 
 #############################################
@@ -267,7 +267,7 @@ fi
 #############################################
 
 if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
-  "$MY_PATH"/scripts/fix_touchpad_click.sh
+    "$MY_PATH"/scripts/fix_touchpad_click.sh
 fi
 
 #############################################
@@ -294,7 +294,7 @@ echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
 
 str=$(ps --no-headers -o comm 1)
 if [ "$str" = "systemd" ]; then
-  echo "rEFInd boot manager options"
-  echo "Rebooting... to EFI setup"
-  sudo systemctl reboot --firmware-setup
+    echo "rEFInd boot manager options"
+    echo "Rebooting... to EFI setup"
+    sudo systemctl reboot --firmware-setup
 fi

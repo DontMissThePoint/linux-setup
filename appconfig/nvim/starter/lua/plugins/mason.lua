@@ -68,16 +68,14 @@ return {
         "isort", -- python formatter
         "black", -- python formatter
         "prettierd",
-        "stylua",
+        "ltex-ls-plus",
         "beautysh",
         "pylint",
         "eslint_d",
-        "luacheck",
         "shellcheck",
         "editorconfig-checker",
         "impl",
         "json-to-struct",
-        "luacheck",
         "misspell",
         "revive",
         "shellharden",
@@ -90,15 +88,16 @@ return {
 
     -- linters
     mason_nvim_lint.setup {
-      -- ensure_installed = { "beautysh" },
+      -- ensure_installed = { "beautysh", "shellharden" },
       ignore_install = { "custom-linter" }, -- avoid trying to install an unknown linter
     }
 
     lint.linters_by_ft = {
-      lua = { "stylua" },
+      -- lua = { "luacheck" }, -- requires luarocks
       sh = { "beautysh", "shellharden" },
       python = { "black" },
-      markdown = { "alex" },
+      markdown = { "vale" },
+      text = { "ltex-ls-plus" },
       -- haskell = { "hlint" },
     }
 
