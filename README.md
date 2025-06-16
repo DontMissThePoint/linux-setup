@@ -1,5 +1,3 @@
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=dontmissthepoint&show_icons=true&theme=transparent)
-
 # Linux environment
 
 |              |       |                                                                                                                                                                       |

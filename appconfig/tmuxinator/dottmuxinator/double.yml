@@ -47,23 +47,21 @@ root: ~/
 # tmux list-windows
 windows:
   - tdab:
-      layout: 5d4f,127x34,0,0{63x34,0,0[63x12,0,0,2,63x21,0,13,5],63x34,64,0,6}
+      layout: b0fe,147x31,0,0,1
+      panes:
+        - k -cr ; nchat &; topbar --offset 90 moonphase
+  # - tdab:
+      # layout: 5d4f,127x34,0,0{63x34,0,0[63x12,0,0,2,63x21,0,13,5],63x34,64,0,6}
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
       # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
-      panes:
-        - k -cr ; moonphase
-        - cd ~/VirtualMachines/Windows-Docker
-        - blueman-applet & bluetoothctl power off &; nchat &; journalctl -f | tspin -f
   - nvim:
-      layout: dc50,136x33,0,0,21
+      layout: b0ff,147x31,0,0,2
       panes:
-        - nvim
+        - journalctl -f | tspin -f & sidebar nvim && fg
   - logs:
-      layout: 64a7,127x34,0,0[127x27,0,0{42x27,0,0,4,84x27,43,0,7},127x6,0,28,8]
+      layout: 2a31,147x31,0,0[147x25,0,0{52x25,0,0,3,94x25,53,0,4},147x5,0,26,5]
       panes:
-        - calcpy
-        # - multitail -D -f /var/log/*
-        # - countdown 1s && btop
+        - blueman-applet &>/dev/null ; bluetoothctl power off && clear ; calcpy
         - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc
         - cd $GIT_PATH/linux-setup; bash

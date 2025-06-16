@@ -101,20 +101,20 @@ map("n", "<Tab>", "<cmd> NavigatorPrevious <cr>", { desc = "Next" })
 -- <Tab>: move to left window or, if none, go to previous tab
 map("n", "<Tab>", function()
   -- if there's a window to the left, go there; else go to previous tab
-  if vim.fn.winnr("h") ~= vim.fn.winnr() then
-    vim.cmd("wincmd h")
+  if vim.fn.winnr "h" ~= vim.fn.winnr() then
+    vim.cmd "wincmd h"
   else
-    vim.cmd("tabprevious")
+    vim.cmd "tabprevious"
   end
 end, { desc = "Window left or Previous tab" })
 
 -- <S-Tab>: move to right window or, if none, go to next tab
 map("n", "<S-Tab>", function()
   -- if there's a window to the right, go there; else go to next tab
-  if vim.fn.winnr("l") ~= vim.fn.winnr() then
-    vim.cmd("wincmd l")
+  if vim.fn.winnr "l" ~= vim.fn.winnr() then
+    vim.cmd "wincmd l"
   else
-    vim.cmd("tabnext")
+    vim.cmd "tabnext"
   end
 end, { desc = "Window right or Next tab" })
 
@@ -140,10 +140,18 @@ map("n", "<C-w>|", cmd "WindowsMaximizeHorizontally", { desc = "Max out the widt
 map("n", "<C-w>=", cmd "WindowsEqualize", { desc = "Equally high and wide" })
 
 -- persistence
-map("n", "<leader>sn", function() require("persistence").load() end, { desc = "cwd session" })
-map("n", "<leader>sl", function() require("persistence").select() end, { desc = "list sessions" })
-map("n", "<leader>su", function() require("persistence").load({ last = true }) end, { desc = "last session" })
-map("n", "<leader>sd", function() require("persistence").stop() end, { desc = "stop session" })
+map("n", "<leader>sn", function()
+  require("persistence").load()
+end, { desc = "cwd session" })
+map("n", "<leader>sl", function()
+  require("persistence").select()
+end, { desc = "list sessions" })
+map("n", "<leader>sr", function()
+  require("persistence").load { last = true }
+end, { desc = "recent session" })
+map("n", "<leader>sd", function()
+  require("persistence").stop()
+end, { desc = "stop session" })
 
 -- sniprun
 map({ "n", "v" }, "<leader>rr", "<Plug>SnipRun", { desc = "run snip" }, { silent = true })
@@ -155,5 +163,10 @@ map("n", "<leader>dt", function()
 end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })
 
 -- format
-map("n", "qa", vim.cmd [[cabbrev q execute "Format sync" <bar> wqa]],
-  { silent = true, noremap = true }, { desc = "save quit" })
+map(
+  "n",
+  "qa",
+  vim.cmd [[cabbrev q execute "Format sync" <bar> wqa]],
+  { silent = true, noremap = true },
+  { desc = "save quit" }
+)
