@@ -42,9 +42,9 @@ offset=1.4
         printf '\033]2;%s\033\\' 'topbar'
         tmux resize-pane -t "$c_pane" -U $move_height
         if [ "$HOLD_VAR" == "True" ];then
-            command2=$(echo "eval \"${command}\"  ; read; tmux kill-pane -t ${c_pane}")
+            command2=$(echo "eval \"${command}\"  ; read; tmux kill-pane -t \"${c_pane}\"")
         else
-            command2=$(echo "eval \"${command}\"  ; read ;tmux kill-pane -t ${c_pane}")
+            command2=$(echo "eval \"${command}\"  ; read ;tmux kill-pane -t \"${c_pane}\"")
         fi
         tmux send-keys -t "$c_pane" "$command2" C-m
         tmux last-pane

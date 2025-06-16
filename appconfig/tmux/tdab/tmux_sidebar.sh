@@ -46,7 +46,7 @@ if [ "$c_tmux" -gt 0 ]; then
     else
         command2=$(echo "eval \"${command}\" ; tmux kill-pane -t \"${c_pane}\"")
     fi
-    tmux send-keys -t "$c_pane" "$command2" C-m
+    tmux send-keys -Rt "$c_pane" "$command2" C-m
     tmux last-pane
 else
     eval "$@"

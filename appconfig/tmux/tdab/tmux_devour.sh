@@ -1,5 +1,4 @@
 #!/bin/bash
-exec >/dev/null 2>&1
 
 ##############################################################################
 #
@@ -24,9 +23,9 @@ if [ "$c_tmux" -gt 0 ]; then
     tmux resize-pane -t "$c_pane" -R 20
     tmux select-pane -m -t "$c_pane"
     if [ "$HOLD_VAR" == "True" ]; then
-        command2=$(echo "eval \"${command}\" ; read ; tmux kill-pane -t ${c_pane}")
+        command2=$(echo "eval \"${command}\" ; read ; tmux kill-pane -t \"${c_pane}\"")
     else
-        command2=$(echo "eval \"${command}\" ; tmux kill-pane -t ${c_pane}")
+        command2=$(echo "eval \"${command}\" ; tmux kill-pane -t \"${c_pane}\"")
     fi
     tmux resize-pane -Z -t "$c_pane"
     tmux send-keys -t "$c_pane" "$command2" C-m
