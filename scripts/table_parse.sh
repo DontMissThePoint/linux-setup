@@ -129,4 +129,8 @@ with Halo(text="Extracting tables", text_color="green", spinner="dots") as spinn
 EOF
 
 # Archive
-mv tables.md "$DIR"/../../WinAutomation/
+cleanup() {
+    echo "Cleaning up..."
+    mv tables.md "$DIR"/../../WinAutomation/
+}
+trap cleanup EXIT

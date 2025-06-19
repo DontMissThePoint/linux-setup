@@ -17,7 +17,7 @@ return {
     -- local on_init = require("nvchad.configs.lspconfig").on_init
     local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-    local lspconfig = require("lspconfig")
+    local lspconfig = require "lspconfig"
     local map = vim.keymap.set -- for conciseness
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -189,15 +189,14 @@ return {
         Lua = {
           diagnostics = {
             enable = true, -- Disable all diagnostics from lua_ls
-            globals = { 'vim' },
-            -- globals = { "vim" },
+            globals = { "vim" },
           },
           workspace = {
             library = {
-              vim.fn.expand("$VIMRUNTIME/lua"),
-              vim.fn.expand("$VIMRUNTIME/lua/vim/lsp"),
-              vim.fn.stdpath("data") .. "/lazy/ui/nvchad_types",
-              vim.fn.stdpath("data") .. "/lazy/lazy.nvim/lua/lazy",
+              vim.fn.expand "$VIMRUNTIME/lua",
+              vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
+              vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
+              vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
               "${3rd}/love2d/library",
             },
             maxPreload = 100000,
@@ -211,7 +210,7 @@ return {
     local config = {
       -- Enable virtual text
       virtual_text = { -- or false for disable
-        prefix = "",   -- ■  󰊠
+        prefix = "", -- ■  󰊠
         suffix = "",
       },
       update_in_insert = true,

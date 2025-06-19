@@ -42,7 +42,7 @@ alias demangle="c++filt"
 alias top="htop"
 alias vimdiff="nvim -d"
 alias gx="tmuxinator double"
-alias ra="ranger"
+alias ra="devour ranger"
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"

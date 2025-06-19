@@ -94,10 +94,10 @@ bind-key SPACE macro-prefix
 # col  item       fg       bg
 color background default default        # the most bottom bar
 color listnormal white default
-color listnormal_unread color84 default
+color listnormal_unread color104 default
 color listfocus color50 default
 color listfocus_unread color49 default standout bold
-color info              color38 default bold
+color info              black color8 bold
 
 search-highlight-colors color18 default bold
 
@@ -112,7 +112,7 @@ highlight article "\\[image\\ [0-9]+\\]" green default bold
 highlight article "\\[image\\ [0-9]+:.*\\]" green default bold
 
 highlight article "(^Feed:.*)" color19 default bold
-highlight article "(^Title:.*)" color117 default standout
+highlight article "(^Title:.*)" default color109
 highlight article "(^Author:.*)" color88 default bold
 highlight article "(^Date:.*)" color52 default bold
 highlight article "(^Link:.*)" color12 default bold

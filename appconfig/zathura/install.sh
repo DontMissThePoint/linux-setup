@@ -65,33 +65,18 @@ while true; do
             sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pdf-presenter-console
         fi
 
-        # img2pdf
-        echo "Configuring..."
-        sudo apt install -y python3-genshi python-lxml-doc img2pdf datamash pdftk
+        toilet Settingup visidata -t -f future
 
-        # number of pages
-        # pdftk my.pdf dump_data | grep NumberOfPages | awk '{print $2}'
-
-        # Make PDF
-        # img2pdf *.jp* --output combined.pdf
-
-        #make a pdf file out of every jpg image without loss of either resolution or quality:
-        # ls -1 ./*jpg | xargs -L1 -I {} img2pdf {} -o {}.pdf
-
-        # concatenate the pdf pages into one document:
-        # pdftk *.pdf cat output combined.pdf
+        # visidata
+        sudo apt install -y python3-genshi python-lxml-doc img2pdf datamash pdftk visidata
 
         # number of columns csv
         # csvcut -n data.csv
         # in2csv 1033_data.xlsx | csvcut -c county,item_name,quantity | csvlook | head
-
-        toilet Settingup visidata -t -f future
-
-        # visidata
         /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
             datapackage pypng pdfminer.six ptpython pytz PyYAML lxml pandas \
             xlrd openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
-            virtualenv tomli tabulate visidata
+            virtualenv tomli tabulate
 
         # pipx
         pipx install frogmouth dunk tiptop posting
