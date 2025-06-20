@@ -112,7 +112,7 @@ highlight article "\\[image\\ [0-9]+\\]" green default bold
 highlight article "\\[image\\ [0-9]+:.*\\]" green default bold
 
 highlight article "(^Feed:.*)" color19 default bold
-highlight article "(^Title:.*)" default color109
+highlight article "(^Title:.*)" color2 default
 highlight article "(^Author:.*)" color88 default bold
 highlight article "(^Date:.*)" color52 default bold
 highlight article "(^Link:.*)" color12 default bold
