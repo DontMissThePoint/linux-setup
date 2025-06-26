@@ -572,23 +572,23 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! ! URxvt.background: rgba:3000/2300/5100/d000
 ! URxvt.background: [95]#080808
-! URxvt*background: [100]#080808
+! URxvt*background: [95]#080808
 
 ! !! Bold, Italic, Underline
-! URxvt.colorBD: [36]#1ABB9B
+! URxvt.colorBD: [36]#1abb9b
 ! URxvt.colorIT: [36]#7d7d7d
 ! URxvt.colorUL: [36]#57c7ff
 ! URxvt.underlineColor: #57c7ff
 
-! URxvt.font: xft:Hurmit Nerd Font Mono:size=10.5,\
-!             xft:MesloLGSDZ Nerd Font Mono:size=10.5,\
-!             xft:FiraMono Nerd Font Mono:size=10.5,\
+! URxvt.font: xft:Hurmit Nerd Font Mono:size=10,\
+!             xft:MesloLGSDZ Nerd Font Mono:size=10,\
+!             xft:FiraMono Nerd Font Mono:size=10,\
 !             xft:FontAwesome,xft:Material Design Icons,\
 !             xft:Symbola,xft:Noto Color Emoji,xft:Unifont,\
 !             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-! URxvt.boldFont: xft:Hurmit Nerd Font:bold:size=10.5, xft:Symbola
-! URxvt.italicFont: xft:Hurmit Nerd Font:italic:size=10.5, xft:Symbola
-! URxvt.boldItalicFont: xft:Hurmit Nerd Font:bold:italic:size=10.5, xft:Symbola
+! URxvt.boldFont: xft:Hurmit Nerd Font:bold:size=10, xft:Symbola
+! URxvt.italicFont: xft:Hurmit Nerd Font:italic:size=10, xft:Symbola
+! URxvt.boldItalicFont: xft:Hurmit Nerd Font:bold:italic:size=10, xft:Symbola
 ! URxvt.letterSpace: 0
 ! URxvt.intensityStyles: false
 

@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 # -----------------------------
 # LLAMA-PARSE
 # Parse pdfs and extract tables
@@ -43,6 +41,7 @@ parser = LlamaParse(
     num_workers=4,        # if multiple files passed, split API calls
     verbose=True,
     language="en",
+    preset="invoice",
     parse_mode="parse_page_with_llm",
     system_prompt_append="Recognize vehicle IDs. Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype.",
     user_prompt="You are provided a document with tables that span multiple pages. Combine all rows to form a dataset. Align the columns.",
@@ -112,7 +111,7 @@ table = []
 
 from halo import Halo
 
-with Halo(text="Extracting tables", text_color="green", spinner="dots") as spinner:
+with Halo(text="Extracting tables", spinner="dots") as spinner:
    for line in lines:
        if re.match(r'^\|.*\|$', line):  # Identify table rows
          columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
