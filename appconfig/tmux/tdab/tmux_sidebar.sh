@@ -33,7 +33,7 @@ if [ "$c_tmux" -gt 0 ]; then
     half_cols=$(divide_and_round_up "$cols" 2)
     one_third=$(divide_and_round_up "$cols" "$offset")
     move_width=$((one_third - half_cols))
-    command=$(echo "$@")
+    command="$*"
     o_pane=$(tmux list-panes -F "#D")
     tmux split-window -h
     c_pane=$(tmux list-panes -F "#D" | grep -v "$o_pane")
@@ -42,12 +42,12 @@ if [ "$c_tmux" -gt 0 ]; then
     printf '\033]2;%s\033\\' 'sidebar'
     tmux resize-pane -t "$c_pane" -R "$move_width"
     if [ "$HOLD_VAR" == "True" ]; then
-        command2=$(echo "eval \"${command}\" ; read ;tmux kill-pane -t \"${c_pane}\"")
+        command2=$"eval \"${command}\" ; read ;tmux kill-pane -t \"${c_pane}\""
     else
-        command2=$(echo "eval \"${command}\" ; tmux kill-pane -t \"${c_pane}\"")
+        command2=$"eval \"${command}\" ; tmux kill-pane -t \"${c_pane}\""
     fi
     tmux send-keys -Rt "$c_pane" "$command2" C-m
     tmux last-pane
 else
-    eval "$@"
+    "$*"
 fi

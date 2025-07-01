@@ -22,7 +22,7 @@ c.backend = "webengine"
 c.changelog_after_upgrade = "minor"
 
 # Variables
-leader = " "
+leader = ","
 ss_dir = "~/Pictures/Screenshots/"
 timestamp = strftime("%Y-%m-%d-%H-%M-%S", localtime())
 terminal = "/usr/bin/urxvtc"
@@ -53,7 +53,9 @@ c.colors.webpage.bg = "white"
 c.colors.webpage.darkmode.contrast = 0.0
 
 # QT
-c.content.plugins = True
+c.qt.highdpi = True
+c.qt.force_platform = "xcb"
+c.qt.workarounds.remove_service_workers = False
 c.qt.args = [
     "force-light-mode",
     "light-mode-settings",
@@ -137,7 +139,6 @@ c.colors.prompts.selected.bg = "grey"
 c.colors.prompts.selected.fg = "white"
 
 # caret
-
 c.colors.statusbar.caret.bg = "purple"
 c.colors.statusbar.caret.fg = "white"
 c.colors.statusbar.caret.selection.bg = "#a12dff"
@@ -194,7 +195,6 @@ c.colors.tooltip.fg = None
 ## media
 c.content.autoplay = False
 c.content.pdfjs = True
-c.qt.highdpi = True
 c.content.images = True
 c.content.media.audio_capture = "ask"
 c.content.media.audio_video_capture = "ask"
@@ -265,7 +265,6 @@ c.content.canvas_reading = True
 
 # javascript
 c.content.javascript.alert = True
-c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.clipboard = "ask"
 c.content.javascript.enabled = False
 try:
@@ -328,16 +327,30 @@ c.completion.web_history.exclude = []
 c.completion.web_history.max_items = -1
 
 c.content.geolocation = "ask"
-c.qt.force_platform = "xcb"
-c.zoom.default = "84%"
 c.window.hide_decoration = True
 c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
 
+# Zoom
+c.zoom.default = "84%"
+c.zoom.mouse_divider = 512
+
+# Scrolling
+c.scrolling.smooth = False
+c.scrolling.bar = "overlay"
+c.scrolling.bar = "when-searching"
+
+# search
+c.search.wrap = True
+c.search.incremental = True
+c.search.wrap_messages = True
+c.search.ignore_case = "smart"
+
 # Status bar
 c.statusbar.show = "in-mode"
-c.scrolling.bar = "when-searching"
-c.scrolling.smooth = False
+c.statusbar.position = "bottom"
+c.statusbar.padding = {"top": 1, "bottom": 1, "left": 0, "right": 0}
+
 
 # Spellcheck
 c.spellcheck.languages = ["en-US"]
@@ -446,6 +459,9 @@ c.tabs.last_close = "close"
 c.tabs.padding = {"bottom": 3, "left": 5, "right": 5, "top": 2}
 c.tabs.indicator.width = 0
 
+c.tabs.wrap = True
+c.tabs.width = "15%"
+
 c.new_instance_open_target = "tab"
 c.new_instance_open_target_window = "last-focused"
 
@@ -482,18 +498,18 @@ c.confirm_quit = ["downloads"]
 
 ## save web pages in MHTML format
 ## ,sm to do that
-config.bind(",sm", "cmd-set-text :download --mhtml")
+config.bind("\\sm", "cmd-set-text :download --mhtml")
 
 ## ,yc “yank asciidoc-formatted link”
-config.bind(",yc", "yank inline {url:pretty}[{title}]")
+config.bind("\\yc", "yank inline {url:pretty}[{title}]")
 
 ## ,ym “yank markdown-formatted link”
 ## ym (without a leading comma) also works because it is built-in
-config.bind(",ym", "yank inline [{title}]({url:pretty})")
+config.bind("\\ym", "yank inline [{title}]({url:pretty})")
 config.bind("ys", "yank selection")
 
-config.bind(",P", "open -b -- {primary}")
-config.bind(",p", "open -b -- {clipboard}")
+config.bind("\\P", "open -b -- {primary}")
+config.bind("\\p", "open -b -- {clipboard}")
 
 # mpv
 config.bind("ya", "hint links spawn -dv ~/.scripts/fillplaylist.sh push {hint-url}")
@@ -506,7 +522,7 @@ config.bind(
 c.url.default_page = homepage
 c.url.start_pages = homepage
 
-## search
+## engine
 c.url.searchengines = {
     "DEFAULT": "https://google.com/search?q={}",
     "qw": "https://lite.qwant.com/?q={}",

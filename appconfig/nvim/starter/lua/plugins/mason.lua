@@ -1,6 +1,7 @@
 return {
   "mason-org/mason.nvim",
-  cmd = { "Mason" },
+  -- cmd = { "Mason" },
+  event = "VeryLazy",
   dependencies = {
     "mason-org/mason-lspconfig.nvim",
     "WhoIsSethDaniel/mason-tool-installer.nvim",
@@ -41,14 +42,12 @@ return {
         "html",
         "cssls",
         "tailwindcss",
-        "bashls",
         "svelte",
         "lua_ls",
         "yamlls",
         "graphql",
         "emmet_ls",
         "prismals",
-        "pyright",
         "htmx",
         "gopls",
         "rust_analyzer",
@@ -58,7 +57,7 @@ return {
     mason_tool_installer.setup {
       ensure_installed = {
         -- you can turn off/on auto_update per tool
-        { "bash-language-server", auto_update = true },
+        -- { "bash-language-server", auto_update = true },
 
         "lua-language-server",
         "vim-language-server",
@@ -94,10 +93,9 @@ return {
 
     lint.linters_by_ft = {
       -- lua = { "luacheck" }, -- requires luarocks
-      sh = { "beautysh", "shellharden" },
-      python = { "black" },
+      -- sh = { "shellcheck" },
       markdown = { "vale" },
-      text = { "ltex-ls-plus" },
+      -- python = { "pylint", "vint" },
       -- haskell = { "hlint" },
     }
 
@@ -112,7 +110,7 @@ return {
       "-",
     }
 
-    vim.api.nvim_create_autocmd({ "BufEnter", "BufWritePost", "InsertLeave" }, {
+    vim.api.nvim_create_autocmd({ "BufWritePost" }, {
       callback = function()
         lint.try_lint()
       end,
