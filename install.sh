@@ -216,7 +216,7 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # remove_duplicates_from_path
 
 # network
-num=$(cat /etc/systemd/resolved.conf | grep "^DNS" | wc -l)
+num=$(grep -c "^DNS" /etc/systemd/resolved.conf)
 if [ "$num" -lt "1" ]; then
 
     echo "Override DNS..."

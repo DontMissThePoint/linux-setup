@@ -1,7 +1,5 @@
 #!/bin/sh
 
-set -e
-
 # -----------------------------
 # LLAMA-PARSE
 # Parse pdfs and extract tables
@@ -112,7 +110,7 @@ table = []
 
 from halo import Halo
 
-with Halo(text="Extracting tables", text_color="green", spinner="dots") as spinner:
+with Halo(text="Extracting tables", spinner="dots") as spinner:
    for line in lines:
        if re.match(r'^\|.*\|$', line):  # Identify table rows
          columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
@@ -123,10 +121,14 @@ with Halo(text="Extracting tables", text_color="green", spinner="dots") as spinn
    df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
 
    # Spreadsheet
-   df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
+   df.to_excel("$OUTPUT_XLSX", sheet_name="ORDERS", index=False)
    table_workbook = os.path.basename("$OUTPUT_XLSX")
    spinner.succeed("Saved workbook")
 EOF
 
 # Archive
-mv tables.md "$DIR"/../../WinAutomation/
+cleanup() {
+    # echo "Cleaning up..."
+    mv tables.md "$DIR"/../../WinAutomation/
+}
+trap cleanup EXIT

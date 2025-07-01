@@ -36,7 +36,7 @@ root: ~/
 # tmux_command: byobu
 
 # Specifies (by name or index) which window will be selected on project startup. If not set, the first window is used.
-# startup_window: editor
+startup_window: tdab
 
 # Specifies (by index) which pane of the specified window will be selected on project startup. If not set, the first pane is used.
 # startup_pane: 1
@@ -49,7 +49,7 @@ windows:
   - tdab:
       layout: b0fe,147x31,0,0,1
       panes:
-        -  k -cr ; moonphase ; nchat &
+        -  bluetoothctl power off && clear ; k -cr ; moonphase ; bash
   # - tdab:
       # layout: 5d4f,127x34,0,0{63x34,0,0[63x12,0,0,2,63x21,0,13,5],63x34,64,0,6}
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
@@ -58,10 +58,10 @@ windows:
   - nvim:
       layout: b0ff,147x31,0,0,2
       panes:
-        - journalctl -f | tspin -f & sidebar nvim && fg
+        - nchat & ; devour nvim & ; journalctl -f | tspin -f && fg
   - logs:
       layout: 2a31,147x31,0,0[147x25,0,0{52x25,0,0,3,94x25,53,0,4},147x5,0,26,5]
       panes:
-        - blueman-applet &>/dev/null ; bluetoothctl power off && clear ; calcpy
+        - calcpy & ; blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
         - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc
         - cd $GIT_PATH/linux-setup; bash

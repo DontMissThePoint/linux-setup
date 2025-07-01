@@ -72,11 +72,11 @@ options.disp_pixel_random    =  False                # randomly choose attr from
 #  ╰──────────────────────────────────────────────────────────╯
 
 options.color_default        =  '96 plum4'         # the default color
-options.color_default_hdr    =  'bold underline'     # color of the column headers
+options.color_default_hdr    =  '116 reverse bold underline'     # color of the column headers
 options.color_menu           =  '235 on 72'          # color of the menu
 options.color_menu_help      =  'grey80'
 options.color_menu_spec      =  'yellow underline'   # color of the help
-options.color_menu_active    =  'reverse'            # color of the menu selected
+options.color_menu_active    =  'reverse underline'            # color of the menu selected
 options.color_current_row    =  '215 yellow'      # color of the cursor row
 options.color_current_col    =  '44 darkturquoise'   # color of the cursor column
 options.color_current_hdr    =  'bold italic reverse'  # color of the header for the cursor column
@@ -91,10 +91,10 @@ options.color_keystrokes     =  'white'              # color of input keystrokes
 options.color_cmdpalette     =  'black on 8'         # color of input commands on status line
 options.color_status         =  '145 grey69'         # status line color
 options.color_active_status  =  '145 grey69 bold'    # active status line color
-options.color_match          =  '202'           # color for matches found
+options.color_match          =  '222 italic'           # color for matches found
 options.color_code           =  'normal'
 options.color_error          =  'red'                # error message color
-options.color_warning        =  'italic'             # warning message color
+options.color_warning        =  '231 on black'             # warning message color
 options.color_edit_cell      =  'normal'             # cell color to use when editing cell
 options.color_note_pending   =  'bold magenta'       # color of note in pending cells
 options.color_note_type      =  '226 yellow'         # cell note for numeric types in anytype columns

@@ -239,6 +239,7 @@ local plugins = {
       formatters_by_ft = {
         lua = { "stylua" },
         python = { "black", "isort" },
+        markdown = { "prettierd" },
         sh = { "beautysh", "shellharden" },
         javascript = { "prettierd", "prettier", stop_after_first = true },
       },

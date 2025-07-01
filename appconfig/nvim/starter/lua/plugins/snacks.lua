@@ -21,8 +21,8 @@ return {
     scroll = { enabled = true },
     statuscolumn = { enabled = true },
     words = { enabled = true },
-    win = { enabled = true },
-    image = { enabled = true },
+    win = { enabled = false },
+    image = { enabled = false },
     zen = { enabled = true },
   }
 }
