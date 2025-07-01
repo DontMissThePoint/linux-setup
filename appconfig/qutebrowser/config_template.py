@@ -265,7 +265,6 @@ c.content.canvas_reading = True
 
 # javascript
 c.content.javascript.alert = True
-c.content.javascript.can_open_tabs_automatically = False
 c.content.javascript.clipboard = "ask"
 c.content.javascript.enabled = False
 try:

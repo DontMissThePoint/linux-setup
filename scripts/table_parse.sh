@@ -41,7 +41,6 @@ parser = LlamaParse(
     num_workers=4,        # if multiple files passed, split API calls
     verbose=True,
     language="en",
-    preset="invoice",
     parse_mode="parse_page_with_llm",
     system_prompt_append="Recognize vehicle IDs. Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype.",
     user_prompt="You are provided a document with tables that span multiple pages. Combine all rows to form a dataset. Align the columns.",
@@ -122,14 +121,14 @@ with Halo(text="Extracting tables", spinner="dots") as spinner:
    df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
 
    # Spreadsheet
-   df.to_excel("$OUTPUT_XLSX", sheet_name="FUELINGS", index=False)
+   df.to_excel("$OUTPUT_XLSX", sheet_name="ORDERS", index=False)
    table_workbook = os.path.basename("$OUTPUT_XLSX")
    spinner.succeed("Saved workbook")
 EOF
 
 # Archive
 cleanup() {
-    echo "Cleaning up..."
+    # echo "Cleaning up..."
     mv tables.md "$DIR"/../../WinAutomation/
 }
 trap cleanup EXIT

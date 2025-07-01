@@ -7,7 +7,6 @@ https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "fa
 https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
 
 "query:Github:tags # \"Github\""
-https://github.com/run-llama/llama_cloud_services/tags.atom "Github" "AI" "~Llama Cloud Services"
 https://github.com/run-llama/llama_cloud_services/commits/master.atom "Github" "AI" "~Llama Cloud Services"
 
 "query:Courses:tags # \"Courses\""
