@@ -275,6 +275,7 @@ for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
 for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen disable, move workspace $workspace2, focus
+for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [title="File Transfer*"] floating enable
@@ -284,8 +285,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [instance="newsboatfs"] move container to workspace $ws5, focus
-for_window [instance="xfreerdp"] move container to workspace $ws6, focus
-for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [instance="xfreerdp"] move container to workspace $ws6, focus, floating enable, fullscreen disable
 
 # bluetooth applet
 exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
@@ -1581,8 +1581,8 @@ for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^(V|v)imiv$"] floating enable, focus
+for_window [class="^(MEGA|mega)sync$"] floating enable, focus
 for_window [class="^(N|n)extcloud$"] floating enable, focus
-for_window [class="^xfreerdp$"] floating enable
 for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable
 for_window [instance="scratchpad"] move scratchpad, scratchpad show
