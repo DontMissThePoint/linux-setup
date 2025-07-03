@@ -163,10 +163,11 @@ map("n", "<leader>dt", function()
 end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })
 
 -- format
-map(
-  "n",
-  "qa",
-  vim.cmd [[cabbrev q execute "Format sync" <bar> wqa]],
-  { silent = true, noremap = true },
-  { desc = "save quit" }
-)
+-- map(
+--   "n",
+--   "qa",
+--   vim.cmd [[cabbrev q execute "Format sync" <bar> wqa]],
+--   { silent = true, noremap = true },
+--   { desc = "save quit" }
+-- )
+map("c", "w", "wall", { desc = "Write all" })

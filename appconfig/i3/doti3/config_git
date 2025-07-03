@@ -285,7 +285,7 @@ for_window [window_role="task_dialog"] floating enable
 for_window [window_role="Preferences"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [instance="newsboatfs"] move container to workspace $ws5, focus
-for_window [instance="xfreerdp"] move container to workspace $ws6, focus, floating enable, fullscreen disable
+for_window [instance="xfreerdp"] move container to workspace $ws6, floating enable, focus
 
 # bluetooth applet
 exec --no-startup-id blueman-applet # EPIGEN_DEL_LINE_PETR
