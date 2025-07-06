@@ -49,7 +49,7 @@ windows:
   - tdab:
       layout: b0fe,147x31,0,0,1
       panes:
-        -  bluetoothctl power off && clear ; k -cr ; moonphase ; bash
+        -  bluetoothctl power off && clear ; nvim
   # - tdab:
       # layout: 5d4f,127x34,0,0{63x34,0,0[63x12,0,0,2,63x21,0,13,5],63x34,64,0,6}
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
@@ -58,7 +58,7 @@ windows:
   - nvim:
       layout: b0ff,147x31,0,0,2
       panes:
-        - nchat & ; devour nvim & ; journalctl -f | tspin -f && fg
+        - nchat & ; topbar 'k -cr ; moonphase ; bash' & ; journalctl -f | tspin -f && fg
   - logs:
       layout: 2a31,147x31,0,0[147x25,0,0{52x25,0,0,3,94x25,53,0,4},147x5,0,26,5]
       panes:

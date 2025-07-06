@@ -5,7 +5,7 @@
 if [ -x "$(whereis nvim | awk '{print $2}')" ]; then
     VIM_BIN="$(whereis nvim | awk '{print $2}')"
     HEADLESS="--headless"
-  elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
+elif [ -x "$(whereis vim | awk '{print $2}')" ]; then
     VIM_BIN="$(whereis vim | awk '{print $2}')"
     HEADLESS=""
 fi
@@ -32,7 +32,7 @@ LC_ADDRESS="en_US.UTF-8"
 LC_TELEPHONE="en_US.UTF-8"
 LC_MEASUREMENT="en_US.UTF-8"
 LC_IDENTIFICATION="en_US.UTF-8"
-LC_ALL=' | sudo tee /etc/default/locale > /dev/null
+LC_ALL=' | sudo tee /etc/default/locale >/dev/null
 echo "Done."
 
 #############################################
@@ -40,16 +40,16 @@ echo "Done."
 #############################################
 
 # add variable for path to the git repository
-num=`cat ~/.bashrc | grep "GIT_PATH" | wc -l`
+num=$(grep -c "GIT_PATH" ~/.bashrc)
 if [ "$num" -lt "1" ]; then
 
-    TEMP=`( cd "$MY_PATH/../" && pwd )`
+    TEMP=$( (cd "$MY_PATH/../" && pwd))
 
     echo "Adding GIT_PATH variable to .bashrc"
     # set bashrc
     echo "
 # path to the git root
-export GIT_PATH=$TEMP" >> ~/.bashrc
+    export GIT_PATH=$TEMP" >>~/.bashrc
 
 fi
 
@@ -57,13 +57,13 @@ fi
 # add PROFILES variables
 #############################################
 
-num=`cat ~/.bashrc | grep "PROFILES" | wc -l`
+num=$(grep -c "PROFILES" ~/.bashrc)
 if [ "$num" -lt "1" ]; then
 
     echo "Adding epigen rules to .bashrc"
     echo '
 # list (space-separated) of profile names for customizing configs
-export PROFILES="COLORSCHEME_GIT"' >> ~/.bashrc
+    export PROFILES="COLORSCHEME_GIT"' >>~/.bashrc
 
 fi
 
@@ -72,14 +72,14 @@ fi
 #############################################
 
 # z
-num=`cat ~/.bashrc | grep "zoxide" | wc -l`
+num=$(grep -c "zoxide" ~/.bashrc)
 if [ "$num" -lt "1" ]; then
 
     echo "Adding smarter cd"
     # set bashrc
     echo '
 # jump around
-eval "$(zoxide init bash)"' >> ~/.bashrc
+    eval "$(zoxide init bash)"' >>~/.bashrc
 
 fi
 
@@ -87,7 +87,7 @@ fi
 # add sourcing of dotbashrc to .bashrc
 #############################################
 var="\$-"
-num=`cat ~/.bashrc | grep "dotbashrc" | wc -l`
+num=$(grep -c "dotbashrc" ~/.bashrc)
 if [ "$num" -lt "1" ]; then
 
     echo "Adding source to .bashrc"
@@ -103,7 +103,7 @@ source ~/.FZF_DEFAULT_OPTS
 [[ $var = *i* ]] && source ~/.liquidprompt/liquidprompt
 
 # sourcing DMP's linux setup
-source $APPCONFIG_PATH/bash/dotbashrc" >> ~/.bashrc
+    source $APPCONFIG_PATH/bash/dotbashrc" >>~/.bashrc
 
 fi
 
