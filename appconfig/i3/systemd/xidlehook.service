@@ -1,6 +1,10 @@
 [Unit]
 Description=Automatic Screen Locker
-After=graphical.target
+After=network.target
+Wants=network.target
+
+StartLimitIntervalSec=500
+StartLimitBurst=5
 
 [Service]
 Environment=DISPLAY=:0
@@ -11,12 +15,12 @@ ExecStart=%h/.nix-profile/bin/xidlehook \
                     '%h/.i3/brightness.sh 9' \
                     '%h/.i3/brightness.sh 84' \
                   --timer 300 \
-                    '%h/.i3/brightness.sh 84; /usr/bin/i3lock-fancy -gnpf Hurmit-Nerd-Font -- /usr/bin/maim -q' '' \
+                    '%h/.i3/brightness.sh 84; /usr/bin/i3lock-fancy -gpf Hurmit-Nerd-Font -- /usr/bin/maim -q' '' \
                   --timer 10800 \
                     'systemctl poweroff' '' \
                   --socket "/tmp/xidlehook.socket"
 Restart=on-failure
-RestartSec=3s
+RestartSec=5s
 
 [Install]
 WantedBy=default.target
