@@ -351,7 +351,7 @@ while true; do
         # required for i3lock-color
         sudo apt remove -y i3lock
 
-        sudo apt install -y libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev xscreensaver xscreensaver-data-extra xscreensaver-gl-extra apparmor apparmor-utils libxc-dev libxss-dev libpulse-dev libxcb-screensaver0-dev glibc-tools
+        sudo apt install -y libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev xscreensaver xscreensaver-data-extra xscreensaver-gl-extra libxc-dev libxss-dev libpulse-dev libxcb-screensaver0-dev glibc-tools
 
         # compile from sources
         cd /tmp
@@ -359,9 +359,6 @@ while true; do
         git clone https://github.com/Raymo111/i3lock-color.git
         cd i3lock-color
         ./install-i3lock-color.sh
-
-        # xidlehook
-        cargo install xidlehook --bins
 
         # fancy
         cd /tmp

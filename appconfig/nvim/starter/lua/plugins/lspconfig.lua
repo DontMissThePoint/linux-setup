@@ -1,7 +1,7 @@
 return {
   "neovim/nvim-lspconfig",
   lazy = true,
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufWritePre", "BufNewFile" },
   dependencies = {
     {
       "SmiteshP/nvim-navbuddy",

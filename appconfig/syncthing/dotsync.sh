@@ -14,12 +14,14 @@ echo
 stty echo
 
 # Sync
-mega-login "${account}" "${password}" || echo -e "${RED}Logged in${NC}"
+mega-login "$account" "$password" || echo -e "${RED}Logged in${NC}"
 
 # folders
-mega-sync ~/Documents/Scorecard 05.Scorecard || echo -e "[ ${GREEN}OK${NC} ] sync scorecard"
-mega-sync ~/Pictures/Android\ Camera 04.Photos+Video/Android\ Camera || echo -e "[ ${GREEN}OK${NC} ] sync camera"
-mega-sync ~/Journal 02.Journal || echo -e "[ ${GREEN}OK${NC} ] sync journal"
+echo "Syncing..."
+mega-sync ~/Documents/Dashboard 06.Dashboard || echo -e "[ ${GREEN}✔${NC} ] Dashboard"
+mega-sync ~/Documents/Scorecard 05.Scorecard || echo -e "[ ${GREEN}✔${NC} ] Scorecard"
+mega-sync ~/Pictures/Android\ Camera 04.Photos+Video/Android\ Camera || echo -e "[ ${GREEN}✔${NC} ] Camera"
+mega-sync ~/Journal 02.Journal || echo -e "[ ${GREEN}✔${NC} ] Journal"
 
 # done
 mega-sync-issues
