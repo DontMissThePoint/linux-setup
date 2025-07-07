@@ -114,6 +114,9 @@ options.color_f5log_logid_notice = 'bold reverse'         # color of notice
 #  │                      KeyBinding                          │
 #  ╰──────────────────────────────────────────────────────────╯
 
+# Save (f12)
+Sheet.bindkey('Shift+F2', 'save-sheet')
+
 # Repeat
 Sheet.unbindkey('.')
 Sheet.bindkey('.', 'repeat-input')

@@ -75,12 +75,12 @@ def main():
 
     # bar
     bar = progress_bar(float(pos))
-    phase_text = f"{emoji} {name} {bar} {rounded}"
+    phase_text = f"{emoji} {name} {bar} {rounded} "
     columns = shutil.get_terminal_size().columns
 
     # output
     print(color + phase_text.rjust(columns) + RESET)
-    print(f"[ Full moon ]  {countdown}  |  {next_full_str}")
+    print(f"[ Full moon ] {countdown}  |  {next_full_str}")
 
 if __name__ == "__main__":
     main()
