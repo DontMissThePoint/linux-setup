@@ -58,10 +58,10 @@ windows:
   - nvim:
       layout: b0ff,147x31,0,0,2
       panes:
-        - nchat & ; topbar 'k -cr ; moonphase ; bash' & ; journalctl -f | tspin -f && fg
+        - calcpy & ; topbar 'k -cr ; moonphase ; bash' & ; journalctl -f | tspin -f && fg
   - logs:
       layout: 2a31,147x31,0,0[147x25,0,0{52x25,0,0,3,94x25,53,0,4},147x5,0,26,5]
       panes:
-        - calcpy & ; blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
+        - blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
         - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc
         - cd $GIT_PATH/linux-setup; bash
