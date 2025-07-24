@@ -37,7 +37,7 @@ while true; do
 
         sudo apt-get -y remove neovim* || echo ""
 
-        sudo apt-get -y install ninja-build gettext cmake unzip curl
+        sudo apt-get -y install ninja-build gettext protobuf-compiler cmake unzip curl
 
         # compile neovim from sources
         rm -fr /tmp/nvim && mkdir /tmp/nvim && cd /tmp/nvim

@@ -163,8 +163,8 @@ fi
 # 30. Install SCRCPY
 ! "$docker" && bash "$APPCONFIG_PATH"/scrcpy/install.sh "$subinstall_params"
 
-# 31. Install NCHAT
-! "$docker" && bash "$APPCONFIG_PATH"/nchat/install.sh "$subinstall_params"
+# 31. Install GO
+! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
 
 # 32. Install SYNCTHING
 ! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
