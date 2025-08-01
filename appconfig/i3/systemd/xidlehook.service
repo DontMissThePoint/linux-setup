@@ -16,6 +16,8 @@ ExecStart=%h/.nix-profile/bin/xidlehook \
                     '%h/.i3/brightness.sh 84' \
                   --timer 300 \
                     '%h/.i3/brightness.sh 84; /usr/bin/i3lock-fancy -gpf Hurmit-Nerd-Font -- /usr/bin/maim -q' '' \
+                  --timer 360 \
+                    'xset dpms force off' '' \
                   --timer 10800 \
                     'systemctl poweroff' '' \
                   --socket "/tmp/xidlehook.socket"

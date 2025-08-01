@@ -123,8 +123,8 @@ focus_follows_mouse no
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# scratchpad
-# bindsym $mod+v exec "urxvtc -name scratchpad -e /usr/bin/vim -c :Startify"
+# clipmenu
+bindsym $mod+V exec clipmenu
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -240,8 +240,9 @@ bindsym $mod+F3 exec --no-startup-id ~/.i3/brightness.sh 2 # increase screen bri
 bindsym $mod+F4 exec --no-startup-id ~/.i3/brightness.sh 100 # increase screen brightness
 # EPIGEN_DEL_BLOCK_AFZAL }
 
-# printscreen using shutter
+# printscreen using shutter / maim
 bindsym Print exec shutter --select
+bindsym Shift+Print exec "maim -s -u | xclip -selection clipboard -t image/png -i"
 
 # highlight cursor position
 bindsym F13 exec "find-cursor -r1 -f -o2 -t -O \#b4befe -s320 -d40 -w400 -l1 -c \#1e1e2e"
