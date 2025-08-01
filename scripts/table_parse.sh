@@ -1,134 +1,74 @@
 #!/bin/bash
 
-# -----------------------------
-# LLAMA-PARSE
-# Parse pdfs and extract tables
-# -----------------------------
+# ----------------------------------------------------
+# LLAMA-PARSE: Parse PDF and extract tables to Excel #
+# ----------------------------------------------------
 
 DIR="$HOME/ownCloud/Documents/netis-fleet/OPEX/Bureau_Mauritius"
-MD_FILE="$DIR/Live_Netis_Fuel_UG.md"
-OUTPUT_XLSX="$DIR/Live_Netis_Fuel_UG.xlsx"
+PDF_INPUT="Live_Netis_Fuel_UG.pdf"
+XLSX_OUPUT="Live_Netis_Fuel_UG.xlsx"
 
-# LLAMA_CLOUD
+# CLOUD_SERVICE
 /usr/bin/python3 - <<EOF
 import os
-import time
-import json
 import asyncio
-
-from dotenv import load_dotenv
+import pandas as pd
+from io import StringIO
+from typing import List
 from pathlib import Path
+from dotenv import load_dotenv
 
+from llama_cloud_services import LlamaParse
+from halo import Halo
+
+# Load API Key from .env
 dotenv_path = Path("$HOME/.env")
 load_dotenv(dotenv_path=dotenv_path)
 
-DATA_DIR = Path("$DIR")
+# Cwd
+os.chdir("$DIR")
 
-def get_pdfs(data_dir=DATA_DIR) -> list[str]:
-    files = []
-    for f in os.listdir(data_dir):
-        fname = os.path.join(data_dir, f)
-        if os.path.isfile(fname) and f.lower().endswith('.pdf'):
-            files.append(fname)
-    return files
-
-files = get_pdfs()
-
-from llama_cloud_services import LlamaParse
-
+# Initialize parser
 parser = LlamaParse(
-    # api_key="llx-...",  # can also be set in your env as LLAMA_CLOUD_API_KEY
-    num_workers=4,        # if multiple files passed, split API calls
+    num_workers=4,
     verbose=True,
     language="en",
     parse_mode="parse_page_with_llm",
-    system_prompt_append="Recognize vehicle IDs. Split date and time into two different columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype.",
+    system_prompt_append="Recognize vehicle IDs. Split date and time into adjacent columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype.",
     user_prompt="You are provided a document with tables that span multiple pages. Combine all rows to form a dataset. Align the columns.",
-    # invalidate_cache=False,
     show_progress=False,
     result_type="markdown",
 )
 
+def extract_tables_to_excel(json_results: List[dict], xlsx_output: str) -> str:
+    from io import StringIO
+
+    with pd.ExcelWriter(xlsx_output, engine="openpyxl") as writer:
+        sheet_num = 1
+        for result in json_results:
+            for page in result.get("pages", []):
+                for item in page.get("items", []):
+                    if item.get("type") == "table" and item.get("csv"):
+                        try:
+                            df = pd.read_csv(StringIO(item["csv"]))
+                            df.to_excel(writer, sheet_name=f"sheet {sheet_num}", index=False)
+                            sheet_num += 1
+                        except Exception as e:
+                            print(f"Error parsing table: {e}")
+    return xlsx_output
+
 async def main():
+    spinner = Halo(text="Extracting tables...", spinner="dots", color="cyan")
+    spinner.start()
 
-  print("Parsing text...")
+    try:
+        json_result = parser.get_json_result("$PDF_INPUT")
+        output_file = extract_tables_to_excel(json_result, "$XLSX_OUPUT")
+        spinner.succeed("Saving... .")
+        spinner.succeed(f"{output_file}")
+    except Exception as e:
+        spinner.fail(f"Failed: {e}")
 
-  documents = []
-
-  from halo import Halo
-
-  spinner = Halo(text=" ", spinner="dots", color="magenta")
-  spinner.start()
-
-  for file_path in files:
-    extra_info = {"file_name": file_path}
-    with open(file_path, "rb") as f:
-      # must provide extra_info with file_name key when passing file object
-      docs = parser.load_data(f, extra_info=extra_info)
-      documents.extend(docs)
-
-  # Write the output to a file
-  with open("$MD_FILE", "w", encoding="utf-8") as f:
-    for doc in documents:
-      f.write(doc.text)
-
-  time.sleep(1)
-  spinner.stop()
-
-# Run the async function
+# Execute async main
 asyncio.run(main())
-
 EOF
-
-# JSON
-# csvjson "$DIR/../../fleet_consumption.tsv" | jq 'unique_by(.Mileage)'
-# jq '.pages[].items[] | select(.type=="table").rows | unique' | jsonrepair --overwrite
-
-# MD_OBJS async
-# md_json_objs = await parser.get_json_result(files)
-# print(md_json_objs)
-# md_json_list = md_json_objs[0]["pages"]
-# for i, page in enumerate(md_json_list):
-#     print(f"Page {i}:", page.get("md", "No 'md' key"))
-
-# MD
-sed -n '/^|/p' "$MD_FILE" >tables.md
-# Remove separator rows (---...)
-sed -i '/^|[-| ]*|$/d; /^| *\(Date\|Time\) *|/d' tables.md
-
-# XLSX
-/usr/bin/python3 - <<EOF
-import pandas as pd
-import re
-import os
-
-# Read cleaned table data
-with open("tables.md", "r") as file:
-    lines = file.readlines()
-
-table = []
-
-from halo import Halo
-
-with Halo(text="Extracting tables", spinner="dots") as spinner:
-   for line in lines:
-       if re.match(r'^\|.*\|$', line):  # Identify table rows
-         columns = [col.strip() for col in line.strip().split('|')[1:-1]]  # Ignore first & last empty splits
-         if columns:
-           table.append(columns)
-
-   # DataFrame
-   df = pd.DataFrame(table[1:], columns=table[0])  # First row as headers, rest as data
-
-   # Spreadsheet
-   df.to_excel("$OUTPUT_XLSX", sheet_name="ORDERS", index=False)
-   table_workbook = os.path.basename("$OUTPUT_XLSX")
-   spinner.succeed("Saved workbook")
-EOF
-
-# Archive
-cleanup() {
-    # echo "Cleaning up..."
-    mv tables.md "$DIR"/../../WinAutomation/
-}
-trap cleanup EXIT

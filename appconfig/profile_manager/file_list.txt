@@ -10,7 +10,7 @@ $GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources, \!\ %s
 $GIT_PATH/linux-setup/appconfig/keyboard/dotXmodmap, ~/.Xmodmap, \!\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvimrc, ~/.vimrc, \"\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotmyvimrc, ~/.my.vimrc, \"\ %s
-$GIT_PATH/linux-setup/appconfig/nchat/dotgntrc, ~/.gntrc, \#\ %s
+$GIT_PATH/linux-setup/appconfig/go/dotgntrc, ~/.gntrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/tmux/dottmux.conf, ~/.tmux.conf, \#\ %s
 $GIT_PATH/linux-setup/appconfig/bash/dotblerc_git, ~/.blerc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/bash/dotbashrc_git, $GIT_PATH/linux-setup/appconfig/bash/dotbashrc, \#\ %s

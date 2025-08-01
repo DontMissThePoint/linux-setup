@@ -45,6 +45,7 @@ while true; do
         fi
 
         # 3 3 3 3 for logs
+        # 1 1 1 1 for animation
         sudo cp -f "$APP_PATH"/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
 
         # plymouth
