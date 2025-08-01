@@ -66,18 +66,7 @@ while true; do
         rm -fr "$CONFIG/.git"
 
         # smartGit
-        . "$APP_PATH"/migrate.sh
-
-        # SSH key
-        if [ ! -e ~/.ssh/id_ed25519 ]; then
-            echo "Generating a new SSH key..."
-            ssh-keygen -t ed25519 -C "kiguddeshafiq@gmail.com"
-            eval "$(ssh-agent -s)"
-            ssh-add ~/.ssh/id_ed25519
-        fi
-
-        # ID
-        cp -f ./ssh_config ~/.ssh/config
+        . "$APP_PATH"/smartGit.sh
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
