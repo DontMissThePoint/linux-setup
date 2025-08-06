@@ -1,7 +1,6 @@
 [Unit]
 Description=Automatic Screen Locker
 After=network.target
-Wants=network.target
 
 StartLimitIntervalSec=500
 StartLimitBurst=5

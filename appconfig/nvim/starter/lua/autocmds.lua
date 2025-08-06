@@ -140,11 +140,11 @@ autocmd("BufEnter", {
   command = "RenderMarkdown",
 })
 
--- Screen cast
-autocmd("VimEnter", {
-  pattern = "",
-  command = "Screenkey",
-})
+-- -- Screen cast
+-- autocmd("VimEnter", {
+--   pattern = "",
+--   command = "Screenkey",
+-- })
 
 -- Unset guicursor whenever it is changed
 vim.cmd [[autocmd OptionSet * noautocmd set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
