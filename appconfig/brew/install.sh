@@ -53,7 +53,7 @@ while true; do
         brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
             bat ripgrep universal-ctags miller countdown ctop btop csvkit \
             rg fd dust zig aria2 glow restic croc newsboat walk s-search \
-            viddy detox eza lazygit delta poetry npm tailspin yq
+            viddy vnstat detox eza lazygit delta poetry npm tailspin yq
 
         # node
         brew upgrade node

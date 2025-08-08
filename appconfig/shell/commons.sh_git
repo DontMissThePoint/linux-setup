@@ -42,6 +42,7 @@ alias demangle="c++filt"
 alias top="htop"
 alias vimdiff="nvim -d"
 alias gx="tmuxinator double"
+alias cc="ctop -i -f windows"
 alias ra="devour ranger"
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"

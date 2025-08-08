@@ -146,10 +146,24 @@ autocmd("BufEnter", {
 --   command = "Screenkey",
 -- })
 
--- Unset guicursor whenever it is changed
-vim.cmd [[autocmd OptionSet * noautocmd set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-		  \,a:blinkwait750-blinkoff150-blinkon175-Cursor/lCursor
-		  \,sm:block-blinkwait175-blinkoff150-blinkon175]]
+-- Unset guicursor whenever it changed
+vim.api.nvim_create_autocmd("OptionSet", {
+  pattern = "guicursor",
+  callback = function()
+    -- Reset guicursor shape
+    vim.opt.guicursor = {
+      "n-v-c:block",
+      "i-ci-ve:ver25",
+      "r-cr:hor20",
+      "o:hor50",
+      "a:blinkwait750-blinkoff150-blinkon175-Cursor/lCursor",
+      "sm:block-blinkwait175-blinkoff150-blinkon175",
+    }
+
+    -- Reset cursor color
+    vim.api.nvim_chan_send(vim.v.stderr, "\27]12;#1976d2\7")
+  end,
+})
 
 -- Status
 if vim.fn.exists "$TMUX" then
