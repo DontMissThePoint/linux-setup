@@ -532,7 +532,6 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! *fading: 8
 ! *fadeColor: black
-!! *cursorColor: #9aedfe
 ! *cursorColor: #1976d2
 ! *pointerColorBackground: #2b2c2b
 ! *pointerColorForeground: #16a085
