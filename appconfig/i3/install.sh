@@ -36,7 +36,7 @@ while true; do
 
         toilet Installing i3 -t --filter metal -f smmono12
 
-        sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk libinput-tools
+        sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk libinput-tools vnstat vnstati
 
         if [ "$beaver" != "" ]; then
             sudo apt-get -y install python-keybinder gir1.2-keybinder
@@ -121,9 +121,9 @@ while true; do
         sudo cp -f "$APP_PATH"/systemd/*.{service,timer} /usr/lib/systemd/user/
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
-        systemctl --user --now enable pipewire pipewire-pulse wireplumber
-        systemctl --user start {xidlehook,activitywatch}.service battery_notification.{service,timer}
-        sudo systemctl --global enable {xidlehook,activitywatch}.service battery_notification.{service,timer}
+        systemctl --user --now enable pipewire pipewire-pulse wireplumber vnstat
+        systemctl --user start {xidlehook,activitywatch}.service {bandwidth_monitor,battery_notification}.{service,timer}
+        sudo systemctl --global enable {xidlehook,activitywatch}.service {bandwidth_monitor,battery_notification}.{service,timer}
         # journalctl --follow --identifier='autorandr-launcher-service'
         # systemctl --user list-timers
 
@@ -145,7 +145,7 @@ while true; do
         git clone -b "gnome-$num" https://github.com/gnome-pomodoro/gnome-pomodoro.git
         cd gnome-pomodoro
         cp -f "$APP_PATH"/pomodoro-style.css ./data/resources/style.css
-        meson . build --prefix=/usr
+        meson setup . build --prefix=/usr
         meson compile -C build
         sudo meson install -C build --no-rebuild
 

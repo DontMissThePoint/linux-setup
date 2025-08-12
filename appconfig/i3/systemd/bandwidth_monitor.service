@@ -1,0 +1,10 @@
+[Unit]
+Description=Bandwidth monitors
+
+[Service]
+# %h means ~
+ExecStart=%h/.scripts/bandwidth_monitor.sh
+Type=oneshot
+
+[Install]
+WantedBy=default.target

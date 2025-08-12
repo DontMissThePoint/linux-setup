@@ -71,7 +71,7 @@ def main():
     # countdown / date
     seconds_left = (next_full - now).total_seconds()
     countdown = format_time_delta(seconds_left)
-    next_full_str = next_full.strftime("%B %d %Y, %a %-I:%M%p")
+    next_full_str = next_full.strftime("%B %d %Y, %a %H:%M")
 
     # bar
     bar = progress_bar(float(pos))

@@ -532,7 +532,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! *fading: 8
 ! *fadeColor: black
-! *cursorColor: #9aedfe
+! *cursorColor: #1976d2
 ! *pointerColorBackground: #2b2c2b
 ! *pointerColorForeground: #16a085
 
@@ -580,15 +580,15 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.colorUL: [36]#57c7ff
 ! URxvt.underlineColor: #57c7ff
 
-! URxvt.font: xft:Hurmit Nerd Font Mono:size=10,\
+! URxvt.font: xft:Monaspace Argon Frozen:size=10,\
 !             xft:MesloLGSDZ Nerd Font Mono:size=10,\
-!             xft:FiraMono Nerd Font Mono:size=10,\
+!             xft:Hurmit Nerd Font Mono:size=10,\
 !             xft:FontAwesome,xft:Material Design Icons,\
 !             xft:Symbola,xft:Noto Color Emoji,xft:Unifont,\
 !             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-! URxvt.boldFont: xft:Hurmit Nerd Font:bold:size=10, xft:Symbola
-! URxvt.italicFont: xft:Hurmit Nerd Font:italic:size=10, xft:Symbola
-! URxvt.boldItalicFont: xft:Hurmit Nerd Font:bold:italic:size=10, xft:Symbola
+! URxvt.boldFont: xft:Monaspace Argon Frozen:size=10, xft:Symbola
+! URxvt.italicFont: xft:Monaspace Argon Frozen:italic:size=10, xft:Symbola
+! URxvt.boldItalicFont: xft:Monaspace Argon Frozen:bold:italic:size=10, xft:Symbola
 ! URxvt.letterSpace: 0
 ! URxvt.intensityStyles: false
 
