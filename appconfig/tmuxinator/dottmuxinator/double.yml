@@ -49,7 +49,7 @@ windows:
   - tdab:
       layout: b0fe,147x31,0,0,1
       panes:
-        -  bluetoothctl power off && clear ; nvim
+        -  bluetoothctl power off && clear ; vnstat -t ; nvim
   # - tdab:
       # layout: 5d4f,127x34,0,0{63x34,0,0[63x12,0,0,2,63x21,0,13,5],63x34,64,0,6}
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.

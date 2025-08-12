@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # Prompt
-echo -e "\n${GREEN} 󰯄 Login credentials ${NC}"
+echo -e "\n${GREEN} 󰯄 Login ... ${NC}"
 username=Quickemu
 echo Username: "$username"
 stty -echo

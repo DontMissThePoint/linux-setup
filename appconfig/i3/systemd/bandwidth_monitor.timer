@@ -1,0 +1,13 @@
+[Unit]
+Description=Bandwidth report
+
+[Timer]
+AccuracySec=1us
+# Initial delay
+OnActiveSec=5s
+# Period
+OnStartupSec=1m
+OnUnitActiveSec=1h
+
+[Install]
+WantedBy=timers.target

@@ -538,9 +538,9 @@ c.url.searchengines = {
 
 # font
 font_size = "13px"
-font_family = "Hurmit Nerd Font Mono"
+font_family = "Monaspace Argon Frozen"
 font = font_size + " " + font_family
-small_font = "12px" + " " + font_family
+small_font = "12px" + " " + "Monaspace Krypton Frozen"
 
 c.fonts.default_size = font_size
 c.fonts.default_family = font_family
