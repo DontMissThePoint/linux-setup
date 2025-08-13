@@ -73,9 +73,9 @@ while true; do
         rm -fr "$GIT_PATH"/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
         # greasmonkey
-        echo "Greasymonkey ..."
+        echo "Loading ..."
         cd ~/.local/share/qutebrowser/greasemonkey
-        cat "$APP_PATH"/js.greasyforks | xargs -n1 curl -LO
+        xargs -n1 curl -LO <"$APP_PATH"/js.greasyforks
 
         # screenshots <space>dp
         mkdir -p ~/Pictures/Screenshots

@@ -6,7 +6,6 @@ customCommands:
 
 gui:
   authorColors:
-    'Abhishek Keshri': blue
     # stuff relating to the UI
   branchColors:
     main: green
@@ -42,6 +41,9 @@ gui:
       - white
   commitLength:
     show: true
+  # Window border style.
+  # One of 'rounded' (default) | 'single' | 'double' | 'hidden' | 'bold'
+  border: single
   mouseEvents: true
   skipDiscardChangeWarning: false
   skipStashWarning: false
