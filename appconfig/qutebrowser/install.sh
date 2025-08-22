@@ -73,9 +73,9 @@ while true; do
         rm -fr "$GIT_PATH"/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
         # greasmonkey
-        echo "Greasymonkey ..."
+        echo "Loading ..."
         cd ~/.local/share/qutebrowser/greasemonkey
-        cat "$APP_PATH"/js.greasyforks | xargs -n1 curl -LO
+        xargs -n1 curl -LO <"$APP_PATH"/js.greasyforks
 
         # screenshots <space>dp
         mkdir -p ~/Pictures/Screenshots
@@ -94,7 +94,6 @@ while true; do
 
         until [ -e ~/Journal/llama-parse_API_KEY.json ] &&
         cat ~/Journal/llama-parse_API_KEY.json | docker run --name json2env -i decknroll/json2env >.env 2>/dev/null; do
-            echo "No keys found"
             docker rm json2env
             sleep 1
             echo -e "${GREEN}Adding API keys..${NC}\nDone"

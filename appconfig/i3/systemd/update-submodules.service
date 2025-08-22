@@ -1,0 +1,13 @@
+[Unit]
+Description=Update submodules to latest main/master
+Wants=network-online.target
+After=network-online.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.scripts/update-submodules.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=update-submodules
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U

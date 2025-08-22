@@ -1,0 +1,11 @@
+[Unit]
+Description=Git update-submodules
+
+[Timer]
+OnCalendar=Tue 10:00
+OnCalendar=Fri 15:00
+RandomizedDelaySec=3600
+Persistent=true
+
+[Install]
+WantedBy=timers.target
