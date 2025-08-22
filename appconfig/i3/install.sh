@@ -122,8 +122,10 @@ while true; do
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
         systemctl --user --now enable pipewire pipewire-pulse wireplumber vnstat
-        systemctl --user start {xidlehook,activitywatch}.service {bandwidth_monitor,battery_notification}.{service,timer}
-        sudo systemctl --global enable {xidlehook,activitywatch}.service {bandwidth_monitor,battery_notification}.{service,timer}
+        systemctl --user start {xidlehook,activitywatch}.service \
+            {update-submodules,bandwidth_monitor,battery_notification}.{service,timer}
+        sudo systemctl --global enable {xidlehook,activitywatch}.service \
+            {update-submodules,bandwidth_monitor,battery_notification}.{service,timer}
         # journalctl --follow --identifier='autorandr-launcher-service'
         # systemctl --user list-timers
 
