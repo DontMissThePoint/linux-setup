@@ -23,7 +23,7 @@ URxvt.visualBell: true
 
 URxvt*cursorBlink: true
 URxvt*scrollBar: false
-URxvt*mouseWheelScrollPage: false
+URxvt*mouseWheelScrollPage: true
 
 xterm*reverseVideo: on
 xterm*selectToClipboard: true

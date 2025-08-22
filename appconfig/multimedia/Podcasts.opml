@@ -12,5 +12,12 @@
              xmlUrl="https://feeds.buzzsprout.com/1849151.rss"
              htmlUrl="https://saifedean.com/podcast" />
 
+    <outline title="P3 Adaptive"
+             text="Raw Data by P3 Adaptive is a people-centric data podcast"
+             type="rss"
+             version="RSS"
+             xmlUrl="https://feeds.libsyn.com/295676/rss"
+             htmlUrl="https://sites.libsyn.com/295676" />
+
 </body>
 </opml>

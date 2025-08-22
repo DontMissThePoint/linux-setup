@@ -36,7 +36,7 @@
     idle_threshold = 120
 
     ### Text ###
-    font = Monaspace Argon Var 9
+    font = Hurmit Nerd Font Mono 9
 
     markup = full
     format = "<span color='#728cbb' weight='heavy'>%s</span>\n%b"

@@ -5,6 +5,7 @@ https://kill-the-newsletter.com/feeds/3ts3rfml0hh866cix3g6.xml  "Newsletter" "fa
 
 "query:Magazine:tags # \"Magazine\""
 https://www.ceo.co.ug/feed/ "Magazine" "enterprise" "~CEO EastAfrica Magazine"
+https://www.microsoft.com/en-us/garage/feed/ "Magazine" "enterprise" "~Microsoft Garage"
 
 "query:Github:tags # \"Github\""
 https://github.com/run-llama/llama_cloud_services/commits/master.atom "Github" "AI" "~Llama Cloud Services"
@@ -15,6 +16,7 @@ https://freecoursedl.com/comments/feed/ "Courses" "video" "~FreeCoursedl Comment
 
 "query:Podcast:tags # \"Podcast\""
 https://feeds.buzzsprout.com/1849151.rss   "Podcast" "favourite" "~Saifedan Ammous"
+https://feeds.libsyn.com/295676/rss   "Podcast" "Data,businessintelligence,excel" "~Raw Data By P3 Adaptive"
 
 "query:Reddit:tags # \"Reddit\""
 # https://www.reddit.com/r/excel.rss "Reddit" "~r/excel"

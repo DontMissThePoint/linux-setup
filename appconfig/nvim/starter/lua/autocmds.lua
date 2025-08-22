@@ -140,14 +140,23 @@ autocmd("BufEnter", {
   command = "RenderMarkdown",
 })
 
--- -- Screen cast
--- autocmd("VimEnter", {
---   pattern = "",
---   command = "Screenkey",
--- })
+-- Auto load session
+autocmd("VimEnter", {
+  group = vim.api.nvim_create_augroup("Persistence", { clear = true }),
+  callback = function()
+    -- NOTE: Before restoring the session, check:
+    -- 1. No arg passed when opening nvim, means no `nvim --some-arg ./some-path`
+    -- 2. No pipe, e.g. `echo "Hello world" | nvim`
+    if vim.fn.argc() == 0 and not vim.g.started_with_stdin then
+      require("persistence").load()
+    end
+  end,
+  -- HACK: need to enable `nested` filetype(syntax)
+  nested = true,
+})
 
 -- Unset guicursor whenever it changed
-vim.api.nvim_create_autocmd("OptionSet", {
+autocmd("OptionSet", {
   pattern = "guicursor",
   callback = function()
     -- Reset guicursor shape

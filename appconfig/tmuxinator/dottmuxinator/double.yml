@@ -51,17 +51,15 @@ windows:
       panes:
         -  bluetoothctl power off && clear ; vnstat -t ; nvim
   # - tdab:
-      # layout: 5d4f,127x34,0,0{63x34,0,0[63x12,0,0,2,63x21,0,13,5],63x34,64,0,6}
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
-      # 'before' represents legacy functionality and will be deprecated in a future release, in favour of 'after'
       # synchronize: after
   - nvim:
       layout: b0ff,147x31,0,0,2
       panes:
         - calcpy & ; topbar 'k -cr ; moonphase ; bash' & ; journalctl -f | tspin -f && fg
   - logs:
-      layout: 2a31,147x31,0,0[147x25,0,0{52x25,0,0,3,94x25,53,0,4},147x5,0,26,5]
+      layout: c17c,136x38,0,0[136x29,0,0{91x29,0,0,4,44x29,92,0,3},136x8,0,30,5]
       panes:
-        - blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
         - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc
+        - blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
         - cd $GIT_PATH/linux-setup; bash

@@ -25,13 +25,16 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall lobster (stream all movies)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall kodi (stream all movies)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
-        toilet Installing lobster -t --filter metal -f smmono12
+        toilet Installing kodi -t --filter metal -f smmono12
+
+        # kodi
+        sudo snap install kodi-omega
 
         # ueberzug
         cd /tmp
