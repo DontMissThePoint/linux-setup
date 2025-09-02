@@ -48,9 +48,9 @@ alias sb="source ~/.zshrc"
 # export ZSH_THEME="simple"
 
 # Path to your oh-my-zsh installation.
-if [ -e $HOME/.oh-my-zsh ]; then
-  export ZSH=$HOME/.oh-my-zsh
-  source $ZSH/oh-my-zsh.sh
+if [ -e "$HOME"/.oh-my-zsh ]; then
+  export ZSH="$HOME"/.oh-my-zsh
+  source "$ZSH"/oh-my-zsh.sh
 fi
 
 # EPIGEN_ADD_BLOCK_TOMAS {
@@ -78,14 +78,8 @@ zle -N zle-line-init
 echo -ne '\e[3 q' # Use underscore shape cursor on startup.
 preexec() { echo -ne '\e[3 q' ;} # Use underscore shape cursor for each new prompt.
 
-# I dont like shared history between terminals, does not play well with tmux
+# unshared history between terminals
 unsetopt share_history
-
-# use the vi navigation keys in menu completion
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
 
 # source the mutual additions for all shells
 source "$REPO_PATH/appconfig/shell/commons.sh"

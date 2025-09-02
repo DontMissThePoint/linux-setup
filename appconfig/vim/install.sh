@@ -98,7 +98,7 @@ while true; do
                 # set youcompleteme
                 toilet Settingup youcompleteme -t -f future
 
-                # if not on 20.04, g++-8 has to be installed manually
+                # if not on 24.04, g++-8 has to be installed manually
                 if [ "$BEAVER" != "" ]; then
                     sudo apt-get -y install g++-8
                     sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
@@ -111,13 +111,13 @@ while true; do
                     /usr/bin/python3 -m pip install --break-system-packages --ignore-installed clang
                 else
                     # if 24.04, just install python3-clang from apt
-                    sudo apt-get -y install python3-clang libclang-19-dev
+                    sudo apt-get -y install python3-clang libclang-20-dev
                 fi
                 # install prequisites for YCM
                 sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
-                # set clangd to 18 latest by default
-                sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-19 999
+                # set clangd to 20 latest by default
+                sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-20 999
                 sudo apt-get -y install libboost-all-dev
 
                 cd ~/.vim/plugged
@@ -138,7 +138,7 @@ while true; do
                 make -j8
                 sudo make install
 
-                # store
+                # config
                 mkdir -p ~/.config/clipmenu
                 pv "$APP_PATH/clipmenu.conf" >~/.config/clipmenu/clipmenu.conf
 
