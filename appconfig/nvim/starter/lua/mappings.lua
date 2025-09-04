@@ -26,6 +26,9 @@ end, { desc = "command history" })
 map("n", "<leader>jf", "<Cmd>JsonFormatFile<CR>", { desc = "json format" })
 map("n", "<leader>jm", "<Cmd>JsonMinifyFile<CR>", { desc = "json minify" })
 
+-- listchar
+map("n", "<leader>\\", "<Cmd>ListcharsToggle<CR>", { desc = "toggle listchar" })
+
 -- highlight
 map("n", "g<CR>", "<Cmd>Hi><CR>", { desc = "jump forth highlight" })
 map("n", "g<BS>", "<Cmd>Hi<<CR>", { desc = "jump back highlight" })

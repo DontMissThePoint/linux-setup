@@ -19,7 +19,8 @@ o.cursorline = true
 o.cursorlineopt = "number"
 
 -- Indenting
-o.expandtab = true
+o.expandtab = false
+o.list = true
 o.shiftwidth = 2
 o.smartindent = true
 o.tabstop = 2
@@ -44,8 +45,8 @@ opt.gcr = {
   "r-cr:hor20-Curosr/lCursor",
 }
 
-vim.cmd("set whichwrap+=<,>,[,],h,l")
-vim.cmd([[set iskeyword+=-]])
+vim.cmd "set whichwrap+=<,>,[,],h,l"
+vim.cmd [[set iskeyword+=-]]
 
 o.signcolumn = "yes"
 o.splitbelow = true
@@ -56,4 +57,4 @@ o.undofile = true
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap:append "<>[]hl"
-opt.fillchars:append({ diff = "╱" })
+opt.fillchars:append { diff = "╱" }
