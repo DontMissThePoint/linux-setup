@@ -519,7 +519,10 @@ local plugins = {
     event = "VeryLazy",
     dependencies = { "MunifTanjim/nui.nvim", "nvim-lua/plenary.nvim" },
     config = function()
-      require("hardtime").setup { enabled = true }
+      require("hardtime").setup {
+        enabled = true,
+        disable_mouse = false,
+      }
     end,
   },
 

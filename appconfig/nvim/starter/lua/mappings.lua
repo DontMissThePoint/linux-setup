@@ -27,7 +27,7 @@ map("n", "<leader>jf", "<Cmd>JsonFormatFile<CR>", { desc = "json format" })
 map("n", "<leader>jm", "<Cmd>JsonMinifyFile<CR>", { desc = "json minify" })
 
 -- listchar
-map("n", "<leader>\\", "<Cmd>ListcharsToggle<CR>", { desc = "toggle listchar" })
+map("n", "\\\\", "<Cmd>ListcharsToggle<CR>", { desc = "toggle listchar" })
 
 -- highlight
 map("n", "g<CR>", "<Cmd>Hi><CR>", { desc = "jump forth highlight" })
@@ -156,7 +156,7 @@ map("n", "<leader>sd", function()
   require("persistence").stop()
 end, { desc = "stop session" })
 
--- sniprun
+-- slime sniprun
 map({ "n", "v" }, "<leader>rr", "<Plug>SnipRun", { desc = "run snip" }, { silent = true })
 map("n", "<leader>rx", "<Plug>SnipRunOperator", { desc = "run snip motion" }, { silent = true })
 
