@@ -96,7 +96,7 @@ while true; do
         cat ~/Journal/llama-parse_API_KEY.json | docker run --name json2env -i decknroll/json2env >.env 2>/dev/null; do
             docker rm json2env
             sleep 1
-            echo -e "${GREEN}Adding API keys..${NC}\nDone"
+            echo -e "${GREEN}Adding API keys..${NC}\nDone."
         done
 
         break
