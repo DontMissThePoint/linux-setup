@@ -8,16 +8,16 @@ hibernate" | rofi -dmenu -p "Select desired action:")
 
 case "$ACTION" in
     lock)
-         $(betterlockscreen -q -l dimpixel) & $(xset dpms force off)
+        "$(i3-msg exit)" & "$(xset dpms force off)"
         ;;
     logout)
         i3-msg exit
         ;;
     suspend)
-      $(systemctl suspend) & $(i3lock -e -f  -L -i "$GIT_PATH/linux-setup/miscellaneous/wallpapers/falcon_heavy.jpg")
+        "$(systemctl suspend)"
         ;;
     hibernate)
-      $(systemctl suspend) & $(i3lock -e -f -L -i "$GIT_PATH/linux-setup/miscellaneous/wallpapers/falcon_heavy.jpg")
+        "$(systemctl suspend)"
         ;;
     reboot)
         systemctl reboot
@@ -26,4 +26,4 @@ case "$ACTION" in
         systemctl poweroff
         ;;
     *)
-esac
+;; esac

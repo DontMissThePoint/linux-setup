@@ -65,6 +65,11 @@ options.disp_int_fmt         =  '{:d}'                # format for integer value
 options.disp_replay_play     =  '▶'                  # status indicator for active replay
 options.disp_histogram       =  '*'                  # histogram element character
 options.disp_pixel_random    =  False                # randomly choose attr from set of pixels instead of most common
+options.value_joiner         =  "|"
+
+# Mouse
+options.mouse_interval       =  1                    # enable mouse-click
+options.scroll_incr          =  -3                    # enable scroll wheel
 
 
 #  ╭──────────────────────────────────────────────────────────╮
