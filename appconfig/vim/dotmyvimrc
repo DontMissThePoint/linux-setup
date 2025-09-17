@@ -134,6 +134,14 @@ if has_key(environ(), 'TMUX')
     autocmd VimLeave,VimSuspend * silent !tmux setw status on
   augroup END
 endif
+
+" mouse
+" Send more characters for redraws
+set ttyfast
+" Enable mouse use in all modes
+set mouse=a
+" support mouse codes : xterm, xterm2, netterm, dec, jsbterm, pterm
+set ttymouse=xterm2
 "}}}
 
 "{{{ PLUGIN

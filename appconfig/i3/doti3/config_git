@@ -269,6 +269,20 @@ bindsym $mod+minus scratchpad show
 bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+plus scratchpad show; floating disable
 
+# mouse
+# middle button over a titlebar kills the window
+bindsym --release button2 kill
+
+# throughput over any part of the window
+bindsym --whole-window $mod+button2 mode "throughput_mode"
+
+# The right button toggles floating
+bindsym $mod+button3 floating toggle
+
+# The side buttons move the window around
+bindsym button9 move left
+bindsym button8 move right
+
 # xprop. To get the instance and class
 for_window [title="File Transfer*"] floating enable
 for_window [title="pdfpc"] border none floating enable
@@ -1699,8 +1713,8 @@ mode "mouse_mode" {
   bindsym $mod+l focus right
 
   # bindsym $mod2+space exec --no-startup-id xdotool click 1
-  bindsym f exec --no-startup-id xdotool click 1
-  bindsym d exec --no-startup-id xdotool click 3
+  bindsym f exec --no-startup-id xdotool jlick 1
+  bindsym d exec --no-startup-id xdotool jlick 3
   bindsym u exec --no-startup-id xdotool click 1
   bindsym i exec --no-startup-id xdotool click 3
 
@@ -1735,10 +1749,11 @@ mode "gaps_mode" {
 
 # #{ throughput mode
 
-# is usefull for controlling i3 and tmux throught teamviewer
+# is usefull for controlling i3 and tmux through teamviewer
 mode "throughput_mode" {
 
   bindsym $mod+shift+t mode "default"
+  bindsym $mod+n mode "default"
 }
 
 # #}

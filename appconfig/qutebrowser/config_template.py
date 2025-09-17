@@ -604,3 +604,7 @@ config.bind(leader + "tu", "undo")
 config.bind(leader + "tw", "cmd-set-text -s :tab-take")
 
 config.bind(leader + "x", "quit --save")
+
+# mouse
+config.bind("Button1", "hint links spawn mpv {hint-url}", mode="normal")
+config.bind("Button2", "cmd-repeat-last", mode="normal")

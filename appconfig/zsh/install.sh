@@ -43,31 +43,33 @@ while true; do
         # build new zsh with readline patched with athame
         sudo ./zsh_athame_setup.sh --notest --use_sudo "$NEOVIM"
 
-        rm -fr ~/.oh-my-zsh
         # install oh-my-zsh
-        [ ! -e "~/.oh-my-zsh" ] && sh -c "$(wget -c https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
+        [ ! -e "$HOME/.oh-my-zsh" ] && sh -c "$(wget -c https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -) --unattended --keep-zshrc --skip-chsh"
 
         # notify-urxvt
-        if [ ! -e "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-notify-urxvt ]; then
-            git clone https://github.com/lpenz/zsh-notify-urxvt "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/zsh-notify-urxvt
+        if [ ! -e "$HOME"/.oh-my-zsh/custom/plugins/zsh-notify-urxvt ]; then
+            git clone https://github.com/lpenz/zsh-notify-urxvt "$HOME"/.oh-my-zsh/custom/plugins/zsh-notify-urxvt
         fi
 
         # fzf-tab
-        if [ ! -e "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/fzf-tab ]; then
-            git clone https://github.com/Aloxaf/fzf-tab "${ZSH_CUSTOM:-~/.oh-my-zsh/custom}"/plugins/fzf-tab
+        if [ ! -e "$HOME"/.oh-my-zsh/custom/plugins/fzf-tab ]; then
+            git clone https://github.com/Aloxaf/fzf-tab "$HOME"/.oh-my-zsh/custom/plugins/fzf-tab
         fi
 
-        # plugins
-        if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
-            ln -sf "$APP_PATH"/../../submodules/zsh-syntax-highlighting ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+        # fish-completion
+        if [ ! -e "$HOME"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting ]; then
+            ln -sf "$APP_PATH"/../../submodules/zsh-syntax-highlighting "$HOME"/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
         fi
 
-        if [ ! -e ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
-            ln -sf "$APP_PATH"/../../submodules/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+        # auto-suggestions
+        if [ ! -e "$HOME"/.oh-my-zsh/custom/plugins/zsh-autosuggestions ]; then
+            ln -sf "$APP_PATH"/../../submodules/zsh-autosuggestions "$HOME"/.oh-my-zsh/custom/plugins/zsh-autosuggestions
         fi
 
         # k
-        "$APP_PATH"/install_k_plugin.sh
+        if [ ! -e "$HOME"/.oh-my-zsh/custom/plugins/k ]; then
+            git clone https://github.com/supercrabtree/k "$HOME"/.oh-my-zsh/custom/plugins/k
+        fi
 
         # symlink the .zshrc
         touch ~/.zshrc
@@ -77,7 +79,7 @@ while true; do
         fi
 
         # symlink the .zprofile
-        num=$(grep -c "go" "$HOME"/.zshrc)
+        num=$(grep -c "go" "$HOME"/.zprofile)
         if [ "$num" -lt "1" ]; then
             cp "$APP_PATH"/zprofile_template "$HOME"/.zprofile
         fi
@@ -88,7 +90,7 @@ while true; do
             git clone --branch stable https://github.com/nojhan/liquidprompt.git ~/.liquidprompt
         fi
 
-        # bash line editor
+        # ble
         rm -fr /tmp/ble && mkdir /tmp/ble
         cd /tmp/ble
 

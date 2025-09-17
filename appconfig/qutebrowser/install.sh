@@ -36,7 +36,7 @@ while true; do
         sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl asciidoc
 
         # env
-        python3 scripts/mkvenv.py
+        python3 scripts/mkvenv.py --pyqt-type link
 
         #.venv/bin/python3 -m qutebrowser
         mkdir -p ~/.qutebrowser
@@ -96,7 +96,7 @@ while true; do
         cat ~/Journal/llama-parse_API_KEY.json | docker run --name json2env -i decknroll/json2env >.env 2>/dev/null; do
             docker rm json2env
             sleep 1
-            echo -e "${GREEN}Adding API keys..${NC}\nDone"
+            echo -e "${GREEN}Adding API keys..${NC}\nDone."
         done
 
         break
