@@ -46,10 +46,10 @@ while true; do
     read -rp "Enter your github email: " user_email
 
     if validate_email "$user_email"; then
-        echo "Valid email entered: $user_email"
+        echo "Done."
         break
     else
-        echo "OK."
+        echo "Sorry, try again."
     fi
 done
 
