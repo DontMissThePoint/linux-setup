@@ -45,6 +45,18 @@ while true; do
 
         sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format libpython3-all-dev
 
+        # libsodium
+        cd /tmp
+        [ -e libsodium ] && sudo rm -rf libsodium
+        git clone https://github.com/jedisct1/libsodium --branch stable
+        cd libsodium
+        zig build -Doptimize=ReleaseFast
+        ./configure && make -j8
+        sudo make install
+
+        # cache
+        sudo ldconfig
+
         /usr/bin/python3 -m pip install --break-system-packages --ignore-installed rospkg
 
         # compile vim from sources
