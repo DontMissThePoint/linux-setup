@@ -39,10 +39,10 @@ alias q=exit
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
+alias bt="devour btop"
 alias top="htop"
 alias vimdiff="nvim -d"
 alias gx="tmuxinator double"
-alias bb="devour btop"
 alias cc="ctop -i -f windows"
 alias ra="devour ranger"
 
