@@ -76,10 +76,10 @@ while true; do
         /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
             datapackage pypng pdfminer.six ptpython pytz PyYAML lxml pandas \
             xlrd openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
-            virtualenv tomli tabulate
+            virtualenv tomli tabulate odfpy
 
         # pipx
-        pipx install frogmouth dunk tiptop posting
+        pipx install frogmouth dunk tiptop posting PyQt6
 
         mkdir -p ~/.visidata ~/.config/zathura
         cp -f "$APP_PATH"/dotvisidata/* ~/.visidata

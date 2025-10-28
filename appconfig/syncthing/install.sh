@@ -92,7 +92,7 @@ while true; do
 
         # MegaCMD
         sudo apt-get install -y megacmd megasync nautilus-megasync
-        . "$APP_PATH"/dotsync.sh
+        . "$APP_PATH"/dotsync.sh || echo "Done."
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

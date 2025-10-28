@@ -82,9 +82,6 @@ aw-qt &
 # redshift
 redshift-gtk -l 0.314757:32.577754 &
 
-# bluetooth
-bluetoothctl power off &
-
 # mega
 megasync &
 

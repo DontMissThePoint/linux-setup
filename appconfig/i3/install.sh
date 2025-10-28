@@ -99,6 +99,9 @@ while true; do
         cd autorandr-launcher
         sudo make install
 
+        # ssh
+        touch ~/.Xauthority
+
         # restore graphical session properties
         cd /tmp
         [ -e autorandr ] && sudo rm -rf autorandr
@@ -108,8 +111,8 @@ while true; do
 
         #  service
         sudo systemctl daemon-reload
-        sudo systemctl enable autorandr.service autorandr-lid-listener.service ly.service
         sudo systemctl disable gdm3 getty@tty2.service
+        sudo systemctl enable autorandr.service autorandr-lid-listener.service ly.service
         sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
 
         # udev
