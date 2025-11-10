@@ -14,97 +14,107 @@ return {
   },
   config = function()
     local on_attach = require("nvchad.configs.lspconfig").on_attach
-    -- local on_init = require("nvchad.configs.lspconfig").on_init
     local capabilities = require("nvchad.configs.lspconfig").capabilities
 
-    local lspconfig = require "lspconfig"
-    local map = vim.keymap.set -- for conciseness
+    -- keymap helper
+    local map = vim.keymap.set
 
     vim.api.nvim_create_autocmd("LspAttach", {
       group = vim.api.nvim_create_augroup("UserLspConfig", {}),
       callback = function(ev)
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf, silent = true }
 
-        -- set keybinds
         opts.desc = "Show LSP references"
-        map("n", "gR", "<cmd>Telescope lsp_references<CR>", opts) -- show definition, references
+        map("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
 
         opts.desc = "Go to declaration"
-        map("n", "gD", vim.lsp.buf.declaration, opts) -- go to declaration
+        map("n", "gD", vim.lsp.buf.declaration, opts)
 
         opts.desc = "Show LSP definitions"
-        map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts) -- show lsp definitions
+        map("n", "gd", "<cmd>Telescope lsp_definitions<CR>", opts)
 
         opts.desc = "Show LSP implementations"
-        map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts) -- show lsp implementations
+        map("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
 
         opts.desc = "Show LSP type definitions"
-        map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts) -- show lsp type definitions
+        map("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
 
         opts.desc = "See available code actions"
-        map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- see available code actions, in visual mode will apply to selection
+        map({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
         opts.desc = "Smart rename"
-        map("n", "<leader>rn", vim.lsp.buf.rename, opts) -- smart rename
+        map("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
         opts.desc = "Show buffer diagnostics"
-        map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
+        map("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
 
         opts.desc = "Show line diagnostics"
-        map("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+        map("n", "<leader>d", vim.diagnostic.open_float, opts)
 
         opts.desc = "Show documentation for what is under cursor"
-        map("n", "K", vim.lsp.buf.hover, opts) -- show documentation for what is under cursor
+        map("n", "K", vim.lsp.buf.hover, opts)
 
         opts.desc = "Restart LSP"
-        map("n", "<leader>rs", ":LspRestart<CR>", opts) -- mapping to restart lsp if necessary
+        map("n", "<leader>rs", ":LspRestart<CR>", opts)
       end,
     })
 
-    -- used to enable autocompletion (assign to every lsp server config)
-    -- local capabilities = cmp_nvim_lsp.default_capabilities()
-    -- local capabilities = require("blink.cmp").get_lsp_capabilities()
+    -- Use new API: define configs, then enable them
+    local lsp = vim.lsp
 
-    -- configure matlab server
-    lspconfig["clangd"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
-    -- configure matlab server
-    lspconfig["matlab_ls"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
-    -- configure yaml server>
-    lspconfig["yamlls"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
-    -- configure htmx server
-    lspconfig["htmx"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
-    -- configure bash server
-    lspconfig["bashls"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
-    -- configure markdown server
-    lspconfig["ltex-ls-plus"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
-    -- configure html server
-    lspconfig["html"].setup {
-      capabilities = capabilities,
-      on_attach = on_attach,
-    }
+    -- define server configurations
 
-    -- configure golang server
-    lspconfig["gopls"].setup {
+    -- clangd
+    lsp.config("clangd", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lsp.enable "clangd"
+
+    -- matlab
+    lsp.config("matlab_ls", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lsp.enable "matlab_ls"
+
+    -- yaml
+    lsp.config("yamlls", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lsp.enable "yamlls"
+
+    -- htmx
+    lsp.config("htmx", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lsp.enable "htmx"
+
+    -- bash
+    lsp.config("bashls", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lsp.enable "bashls"
+
+    -- ltex-ls-plus (markdown etc.)
+    lsp.config("ltex-ls-plus", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lsp.enable "ltex-ls-plus"
+
+    -- html
+    lsp.config("html", {
+      capabilities = capabilities,
+      on_attach = on_attach,
+    })
+    lsp.enable "html"
+
+    -- gopls
+    lsp.config("gopls", {
       capabilities = capabilities,
       on_attach = on_attach,
       cmd = { "gopls" },
@@ -118,32 +128,35 @@ return {
           },
         },
       },
-    }
+    })
+    lsp.enable "gopls"
 
-    -- configure typescript server with plugin
-    lspconfig["ts_ls"].setup {
+    -- typescript server
+    lsp.config("ts_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
-    }
+    })
+    lsp.enable "ts_ls"
 
-    -- configure css server
-    lspconfig["cssls"].setup {
+    -- css
+    lsp.config("cssls", {
       capabilities = capabilities,
       on_attach = on_attach,
-    }
+    })
+    lsp.enable "cssls"
 
-    -- configure tailwindcss server
-    lspconfig["tailwindcss"].setup {
+    -- tailwindcss
+    lsp.config("tailwindcss", {
       capabilities = capabilities,
       on_attach = on_attach,
-    }
+    })
+    lsp.enable "tailwindcss"
 
-    -- configure svelte server
-    lspconfig["svelte"].setup {
+    -- svelte
+    lsp.config("svelte", {
       capabilities = capabilities,
       on_attach = function(client, bufnr)
         on_attach(client, bufnr)
-
         vim.api.nvim_create_autocmd("BufWritePost", {
           pattern = { "*.js", "*.ts" },
           callback = function(ctx)
@@ -153,42 +166,47 @@ return {
           end,
         })
       end,
-    }
+    })
+    lsp.enable "svelte"
 
-    -- configure prisma orm server
-    lspconfig["prismals"].setup {
+    -- prisma
+    lsp.config("prismals", {
       capabilities = capabilities,
       on_attach = on_attach,
-    }
+    })
+    lsp.enable "prismals"
 
-    -- configure graphql language server
-    lspconfig["graphql"].setup {
+    -- graphql
+    lsp.config("graphql", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-    }
+    })
+    lsp.enable "graphql"
 
-    -- configure emmet language server
-    lspconfig["emmet_ls"].setup {
+    -- emmet
+    lsp.config("emmet_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-    }
+    })
+    lsp.enable "emmet_ls"
 
-    -- configure python server
-    lspconfig["pyright"].setup {
+    -- python
+    lsp.config("pyright", {
       capabilities = capabilities,
       on_attach = on_attach,
-    }
+    })
+    lsp.enable "pyright"
 
-    -- configure lua server (with special settings)
-    lspconfig["lua_ls"].setup {
+    -- lua
+    lsp.config("lua_ls", {
       capabilities = capabilities,
       on_attach = on_attach,
       settings = {
         Lua = {
           diagnostics = {
-            enable = true, -- Disable all diagnostics from lua_ls
+            enable = true,
             globals = { "vim" },
           },
           workspace = {
@@ -204,15 +222,12 @@ return {
           },
         },
       },
-    }
+    })
+    lsp.enable "lua_ls"
 
-    -- local x = vim.diagnostic.severity
-    local config = {
-      -- Enable virtual text
-      virtual_text = { -- or false for disable
-        prefix = "", -- ■  󰊠
-        suffix = "",
-      },
+    -- Diagnostics configuration
+    vim.diagnostic.config {
+      virtual_text = { prefix = "", suffix = "" },
       update_in_insert = true,
       underline = false,
       severity_sort = true,
@@ -226,8 +241,7 @@ return {
       },
     }
 
-    vim.diagnostic.config(config)
-    -- add borders to lsp info window
+    -- Add border to LSP info windows if desired
     require("lspconfig.ui.windows").default_options.border = "single"
   end,
 }

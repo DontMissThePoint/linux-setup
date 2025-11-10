@@ -1753,6 +1753,7 @@ mode "gaps_mode" {
 mode "throughput_mode" {
 
   bindsym $mod+shift+t mode "default"
+  bindsym $mod+f mode "default"
   bindsym $mod+n mode "default"
 }
 
