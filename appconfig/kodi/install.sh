@@ -47,6 +47,7 @@ while true; do
         cmake --build .
         sudo cp -f ueberzug /usr/local/bin/ueberzug
         sudo ln -sf /usr/local/bin/ueberzug /usr/bin/ueberzugpp
+
         # lobster
         curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o "$(brew --prefix)"/bin/lobster &&
         chmod +x "$(brew --prefix)"/bin/lobster

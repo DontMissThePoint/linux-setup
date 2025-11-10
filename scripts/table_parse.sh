@@ -33,6 +33,7 @@ parser = LlamaParse(
     num_workers=4,
     verbose=True,
     language="en",
+		preserve_very_small_text=True,
     parse_mode="parse_page_with_llm",
     system_prompt_append="Recognize vehicle IDs. Split date and time into adjacent columns. Remove comma separators from cell values. Convert mileage columns to numeric datatype.",
     user_prompt="You are provided a document with tables that span multiple pages. Combine all rows to form a dataset. Align the columns.",
