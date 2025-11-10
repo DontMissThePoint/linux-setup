@@ -32,11 +32,11 @@ homepage = "https://yandex.com"
 # theme
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
-catppuccin.setup(c, "latte")
+catppuccin.setup(c, "frappe")
 
 # Dark mode
 c.colors.webpage.darkmode.enabled = False
-c.colors.webpage.preferred_color_scheme = "dark"
+c.colors.webpage.preferred_color_scheme = "auto"
 c.colors.webpage.darkmode.policy.page = "smart"
 c.colors.webpage.darkmode.policy.images = "smart"
 c.colors.webpage.darkmode.algorithm = "lightness-cielab"

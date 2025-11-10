@@ -58,6 +58,15 @@ while true; do
         make check
         sudo make install
 
+        # zsv
+        cd /tmp
+        [ -e zsv ] && rm -rf zsv
+        git clone https://github.com/liquidaty/zsv
+        cd zsv
+        ./configure
+        make clean
+        sudo make install
+
         if [ "$unattended" == "0" ] && [ "$TRAVIS" = "" ]; then # if running interactively
 
             # font size in virtual console (tty)
