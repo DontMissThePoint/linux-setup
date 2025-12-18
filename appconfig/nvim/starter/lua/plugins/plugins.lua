@@ -44,42 +44,43 @@ local plugins = {
 	-- or just use Telescope themes
 
 	{
-		"nvim-treesitter/nvim-treesitter",
-		branch = 'main',
+		'nvim-treesitter/nvim-treesitter',
+		version = false, -- 'main'
 		build = ':TSUpdate',
-		opts = {
-			ensure_installed = {
-				"vim",
-				"vimdoc",
-				"toml",
-				"fish",
-				"regex",
-				"printf",
-				"lua",
-				"bash",
-				"markdown",
-				"markdown_inline",
-				"html",
-				"python",
-				"javascript",
-				"json",
-				"yaml",
-				"latex",
-				"norg",
-				"scss",
-				"svelte",
-				"tsx",
-				"typst",
-				"vue",
-			},
-			auto_install = true,
-			highlight = {
-				enable = true,
-				use_languagetree = true,
-			},
-
-			indent = { enable = true },
-		},
+		config = function()
+			require('nvim-treesitter.configs').setup({
+				-- parsers
+				ensure_installed = {
+					'rust',
+					'vim',
+					'vimdoc',
+					'zig',
+					'toml',
+					'regex',
+					'printf',
+					'lua',
+					'bash',
+					'markdown',
+					'markdown_inline',
+					'html',
+					'python',
+					'javascript',
+					'json',
+					'yaml',
+					'scss',
+					'svelte',
+					'tsx',
+					'typst',
+					'vue',
+				},
+				auto_install = true,
+				highlight = {
+					enable = true,
+					use_languagetree = true,
+				},
+				indent = { enabled = true },
+			})
+		end,
 	},
 
 	-- Install a plugin
