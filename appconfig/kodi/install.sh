@@ -34,7 +34,7 @@ while true; do
         toilet Installing kodi -t --filter metal -f smmono12
 
         # kodi
-        sudo snap install kodi-omega
+        # sudo snap install kodi-omega
 
         # ueberzug
         cd /tmp

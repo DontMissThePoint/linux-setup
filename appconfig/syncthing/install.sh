@@ -53,14 +53,14 @@ while true; do
         # localhost:8384/
         mkdir -p ~/Journal ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
 
-        # Obsidian
-        cd /tmp
-        aria2c -c -j 8 -x 16 -s 16 -k 1M "$(wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest |
-        grep 'deb"$' | awk -F'"' ' {print $4} ')"
-        sudo dpkg -i /tmp/obsidian*.deb
-        mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
-        cp -fr "$APP_PATH"/dotobsidian/* ~/vaults/.obsidian
-        pv "$APP_PATH"/obsidian.vimrc >~/vaults/.obsidian.vimrc
+        # Joplin
+        # cd /tmp
+        # aria2c -c -j 8 -x 16 -s 16 -k 1M "$(wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest |
+        # grep 'deb"$' | awk -F'"' ' {print $4} ')"
+        # sudo dpkg -i /tmp/obsidian*.deb
+        # mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
+        # cp -fr "$APP_PATH"/dotobsidian/* ~/vaults/.obsidian
+        # pv "$APP_PATH"/obsidian.vimrc >~/vaults/.obsidian.vimrc
 
         # Rclone
         sudo apt install -y fuse3
@@ -84,7 +84,7 @@ while true; do
             sudo chmod a+r /usr/share/keyrings/mega-nz.gpg
 
             echo \
-                "deb [signed-by=/usr/share/keyrings/mega-nz.gpg] \
+            "deb [signed-by=/usr/share/keyrings/mega-nz.gpg] \
                 https://mega.nz/linux/repo/xUbuntu_$(lsb_release -r | awk '{ print $2 }')/ ./" |
             sudo tee /etc/apt/sources.list.d/megasync.list >/dev/null
             sudo apt-get update

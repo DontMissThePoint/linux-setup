@@ -41,7 +41,7 @@ find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo 
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
 
 # python
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
@@ -59,7 +59,8 @@ sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exube
 # submodules
 cd "$MY_PATH"
 "$docker" && git submodule update --init --recursive --recommend-shallow
-! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive
+! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive || echo "Updating..."
+! "$docker" && bash "$MY_PATH"/scripts/update-submodules.sh
 
 if [ "$unattended" == "0" ]; then
     if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
@@ -83,31 +84,29 @@ fi
 # 6. Install FONTS POWERLINE
 ! "$docker" && bash "$APPCONFIG_PATH"/fonts-powerline/install.sh "$subinstall_params"
 
-# 7. Install VIM
+# 7. Install GO
+! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
+
+# 8. Install VIM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim/install.sh "$subinstall_params"
 
-# 8. Install NVIM
+# 9. Install NVIM
 ! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
 
-# 9. Install I3
+# 10. Install SYNCTHING
+! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
+
+# 11. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
 
-# 10. Install HTOP-VIM
+# 12. Install HTOP-VIM
 ! "$docker" && bash "$APPCONFIG_PATH"/htop-vim/install.sh "$subinstall_params"
 
-# 11. Install LATEX and PDF support
-! "$docker" && bash "$APPCONFIG_PATH"/latex/install.sh "$subinstall_params"
-
-# 12. Install MULTIMEDIA support
+# 13. Install MULTIMEDIA support
 ! "$docker" && bash "$APPCONFIG_PATH"/multimedia/install.sh "$subinstall_params"
 
-# 13. Setup RANGER
+# 14. Setup RANGER
 ! "$docker" && bash "$APPCONFIG_PATH"/ranger/install.sh "$subinstall_params"
-
-# 14. Install PANDOC
-if [ "$arch" != "aarch64" ]; then
-    ! "$docker" && bash "$APPCONFIG_PATH"/pandoc/install.sh "$subinstall_params"
-fi
 
 # 15. Install SHUTTER
 if [ "$arch" != "aarch64" ]; then
@@ -126,7 +125,7 @@ fi
 # 19. Setup modified keyboard rules
 ! "$docker" && bash "$APPCONFIG_PATH"/keyboard/install.sh "$subinstall_params"
 
-# 20. Setup fuzzyfinder
+# 20 Setup FZF
 ! "$docker" && bash "$APPCONFIG_PATH"/fzf/install.sh "$subinstall_params"
 
 # 21. Install PLAYERCTL
@@ -134,42 +133,33 @@ if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/playerctl/install.sh "$subinstall_params"
 fi
 
-# 22. Install PAPIS
-! "$docker" && bash "$APPCONFIG_PATH"/papis/install.sh "$subinstall_params"
-
-# 23. Install VIM-STREAM
+# 22. Install VIM-STREAM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim-stream/install.sh "$subinstall_params"
 
-# 24. Install REFIND
+# 23. Install REFIND
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
 fi
 
-# 25. Install TMUXINATOR
+# 24. Install TMUXINATOR
 ! "$docker" && bash "$APPCONFIG_PATH"/tmuxinator/install.sh "$subinstall_params"
 
-# 26. Install LOLCAT
+# 25. Install LOLCAT
 ! "$docker" && bash "$APPCONFIG_PATH"/lolcat/install.sh "$subinstall_params"
 
-# 27. Install DOCKER
+# 26. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
 
-# 28. Install YT-X
+# 27. Install YT-X
 ! "$docker" && bash "$APPCONFIG_PATH"/yt-x/install.sh "$subinstall_params"
 
-# 29. Install KODI
+# 28. Install KODI
 ! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
 
-# 30. Install SCRCPY
+# 29. Install SCRCPY
 ! "$docker" && bash "$APPCONFIG_PATH"/scrcpy/install.sh "$subinstall_params"
 
-# 31. Install GO
-! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
-
-# 32. Install SYNCTHING
-! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
-
-# 33. Install QUTEBROWSER
+# 30. Install QUTEBROWSER
 ! "$docker" && bash "$APPCONFIG_PATH"/qutebrowser/install.sh "$subinstall_params"
 
 # the docker setup ends here
@@ -196,14 +186,9 @@ sudo systemctl disable apt-daily-upgrade.service
 # Disable basic telemetry
 #############################################
 
-sudo apt-get -y purge unity-lens-shopping unity-webapps-common
-sudo apt-get -y purge zeitgeist zeitgeist-core zeitgeist-datahub
-sudo apt-get -y purge apturl ubuntu-advantage-tools
-
-# disable firewall log
 sudo ufw logging off
 
-# Guest session & remote login disable for LightDm
+# Guest session / remote login
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > \
     /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
@@ -212,10 +197,12 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
 # Optimize for performance
 #############################################
 
-# path
-# remove_duplicates_from_path
+sudo powerprofilesctl set performance
 
-# network
+#############################################
+# NETWORK
+#############################################
+
 num=$(grep -c "^DNS" /etc/systemd/resolved.conf)
 if [ "$num" -lt "1" ]; then
 
@@ -228,12 +215,18 @@ DNS=1.1.1.1 8.8.8.8 9.9.9.9
 
 fi
 
-# storage
+#############################################
+# STORAGE
+#############################################
+
 topgrade
 sudo apt -y autoremove
 sudo docker volume prune
 
-# power
+#############################################
+# POWER
+#############################################
+
 the_ppa=linrunner/tlp
 if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
     sudo add-apt-repository -y ppa:linrunner/tlp
@@ -248,14 +241,14 @@ sudo systemctl mask systemd-rfkill.service
 sudo systemctl mask systemd-rfkill.socket
 
 #############################################
-# use temporary folder in RAM
+# RAM
 #############################################
 
 sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
 sudo systemctl enable tmp.mount
 
 #############################################
-# link the scripts folder
+# scripts
 #############################################
 
 if [ ! -e ~/.scripts ]; then
@@ -263,7 +256,7 @@ if [ ! -e ~/.scripts ]; then
 fi
 
 #############################################
-# fix touchpad touch-clicking
+# touchpad
 #############################################
 
 if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
@@ -271,7 +264,7 @@ if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
 fi
 
 #############################################
-# link dotclang-tidy to ~/.clang-tidy
+# clang
 # (enable linting for YCM)
 #############################################
 ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
@@ -282,19 +275,21 @@ cd "$MY_PATH" && ./deploy_configs.sh
 ## bashrc extras
 source "$APPCONFIG_PATH/bash/dotbashrc_template"
 
-# finally source the correct rc file
+#############################################
+# SOURCE
+#############################################
 toilet All Done -t --filter metal -f mono9
 
 # say some tips to the new user
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
 
 #############################################
-# set rEFInd boot
+# rEFInd
 #############################################
 
 str=$(ps --no-headers -o comm 1)
 if [ "$str" = "systemd" ]; then
     echo "rEFInd boot manager options"
-    echo "Rebooting... to EFI setup"
+    echo "Rebooting..."
     sudo systemctl reboot --firmware-setup
 fi

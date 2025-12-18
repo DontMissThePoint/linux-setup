@@ -62,7 +62,7 @@ while true; do
 
         else
 
-            sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pdf-presenter-console
+            sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pandoc pdf-presenter-console
         fi
 
         toilet Settingup visidata -t -f future

@@ -49,7 +49,7 @@ windows:
   - tdab:
       layout: b0fe,147x31,0,0,1
       panes:
-        - bluetoothctl power off &; clear ; i3-msg mode throughput_mode; vnstat -t ; nvim
+        - powerprofilesctl set performance &; clear ; i3-msg mode throughput_mode; vnstat -t ; nvim
   # - tdab:
   # Synchronize all panes of this window, can be enabled before or after the pane commands run.
   # synchronize: after

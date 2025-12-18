@@ -40,9 +40,6 @@ while true; do
         #( sh autogen.sh && ./configure && make && sudo make install-binPrograms ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt-get -y install tmux)
         brew install -q tmux
 
-        # popups
-        ln -sf ~/.scripts/show-tmux-popup.sh ~/.local/bin/show-tmux-popup
-
         # plugins
         [ ! -e "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
@@ -50,7 +47,7 @@ while true; do
 
         # timezone
         TIME_ZONE=$(timedatectl status | grep zone | awk '{ print $3 }')
-        EXISTING_ZONE=$(grep -c "zoneinfo" <~/.profile 2>/dev/null)
+        EXISTING_ZONE=$(grep -ow "zoneinfo" "$HOME/.profile" | wc -l)
         if [ "$EXISTING_ZONE" -lt "1" ]; then
             echo "Timezone set to $TIME_ZONE"
             (
@@ -114,13 +111,15 @@ test -z "$DISPLAY" -a "$(tty)" = /dev/tty2 &&
         fi
 
         # tdab
+        mkdir -p ~/.local/bin
         echo "Tmux devour style enabled."
 
-        # symlinks
+        # session
         ln -sf "$APP_PATH"/tdab/tmux_devour.sh ~/.local/bin/devour
         ln -sf "$APP_PATH"/tdab/tmux_sidebar.sh ~/.local/bin/sidebar
         ln -sf "$APP_PATH"/tdab/tmux_topbar.sh ~/.local/bin/topbar
-
+        ln -sf "$APP_PATH"/tdab/show-tmux-popup.sh ~/.local/bin/show-tmux-popup
+        
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
         break

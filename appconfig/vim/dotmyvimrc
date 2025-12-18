@@ -386,7 +386,7 @@ noremap \\ :set invlist<CR>
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
 " NetisFleet
-autocmd FileType tsv,tex,sh call DataViz()
+autocmd FileType tsv,sh call DataViz()
 function DataViz()
 
   silent! Goyo!
@@ -408,11 +408,7 @@ function DataViz()
     call cursor('.',strwidth(getline('.')))
   endfunc
 
-  " docs compiler
-  nnoremap <leader>ll :w <bar> ! docker run --rm -v $PWD:/tex-cvbuilder ubuntu:tex-cvbuilder bash -c
-        \ "xelatex % && xelatex %" && zathura %:r.pdf<CR>
-
-  " Preselect suppliers
+  " Preselect
   iabbrev <silent> i <Cmd>:call fzf#run(fzf#wrap({
         \ 'source': readfile(expand('$HOME/.cards.txt')),
         \ 'sink': function('Swipe'), 'window': { 'width': 0.65,

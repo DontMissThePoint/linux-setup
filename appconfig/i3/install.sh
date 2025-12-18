@@ -261,7 +261,7 @@ while true; do
 
         # indicator-sound-switcher
         if [ "$NOBLE" != "" ]; then
-            sudo apt -y install rustup gir1.2-keybinder-3.0
+            sudo apt -y install gir1.2-keybinder-3.0
         else
             sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
         fi

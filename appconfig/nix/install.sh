@@ -38,31 +38,39 @@ while true; do
             curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
         fi
 
-        # packages
-        echo "Configuring..."
-        nix run home-manager/master -- init --switch
-        sed -i '/^ *home\.packages = \[ *$/,$d' ~/.config/home-manager/home.nix
-        cat "$APP_PATH"/pkgs.nix >>~/.config/home-manager/home.nix
+        #subshell
+        (
+        	.  /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+        	
+        	# packages
+        	echo "Configuring..."
+        	nix run home-manager/master -- init --switch
+        	sed -i '/^ *home\.packages = \[ *$/,$d' ~/.config/home-manager/home.nix
+        	cat "$APP_PATH"/pkgs.nix >>~/.config/home-manager/home.nix
 
-        # systemd
-        echo "Adding modules..."
-        echo -e "[Manager]\nManagerEnvironment=\"XDG_DATA_DIRS=/home/$USER/.nix-profile/share:/usr/local/share:/usr/share\"" |
-        tee ~/.config/systemd/user.conf >/dev/null
+        	# systemd
+        	echo "Adding modules..."
+        	echo -e "[Manager]\nManagerEnvironment=\"XDG_DATA_DIRS=/home/$USER/.nix-profile/share:/usr/local/share:/usr/share\"" |
+        	tee ~/.config/systemd/user.conf >/dev/null
 
-        # icons
-        mkdir -p ~/.local/share/icons/hicolor/scalable/apps
-        rm -fr ~/.icons/default/index.theme
-        ln -sf ~/.nix-profile/share/applications/* ~/.local/share/applications/
-        ln -sf ~/.nix-profile/share/icons/hicolor/256x256/apps/* ~/.local/share/icons/hicolor/scalable/apps/
+        	# icons
+        	mkdir -p ~/.local/share/icons/hicolor/scalable/apps
+        	rm -fr ~/.icons/default/index.theme
+        	ln -sf ~/.nix-profile/share/applications/* ~/.local/share/applications/
+        	ln -sf ~/.nix-profile/share/icons/hicolor/256x256/apps/* ~/.local/share/icons/hicolor/scalable/apps/
 
-        # home-manager
-        home-manager switch
-        sudo update-desktop-database
-        sudo -i nix upgrade-nix
+        	# home-manager
+        	home-manager switch
+        	sudo update-desktop-database
+        	sudo -i determinate-nixd upgrade
 
-        # clean
-        nix store gc
-        echo "Done."
+        	# clean
+        	nix store gc
+        	echo "Done."
+        	
+        	# gpu
+        	sudo $HOME/.nix-profile/bin/non-nixos-gpu-setup        	
+        )
 
         # uninstall
         # /nix/nix-installer uninstall

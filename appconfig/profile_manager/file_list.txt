@@ -1,4 +1,3 @@
-$GIT_PATH/linux-setup/dotgitconfig, ~/.gitconfig, \#\ %s
 $GIT_PATH/linux-setup/appconfig/i3/dotxinitrc, ~/.xinitrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/i3/dotxsession, ~/.xsession, \#\ %s
 $GIT_PATH/linux-setup/appconfig/i3/doti3/config_git, ~/.i3/config, \#\ %s
@@ -10,7 +9,6 @@ $GIT_PATH/linux-setup/appconfig/urxvt/dotXresources, ~/.Xresources, \!\ %s
 $GIT_PATH/linux-setup/appconfig/keyboard/dotXmodmap, ~/.Xmodmap, \!\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvimrc, ~/.vimrc, \"\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotmyvimrc, ~/.my.vimrc, \"\ %s
-$GIT_PATH/linux-setup/appconfig/go/dotgntrc, ~/.gntrc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/tmux/dottmux.conf, ~/.tmux.conf, \#\ %s
 $GIT_PATH/linux-setup/appconfig/bash/dotblerc_git, ~/.blerc, \#\ %s
 $GIT_PATH/linux-setup/appconfig/bash/dotbashrc_git, $GIT_PATH/linux-setup/appconfig/bash/dotbashrc, \#\ %s
@@ -22,5 +20,4 @@ $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-clang-format_git.vim
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-startify_git.vim, $GIT_PATH/linux-setup/appconfig/vim/dotvim/pluginconfig/vim-startify.vim, \"\ %s
 $GIT_PATH/linux-setup/appconfig/silver_searcher/dotignore, ~/.ignore, \#\ %s
 $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets_git, $GIT_PATH/linux-setup/appconfig/vim/dotvim/UltiSnips/athame.snippets, \#\ %s
-$GIT_PATH/linux-setup/appconfig/papis/papis/config_git, $GIT_PATH/linux-setup/appconfig/papis/papis/config, \#\ %s
 $GIT_PATH/linux-setup/appconfig/ranger/rc.conf_git, $GIT_PATH/linux-setup/appconfig/ranger/rc.conf, \#\ %s

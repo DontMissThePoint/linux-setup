@@ -83,7 +83,7 @@ while true; do
         make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim91
         sudo make install
 
-        # set vim as a default git mergetool
+        # mergetool
         git config --global merge.tool vimdiff
 
         # symlink vim settings
@@ -153,6 +153,7 @@ while true; do
                 # config
                 mkdir -p ~/.config/clipmenu
                 pv "$APP_PATH/clipmenu.conf" >~/.config/clipmenu/clipmenu.conf
+                echo "Done."
 
                 break
             elif [[ $response =~ ^(n|N)=$ ]]; then
