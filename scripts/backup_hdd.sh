@@ -10,7 +10,7 @@ LINUX_REPOSITORY=/media/$USER/AUTORESTIC/07.OS/linux-setup
 LINUX_SETUP=$GIT_PATH/linux-setup
 
 # mount
-udisksctl mount -b /dev/disk/by-label/AUTORESTIC
+udisksctl mount -b /dev/disk/by-label/AUTORESTIC || echo "Ready..."
 
 # init
 [ ! -e "$LINUX_REPOSITORY/config" ] && restic init --repo "$LINUX_REPOSITORY" --password-file "$RESTIC_PASSWORD_FILE"

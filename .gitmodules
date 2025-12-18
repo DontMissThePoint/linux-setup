@@ -17,10 +17,6 @@
 	path = submodules/xkblayout-state
 	url = https://github.com/nonpop/xkblayout-state.git
 	branch = master
-[submodule "submodules/pa-applet"]
-	path = submodules/pa-applet
-	url = https://github.com/fernandotcl/pa-applet
-	branch = master
 [submodule "submodules/vim"]
 	path = submodules/vim
 	url = https://github.com/vim/vim
@@ -74,18 +70,6 @@
 	path = submodules/i3-layout-manager
 	url = https://github.com/klaxalk/i3-layout-manager
 	branch = master
-[submodule "submodules/pandoc-goodies"]
-	path = submodules/pandoc-goodies
-	url = https://github.com/tajmone/pandoc-goodies
-	branch = master
-[submodule "submodules/papis"]
-	path = submodules/papis
-	url = https://github.com/klaxalk/papis
-	branch = master
-[submodule "submodules/papis-zotero"]
-	path = submodules/papis-zotero
-	url = http://github.com/papis/papis-zotero
-	branch = main
 [submodule "submodules/fzf"]
 	path = submodules/fzf
 	url = https://github.com/junegunn/fzf.git
@@ -114,9 +98,6 @@
 	path = submodules/keychron-k2-function-keys-linux
 	url = https://github.com/adam-savard/keychron-k2-function-keys-linux.git
 	branch = master
-[submodule "submodules/pdfpc"]
-	path = submodules/pdfpc
-	url = https://github.com/pdfpc/pdfpc.git
 [submodule "submodules/fonts"]
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts

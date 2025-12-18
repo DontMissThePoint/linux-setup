@@ -141,9 +141,6 @@ if g:user_mode == "1"
   Plug 'edkolev/tmuxline.vim'
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX EPIGEN_DEL_BLOCK_VIKTOR_THINKPAD }
 
-  " Latex stuff
-  Plug 'lervag/vimtex'
-
   " VimWiki
   " Essential part in taking notes in vim
   Plug 'vimwiki/vimwiki'
@@ -603,9 +600,6 @@ if g:user_mode == "1"
   " config for tmuxline
   "source ~/.vim/pluginconfig/tmuxline.vim
 
-  " config for vimtex
-  source ~/.vim/pluginconfig/vimtex.vim
-
   " config for VimWiki
   source ~/.vim/pluginconfig/vimwiki.vim
 
@@ -673,8 +667,6 @@ endif
 
 " additional settings for non-athame vim
 if g:user_mode == "1"
-
-  let g:tex_flavor = 'latex'
 
   " set vim and airline colorscheme
 
