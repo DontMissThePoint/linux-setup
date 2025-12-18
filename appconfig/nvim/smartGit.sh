@@ -7,8 +7,8 @@ APP_PATH=$( (cd "$APP_PATH" && pwd))
 # syntevo
 cd "$APP_PATH"
 
-# Previews:  https://www.syntevo.com/downloads/smartgit/smartgit-24_1-preview-8.deb
-wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
+# wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
+wget -c https://download.smartgit.dev/smartgit/smartgit-25_1_102-linux_amd64.deb
 
 # deepGit
 wget -c https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
@@ -43,10 +43,12 @@ validate_email() {
 
 # Prompt
 while true; do
-    read -rp "Enter your github email: " user_email
+    # Use printf for the prompt to avoid "no coprocess" errors in Zsh/Ksh
+    printf "Enter your github email: "
+    read -r user_email
 
     if validate_email "$user_email"; then
-        echo "Done."
+        echo "Updating..."
         break
     else
         echo "Sorry, try again."
@@ -62,4 +64,5 @@ if [ ! -e ~/.ssh/id_ed25519 ]; then
 fi
 
 # ID
-cp -f ./ssh_config ~/.ssh/config
+pv "$APP_PATH/gitconfig" >~/.gitconfig
+pv ./ssh_config >~/.ssh/config

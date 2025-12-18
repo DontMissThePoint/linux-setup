@@ -41,6 +41,7 @@ while true; do
 
         ./install.sh
         rm -fr ./fonts.orig
+	source ~/.profile
 
         # make Terminus work
         mkdir -p ~/.config/fontconfig/conf.d
@@ -58,26 +59,27 @@ while true; do
 
         # Nerd fonts
         toilet Setting up Nerd Fonts -t -f future
+         
+        # getnf
         curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --tag=v0.1.0
         getnf -i "JetBrainsMono Terminus FiraMono Meslo Monofur Hermit IBMPlexMono iA-Writer \
-      NerdFontsSymbolsOnly UbuntuMono ProFont"
-        getnf -U
-        rm -fr ~/Downloads/getnf
+          NerdFontsSymbolsOnly UbuntuMono ProFont"
+        getnf -U 2>/dev/null || rm -fr ~/Downloads/getnf
 
-        # Monaspace: An innovative superfamily of fonts for code
+        # emoji
+        sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
+        
+        # Monaspace: code
         cd /tmp
         [ -e monaspace ] && rm -rf /tmp/monaspace
         git clone https://github.com/githubnext/monaspace
         cd monaspace
-        bash util/install_linux.sh
-
-        # emoji
-        sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
+        find . -type f \( -iname "*.otf" -o -iname "*.ttf" \) -exec cp -t "$HOME"/.local/share/fonts {} +
 
         # siji
         cd /tmp
         [ -e siji ] && rm -rf /tmp/siji
-        git clone git clone https://github.com/stark/siji
+        git clone https://github.com/stark/siji
         cd siji
         ./install.sh -d ~/.fonts
 
@@ -92,8 +94,7 @@ while true; do
         [ -e qt6ct ] && rm -rf qt6ct
         git clone https://github.com/trialuser02/qt6ct
         cd qt6ct
-        cmake -S . -B build
-        cmake --build build --config Release
+        cmake -DCMAKE_INSTALL_PREFIX=/usr/local/bin
         make -j8
         sudo make install
 

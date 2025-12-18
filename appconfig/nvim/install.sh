@@ -37,12 +37,13 @@ while true; do
 
         sudo apt-get -y remove neovim* || echo ""
 
-        sudo apt-get -y install ninja-build gettext protobuf-compiler cmake unzip curl
+        sudo apt-get -y install ninja-build gettext protobuf-compiler cmake unzip curl rustup
 
         # compile neovim from sources
         rm -fr /tmp/nvim && mkdir /tmp/nvim && cd /tmp/nvim
         git clone https://github.com/neovim/neovim.git
         cd neovim
+        cd /tmp/nvim/neovim
         make -j8 CMAKE_BUILD_TYPE=RelWithDebInfo \
             CMAKE_INSTALL_PREFIX=/usr/bin/nvim
 
@@ -62,8 +63,8 @@ while true; do
 
         # Nvchad
         git clone https://github.com/NvChad/starter "$CONFIG"
-        cp -fr "$APP_PATH"/starter/lua/* "$CONFIG"/lua && nvim +MasonUpdate
-        rm -fr "$CONFIG/.git"
+        cp -fr "$APP_PATH"/starter/lua/* "$CONFIG"/lua && nvim +MasonUpdate -c "TSInstall all"
+        rm -fr "$CONFIG"/.git
 
         # smartGit
         . "$APP_PATH"/smartGit.sh

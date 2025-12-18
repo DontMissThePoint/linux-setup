@@ -47,23 +47,24 @@ while true; do
         # exceed files limit
         ulimit -n2048
 
-        # swiss knife
+        # packages
         toilet Setting up brew -t -f future
         source "$HOME"/.bashrc && brew update && brew upgrade
         brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
             bat ripgrep universal-ctags miller countdown ctop btop csvkit \
             rg fd dust zig aria2 glow restic croc newsboat walk s-search \
             viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
-            pyqt
+            pyqt \
+            2> /dev/null
 
         # node
-        brew upgrade node
-        brew link --overwrite node ruby
+        brew upgrade -q node
+        brew link --overwrite node ruby || echo "Removing..."
         brew cleanup --prune=all
 
         # s completion
+        sudo zsh -c "$(which s) --completion zsh > /usr/local/share/zsh/site-functions/_s" || 
         sudo bash -c "$(which s) --completion bash > /etc/bash_completion.d/s"
-        sudo zsh -c "$(which s) --completion zsh > /usr/local/share/zsh/site-functions/_s"
 
         # newsboat
         mkdir -p ~/.newsboat

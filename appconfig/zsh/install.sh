@@ -1,6 +1,4 @@
-#!/bin/bash
-
-set -e
+#!/bin/bash set -e
 
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
@@ -73,13 +71,13 @@ while true; do
 
         # symlink the .zshrc
         touch ~/.zshrc
-        num=$(grep -c "dotzshrc" "$HOME"/.zshrc)
+        num=$(grep -ow "dotzshrc" "$HOME/.zshrc" | wc -l)
         if [ "$num" -lt "1" ]; then
             cp "$APP_PATH"/dotzshrc_template "$HOME"/.zshrc
         fi
 
         # symlink the .zprofile
-        num=$(grep -c "go" "$HOME"/.zprofile)
+        num=$(grep -ow "go" "$HOME/.zprofile" | wc -l)
         if [ "$num" -lt "1" ]; then
             cp "$APP_PATH"/zprofile_template "$HOME"/.zprofile
         fi

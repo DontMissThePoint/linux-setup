@@ -41,7 +41,7 @@ find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo 
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libconfig-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
 
 # python
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
@@ -59,7 +59,8 @@ sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exube
 # submodules
 cd "$MY_PATH"
 "$docker" && git submodule update --init --recursive --recommend-shallow
-! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive
+! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive || echo "Updating..."
+! "$docker" && bash "$MY_PATH"/scripts/update-submodules.sh
 
 if [ "$unattended" == "0" ]; then
     if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
@@ -83,88 +84,88 @@ fi
 # 6. Install FONTS POWERLINE
 ! "$docker" && bash "$APPCONFIG_PATH"/fonts-powerline/install.sh "$subinstall_params"
 
-# 7. Install VIM
+# 7. Install GO
+! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
+
+# 8. Install VIM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim/install.sh "$subinstall_params"
 
-# 8. Install NVIM
+# 9. Install NVIM
 ! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
 
-# 9. Install I3
+# 10. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
 
-# 10. Install HTOP-VIM
+# 11. Install HTOP-VIM
 ! "$docker" && bash "$APPCONFIG_PATH"/htop-vim/install.sh "$subinstall_params"
 
-# 11. Install LATEX and PDF support
+# 12. Install LATEX and PDF support
 ! "$docker" && bash "$APPCONFIG_PATH"/latex/install.sh "$subinstall_params"
 
-# 12. Install MULTIMEDIA support
+# 13. Install MULTIMEDIA support
 ! "$docker" && bash "$APPCONFIG_PATH"/multimedia/install.sh "$subinstall_params"
 
-# 13. Setup RANGER
+# 14. Setup RANGER
 ! "$docker" && bash "$APPCONFIG_PATH"/ranger/install.sh "$subinstall_params"
 
-# 14. Install PANDOC
+# 15. Install PANDOC
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/pandoc/install.sh "$subinstall_params"
 fi
 
-# 15. Install SHUTTER
+# 16. Install SHUTTER
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/shutter/install.sh "$subinstall_params"
 fi
 
-# 16. Install ZATHURA
+# 17. Install ZATHURA
 ! "$docker" && bash "$APPCONFIG_PATH"/zathura/install.sh "$subinstall_params"
 
-# 17. Install VIMIV
+# 18. Install VIMIV
 ! "$docker" && bash "$APPCONFIG_PATH"/vimiv/install.sh "$subinstall_params"
 
-# 18. Install SILVER SEARCHER (ag)
+# 19. Install SILVER SEARCHER (ag)
 ! "$docker" && bash "$APPCONFIG_PATH"/silver_searcher/install.sh "$subinstall_params"
 
-# 19. Setup modified keyboard rules
+# 20. Setup modified keyboard rules
 ! "$docker" && bash "$APPCONFIG_PATH"/keyboard/install.sh "$subinstall_params"
 
-# 20. Setup fuzzyfinder
+# 21 Setup fuzzyfinder
 ! "$docker" && bash "$APPCONFIG_PATH"/fzf/install.sh "$subinstall_params"
 
-# 21. Install PLAYERCTL
+# 22. Install PLAYERCTL
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/playerctl/install.sh "$subinstall_params"
 fi
 
-# 22. Install PAPIS
+# 23. Install PAPIS
 ! "$docker" && bash "$APPCONFIG_PATH"/papis/install.sh "$subinstall_params"
 
-# 23. Install VIM-STREAM
+# 24. Install VIM-STREAM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim-stream/install.sh "$subinstall_params"
 
-# 24. Install REFIND
+# 25. Install REFIND
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
 fi
 
-# 25. Install TMUXINATOR
+# 26. Install TMUXINATOR
 ! "$docker" && bash "$APPCONFIG_PATH"/tmuxinator/install.sh "$subinstall_params"
 
-# 26. Install LOLCAT
+# 27. Install LOLCAT
 ! "$docker" && bash "$APPCONFIG_PATH"/lolcat/install.sh "$subinstall_params"
 
-# 27. Install DOCKER
+# 28. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
 
-# 28. Install YT-X
+# 29. Install YT-X
 ! "$docker" && bash "$APPCONFIG_PATH"/yt-x/install.sh "$subinstall_params"
 
-# 29. Install KODI
+# 30. Install KODI
 ! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
 
-# 30. Install SCRCPY
+# 31. Install SCRCPY
 ! "$docker" && bash "$APPCONFIG_PATH"/scrcpy/install.sh "$subinstall_params"
-
-# 31. Install GO
-! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
 
 # 32. Install SYNCTHING
 ! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
