@@ -5,7 +5,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # login
-echo "${GREEN}Sync to megacloud..${NC}"
+echo -e "${GREEN}Sync to megacloud..${NC}"
 echo -n "Email: "
 read account
 stty -echo

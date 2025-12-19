@@ -5,11 +5,6 @@ set -e
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
-# needs newer gtk
-# GIRARA_VERSION=0.2.7
-# ZATHURA_VERSION=0.3.7
-# ZATHURA_PDF_POPPLER_VERSION=0.2.7
-
 # 18.04
 GIRARA_VERSION=0.2.6
 ZATHURA_VERSION=0.3.6
@@ -86,7 +81,7 @@ while true; do
         pv "$APP_PATH"/visidatarc >~/.visidatarc
 
         # Calibre
-        # Green scheme background: #b9edcd foreground: #384f45 links: #000000
+        # Green: #b9edcd foreground: #384f45 links: #000000
         sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
         #sudo calibre-uninstall
 

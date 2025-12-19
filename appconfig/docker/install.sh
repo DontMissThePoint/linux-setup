@@ -36,27 +36,27 @@ while true; do
         # any conflict packages
         for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y "$pkg"; done
 
-        # Add the repository to apt sources
+        # sources
         if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
             sudo apt-get update
             sudo apt-get install -y ca-certificates curl gnupg
 
-            # Add Docker's official GPG key
+            # GPG
             sudo install -m 0755 -d /etc/apt/keyrings
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
             sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
             echo \
-                "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
                 $(lsb_release -cs) stable" |
             sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
             sudo apt-get update
         fi
 
-        # install docker
+        # docker
         sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-        # add group permission
+        # group
         num=$(cat /etc/group | cut -d: -f1 | grep "docker" | wc -l)
         if [ "$num" -lt "1" ]; then
             sudo groupadd docker
@@ -81,7 +81,7 @@ while true; do
             sudo chmod a+r /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
 
             echo \
-                "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
+            "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
                 http://pub.freerdp.com/repositories/deb/""$(lsb_release -cs)/ freerdp-nightly main" |
             sudo tee /etc/apt/sources.list.d/freerdp-nightly.list >/dev/null
             sudo apt-get update
@@ -104,7 +104,7 @@ while true; do
         # quickget windows 11
         # quickemu --vm windows-11.conf --width 1920 --height 1080
 
-        # Office 365
+        # 365
         # focus cell: #87ff87 #0088cc
 
         # dockurr

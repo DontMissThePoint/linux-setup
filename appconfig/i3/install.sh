@@ -99,7 +99,7 @@ while true; do
         git clone https://github.com/fairyglade/ly
         cd ly
         zig build
-        sudo "$(which zig)" build installexe
+        sudo "$(which zig)" build installexe -Dinit_system=systemd
 
         # auto-detect connected display
         cd /tmp
@@ -121,7 +121,7 @@ while true; do
         #  service
         sudo systemctl daemon-reload
         sudo systemctl disable gdm3 getty@tty2.service
-        sudo systemctl enable autorandr.service autorandr-lid-listener.service ly.service
+        sudo systemctl enable autorandr.service autorandr-lid-listener.service ly@tty2.service
         sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
 
         # udev
@@ -133,11 +133,15 @@ while true; do
         sudo cp -f "$APP_PATH"/systemd/*.{service,timer} /usr/lib/systemd/user/
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
-        systemctl --user --now enable pipewire pipewire-pulse wireplumber vnstat
+        systemctl --user --now enable pipewire pipewire-pulse wireplumber
         systemctl --user start {xidlehook,activitywatch}.service \
             {update-submodules,bandwidth_monitor,battery_notification}.{service,timer}
         sudo systemctl --global enable {xidlehook,activitywatch}.service \
             {update-submodules,bandwidth_monitor,battery_notification}.{service,timer}
+
+        # vnstat
+        sudo systemctl enable vnstat.service
+        sudo systemctl start vnstat.service
         # journalctl --follow --identifier='autorandr-launcher-service'
         # systemctl --user list-timers
 
@@ -164,7 +168,7 @@ while true; do
         sudo meson install -C build --no-rebuild
 
         # compile i3 dependency which is not present in the repo
-        sudo apt-get -y install libtool xutils-dev libfftw3-dev libasound2-dev libpulse-dev libiniparser-dev libsdl2-2.0-0 libsdl2-dev libpipewire-0.3-dev libjack-jackd2-dev pkgconf
+        sudo apt-get -y install libtool xutils-dev libpeas-dev libfftw3-dev libasound2-dev libpulse-dev libiniparser-dev libsdl2-2.0-0 libsdl2-dev libpipewire-0.3-dev libjack-jackd2-dev pkgconf
 
         # install light for display backlight control
         # compile light
@@ -181,6 +185,7 @@ while true; do
 
         # i3
         sudo apt remove -y i3* || echo "Installing i3..."
+        brew unlink pkg-config libtool
 
         # compile i3
         /usr/bin/python3 -m pip install --break-system-packages meson
@@ -365,14 +370,14 @@ while true; do
         # required for i3lock-color
         sudo apt remove -y i3lock
 
-        sudo apt install -y libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev xscreensaver xscreensaver-data-extra xscreensaver-gl-extra libxc-dev libxss-dev libpulse-dev libxcb-screensaver0-dev glibc-tools
+        sudo apt install -y libpam0g-dev libcairo2-dev libfontconfig1-dev libxcb-composite0-dev libev-dev libx11-xcb-dev libxcb-xkb-dev libxcb-xinerama0-dev libxcb-randr0-dev libxcb-image0-dev libxcb-util-dev libxcb-xrm-dev libxkbcommon-dev libxkbcommon-x11-dev libjpeg-dev xscreensaver xscreensaver-data-extra xscreensaver-gl-extra libxc-dev libxss-dev libpulse-dev libxcb-screensaver0-dev glibc-tools libgif-dev
 
         # compile from sources
         cd /tmp
         [ -e i3lock-color ] && rm -rf i3lock-color
         git clone https://github.com/Raymo111/i3lock-color.git
         cd i3lock-color
-        ./install-i3lock-color.sh
+        sudo ./install-i3lock-color.sh
 
         # fancy
         cd /tmp
@@ -399,11 +404,10 @@ while true; do
         sudo make install
 
         # picom
-
         toilet Settingup picom -t -f future
 
         cd /tmp
-        sudo apt install -y libxcb-damage0-dev libxcb-sync-dev libxcb-present-dev uthash-dev
+        sudo apt install -y libxcb-damage0-dev libxcb-sync-dev libxcb-present-dev uthash-dev libpcre3 libpcre3-dev
         [ -e picom ] && rm -rf /tmp/picom
         git clone https://github.com/jonaburg/picom
         cd picom
@@ -411,8 +415,9 @@ while true; do
         ninja -C build
         sudo ninja -C build install
 
-        # install prime-select (for switching gpus)
+        # gpus
         # sudo apt-get -y install nvidia-prime
+        brew link pkg-config libtool
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

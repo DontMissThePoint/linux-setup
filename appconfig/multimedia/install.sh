@@ -75,7 +75,7 @@ while true; do
             Mopidy-Mpd Mopidy-Mpris Mopidy-Podcast Mopidy-Local \
             Mopidy-Youtube Mopidy-Mobile Mopidy-Bookmarks Mopidy-Mowecl
 
-        mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/{mopidy,podcast}
+        mkdir -p ~/.config/{yt-dlp,gallery-dl} ~/.config/mopidy/podcast
         pv "$APP_PATH/mopidy.conf" >~/.config/mopidy/mopidy.conf
         pv "$APP_PATH/Podcasts.opml" >~/.config/mopidy/podcast/Podcasts.opml
         pv "$APP_PATH/yt-dlp.conf" >~/.config/yt-dlp/yt-dlp.conf
