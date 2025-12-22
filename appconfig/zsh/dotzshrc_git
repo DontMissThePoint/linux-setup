@@ -219,10 +219,6 @@ export ATHAME_USE_JOBS=1
 # fzf
 source <(fzf --zsh)
 
-# prompt
-source ~/.liquidprompt/themes/unfold/unfold.theme
-lp_theme unfold
-
 # but if we are in tmux launched by the user/terminal (not tmuxinator)
 # and if user want to use athame, use it
 if [ -n "$TMUX" ]; then
@@ -242,6 +238,11 @@ if [ -n "$TMUX" ]; then
     fi
   fi
 fi
+
+# prompt
+source ~/.liquidprompt/liquidprompt
+source ~/.liquidprompt/themes/unfold/unfold.theme
+lp_theme unfold
 
 # load tmux automatically
 if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux

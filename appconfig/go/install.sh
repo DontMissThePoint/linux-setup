@@ -43,7 +43,7 @@ while true; do
         sudo rm -rf /usr/local/go
         wget -c https://go.dev/dl/go1.25.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 
-        EXISTING_GO=$(cat ~/.profile 2>/dev/null | grep "go/bin" | wc -l)
+        EXISTING_GO=$(cat ~/.profile 2>/dev/null | grep "GOROOT" | wc -l)
         if [ "$EXISTING_GO" == "0" ]; then
             toilet Settingup go -t -f future
             (

@@ -47,9 +47,9 @@ if [ "$num" -lt "1" ]; then
 
     echo "Adding GIT_PATH variable to .bashrc"
     # set bashrc
-    echo "
+    echo '
 # path to the git root
-    export GIT_PATH=$TEMP" >>~/.bashrc
+    export GIT_PATH=$TEMP' >>~/.bashrc
 
 fi
 
@@ -103,7 +103,7 @@ source ~/.FZF_DEFAULT_OPTS
 [[ $var = *i* ]] && source ~/.liquidprompt/liquidprompt
 
 # sourcing DMP's linux setup
-    source $APPCONFIG_PATH/bash/dotbashrc" >>~/.bashrc
+source \$GIT_PATH/linux-setup/appconfig/bash/dotbashrc" >>~/.bashrc
 
 fi
 

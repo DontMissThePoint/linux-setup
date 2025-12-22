@@ -44,6 +44,10 @@ while true; do
             sudo apt install -y refind
         fi
 
+        # grub
+        sudo sed -i -e 's/^#*\s*\(GRUB_DISABLE_OS_PROBER\).*/\1=true/g' \
+            /etc/default/grub
+
         # 3 3 3 3 for logs
         # 1 1 1 1 for animation
         sudo cp -f "$APP_PATH"/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
@@ -53,7 +57,7 @@ while true; do
         sudo mkdir -p /etc/plymouth
         printf "[Daemon]\nTheme=lone\nShowDelay=0" | sudo tee /etc/plymouth/plymouthd.conf
 
-        # install theme
+        # theme
         sudo cp -fr "$APP_PATH"/plymouth-themes/pack/lone /usr/share/plymouth/themes/
         sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/lone/lone.plymouth 200
         sudo update-alternatives --config default.plymouth

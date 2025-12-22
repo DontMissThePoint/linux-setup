@@ -31,10 +31,11 @@ while true; do
 
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
-        toilet Installing kodi -t --filter metal -f smmono12
+        toilet Installing lobster -t --filter metal -f smmono12
 
         # kodi
         # sudo snap install kodi-omega
+        brew unlink pkg-config
 
         # ueberzug
         cd /tmp
@@ -51,7 +52,6 @@ while true; do
         # lobster
         curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o "$(brew --prefix)"/bin/lobster &&
         chmod +x "$(brew --prefix)"/bin/lobster
-        touch "$HOME/.local/share/lobster/lobster_history.txt"
 
         # libg-fzf
         echo "Adding Library Genesis.."
@@ -62,6 +62,7 @@ while true; do
         mkdir -p ~/.config/{lobster,libg}
         pv "$APP_PATH/lobster_config.txt" >~/.config/lobster/lobster_config.txt
         pv "$APP_PATH/libg.sh" >~/.config/libg/libg.sh
+        brew link pkg-config
 
         # bt client
         the_ppa=qbittorrent-team/qbittorrent-stable

@@ -33,7 +33,7 @@ while true; do
 
         toilet Installing docker -t --filter metal -f smmono12
 
-        # any conflict packages
+        # packages
         for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y "$pkg"; done
 
         # sources
@@ -55,19 +55,18 @@ while true; do
 
         # docker
         sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        sudo usermod -aG docker "$USER"
 
         # group
         num=$(cat /etc/group | cut -d: -f1 | grep "docker" | wc -l)
         if [ "$num" -lt "1" ]; then
-            sudo groupadd docker
-            sudo usermod -aG docker "$USER"
             newgrp docker
         fi
-        groups
-        sudo systemctl start docker
         sudo systemctl enable docker
+        sudo systemctl start docker
 
         # plugins
+        mkdir -p "$HOME"/.docker
         curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
         curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
 
@@ -87,8 +86,16 @@ while true; do
             sudo apt-get update
         fi
 
-        # install docker
+        # docker
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+        # web
+        mkdir -p ~/VirtualMachines/YoutubeDL-Material
+        cd ~/VirtualMachines/YoutubeDL-Material
+        curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
+        docker compose pull
+        # docker compose up
+        # youtubedl: http://localhost:8998/#/home
 
         # quickemu
         the_ppa=flexiondotorg/quickemu
@@ -117,7 +124,7 @@ while true; do
         # docker system prune -af
         BGREEN='\033[1;32m'
         NC='\033[0m' # No Color
-        echo -e "${BGREEN}> Windows HWID activation pending..${NC}"
+        echo -e "${BGREEN}> Windows active.${NC}"
 
         # calcpy
         echo "Advanced math solver.. using Python IPython, SymPy"

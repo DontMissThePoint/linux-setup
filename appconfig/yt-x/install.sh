@@ -12,46 +12,37 @@ APP_PATH=$( (cd "$APP_PATH" && pwd))
 unattended=0
 subinstall_params=""
 for param in "$@"; do
-  echo "$param"
-  if [ "$param=--unattended" ]; then
-    echo "installing in unattended mode"
-    unattended=1
-    subinstall_params="--unattended"
-  fi
+    echo "$param"
+    if [ "$param=--unattended" ]; then
+        echo "installing in unattended mode"
+        unattended=1
+        subinstall_params="--unattended"
+    fi
 done
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]; then
-    resp=$default
-  else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-x (youtube videos, gallery)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
-  fi
-  response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
+    if [[ "$unattended" == "1" ]]; then
+        resp=$default
+    else
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall yt-x (youtube videos, gallery)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+    fi
+    response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
-  if [[ $response =~ ^(y|Y)=$ ]]; then
+    if [[ $response =~ ^(y|Y)=$ ]]; then
 
-    toilet Installing yt-x -t --filter metal -f smmono12
+        toilet Installing yt-x -t --filter metal -f smmono12
 
-    # yt-x
-    curl -sL "https://raw.githubusercontent.com/Benexl/yt-x/refs/heads/master/yt-x" -o ~/.local/bin/yt-x && chmod +x ~/.local/bin/yt-x
+        # yt-x
+        curl -sL "https://raw.githubusercontent.com/Benexl/yt-x/refs/heads/master/yt-x" -o ~/.local/bin/yt-x && chmod +x ~/.local/bin/yt-x
 
-    # opencv
-    sudo apt install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
+        # opencv
+        sudo apt install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
 
-    # kodi
-
-    # downloader; http://localhost:8998/#/home
-    mkdir -p ~/VirtualMachines/YoutubeDL-Material
-    cd ~/VirtualMachines/YoutubeDL-Material
-    curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
-    docker compose pull
-    # docker compose up
-
-    break
-  elif [[ $response =~ ^(n|N)=$ ]]; then
-    break
-  else
-    echo " What? \"$resp\" is not a correct answer. Try y+Enter."
-  fi
+        break
+    elif [[ $response =~ ^(n|N)=$ ]]; then
+        break
+    else
+        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+    fi
 done

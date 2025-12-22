@@ -47,8 +47,8 @@ while true; do
         sudo chmod 755 ~/.local/bin/ffprobe
         sudo chmod 755 ~/.local/bin/alass
 
-        # use in pdfpc to play videos
-        sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev libcaca-dev
+        # playerctl
+        sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev libcaca-dev playerctl libplayerctl2 libplayerctl-dev
 
         # for video, photo, audio, ..., viewing and editing
         sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee

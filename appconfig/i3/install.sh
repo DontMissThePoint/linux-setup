@@ -290,8 +290,8 @@ while true; do
         rm -fr /tmp/rofi && cd /tmp
         git clone https://github.com/davatorium/rofi.git
         cd rofi
-        meson setup build
-        ninja -C build
+        meson setup build -Dwayland=disabled
+        ninja -C build -v
         sudo ninja -C build install
 
         # config
@@ -332,6 +332,7 @@ while true; do
         # autostart
         cd /etc/xdg/autostart/
         sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
+        chmod 744 ~/.xinitrc
 
         # copy fonts
         # fontawesome 4.7
