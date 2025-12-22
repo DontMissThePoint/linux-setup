@@ -50,7 +50,7 @@ windows:
       layout: b0fe,147x31,0,0,1
       panes:
         # - rfkill block bluetooth &; clear ; i3-msg mode throughput_mode; vnstat -t ; nvim
-        - rfkill block bluetooth &; clear; vnstat -t ; nvim
+        - rfkill block bluetooth &; clear ; aw-qt &>/dev/null ; vnstat -t ; nvim
   # - tdab:
   # Synchronize all panes of this window, can be enabled before or after the pane commands run.
   # synchronize: after

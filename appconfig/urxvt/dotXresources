@@ -580,7 +580,7 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.colorUL: [36]#57c7ff
 ! URxvt.underlineColor: #57c7ff
 
-! URxvt.font: xft:Monaspace Argon:size=10,\
+! URxvt.font: xft:Monaspace Argon NF:size=10,\
 !             xft:MesloLGSDZ Nerd Font Mono:size=10,\
 !             xft:Hurmit Nerd Font Mono:size=10,\
 !             xft:FontAwesome,xft:Material Design Icons,\

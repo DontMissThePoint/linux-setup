@@ -499,7 +499,7 @@ quitTmuxSession() {
 }
 
 # #}
-alias :qa="quitTmuxSession"
+alias qa="quitTmuxSession"
 
 # #{ catkin()
 
@@ -570,3 +570,12 @@ catkin() {
 }
 
 # #}
+
+# #{ lp_theme()
+
+# #}
+
+# liquidprompt
+. ~/.liquidprompt/liquidprompt
+. ~/.liquidprompt/themes/unfold/unfold.theme
+lp_theme unfold

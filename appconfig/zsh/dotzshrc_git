@@ -239,11 +239,6 @@ if [ -n "$TMUX" ]; then
   fi
 fi
 
-# prompt
-source ~/.liquidprompt/liquidprompt
-source ~/.liquidprompt/themes/unfold/unfold.theme
-lp_theme unfold
-
 # load tmux automatically
 if [ ! -z "$INTERACTIVE_SHELL" ]; then # when loaded interactively, run tmux
   if [ "$RUN_TMUX" = "true" ]; then
