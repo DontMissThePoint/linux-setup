@@ -1,10 +1,9 @@
-  home.packages = [
+  home.packages = with pkgs; [
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
-    # pkgs.hello
-    pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
-      pkgs.activitywatch pkgs.libgen-cli pkgs.zscroll
-      pkgs.material-icons pkgs.xidel pkgs.texlab
+    # hello
+    vivaldi vivaldi-ffmpeg-codecs siji xidlehook activitywatch
+      libgen-cli zscroll material-icons xidel texlab
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the

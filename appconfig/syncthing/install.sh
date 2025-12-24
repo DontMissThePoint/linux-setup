@@ -64,9 +64,10 @@ while true; do
         fi
 
         # Joplin
+        wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
+        NPM_CONFIG_PREFIX=~/.joplin-bin npm install --loglevel=error -g joplin
+        sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
         # mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
-        # cp -fr "$APP_PATH"/dotobsidian/* ~/vaults/.obsidian
-        # pv "$APP_PATH"/obsidian.vimrc >~/vaults/.obsidian.vimrc
 
         # Rclone
         sudo apt install -y fuse3

@@ -79,6 +79,13 @@ while true; do
         sudo refind-mkdefault
         sudo efibootmgr -n 0000
 
+        # UEFI
+        # str=$(ps --no-headers -o comm 1)
+        # if [ "$str" = "systemd" ]; then
+        # 		echo "Secure boot active.\nRebooting..."
+        # 		sudo systemctl reboot --firmware-setup
+        # fi
+
         # uninstall
         # sudo rm -r /boot/efi/EFI/refind
         sudo systemctl daemon-reload

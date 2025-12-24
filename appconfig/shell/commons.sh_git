@@ -16,6 +16,18 @@ export YT_X_FZF_OPTS=$FZF_DEFAULT_OPTS'
 --border="rounded" --border-label="" --preview-window="border-rounded" --prompt="> "
 --marker=">" --pointer="◆" --separator="─" --scrollbar="│"'
 
+# go
+if [ -d "/usr/local/go/bin" ] ; then
+		export GOROOT=/usr/local/go
+		export GOPATH=$HOME/go
+		export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+fi
+
+# qt6ct
+if [ -e "/usr/bin/qt6ct" ] ; then
+    export QT_QPA_PLATFORMTHEME=qt6ct
+fi
+
 # HOMEBREW
 export HOMEBREW_NO_EMOJI=1
 export NODE_PATH=$NODE_PATH:$(npm root -g)
@@ -52,7 +64,6 @@ alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
 alias moonphase="$GIT_PATH/linux-setup/scripts/moonphase.sh"
 alias orders="$GIT_PATH/linux-setup/scripts/table_parse.sh"
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
-alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
 alias viz="devour vd -y"

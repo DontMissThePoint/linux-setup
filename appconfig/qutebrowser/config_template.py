@@ -333,7 +333,7 @@ c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
 
 # Zoom
-c.zoom.default = "84%"
+c.zoom.default = "80%"
 c.zoom.mouse_divider = 512
 
 # Scrolling
@@ -538,10 +538,10 @@ c.url.searchengines = {
 }
 
 # font
-font_size = "13px"
+font_size = "12px"
 font_family = "Monaspace Argon Frozen"
 font = font_size + " " + font_family
-small_font = "12px" + " " + "Monaspace Krypton Frozen"
+small_font = "11px" + " " + "Monaspace Krypton Frozen"
 
 c.fonts.default_size = font_size
 c.fonts.default_family = font_family

@@ -93,13 +93,17 @@ while true; do
         # ly backend
         sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev systemd
 
-        # login console
+        # console
         cd /tmp
         [ -e ly ] && sudo rm -rf ly
         git clone https://github.com/fairyglade/ly
         cd ly
         zig build
         sudo "$(which zig)" build installexe -Dinit_system=systemd
+
+        # auto-login
+        sudo sed -i -e 's/^#*\s*\(GRUB_DISABLE_OS_PROBER\).*/\1=true/g' \
+            /etc/default/grub
 
         # auto-detect connected display
         cd /tmp
@@ -134,10 +138,8 @@ while true; do
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
         systemctl --user --now enable pipewire pipewire-pulse wireplumber
-        systemctl --user start {xidlehook,activitywatch}.service \
-            {update-submodules,bandwidth_monitor,battery_notification}.{service,timer}
-        sudo systemctl --global enable {xidlehook,activitywatch}.service \
-            {update-submodules,bandwidth_monitor,battery_notification}.{service,timer}
+        systemctl --user start {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
+        sudo systemctl --global enable {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
 
         # vnstat
         sudo systemctl enable vnstat.service
