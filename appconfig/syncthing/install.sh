@@ -63,7 +63,7 @@ while true; do
             sudo apt install -y shutter nextcloud-desktop
         fi
 
-        # Joplin
+        # standardnotes
         wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
         NPM_CONFIG_PREFIX=~/.joplin-bin npm install --loglevel=error -g joplin
         sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin

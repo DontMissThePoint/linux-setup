@@ -126,9 +126,9 @@ while true; do
         gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
         gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
         gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-        gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
-        gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 10'
-        gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 10'
+        gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 9'
+        gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 9'
+        gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 9'
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
         gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
         gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-dark'

@@ -7,8 +7,8 @@ APP_PATH=$( (cd "$APP_PATH" && pwd))
 # syntevo
 cd "$APP_PATH"
 
-# wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
-wget -c https://download.smartgit.dev/smartgit/smartgit-25_1_102-linux_amd64.deb
+wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
+# wget -c https://download.smartgit.dev/smartgit/smartgit-25_1_102-linux_amd64.deb
 
 # deepGit
 wget -c https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
