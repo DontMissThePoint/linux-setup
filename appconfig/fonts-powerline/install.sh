@@ -67,18 +67,12 @@ while true; do
           NerdFontsSymbolsOnly UbuntuMono ProFont"
         getnf -U 2>/dev/null || rm -fr ~/Downloads/getnf
 
-        # Berkeley
-        curl -s 'https://api.github.com/repos/ahatem/IoskeleyMono/releases/latest' | \
-            jq -r ".assets[] | .browser_download_url" | grep TTF-Hinted | xargs -n 1 curl -L -O --fail --silent --show-error
-        unzip *TTF-Hinted* -d "$FONTS_PATH"
-        rm -f *TTF-Hinted*
-
         # Monaspace
         cd /tmp
         [ -e monaspace ] && rm -rf /tmp/monaspace
         git clone https://github.com/githubnext/monaspace
         cd monaspace
-        cp -r fonts/NerdFonts/* "$FONTS_PATH"
+        cp -r fonts/{NerdFonts,Frozen\ Fonts}/* "$FONTS_PATH"
 
         # terminus
         sed -i -e 's/terminess powerline/Terminess Nerd Font/g' \
@@ -123,12 +117,13 @@ while true; do
         gsettings set org.gnome.desktop.interface enable-animations false
 
         # interface
-        gsettings set org.gnome.desktop.interface text-scaling-factor 0.8
         gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
         gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
         gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 9'
         gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 9'
         gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 9'
+        gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 9'
+        gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
         gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
         gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-dark'

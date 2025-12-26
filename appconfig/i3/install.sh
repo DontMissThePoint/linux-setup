@@ -101,10 +101,6 @@ while true; do
         zig build
         sudo "$(which zig)" build installexe -Dinit_system=systemd
 
-        # auto-login
-        sudo sed -i -e 's/^#*\s*\(GRUB_DISABLE_OS_PROBER\).*/\1=true/g' \
-            /etc/default/grub
-
         # auto-detect connected display
         cd /tmp
         [ -e autorandr-launcher ] && sudo rm -rf autorandr-launcher
@@ -298,7 +294,7 @@ while true; do
 
         # config
         echo "Configuring..."
-        mkdir -p ~/.config/{dunst,flashfocus,rofi,cava}
+        mkdir -p ~/.config/{powernotd,dunst,flashfocus,rofi,cava}
         pv "$APP_PATH"/dunstrc >~/.config/dunst/dunstrc
         pv "$APP_PATH"/flashfocus.yml >~/.config/flashfocus/flashfocus.yml
         pv "$APP_PATH"/redshift.conf >~/.config/redshift.conf
@@ -333,8 +329,16 @@ while true; do
 
         # autostart
         cd /etc/xdg/autostart/
-        sudo sed --in-place 's/NoDisplay=true/NoDisplay=false/g' *.desktop
+        sudo sed -i 's/\(NoDisplay\)=true/\1=false/g' *.desktop
         chmod 744 ~/.xinitrc
+
+        # auto-login
+        sudo sed -i -e 's/^#*\s*\(GRUB_DISABLE_OS_PROBER\).*/\1=true/g' \
+            /etc/default/grub
+
+        # lid
+        sudo sed -i -e 's/^#*\s*\(HandleLidSwitch[^=]*\)=.*/\1=ignore/g' \
+            /etc/systemd/logind.conf
 
         # copy fonts
         # fontawesome 4.7

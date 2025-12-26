@@ -27,7 +27,7 @@ ss_dir = "~/Pictures/Screenshots/"
 timestamp = strftime("%Y-%m-%d-%H-%M-%S", localtime())
 terminal = "/usr/bin/urxvtc"
 editor = "/usr/bin/nvim"
-homepage = "https://yandex.com"
+homepage = "https://www.startpage.com"
 
 # theme
 # set the flavour you'd like to use
@@ -333,7 +333,7 @@ c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
 
 # Zoom
-c.zoom.default = "80%"
+c.zoom.default = "85%"
 c.zoom.mouse_divider = 512
 
 # Scrolling

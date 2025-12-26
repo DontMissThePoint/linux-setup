@@ -64,17 +64,6 @@ while true; do
         pv "$APP_PATH/libg.sh" >~/.config/libg/libg.sh
         brew link pkg-config
 
-        # bt client
-        the_ppa=qbittorrent-team/qbittorrent-stable
-        if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-            sudo apt-add-repository ppa:qbittorrent-team/qbittorrent-stable
-            sudo apt update
-            sudo apt install -y qbittorrent
-        fi
-
-        mkdir -p ~/.config/qBittorrent
-        pv "$APP_PATH/qBittorrent.conf" >~/.config/qBittorrent/qBittorrent.conf
-
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
         break

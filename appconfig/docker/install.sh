@@ -97,6 +97,31 @@ while true; do
         # docker compose up
         # youtubedl: http://localhost:8998/#/home
 
+        # TX-02
+        cd /tmp
+        curl -s 'https://api.github.com/repos/ahatem/IoskeleyMono/releases/latest' | \
+            jq -r ".assets[] | .browser_download_url" | grep TTF-Hinted | xargs -n 1 curl -L -O --fail --silent --show-error
+        unzip *TTF-Hinted*
+        docker run --rm \
+            -v ./TTF:/in \
+            -v ./patched:/out \
+            nerdfonts/patcher \
+            --progressbars \
+            --mono \
+            --adjust-line-height \
+            --fontawesome \
+            --fontawesomeext \
+            --fontlogos \
+            --octicons \
+            --codicons \
+            --powersymbols \
+            --pomicons \
+            --powerline \
+            --powerlineextra \
+            --material \
+            --weather
+        cp -f patched/*.ttf "$FONTS_PATH"/TTF
+
         # quickemu
         the_ppa=flexiondotorg/quickemu
         if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then

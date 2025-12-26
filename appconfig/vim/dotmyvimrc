@@ -120,6 +120,9 @@ let g:ledger_fold_blanks = 0
 let g:ledger_fuzzy_account_completion = 1
 let g:ledger_date_format = '%Y/%m/%d'
 
+" lens
+let g:GIT_LENS_ENABLED = 1
+
 " Fullscreen for datasets
 " autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 autocmd FileType tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen

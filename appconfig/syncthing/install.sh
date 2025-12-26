@@ -64,9 +64,9 @@ while true; do
         fi
 
         # standardnotes
-        wget -O - https://raw.githubusercontent.com/laurent22/joplin/dev/Joplin_install_and_update.sh | bash
-        NPM_CONFIG_PREFIX=~/.joplin-bin npm install --loglevel=error -g joplin
-        sudo ln -s ~/.joplin-bin/bin/joplin /usr/bin/joplin
+        wget -c https://github.com/jonhadfield/sn-cli/releases/download/0.4.0/sn-cli_Linux_x86_64.tar.gz -O - | \
+            tar -xz -C ~/.local/bin
+        sudo chmod +x ~/.local/bin/sn
         # mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
 
         # Rclone
