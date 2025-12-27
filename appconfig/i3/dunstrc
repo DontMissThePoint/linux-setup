@@ -14,6 +14,7 @@
     # Which monitor should the notifications be displayed on
     monitor = 0
     follow = mouse
+		geometry = "600x120-30+20"
     indicate_hidden = no
     shrink = yes
     transparency = 0
@@ -59,7 +60,7 @@
     icon_position = left
     icon_path = /usr/share/icons/Papirus-Dark/16x16/status:/usr/share/icons/Papirus-Dark/16x16/devices:/usr/share/icons/Papirus-Dark/symbolic/status:/usr/share/icons/Papirus-Dark/symbolic/devices:/usr/share/icons/Papirus-Dark/16x16/apps:/usr/share/icons/Papirus-Dark/16x16/panel
     min_icon_size = 16
-    max_icon_size = 96
+    max_icon_size = 64
     enable_recursive_icon_lookup=true
     # icon_theme = Papirus
 

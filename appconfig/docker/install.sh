@@ -97,13 +97,14 @@ while true; do
         # docker compose up
         # youtubedl: http://localhost:8998/#/home
 
-        # TX-02
-        cd /tmp
-        curl -s 'https://api.github.com/repos/ahatem/IoskeleyMono/releases/latest' | \
-            jq -r ".assets[] | .browser_download_url" | grep TTF-Hinted | xargs -n 1 curl -L -O --fail --silent --show-error
-        unzip *TTF-Hinted*
+        # nerd
+        # cd /tmp
+        # curl -s 'https://api.github.com/repos/ahatem/IoskeleyMono/releases/latest' | \
+            #     jq -r ".assets[] | .browser_download_url" | grep TTF-Hinted | xargs -n 1 curl -L -O --fail --silent --show-error
+        # unzip *TTF-Hinted*
+        cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
         docker run --rm \
-            -v ./TTF:/in \
+            -v ./TX-02:/in \
             -v ./patched:/out \
             nerdfonts/patcher \
             --progressbars \
@@ -120,7 +121,9 @@ while true; do
             --powerlineextra \
             --material \
             --weather
-        cp -f patched/*.ttf "$FONTS_PATH"/TTF
+        cp -f patched/*.otf ~/.local/share/fonts/OTF
+        rm -fr patched
+        fc-cache -f -v
 
         # quickemu
         the_ppa=flexiondotorg/quickemu

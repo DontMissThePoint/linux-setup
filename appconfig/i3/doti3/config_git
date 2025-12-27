@@ -289,8 +289,8 @@ for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
-for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
-for_window [class="qutebrowser"] fullscreen disable, move workspace $workspace2, focus
+for_window [class="^Vivaldi-stable$"] fullscreen disable, move workspace $workspace3, focus
+for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
 for_window [class="SmartGit"] move workspace $workspace3, focus
@@ -1557,6 +1557,9 @@ border_radius 7
 
 # network monitor
 exec --no-startup-id nm-applet
+
+# DPI
+exec --no-startup-id xrdb -merge ~/.Xresources
 
 # load monitor configuration
 # run arandr to configure the monitors and to export the .monitor.sh file

@@ -1,0 +1,19 @@
+[Unit]
+Description=Creates Notification when battery is below safe level
+After=network-online.target
+Wants=network.target
+
+[Service]
+Type=oneshot
+ExecStart=%h/.scripts/batnotify.sh
+StandardOutput=journal
+StandardError=journal
+SyslogIdentifier=batnotify
+Environment=DISPLAY=:0
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+Restart=on-failure
+RestartSec=5s
+
+[Install]
+WantedBy=default.target

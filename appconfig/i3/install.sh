@@ -80,7 +80,7 @@ while true; do
             echo "-----------------------------------------------------------------"
             echo "installing custom tty font. it might require manual action."
             echo "-----------------------------------------------------------------"
-            echo -e "if so, please select \"${UGREEN}11x22 (framebuffer only)${NC}\", after hitting enter"
+            echo -e "if so, please select \"${UGREEN}10x18 (framebuffer only)${NC}\", after hitting enter"
             echo ""
             echo "waiting for enter..."
             echo ""
@@ -134,8 +134,8 @@ while true; do
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
         systemctl --user --now enable pipewire pipewire-pulse wireplumber
-        systemctl --user start {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
-        sudo systemctl --global enable {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
+        systemctl --user start {xidlehook,activitywatch}.service {batnotify,update-submodules,bandwidth_monitor}.{service,timer}
+        sudo systemctl --global enable {xidlehook,activitywatch}.service {batnotify,update-submodules,bandwidth_monitor}.{service,timer}
 
         # vnstat
         sudo systemctl enable vnstat.service
@@ -294,7 +294,7 @@ while true; do
 
         # config
         echo "Configuring..."
-        mkdir -p ~/.config/{powernotd,dunst,flashfocus,rofi,cava}
+        mkdir -p ~/.config/{battery-notifier,dunst,flashfocus,rofi,cava}
         pv "$APP_PATH"/dunstrc >~/.config/dunst/dunstrc
         pv "$APP_PATH"/flashfocus.yml >~/.config/flashfocus/flashfocus.yml
         pv "$APP_PATH"/redshift.conf >~/.config/redshift.conf
