@@ -286,7 +286,7 @@ bindsym button8 move right
 # xprop. To get the instance and class
 for_window [title="File Transfer*"] floating enable
 for_window [title="pdfpc"] border none floating enable
-for_window [class="scrcpy*"] floating enable, resize set 1819 814, move container position center, focus
+for_window [class="scrcpy*"] floating enable, resize set 1780 800, move container position center, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
 for_window [class="^Vivaldi-stable$"] fullscreen disable, move workspace $workspace3, focus
@@ -1559,7 +1559,6 @@ border_radius 7
 exec --no-startup-id nm-applet
 
 # DPI
-exec --no-startup-id xrdb -merge ~/.Xresources
 exec --no-startup-id gnome-settings-daemon
 
 # load monitor configuration
@@ -1584,6 +1583,9 @@ exec_always --no-startup-id mpd
 exec_always --no-startup-id indicator-sound-switcher
 
 # exec_always --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
+
+# battery
+exec_always --no-startup-id batterynotif
 
 # watch
 exec_always --no-startup-id "gnome-pomodoro --start --no-default-window"

@@ -124,8 +124,11 @@ let g:ledger_date_format = '%Y/%m/%d'
 let g:GIT_LENS_ENABLED = 1
 
 " Fullscreen for datasets
+au BufNewFile,BufRead *.tsv set filetype=tsv
+au BufNewFile,BufRead *.dat set filetype=ledger
+
 " autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
-autocmd FileType tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+autocmd FileType ledger,tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
 " cursors
 let g:togglecursor_force = 'xterm'
@@ -205,9 +208,6 @@ inoremap <expr> <c-x><c-l> fzf#vim#complete(fzf#wrap({
 " statusline
 autocmd! FileType fzf set laststatus=0 noshowmode noruler
       \| autocmd BufLeave <buffer> set laststatus=2 showmode ruler
-
-au BufNewFile,BufRead *.tsv set filetype=tsv
-au BufNewFile,BufRead *.dat set filetype=ledger
 
 " seoul256
 let g:seoul256_srgb = 1
@@ -368,7 +368,7 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 noremap \\ :set invlist<CR>
 
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
- " autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
+ " autocmd! VimEnter *\(.dat\|.tsv\|.csv\)\@<! call SneakStf()
  " function SneakStf()
  "   " better f, F, t, and T
  "   nnoremap <buffer> s <Plug>Sneak_s
