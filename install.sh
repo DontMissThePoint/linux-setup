@@ -134,19 +134,13 @@ if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
 fi
 
-# 23. Install SCRCPY
-! "$docker" && bash "$APPCONFIG_PATH"/scrcpy/install.sh "$subinstall_params"
-
-# 24. Install YT-X
-! "$docker" && bash "$APPCONFIG_PATH"/yt-x/install.sh "$subinstall_params"
-
-# 25. Install KODI
-! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
-
-# 26. Install DOCKER
+# 23. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
 
-# 27. Install QUTEBROWSER
+# 24. Install KODI
+! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
+
+# 25. Install QUTEBROWSER
 ! "$docker" && bash "$APPCONFIG_PATH"/qutebrowser/install.sh "$subinstall_params"
 
 # the docker setup ends here

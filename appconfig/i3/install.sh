@@ -134,14 +134,17 @@ while true; do
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
         systemctl --user --now enable pipewire pipewire-pulse wireplumber
-        systemctl --user start {xidlehook,activitywatch}.service {batnotify,update-submodules,bandwidth_monitor}.{service,timer}
-        sudo systemctl --global enable {xidlehook,activitywatch}.service {batnotify,update-submodules,bandwidth_monitor}.{service,timer}
+        systemctl --user start {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
+        sudo systemctl --global enable {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
 
         # vnstat
         sudo systemctl enable vnstat.service
         sudo systemctl start vnstat.service
         # journalctl --follow --identifier='autorandr-launcher-service'
         # systemctl --user list-timers
+
+        # battery
+        ln -sf "$APP_PATH"/battery-notif/batterynotif.sh ~/.local/bin/batterynotif
 
         # earlyoom
         sudo apt install -y earlyoom libkeyutils-dev
@@ -294,7 +297,7 @@ while true; do
 
         # config
         echo "Configuring..."
-        mkdir -p ~/.config/{battery-notifier,dunst,flashfocus,rofi,cava}
+        mkdir -p ~/.config/{dunst,flashfocus,rofi,cava}
         pv "$APP_PATH"/dunstrc >~/.config/dunst/dunstrc
         pv "$APP_PATH"/flashfocus.yml >~/.config/flashfocus/flashfocus.yml
         pv "$APP_PATH"/redshift.conf >~/.config/redshift.conf

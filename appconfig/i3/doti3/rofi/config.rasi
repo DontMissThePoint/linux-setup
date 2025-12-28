@@ -22,7 +22,7 @@ configuration {
   }
   run,drun {
     sort:             true;
-    fallback-icon:    "~/linux-setup/miscellaneous/notifications/fallback-icon.png";
+    fallback-icon:    "~/linux-setup/miscellaneous/icons/fallback-icon.png";
     sorting-method:   "fzf";
     matching:         "fuzzy";
   }

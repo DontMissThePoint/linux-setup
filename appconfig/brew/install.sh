@@ -54,7 +54,7 @@ while true; do
             bat ripgrep universal-ctags miller countdown ctop btop csvkit \
             ag fd dust zig aria2 glow restic croc newsboat walk s-search \
             rg viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
-            pyqt \
+            pyqt scrcpy \
             2> /dev/null
 
         # node

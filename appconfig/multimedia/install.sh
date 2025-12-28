@@ -47,11 +47,28 @@ while true; do
         sudo chmod 755 ~/.local/bin/ffprobe
         sudo chmod 755 ~/.local/bin/alass
 
+        # scrcpy
+        toilet Settingup scrcpy -t -f future
+
+        # adb
+        cd /tmp
+        wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+        unzip \platform-tools-latest-linux.zip
+        sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/
+        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
+
+        # yt
+        toilet Settingup yt-x -t -f future
+        curl -sL "https://raw.githubusercontent.com/Benexl/yt-x/refs/heads/master/yt-x" -o ~/.local/bin/yt-x && chmod +x ~/.local/bin/yt-x
+
+        # opencv
+        sudo apt-get install -y libopencv-dev python3-opencv intel-media-va-driver-non-free
+
         # playerctl
         sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev libcaca-dev playerctl libplayerctl2 libplayerctl-dev
 
         # for video, photo, audio, ..., viewing and editing
-        sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee
+        sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee rhymthmbox
 
         toilet Settingup ncmpcpp -t -f future
 
