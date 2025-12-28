@@ -115,10 +115,6 @@ c.colors.messages.warning.border = "#d47300"
 c.colors.messages.warning.fg = black
 
 # prompts
-c.colors.prompts.bg = "#444444"
-c.colors.prompts.border = "1px solid gray"
-c.colors.prompts.fg = "white"
-
 c.colors.prompts.selected.bg = "grey"
 c.colors.prompts.selected.fg = "white"
 

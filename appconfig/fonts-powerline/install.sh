@@ -126,7 +126,11 @@ while true; do
         gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
         gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
-        gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-dark'
+        gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
+
+        # interface
+        gsettings set org.gnome.desktop.interface scaling-factor 1
+        gsettings set org.gnome.desktop.interface text-scaling-factor 1
 
         # cursor
         gsettings set org.gnome.desktop.interface locate-pointer true

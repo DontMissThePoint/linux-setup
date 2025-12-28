@@ -10,9 +10,6 @@ cd "$APP_PATH"
 wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 # wget -c https://download.smartgit.dev/smartgit/smartgit-25_1_102-linux_amd64.deb
 
-# deepGit
-wget -c https://www.syntevo.com/downloads/deepgit/deepgit-4_4.deb
-
 # Activate
 toilet Setting up smartgit -t -f future
 
@@ -63,6 +60,8 @@ if [ ! -e ~/.ssh/id_ed25519 ]; then
     ssh-add ~/.ssh/id_ed25519
 fi
 
-# ID
-pv "$APP_PATH/gitconfig" >~/.gitconfig
+# config
+mkdir -p ~/.config/smartgit/20.2
+pv "$APP_PATH"/smartgit.properties >~/.config/smartgit/20.2/smartgit.properties
+pv "$APP_PATH"/gitconfig >~/.gitconfig
 pv ./ssh_config >~/.ssh/config

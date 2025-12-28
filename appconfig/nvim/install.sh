@@ -67,7 +67,7 @@ while true; do
         rm -fr "$CONFIG"/.git
 
         # smartGit
-        . "$APP_PATH"/smartGit.sh
+        . "$APP_PATH"/smartgit.sh
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
