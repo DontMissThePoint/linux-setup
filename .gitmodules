@@ -10,6 +10,7 @@
 	path = submodules/athame
 	url = http://github.com/ardagnir/athame.git
 	branch = master
+	ignore = dirty
 [submodule "submodules/vimiv"]
 	path = submodules/vimiv
 	url = https://github.com/karlch/vimiv
