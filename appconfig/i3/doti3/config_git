@@ -293,7 +293,7 @@ for_window [class="^Vivaldi-stable$"] fullscreen disable, move workspace $worksp
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
-for_window [class="SmartGit"] move workspace $workspace3, focus
+for_window [class="SmartGit"] fullscreen enable, move workspace $workspace3, focus
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -1560,6 +1560,7 @@ exec --no-startup-id nm-applet
 
 # DPI
 exec --no-startup-id xrdb -merge ~/.Xresources
+exec --no-startup-id gnome-settings-daemon
 
 # load monitor configuration
 # run arandr to configure the monitors and to export the .monitor.sh file

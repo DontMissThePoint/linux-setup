@@ -129,8 +129,6 @@ c.colors.statusbar.caret.selection.bg = "#a12dff"
 c.colors.statusbar.caret.selection.fg = "white"
 
 # statusbar
-# c.colors.statusbar.command.bg = black
-# c.colors.statusbar.command.fg = "white"
 c.colors.statusbar.command.private.bg = "darkslategray"
 c.colors.statusbar.command.private.fg = "white"
 c.colors.statusbar.command.private.bg = "darkslategray"
@@ -543,9 +541,9 @@ c.fonts.tooltip = small_font
 c.fonts.messages.error = small_font
 c.fonts.messages.info = font
 c.fonts.messages.warning = small_font
-c.fonts.statusbar = "italic " + font
-c.fonts.tabs.selected = "italic " + font
-c.fonts.tabs.unselected = "italic " + small_font
+c.fonts.statusbar = font
+c.fonts.tabs.selected = "bold" + font
+c.fonts.tabs.unselected = small_font
 
 # leader
 config.bind(leader + "dd", "devtools")
