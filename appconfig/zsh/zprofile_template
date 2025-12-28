@@ -24,15 +24,5 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-# go
-if [ -d "/usr/local/go/bin" ] ; then
-    PATH="$PATH:/usr/local/go/bin"
-fi
-
-# qt6ct
-if [ -e "/usr/bin/qt6ct" ] ; then
-    export QT_QPA_PLATFORMTHEME=qt6ct
-fi
-
 TIME_ZONE=`timedatectl status | grep zone | awk '{ print $3 }'`
 export TZ=/usr/share/zoneinfo/$TIME_ZONE

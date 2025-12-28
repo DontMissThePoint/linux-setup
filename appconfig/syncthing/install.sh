@@ -53,14 +53,21 @@ while true; do
         # localhost:8384/
         mkdir -p ~/Journal ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
 
-        # Joplin
-        # cd /tmp
-        # aria2c -c -j 8 -x 16 -s 16 -k 1M "$(wget -q -O - https://api.github.com/repos/obsidianmd/obsidian-releases/releases/latest |
-        # grep 'deb"$' | awk -F'"' ' {print $4} ')"
-        # sudo dpkg -i /tmp/obsidian*.deb
+        # nextcloud
+        toilet Installing nextcloud -t --filter metal -f smmono12
+
+        the_ppa=xtradeb/apps
+        if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+            sudo add-apt-repository -y ppa:xtradeb/apps
+            sudo apt update
+            sudo apt install -y shutter nextcloud-desktop
+        fi
+
+        # standardnotes
+        wget -c https://github.com/jonhadfield/sn-cli/releases/download/0.4.0/sn-cli_Linux_x86_64.tar.gz -O - | \
+            tar -xz -C ~/.local/bin
+        sudo chmod +x ~/.local/bin/sn
         # mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
-        # cp -fr "$APP_PATH"/dotobsidian/* ~/vaults/.obsidian
-        # pv "$APP_PATH"/obsidian.vimrc >~/vaults/.obsidian.vimrc
 
         # Rclone
         sudo apt install -y fuse3

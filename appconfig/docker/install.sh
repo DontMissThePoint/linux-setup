@@ -33,41 +33,40 @@ while true; do
 
         toilet Installing docker -t --filter metal -f smmono12
 
-        # any conflict packages
+        # packages
         for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y "$pkg"; done
 
-        # Add the repository to apt sources
+        # sources
         if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
             sudo apt-get update
             sudo apt-get install -y ca-certificates curl gnupg
 
-            # Add Docker's official GPG key
+            # GPG
             sudo install -m 0755 -d /etc/apt/keyrings
             curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
             sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
             echo \
-                "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
                 $(lsb_release -cs) stable" |
             sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
             sudo apt-get update
         fi
 
-        # install docker
+        # docker
         sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        sudo usermod -aG docker "$USER"
 
-        # add group permission
+        # group
         num=$(cat /etc/group | cut -d: -f1 | grep "docker" | wc -l)
         if [ "$num" -lt "1" ]; then
-            sudo groupadd docker
-            sudo usermod -aG docker "$USER"
             newgrp docker
         fi
-        groups
-        sudo systemctl start docker
         sudo systemctl enable docker
+        sudo systemctl start docker
 
         # plugins
+        mkdir -p "$HOME"/.docker
         curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
         curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
 
@@ -81,14 +80,50 @@ while true; do
             sudo chmod a+r /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
 
             echo \
-                "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
+            "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
                 http://pub.freerdp.com/repositories/deb/""$(lsb_release -cs)/ freerdp-nightly main" |
             sudo tee /etc/apt/sources.list.d/freerdp-nightly.list >/dev/null
             sudo apt-get update
         fi
 
-        # install docker
+        # docker
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+        # web
+        mkdir -p ~/VirtualMachines/YoutubeDL-Material
+        cd ~/VirtualMachines/YoutubeDL-Material
+        curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
+        docker compose pull
+        # docker compose up
+        # youtubedl: http://localhost:8998/#/home
+
+        # nerd
+        # cd /tmp
+        # curl -s 'https://api.github.com/repos/ahatem/IoskeleyMono/releases/latest' | \
+            #     jq -r ".assets[] | .browser_download_url" | grep TTF-Hinted | xargs -n 1 curl -L -O --fail --silent --show-error
+        # unzip *TTF-Hinted*
+        cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
+        docker run --rm \
+            -v ./TX-02:/in \
+            -v ./patched:/out \
+            nerdfonts/patcher \
+            --progressbars \
+            --mono \
+            --adjust-line-height \
+            --fontawesome \
+            --fontawesomeext \
+            --fontlogos \
+            --octicons \
+            --codicons \
+            --powersymbols \
+            --pomicons \
+            --powerline \
+            --powerlineextra \
+            --material \
+            --weather
+        cp -f patched/*.otf ~/.local/share/fonts/OTF
+        rm -fr patched
+        fc-cache -f -v
 
         # quickemu
         the_ppa=flexiondotorg/quickemu
@@ -104,7 +139,7 @@ while true; do
         # quickget windows 11
         # quickemu --vm windows-11.conf --width 1920 --height 1080
 
-        # Office 365
+        # 365
         # focus cell: #87ff87 #0088cc
 
         # dockurr
@@ -117,7 +152,7 @@ while true; do
         # docker system prune -af
         BGREEN='\033[1;32m'
         NC='\033[0m' # No Color
-        echo -e "${BGREEN}> Windows HWID activation pending..${NC}"
+        echo -e "${BGREEN}> Windows active.${NC}"
 
         # calcpy
         echo "Advanced math solver.. using Python IPython, SymPy"

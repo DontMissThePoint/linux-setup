@@ -13,13 +13,13 @@ map("c", "<F2>", [[\(.*\)]], { desc = "regex capture" })
 
 --  fzf-lua
 map("n", "<C-p>", function()
-  require("fzf-lua").files { cwd = "~/" }
+	require("fzf-lua").files { cwd = "~/" }
 end, { desc = "fzf-lua files" })
 map("n", "<leader>ff", function()
-  require("fzf-lua").files { cwd = "~/" }
+	require("fzf-lua").files { cwd = "~/" }
 end, { desc = "Find files" })
 map("n", "<leader><leader>", function()
-  require("fzf-lua").command_history()
+	require("fzf-lua").command_history()
 end, { desc = "command history" })
 
 -- json
@@ -44,10 +44,10 @@ map("n", "<leader>sv", "<cmd> ScrollViewRefresh <cr>", { desc = "scrollbar decor
 
 -- toggler
 map("n", "<leader>ti", function()
-  require("nvim-toggler").toggle()
+	require("nvim-toggler").toggle()
 end, { desc = "toggler" })
 map("v", "<leader>ti", function()
-  require("nvim-toggler").toggle()
+	require("nvim-toggler").toggle()
 end, { desc = "toggler" })
 
 -- trouble
@@ -62,35 +62,35 @@ map("n", "gD", "<CMD>Trouble lsp_type_definitions<CR>", { desc = "trouble type d
 -- pomodoro timer
 local ok, pomo = pcall(require, "pomo")
 if not ok then
-  return
+	return
 end
 local function start_new_timer()
-  local timer = pomo.get_first_to_finish()
-  if timer then
-    vim.notify("a Timer is already running", vim.log.levels.INFO)
-    return
-  end
-  pomo.start_timer(25 * 60, "work")
+	local timer = pomo.get_first_to_finish()
+	if timer then
+		vim.notify("a Timer is already running", vim.log.levels.INFO)
+		return
+	end
+	pomo.start_timer(25 * 60, "work")
 end
 
 -- track milestones
 map("n", "<leader>pm", function()
-  start_new_timer()
+	start_new_timer()
 end, { desc = "Pomo - Start new Timer", noremap = true, silent = true })
 map("n", "<leader>ps", function()
-  pomo.stop_timer()
+	pomo.stop_timer()
 end, { desc = "Pomo - Stop Timer", noremap = true, silent = true })
 
 -- myeyes
 map("n", "<leader>ms", function()
-  require("myeyeshurt").start()
+	require("myeyeshurt").start()
 end, { desc = "myeyes start break" })
 map("n", "<leader>mx", function()
-  require("myeyeshurt").stop()
+	require("myeyeshurt").stop()
 end, { desc = "myeyes stop flakes" })
 
 -- icons
-map("n", "<Leader>si", "<cmd>Nerdy<cr>", { desc = "nerd icons" })
+map("n", "<Leader>si", "<cmd>Telescope nerdy<cr>", { desc = "nerd icons" })
 
 -- navigator
 map("n", "<C-h>", "<cmd> NavigatorLeft <cr>", { desc = "Left" })
@@ -103,22 +103,22 @@ map("n", "<Tab>", "<cmd> NavigatorPrevious <cr>", { desc = "Next" })
 -- splits
 -- <Tab>: move to left window or, if none, go to previous tab
 map("n", "<Tab>", function()
-  -- if there's a window to the left, go there; else go to previous tab
-  if vim.fn.winnr "h" ~= vim.fn.winnr() then
-    vim.cmd "wincmd h"
-  else
-    vim.cmd "tabprevious"
-  end
+	-- if there's a window to the left, go there; else go to previous tab
+	if vim.fn.winnr "h" ~= vim.fn.winnr() then
+		vim.cmd "wincmd h"
+	else
+		vim.cmd "tabprevious"
+	end
 end, { desc = "Window left or Previous tab" })
 
 -- <S-Tab>: move to right window or, if none, go to next tab
 map("n", "<S-Tab>", function()
-  -- if there's a window to the right, go there; else go to next tab
-  if vim.fn.winnr "l" ~= vim.fn.winnr() then
-    vim.cmd "wincmd l"
-  else
-    vim.cmd "tabnext"
-  end
+	-- if there's a window to the right, go there; else go to next tab
+	if vim.fn.winnr "l" ~= vim.fn.winnr() then
+		vim.cmd "wincmd l"
+	else
+		vim.cmd "tabnext"
+	end
 end, { desc = "Window right or Next tab" })
 
 -- spider
@@ -130,11 +130,11 @@ map({ "n", "o", "x" }, "ge", "<cmd>lua require('spider').motion('ge')<CR>", { de
 
 -- windows
 map("n", "<leader>wz", function()
-  require("windows").setup()
+	require("windows").setup()
 end, { desc = "window autosize" })
 
 local function cmd(command)
-  return table.concat { "<Cmd>", command, "<CR>" }
+	return table.concat { "<Cmd>", command, "<CR>" }
 end
 
 map("n", "<C-w>z", cmd "WindowsMaximize", { desc = "Max window" })
@@ -144,16 +144,16 @@ map("n", "<C-w>=", cmd "WindowsEqualize", { desc = "Equally high and wide" })
 
 -- persistence
 map("n", "<leader>sn", function()
-  require("persistence").load()
+	require("persistence").load()
 end, { desc = "cwd session" })
 map("n", "<leader>sl", function()
-  require("persistence").select()
+	require("persistence").select()
 end, { desc = "list sessions" })
 map("n", "<leader>sr", function()
-  require("persistence").load { last = true }
+	require("persistence").load { last = true }
 end, { desc = "recent session" })
 map("n", "<leader>sd", function()
-  require("persistence").stop()
+	require("persistence").stop()
 end, { desc = "stop session" })
 
 -- slime sniprun
@@ -162,7 +162,7 @@ map("n", "<leader>rx", "<Plug>SnipRunOperator", { desc = "run snip motion" }, { 
 
 -- lsp
 map("n", "<leader>dt", function()
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
+	vim.diagnostic.enable(not vim.diagnostic.is_enabled())
 end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })
 
 -- format

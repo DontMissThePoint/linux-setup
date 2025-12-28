@@ -17,7 +17,7 @@ xset s 0
 mount -a &
 
 # font
-xset +fp ~/.fonts
+xset +fp /home/"$USER"/.local/share/fonts
 xset fp rehash
 fc-cache -fv &
 

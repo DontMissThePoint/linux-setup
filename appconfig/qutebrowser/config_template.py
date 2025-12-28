@@ -27,12 +27,12 @@ ss_dir = "~/Pictures/Screenshots/"
 timestamp = strftime("%Y-%m-%d-%H-%M-%S", localtime())
 terminal = "/usr/bin/urxvtc"
 editor = "/usr/bin/nvim"
-homepage = "https://yandex.com"
+homepage = "https://www.startpage.com"
 
 # theme
 # set the flavour you'd like to use
 # valid options are 'mocha', 'macchiato', 'frappe', and 'latte'
-catppuccin.setup(c, "frappe")
+catppuccin.setup(c, "latte")
 
 # Dark mode
 c.colors.webpage.darkmode.enabled = False
@@ -79,24 +79,8 @@ yellow = "#f1c200"
 purple = "#390d91"
 
 c.colors.completion.category.bg = (
-    "qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #888888, stop:1 #111)"
+    "qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 #FFFFFF, stop:1 #111)"
 )
-
-# completion
-c.colors.completion.category.border.bottom = accent
-c.colors.completion.category.border.top = accent
-c.colors.completion.category.fg = accent
-c.colors.completion.even.bg = "#333333"
-c.colors.completion.fg = [white, "white", "white"]
-c.colors.completion.item.selected.bg = accent
-c.colors.completion.item.selected.fg = black
-c.colors.completion.item.selected.border.bottom = "#bbbb00"
-c.colors.completion.item.selected.border.top = "#bbbb00"
-c.colors.completion.item.selected.match.fg = "#ff4444"
-c.colors.completion.match.fg = accent
-c.colors.completion.odd.bg = "#444444"
-c.colors.completion.scrollbar.fg = "white"
-c.colors.completion.scrollbar.bg = "#333333"
 
 # context-menu
 c.colors.contextmenu.selected.fg = "white"
@@ -116,7 +100,7 @@ c.colors.downloads.system.fg = "rgb"
 
 # hints
 c.colors.hints.bg = "qlineargradient(x1:0, y1:0, x2:0, y2:1, stop:0 rgba(255, 247, 133, 0.8), stop:1 rgba(255, 197, 66, 0.8))"
-c.colors.hints.bg = black
+c.colors.hints.bg = "#1d2021"
 c.colors.hints.fg = "white"
 c.colors.hints.match.fg = green
 c.colors.keyhint.suffix.fg = "darkslategray"
@@ -145,14 +129,12 @@ c.colors.statusbar.caret.selection.bg = "#a12dff"
 c.colors.statusbar.caret.selection.fg = "white"
 
 # statusbar
-c.colors.statusbar.command.bg = black
-c.colors.statusbar.command.fg = "white"
 c.colors.statusbar.command.private.bg = "darkslategray"
 c.colors.statusbar.command.private.fg = "white"
 c.colors.statusbar.command.private.bg = "darkslategray"
 c.colors.statusbar.command.private.fg = "white"
-c.colors.statusbar.insert.bg = "darkgreen"
-c.colors.statusbar.insert.fg = "white"
+c.colors.statusbar.insert.bg = "#1db954"
+c.colors.statusbar.insert.fg = "#ebdbb2"
 c.colors.statusbar.normal.bg = black
 c.colors.statusbar.normal.fg = "white"
 c.colors.statusbar.private.bg = "#666666"
@@ -164,7 +146,7 @@ c.colors.statusbar.url.fg = accent
 c.colors.statusbar.url.warn.fg = yellow
 c.colors.statusbar.url.hover.fg = "aqua"
 c.colors.statusbar.url.success.http.fg = "white"
-c.colors.statusbar.url.success.https.fg = "lime"
+c.colors.statusbar.url.success.https.fg = "#fb4934"
 
 # tabs
 c.colors.tabs.bar.bg = "#555555"
@@ -333,7 +315,7 @@ c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
 
 # Zoom
-c.zoom.default = "84%"
+c.zoom.default = "85%"
 c.zoom.mouse_divider = 512
 
 # Scrolling
@@ -538,10 +520,10 @@ c.url.searchengines = {
 }
 
 # font
-font_size = "13px"
-font_family = "Monaspace Argon Frozen"
+font_size = "12px"
+font_family = "TX-02"
 font = font_size + " " + font_family
-small_font = "12px" + " " + "Monaspace Krypton Frozen"
+small_font = "12px" + " " + "TX-02"
 
 c.fonts.default_size = font_size
 c.fonts.default_family = font_family
@@ -559,9 +541,9 @@ c.fonts.tooltip = small_font
 c.fonts.messages.error = small_font
 c.fonts.messages.info = font
 c.fonts.messages.warning = small_font
-c.fonts.statusbar = "italic " + font
-c.fonts.tabs.selected = "italic " + font
-c.fonts.tabs.unselected = "italic " + small_font
+c.fonts.statusbar = font
+c.fonts.tabs.selected = "bold" + font
+c.fonts.tabs.unselected = small_font
 
 # leader
 config.bind(leader + "dd", "devtools")

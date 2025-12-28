@@ -1,7 +1,0 @@
-[Unit]
-Description=Sends notification about battery status
-
-[Service]
-# %h means ~
-ExecStart=%h/.scripts/battery_notification.sh
-Type=oneshot

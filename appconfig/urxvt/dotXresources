@@ -34,7 +34,7 @@ Xft*autohint: false
 Xft*hinting: true
 Xft*hintstyle: hintslight
 Xft*lcdfilter: lcddefault
-Xft.dpi: 150
+Xft.dpi: 141
 
 Xcursor.size: 32
 Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
@@ -580,15 +580,13 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.colorUL: [36]#57c7ff
 ! URxvt.underlineColor: #57c7ff
 
-! URxvt.font: xft:Monaspace Argon Frozen:size=10,\
-!             xft:MesloLGSDZ Nerd Font Mono:size=10,\
-!             xft:Hurmit Nerd Font Mono:size=10,\
-!             xft:FontAwesome,xft:Material Design Icons,\
+! URxvt.font: xft:TX\\-02:size=10,\
+!             xft:Siji,xft:FontAwesome,xft:Material Design Icons,\
 !             xft:Symbola,xft:Noto Color Emoji,xft:Unifont,\
 !             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-! URxvt.boldFont: xft:Monaspace Argon Frozen:size=10, xft:Symbola
-! URxvt.italicFont: xft:Monaspace Argon Frozen:italic:size=10, xft:Symbola
-! URxvt.boldItalicFont: xft:Monaspace Argon Frozen:bold:italic:size=10, xft:Symbola
+! URxvt.boldFont: xft:TX\\-02:bold:size=10, xft:Symbola
+! URxvt.italicFont: xft:TX\\-02:italic:size=10, xft:Symbola
+! URxvt.boldItalicFont: xft:TX\\-02:bold:italic:size=10, xft:Symbola
 ! URxvt.letterSpace: 0
 ! URxvt.intensityStyles: false
 

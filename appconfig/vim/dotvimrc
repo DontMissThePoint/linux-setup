@@ -280,6 +280,9 @@ Plug 'jszakmeister/vim-togglecursor'
 " smooth scroll
 Plug 'cskeeters/vim-smooth-scroll'
 
+" Git-lens
+Plug 'Eliot00/git-lens.vim'
+
 " home screen (necessary to have a barking dog)
 Plug 'mhinz/vim-startify'
 

@@ -8,6 +8,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=$(dirname "$0")
 APP_PATH=$( (cd "$APP_PATH" && pwd))
+FONTS_PATH="$HOME"/.local/share/fonts
 
 unattended=0
 subinstall_params=""
@@ -41,7 +42,7 @@ while true; do
 
         ./install.sh
         rm -fr ./fonts.orig
-	source ~/.profile
+        . ~/.profile
 
         # make Terminus work
         mkdir -p ~/.config/fontconfig/conf.d
@@ -55,37 +56,30 @@ while true; do
             sudo apt install -y papirus-icon-theme
         fi
         sudo apt install -y fonts-inter-variable fonts-symbola unifont fonts-font-awesome fonts-noto-color-emoji ttf-bitstream-vera dconf-editor arc-theme qt5-style-kvantum qt5-style-kvantum-themes
-        papirus-folders -t Papirus-Dark -C darkcyan
+        papirus-folders -t Papirus-Dark -C yaru
 
         # Nerd fonts
         toilet Setting up Nerd Fonts -t -f future
-         
+
         # getnf
         curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash -s -- --tag=v0.1.0
         getnf -i "JetBrainsMono Terminus FiraMono Meslo Monofur Hermit IBMPlexMono iA-Writer \
           NerdFontsSymbolsOnly UbuntuMono ProFont"
         getnf -U 2>/dev/null || rm -fr ~/Downloads/getnf
 
-        # emoji
-        sh -c "$(wget -O- https://raw.githubusercontent.com/edicsonabel/emojix/master/install.sh 2>/dev/null)"
-        
-        # Monaspace: code
+        # Monaspace
         cd /tmp
         [ -e monaspace ] && rm -rf /tmp/monaspace
         git clone https://github.com/githubnext/monaspace
         cd monaspace
-        find . -type f \( -iname "*.otf" -o -iname "*.ttf" \) -exec cp -t "$HOME"/.local/share/fonts {} +
-
-        # siji
-        cd /tmp
-        [ -e siji ] && rm -rf /tmp/siji
-        git clone https://github.com/stark/siji
-        cd siji
-        ./install.sh -d ~/.fonts
+        cp -r fonts/{NerdFonts,Frozen\ Fonts}/* "$FONTS_PATH"
 
         # terminus
         sed -i -e 's/terminess powerline/Terminess Nerd Font/g' \
             ~/.config/fontconfig/conf.d/50-enable-terminess-powerline.conf
+
+        # emoji
+        pv "$APP_PATH"/10-emoji.conf >~/.config/fontconfig/conf.d/10-emoji.conf
 
         # qt6ct
         sudo apt install -y qt6-base-dev qt6-base-dev-tools qt6-base-private-dev qt6-tools-dev qt6-tools-dev-tools linguist-qt6
@@ -98,23 +92,15 @@ while true; do
         make -j8
         sudo make install
 
-        EXISTING_QT=$(cat ~/.profile 2>/dev/null | grep "qt6ct" | wc -l)
-        if [ "$EXISTING_QT" == "0" ]; then
-            toilet Settingup qt6ct -t -f future
-            (
-                echo
-                echo 'export QT_QPA_PLATFORMTHEME=qt6ct'
-            ) >>~/.profile
-        fi
-        export QT_QPA_PLATFORMTHEME=qt6ct
-
         mkdir -p ~/.config/qt{5,6}ct
         pv "$APP_PATH"/qt5ct.conf >~/.config/qt5ct/qt5ct.conf
         pv "$APP_PATH"/qt6ct.conf >~/.config/qt6ct/qt6ct.conf
 
         # config
-        echo "Configuring..."
+        mkdir -p "$FONTS_PATH"/{TTF,OTF}
         mkdir -p ~/.config/environment.d ~/.config/Kvantum
+        mv "$FONTS_PATH"/*.otf "$FONTS_PATH"/OTF || mv "$FONTS_PATH"/*.ttf "$FONTS_PATH"/TTF || \
+            echo "Configuring..."
         printf 'QT_STYLE_OVERRIDE=kvantum' >~/.config/environment.d/qt.conf
         pv "$APP_PATH"/kvantum.kvconfig >~/.config/Kvantum/kvantum.kvconfig
 
@@ -133,9 +119,11 @@ while true; do
         # interface
         gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
         gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-        gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 10'
-        gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 10'
-        gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 10'
+        gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 9'
+        gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 9'
+        gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 9'
+        gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 9'
+        gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false
         gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
         gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
         gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-dark'

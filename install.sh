@@ -10,7 +10,7 @@ MY_PATH=$(dirname "$0")
 MY_PATH=$( (cd "$MY_PATH" && pwd))
 
 # define paths
-APPCONFIG_PATH=$MY_PATH/appconfig
+APPCONFIG_PATH="$MY_PATH"/appconfig
 
 subinstall_params=""
 unattended=0
@@ -41,7 +41,7 @@ find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo 
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
 
 # python
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
@@ -108,58 +108,45 @@ fi
 # 14. Setup RANGER
 ! "$docker" && bash "$APPCONFIG_PATH"/ranger/install.sh "$subinstall_params"
 
-# 15. Install SHUTTER
-if [ "$arch" != "aarch64" ]; then
-    ! "$docker" && bash "$APPCONFIG_PATH"/shutter/install.sh "$subinstall_params"
-fi
-
-# 16. Install ZATHURA
+# 15. Install ZATHURA
 ! "$docker" && bash "$APPCONFIG_PATH"/zathura/install.sh "$subinstall_params"
 
-# 17. Install VIMIV
+# 16. Install VIMIV
 ! "$docker" && bash "$APPCONFIG_PATH"/vimiv/install.sh "$subinstall_params"
 
-# 18. Install SILVER SEARCHER (ag)
-! "$docker" && bash "$APPCONFIG_PATH"/silver_searcher/install.sh "$subinstall_params"
-
-# 19. Setup modified keyboard rules
+# 17. Setup modified keyboard rules
 ! "$docker" && bash "$APPCONFIG_PATH"/keyboard/install.sh "$subinstall_params"
 
-# 20 Setup FZF
+# 18 Setup FZF
 ! "$docker" && bash "$APPCONFIG_PATH"/fzf/install.sh "$subinstall_params"
 
-# 21. Install PLAYERCTL
-if [ "$arch" != "aarch64" ]; then
-    ! "$docker" && bash "$APPCONFIG_PATH"/playerctl/install.sh "$subinstall_params"
-fi
-
-# 22. Install VIM-STREAM
+# 19. Install VIM-STREAM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim-stream/install.sh "$subinstall_params"
 
-# 23. Install REFIND
+# 20. Install LOLCAT
+! "$docker" && bash "$APPCONFIG_PATH"/lolcat/install.sh "$subinstall_params"
+
+# 21. Install TMUXINATOR
+! "$docker" && bash "$APPCONFIG_PATH"/tmuxinator/install.sh "$subinstall_params"
+
+# 22. Install REFIND
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
 fi
 
-# 24. Install TMUXINATOR
-! "$docker" && bash "$APPCONFIG_PATH"/tmuxinator/install.sh "$subinstall_params"
+# 23. Install SCRCPY
+! "$docker" && bash "$APPCONFIG_PATH"/scrcpy/install.sh "$subinstall_params"
 
-# 25. Install LOLCAT
-! "$docker" && bash "$APPCONFIG_PATH"/lolcat/install.sh "$subinstall_params"
+# 24. Install YT-X
+! "$docker" && bash "$APPCONFIG_PATH"/yt-x/install.sh "$subinstall_params"
+
+# 25. Install KODI
+! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
 
 # 26. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
 
-# 27. Install YT-X
-! "$docker" && bash "$APPCONFIG_PATH"/yt-x/install.sh "$subinstall_params"
-
-# 28. Install KODI
-! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
-
-# 29. Install SCRCPY
-! "$docker" && bash "$APPCONFIG_PATH"/scrcpy/install.sh "$subinstall_params"
-
-# 30. Install QUTEBROWSER
+# 27. Install QUTEBROWSER
 ! "$docker" && bash "$APPCONFIG_PATH"/qutebrowser/install.sh "$subinstall_params"
 
 # the docker setup ends here
@@ -187,23 +174,15 @@ sudo systemctl disable apt-daily-upgrade.service
 #############################################
 
 sudo ufw logging off
-
-# Guest session / remote login
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > \
-    /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
-
-#############################################
-# Optimize for performance
-#############################################
-
-sudo powerprofilesctl set performance
+        /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
 # NETWORK
 #############################################
 
-num=$(grep -c "^DNS" /etc/systemd/resolved.conf)
+num=$(grep -ow "^DNS" /etc/systemd/resolved.conf | wc -l)
 if [ "$num" -lt "1" ]; then
 
     echo "Override DNS..."
@@ -214,14 +193,6 @@ DNS=1.1.1.1 8.8.8.8 9.9.9.9
     sudo tee -a /etc/systemd/resolved.conf >/dev/null
 
 fi
-
-#############################################
-# STORAGE
-#############################################
-
-topgrade
-sudo apt -y autoremove
-sudo docker volume prune
 
 #############################################
 # POWER
@@ -248,6 +219,13 @@ sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
 sudo systemctl enable tmp.mount
 
 #############################################
+# STORAGE
+#############################################
+
+sudo apt -y autoremove
+topgrade || echo "Done."
+
+#############################################
 # scripts
 #############################################
 
@@ -264,32 +242,44 @@ if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
 fi
 
 #############################################
-# clang
-# (enable linting for YCM)
+# repo
 #############################################
-ln -sf "$APPCONFIG_PATH/clangd/dotclang-tidy" ~/.clang-tidy
 
-# deploy configs by Profile manager
+num=$(grep -ow "GIT_PATH" "$HOME/.bashrc" | wc -l)
+if [ "$num" -lt "1" ]; then
+
+    TEMP=$(cd "$MY_PATH/../" && pwd)
+
+    echo "Adding GIT_PATH variable to .bashrc"
+    # set bashrc
+    echo "
+# path to the git root
+export GIT_PATH=$TEMP" >>~/.bashrc
+
+fi
+
+#############################################
+# extras
+#############################################
+
+bash "$APPCONFIG_PATH"/bash/dotbashrc_template
+
+#############################################
+# ycm
+#############################################
+
+ln -sf "$APPCONFIG_PATH"/clangd/dotclang-tidy ~/.clang-tidy
+
+#############################################
+# firmware
+#############################################
+
 cd "$MY_PATH" && ./deploy_configs.sh
 
-## bashrc extras
-source "$APPCONFIG_PATH/bash/dotbashrc_template"
-
 #############################################
-# SOURCE
+# profile
 #############################################
-toilet All Done -t --filter metal -f mono9
 
-# say some tips to the new user
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
 
-#############################################
-# rEFInd
-#############################################
-
-str=$(ps --no-headers -o comm 1)
-if [ "$str" = "systemd" ]; then
-    echo "rEFInd boot manager options"
-    echo "Rebooting..."
-    sudo systemctl reboot --firmware-setup
-fi
+toilet All Done -t --filter metal -f mono9
