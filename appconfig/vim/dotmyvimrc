@@ -368,24 +368,24 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 noremap \\ :set invlist<CR>
 
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-" autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
-" function SneakStf()
-"   " better f, F, t, and T
-"   nnoremap <buffer> s <Plug>Sneak_s
-"   nnoremap <buffer> S <Plug>Sneak_S
-"   nnoremap <buffer> f <Plug>Sneak_f
-"   nnoremap <buffer> F <Plug>Sneak_F
-"   nnoremap <buffer> t <Plug>Sneak_t
-"   nnoremap <buffer> T <Plug>Sneak_T
-"
-"   " remove the default , and ;
-"   noremap <buffer> gS <Plug>Sneak_,
-"   noremap <buffer> gs <Plug>Sneak_;
-"
-"   " focus
-"   set background=dark
-"   silent! Goyo
-" endfunction
+ " autocmd! VimEnter *\(.tsv\|.csv\)\@<! call SneakStf()
+ " function SneakStf()
+ "   " better f, F, t, and T
+ "   nnoremap <buffer> s <Plug>Sneak_s
+ "   nnoremap <buffer> S <Plug>Sneak_S
+ "   nnoremap <buffer> f <Plug>Sneak_f
+ "   nnoremap <buffer> F <Plug>Sneak_F
+ "   nnoremap <buffer> t <Plug>Sneak_t
+ "   nnoremap <buffer> T <Plug>Sneak_T
+
+ "   " remove the default , and ;
+ "   noremap <buffer> gS <Plug>Sneak_,
+ "   noremap <buffer> gs <Plug>Sneak_;
+
+ "   " focus
+ "   set background=dark
+ "   silent! Goyo
+ " endfunction
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
 " NetisFleet
