@@ -61,6 +61,6 @@ windows:
   - logs:
       layout: c17c,136x38,0,0[136x29,0,0{91x29,0,0,4,44x29,92,0,3},136x8,0,30,5]
       panes:
-        - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc
+        - ledger web -r ~/Journal/reports.ini & curl rate.sx ; forx btc ugx/btc
         - blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
         - cd $GIT_PATH/linux-setup ; bash

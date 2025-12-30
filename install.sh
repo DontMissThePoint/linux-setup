@@ -37,7 +37,7 @@ arch=$(uname -i)
 sudo chown -R "$USER": "$MY_PATH"
 find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
-# install packages
+# packages
 sudo apt-get -y update -qq
 
 # essentials
@@ -217,6 +217,7 @@ sudo systemctl enable tmp.mount
 #############################################
 
 sudo apt -y autoremove
+sudo dpkg --remove-architecture i386
 topgrade || echo "Done."
 
 #############################################

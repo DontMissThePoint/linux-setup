@@ -265,17 +265,7 @@ while true; do
         make -j8
         sudo make install
 
-        # indicator-sound-switcher
-        if [ "$NOBLE" != "" ]; then
-            sudo apt -y install gir1.2-keybinder-3.0
-        else
-            sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
-        fi
-
-        cd "$APP_PATH"/../../submodules/indicator-sound-switcher
-        sudo /usr/bin/python3 setup.py install
-
-        # indicator-ram
+        # ram
         cd "$APP_PATH"/../../submodules/i3blocks-contrib/memory2
         make
 
@@ -361,13 +351,11 @@ while true; do
 
         "$APP_PATH"/make_launchers.sh "$APP_PATH"/../../scripts
 
-        # disable nautilus
+        # nautilus
         gsettings set org.gnome.desktop.background show-desktop-icons false
-
-        # scroll view not content
         gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 
-        # disable location
+        # location
         sudo systemctl restart geoclue.service
         gsettings set org.gnome.system.location enabled false
 

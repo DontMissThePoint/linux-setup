@@ -104,6 +104,14 @@ while true; do
         mopidy local scan
         # mopidy deps
 
+        # sound switcher indicator
+        the_ppa=yktooo/ppa
+        if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+            sudo apt-add-repository ppa:yktooo/ppa
+            sudo apt update
+            sudo apt install -y indicator-sound-switcher
+        fi
+
         # mpv
         toilet Settingup mpv -t -f future
 
