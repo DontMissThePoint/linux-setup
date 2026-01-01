@@ -47,7 +47,7 @@ startup_window: tdab
 # tmux list-windows
 windows:
   - tdab:
-      layout: b0fe,147x31,0,0,1
+      layout: b0fe,147x41,0,0,1
       panes:
         # - rfkill block bluetooth &; clear ; i3-msg mode throughput_mode; vnstat -t ; nvim
         - rfkill block bluetooth &; clear ; vnstat -t ; nvim
@@ -55,12 +55,12 @@ windows:
   # Synchronize all panes of this window, can be enabled before or after the pane commands run.
   # synchronize: after
   - nvim:
-      layout: b0ff,147x31,0,0,2
+      layout: b0ff,147x41,0,0,2
       panes:
-        - calcpy & ; topbar 'k -cr ; moonphase ; bash' & ; journalctl -f | tspin -f && fg
+        - calcpy & ; topbar 'k -cr ; quran-cli ;  bash' & ; journalctl -f | tspin -f && fg
   - logs:
       layout: c17c,136x38,0,0[136x29,0,0{91x29,0,0,4,44x29,92,0,3},136x8,0,30,5]
       panes:
-        - ledger web -r ~/Journal/reports.ini & curl rate.sx ; forx btc ugx/btc
+        - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc ; forx btc ugx
         - blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
         - cd $GIT_PATH/linux-setup ; bash

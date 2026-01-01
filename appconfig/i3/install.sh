@@ -44,6 +44,7 @@ while true; do
 
         # required for i3-layout-manager
         sudo apt-get -y install xdotool x11-xserver-utils indent libanyevent-i3-perl
+        brew unlink pkg-config libtool
 
         # jq
         cd /tmp
@@ -69,11 +70,6 @@ while true; do
 
         if [ "$unattended" == "0" ] && [ "$TRAVIS" = "" ]; then # if running interactively
 
-            # font size in virtual console (tty)
-            # UTF-8
-            # Guess optimal character set
-            # Let the system select a suitable font
-            # 11x22 (framebuffer only)
             UGREEN='\033[4;32m'
             NC='\033[0m' # No Color
             echo ""
@@ -186,7 +182,6 @@ while true; do
 
         # i3
         sudo apt remove -y i3* || echo "Installing i3..."
-        brew unlink pkg-config libtool
 
         # compile i3
         /usr/bin/python3 -m pip install --break-system-packages meson
@@ -265,7 +260,7 @@ while true; do
         make -j8
         sudo make install
 
-        # ram
+        # memory
         cd "$APP_PATH"/../../submodules/i3blocks-contrib/memory2
         make
 

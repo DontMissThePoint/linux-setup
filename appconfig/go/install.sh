@@ -60,6 +60,9 @@ while true; do
         echo "Setup go pakages..."
         go install github.com/howeyc/ledger/ledger@latest
 
+        # quran
+        go install github.com/omeiirr/quran-cli@latest
+
         # nerdlog
         go install github.com/dimonomid/nerdlog/cmd/nerdlog@master
 
@@ -68,6 +71,10 @@ while true; do
 
         # mpd-mpris
         go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest
+
+        # config
+        mkdir -p ~/.quran
+        pv "$APP_PATH"/config.yaml >~/.quran/config.yaml
 
         # messages
         UGREEN='\033[4;32m'

@@ -187,6 +187,7 @@ DNS=1.1.1.1 8.8.8.8 9.9.9.9
     sudo tee -a /etc/systemd/resolved.conf >/dev/null
 
 fi
+sudo sed -i 's/3/2/' /etc/NetworkManager/conf.d/*
 
 #############################################
 # POWER
