@@ -130,8 +130,8 @@ while true; do
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
         systemctl --user --now enable pipewire pipewire-pulse wireplumber
-        systemctl --user start {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
-        sudo systemctl --global enable {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
+        systemctl --user start xidlehook.service {update-submodules,bandwidth_monitor}.{service,timer}
+        sudo systemctl --global enable xidlehook.service {update-submodules,bandwidth_monitor}.{service,timer}
 
         # vnstat
         sudo systemctl enable vnstat.service
