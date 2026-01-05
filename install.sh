@@ -214,12 +214,11 @@ sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
 sudo systemctl enable tmp.mount
 
 #############################################
-# STORAGE
+# arch
 #############################################
 
-sudo apt -y autoremove
 sudo dpkg --remove-architecture i386
-topgrade || echo "Done."
+topgrade || echo "Updates installed."
 
 #############################################
 # scripts
@@ -235,6 +234,17 @@ fi
 
 if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
     "$MY_PATH"/scripts/fix_touchpad_click.sh
+fi
+
+#############################################
+# Disable snap
+#############################################
+
+if command -v snap &> /dev/null; then
+
+    . ~/.scripts/remove_snap.sh
+    . ~/.scripts/system_clean.sh
+
 fi
 
 #############################################

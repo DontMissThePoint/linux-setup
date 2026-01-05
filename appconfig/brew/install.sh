@@ -66,6 +66,9 @@ while true; do
         mkdir -p ~/.newsboat
         cp -rf "$APP_PATH"/newsboat/* ~/.newsboat/
 
+        # gallery-dl
+        cp -rf "$APP_PATH"/gallery-dl ~/.config/
+
         # config
         mkdir -p ~/.config/{aria2,btop,bat,glow,rg,wget,topgrade,lazygit,neofetch}
         pv "$APP_PATH/btop.conf" >~/.config/btop/btop.conf

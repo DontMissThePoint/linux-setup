@@ -33,8 +33,7 @@ while true; do
 
         toilet Installing lobster -t --filter metal -f smmono12
 
-        # kodi
-        # sudo snap install kodi-omega
+        # build
         brew unlink pkg-config
 
         # ueberzug

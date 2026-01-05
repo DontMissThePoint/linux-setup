@@ -271,9 +271,6 @@ Plug 'junegunn/fzf.vim'
 " PTA
 Plug 'ledger/vim-ledger'
 
-" Time tracker
-Plug 'ActivityWatch/aw-watcher-vim'
-
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
 
