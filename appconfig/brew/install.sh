@@ -51,8 +51,8 @@ while true; do
         toilet Setting up brew -t -f future
         source "$HOME"/.bashrc && brew update && brew upgrade
         brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
-            bat ripgrep universal-ctags miller countdown ctop btop csvkit \
-            ag fd dust zig aria2 glow restic croc newsboat walk s-search \
+            oxker bat ripgrep universal-ctags miller countdown btop csvkit \
+            ag fd dust zig aria2 glow restic croc newsboat walk gallery-dl \
             rg viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
             pyqt scrcpy \
             2> /dev/null
@@ -62,22 +62,20 @@ while true; do
         brew link --overwrite node ruby || echo "Removing..."
         brew cleanup --prune=all
 
-        # s completion
-        sudo zsh -c "$(which s) --completion zsh > /usr/local/share/zsh/site-functions/_s" ||
-        sudo bash -c "$(which s) --completion bash > /etc/bash_completion.d/s"
-
         # newsboat
         mkdir -p ~/.newsboat
         cp -rf "$APP_PATH"/newsboat/* ~/.newsboat/
 
+        # gallery-dl
+        cp -rf "$APP_PATH"/gallery-dl ~/.config/
+
         # config
-        mkdir -p ~/.config/{aria2,btop,bat,glow,rg,s,wget,topgrade,lazygit,neofetch}
+        mkdir -p ~/.config/{aria2,btop,bat,glow,rg,wget,topgrade,lazygit,neofetch}
         pv "$APP_PATH/btop.conf" >~/.config/btop/btop.conf
         pv "$APP_PATH/bat.config" >~/.config/bat/config
         pv "$APP_PATH/config.yml" >~/.config/lazygit/config.yml
         pv "$APP_PATH/ripgreprc" >~/.config/rg/ripgreprc
         pv "$APP_PATH/wgetrc" >~/.config/wget/ripgreprc
-        pv "$APP_PATH/s_config" >~/.config/s/config
         pv "$APP_PATH/aria2.conf" >~/.config/aria2/aria2.conf
         pv "$APP_PATH/glow.yml" >~/.config/glow/glow.yml
         pv "$APP_PATH/config.conf" >~/.config/neofetch/config.conf

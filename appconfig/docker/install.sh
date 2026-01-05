@@ -97,11 +97,9 @@ while true; do
         # docker compose up
         # youtubedl: http://localhost:8998/#/home
 
-        # nerd
-        # cd /tmp
-        # curl -s 'https://api.github.com/repos/ahatem/IoskeleyMono/releases/latest' | \
-            #     jq -r ".assets[] | .browser_download_url" | grep TTF-Hinted | xargs -n 1 curl -L -O --fail --silent --show-error
-        # unzip *TTF-Hinted*
+        # joplin
+
+        # TX
         cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
         docker run --rm \
             -v ./TX-02:/in \
@@ -155,7 +153,7 @@ while true; do
         echo -e "${BGREEN}> Windows active.${NC}"
 
         # calcpy
-        echo "Advanced math solver.. using Python IPython, SymPy"
+        echo "(Advanced math solver).. using Python IPython, SymPy"
         pipx install git+https://github.com/idanpa/calcpy
 
         # glances

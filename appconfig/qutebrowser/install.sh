@@ -85,8 +85,8 @@ while true; do
         # modules
         npm config set strict-ssl=false
         npm install --loglevel=error -g @mozilla/readability tree-sitter-cli \
-            jsonrepair terminal-image-cli
-        pip install --break-system-packages -U llama-cloud-services dotenv halo
+            jsonrepair terminal-image-cli qutejs
+        pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
         # .env
         GREEN='\033[0;32m'

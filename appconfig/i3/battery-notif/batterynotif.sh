@@ -31,10 +31,10 @@ do
     battery_percent=$(cat /sys/class/power_supply/BAT0/capacity)
     if on_ac_power; then
         if [ "$battery_percent" -gt 96 ]; then
-            notify_me_full "You can unplug the charger now! the battery is almost full" "$battery_percent"
+            notify_me_full "You can unplug the charger! Battery is almost full" "$battery_percent"
         fi
     elif [ "$battery_percent" -lt 20 ]; then
-        notify_me_low "Plug the charger. Battery level is low, and that's not good" "$battery_percent"
+        notify_me_low "Plug the charger. Battery level is low." "$battery_percent"
     fi
     sleep 240 # 4 minutes
 done

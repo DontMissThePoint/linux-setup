@@ -119,8 +119,12 @@ options.color_f5log_logid_notice = 'bold reverse'         # color of notice
 #  │                      KeyBinding                          │
 #  ╰──────────────────────────────────────────────────────────╯
 
-# Save (f12)
+# Save (f11, f12)
+Sheet.bindkey('Shift+F1', 'save-sheet')
 Sheet.bindkey('Shift+F2', 'save-sheet')
+
+# Split (Insert)
+Sheet.bindkey('Ins', 'split-col')
 
 # Repeat
 Sheet.unbindkey('.')

@@ -271,19 +271,16 @@ Plug 'junegunn/fzf.vim'
 " PTA
 Plug 'ledger/vim-ledger'
 
-" Time tracker
-Plug 'ActivityWatch/aw-watcher-vim'
-
 " Toggle cursor shape
 Plug 'jszakmeister/vim-togglecursor'
 
 " smooth scroll
 Plug 'cskeeters/vim-smooth-scroll'
 
-" Git-lens
+" lens
 Plug 'Eliot00/git-lens.vim'
 
-" home screen (necessary to have a barking dog)
+" Dog
 Plug 'mhinz/vim-startify'
 
 " Autosave

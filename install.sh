@@ -37,7 +37,7 @@ arch=$(uname -i)
 sudo chown -R "$USER": "$MY_PATH"
 find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
-# install packages
+# packages
 sudo apt-get -y update -qq
 
 # essentials
@@ -187,6 +187,7 @@ DNS=1.1.1.1 8.8.8.8 9.9.9.9
     sudo tee -a /etc/systemd/resolved.conf >/dev/null
 
 fi
+sudo sed -i 's/3/2/' /etc/NetworkManager/conf.d/*
 
 #############################################
 # POWER
@@ -213,11 +214,11 @@ sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
 sudo systemctl enable tmp.mount
 
 #############################################
-# STORAGE
+# arch
 #############################################
 
-sudo apt -y autoremove
-topgrade || echo "Done."
+sudo dpkg --remove-architecture i386
+topgrade || echo "Updates installed."
 
 #############################################
 # scripts
@@ -233,6 +234,17 @@ fi
 
 if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
     "$MY_PATH"/scripts/fix_touchpad_click.sh
+fi
+
+#############################################
+# Disable snap
+#############################################
+
+if command -v snap &> /dev/null; then
+
+    . ~/.scripts/remove_snap.sh
+    . ~/.scripts/system_clean.sh
+
 fi
 
 #############################################

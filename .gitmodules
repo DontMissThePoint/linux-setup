@@ -40,18 +40,9 @@
 	path = submodules/zsh-syntax-highlighting
 	url = https://github.com/zsh-users/zsh-syntax-highlighting
 	branch = master
-[submodule "submodules/indicator-sound-switcher"]
-	path = submodules/indicator-sound-switcher
-	url = https://github.com/yktoo/indicator-sound-switcher.git
-	branch = master
 [submodule "submodules/lolcat"]
 	path = submodules/lolcat
 	url = https://github.com/jaseg/lolcat
-	branch = master
-  ignore = dirty
-[submodule "submodules/scrcpy"]
-	path = submodules/scrcpy
-	url = https://github.com/Genymobile/scrcpy
 	branch = master
   ignore = dirty
 [submodule "submodules/qutebrowser"]
