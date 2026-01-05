@@ -133,6 +133,7 @@ while true; do
         gsettings set org.gnome.desktop.interface text-scaling-factor 1
 
         # cursor
+        gsettings set org.gnome.desktop.interface overlay-scrolling false
         gsettings set org.gnome.desktop.interface locate-pointer true
         gsettings set org.gnome.desktop.interface cursor-size 32
 

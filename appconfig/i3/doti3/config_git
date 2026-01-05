@@ -289,7 +289,7 @@ for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, resize set 1780 800, move container position center, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
-for_window [class="^Vivaldi-stable$"] fullscreen disable, move workspace $workspace3, focus
+for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable sticky enable border normal
 
@@ -1578,9 +1578,9 @@ exec --no-startup-id "i3-sensible-terminal -name launcher -e $SHELL -c 'tmuxinat
 exec_always --no-startup-id flashfocus
 
 # sound-card control
+# exec_always --no-startup-id indicator-sound-switcher
 exec --no-startup-id mopidy
 exec_always --no-startup-id mpd
-exec_always --no-startup-id indicator-sound-switcher
 
 # exec_always --no-startup-id "sleep 1; sudo ~/.i3/thinkpad_t490_nvidia/nvidiaEnable.sh" # EPIGEN_ADD_LINE_TP490NV
 
@@ -1602,6 +1602,7 @@ for_window [class="^Tk$"] floating enable
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^(V|v)imiv$"] floating enable, focus
+for_window [class="^(E|e)og$"] floating enable, focus
 for_window [class="^(MEGA|mega)sync$"] floating enable, focus
 for_window [class="^(N|n)extcloud$"] floating enable, focus
 for_window [class="^Zathura$"] fullscreen enable, focus

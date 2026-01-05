@@ -44,6 +44,7 @@ while true; do
 
         # required for i3-layout-manager
         sudo apt-get -y install xdotool x11-xserver-utils indent libanyevent-i3-perl
+        brew unlink pkg-config libtool
 
         # jq
         cd /tmp
@@ -69,11 +70,6 @@ while true; do
 
         if [ "$unattended" == "0" ] && [ "$TRAVIS" = "" ]; then # if running interactively
 
-            # font size in virtual console (tty)
-            # UTF-8
-            # Guess optimal character set
-            # Let the system select a suitable font
-            # 11x22 (framebuffer only)
             UGREEN='\033[4;32m'
             NC='\033[0m' # No Color
             echo ""
@@ -134,8 +130,8 @@ while true; do
         systemctl --user daemon-reload
         systemctl --user --now enable autorandr_launcher.service
         systemctl --user --now enable pipewire pipewire-pulse wireplumber
-        systemctl --user start {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
-        sudo systemctl --global enable {xidlehook,activitywatch}.service {update-submodules,bandwidth_monitor}.{service,timer}
+        systemctl --user start xidlehook.service {update-submodules,bandwidth}.{service,timer}
+        sudo systemctl --global enable xidlehook.service {update-submodules,bandwidth}.{service,timer}
 
         # vnstat
         sudo systemctl enable vnstat.service
@@ -186,7 +182,6 @@ while true; do
 
         # i3
         sudo apt remove -y i3* || echo "Installing i3..."
-        brew unlink pkg-config libtool
 
         # compile i3
         /usr/bin/python3 -m pip install --break-system-packages meson
@@ -265,17 +260,7 @@ while true; do
         make -j8
         sudo make install
 
-        # indicator-sound-switcher
-        if [ "$NOBLE" != "" ]; then
-            sudo apt -y install gir1.2-keybinder-3.0
-        else
-            sudo apt-get -y install libappindicator3-dev gir1.2-keybinder-3.0
-        fi
-
-        cd "$APP_PATH"/../../submodules/indicator-sound-switcher
-        sudo /usr/bin/python3 setup.py install
-
-        # indicator-ram
+        # memory
         cd "$APP_PATH"/../../submodules/i3blocks-contrib/memory2
         make
 
@@ -361,13 +346,11 @@ while true; do
 
         "$APP_PATH"/make_launchers.sh "$APP_PATH"/../../scripts
 
-        # disable nautilus
+        # nautilus
         gsettings set org.gnome.desktop.background show-desktop-icons false
-
-        # scroll view not content
         gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 
-        # disable location
+        # location
         sudo systemctl restart geoclue.service
         gsettings set org.gnome.system.location enabled false
 

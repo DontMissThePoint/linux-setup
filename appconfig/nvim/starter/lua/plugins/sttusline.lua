@@ -17,7 +17,7 @@ return {
 					"file.modifier",
 					"file.icon",
 					"file.name",
-					-- "battery",
+					"battery",
 					"git.branch",
 					"git.diff.added",
 					"git.diff.removed",
@@ -44,7 +44,6 @@ return {
 
 					if filetype == "NvimTree" then
 						return {
-							"battery",
 							"datetime",
 							-- require("your custom component"),
 						}
