@@ -27,7 +27,7 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mSet up htop-vim? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mSet up proot-apps? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 

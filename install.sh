@@ -72,35 +72,35 @@ fi
 # 2. Install LINUXBREW
 ! "$docker" && bash "$APPCONFIG_PATH"/brew/install.sh "$subinstall_params"
 
-# 3. Install TMUX
+# 3. Install PROOT-APPS
+! "$docker" && bash "$APPCONFIG_PATH"/htop-vim/install.sh "$subinstall_params"
+
+# 4. Install TMUX
 ! "$docker" && bash "$APPCONFIG_PATH"/tmux/install.sh "$subinstall_params"
 
-# 4. Install ZSH with ATHAME
+# 5. Install ZSH with ATHAME
 ! "$docker" && bash "$APPCONFIG_PATH"/zsh/install.sh "$subinstall_params"
 
-# 5. Install URXVT
+# 6. Install URXVT
 ! "$docker" && bash "$APPCONFIG_PATH"/urxvt/install.sh "$subinstall_params"
 
-# 6. Install FONTS POWERLINE
+# 7. Install FONTS POWERLINE
 ! "$docker" && bash "$APPCONFIG_PATH"/fonts-powerline/install.sh "$subinstall_params"
 
-# 7. Install GO
+# 8. Install GO
 ! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
 
-# 8. Install VIM
+# 9. Install VIM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim/install.sh "$subinstall_params"
 
-# 9. Install NVIM
+# 10. Install NVIM
 ! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
 
-# 10. Install SYNCTHING
+# 11. Install SYNCTHING
 ! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
 
-# 11. Install I3
+# 12. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
-
-# 12. Install HTOP-VIM
-! "$docker" && bash "$APPCONFIG_PATH"/htop-vim/install.sh "$subinstall_params"
 
 # 13. Install MULTIMEDIA support
 ! "$docker" && bash "$APPCONFIG_PATH"/multimedia/install.sh "$subinstall_params"

@@ -2,7 +2,7 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # hello
-    vivaldi vivaldi-ffmpeg-codecs siji xidlehook activitywatch
+    vivaldi vivaldi-ffmpeg-codecs siji xidlehook
       libgen-cli zscroll material-icons xidel texlab
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
