@@ -1,0 +1,16 @@
+---
+services:
+  joplin:
+    image: lscr.io/linuxserver/joplin:latest
+    container_name: joplin
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Etc/UTC-3
+    volumes:
+      - ./config:/config
+    ports:
+      - 3000:3000
+      - 3001:3001
+    shm_size: "1gb"
+    restart: unless-stopped

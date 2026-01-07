@@ -47,16 +47,6 @@ while true; do
         sudo chmod 755 ~/.local/bin/ffprobe
         sudo chmod 755 ~/.local/bin/alass
 
-        # scrcpy
-        toilet Settingup scrcpy -t -f future
-
-        # adb
-        cd /tmp
-        wget https://dl.google.com/android/repository/platform-tools-latest-linux.zip
-        unzip \platform-tools-latest-linux.zip
-        sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/
-        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
-
         # yt
         toilet Settingup yt-x -t -f future
         curl -sL "https://raw.githubusercontent.com/Benexl/yt-x/refs/heads/master/yt-x" -o ~/.local/bin/yt-x && chmod +x ~/.local/bin/yt-x

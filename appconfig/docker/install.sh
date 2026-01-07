@@ -89,15 +89,39 @@ while true; do
         # docker
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-        # web
+        ## kernel modules
+        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)"
+        sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
+        sudo depmod -a
+
+        # adb
+        toilet Settingup adb -t -f future
+
+        cd /tmp
+        wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+        unzip \platform-tools-latest-linux.zip
+        sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
+        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
+
+        # joplin
+        toilet Settingup joplin -t -f future
+
+        cp -rf "$APP_PATH"/Joplin ~/VirtualMachines/
+        cd ~/VirtualMachines/Joplin
+        docker compose pull
+        # docker compose up -d
+        # web: https://localhost:3001/
+        mkdir -p ~/VirtualMachines/Joplin/config/Notes
+
+        # calibre
+        # Green: #b9edcd foreground: #384f45 links: #000000
+
+        # yt
         mkdir -p ~/VirtualMachines/YoutubeDL-Material
         cd ~/VirtualMachines/YoutubeDL-Material
         curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
         docker compose pull
-        # docker compose up
         # youtubedl: http://localhost:8998/#/home
-
-        # joplin
 
         # TX
         cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
@@ -136,9 +160,10 @@ while true; do
         mkdir -p ~/VirtualMachines/Windows-Docker
         # quickget windows 11
         # quickemu --vm windows-11.conf --width 1920 --height 1080
+        # focus cell: #87ff87 #0088cc
 
         # 365
-        # focus cell: #87ff87 #0088cc
+        # irm https://get.activated.win | iex
 
         # dockurr
         toilet Settingup dockurr -t -f future
@@ -146,7 +171,6 @@ while true; do
         # docker compose stop
         # sudo docker compose up -d --force-recreate --build
 
-        # remove images unused & dangling (Careful !)
         # docker system prune -af
         BGREEN='\033[1;32m'
         NC='\033[0m' # No Color

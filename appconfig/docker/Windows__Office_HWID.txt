@@ -1,7 +1,0 @@
-==============
-Instructions:
-=============
-1. Run windows Terminal (Administrator).
-2. > irm https://get.activated.win | iex
-3. Select what you want to activate.
-4. That’s it, Enjoy!

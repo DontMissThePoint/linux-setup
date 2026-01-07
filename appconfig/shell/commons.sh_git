@@ -53,11 +53,10 @@ alias q=exit
 alias octave="octave --no-gui $@"
 alias indie="export PYTHONHTTPSVERIFY=0; python $GIT_PATH/linux-setup/scripts/indie.py"
 alias demangle="c++filt"
-alias bt="devour btop"
-alias top="htop"
 alias vimdiff="nvim -d"
+alias bt="devour btop"
+alias ox="devour oxker"
 alias gx="tmuxinator double"
-alias ox="oxker"
 alias ra="devour ranger"
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
