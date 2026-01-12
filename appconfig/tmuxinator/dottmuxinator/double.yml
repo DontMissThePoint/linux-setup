@@ -57,7 +57,7 @@ windows:
   - nvim:
       layout: b0ff,147x41,0,0,2
       panes:
-        - calcpy & ; topbar 'k -cr ; quran-cli ;  bash' & ; journalctl -f | tspin -f && fg
+        - calcpy & ; topbar 'k -cr ; zsh' & ; journalctl -f | tspin -f && fg
   - logs:
       layout: c17c,136x38,0,0[136x29,0,0{91x29,0,0,4,44x29,92,0,3},136x8,0,30,5]
       panes:
