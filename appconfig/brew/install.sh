@@ -50,7 +50,7 @@ while true; do
         # packages
         toilet Setting up brew -t -f future
         source "$HOME"/.bashrc && brew update && brew upgrade
-        brew install topgrade webtorrent-cli zoxide grc vivid fzf pipx \
+        brew install lzip topgrade webtorrent-cli zoxide grc vivid fzf pipx \
             oxker bat ripgrep universal-ctags miller countdown btop csvkit \
             ag fd dust zig aria2 glow restic croc newsboat walk gallery-dl \
             rg viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
@@ -81,6 +81,11 @@ while true; do
         pv "$APP_PATH/config.conf" >~/.config/neofetch/config.conf
         pv "$APP_PATH/topgrade.toml" >~/.config/topgrade/topgrade.toml
         pv "$APP_PATH/pqivrc" >~/.pqivrc
+
+        # apim
+        mkdir -p ~/.local/bin
+        curl https://raw.githubusercontent.com/WalkingGarbage/appim/main/appim.sh > ~/.local/bin/appim
+        chmod +x ~/.local/bin/appim
 
         # mimeapps
         echo "Updating mimeapps list..."

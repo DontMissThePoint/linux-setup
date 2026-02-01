@@ -103,18 +103,37 @@ while true; do
         sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
         sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
 
-        # joplin
-        toilet Settingup joplin -t -f future
+        # qtscrcpy
+        cd /tmp
+        curl -s 'https://api.github.com/repos/barry-ran/QtScrcpy/releases/latest' |\
+            jq -r ".assets[] | .browser_download_url" | grep ubuntu |\
+            xargs -n 1 curl -L -O --fail --silent --show-error
+        mv QtScrcpy* QtScrcpy.AppImage
+        appim -i QtScrcpy.AppImage
 
-        cp -rf "$APP_PATH"/Joplin ~/VirtualMachines/
-        cd ~/VirtualMachines/Joplin
-        docker compose pull
+        # env
+        cd /tmp
+        git clone https://github.com/ayasa520/redroid-script
+        cd redroid-script
+        python3 -m venv venv
+        venv/bin/pip install -r requirements.txt
+
+        # gapps, magisk, libndk, widevine
+        venv/bin/python3 redroid.py -a 11.0.0 -gmnw
+
+        # redroid
+        sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
+        cp -rf "$APP_PATH/RedroidRoot" ~/VirtualMachines/
         # docker compose up -d
-        # web: https://localhost:3001/
-        mkdir -p ~/VirtualMachines/Joplin/config/Notes
+        # adb connect localhost:5555
 
-        # calibre
-        # Green: #b9edcd foreground: #384f45 links: #000000
+        # “device not verified”
+        # adb -s localhost:5555 root
+        # adb -s localhost:5555 shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
+            #  "select * from main where name = \"android_id\";"'
+
+        # install apk
+        # adb -s localhost:5555 install "jp.naver.line.android.apk"
 
         # yt
         mkdir -p ~/VirtualMachines/YoutubeDL-Material
@@ -122,6 +141,14 @@ while true; do
         curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
         docker compose pull
         # youtubedl: http://localhost:8998/#/home
+
+        # pdfLatex / xeTex
+        if [ ! -e "$HOME"/VirtualMachines/TexLyre ]; then
+            git clone https://github.com/TeXlyre/texlyre
+            mv texlyre TexLyre && cd TexLyre
+            npm install
+            # npm start
+        fi
 
         # TX
         cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
@@ -175,6 +202,9 @@ while true; do
         BGREEN='\033[1;32m'
         NC='\033[0m' # No Color
         echo -e "${BGREEN}> Windows active.${NC}"
+
+        # ereader
+        # Green: #b9edcd background: #384f45 links: #0088cc
 
         # calcpy
         echo "(Advanced math solver).. using Python IPython, SymPy"

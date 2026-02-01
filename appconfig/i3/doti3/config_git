@@ -293,6 +293,7 @@ for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspa
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable, sticky enable, border normal
 for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace6, floating enable
+for_window [class="^QtScrcpy$"] focus, fullscreen enable, move workspace $workspace5, floating enable
 
 for_window [class="SmartGit"] fullscreen enable, move workspace $workspace3, focus
 for_window [window_role="pop-up"] floating enable
