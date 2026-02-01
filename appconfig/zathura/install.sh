@@ -80,11 +80,6 @@ while true; do
         cp -f "$APP_PATH"/dotvisidata/* ~/.visidata
         pv "$APP_PATH"/visidatarc >~/.visidatarc
 
-        # Calibre
-        # Green: #b9edcd foreground: #384f45 links: #000000
-        sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
-        #sudo calibre-uninstall
-
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
         break

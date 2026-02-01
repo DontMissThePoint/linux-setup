@@ -99,48 +99,45 @@ fi
 # 11. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
 
-# 12. Install HTOP-VIM
-! "$docker" && bash "$APPCONFIG_PATH"/htop-vim/install.sh "$subinstall_params"
-
-# 13. Install MULTIMEDIA support
+# 12. Install MULTIMEDIA support
 ! "$docker" && bash "$APPCONFIG_PATH"/multimedia/install.sh "$subinstall_params"
 
-# 14. Setup RANGER
+# 13. Setup RANGER
 ! "$docker" && bash "$APPCONFIG_PATH"/ranger/install.sh "$subinstall_params"
 
-# 15. Install ZATHURA
+# 14. Install ZATHURA
 ! "$docker" && bash "$APPCONFIG_PATH"/zathura/install.sh "$subinstall_params"
 
-# 16. Install VIMIV
+# 15. Install VIMIV
 ! "$docker" && bash "$APPCONFIG_PATH"/vimiv/install.sh "$subinstall_params"
 
-# 17. Setup modified keyboard rules
+# 16. Setup modified keyboard rules
 ! "$docker" && bash "$APPCONFIG_PATH"/keyboard/install.sh "$subinstall_params"
 
-# 18 Setup FZF
+# 17 Setup FZF
 ! "$docker" && bash "$APPCONFIG_PATH"/fzf/install.sh "$subinstall_params"
 
-# 19. Install VIM-STREAM
+# 18. Install VIM-STREAM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim-stream/install.sh "$subinstall_params"
 
-# 20. Install LOLCAT
+# 19. Install LOLCAT
 ! "$docker" && bash "$APPCONFIG_PATH"/lolcat/install.sh "$subinstall_params"
 
-# 21. Install TMUXINATOR
+# 20. Install TMUXINATOR
 ! "$docker" && bash "$APPCONFIG_PATH"/tmuxinator/install.sh "$subinstall_params"
 
-# 22. Install REFIND
+# 21. Install REFIND
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
 fi
 
-# 23. Install DOCKER
+# 22. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
 
-# 24. Install KODI
+# 23. Install LOBSTER
 ! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
 
-# 25. Install QUTEBROWSER
+# 24. Install QUTEBROWSER
 ! "$docker" && bash "$APPCONFIG_PATH"/qutebrowser/install.sh "$subinstall_params"
 
 # the docker setup ends here

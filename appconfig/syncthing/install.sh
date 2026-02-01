@@ -63,12 +63,6 @@ while true; do
             sudo apt install -y shutter nextcloud-desktop
         fi
 
-        # standardnotes
-        wget -c https://github.com/jonhadfield/sn-cli/releases/download/0.4.0/sn-cli_Linux_x86_64.tar.gz -O - | \
-            tar -xz -C ~/.local/bin
-        sudo chmod +x ~/.local/bin/sn
-        # mkdir -p ~/vaults/personal ~/vaults/work ~/vaults/.obsidian
-
         # Rclone
         sudo apt install -y fuse3
         sudo -v
