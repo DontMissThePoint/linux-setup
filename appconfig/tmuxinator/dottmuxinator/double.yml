@@ -57,9 +57,9 @@ windows:
   - nvim:
       layout: b0ff,147x41,0,0,2
       panes:
-        - calcpy & ; topbar 'k -cr ; quran-cli ;  bash' & ; journalctl -f | tspin -f && fg
+        - calcpy & ; topbar 'k -cr ; zsh' & ; journalctl -f | tspin -f && fg
   - logs:
-      layout: c17c,136x38,0,0[136x29,0,0{91x29,0,0,4,44x29,92,0,3},136x8,0,30,5]
+      layout: 46ca,147x41,0,0[147x31,0,0{117x31,0,0,3,29x31,118,0,4},147x9,0,32,5]
       panes:
         - ledger web -r ~/Journal/reports.ini & curl rate.sx/btc ; forx btc ugx
         - blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11

@@ -70,10 +70,6 @@
 	path = submodules/ranger
 	url = https://github.com/ranger/ranger
 	branch = master
-[submodule "submodules/htop-vim"]
-	path = submodules/htop-vim
-	url = https://github.com/KoffeinFlummi/htop-vim
-	branch = master
 [submodule "submodules/libevent"]
 	path = submodules/libevent
 	url = https://github.com/libevent/libevent
