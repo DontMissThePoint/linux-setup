@@ -111,15 +111,19 @@ while true; do
         mv QtScrcpy* QtScrcpy.AppImage
         appim -i QtScrcpy.AppImage
 
+        # redroid
+        toilet Settingup android -t -f future
+
         # env
         cd /tmp
+        [ -e redroid-script ] && rm -rf redroid-script
         git clone https://github.com/ayasa520/redroid-script
         cd redroid-script
         python3 -m venv venv
         venv/bin/pip install -r requirements.txt
 
-        # gapps, magisk, libndk, widevine
-        venv/bin/python3 redroid.py -a 11.0.0 -gmnw
+        # mindthegapp, magisk
+        venv/bin/python3 redroid.py -a 11.0.0 -lg -mnw
 
         # redroid
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
@@ -127,13 +131,14 @@ while true; do
         # docker compose up -d
         # adb connect localhost:5555
 
-        # “device not verified”
-        # adb -s localhost:5555 root
-        # adb -s localhost:5555 shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
-            #  "select * from main where name = \"android_id\";"'
-
-        # install apk
+        # apks
         # adb -s localhost:5555 install "jp.naver.line.android.apk"
+
+        # register
+        # https://www.google.com/android/uncertified/
+        # adb root
+        # adb shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
+            #  "select * from main where name = \"android_id\";"'
 
         # yt
         mkdir -p ~/VirtualMachines/YoutubeDL-Material

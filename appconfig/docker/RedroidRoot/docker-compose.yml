@@ -1,6 +1,6 @@
 services:
   redroid:
-    image: redroid/redroid:11.0.0_gapps_ndk_magisk_widevine # image created.
+    image: redroid/redroid:11.0.0_litegapps_ndk_magisk_widevine # image created.
     container_name: android
     environment:
       - TZ=Etc/GMT-3
