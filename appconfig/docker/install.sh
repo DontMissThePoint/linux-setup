@@ -8,6 +8,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=$(dirname "$0")
 APP_PATH=$( (cd "$APP_PATH" && pwd))
+DROID="$HOME/VirtualMachines/RedroidRoot"
 
 unattended=0
 subinstall_params=""
@@ -111,28 +112,31 @@ while true; do
         mv QtScrcpy* QtScrcpy.AppImage
         appim -i QtScrcpy.AppImage
 
+        # redroid
+        toilet Settingup android -t -f future
+
         # env
         cd /tmp
+        [ -e redroid-script ] && rm -rf redroid-script
         git clone https://github.com/ayasa520/redroid-script
         cd redroid-script
         python3 -m venv venv
-        venv/bin/pip install -r requirements.txt
+        venv/bin/pip instal -r requirements.txt
 
-        # gapps, magisk, libndk, widevine
-        venv/bin/python3 redroid.py -a 11.0.0 -gmnw
+        # mindthegapp, magisk
+        venv/bin/python3 redroid.py -a 11.0.0 -lg -mnw
 
-        # redroid
+        # kernel
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
-        cp -rf "$APP_PATH/RedroidRoot" ~/VirtualMachines/
-        # docker compose up -d
-        # adb connect localhost:5555
 
-        # “device not verified”
-        # adb -s localhost:5555 root
-        # adb -s localhost:5555 shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
-            #  "select * from main where name = \"android_id\";"'
+        # droid
+        if [ ! -e "$DROID" ]; then
+            mkdir -p "$DROID"
 
-        # install apk
+            . ../../scripts/redroid.sh
+        fi
+
+        # apks
         # adb -s localhost:5555 install "jp.naver.line.android.apk"
 
         # yt

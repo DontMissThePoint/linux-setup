@@ -54,7 +54,7 @@ while true; do
         # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
         # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
         mkdir -p ~/.config/nchat
-        cp -f "$(dirname "$(which nchat)")"/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
+        cp -f "$(dirname "$(which nchat)")"/../share/nchat/themes/zenbones-dark/* ~/.config/nchat/
 
         # ledger
         echo "Setup go pakages..."

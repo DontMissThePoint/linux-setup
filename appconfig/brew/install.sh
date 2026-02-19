@@ -54,7 +54,7 @@ while true; do
             oxker bat ripgrep universal-ctags miller countdown btop csvkit \
             ag fd dust zig aria2 glow restic croc newsboat walk gallery-dl \
             rg viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
-            pyqt scrcpy \
+            pyqt scrcpy rclone \
             2> /dev/null
 
         # node

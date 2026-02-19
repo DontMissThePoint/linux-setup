@@ -104,9 +104,6 @@ while true; do
         cd autorandr-launcher
         sudo make install
 
-        # ssh
-        touch ~/.Xauthority
-
         # restore graphical session properties
         cd /tmp
         [ -e autorandr ] && sudo rm -rf autorandr
@@ -117,7 +114,7 @@ while true; do
         #  service
         sudo systemctl daemon-reload
         sudo systemctl disable gdm3 getty@tty2.service
-        sudo systemctl enable autorandr.service autorandr-lid-listener.service ly@tty2.service
+        sudo systemctl enable autorandr.service autorandr-lid-listener.service ly@tty1.service
         sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
 
         # udev
@@ -318,7 +315,7 @@ while true; do
         # autostart
         cd /etc/xdg/autostart/
         sudo sed -i 's/\(NoDisplay\)=true/\1=false/g' *.desktop
-        chmod 744 ~/.xinitrc
+        chmod +x ~/.xinitrc
 
         # auto-login
         sudo sed -i -e 's/^#*\s*\(GRUB_DISABLE_OS_PROBER\).*/\1=true/g' \

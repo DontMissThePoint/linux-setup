@@ -58,7 +58,7 @@ while true; do
         sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev libcaca-dev playerctl libplayerctl2 libplayerctl-dev
 
         # for video, photo, audio, ..., viewing and editing
-        sudo apt-get remove -y --purge gimp vlc* audacity rawtherapee rhymthmbox
+        sudo apt-get remove -y --purge gimp vlc audacity rawtherapee rhythmbox
 
         toilet Settingup ncmpcpp -t -f future
 
@@ -148,7 +148,8 @@ while true; do
         git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
 
         # audio
-        aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa
+        aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz6.sofa ||
+        echo "Done."
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

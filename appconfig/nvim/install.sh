@@ -58,8 +58,12 @@ while true; do
         rustup update
 
         # cargo
-        cargo install cargo-update cargo-cache shellharden
+        cargo install cargo-update cargo-cache shellharden felix
         # rustup self uninstall
+
+        # fx
+        mkdir -p ~/.config/felix/
+        pv "$APP_PATH/config.yaml" >~/.config/felix/config.yaml
 
         # Nvchad
         git clone https://github.com/NvChad/starter "$CONFIG"

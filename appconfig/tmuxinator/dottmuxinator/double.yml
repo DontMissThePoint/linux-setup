@@ -50,14 +50,14 @@ windows:
       layout: b0fe,147x41,0,0,1
       panes:
         # - rfkill block bluetooth &; clear ; i3-msg mode throughput_mode; vnstat -t ; nvim
-        - rfkill block bluetooth &; clear ; vnstat -t ; nvim
+        - rfkill block bluetooth &; clear ; vnstat -t ; fx
   # - tdab:
   # Synchronize all panes of this window, can be enabled before or after the pane commands run.
   # synchronize: after
   - nvim:
       layout: b0ff,147x41,0,0,2
       panes:
-        - calcpy & ; topbar 'k -cr ; zsh' & ; journalctl -f | tspin -f && fg
+        - calcpy & ; topbar 'nvim' & ; journalctl -f | tspin -f && fg
   - logs:
       layout: 46ca,147x41,0,0[147x31,0,0{117x31,0,0,3,29x31,118,0,4},147x9,0,32,5]
       panes:
