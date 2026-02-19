@@ -64,10 +64,8 @@ while true; do
         fi
 
         # Rclone
-        sudo apt install -y fuse3
-        sudo -v
-        wget https://rclone.org/install.sh | sudo bash || echo 'Configure cloud storage: Mega, GDrive, ... etc'
-        # rclone config
+        echo 'Rclone: Mega, GDrive, ...'
+        rclone config
         # rclone rcd --rc-web-gui
 
         # GDrive

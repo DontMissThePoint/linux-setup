@@ -25,6 +25,12 @@ if [ -d "/usr/local/go/bin" ] ; then
 		export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 fi
 
+# rust
+if [ -d "$HOME/.cargo/bin" ] ; then
+		export RUSTPATH=$HOME/.cargo
+		export PATH=$RUSTPATH/bin:$PATH
+fi
+
 # qt6ct
 if [ -e "/usr/bin/qt6ct" ] ; then
     export QT_QPA_PLATFORMTHEME=qt6ct
@@ -64,11 +70,12 @@ alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
 alias cs="$GIT_PATH/linux-setup/scripts/system_clean.sh"
 alias moonphase="$GIT_PATH/linux-setup/scripts/moonphase.sh"
-alias orders="$GIT_PATH/linux-setup/scripts/table_parse.sh"
+alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
 alias viz="devour vd -y"
+alias mpv="mpv -v"
 
 # apt get multiple connections
 alias apt="apt-fast"
