@@ -8,6 +8,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=$(dirname "$0")
 APP_PATH=$( (cd "$APP_PATH" && pwd))
+DROID="$HOME/VirtualMachines/RedroidRoot"
 
 unattended=0
 subinstall_params=""
@@ -120,25 +121,23 @@ while true; do
         git clone https://github.com/ayasa520/redroid-script
         cd redroid-script
         python3 -m venv venv
-        venv/bin/pip install -r requirements.txt
+        venv/bin/pip instal -r requirements.txt
 
         # mindthegapp, magisk
         venv/bin/python3 redroid.py -a 11.0.0 -lg -mnw
 
-        # redroid
+        # kernel
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
-        cp -rf "$APP_PATH/RedroidRoot" ~/VirtualMachines/
-        # docker compose up -d
-        # adb connect localhost:5555
+
+        # droid
+        if [ ! -e "$DROID" ]; then
+            mkdir -p "$DROID"
+
+            . ../../scripts/redroid.sh
+        fi
 
         # apks
         # adb -s localhost:5555 install "jp.naver.line.android.apk"
-
-        # register
-        # https://www.google.com/android/uncertified/
-        # adb root
-        # adb shell 'sqlite3 /data/data/com.google.android.gsf/databases/gservices.db \
-            #  "select * from main where name = \"android_id\";"'
 
         # yt
         mkdir -p ~/VirtualMachines/YoutubeDL-Material

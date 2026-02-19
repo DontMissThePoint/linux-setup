@@ -70,11 +70,12 @@ alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
 alias cs="$GIT_PATH/linux-setup/scripts/system_clean.sh"
 alias moonphase="$GIT_PATH/linux-setup/scripts/moonphase.sh"
-alias orders="$GIT_PATH/linux-setup/scripts/table_parse.sh"
+alias droid="$GIT_PATH/linux-setup/scripts/redroid.sh"
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
 alias viz="devour vd -y"
+alias mpv="mpv -v"
 
 # apt get multiple connections
 alias apt="apt-fast"
