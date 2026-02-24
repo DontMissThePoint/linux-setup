@@ -3,9 +3,6 @@
 # server
 adb start-server
 
-# redroid
-cd ~/VirtualMachines/RedroidRoot
-
 docker run -d \
     --name android \
     --privileged \

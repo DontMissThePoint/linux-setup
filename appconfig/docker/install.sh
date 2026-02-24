@@ -100,7 +100,7 @@ while true; do
 
         cd /tmp
         wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
-        unzip \platform-tools-latest-linux.zip
+        unzip platform-tools-latest-linux.zip
         sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
         sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
 
@@ -131,12 +131,12 @@ while true; do
 
         # droid
         if [ ! -e "$DROID" ]; then
-            mkdir -p "$DROID"
+            mkdir -p "$DROID" && cd "$DROID"
 
             . ../../scripts/redroid.sh
         fi
 
-        # apks
+        # apk
         # adb -s localhost:5555 install "jp.naver.line.android.apk"
 
         # yt

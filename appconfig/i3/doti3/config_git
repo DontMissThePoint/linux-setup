@@ -1554,6 +1554,19 @@ border_radius 7
 
 # #}
 
+# #{ PANEL customization
+#
+# EPIGEN_ADD_BLOCK_PANEL {
+##
+# exec_always --no-startup-id setxkbmap -layout us,ua,cz -option "grp:rctrl_toggle"
+# bindsym $mod2+greater move workspace to output right
+# bindsym $mod2+less move workspace to output top
+
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./panel_set_monitor.sh'"
+# bindsym $mod2+w sticky toggle
+
+# EPIGEN_ADD_BLOCK_PANEL }
+
 # #{ auto commands after login
 
 # network monitor
