@@ -23,7 +23,7 @@ until
     /dynamic-resolution +decorations +fonts +aero +window-drag +multitransport +clipboard -grab-keyboard -glyph-cache \
     /floatbar:show:fullscreen /floatbar:sticky:off /bpp:32 /audio-mode:0 /rfx /gfx:rfx /cache:codec::rfx /video /sec:tls \
     /tune:FreeRDP_HiDefRemoteApp:true,FreeRDP_GfxAVC444v2:true,FreeRDP_GfxH264:true /scale-desktop:135 /scale-device:100 \
-    /multimon /orientation:90 /t:"Dockurr - Windows 11"
+    /w:1080 /h:1920 /t:"Dockurr - Windows 11"
 do
     sleep 1
     echo -e "Verifying... ${RED} ✔ ${NC}"
