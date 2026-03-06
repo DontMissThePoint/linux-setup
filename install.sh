@@ -285,7 +285,7 @@ cd "$MY_PATH" && ./deploy_configs.sh
 
 ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/dual.sh ~/.local/bin/dual
 ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/top.sh ~/.local/bin/wide
-ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/right.sh ~/.local/bin/stand
+ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/right.sh ~/.local/bin/extend
 ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/laptop.sh ~/.local/bin/laptop
 
 #############################################

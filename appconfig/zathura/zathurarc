@@ -77,6 +77,9 @@ set render-loading-fg           "#ebdbb2" # fg
 set recolor-lightcolor		rgba(40,40,40,0.0) # bg(transparent)
 set recolor-darkcolor           "#b9edcd" # fg0
 
+# hide status
+set guioptions ""
+
 # key-bindings
 map t toggle_index
 map s toggle_statusbar
