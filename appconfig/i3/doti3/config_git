@@ -292,6 +292,7 @@ for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, fo
 for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable, sticky enable, border normal
+for_window [class="^Zathura$"] floating enable, focus
 for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace6, floating enable
 for_window [class="^QtScrcpy$"] focus, fullscreen enable, move workspace $workspace5, floating enable
 
@@ -1553,6 +1554,19 @@ border_radius 7
 # EPIGEN_ADD_BLOCK_FILIP }
 
 # #}
+
+# #{ PANEL customization
+#
+# EPIGEN_ADD_BLOCK_PANEL {
+##
+# exec_always --no-startup-id setxkbmap -layout us,ua,cz -option "grp:rctrl_toggle"
+# bindsym $mod2+greater move workspace to output right
+# bindsym $mod2+less move workspace to output top
+
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./panel_set_monitor.sh'"
+# bindsym $mod2+w sticky toggle
+
+# EPIGEN_ADD_BLOCK_PANEL }
 
 # #{ auto commands after login
 
