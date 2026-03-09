@@ -10,10 +10,14 @@ LINUX_REPOSITORY=rclone:mega:/07.OS/linux-setup
 LINUX_SETUP=$GIT_PATH/linux-setup
 
 # mount
-echo "Connected ..."
+echo -e "Connecting ...\nOK."
 
 # init
-[ ! -e "$LINUX_REPOSITORY/config" ] && restic init --repo "$LINUX_REPOSITORY" --password-file "$RESTIC_PASSWORD_FILE"
+num=$(rclone lsf mega:/07.OS/linux-setup | grep "config" | wc -l)
+if [ "$num" -lt "1" ]; then
+    echo "Initializing repo"
+    restic init --repo "$LINUX_REPOSITORY" --password-file "$RESTIC_PASSWORD_FILE"
+fi
 
 # backup
 restic -r "$LINUX_REPOSITORY" --verbose --password-file "$RESTIC_PASSWORD_FILE" backup "$LINUX_SETUP"

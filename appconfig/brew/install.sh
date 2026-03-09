@@ -82,11 +82,6 @@ while true; do
         pv "$APP_PATH/topgrade.toml" >~/.config/topgrade/topgrade.toml
         pv "$APP_PATH/pqivrc" >~/.pqivrc
 
-        # apim
-        mkdir -p ~/.local/bin
-        curl https://raw.githubusercontent.com/WalkingGarbage/appim/main/appim.sh > ~/.local/bin/appim
-        chmod +x ~/.local/bin/appim
-
         # mimeapps
         echo "Updating mimeapps list..."
         pv "$APP_PATH"/mimeapps.list >~/.config/mimeapps.list

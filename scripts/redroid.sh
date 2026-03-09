@@ -3,21 +3,20 @@
 # server
 adb start-server
 
-docker run -d \
-    --name android \
+docker run -itd --rm \
+    --name redroid12 \
+    --pull always \
     --privileged \
-    --tty \
     --restart no \
-    --stop-timeout 120 \
-    -p 127.0.0.1:5555:5555 \
+    -p 5556:5555 \
     -e TZ=Etc/GMT-3 \
-    -v "$PWD/data:/data" \
-    redroid/redroid:11.0.0_litegapps_ndk_magisk_widevine \
+    -v /opt/redroid/data:/data \
+    redroid/redroid:12.0.0_litegapps_ndk_magisk_widevine \
     androidboot.redroid_width=1600 \
     androidboot.redroid_height=1600 \
     androidboot.redroid_dpi=480 \
     androidboot.redroid_fps=60 \
-    androidboot.redroid_gpu_mode=host \
+    androidboot.redroid_gpu_mode=guest \
     ro.product.cpu.abilist0=x86_64,arm64-v8a,x86,armeabi-v7a,armeabi \
     ro.product.cpu.abilist64=x86_64,arm64-v8a \
     ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi \
@@ -28,4 +27,4 @@ docker run -d \
     ro.ndk_translation.version=0.2.2
 
 # connect
-adb connect localhost:5555
+sudo adb connect localhost:5556

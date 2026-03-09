@@ -33,43 +33,44 @@ local sofa_gain = 12
 local sofa_opts = "interpolate=1"
 
 -- Sofa file name (optional subdirectory)
-local sofa_file = "sofa/ClubFritz6.sofa"
+local sofa_file = "sofa/ClubFritz7.sofa"
 
 ---------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------
 function main(name, channels)
-    local af_add = "sofalizer=sofa=\"" .. mp.command_native({"expand-path", "~~/"}) .. "/" .. sofa_file .. "\":gain=" .. sofa_gain
-    if (sofa_opts ~= "") then
-        af_add = af_add .. ":" .. sofa_opts
-    end
-    if (channels == nil or channels < sofa_min_channels or channels > sofa_max_channels) then
-        mp.command("no-osd af remove '" .. af_add .. "'")
-        return
-    end
-    local af = mp.get_property("af")
-    if (string.find(af, "sofalizer")) then
-        return
-    end
-    print("Current --af=" .. af)
-    if (af == "") then
-        print("New     --af=" .. af_add)
-    else
-        print("New     --af=" .. af .. ";" .. af_add)
-    end
-    mp.command("no-osd af add '" .. af_add .. "'")
+	local af_add = "sofalizer=sofa=\"" ..
+			mp.command_native({ "expand-path", "~~/" }) .. "/" .. sofa_file .. "\":gain=" .. sofa_gain
+	if (sofa_opts ~= "") then
+		af_add = af_add .. ":" .. sofa_opts
+	end
+	if (channels == nil or channels < sofa_min_channels or channels > sofa_max_channels) then
+		mp.command("no-osd af remove '" .. af_add .. "'")
+		return
+	end
+	local af = mp.get_property("af")
+	if (string.find(af, "sofalizer")) then
+		return
+	end
+	print("Current --af=" .. af)
+	if (af == "") then
+		print("New     --af=" .. af_add)
+	else
+		print("New     --af=" .. af .. ";" .. af_add)
+	end
+	mp.command("no-osd af add '" .. af_add .. "'")
 end
 
 -- This is here so both changing files and changing audio id (if channel count changes) should retrigger main.
 function file_ended()
-    mp.unregister_event(file_ended)
-    mp.unobserve_property(main)
-    mp.register_event("file-loaded", file_loaded)
+	mp.unregister_event(file_ended)
+	mp.unobserve_property(main)
+	mp.register_event("file-loaded", file_loaded)
 end
 
 function file_loaded()
-    mp.unregister_event(file_loaded)
-    mp.register_event("end-file", file_ended)
-    mp.observe_property("audio-params/channel-count", "number", main)
+	mp.unregister_event(file_loaded)
+	mp.register_event("end-file", file_ended)
+	mp.observe_property("audio-params/channel-count", "number", main)
 end
 
 mp.register_event("file-loaded", file_loaded)

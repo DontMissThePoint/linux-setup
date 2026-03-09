@@ -91,7 +91,7 @@ while true; do
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
         ## kernel modules
-        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)"
+        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)" v4l2loopback-dkms
         sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
         sudo depmod -a
 
@@ -104,13 +104,17 @@ while true; do
         sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
         sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
 
-        # qtscrcpy
+        # scrcpy
         cd /tmp
-        curl -s 'https://api.github.com/repos/barry-ran/QtScrcpy/releases/latest' |\
-            jq -r ".assets[] | .browser_download_url" | grep ubuntu |\
+        curl -s 'https://api.github.com/repos/GeorgeEnglezos/Scrcpy-GUI/releases/latest' |\
+            jq -r ".assets[] | .browser_download_url" | grep linux |\
             xargs -n 1 curl -L -O --fail --silent --show-error
-        mv QtScrcpy* QtScrcpy.AppImage
-        appim -i QtScrcpy.AppImage
+        unzip *.zip && cd linux-build
+
+        # webcam
+        sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+        # v4l2-ctl --list-devices    # or you may `ls /dev/video*`
+        # scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
 
         # redroid
         toilet Settingup android -t -f future
@@ -130,11 +134,7 @@ while true; do
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
 
         # droid
-        if [ ! -e "$DROID" ]; then
-            mkdir -p "$DROID" && cd "$DROID"
-
-            . ../../scripts/redroid.sh
-        fi
+        . ../../scripts/redroid.sh
 
         # apk
         # adb -s localhost:5555 install "jp.naver.line.android.apk"
