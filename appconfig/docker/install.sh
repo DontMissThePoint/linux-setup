@@ -137,7 +137,7 @@ while true; do
         . ../../scripts/redroid.sh
 
         # apk
-        # adb -s localhost:5555 install "jp.naver.line.android.apk"
+        # adb -s localhost:5556 install "jp.naver.line.android.apk"
 
         # yt
         mkdir -p ~/VirtualMachines/YoutubeDL-Material
