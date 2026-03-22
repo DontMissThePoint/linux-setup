@@ -286,14 +286,14 @@ bindsym button8 move right
 # xprop. To get the instance and class
 for_window [title="File Transfer*"] floating enable
 for_window [title="pdfpc"] border none floating enable
-for_window [class="scrcpy*"] floating enable, resize set 1780 800, move container position center, focus
+for_window [class="scrcpy*"] floating enable, move container position center, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
 for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable, sticky enable, border normal
+for_window [class="^Zathura$"] floating enable, focus
 for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace6, floating enable
-for_window [class="^QtScrcpy$"] focus, fullscreen enable, move workspace $workspace5, floating enable
 
 for_window [class="SmartGit"] fullscreen enable, move workspace $workspace3, focus
 for_window [window_role="pop-up"] floating enable
@@ -1554,6 +1554,19 @@ border_radius 7
 
 # #}
 
+# #{ PANEL customization
+#
+# EPIGEN_ADD_BLOCK_PANEL {
+##
+# exec_always --no-startup-id setxkbmap -layout us,ua,cz -option "grp:rctrl_toggle"
+# bindsym $mod2+greater move workspace to output right
+# bindsym $mod2+less move workspace to output top
+
+# bindsym $mod2+m exec "~/.i3/detacher.sh 'cd $GIT_PATH/linux-setup/scripts; ./panel_set_monitor.sh'"
+# bindsym $mod2+w sticky toggle
+
+# EPIGEN_ADD_BLOCK_PANEL }
+
 # #{ auto commands after login
 
 # network monitor
@@ -1600,7 +1613,7 @@ exec --no-startup-id "newsboat -r -q"
 
 # find the window parameters by running "xprop"
 for_window [class="^Tk$"] floating enable
-for_window [class="^org.gnome.Nautilus$"] floating enable, focus
+for_window [class="^org.gnome.Nautilus$"] floating enable, resize set 1780 800, move container position center, focus
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^(V|v)imiv$"] floating enable, focus

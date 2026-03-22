@@ -97,24 +97,10 @@ while true; do
         zig build
         sudo "$(which zig)" build installexe -Dinit_system=systemd
 
-        # auto-detect connected display
-        cd /tmp
-        [ -e autorandr-launcher ] && sudo rm -rf autorandr-launcher
-        git clone https://github.com/smac89/autorandr-launcher
-        cd autorandr-launcher
-        sudo make install
-
-        # restore graphical session properties
-        cd /tmp
-        [ -e autorandr ] && sudo rm -rf autorandr
-        git clone https://github.com/phillipberndt/autorandr
-        cd autorandr
-        sudo make install
-
         #  service
         sudo systemctl daemon-reload
         sudo systemctl disable gdm3 getty@tty2.service
-        sudo systemctl enable autorandr.service autorandr-lid-listener.service ly@tty1.service
+        sudo systemctl enable ly@tty1.service ly@tty2.service
         sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
 
         # udev
@@ -125,7 +111,6 @@ while true; do
         sudo cp -f "$APP_PATH"/systemd/50-systemd-user.sh /etc/X11/xinit/xinitrc.d/50-systemd-user.sh
         sudo cp -f "$APP_PATH"/systemd/*.{service,timer} /usr/lib/systemd/user/
         systemctl --user daemon-reload
-        systemctl --user --now enable autorandr_launcher.service
         systemctl --user --now enable pipewire pipewire-pulse wireplumber
         systemctl --user start xidlehook.service {update-submodules,bandwidth}.{service,timer}
         sudo systemctl --global enable xidlehook.service {update-submodules,bandwidth}.{service,timer}
@@ -133,7 +118,6 @@ while true; do
         # vnstat
         sudo systemctl enable vnstat.service
         sudo systemctl start vnstat.service
-        # journalctl --follow --identifier='autorandr-launcher-service'
         # systemctl --user list-timers
 
         # battery

@@ -5,11 +5,6 @@ set -e
 trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
-# 18.04
-GIRARA_VERSION=0.2.6
-ZATHURA_VERSION=0.3.6
-ZATHURA_PDF_POPPLER_VERSION=0.2.7
-
 # get the path to this script
 APP_PATH=$(dirname "$0")
 APP_PATH=$( (cd "$APP_PATH" && pwd))
@@ -42,32 +37,15 @@ while true; do
 
         toilet Installing zathura -t --filter metal -f smmono12
 
-        if [ "$BEAVER" != "" ]; then
-
-            sudo apt-get -y remove zathura libgirara-dev
-            sudo apt-get -y install libmagic-dev libsynctex1 libsynctex-dev libgtk-3-dev xdotool latexmk libpoppler-glib-dev
-
-            sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
-
-            cd /tmp && git clone https://git.pwmt.org/pwmt/girara.git && cd girara && git checkout "$GIRARA_VERSION" && make && sudo make install
-            cd /tmp && git clone https://git.pwmt.org/pwmt/zathura.git && cd zathura && git checkout "$ZATHURA_VERSION" && make WITH_SYNCTEX=1 && sudo make install
-            cd /tmp && git clone https://github.com/pwmt/zathura-pdf-poppler.git && cd zathura-pdf-poppler && git checkout "$ZATHURA_PDF_POPPLER_VERSION" && make && sudo make install
-
-            sudo rm -rf /tmp/girara /tmp/zathura /tmp/zathura-pdf-poppler
-
-        else
-
-            sudo apt-get -y install zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pandoc pdf-presenter-console
-        fi
+        # zathura
+        sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pandoc pdf-presenter-console
 
         toilet Settingup visidata -t -f future
 
         # visidata
         sudo apt install -y python3-genshi python-lxml-doc img2pdf datamash pdftk visidata
 
-        # number of columns csv
-        # csvcut -n data.csv
-        # in2csv 1033_data.xlsx | csvcut -c county,item_name,quantity | csvlook | head
+        # packages
         /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
             datapackage pypng pdfminer.six ptpython pytz PyYAML lxml pandas \
             xlrd openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
