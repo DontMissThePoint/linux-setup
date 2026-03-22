@@ -8,7 +8,6 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=$(dirname "$0")
 APP_PATH=$( (cd "$APP_PATH" && pwd))
-DROID="$HOME/VirtualMachines/RedroidRoot"
 
 unattended=0
 subinstall_params=""
@@ -91,7 +90,7 @@ while true; do
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
         ## kernel modules
-        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)"
+        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)" v4l2loopback-dkms
         sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
         sudo depmod -a
 
@@ -102,15 +101,19 @@ while true; do
         wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
         unzip platform-tools-latest-linux.zip
         sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
-        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
+        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/ || echo "OK."
 
-        # qtscrcpy
+        # scrcpy
         cd /tmp
-        curl -s 'https://api.github.com/repos/barry-ran/QtScrcpy/releases/latest' |\
-            jq -r ".assets[] | .browser_download_url" | grep ubuntu |\
+        curl -s 'https://api.github.com/repos/GeorgeEnglezos/Scrcpy-GUI/releases/latest' |\
+            jq -r ".assets[] | .browser_download_url" | grep linux |\
             xargs -n 1 curl -L -O --fail --silent --show-error
-        mv QtScrcpy* QtScrcpy.AppImage
-        appim -i QtScrcpy.AppImage
+        unzip *.zip && cd linux-build
+
+        # webcam
+        sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+        # v4l2-ctl --list-devices    # or you may `ls /dev/video*`
+        # scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
 
         # redroid
         toilet Settingup android -t -f future
@@ -121,7 +124,7 @@ while true; do
         git clone https://github.com/ayasa520/redroid-script
         cd redroid-script
         python3 -m venv venv
-        venv/bin/pip instal -r requirements.txt
+        venv/bin/pip install -r requirements.txt
 
         # mindthegapp, magisk
         venv/bin/python3 redroid.py -a 11.0.0 -lg -mnw
@@ -129,15 +132,8 @@ while true; do
         # kernel
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
 
-        # droid
-        if [ ! -e "$DROID" ]; then
-            mkdir -p "$DROID" && cd "$DROID"
-
-            . ../../scripts/redroid.sh
-        fi
-
         # apk
-        # adb -s localhost:5555 install "jp.naver.line.android.apk"
+        # adb -s localhost:5556 install "jp.naver.line.android.apk"
 
         # yt
         mkdir -p ~/VirtualMachines/YoutubeDL-Material

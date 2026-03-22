@@ -100,7 +100,7 @@ while true; do
         #  service
         sudo systemctl daemon-reload
         sudo systemctl disable gdm3 getty@tty2.service
-        sudo systemctl enable ly@tty1.service
+        sudo systemctl enable ly@tty1.service ly@tty2.service
         sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
 
         # udev
@@ -118,7 +118,6 @@ while true; do
         # vnstat
         sudo systemctl enable vnstat.service
         sudo systemctl start vnstat.service
-        # journalctl --follow --identifier='autorandr-launcher-service'
         # systemctl --user list-timers
 
         # battery
