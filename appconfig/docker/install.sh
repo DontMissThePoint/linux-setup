@@ -8,7 +8,6 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 # get the path to this script
 APP_PATH=$(dirname "$0")
 APP_PATH=$( (cd "$APP_PATH" && pwd))
-DROID="$HOME/VirtualMachines/RedroidRoot"
 
 unattended=0
 subinstall_params=""
@@ -102,7 +101,7 @@ while true; do
         wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
         unzip platform-tools-latest-linux.zip
         sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
-        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/
+        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/ || echo "OK."
 
         # scrcpy
         cd /tmp
@@ -125,16 +124,13 @@ while true; do
         git clone https://github.com/ayasa520/redroid-script
         cd redroid-script
         python3 -m venv venv
-        venv/bin/pip instal -r requirements.txt
+        venv/bin/pip install -r requirements.txt
 
         # mindthegapp, magisk
         venv/bin/python3 redroid.py -a 11.0.0 -lg -mnw
 
         # kernel
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
-
-        # droid
-        . ../../scripts/redroid.sh
 
         # apk
         # adb -s localhost:5556 install "jp.naver.line.android.apk"

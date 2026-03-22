@@ -280,6 +280,12 @@ ln -sf "$APPCONFIG_PATH"/clangd/dotclang-tidy ~/.clang-tidy
 cd "$MY_PATH" && ./deploy_configs.sh
 
 #############################################
+# redroid
+#############################################
+
+. "$GIT_PATH"/.scripts/redroid.sh
+
+#############################################
 # display
 #############################################
 
