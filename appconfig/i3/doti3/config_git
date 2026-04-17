@@ -1613,7 +1613,7 @@ exec --no-startup-id "newsboat -r -q"
 
 # find the window parameters by running "xprop"
 for_window [class="^Tk$"] floating enable
-for_window [class="^org.gnome.Nautilus$"] floating enable, resize set 1780 800, move container position center, focus
+for_window [class="^org.gnome.Nautilus$"] floating enable, resize set 1780 800, move container position bottom, focus
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^(V|v)imiv$"] floating enable, focus
