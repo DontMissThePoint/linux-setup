@@ -1,5 +1,16 @@
 #!/bin/sh
 
+# Find MTP mount points in gvfs
+MTP_DIR="/run/user/$(id -u)/gvfs"
+PHONE=$(ls "$MTP_DIR" 2>/dev/null | grep "mtp:")
+
+if [ "$PHONE" != "" ]; then
+    echo "Android phone connected: $PHONE"
+    # To list files: ls "$MTP_DIR/$PHONE"
+else
+    echo "No MTP Android phone detected."
+fi
+
 # start server
 adb start-server
 

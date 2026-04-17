@@ -74,6 +74,7 @@ while true; do
         echo "Setting up remote desktop"
         if [ ! -e /etc/apt/sources.list.d/freerdp-nightly.list ]; then
 
+
             # GPG key
             sudo install -m 0755 -d /etc/apt/keyrings
             wget -O - http://pub.freerdp.com/repositories/ADD6BF6D97CE5D8D.asc | sudo gpg --dearmor -o /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg

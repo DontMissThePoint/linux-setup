@@ -52,7 +52,7 @@ while true; do
             virtualenv tomli tabulate odfpy
 
         # pipx
-        pipx install frogmouth dunk tiptop posting sqlit-tui
+        pipx install frogmouth dunk tiptop posting sqlit-tui "rendercv[full]"
 
         mkdir -p ~/.visidata ~/.config/zathura
         cp -f "$APP_PATH"/dotvisidata/* ~/.visidata

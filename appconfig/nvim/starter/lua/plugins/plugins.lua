@@ -7,6 +7,10 @@ local plugins = {
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
 			"Myzel394/jsonfly.nvim",
+			'nvim-lua/plenary.nvim',
+			-- optional but recommended
+			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+
 		},
 		keys = {
 			{
@@ -19,12 +23,12 @@ local plugins = {
 		},
 		opts = {
 			defaults = {
-				layout_strategy = "horizontal",
+				layout_strategy = "vertical",
 				layout_config = {
 					height = 0.9,
 					prompt_position = "bottom",
 					vertical = {
-						mirror = true,
+						mirror = false,
 						preview_cutoff = 0,
 					},
 				},
@@ -528,7 +532,22 @@ local plugins = {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			-- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
-			require("fzf-lua").setup { { "fzf-native", "fzf-tmux" }, winopts = { preview = { default = "bat" } } }
+			require("fzf-lua").setup { { "fzf-native", "fzf-tmux" },
+				fzf_opts   = {
+					["--layout"] = "default" },
+				previewers = {
+					bat = {
+						cmd  = "bat",
+						args = "--color=always --style=numbers,changes",
+					},
+				},
+				winopts    = {
+					preview = { default = "bat",
+						layout = "vertical",
+						vertical = "up:60%", -- up|down:size},
+					},
+				}
+			}
 		end,
 	},
 
