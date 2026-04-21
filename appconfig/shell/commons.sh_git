@@ -74,8 +74,9 @@ alias droid="cd $HOME/VirtualMachines/RedroidRoot; $GIT_PATH/linux-setup/scripts
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
-alias viz="devour vd -y"
-alias mpv="mpv -v"
+alias viz="vd -y"
+alias mpv="devour mpv -v"
+alias post="devour posting"
 
 # apt get multiple connections
 alias apt="apt-fast"

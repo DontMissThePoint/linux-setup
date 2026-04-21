@@ -91,7 +91,7 @@ while true; do
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
         ## kernel modules
-        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)" v4l2loopback-dkms
+        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)" v4l2loopback-dkms mtp-tools
         sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
         sudo depmod -a
 
@@ -135,6 +135,11 @@ while true; do
 
         # apk
         # adb -s localhost:5556 install "jp.naver.line.android.apk"
+
+        # xapk
+        # Rename your .xapk file to .zip.
+        # Unzip
+        # adb install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
 
         # yt
         mkdir -p ~/VirtualMachines/YoutubeDL-Material
