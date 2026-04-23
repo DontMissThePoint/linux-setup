@@ -532,7 +532,7 @@ local plugins = {
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		config = function()
 			-- run `:FzfLua setup_fzfvim_cmds` and use :Files, :Rg, etc.
-			require("fzf-lua").setup { { "fzf-native", "fzf-tmux" },
+			require("fzf-lua").setup { { "fzf-native" }, --, "fzf-tmux"
 				fzf_opts   = {
 					["--layout"] = "default" },
 				previewers = {

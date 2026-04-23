@@ -37,8 +37,6 @@ if [ "$PHONE" = "" ]; then
     echo "Waiting for ReDroid to boot..."
     sleep 5
 
-    # Connect
-    adb connect localhost:5556
 else
     echo "Android phone connected: $PHONE"
     # orientation
@@ -48,16 +46,10 @@ else
 fi
 
 # connect
-# adb connect localhost:5556 || echo "OK."
+adb connect localhost:5556 || sudo adb kill-server && adb start-server
 
-until
-adb connect localhost:5556
-do
-    sleep 1
-    echo -e "Verifying... ${RED} ✔ ${NC}"
-    scrcpy -w --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
-        --audio-codec=aac --audio-encoder=OMX.google.aac.encoder \
-        --max-size 1920 --window-borderless
-    # scrcpy -w --max-size 1600 --no-mouse-hover --window-borderless --window-y 0 # -S screen off save power
-
-done
+# display
+scrcpy -w --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
+    --audio-codec=aac --audio-encoder=OMX.google.aac.encoder \
+    --max-size 1920 --window-borderless
+# scrcpy -w --max-size 1600 --no-mouse-hover --window-borderless --window-y 0 # -S screen off save power

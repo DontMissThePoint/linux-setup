@@ -75,7 +75,6 @@ alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
 alias viz="vd -y"
-alias mpv="devour mpv -v"
 alias post="devour posting"
 
 # apt get multiple connections
