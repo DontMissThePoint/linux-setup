@@ -88,6 +88,7 @@ while true; do
         fi
 
         # docker
+        sudo apt update
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
         ## kernel modules
@@ -104,12 +105,13 @@ while true; do
         sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
         sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/ || echo "OK."
 
-        # scrcpy
+        # escrcpy
         cd /tmp
-        curl -s 'https://api.github.com/repos/GeorgeEnglezos/Scrcpy-GUI/releases/latest' |\
-            jq -r ".assets[] | .browser_download_url" | grep linux |\
+        curl -s 'https://api.github.com/repos/viarotel-org/escrcpy/releases/latest' |\
+            jq -r ".assets[] | .browser_download_url" | grep amd64 |\
             xargs -n 1 curl -L -O --fail --silent --show-error
-        unzip *.zip && cd linux-build
+        sudo dpkg -i *.deb
+        sudo chmod 4755 /opt/Escrcpy/chrome-sandbox
 
         # webcam
         sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
@@ -147,14 +149,6 @@ while true; do
         curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
         docker compose pull
         # youtubedl: http://localhost:8998/#/home
-
-        # pdfLatex / xeTex
-        if [ ! -e "$HOME"/VirtualMachines/TexLyre ]; then
-            git clone https://github.com/TeXlyre/texlyre
-            mv texlyre TexLyre && cd TexLyre
-            npm install
-            # npm start
-        fi
 
         # TX
         cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
