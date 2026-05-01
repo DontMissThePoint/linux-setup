@@ -59,6 +59,7 @@ if [ "$PHONE" = "" ]; then
 
     fi
 
+    # display
     # escrcpy
 
 else

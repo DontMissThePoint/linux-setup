@@ -21,7 +21,7 @@ echo "Syncing..."
 mega-sync ~/Documents/Dashboard 06.Dashboard || echo "[ ${GREEN}✔${NC} ] Dashboard"
 mega-sync ~/Documents/Scorecard 05.Scorecard || echo "[ ${GREEN}✔${NC} ] Scorecard"
 mega-sync ~/Pictures/Android\ Camera 04.Photos+Video/Android\ Camera || echo -e "[ ${GREEN}✔${NC} ] Camera"
-mega-sync ~/Journal 02.Journal || echo "[ ${GREEN}✔${NC} ] Journal"
+mega-sync ~/Public/Journal 02.Journal || echo "[ ${GREEN}✔${NC} ] Journal"
 
 # done
 mega-sync-issues
