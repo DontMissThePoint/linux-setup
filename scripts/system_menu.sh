@@ -1,9 +1,9 @@
 #!/bin/bash
-ACTION=$( echo "lock
+ACTION=$( echo "suspend
 shutdown
 reboot
+lock
 logout
-suspend
 hibernate" | rofi -dmenu -p "Select desired action:")
 
 case "$ACTION" in

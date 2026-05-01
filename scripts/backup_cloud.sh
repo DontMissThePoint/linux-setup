@@ -10,7 +10,7 @@ LINUX_REPOSITORY=rclone:mega:/07.OS/linux-setup
 LINUX_SETUP=$GIT_PATH/linux-setup
 
 # mount
-echo -e "Connecting ...\nOK."
+echo "Connection ...\nOK."
 
 # init
 num=$(rclone lsf mega:/07.OS/linux-setup | grep "config" | wc -l)

@@ -51,7 +51,7 @@ while true; do
 
         #access the web UI
         # localhost:8384/
-        mkdir -p ~/Journal ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
+        mkdir -p ~/Public/Journal ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
 
         # nextcloud
         toilet Installing nextcloud -t --filter metal -f smmono12

@@ -155,6 +155,6 @@ while true; do
     elif [[ $response =~ ^(n|N)=$ ]]; then
         break
     else
-        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+        # echo " What? \"$resp\" is not a correct answer. Try y+Enter."
     fi
 done
