@@ -42,7 +42,7 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 
 # LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
-export LEDGER_FILE="$HOME/Journal/ledger.dat"
+export LEDGER_FILE="$HOME/Public/Journal/ledger.dat"
 
 # NIX
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
