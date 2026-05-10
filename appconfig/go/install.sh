@@ -29,19 +29,31 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall go (nchat, ledger)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall go (pidgin nchat, ledger)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
         toilet Installing nchat -t --filter metal -f smmono12
-        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev
+        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev libgdk-pixbuf-2.0-0 libopusfile0 pidgin
 
         # go
         sudo apt-get remove -y --auto-remove golang-go
         sudo rm -rf /usr/local/go
         wget -c https://go.dev/dl/go1.25.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
+
+        # pidgin
+        cd /tmp
+        curl -s 'https://api.github.com/repos/hoehermann/purple-gowhatsapp/releases/latest' |\
+            jq -r ".assets[] | .browser_download_url" | grep amd64 |\
+            xargs -n 1 curl -L -O --fail --show-error
+        sudo dpkg -i *.deb
+
+        # login
+        UGREEN='\033[4;32m'
+        NC='\033[0m' # No Color
+        echo "Login at: 256XXXXXXXXX@s.whatsapp.net"
 
         # nchat
         cd /tmp

@@ -105,13 +105,8 @@ while true; do
         sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
         sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/ || echo "OK."
 
-        # escrcpy
-        cd /tmp
-        curl -s 'https://api.github.com/repos/viarotel-org/escrcpy/releases/latest' |\
-            jq -r ".assets[] | .browser_download_url" | grep amd64 |\
-            xargs -n 1 curl -L -O --fail --silent --show-error
-        sudo dpkg -i *.deb
-        sudo chmod 4755 /opt/Escrcpy/chrome-sandbox
+        # keyboard, mouse
+        sudo modprobe uhid
 
         # webcam
         sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
@@ -136,7 +131,7 @@ while true; do
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
 
         # apk
-        # adb -s localhost:5556 install "jp.naver.line.android.apk"
+        # adb -s 127.0.0.1:5552 install "jp.naver.line.android.apk"
 
         # xapk
         # Rename your .xapk file to .zip.
