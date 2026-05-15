@@ -1623,6 +1623,7 @@ for_window [class="^(N|n)extcloud$"] floating enable, focus
 for_window [class="^libreoffice$"] floating enable, focus
 for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable
+for_window [class="^Pidgin$"] floating enable, move workspace $workspace2, focus
 for_window [instance="scratchpad"] move scratchpad, scratchpad show
 for_window [instance="launcher"] fullscreen disable, move workspace $workspace1, focus
 

@@ -113,6 +113,10 @@ while true; do
         gsettings set org.gnome.desktop.interface cursor-theme 'Afterglow-Recolored-Gruvbox-Black'
         gsettings set org.gnome.desktop.interface cursor-size 32
 
+
+        # list
+        gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys
+
         # animations
         gsettings set org.gnome.desktop.interface enable-animations false
 

@@ -97,7 +97,7 @@ while true; do
         sudo depmod -a
 
         # adb
-        toilet Settingup adb -t -f future
+        toilet Settingup android -t -f future
 
         cd /tmp
         wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
@@ -113,20 +113,6 @@ while true; do
         # v4l2-ctl --list-devices    # or you may `ls /dev/video*`
         # scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
 
-        # redroid
-        toilet Settingup android -t -f future
-
-        # env
-        cd /tmp
-        [ -e redroid-script ] && rm -rf redroid-script
-        git clone https://github.com/ayasa520/redroid-script
-        cd redroid-script
-        python3 -m venv venv
-        venv/bin/pip install -r requirements.txt
-
-        # mindthegapp, magisk
-        venv/bin/python3 redroid.py -a 11.0.0 -lg -mnw
-
         # kernel
         sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
 
@@ -139,6 +125,8 @@ while true; do
         # adb install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
 
         # yt
+        toilet Settingup yt -t -f future
+
         mkdir -p ~/VirtualMachines/YoutubeDL-Material
         cd ~/VirtualMachines/YoutubeDL-Material
         curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
@@ -184,8 +172,8 @@ while true; do
         # quickemu --vm windows-11.conf --width 1920 --height 1080
         # focus cell: #87ff87 #0088cc
 
-        # Apps: 365, PowerBi, mupdf, Listary, f.lux
-        # irm https://get.activated.win | iex
+        # Apps: 365, PowerBi, mupdf, Listary,
+        # Activate: irm https://get.activated.win | iex
 
         # dockurr
         toilet Settingup dockurr -t -f future
@@ -196,13 +184,18 @@ while true; do
         # docker system prune -af
         BGREEN='\033[1;32m'
         NC='\033[0m' # No Color
-        echo -e "${BGREEN}> Windows active.${NC}"
+        echo -e "${BGREEN}> Windows debloating ...${NC}"
+
+        cd ~/Public
+        curl -s 'https://api.github.com/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
+            jq -r ".assets[] | .browser_download_url" | grep bat |\
+            xargs -n 1 curl -L -O --fail --show-error
 
         # ereader
         # Green: #b9edcd background: #384f45 links: #0088cc
 
         # calcpy
-        echo "(Advanced math solver).. using Python IPython, SymPy"
+        echo "Python math solver.. IPython, SymPy"
         pipx install git+https://github.com/idanpa/calcpy
 
         # glances

@@ -33,7 +33,7 @@ var=$(lsb_release -r | awk '{ print $2 }')
 
 arch=$(uname -i)
 
-# ownership
+# paths
 sudo chown -R "$USER": "$MY_PATH"
 find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
@@ -41,7 +41,7 @@ find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo 
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils xmlstarlet
 
 # python
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip

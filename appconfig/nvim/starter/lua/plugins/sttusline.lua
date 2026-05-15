@@ -24,6 +24,7 @@ return {
 					"git.diff.modified",
 					-- "os_uname",
 					"%=",
+					"datetime",
 					"diagnostic.error",
 					"diagnostic.warn",
 					"diagnostic.hint",

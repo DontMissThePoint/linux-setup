@@ -36,19 +36,31 @@ while true; do
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
         toilet Installing nchat -t --filter metal -f smmono12
-        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev libgdk-pixbuf-2.0-0 libopusfile0 pidgin
+        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libgdk-pixbuf2.0-dev libpurple-dev libopusfile-dev libmagic-dev libgdk-pixbuf-2.0-0 libopusfile0 pidgin pidgin-dev
+        brew unlink pkg-config libtool
 
         # go
         sudo apt-get remove -y --auto-remove golang-go
         sudo rm -rf /usr/local/go
         wget -c https://go.dev/dl/go1.25.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 
-        # pidgin
+        # whatsmeow
         cd /tmp
-        curl -s 'https://api.github.com/repos/hoehermann/purple-gowhatsapp/releases/latest' |\
-            jq -r ".assets[] | .browser_download_url" | grep amd64 |\
-            xargs -n 1 curl -L -O --fail --show-error
+        [ -e purple-whatsmeow ] && sudo rm -rf purple-whatsmeow
+        git clone --recurse-submodules https://github.com/hoehermann/purple-gowhatsapp.git purple-whatsmeow
+        cmake -S purple-whatsmeow -B build
+        sudo cmake --build build
+        sudo cmake --install build --strip
+        cd build && sudo cpack
         sudo dpkg -i *.deb
+
+        # paste-image
+        cd /tmp
+        [ -e pidgin-paste-image ] && sudo rm -rf pidgin-paste-image
+        git clone https://github.com/EionRobb/pidgin-paste-image
+        cd pidgin-paste-image
+        make -s -j8
+        sudo make install
 
         # login
         UGREEN='\033[4;32m'
@@ -72,9 +84,6 @@ while true; do
         echo "Setup go pakages..."
         go install github.com/howeyc/ledger/ledger@latest
 
-        # quran
-        go install github.com/omeiirr/quran-cli@latest
-
         # nerdlog
         go install github.com/dimonomid/nerdlog/cmd/nerdlog@master
 
@@ -84,14 +93,11 @@ while true; do
         # mpd-mpris
         go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest
 
-        # config
-        mkdir -p ~/.quran
-        pv "$APP_PATH"/config.yaml >~/.quran/config.yaml
-
         # messages
         UGREEN='\033[4;32m'
         NC='\033[0m' # No Color
         echo "nchat --setup to get started."
+        brew link pkg-config libtool
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
