@@ -2,7 +2,6 @@
 
 # USB Device
 PHONE=$(mtp-detect 2>/dev/null | grep "Model:" | cut -d':' -f2 | xargs)
-adb start-server
 
 # container
 if [ "$PHONE" = "" ]; then
@@ -25,9 +24,8 @@ scrcpy --serial 127.0.0.1:5552 --video-codec=h264 --video-encoder=OMX.google.h26
 do
 
     # server
-    adb kill-server
     sleep 1
 
     # connect
-    adb start-server && adb connect 127.0.0.1:5552
+    adb connect 127.0.0.1:5552
 done

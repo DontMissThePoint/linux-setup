@@ -110,41 +110,41 @@ while true; do
         git clone https://github.com/TeddyBearKilla/Afterglow-Cursors-Recolored
         cd Afterglow-Cursors-Recolored/colors/Gruvbox/Black
         sudo ./install.sh
-        gsettings set org.gnome.desktop.interface cursor-theme 'Afterglow-Recolored-Gruvbox-Black'
-        gsettings set org.gnome.desktop.interface cursor-size 32
+        gsettings set org.cinnamon.desktop.interface cursor-theme 'Afterglow-Recolored-Gruvbox-Black'
+        gsettings set org.cinnamon.desktop.interface cursor-size 32
 
 
         # list
-        gsettings list-recursively org.gnome.settings-daemon.plugins.media-keys
+        gsettings list-recursively org.cinnamon.settings-daemon.plugins.media-keys
 
         # animations
-        gsettings set org.gnome.desktop.interface enable-animations false
+        gsettings set org.cinnamon.desktop.interface enable-animations false
 
         # interface
-        gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
-        gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
-        gsettings set org.gnome.desktop.interface font-name 'Ubuntu Nerd Font Propo 9'
-        gsettings set org.gnome.desktop.interface document-font-name 'Inter Variable 9'
-        gsettings set org.gnome.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 9'
-        gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 9'
-        gsettings set org.gnome.desktop.wm.preferences titlebar-uses-system-font false
-        gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
-        gsettings set org.gnome.desktop.wm.preferences theme 'Arc-Darker'
-        gsettings set org.gnome.shell.ubuntu color-scheme 'prefer-light'
+        gsettings set org.cinnamon.desktop.interface gtk-theme 'Arc-Darker'
+        gsettings set org.cinnamon.desktop.interface icon-theme 'Papirus-Dark'
+        gsettings set org.cinnamon.desktop.interface font-name 'Ubuntu Nerd Font Propo 9'
+        gsettings set org.cinnamon.desktop.interface document-font-name 'Inter Variable 9'
+        gsettings set org.cinnamon.desktop.interface monospace-font-name 'Hurmit Nerd Font Mono 9'
+        gsettings set org.cinnamon.desktop.wm.preferences titlebar-font 'Cantarell Bold 9'
+        gsettings set org.cinnamon.desktop.wm.preferences titlebar-uses-system-font false
+        gsettings set org.cinnamon.desktop.interface color-scheme 'prefer-dark'
+        gsettings set org.cinnamon.desktop.wm.preferences theme 'Arc-Darker'
+        gsettings set org.cinnamon.shell.ubuntu color-scheme 'prefer-light'
 
         # interface
-        gsettings set org.gnome.desktop.interface scaling-factor 1
-        gsettings set org.gnome.desktop.interface text-scaling-factor 1
+        gsettings set org.cinnamon.desktop.interface scaling-factor 1
+        gsettings set org.cinnamon.desktop.interface text-scaling-factor 1
 
         # cursor
-        gsettings set org.gnome.desktop.interface overlay-scrolling false
-        gsettings set org.gnome.desktop.interface locate-pointer true
-        gsettings set org.gnome.desktop.interface cursor-size 32
+        gsettings set org.cinnamon.desktop.interface overlay-scrolling false
+        gsettings set org.cinnamon.desktop.interface locate-pointer true
+        gsettings set org.cinnamon.desktop.interface cursor-size 32
 
         # extensions
-        sudo mkdir -p /usr/share/themes/Arc-Darker/gnome-shell
-        sudo cp -f "$APP_PATH"/gnome-shell.css /usr/share/themes/Arc-Darker/gnome-shell/gnome-shell.css
-        gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Darker'
+        sudo mkdir -p /usr/share/themes/Arc-Darker/cinnamon
+        sudo cp -f "$APP_PATH"/cinnamon.css /usr/share/themes/Arc-Darker/cinnamon/cinnamon.css
+        gsettings set org.cinnamon.shell.extensions.user-theme name 'Arc-Darker'
 
         # cache
         sudo gtk-update-icon-cache -f -t /usr/share/icons/Papirus-Dark

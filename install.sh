@@ -234,12 +234,11 @@ if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
 fi
 
 #############################################
-# Disable snap
+# clean
 #############################################
 
 if command -v snap &> /dev/null; then
 
-    . ~/.scripts/remove_snap.sh
     . ~/.scripts/system_clean.sh
 
 fi

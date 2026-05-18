@@ -36,7 +36,7 @@ while true; do
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
         toilet Installing nchat -t --filter metal -f smmono12
-        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libgdk-pixbuf2.0-dev libpurple-dev libopusfile-dev libmagic-dev libgdk-pixbuf-2.0-0 libopusfile0 pidgin pidgin-dev
+        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libgdk-pixbuf2.0-dev libpurple-dev libopusfile-dev libmagic-dev libgdk-pixbuf-2.0-0 libopusfile0 pidgin finch irssi irssi-scripts pidgin-dev
         brew unlink pkg-config libtool
 
         # go
@@ -67,18 +67,8 @@ while true; do
         NC='\033[0m' # No Color
         echo "Login at: 256XXXXXXXXX@s.whatsapp.net"
 
-        # nchat
-        cd /tmp
-        [ -e nchat ] && sudo rm -rf nchat
-        git clone https://github.com/d99kris/nchat.git
-        cd nchat && mkdir -p build && cd build && cmake ..
-        make -s -j8
-        sudo make install
-
-        # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
-        # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
-        mkdir -p ~/.config/nchat
-        cp -f "$(dirname "$(which nchat)")"/../share/nchat/themes/zenbones-dark/* ~/.config/nchat/
+        # config
+        pv "$APP_PATH/gntrc" >~/.gntrc
 
         # ledger
         echo "Setup go pakages..."

@@ -172,7 +172,8 @@ while true; do
         # quickemu --vm windows-11.conf --width 1920 --height 1080
         # focus cell: #87ff87 #0088cc
 
-        # Apps: 365, PowerBi, mupdf, Listary,
+        # Install Apps: 365, PowerBi, mupdf, Listary, librewolf
+        #               joplin, smplayer, nextcloud
         # Activate: irm https://get.activated.win | iex
 
         # dockurr

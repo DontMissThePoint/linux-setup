@@ -1470,8 +1470,8 @@ border_radius 7
 # # # Bind calculator to Calculator button
 # # bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
-# # # Bind gnome-control-center to asus rogstrix key
-# # bindcode 156 exec gnome-control-center
+# # # Bind cinnamon-control-center to asus rogstrix key
+# # bindcode 156 exec cinnamon-control-center
 
 # # # Bind script to set monitors
 # # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh
@@ -1523,8 +1523,8 @@ border_radius 7
 # # # Bind calculator to Calculator button
 # # # bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
-# # # Bind gnome-control-center to Favorites key
-# # bindsym XF86Favorites exec gnome-control-center
+# # # Bind cinnamon-control-center to Favorites key
+# # bindsym XF86Favorites exec cinnamon-control-center
 
 # # # Bind script to set monitors
 # # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh
@@ -1623,7 +1623,7 @@ for_window [class="^(N|n)extcloud$"] floating enable, focus
 for_window [class="^libreoffice$"] floating enable, focus
 for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable
-for_window [class="^Pidgin$"] floating enable, move workspace $workspace2, focus
+for_window [class="^Pidgin$"] floating enable, move workspace $workspace2
 for_window [instance="scratchpad"] move scratchpad, scratchpad show
 for_window [instance="launcher"] fullscreen disable, move workspace $workspace1, focus
 
