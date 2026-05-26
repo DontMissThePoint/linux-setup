@@ -20,4 +20,4 @@ l = \r
 color-available = green; black
 color-away = blue; black
 color-message-highlight = black; green
-color-timestamp = yellow; default
+color-timestamp = cyan; default

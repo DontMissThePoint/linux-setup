@@ -47,6 +47,9 @@ while true; do
         # grub
         sudo sed -i -e 's/^#*\s*\(GRUB_DISABLE_OS_PROBER\).*/\1=true/g' \
             /etc/default/grub
+        sudo apt install --reinstall -o Dpkg::Options::="--force-confmiss" grub2-themes-ubuntu-mate
+
+        #
 
         # 3 3 3 3 for logs
         # 1 1 1 1 for animation

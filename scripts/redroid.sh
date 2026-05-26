@@ -1,41 +1,69 @@
 #!/bin/sh
 
-# start the container.
-# create if it does not exist
 DROID="redroid-android"
+OPTIONS="11.0.0\n13.0.0"
+VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
 
 # image
-docker image rm redroid/redroid:11.0.0_litegapps_ndk_magisk_widevine ||
-docker stop "$DROID"
+if [ "$VAR" = "" ]; then
+    echo "Exiting ..." # handle empty (e.g. ESC)
+    exit 1
+fi
 
 # Start the container if it is not running
 echo "Waiting for ReDroid to resume..."
 
-# password: redroid-android
-sudo systemctl daemon-reload
-sudo systemctl restart docker
+# Android
+docker restart "$DROID" || num=$(docker image ls | grep -c "$VAR")
+if [ "$num" -lt "1" ]; then
 
-# env
-cd "$GIT_PATH"/linux-setup/submodules/"$DROID"
-python3 -m venv venv
-venv/bin/pip install -r requirements.txt
+    # redroid-android
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
 
-# liteapps, magisk
-venv/bin/python3 redroid.py -a 11.0.0 -lg -mnw
+    # env
+    cd "$GIT_PATH"/linux-setup/submodules/"$DROID"
+    python3 -m venv venv
+    venv/bin/pip install -r requirements.txt
 
-# reset
-git reset --hard
-git submodule sync --recursive
-git submodule update --init --force --recursive
-git clean -ffdx
+    # liteapps, magisk
+    venv/bin/python3 redroid.py -a "$VAR" -lg -mnw
+    if [ "$VAR" = "11.0.0" ]; then
+        venv/bin/python3 redroid.py -a "$VAR" -lg -mnw
+    else
+        venv/bin/python3 redroid.py -a "$VAR" -i -lg -mn
+    fi
 
-docker run -itd --rm \
+    # reset
+    git reset --hard
+    git submodule sync --recursive
+    git submodule update --init --force --recursive
+    git clean -ffdx
+
+fi
+
+# bridge
+if [ "$VAR" = "13.0.0" ]; then
+
+    IMAGE="$VAR"_litegapps_houdini_magisk
+    BRIDGE=libhoudini.so
+    STORAGE="/var/droid/"$VAR"/data"
+else
+
+    IMAGE="$VAR"_litegapps_ndk_magisk_widevine
+    BRIDGE=libndk_translation.so
+    STORAGE="/opt/redroid/data"
+fi
+
+# container
+docker run -itd --rm --privileged \
     --name "$DROID" \
-    --privileged \
+    --memory 2g \
+    --memory-swap 6g \
     -p 5552:5555 \
     -p 5900:5900 \
-    -v /opt/redroid/data:/data \
-    redroid/redroid:11.0.0_litegapps_ndk_magisk_widevine \
+    -v "$STORAGE":/data \
+    redroid/redroid:"$IMAGE" \
     androidboot.redroid_width=1600 \
     androidboot.redroid_height=1600 \
     androidboot.redroid_dpi=480 \
@@ -51,10 +79,10 @@ docker run -itd --rm \
     ro.enable.native.bridge.exec=1 \
     ro.vendor.enable.native.bridge.exec=1 \
     ro.vendor.enable.native.bridge.exec64=1 \
-    ro.dalvik.vm.native.bridge=libndk_translation.so
-
-# enable debug
+    ro.dalvik.vm.native.bridge="$BRIDGE"
+#
+#### enable debug ####
 # docker exec -it redroid-android sh
 # logcat
 # dmesg -T
-sleep 3
+sleep 1

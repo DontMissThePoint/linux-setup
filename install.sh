@@ -237,8 +237,11 @@ fi
 # clean
 #############################################
 
-if command -v snap &> /dev/null; then
+if command -v ly &> /dev/null; then
 
+    sudo systemctl daemon-reload
+    sudo systemctl disable gdm3 getty@tty2.service
+    sudo systemctl enable ly@tty1.service ly@tty2.service
     . ~/.scripts/system_clean.sh
 
 fi
