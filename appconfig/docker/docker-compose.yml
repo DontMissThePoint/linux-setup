@@ -17,8 +17,6 @@ services:
     restart: on-failure
     volumes:
       # Please start with an empty /storage folder: rm -fr /var/win/*
-      # install a different version of Windows
-      # - /home/$USER/VirtualMachines/Windows-Docker/windows.iso:/custom.iso
       - /var/win:/storage
       - /home/$USER/Public:/shared
       - /etc/localtime:/etc/localtime:ro

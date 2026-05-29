@@ -19,13 +19,13 @@ fi
 # display
 until
 scrcpy --serial 127.0.0.1:5552 --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
-    --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder \
-    --max-size 1920 --window-borderless --no-mouse-hover --window-y 0
+    --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder #\
+    # --max-size 1920 --window-borderless --no-mouse-hover --window-y 0
 do
 
     # server
     sleep 1
 
     # connect
-    adb connect 127.0.0.1:5552 > /dev/null 2>&1
+    adb connect 127.0.0.1:5552
 done
