@@ -124,10 +124,6 @@ while true; do
         # Unzip
         # adb install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
 
-        # 15
-        mkdir -p ~/VirtualMachines/Redroid-Android
-        cp -f "$APP_PATH"/docker-compose_.yml ~/VirtualMachines/Redroid-Android/docker-compose.yml
-
         # yt
         toilet Settingup yt -t -f future
 

@@ -64,6 +64,9 @@ alias bt="devour btop"
 alias ox="devour oxker"
 alias gx="tmuxinator double"
 alias ra="devour ranger"
+alias cr="rsync -av --progress"
+alias rcp="rsync -ahP"
+
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"

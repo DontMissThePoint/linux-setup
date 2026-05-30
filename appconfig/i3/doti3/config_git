@@ -255,7 +255,7 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # bindsym $mod2+e exec nautilus
 bindsym $mod2+b exec qutebrowser
-bindsym $mod2+s exec /usr/share/smartgit/bin/smartgit.sh
+bindsym $mod2+s exec "sed -i 's/listx: {.*}/listx: {}/g' ~/.smartgit-preferences.yml; /usr/share/smartgit/bin/smartgit.sh"
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
 # bind i3 modes
@@ -295,7 +295,7 @@ for_window [class="Lxappearance"] floating enable, sticky enable, border normal
 for_window [class="^Zathura$"] floating enable, focus
 for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace6, floating enable
 
-for_window [class="SmartGit"] fullscreen enable, move workspace $workspace3, focus
+for_window [class="SmartGit"] move workspace $workspace3, focus, fullscreen enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
