@@ -42,7 +42,7 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 
 # LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
-export LEDGER_FILE="$HOME/Journal/ledger.dat"
+export LEDGER_FILE="$HOME/Public/Journal/ledger.dat"
 
 # NIX
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
@@ -64,14 +64,17 @@ alias bt="devour btop"
 alias ox="devour oxker"
 alias gx="tmuxinator double"
 alias ra="devour ranger"
+alias cr="rsync -av --progress"
+alias rcp="rsync -ahP"
+
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
 alias cs="$GIT_PATH/linux-setup/scripts/system_clean.sh"
 alias moonphase="$GIT_PATH/linux-setup/scripts/moonphase.sh"
-alias droid="cd $HOME/VirtualMachines/RedroidRoot; $GIT_PATH/linux-setup/scripts/redroid.sh"
 alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
+alias droid="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
 alias viz="vd -y"

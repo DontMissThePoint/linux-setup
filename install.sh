@@ -33,7 +33,7 @@ var=$(lsb_release -r | awk '{ print $2 }')
 
 arch=$(uname -i)
 
-# ownership
+# paths
 sudo chown -R "$USER": "$MY_PATH"
 find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo chmod +x
 
@@ -41,7 +41,7 @@ find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo 
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils xmlstarlet
 
 # python
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
@@ -93,46 +93,46 @@ fi
 # 9. Install NVIM
 ! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
 
-# 10. Install SYNCTHING
-! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
-
-# 11. Install I3
+# 10. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
 
-# 12. Install MULTIMEDIA support
+# 11. Install MULTIMEDIA support
 ! "$docker" && bash "$APPCONFIG_PATH"/multimedia/install.sh "$subinstall_params"
 
-# 13. Setup RANGER
+# 12. Setup RANGER
 ! "$docker" && bash "$APPCONFIG_PATH"/ranger/install.sh "$subinstall_params"
 
-# 14. Install ZATHURA
+# 13. Install ZATHURA
 ! "$docker" && bash "$APPCONFIG_PATH"/zathura/install.sh "$subinstall_params"
 
-# 15. Install VIMIV
+# 14. Install VIMIV
 ! "$docker" && bash "$APPCONFIG_PATH"/vimiv/install.sh "$subinstall_params"
 
-# 16. Setup modified keyboard rules
+# 15. Setup modified keyboard rules
 ! "$docker" && bash "$APPCONFIG_PATH"/keyboard/install.sh "$subinstall_params"
 
-# 17 Setup FZF
+# 16 Setup FZF
 ! "$docker" && bash "$APPCONFIG_PATH"/fzf/install.sh "$subinstall_params"
 
-# 18. Install VIM-STREAM
+# 17. Install VIM-STREAM
 ! "$docker" && bash "$APPCONFIG_PATH"/vim-stream/install.sh "$subinstall_params"
 
-# 19. Install LOLCAT
+# 18. Install LOLCAT
 ! "$docker" && bash "$APPCONFIG_PATH"/lolcat/install.sh "$subinstall_params"
 
-# 20. Install TMUXINATOR
+# 19. Install TMUXINATOR
 ! "$docker" && bash "$APPCONFIG_PATH"/tmuxinator/install.sh "$subinstall_params"
 
-# 21. Install REFIND
+# 20. Install REFIND
 if [ "$arch" != "aarch64" ]; then
     ! "$docker" && bash "$APPCONFIG_PATH"/refind/install.sh "$subinstall_params"
 fi
 
-# 22. Install DOCKER
+# 21. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
+
+# 22. Install SYNCTHING
+! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
 
 # 23. Install LOBSTER
 ! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
@@ -234,12 +234,14 @@ if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
 fi
 
 #############################################
-# Disable snap
+# clean
 #############################################
 
-if command -v snap &> /dev/null; then
+if command -v ly &> /dev/null; then
 
-    . ~/.scripts/remove_snap.sh
+    sudo systemctl daemon-reload
+    sudo systemctl disable gdm3 getty@tty2.service
+    sudo systemctl enable ly@tty1.service ly@tty2.service
     . ~/.scripts/system_clean.sh
 
 fi

@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up syncthing? (Encrypted backups, rclone) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up syncthing? (Encrypted backups, zerobyte) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -51,7 +51,7 @@ while true; do
 
         #access the web UI
         # localhost:8384/
-        mkdir -p ~/Public/Journal ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
+        mkdir -p ~/Public/{Journal,Notes} ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
 
         # nextcloud
         toilet Installing nextcloud -t --filter metal -f smmono12
@@ -72,6 +72,12 @@ while true; do
         mkdir -p ~/.elinks
         pv "$APP_PATH"/elinks.conf >~/.elinks/elinks.conf
         pipx install gdown
+
+        # Zerobyte
+        toilet Settingup zerobyte -t -f future
+
+        mkdir -p ~/VirtualMachines/Zerobyte-Backup
+        cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Zerobyte-Backup
 
         # MegaSync
         toilet Settingup megasync -t -f future

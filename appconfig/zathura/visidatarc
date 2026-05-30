@@ -84,9 +84,9 @@ options.color_menu_spec      =  'yellow underline'   # color of the help
 options.color_menu_active    =  'reverse underline'            # color of the menu selected
 options.color_current_row    =  '215 yellow'      # color of the cursor row
 options.color_current_col    =  '44 darkturquoise'   # color of the cursor column
-options.color_current_hdr    =  'bold italic reverse'  # color of the header for the cursor column
-options.color_bottom_hdr    =  'reverse'             # color of bottom header row
-options.color_current_cell   =  'white on black underline italic'         # color of the cell
+options.color_current_hdr    =  'bold italic'  # color of the header for the cursor column
+options.color_bottom_hdr    =  'mediumspringgreen'             # color of bottom header row
+options.color_current_cell   =  'mediumspringgreen underline italic'         # color of the cell
 options.color_column_sep     =  '238 mediumorchid3'  # color of column separators
 options.color_key_col        =  '25 blue on black'               # color of key columns
 options.color_hidden_col     =  '8'                  # color of hidden columns on metasheets
@@ -122,6 +122,9 @@ options.color_f5log_logid_notice = 'bold reverse'         # color of notice
 # Save (f11, f12)
 Sheet.bindkey('Shift+F1', 'save-sheet')
 Sheet.bindkey('Shift+F2', 'save-sheet')
+
+# TAB (Ctrl+`)
+Sheet.bindkey('Ctrl+Space', 'splitwin-swap')
 
 # Split (Insert)
 Sheet.bindkey('Ins', 'split-col')

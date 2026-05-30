@@ -1,0 +1,16 @@
+services:
+  zerobyte:
+    image: ghcr.io/nicotsx/zerobyte:v0.36
+    container_name: zerobyte
+    ports:
+      - "4096:4096"
+    stop_grace_period: 2m
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+      - /var/lib/zerobyte:/var/lib/zerobyte
+      - /path/to/your/directory:/mydata
+    environment:
+      - BASE_URL=http://localhost:4096
+      - APP_SECRET=94bad46...c66e25d5c2b
