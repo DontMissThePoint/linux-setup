@@ -85,14 +85,14 @@ while true; do
         # modules
         npm config set strict-ssl=false
         npm install --loglevel=error -g @mozilla/readability tree-sitter-cli \
-            jsonrepair terminal-image-cli qutejs @llamaindex/liteparse
+            jsonrepair terminal-image-cli qutejs
         pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
         # .env
         GREEN='\033[0;32m'
         NC='\033[0m' # No Color
 
-        until [ -e ~/Journal/llama-parse_API_KEY.json ] &&
+        until touch ~/Journal/llama-parse_API_KEY.json &&
         cat ~/Journal/llama-parse_API_KEY.json | docker run --name json2env -i decknroll/json2env >.env 2>/dev/null; do
             docker rm json2env
             sleep 1

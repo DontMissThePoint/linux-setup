@@ -29,39 +29,50 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall go (nchat, ledger)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall go (pidgin nchat, ledger)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
         toilet Installing nchat -t --filter metal -f smmono12
-        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev
+        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libgdk-pixbuf2.0-dev libpurple-dev libopusfile-dev libmagic-dev libgdk-pixbuf-2.0-0 libopusfile0 pidgin finch irssi irssi-scripts pidgin-dev
+        brew unlink pkg-config libtool
 
         # go
         sudo apt-get remove -y --auto-remove golang-go
         sudo rm -rf /usr/local/go
         wget -c https://go.dev/dl/go1.25.5.linux-amd64.tar.gz -O - | sudo tar -xz -C /usr/local
 
-        # nchat
+        # whatsmeow
         cd /tmp
-        [ -e nchat ] && sudo rm -rf nchat
-        git clone https://github.com/d99kris/nchat.git
-        cd nchat && mkdir -p build && cd build && cmake ..
+        [ -e purple-whatsmeow ] && sudo rm -rf purple-whatsmeow
+        git clone --recurse-submodules https://github.com/hoehermann/purple-gowhatsapp.git purple-whatsmeow
+        cmake -S purple-whatsmeow -B build
+        sudo cmake --build build
+        sudo cmake --install build --strip
+        cd build && sudo cpack
+        sudo dpkg -i *.deb
+
+        # paste-image
+        cd /tmp
+        [ -e pidgin-paste-image ] && sudo rm -rf pidgin-paste-image
+        git clone https://github.com/EionRobb/pidgin-paste-image
+        cd pidgin-paste-image
         make -s -j8
         sudo make install
 
-        # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
-        # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
-        mkdir -p ~/.config/nchat
-        cp -f "$(dirname "$(which nchat)")"/../share/nchat/themes/zenbones-dark/* ~/.config/nchat/
+        # login
+        UGREEN='\033[4;32m'
+        NC='\033[0m' # No Color
+        echo "Login at: 256XXXXXXXXX@s.whatsapp.net"
+
+        # config
+        pv "$APP_PATH/gntrc" >~/.gntrc
 
         # ledger
         echo "Setup go pakages..."
         go install github.com/howeyc/ledger/ledger@latest
-
-        # quran
-        go install github.com/omeiirr/quran-cli@latest
 
         # nerdlog
         go install github.com/dimonomid/nerdlog/cmd/nerdlog@master
@@ -72,14 +83,11 @@ while true; do
         # mpd-mpris
         go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest
 
-        # config
-        mkdir -p ~/.quran
-        pv "$APP_PATH"/config.yaml >~/.quran/config.yaml
-
         # messages
         UGREEN='\033[4;32m'
         NC='\033[0m' # No Color
         echo "nchat --setup to get started."
+        brew link pkg-config libtool
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

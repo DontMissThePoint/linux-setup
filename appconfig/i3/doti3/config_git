@@ -255,7 +255,7 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # bindsym $mod2+e exec nautilus
 bindsym $mod2+b exec qutebrowser
-bindsym $mod2+s exec /usr/share/smartgit/bin/smartgit.sh
+bindsym $mod2+s exec "sed -i 's/listx: {.*}/listx: {}/g' ~/.smartgit-preferences.yml; /usr/share/smartgit/bin/smartgit.sh"
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
 # bind i3 modes
@@ -295,7 +295,7 @@ for_window [class="Lxappearance"] floating enable, sticky enable, border normal
 for_window [class="^Zathura$"] floating enable, focus
 for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace6, floating enable
 
-for_window [class="SmartGit"] fullscreen enable, move workspace $workspace3, focus
+for_window [class="SmartGit"] move workspace $workspace3, focus, fullscreen enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -1470,8 +1470,8 @@ border_radius 7
 # # # Bind calculator to Calculator button
 # # bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
-# # # Bind gnome-control-center to asus rogstrix key
-# # bindcode 156 exec gnome-control-center
+# # # Bind cinnamon-control-center to asus rogstrix key
+# # bindcode 156 exec cinnamon-control-center
 
 # # # Bind script to set monitors
 # # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh
@@ -1523,8 +1523,8 @@ border_radius 7
 # # # Bind calculator to Calculator button
 # # # bindsym XF86Calculator exec --no-startup-id gnome-calculator
 
-# # # Bind gnome-control-center to Favorites key
-# # bindsym XF86Favorites exec gnome-control-center
+# # # Bind cinnamon-control-center to Favorites key
+# # bindsym XF86Favorites exec cinnamon-control-center
 
 # # # Bind script to set monitors
 # # # bindsym $mod2+m+l exec ~/scripts/two_screens_left.sh
@@ -1613,15 +1613,17 @@ exec --no-startup-id "newsboat -r -q"
 
 # find the window parameters by running "xprop"
 for_window [class="^Tk$"] floating enable
-for_window [class="^org.gnome.Nautilus$"] floating enable, resize set 1780 800, move container position center, focus
+for_window [class="^org.gnome.Nautilus$"] floating enable, resize set 1700 800, move container position center, focus
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^(V|v)imiv$"] floating enable, focus
 for_window [class="^(E|e)og$"] floating enable, focus
 for_window [class="^(MEGA|mega)sync$"] floating enable, focus
 for_window [class="^(N|n)extcloud$"] floating enable, focus
+for_window [class="^libreoffice$"] floating enable, focus
 for_window [class="^Zathura$"] fullscreen enable, focus
 for_window [class="^Google-chrome$"] floating disable
+for_window [class="^Pidgin$"] floating enable, move workspace $workspace2
 for_window [instance="scratchpad"] move scratchpad, scratchpad show
 for_window [instance="launcher"] fullscreen disable, move workspace $workspace1, focus
 

@@ -4,10 +4,10 @@
 PNAME=$( ps -p "$$" -o comm= )
 SNAME=$( echo "$SHELL" | grep -Eo '[^/]+/?$' )
 if [ "$PNAME" != "$SNAME" ]; then
-  exec "$SHELL" "$0" "$@"
-  exit "$?"
+    exec "$SHELL" "$0" "$@"
+    exit "$?"
 else
-  source ~/."$SNAME"rc
+    source ~/."$SNAME"rc
 fi
 
 ./submodules/profile_manager/profile_manager.sh deploy ./appconfig/profile_manager/file_list.txt

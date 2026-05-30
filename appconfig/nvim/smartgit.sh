@@ -3,35 +3,23 @@
 # get the path to this script
 APP_PATH=$(dirname "$0")
 APP_PATH=$( (cd "$APP_PATH" && pwd))
+SMART_VERSION=26.1
+CONFIG="$HOME/.config/smartgit/$SMART_VERSION"
 
 # syntevo
 cd "$APP_PATH"
 
-wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
-# wget -c https://download.smartgit.dev/smartgit/smartgit-25_1_102-linux_amd64.deb
+wget -c https://download.smartgit.dev/smartgit/smartgit-26_1_038-linux_amd64.deb
+# wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
 # Activate
 toilet Setting up smartgit -t -f future
 
 sudo dpkg -i *.deb || sudo apt install -fy
 rm -fr "$APP_PATH"/*.deb ~/.config/smartgit
-num=$(grep -c "NEW_DATE" </usr/share/smartgit/bin/smartgit.sh)
-if [ "$num" -lt "1" ]; then
+# sed -i 's/listx: {.*}/listx: {}/g' preferences.yml
 
-    echo "Activating..."
-    echo '
-# auto-reset trial period
-config="~/.config/smartgit/20.2/preferences.yml"
-# current date in msec + 25 days
-NEW_DATE=$(date -d"+25 days" +%s%3N)
-# sed is for change old date for new one in config
-sed -r -i "s/(listx: \{eUT: )[0-9]+/\1$NEW_DATE/g" $config
-    sed -r -i "s/(, nRT: )[0-9]+/\1$NEW_DATE/g" $config' |
-    sudo tee -a /usr/share/smartgit/bin/smartgit.sh >/dev/null
-
-fi
-
-# Validate email
+# user
 validate_email() {
     local email="$1"
     # regex for email validation
@@ -61,7 +49,9 @@ if [ ! -e ~/.ssh/id_ed25519 ]; then
 fi
 
 # config
-mkdir -p ~/.config/smartgit/20.2
-pv "$APP_PATH"/smartgit.properties >~/.config/smartgit/20.2/smartgit.properties
+mkdir -p "$CONFIG"
+
+ln -sf "$CONFIG"/preferences.yml ~/.smartgit-preferences.yml
+pv "$APP_PATH"/smartgit.properties > "$CONFIG"/smartgit.properties
 pv "$APP_PATH"/gitconfig >~/.gitconfig
 pv ./ssh_config >~/.ssh/config

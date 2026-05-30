@@ -86,3 +86,6 @@
 	path = submodules/fonts
 	url = https://github.com/powerline/fonts
 	branch = master
+[submodule "submodules/redroid-android"]
+	path = submodules/redroid-android
+	url = https://github.com/ayasa520/redroid-script

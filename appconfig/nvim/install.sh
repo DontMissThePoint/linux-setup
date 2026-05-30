@@ -58,7 +58,7 @@ while true; do
         rustup update
 
         # cargo
-        cargo install cargo-update cargo-cache shellharden felix
+        cargo install cargo-update cargo-cache shellharden felix portview
         # rustup self uninstall
 
         # fx
