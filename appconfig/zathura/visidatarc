@@ -129,6 +129,17 @@ Sheet.bindkey('Ctrl+Space', 'splitwin-swap')
 # Split (Insert)
 Sheet.bindkey('Ins', 'split-col')
 
+# pane resize
+# z + Shift+Z
+
+# full screen
+# g + Shift+Z
+
+# Swap
+# Shift+Z
+# Tab
+# Ctrl+^
+
 # Repeat
 Sheet.unbindkey('.')
 Sheet.bindkey('.', 'repeat-input')

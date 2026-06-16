@@ -177,11 +177,14 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " fzf tmux popup window
-if exists('$TMUX')
-  let g:fzf_layout = { 'tmux': '-p60%,40%' }
-else
-  let g:fzf_layout = { 'window': { 'width': 0.65, 'height': 0.6 } }
-endif
+" if exists('$TMUX')
+"   let g:fzf_layout = { 'tmux': '-p60%,40%' }
+" else
+"   let g:fzf_layout = { 'window': { 'width': 0.65, 'height': 0.6 } }
+" endif
+
+" vertical split right
+let g:fzf_layout = { 'right': '40%' }
 
 " Preview window is hidden by default. You can toggle it with ctrl-/.
 " 50% , but if the width is smaller
@@ -418,10 +421,9 @@ function DataViz()
   " Preselect
   iabbrev <silent> i <Cmd>:call fzf#run(fzf#wrap({
         \ 'source': readfile(expand('$HOME/.cards.txt')),
-        \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
-        \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },
-        \ 'options': '+m --header "" --border-label "Select gas station"
-        \ --preview "" --prompt "Location	: 💳 "'}))<CR>
+        \ 'sink': function('Swipe'), 'right': '40%',
+        \ 'options': '+m --no-reverse --header "" --border-label "Select gas station"
+        \ --preview "" --prompt "Location: 💳 "'}))<CR>
 
   " Canvas
   setlocal noexpandtab ruler

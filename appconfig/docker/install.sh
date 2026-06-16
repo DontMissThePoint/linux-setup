@@ -122,7 +122,7 @@ while true; do
         # xapk
         # Rename your .xapk file to .zip.
         # Unzip
-        # adb install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
+        # adb -s 127.0.0.1:5552 install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
 
         # yt
         toilet Settingup yt -t -f future
