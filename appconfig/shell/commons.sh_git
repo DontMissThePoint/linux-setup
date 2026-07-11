@@ -4,6 +4,11 @@ export QT_SCREEN_SCALE_FACTORS=1
 export GDK_SCALE=0
 export GDK_DPI_SCALE=0
 
+# PIP
+export PIP_USE_PEP517=true
+export PIP_BREAK_SYSTEM_PACKAGES=true
+
+
 # FZF
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
@@ -69,6 +74,7 @@ alias rcp="rsync -ahP"
 
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
+alias mpv="mpv --msg-level=all=v"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
 alias cs="$GIT_PATH/linux-setup/scripts/system_clean.sh"

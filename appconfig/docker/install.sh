@@ -162,9 +162,9 @@ while true; do
         if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
             sudo apt-add-repository ppa:flexiondotorg/quickemu
             sudo apt update
-            sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
-            sudo apt install -y --no-install-recommends samba
         fi
+        sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
+        sudo apt install -y --no-install-recommends samba
 
         # quickget windows 11
         # quickemu --vm windows-11.conf --width 1920 --height 1080

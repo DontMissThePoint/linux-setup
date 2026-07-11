@@ -49,7 +49,7 @@ while true; do
         [ -e purple-whatsmeow ] && sudo rm -rf purple-whatsmeow
         git clone --recurse-submodules https://github.com/hoehermann/purple-gowhatsapp.git purple-whatsmeow
         cmake -S purple-whatsmeow -B build
-        sudo cmake --build build
+        cmake --build build
         sudo cmake --install build --strip
         cd build && sudo cpack
         sudo dpkg -i *.deb
@@ -83,9 +83,17 @@ while true; do
         # mpd-mpris
         go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest
 
+        # nchat
+        toilet Settingup nchat -t -f future
+
+        cd /tmp
+        [ -e nchat ] && sudo rm -rf nchat
+        git clone https://github.com/d99kris/nchat
+        cd nchat
+        ./make.sh deps
+        ./make.sh build && ./make.sh install
+
         # messages
-        UGREEN='\033[4;32m'
-        NC='\033[0m' # No Color
         echo "nchat --setup to get started."
         brew link pkg-config libtool
 
