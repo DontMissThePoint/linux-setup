@@ -57,7 +57,7 @@ windows:
   - nvim:
       layout: b0ff,147x41,0,0,2
       panes:
-        - calcpy & ; topbar 'fx' & ; nvim && fg
+        - calcpy & ; topbar 'fx' & ; nvim -nR && fg
   - logs:
       layout: 46ca,147x41,0,0[147x31,0,0{117x31,0,0,3,29x31,118,0,4},147x9,0,32,5]
       panes:

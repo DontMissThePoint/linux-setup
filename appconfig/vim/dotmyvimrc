@@ -421,9 +421,10 @@ function DataViz()
   " Preselect
   iabbrev <silent> i <Cmd>:call fzf#run(fzf#wrap({
         \ 'source': readfile(expand('$HOME/.cards.txt')),
-        \ 'sink': function('Swipe'), 'right': '40%',
-        \ 'options': '+m --no-reverse --header "" --border-label "Select gas station"
-        \ --preview "" --prompt "Location: 💳 "'}))<CR>
+        \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
+        \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },
+        \ 'options': '+m --header "" --border-label "Select gas station"
+        \ --preview "" --prompt "Location	: 💳 "'}))<CR>
 
   " Canvas
   setlocal noexpandtab ruler

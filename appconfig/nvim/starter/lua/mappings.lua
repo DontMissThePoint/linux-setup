@@ -173,4 +173,4 @@ end, { silent = true, noremap = true }, { desc = "toggle diagnostics" })
 --   { silent = true, noremap = true },
 --   { desc = "save quit" }
 -- )
-map("n", "<leader>ww", "<cmd>wall<cr>", { desc = "Write all" })
+map("n", "<leader>ww", "<cmd>wall!<cr>", { desc = "Write all" })

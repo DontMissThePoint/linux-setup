@@ -2,7 +2,7 @@
 
 DROID="redroid-android"
 # OPTIONS="11.0.0\n16.0.0"
-OPTIONS="11.0.0"
+OPTIONS="11.0.0\n15.0.0"
 WINDOWS="$(docker inspect -f '{{ .State.Status }}' windows)"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
 
@@ -55,8 +55,8 @@ if [ "$VAR" = "11.0.0" ]; then
 else
 
     STORAGE="/var/redroid:/data"
-    IMAGE="redroid/redroid:"$VAR"_litegapps_magisk_widevine"
-    BRIDGE=libhoudini.so
+    IMAGE="erstt/redroid:"$VAR"_ndk_magisk_litegapps_AVD"
+    BRIDGE=libndk_translation.so
 
 fi
 

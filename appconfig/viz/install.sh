@@ -29,7 +29,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall Zathura? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall VIZ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -49,7 +49,7 @@ while true; do
         /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
             datapackage pypng pdfminer.six ptpython pytz PyYAML lxml pandas \
             xlrd openpyxl pyxlsb h5py xport savReaderWriter requests IPython \
-            virtualenv tomli tabulate odfpy
+            virtualenv tomli tabulate odfpy rbql
 
         # pipx
         pipx install frogmouth dunk tiptop posting sqlit-tui

@@ -41,7 +41,7 @@ find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo 
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool moreutils xmlstarlet
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool wifi-qr moreutils
 
 # python
 sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
@@ -102,8 +102,8 @@ fi
 # 12. Setup RANGER
 ! "$docker" && bash "$APPCONFIG_PATH"/ranger/install.sh "$subinstall_params"
 
-# 13. Install ZATHURA
-! "$docker" && bash "$APPCONFIG_PATH"/zathura/install.sh "$subinstall_params"
+# 13. Install VIZ
+! "$docker" && bash "$APPCONFIG_PATH"/viz/install.sh "$subinstall_params"
 
 # 14. Install VIMIV
 ! "$docker" && bash "$APPCONFIG_PATH"/vimiv/install.sh "$subinstall_params"
