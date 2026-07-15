@@ -289,13 +289,13 @@ for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, move container position center, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
-for_window [class="^Vivaldi-stable$"] fullscreen enable, move workspace $workspace3, focus
+for_window [class="^Vivaldi-stable$"] floating enable, move workspace $workspace1, focus
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable, sticky enable, border normal
 for_window [class="^Zathura$"] floating enable, focus
 for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace6, floating enable
 
-for_window [class="SmartGit"] move workspace $workspace3, focus, fullscreen enable
+for_window [class="SmartGit"] move workspace $workspace3, focus
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="task_dialog"] floating enable
@@ -437,7 +437,10 @@ set_from_resource $term_color15 color15
 # set $urgent                   #f7768e
 # set $i3bar_bg                 #1a1b26
 # exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/cloud-computing.jpg
-# for_window [class="^.*"] border pixel 0
+
+# default_border pixel 1
+# default_floating_border pixel 1
+# for_window [class="^.*"] border pixel 1
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 
@@ -1613,7 +1616,7 @@ exec --no-startup-id "newsboat -r -q"
 
 # find the window parameters by running "xprop"
 for_window [class="^Tk$"] floating enable
-for_window [class="^org.gnome.Nautilus$"] floating enable, resize set 1700 800, move container position center, focus
+for_window [class="^org.gnome.Nautilus$"] bar mode hide, floating enable, resize set 1700 800, move container position center
 for_window [class="^Octave-gui$"] floating enable
 for_window [class="^(P|p)qiv$"] fullscreen enable, focus
 for_window [class="^(V|v)imiv$"] floating enable, focus

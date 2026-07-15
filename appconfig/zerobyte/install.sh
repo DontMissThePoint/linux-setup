@@ -1,0 +1,113 @@
+#!/bin/bash
+
+set -e
+
+trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
+trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
+
+# get the path to this script
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
+
+unattended=0
+subinstall_params=""
+for param in "$@"; do
+    echo "$param"
+    if [ "$param=--unattended" ]; then
+        echo "installing in unattended mode"
+        unattended=1
+        subinstall_params="--unattended"
+    fi
+done
+
+default=y
+while true; do
+    if [[ "$unattended" == "1" ]]; then
+        resp=$default
+    else
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mSet up zerobyte? (Encrypted backups, syncthing) [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+    fi
+    response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
+
+    if [[ $response =~ ^(y|Y)=$ ]]; then
+
+        toilet Installing zerobyte -t --filter metal -f smmono12
+
+        # sources
+        sudo rm -f /etc/apt/sources.list.d/syncthing.list
+
+        # Syncthing
+        sudo apt install -y gnupg2 curl apt-transport-https
+        curl -fsSL https://syncthing.net/release-key.txt | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/syncthing.gpg
+        echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+        sudo apt update
+        sudo apt install -y syncthing
+        sudo systemctl enable syncthing@"$USER".service
+        sudo systemctl start syncthing@"$USER".service
+        # sudo systemctl status syncthing@$USER.service
+
+        # open port 22000 firewall
+        sudo ufw allow 22000/tcp
+
+        #access the web UI
+        # localhost:8384/
+        mkdir -p ~/Public/{Journal,Notes} ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
+
+        # nextcloud
+        toilet Settingup nextcloud -t -f future
+
+        the_ppa=xtradeb/apps
+        if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+            sudo add-apt-repository -y ppa:xtradeb/apps
+            sudo apt update
+            sudo apt install -y shutter nextcloud-desktop
+        fi
+
+        # MegaSync
+        toilet Settingup megasync -t -f future
+
+        # Rclone
+        rclone config
+        # rclone rcd --rc-web-gui
+
+        # GDrive
+        mkdir -p ~/.elinks
+        pv "$APP_PATH"/elinks.conf >~/.elinks/elinks.conf
+        pipx install gdown
+
+        # Add MEGA’s public signing key
+        if [ ! -e /etc/apt/sources.list.d/megaio.sources ]; then
+            curl -fsSL "https://mega.nz/linux/repo/xUbuntu_$(lsb_release -r | awk '{ print $2 }')/Release.key" | gpg --dearmor |
+            sudo tee /usr/share/keyrings/meganz-archive-keyring.gpg >/dev/null
+            sudo chmod a+r /usr/share/keyrings/meganz-archive-keyring.gpg
+
+            sudo tee /etc/apt/sources.list.d/megaio.sources > /dev/null <<EOF
+Types: deb
+URIs: https://mega.nz/linux/repo/xUbuntu_$(lsb_release -r | awk '{ print $2 }')/
+Suites: ./
+Signed-By: /etc/apt/keyrings/meganz-archive-keyring.gpg
+EOF
+
+            sudo apt-get update
+        fi
+
+        # MegaCMD
+        sudo apt-get install -y megacmd megasync nautilus-megasync
+        . "$APP_PATH"/dotsync.sh || echo "Done."
+
+        # Zerobyte
+        toilet Settingup zerobyte -t -f future
+
+        mkdir -p ~/VirtualMachines/Zerobyte-Backup/secrets
+        cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Zerobyte-Backup
+        cp -f "$APP_PATH"/app_secret.txt ~/VirtualMachines/Zerobyte-Backup/secrets
+
+        echo "Done."
+
+        break
+    elif [[ $response =~ ^(n|N)=$ ]]; then
+        break
+    else
+        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+    fi
+done

@@ -86,23 +86,6 @@ while true; do
         # console
         sudo dpkg-reconfigure -plow console-setup
 
-        # ly backend
-        sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev systemd
-
-        # console
-        cd /tmp
-        [ -e ly ] && sudo rm -rf ly
-        git clone https://github.com/fairyglade/ly
-        cd ly
-        zig build
-        sudo "$(which zig)" build installexe -Dinit_system=systemd
-
-        #  service
-        sudo systemctl daemon-reload
-        sudo systemctl disable gdm3 getty@tty2.service
-        sudo systemctl enable ly@tty1.service ly@tty2.service
-        sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
-
         # udev
         sudo udevadm control --reload-rules
 

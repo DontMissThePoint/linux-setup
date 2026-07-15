@@ -129,7 +129,7 @@ local function load_files(dtitle, destination, audio, wait)
 			audio .. 'force-media-title="' .. dtitle .. '",demuxer-max-back-bytes=1MiB,demuxer-max-bytes=3MiB,ytdl=no')
 	else
 		mp.commandv("loadfile", destination .. ".mkv", "append",
-			audio .. 'force-media-title="' .. dtitle .. '",demuxer-max-back-bytes=1MiB,demuxer-max-bytes=3MiB,ytdl=no')                                                --,sub-file="..destination..".en.vtt") --in case they are not set up to autoload
+			audio .. 'force-media-title="' .. dtitle .. '",demuxer-max-back-bytes=1MiB,demuxer-max-bytes=3MiB,ytdl=no') --,sub-file="..destination..".en.vtt") --in case they are not set up to autoload
 	end
 	mp.commandv("playlist_move", mp.get_property("playlist-count") - 1, nextIndex)
 	mp.commandv("playlist_remove", nextIndex + 1)
@@ -142,7 +142,7 @@ local listenID = ""
 local function listener(event)
 	if not caught and event.prefix == mp.get_script_name() and string.find(event.text, listenID) then
 		local destination = string.match(event.text, "%[download%] Destination: (.+).mkv") or
-			string.match(event.text, "%[download%] (.+).mkv has already been downloaded")
+				string.match(event.text, "%[download%] (.+).mkv has already been downloaded")
 		-- if destination then print("---"..cachePath) end;
 		if destination and string.find(destination, string.gsub(cachePath, '~/', '')) then
 			-- print(listenID)
@@ -222,7 +222,7 @@ local function download_files(id, success, result, error)
 	json = utils.parse_json(result.stdout)
 	-- print(dump(json))
 	if json.requested_downloads[1].requested_formats ~= nil then
-		local args = { ytdl, "--no-continue", "-q", "-f", fAudio,restrictFilenames, "--no-playlist", "--no-part",
+		local args = { ytdl, "--no-continue", "-q", "-f", fAudio, restrictFilenames, "--no-playlist", "--no-part",
 			"-o", cachePath .. "/" .. id .. "-%(title)s-%(id)s.mka", "--load-info-json", jfile }
 		args = addOPTS(args)
 		AudioDownloadHandle = mp.command_native_async({
@@ -237,7 +237,7 @@ local function download_files(id, success, result, error)
 		fVideo = fVideo:gsub("bv", "best")
 	end
 
-	local args = { ytdl, "--no-continue", "-f", fVideo .. '/best',restrictFilenames, "--no-playlist",
+	local args = { ytdl, "--no-continue", "-f", fVideo .. '/best', restrictFilenames, "--no-playlist",
 		"--no-part", "-o", cachePath .. "/" .. id .. "-%(title)s-%(id)s.mkv", "--load-info-json", jfile }
 	args = addOPTS(args)
 	VideoDownloadHandle = mp.command_native_async({

@@ -177,11 +177,14 @@ let g:fzf_colors =
 let g:fzf_history_dir = '~/.local/share/fzf-history'
 
 " fzf tmux popup window
-if exists('$TMUX')
-  let g:fzf_layout = { 'tmux': '-p60%,40%' }
-else
-  let g:fzf_layout = { 'window': { 'width': 0.65, 'height': 0.6 } }
-endif
+" if exists('$TMUX')
+"   let g:fzf_layout = { 'tmux': '-p60%,40%' }
+" else
+"   let g:fzf_layout = { 'window': { 'width': 0.65, 'height': 0.6 } }
+" endif
+
+" vertical split right
+let g:fzf_layout = { 'right': '40%' }
 
 " Preview window is hidden by default. You can toggle it with ctrl-/.
 " 50% , but if the width is smaller

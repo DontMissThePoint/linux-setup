@@ -1,6 +1,7 @@
 #!/bin/sh
 
 DROID="redroid-android"
+# OPTIONS="11.0.0\n16.0.0"
 OPTIONS="11.0.0\n15.0.0"
 WINDOWS="$(docker inspect -f '{{ .State.Status }}' windows)"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
@@ -21,38 +22,41 @@ fi
 num=$(docker image ls | grep -c "$VAR")
 
 # bridge
+if [ "$num" -lt "1" ]; then
+
+    # redroid
+    sudo systemctl daemon-reload
+    sudo systemctl restart docker
+
+    # env
+    cd "$GIT_PATH"/linux-setup/submodules/"$DROID"
+    python3 -m venv venv
+    venv/bin/pip install -r requirements.txt
+
+    # liteapps, magisk
+    venv/bin/python3 redroid.py -a "$VAR" -lg -mnw
+
+    # reset
+    git reset --hard
+    git submodule sync --recursive
+    git submodule update --init --force --recursive
+    git clean -ffdx
+
+fi
+
+
+# STORAGE
 if [ "$VAR" = "11.0.0" ]; then
 
+    STORAGE="/opt/redroid:/data"
     IMAGE="redroid/redroid:"$VAR"_litegapps_ndk_magisk_widevine"
     BRIDGE=libndk_translation.so
-    STORAGE="/opt/redroid:/data"
 
-    if [ "$num" -lt "1" ]; then
-
-        # redroid
-        sudo systemctl daemon-reload
-        sudo systemctl restart docker
-
-        # env
-        cd "$GIT_PATH"/linux-setup/submodules/"$DROID"
-        python3 -m venv venv
-        venv/bin/pip install -r requirements.txt
-
-        # liteapps, magisk
-        venv/bin/python3 redroid.py -a "$VAR" -lg -mnw
-
-        # reset
-        git reset --hard
-        git submodule sync --recursive
-        git submodule update --init --force --recursive
-        git clean -ffdx
-
-    fi
 else
 
+    STORAGE="/var/redroid:/data"
     IMAGE="erstt/redroid:"$VAR"_ndk_magisk_litegapps_AVD"
     BRIDGE=libndk_translation.so
-    STORAGE="/var/redroid:/data"
 
 fi
 

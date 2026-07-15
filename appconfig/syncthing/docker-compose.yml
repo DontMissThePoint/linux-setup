@@ -10,7 +10,11 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - /var/lib/zerobyte:/var/lib/zerobyte
-      - /path/to/your/directory:/mydata
+      - ~/linux-setup/:/linux-setup
     environment:
+      - TZ=Europe/Moscow
+
       - BASE_URL=http://localhost:4096
+
       - APP_SECRET=94bad46...c66e25d5c2b
+      - ~/.config/rclone:/root/.config/rclone:ro

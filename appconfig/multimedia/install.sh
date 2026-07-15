@@ -58,7 +58,7 @@ while true; do
         sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev libcaca-dev playerctl libplayerctl2 libplayerctl-dev
 
         # for video, photo, audio, ..., viewing and editing
-        sudo apt-get remove -y --purge gimp vlc audacity rawtherapee rhythmbox gstreamer1.0-vaapi
+        sudo apt-get remove -y --purge gimp vlc audacity rawtherapee rhythmbox
 
         toilet Settingup ncmpcpp -t -f future
 
@@ -99,8 +99,18 @@ while true; do
         if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
             sudo apt-add-repository ppa:yktooo/ppa
             sudo apt update
-            sudo apt install -y indicator-sound-switcher
         fi
+        sudo apt install -y indicator-sound-switcher
+
+        # sm
+        toilet Settingup smplayer -t -f future
+
+        the_ppa=rvm/smplayer
+        if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+            sudo apt-add-repository ppa:rvm/smplayer
+            sudo apt update
+        fi
+        sudo apt install -y smplayer smplayer-themes smplayer-skins
 
         # mpv
         toilet Settingup mpv -t -f future
@@ -135,26 +145,10 @@ while true; do
         # gallery-dl
         git clone https://github.com/noctuid/gallery-dl-view ~/.config/mvi/scripts/gallery-dl-view
 
-        # webtorrent
-        git clone https://github.com/noctuid/mpv-webtorrent-hook ~/.config/mpv/scripts/webtorrent-hook
-
-        # imdb
-        pip install --upgrade --break-system-packages guessit git+https://github.com/cinemagoer/cinemagoer
-        git clone --depth=1 https://github.com/ctlaltdefeat/mpv-open-imdb-page ~/.config/mpv/scripts/mpv-open-imdb-page
-        git -C ~/.config/mpv/scripts/mpv-open-imdb-page pull
-
-        # autosubsync
-        /usr/bin/python3 -m pip install --break-system-packages -U subliminal ffsubsync
-        git clone 'https://github.com/Ajatt-Tools/autosubsync-mpv' ~/.config/mpv/scripts/autosubsync
-
-        # audio
-        aria2c -c -j 8 -x 16 -s 16 -k 1M -d "$CONFIG" https://sofacoustics.org/data/database/clubfritz/ClubFritz7.sofa ||
-        echo "Done."
-
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
         break
     else
-        # echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
     fi
 done

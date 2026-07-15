@@ -122,7 +122,7 @@ while true; do
         # xapk
         # Rename your .xapk file to .zip.
         # Unzip
-        # adb install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
+        # adb -s 127.0.0.1:5552 install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
 
         # yt
         toilet Settingup yt -t -f future
@@ -162,9 +162,9 @@ while true; do
         if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
             sudo apt-add-repository ppa:flexiondotorg/quickemu
             sudo apt update
-            sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
-            sudo apt install -y --no-install-recommends samba
         fi
+        sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
+        sudo apt install -y --no-install-recommends samba
 
         # quickget windows 11
         # quickemu --vm windows-11.conf --width 1920 --height 1080
