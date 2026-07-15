@@ -25,32 +25,23 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall kodi (stream all movies)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall pi-hole (Ad blocking, stream movie)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
-        toilet Installing lobster -t --filter metal -f smmono12
+        toilet Installing pi-hole -t --filter metal -f smmono12
 
-        # build
-        brew unlink pkg-config
-
-        # ueberzug
-        cd /tmp
-        [ -e ueberzugpp ] && rm -rf ueberzugpp
-        sudo apt install -y libssl-dev libvips-dev libsixel-dev libchafa-dev libtbb-dev libxcb-res0-dev
-        git clone https://github.com/jstkdng/ueberzugpp.git
-        cd ueberzugpp
-        mkdir build && cd build
-        cmake -DCMAKE_BUILD_TYPE=Release -DENABLE_OPENCV=OFF ..
-        cmake --build .
-        sudo cp -f ueberzug /usr/local/bin/ueberzug
-        sudo ln -sf /usr/local/bin/ueberzug /usr/bin/ueberzugpp
+        mkdir -p ~/VirtualMachines/Pi-Hole
+        cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Pi-Hole
 
         # lobster
         curl -sL github.com/justchokingaround/lobster/raw/main/lobster.sh -o "$(brew --prefix)"/bin/lobster &&
         chmod +x "$(brew --prefix)"/bin/lobster
+
+        # ueberzug
+        sudo ln -sf /usr/local/bin/ueberzug ~/.nix-profile/bin/ueberzugpp
 
         # libg-fzf
         echo "Adding Library Genesis.."
@@ -61,7 +52,6 @@ while true; do
         mkdir -p ~/.config/{lobster,libg}
         pv "$APP_PATH/lobster_config.txt" >~/.config/lobster/lobster_config.txt
         pv "$APP_PATH/libg.sh" >~/.config/libg/libg.sh
-        brew link pkg-config
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

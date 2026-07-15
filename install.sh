@@ -131,11 +131,11 @@ fi
 # 21. Install DOCKER
 ! "$docker" && bash "$APPCONFIG_PATH"/docker/install.sh "$subinstall_params"
 
-# 22. Install SYNCTHING
-! "$docker" && bash "$APPCONFIG_PATH"/syncthing/install.sh "$subinstall_params"
+# 22. Install ZEROBYTE
+! "$docker" && bash "$APPCONFIG_PATH"/zerobyte/install.sh "$subinstall_params"
 
-# 23. Install LOBSTER
-! "$docker" && bash "$APPCONFIG_PATH"/lobster/install.sh "$subinstall_params"
+# 23. Install PI-HOLE
+! "$docker" && bash "$APPCONFIG_PATH"/pi-hole/install.sh "$subinstall_params"
 
 # 24. Install QUTEBROWSER
 ! "$docker" && bash "$APPCONFIG_PATH"/qutebrowser/install.sh "$subinstall_params"
@@ -179,12 +179,14 @@ if [ "$num" -lt "1" ]; then
     echo "Override DNS..."
     # set bashrc
     echo 'DNSSEC=no
-DNS=1.1.1.1 8.8.8.8 9.9.9.9
-    FallbackDNS=8.8.4.4' |
+DNSStubListener=no
+DNS=192.168.1.200 1.1.1.1 8.8.8.8 9.9.9.9
+FallbackDNS=8.8.4.4' |
     sudo tee -a /etc/systemd/resolved.conf >/dev/null
 
 fi
 sudo sed -i 's/3/2/' /etc/NetworkManager/conf.d/*
+sudo service systemd-resolved restart
 
 #############################################
 # POWER

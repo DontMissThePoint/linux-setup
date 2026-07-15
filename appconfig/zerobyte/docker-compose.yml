@@ -14,7 +14,7 @@ services:
       - ~/linux-setup/:/linux-setup
       - ~/Public/Notes/:/Notes
       - /var/redroid/:/redroid-android11
-      - /opt/redroid/:/redroid-android14
+      - /opt/redroid/:/redroid-android15
 
     environment:
       - TZ=Europe/Moscow
