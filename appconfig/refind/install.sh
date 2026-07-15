@@ -56,14 +56,14 @@ while true; do
         sudo cp -f "$APP_PATH"/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
 
         # plymouth
-        sudo apt install -y plymouth
-        sudo mkdir -p /etc/plymouth
-        printf "[Daemon]\nTheme=spinner_alt\nShowDelay=0" | sudo tee /etc/plymouth/plymouthd.conf
+        # sudo apt install -y plymouth
+        # sudo mkdir -p /etc/plymouth
+        # printf "[Daemon]\nTheme=spinner_alt\nShowDelay=0" | sudo tee /etc/plymouth/plymouthd.conf
 
         # theme
-        sudo cp -fr "$APP_PATH"/plymouth-themes/pack/spinner_alt /usr/share/plymouth/themes/
-        sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/spinner_alt/spinner_alt.plymouth 200
-        sudo update-alternatives --config default.plymouth
+        # sudo cp -fr "$APP_PATH"/plymouth-themes/pack/spinner_alt /usr/share/plymouth/themes/
+        # sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/spinner_alt/spinner_alt.plymouth 200
+        # sudo update-alternatives --config default.plymouth
         sudo update-initramfs -c -k "$(uname -r)"
         sudo update-grub
 
@@ -93,7 +93,7 @@ while true; do
         cd /tmp
         [ -e ly ] && sudo rm -rf ly
         git clone https://github.com/fairyglade/ly
-        cd ly
+        cd ly && git checkout tags/v1.4.0
         zig build
         sudo "$(which zig)" build installexe -Dinit_system=systemd
 

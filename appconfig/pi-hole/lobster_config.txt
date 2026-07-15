@@ -20,5 +20,5 @@ ueberzug_max_height=100
 
 # function using yt-dlp:
 download_video() {
-  yt-dlp "$1" --no-skip-unavailable-fragments --fragment-retries infinite -N 16 -o "$3/$2".mp4
+  /home/linuxbrew/.linuxbrew/bin/yt-dlp "$1" --no-skip-unavailable-fragments --fragment-retries infinite -N 16 -o "$3/$2".mp4
 }
