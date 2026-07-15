@@ -1,9 +1,8 @@
 #!/bin/sh
 
 DROID="redroid-android"
-# OPTIONS="11.0.0\n16.0.0"
 OPTIONS="11.0.0\n15.0.0"
-WINDOWS="$(docker inspect -f '{{ .State.Status }}' windows)"
+FPS="$(docker inspect -f '{{ .State.Status }}' windows)"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
 
 # image
@@ -14,7 +13,7 @@ fi
 
 # Start the container if it is not running
 echo "Waiting for ReDroid to resume..."
-if [ "$WINDOWS" = "exited" ]; then
+if [ "$FPS" = "exited" ]; then
     sudo systemctl restart docker
 fi
 
@@ -55,7 +54,7 @@ if [ "$VAR" = "11.0.0" ]; then
 else
 
     STORAGE="/var/redroid:/data"
-    IMAGE="erstt/redroid:"$VAR"_ndk_magisk_litegapps_AVD"
+    IMAGE="kylindemons/redroid:"$VAR"_amd64-GApps-Magisk-latest"
     BRIDGE=libndk_translation.so
 
 fi

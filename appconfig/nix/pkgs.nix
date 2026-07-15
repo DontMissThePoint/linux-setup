@@ -3,7 +3,7 @@
     # # "Hello, world!" when run.
     # pkgs.hello
     pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
-      pkgs.libgen-cli pkgs.zscroll pkgs.siji
+      pkgs.libgen-cli pkgs.zscroll pkgs.siji pkgs.ueberzugpp
       pkgs.material-icons pkgs.xidel pkgs.texlab
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
