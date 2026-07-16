@@ -1,7 +1,7 @@
 #!/bin/sh
 
 DROID="redroid-android"
-OPTIONS="11.0.0\n15.0.0"
+OPTIONS="15.0.0\n11.0.0"
 FPS="$(docker inspect -f '{{ .State.Status }}' windows)"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
 
