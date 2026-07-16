@@ -24,8 +24,8 @@ restic -r "$RESTIC_REPOSITORY" --verbose --password-file \
 # restic -r $RESTIC_REPOSITORY restore latest --verbose --password-file $RESTIC_PASSWORD_FILE --target $LINUX_SETUP
 
 # prune
-restic -r "$RESTIC_REPOSITORY" forget --prune \
-    --keep-daily 7 --keep-weekly 4 --keep-monthly 12 --keep-yearly 3
+restic -r "$RESTIC_REPOSITORY" forget --prune --password-file \
+    "$RESTIC_PASSWORD_FILE" --keep-daily 7 --keep-weekly 4 --keep-monthly 12 --keep-yearly 3
 
 # umount
 udisksctl unmount -b /dev/disk/by-label/AUTORESTIC
