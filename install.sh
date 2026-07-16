@@ -134,8 +134,8 @@ fi
 # 22. Install ZEROBYTE
 ! "$docker" && bash "$APPCONFIG_PATH"/zerobyte/install.sh "$subinstall_params"
 
-# 23. Install PI-HOLE
-! "$docker" && bash "$APPCONFIG_PATH"/pi-hole/install.sh "$subinstall_params"
+# 23. Install ADGUARD
+! "$docker" && bash "$APPCONFIG_PATH"/adguard/install.sh "$subinstall_params"
 
 # 24. Install QUTEBROWSER
 ! "$docker" && bash "$APPCONFIG_PATH"/qutebrowser/install.sh "$subinstall_params"
@@ -168,25 +168,6 @@ sudo ufw logging off
 sudo mkdir -p /etc/lightdm/lightdm.conf.d
 sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login=false\n" > \
         /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
-
-#############################################
-# NETWORK
-#############################################
-
-num=$(grep -ow "^DNS" /etc/systemd/resolved.conf | wc -l)
-if [ "$num" -lt "1" ]; then
-
-    echo "Override DNS..."
-    # set bashrc
-    echo 'DNSSEC=no
-DNSStubListener=no
-DNS=192.168.1.200 1.1.1.1 8.8.8.8 9.9.9.9
-FallbackDNS=8.8.4.4' |
-    sudo tee -a /etc/systemd/resolved.conf >/dev/null
-
-fi
-sudo sed -i 's/3/2/' /etc/NetworkManager/conf.d/*
-sudo service systemd-resolved restart
 
 #############################################
 # POWER
