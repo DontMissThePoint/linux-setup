@@ -102,6 +102,8 @@ EOF
         cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Zerobyte-Backup
         cp -f "$APP_PATH"/app_secret.txt ~/VirtualMachines/Zerobyte-Backup/secrets
 
+				rclone config reconnect mega:
+
         echo "Done."
 
         break

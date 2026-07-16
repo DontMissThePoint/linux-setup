@@ -5,6 +5,10 @@ services:
     stop_grace_period: 2m
     restart: unless-stopped
 
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/fuse:/dev/fuse
     ports:
       - "4096:4096"
 
@@ -12,16 +16,17 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - /var/lib/zerobyte:/var/lib/zerobyte
-      - ~/linux-setup/:/linux-setup
-      - ~/Public/Notes/:/Notes
       - /var/redroid/:/redroid-15
       - /opt/redroid/:/redroid-11
+      - ~/linux-setup/:/linux-setup
+      - ~/Public/Notes/:/Notes
+      - ~/.config/rclone:/root/.config/rclone:ro
+      - ~/.ssh:/root/.ssh:ro
 
     environment:
       - TZ=Europe/Moscow
       - BASE_URL=http://localhost:4096
       - APP_SECRET_FILE=/run/secrets/app_secret
-      - ~/.config/rclone:/root/.config/rclone:ro
 
     secrets:
       - app_secret
