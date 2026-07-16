@@ -96,13 +96,9 @@ EOF
         . "$APP_PATH"/dotsync.sh || echo "Done."
 
         # Zerobyte
-        toilet Settingup zerobyte -t -f future
-
         mkdir -p ~/VirtualMachines/Zerobyte-Backup/secrets
         cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Zerobyte-Backup
         cp -f "$APP_PATH"/app_secret.txt ~/VirtualMachines/Zerobyte-Backup/secrets
-
-				rclone config reconnect mega:
 
         echo "Done."
 
