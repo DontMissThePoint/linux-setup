@@ -16,10 +16,10 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
       - /var/lib/zerobyte:/var/lib/zerobyte
-      - /var/redroid/:/redroid-15
-      - /opt/redroid/:/redroid-11
       - ~/linux-setup/:/linux-setup
+      - ~/Nextcloud/Documents/netis-fleet/WinAutomation/:/WinAutomation
       - ~/Public/Notes/:/Notes
+      - ~/Public/Journal/:/Journal
       - ~/.config/rclone:/root/.config/rclone:ro
       - ~/.ssh:/root/.ssh:ro
 
