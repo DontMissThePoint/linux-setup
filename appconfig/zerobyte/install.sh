@@ -92,8 +92,8 @@ EOF
         fi
 
         # MegaCMD
-        sudo apt-get install -y megacmd megasync nautilus-megasync
-        . "$APP_PATH"/dotsync.sh || echo "Done."
+        sudo apt-get install -y megacmd
+        # . "$APP_PATH"/dotsync.sh || echo "Done."
 
         # Zerobyte
         mkdir -p ~/VirtualMachines/Zerobyte-Backup/secrets

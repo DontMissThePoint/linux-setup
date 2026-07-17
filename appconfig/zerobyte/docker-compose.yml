@@ -19,6 +19,7 @@ services:
       - ~/linux-setup/:/linux-setup
       - ~/Nextcloud/Documents/netis-fleet/WinAutomation/:/WinAutomation
       - ~/Public/Notes/:/Notes
+      - ~/Public/Journal/:/Journal
       - ~/.config/rclone:/root/.config/rclone:ro
       - ~/.ssh:/root/.ssh:ro
 
