@@ -21,7 +21,7 @@ docker compose up -d
 until
 /opt/freerdp-nightly/bin/xfreerdp3 /cert:tofu /f /u:"$username" /p:"$password" /v:"$(hostname -I | awk '{print $1}')" \
     /dynamic-resolution +decorations +fonts +aero +window-drag +multitransport +clipboard -grab-keyboard /cache:glyph:on \
-    /floatbar:show:fullscreen /floatbar:sticky:off /bpp:32 /audio-mode:0 /rfx /gfx:rfx /cache:codec::rfx /video /sec:tls \
+    /floatbar:show:fullscreen /floatbar:sticky:off /bpp:32 /audio-mode:0 /gfx:avc444 /video /sec:tls -themes -wallpaper \
     /tune:FreeRDP_HiDefRemoteApp:true,FreeRDP_GfxAVC444v2:true,FreeRDP_GfxH264:true /scale-desktop:135 /scale-device:100 \
     /w:1080 /h:1920 /t:"Dockurr - Windows 11"
 do

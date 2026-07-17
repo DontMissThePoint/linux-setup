@@ -354,16 +354,9 @@ c.bindings.commands["normal"] = {
 
 c.bindings.commands["hint"] = {
     # hints
-    "x": "tab-close",
-    "jk": "mode-leave",
-    "jj": "mode-leave",
+    "x": "tab-close"
 }
 
-c.bindings.commands["insert"] = {
-    # insert
-    "jk": "mode-leave",
-    "jj": "mode-leave",
-}
 
 # history
 c.history_gap_interval = 30
