@@ -174,7 +174,7 @@ while true; do
         # focus cell: #87ff87 #0088cc
 
         # Install Apps: 365, PowerBi, mupdf, Listary, librewolf
-        #               joplin, smplayer, nextcloud
+        #               joplin, smplayer, nextcloud, zap zap
         # Activate: irm https://get.activated.win | iex
 
         # VM
@@ -186,10 +186,10 @@ while true; do
         # docker system prune -af
         BGREEN='\033[1;32m'
         NC='\033[0m' # No Color
-        echo -e "${BGREEN}> Windows debloating ...${NC}"
+        echo -e "${BGREEN}> Windows debloater downloading...${NC}"
 
         cd ~/Public
-        curl -s 'https://api.github.com/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
+        curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
             jq -r ".assets[] | .browser_download_url" | grep bat |\
             xargs -n 1 curl -L -O --fail --show-error
 

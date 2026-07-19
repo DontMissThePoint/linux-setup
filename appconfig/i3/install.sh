@@ -44,30 +44,9 @@ while true; do
 
         # required for i3-layout-manager
         sudo apt-get -y install xdotool x11-xserver-utils indent libanyevent-i3-perl
-        brew unlink pkg-config libtool
+        /home/linuxbrew/.linuxbrew/bin/brew unlink pkg-config libtool
 
-        # jq
-        cd /tmp
-        [ -e jq ] && rm -rf jq
-        git clone https://github.com/jqlang/jq
-        cd jq
-        git submodule update --init # if building from git to get oniguruma
-        autoreconf -i               # if building from git
-        ./configure --with-oniguruma=builtin
-        make clean # if upgrading from a version previously built from source
-        make -j8
-        make check
-        sudo make install
-
-        # zsv
-        cd /tmp
-        [ -e zsv ] && rm -rf zsv
-        git clone https://github.com/liquidaty/zsv
-        cd zsv
-        ./configure
-        make clean
-        sudo make install
-
+        # console
         if [ "$unattended" == "0" ] && [ "$TRAVIS" = "" ]; then # if running interactively
 
             UGREEN='\033[4;32m'
@@ -95,8 +74,8 @@ while true; do
         sudo cp -f "$APP_PATH"/systemd/*.{service,timer} /usr/lib/systemd/user/
         systemctl --user daemon-reload
         systemctl --user --now enable pipewire pipewire-pulse wireplumber
-        systemctl --user start xidlehook.service {update-submodules,bandwidth}.{service,timer}
-        sudo systemctl --global enable xidlehook.service {update-submodules,bandwidth}.{service,timer}
+        systemctl --user start xidlehook.service update-submodules.{service,timer} || \
+					sudo systemctl --global enable xidlehook.service update-submodules.{service,timer} || echo "OK."
 
         # vnstat
         sudo systemctl enable vnstat.service
@@ -111,22 +90,8 @@ while true; do
         sudo cp -f "$APP_PATH"/earlyoom /etc/default/earlyoom
         sudo systemctl restart earlyoom
 
-        # scripts on startup
+        # startup
         sudo mkdir -p /etc/X11/xinit/xinitrc.d
-
-        # gnome-shell-pomodoro
-        num=$(gnome-shell --version | awk '{ print $3 }' | cut -c -2)
-
-        sudo apt install -y meson gettext valac pkg-config desktop-file-utils appstream-util libappstream-glib-dev libglib2.0-dev gsettings-desktop-schemas-dev gobject-introspection libgirepository1.0-dev libsqlite3-dev libgom-1.0-dev libgstreamer1.0-dev libgtk-3-dev libcanberra-dev libpeas-dev libjson-glib-dev libunwind-dev gnome-shell-pomodoro-data
-
-        cd /tmp
-        [ -e gnome-pomodoro ] && rm -rf gnome-pomodoro
-        git clone -b "gnome-$num" https://github.com/gnome-pomodoro/gnome-pomodoro.git
-        cd gnome-pomodoro
-        cp -f "$APP_PATH"/pomodoro-style.css ./data/resources/style.css
-        meson setup . build --prefix=/usr
-        meson compile -C build
-        sudo meson install -C build --no-rebuild
 
         # compile i3 dependency which is not present in the repo
         sudo apt-get -y install libtool xutils-dev libpeas-dev libfftw3-dev libasound2-dev libpulse-dev libiniparser-dev libsdl2-2.0-0 libsdl2-dev libpipewire-0.3-dev libjack-jackd2-dev pkgconf
@@ -136,7 +101,7 @@ while true; do
         sudo apt-get -y install help2man
         cd "$APP_PATH"/../../submodules/light/
         ./autogen.sh
-        ./configure && make -j8
+        ./configure && make -j"$(nproc)"
         sudo make install
         # set the minimal backlight value to 5%
         light -n 5
@@ -148,8 +113,9 @@ while true; do
         sudo apt remove -y i3* || echo "Installing i3..."
 
         # compile i3
-        /usr/bin/python3 -m pip install --break-system-packages meson
+        /usr/bin/python3 -m pip install --break-system-packages meson ninja
         # cd "$APP_PATH"/../../submodules/i3/
+				export PATH=~/.local/bin/:$PATH
         sudo apt install -y i3status ninja-build
 
         # build from sources
@@ -157,10 +123,9 @@ while true; do
         [ -e i3-gaps-rounded ] && rm -rf i3-gaps-rounded
         git clone https://github.com/jbenden/i3-gaps-rounded.git
         cd i3-gaps-rounded
-        mkdir -p build && cd build
-        meson ..
-        ninja
-        sudo ninja install
+        meson setup --wipe build
+				ninja -C build
+				sudo -E ninja -C build install
 
         # clean after myself
         git reset --hard
@@ -170,7 +135,7 @@ while true; do
         cd "$APP_PATH"/../../submodules/i3blocks/
         ./autogen.sh
         ./configure
-        make
+        make -j"$(nproc)"
         sudo make install
 
         # clean after myself
@@ -194,7 +159,7 @@ while true; do
         git clone https://github.com/karlstav/cava
         cd cava
         ./autogen.sh && ./configure
-        make -j8
+        make -j"$(nproc)"
         sudo make install
 
         # snd_aloop
@@ -226,7 +191,7 @@ while true; do
 
         # memory
         cd "$APP_PATH"/../../submodules/i3blocks-contrib/memory2
-        make
+        make -j"$(nproc)"
 
         # symlink settings folder
         if [ ! -e ~/.i3 ]; then
@@ -266,18 +231,16 @@ while true; do
         pv "$APP_PATH"/picom.conf >~/.config/picom.conf
 
         # GTK
+        mkdir -p ~/.config/gtk-2.0
+        pv "$APP_PATH"/gtkfilechooser.ini >~/.config/gtk-2.0/gtkfilechooser.ini
+        pv "$APP_PATH"/gtk.css >~/.config/gtk-3.0/gtk.css
+        pv "$APP_PATH"/gtk-mine.css >~/.config/gtk-3.0/gtk-mine.css
+
+        # 4.0
         if [ -d "$HOME/.config/gtk-4.0" ]; then
             pv "$APP_PATH"/gtk.css >~/.config/gtk-4.0/gtk.css
             pv "$APP_PATH"/gtk-mine.css >~/.config/gtk-4.0/gtk-mine.css
-            pv "$APP_PATH"/settings.ini >~/.config/gtk-4.0/settings.ini
         fi
-
-        mkdir -p ~/.config/gtk-2.0
-        pv "$APP_PATH"/gtkfilechooser.ini >~/.config/gtk-2.0/gtkfilechooser.ini
-        pv "$APP_PATH"/settings.ini >~/.config/gtk-3.0/settings.ini
-        pv "$APP_PATH"/gtk.css >~/.config/gtk-3.0/gtk.css
-        pv "$APP_PATH"/gtk-mine.css >~/.config/gtk-3.0/gtk-mine.css
-        pv "$APP_PATH"/dotgtkrc-2.0 >~/.gtkrc-2.0
 
         # autostart
         cd /etc/xdg/autostart/
@@ -310,17 +273,13 @@ while true; do
 
         "$APP_PATH"/make_launchers.sh "$APP_PATH"/../../scripts
 
-        # nautilus
-        gsettings set org.gnome.desktop.background show-desktop-icons false
-        gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
-
         # location
         sudo systemctl restart geoclue.service
         gsettings set org.gnome.system.location enabled false
 
         # install xkb layout state
         cd "$APP_PATH"/../../submodules/xkblayout-state/
-        make
+        make -j"$(nproc)"
         sudo cp -f "$APP_PATH"/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
         rm -f xkblayout-state
 
@@ -352,14 +311,6 @@ while true; do
         # [ falcon_heavy.jpg, lightning.jpg ]
         betterlockscreen -u "$APP_PATH"/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
 
-        # pipes.sh -t7
-        sudo apt install -y cmatrix cmatrix-xfont
-        cd /tmp
-        [ -e pipes.sh ] && rm -rf /tmp/pipes.sh
-        git clone https://github.com/pipeseroni/pipes.sh
-        cd pipes.sh
-        sudo make install
-
         # picom
         toilet Settingup picom -t -f future
 
@@ -374,7 +325,7 @@ while true; do
 
         # gpus
         # sudo apt-get -y install nvidia-prime
-        brew link pkg-config libtool
+        /home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

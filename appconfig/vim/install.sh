@@ -20,10 +20,6 @@ for param in "$@"; do
     fi
 done
 
-var1="18.04"
-var2=$(lsb_release -r | awk '{ print $2 }')
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 default=y
 while true; do
     if [[ "$unattended" == "1" ]]; then
@@ -39,20 +35,17 @@ while true; do
 
         sudo apt-get -y remove vim-* || echo ""
 
-        if [ "$BEAVER" != "" ]; then
-            sudo apt-get -y install libgnome2-dev libgnomeui-dev libbonoboui2-dev
-        fi
-
         sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format libpython3-all-dev
+	/home/linuxbrew/.linuxbrew/bin/brew unlink pkg-config libtool
 
         # libsodium
         cd /tmp
         [ -e libsodium ] && sudo rm -rf libsodium
         git clone https://github.com/jedisct1/libsodium --branch stable
         cd libsodium
-        zig build -Doptimize=ReleaseFast
-        ./configure && make -j8
-        sudo make install
+	./configure
+	make -j'$(nproc)' && make check
+	sudo make install	
 
         # cache
         sudo ldconfig
@@ -71,16 +64,16 @@ while true; do
             --enable-perlinterp=yes \
             --enable-luainterp=yes \
             --enable-rubyinterp \
-            --with-ruby-command="$(brew --prefix)"/bin/ruby \
+            --with-ruby-command=/home/linuxbrew/.linuxbrew/bin/ruby \
             --with-tlib=ncurses \
             --enable-gui=no \
             --enable-cscope \
             --prefix=/usr
 
         cd src
-        make -j8
+        make -j$(nproc)
         cd ../
-        make -j8 VIMRUNTIMEDIR=/usr/share/vim/vim91
+        make -j$(nproc) VIMRUNTIMEDIR=/usr/share/vim/vim91
         sudo make install
 
         # mergetool
@@ -109,27 +102,15 @@ while true; do
 
                 # set youcompleteme
                 toilet Settingup youcompleteme -t -f future
+		
+                sudo apt-get -y install python3-clang libclang-20-dev
 
-                # if not on 24.04, g++-8 has to be installed manually
-                if [ "$BEAVER" != "" ]; then
-                    sudo apt-get -y install g++-8
-                    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 700 --slave /usr/bin/g++ g++ /usr/bin/g++-7
-                    sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-8 800 --slave /usr/bin/g++ g++ /usr/bin/g++-8
-                    # add llvm repo for clangd and python3-clang
-                    wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
-                    sudo apt-add-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-11 main"
-                    # if 18.04, python3-clang has to be installed throught pip3 with prequisites manually from apt
-                    sudo apt-get -y install clang-11 libclang-11-dev
-                    /usr/bin/python3 -m pip install --break-system-packages --ignore-installed clang
-                else
-                    # if 24.04, just install python3-clang from apt
-                    sudo apt-get -y install python3-clang libclang-20-dev
-                fi
                 # install prequisites for YCM
                 sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
-                # set clangd to 20 latest by default
-                sudo update-alternatives --install /usr/bin/clangd clangd /usr/bin/clangd-20 999
+                # clangd
+		sudo update-alternatives --install /usr/bin/clangd \
+			clangd /usr/bin/clangd-"$(ls /usr/bin/clangd-* 2>/dev/null | grep -oE '[0-9]+$' | sort | tail -n1)" 999
                 sudo apt-get -y install libboost-all-dev
 
                 cd ~/.vim/plugged
@@ -147,12 +128,15 @@ while true; do
                 [ -e clipmenu ] && rm -rf clipmenu
                 git clone https://github.com/cdown/clipmenu
                 cd clipmenu
-                make -j8
+		make -j$(nproc)
                 sudo make install
 
                 # config
                 mkdir -p ~/.config/clipmenu
                 pv "$APP_PATH/clipmenu.conf" >~/.config/clipmenu/clipmenu.conf
+
+		# link
+		/home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool
                 echo "Done."
 
                 break

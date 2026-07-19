@@ -20,10 +20,6 @@ for param in "$@"; do
     fi
 done
 
-var=$(lsb_release -r | awk '{ print $2 }')
-[ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "24.04" ] && export NOBLE=1
-
 default=y
 while true; do
     if [[ "$unattended" == "1" ]]; then
@@ -47,23 +43,11 @@ while true; do
         # grub
         sudo sed -i -e 's/^#*\s*\(GRUB_DISABLE_OS_PROBER\).*/\1=true/g' \
             /etc/default/grub
-        sudo apt install --reinstall -o Dpkg::Options::="--force-confmiss" grub2-themes-ubuntu-mate
-
-        #
+        sudo apt install --reinstall -o Dpkg::Options::="--force-confmiss" grub2-theme-mint
 
         # 3 3 3 3 for logs
         # 1 1 1 1 for animation
         sudo cp -f "$APP_PATH"/20-quiet-printk.conf /etc/sysctl.d/20-quiet-printk.conf
-
-        # plymouth
-        # sudo apt install -y plymouth
-        # sudo mkdir -p /etc/plymouth
-        # printf "[Daemon]\nTheme=spinner_alt\nShowDelay=0" | sudo tee /etc/plymouth/plymouthd.conf
-
-        # theme
-        # sudo cp -fr "$APP_PATH"/plymouth-themes/pack/spinner_alt /usr/share/plymouth/themes/
-        # sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/spinner_alt/spinner_alt.plymouth 200
-        # sudo update-alternatives --config default.plymouth
         sudo update-initramfs -c -k "$(uname -r)"
         sudo update-grub
 
@@ -82,26 +66,6 @@ while true; do
         # uninstall
         # sudo rm -r /boot/efi/EFI/refind
         # sudo systemctl reboot --firmware-setup
-        sudo systemctl daemon-reload
-
-        # ly
-        toilet Settingup ly -t -f future
-
-        sudo apt install -y build-essential libpam0g-dev libxcb-xkb-dev systemd
-
-        # console
-        cd /tmp
-        [ -e ly ] && sudo rm -rf ly
-        git clone https://github.com/fairyglade/ly
-        cd ly && git checkout tags/v1.4.0
-        zig build
-        sudo "$(which zig)" build installexe -Dinit_system=systemd
-
-        #  service
-        sudo systemctl daemon-reload
-        sudo systemctl disable gdm3 getty@tty2.service
-        sudo systemctl enable ly@tty1.service ly@tty2.service
-        sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

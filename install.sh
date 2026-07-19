@@ -27,71 +27,63 @@ for param in "$@"; do
         docker=true
     fi
 done
-
-var=$(lsb_release -r | awk '{ print $2 }')
-[ "$var" = "18.04" ] && export BEAVER=1
-
 arch=$(uname -i)
 
-# paths
-sudo chown -R "$USER": "$MY_PATH"
-find "$MY_PATH"/appconfig "$MY_PATH"/scripts -type f -iname '*.sh' | xargs sudo chmod +x
-
 # packages
-sudo apt-get -y update -qq
+#sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool wifi-qr moreutils
+#sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool wifi-qr moreutils
 
 # python
-sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
+#sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
 
-if [ "$BEAVER" != "" ]; then
-    sudo apt-get -y install python-git
-    sudo ln -sf /bin/python2.7 /bin/python
-else
-    sudo apt-get -y install python3-git
-fi
+#if [ "$BEAVER" != "" ]; then
+#    sudo apt-get -y install python-git
+#    sudo ln -sf /bin/python2.7 /bin/python
+#else
+#    sudo apt-get -y install python3-git
+#fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs gnome-shell-extensions gnome-control-center gnome-tweaks gpick espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
+#sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
 
 # submodules
-cd "$MY_PATH"
-"$docker" && git submodule update --init --recursive --recommend-shallow
-! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive || echo "Updating..."
-! "$docker" && bash "$MY_PATH"/scripts/update-submodules.sh
+#cd "$MY_PATH"
+#"$docker" && git submodule update --init --recursive --recommend-shallow
+#! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive || echo "Updating..."
+#! "$docker" && bash "$MY_PATH"/scripts/update-submodules.sh
 
 if [ "$unattended" == "0" ]; then
     if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
 fi
 
 # 1. Install NIX
-! "$docker" && bash "$APPCONFIG_PATH"/nix/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/nix/install.sh "$subinstall_params"
 
 # 2. Install LINUXBREW
-! "$docker" && bash "$APPCONFIG_PATH"/brew/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/brew/install.sh "$subinstall_params"
 
 # 3. Install TMUX
-! "$docker" && bash "$APPCONFIG_PATH"/tmux/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/tmux/install.sh "$subinstall_params"
 
 # 4. Install ZSH with ATHAME
-! "$docker" && bash "$APPCONFIG_PATH"/zsh/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/zsh/install.sh "$subinstall_params"
 
 # 5. Install URXVT
-! "$docker" && bash "$APPCONFIG_PATH"/urxvt/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/urxvt/install.sh "$subinstall_params"
 
 # 6. Install FONTS POWERLINE
-! "$docker" && bash "$APPCONFIG_PATH"/fonts-powerline/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/fonts-powerline/install.sh "$subinstall_params"
 
 # 7. Install GO
-! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
 
 # 8. Install VIM
-! "$docker" && bash "$APPCONFIG_PATH"/vim/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/vim/install.sh "$subinstall_params"
 
 # 9. Install NVIM
-! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
+#! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
 
 # 10. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
@@ -170,35 +162,26 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
         /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
-# POWER
-#############################################
-
-the_ppa=linrunner/tlp
-if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-    sudo add-apt-repository -y ppa:linrunner/tlp
-    sudo apt update -qq
-    sudo apt -y install tlp tlp-rdw smartmontools
-fi
-
-sudo systemctl enable tlp.service
-sudo systemctl start tlp.service
-
-sudo systemctl mask systemd-rfkill.service
-sudo systemctl mask systemd-rfkill.socket
-
-#############################################
-# RAM
+# ram
 #############################################
 
 sudo cp -v /usr/share/systemd/tmp.mount /etc/systemd/system
 sudo systemctl enable tmp.mount
 
 #############################################
-# arch
+# battery
 #############################################
 
+powerprofilesctl get
+powerprofilesctl set performance
+
+#############################################
+# packages
+#############################################
+
+sudo fwupdmgr get-upgrades
 sudo dpkg --remove-architecture i386
-topgrade || echo "Updates installed."
+topgrade || echo "Up to date."
 
 #############################################
 # scripts
@@ -215,20 +198,6 @@ fi
 if [ ! -e /etc/X11/xorg.conf.d/90-touchpad.conf ]; then
     "$MY_PATH"/scripts/fix_touchpad_click.sh
 fi
-
-#############################################
-# clean
-#############################################
-
-if command -v ly &> /dev/null; then
-
-    sudo systemctl daemon-reload
-    sudo systemctl disable gdm3 getty@tty2.service
-    sudo systemctl enable ly@tty1.service ly@tty2.service
-    . ~/.scripts/system_clean.sh
-
-fi
-
 #############################################
 # repo
 #############################################
@@ -259,24 +228,10 @@ bash "$APPCONFIG_PATH"/bash/dotbashrc_template
 ln -sf "$APPCONFIG_PATH"/clangd/dotclang-tidy ~/.clang-tidy
 
 #############################################
-# firmware
-#############################################
-
-cd "$MY_PATH" && ./deploy_configs.sh
-
-#############################################
 # display
 #############################################
 
-ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/dual.sh ~/.local/bin/flip
-ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/top.sh ~/.local/bin/wide
-ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/right.sh ~/.local/bin/extend
-ln -sf "$MY_PATH"/miscellaneous/arandr_scripts/panel/laptop.sh ~/.local/bin/laptop
-
-#############################################
-# profile
-#############################################
-
+cd "$MY_PATH" && ./deploy_configs.sh
 echo "Hurray, the 'Linux Setup' should be ready, try opening a new terminal."
 
 toilet All Done -t --filter metal -f mono9

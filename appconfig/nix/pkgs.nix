@@ -82,15 +82,6 @@
     measurement = "en_US.UTF-8";
   };
 
-  # cursor
-  home.pointerCursor = {
-    gtk.enable = true;
-    # x11.enable = true;
-    name = "Afterglow-Recolored-Gruvbox-Black";
-    package = pkgs.afterglow-cursors-recolored;
-    size = 32;
-  };
-
   # icons:fonts:man:etc
   fonts.fontconfig.enable = true;
   targets.genericLinux.enable = true;

@@ -37,8 +37,8 @@ Xft*lcdfilter: lcddefault
 Xft.dpi: 141
 janus.fractionalDpi: 1.00
 
-Xcursor.size: 32
-Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
+Xcursor.size: 24
+Xcursor.theme: Bibata-Modern-Classic
 
 ! Use Print to initiate a screen dump to the printer
 ! Ctrl-Print or Shift-Print to include the scrollback

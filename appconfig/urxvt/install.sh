@@ -21,9 +21,6 @@ do
     fi
 done
 
-var=`lsb_release -r | awk '{ print $2 }'`
-[ "$var" = "24.04" ] && export NOBLE=1
-
 default=y
 while true; do
     if [[ "$unattended" == "1" ]]
@@ -40,12 +37,7 @@ while true; do
         toilet Settingup urxvtc -t -f future
 
         # install urvxt
-        if [ "$NOBLE" != "" ];
-        then
-            sudo apt-get -y install rxvt-unicode
-        else
-            sudo apt-get -y install rxvt-unicode-256color rxvt-ml
-        fi
+        sudo apt-get -y install rxvt-unicode
 
         # xseturgent
         cd /tmp

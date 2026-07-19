@@ -47,20 +47,21 @@ while true; do
         # exceed files limit
         ulimit -n2048
 
-        # packages
         toilet Setting up brew -t -f future
-        source "$HOME"/.bashrc && brew update && brew upgrade
-        brew install lzip topgrade webtorrent-cli zoxide grc vivid fzf pipx \
+	
+        # packages
+        . ~/.bashrc && /home/linuxbrew/.linuxbrew/bin/brew upgrade
+        /home/linuxbrew/.linuxbrew/bin/brew install lzip topgrade zoxide grc vivid fzf pipx \
             oxker bat ripgrep universal-ctags miller countdown btop csvkit \
             ag fd dust zig aria2 glow restic croc newsboat walk gallery-dl \
             rg viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
-            pyqt scrcpy rclone \
+            pyqt scrcpy rclone dra \
             2> /dev/null
 
         # node
-        brew upgrade -q node
-        brew link --overwrite node ruby || echo "Removing..."
-        brew cleanup --prune=all
+        /home/linuxbrew/.linuxbrew/bin/brew upgrade -q node
+        /home/linuxbrew/.linuxbrew/bin/brew link --overwrite node ruby || echo "Removing..."
+        /home/linuxbrew/.linuxbrew/bin/brew cleanup --prune=all
 
         # newsboat
         mkdir -p ~/.newsboat

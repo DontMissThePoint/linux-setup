@@ -20,10 +20,6 @@ for param in "$@"; do
     fi
 done
 
-var1="18.04"
-var2=$(lsb_release -r | awk '{ print $2 }')
-[ "$var2" = "$var1" ] && export BEAVER=1
-
 default=y
 while true; do
     if [[ "$unattended" == "1" ]]; then

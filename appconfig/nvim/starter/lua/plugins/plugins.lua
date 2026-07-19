@@ -256,7 +256,7 @@ local plugins = {
 	{
 		"willothy/savior.nvim",
 		dependencies = { "j-hui/fidget.nvim" },
-		event = { "BufLeave", "BufModifiedSet", "ExitPre" },
+		event = { "InsertEnter", "TextChanged" },
 		config = true,
 	},
 

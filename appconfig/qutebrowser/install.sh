@@ -84,7 +84,7 @@ while true; do
 
         # modules
         npm config set strict-ssl=false
-        npm install --loglevel=error -g @mozilla/readability tree-sitter-cli \
+        npm install --loglevel=error -g @mozilla/readability bash-language-server \
             jsonrepair terminal-image-cli qutejs
         pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 

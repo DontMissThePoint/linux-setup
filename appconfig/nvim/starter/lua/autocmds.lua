@@ -27,13 +27,13 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 
 -- Remove whitespace on save
 autocmd("BufWritePre", {
-  pattern = "",
+  pattern = "*",
   command = ":%s/\\s\\+$//e",
 })
 
 -- Don't auto commenting new lines
 autocmd("BufEnter", {
-  pattern = "",
+  pattern = "*",
   command = "set fo-=c fo-=r fo-=o",
 })
 
@@ -66,7 +66,7 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- Scripts permission
-autocmd({ "BufModifiedSet", "FocusGained" }, {
+autocmd({ "BufNewFile" }, {
   pattern = { "*.sh", "*.py" },
   callback = function()
     local file = vim.fn.expand "<afile>"
@@ -118,7 +118,7 @@ autocmd("TermOpen", {
 })
 
 autocmd("TermOpen", {
-  pattern = "",
+  pattern = "term://*",
   command = "startinsert",
 })
 

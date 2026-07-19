@@ -38,7 +38,7 @@ while true; do
         # compile and install custom tmux
         # cd $APP_PATH/../../submodules/tmux
         #( sh autogen.sh && ./configure && make && sudo make install-binPrograms ) || ( echo "Tmux compilation failed, installing normal tmux" && sudo apt-get -y install tmux)
-        brew install -q tmux
+        /home/linuxbrew/.linuxbrew/bin/brew install -q tmux
 
         # plugins
         [ ! -e "$HOME/.tmux/plugins/tpm" ] && git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -55,20 +55,9 @@ while true; do
                 echo "export TZ=/usr/share/zoneinfo/$TIME_ZONE"
             ) >>~/.profile
         fi
+
         sudo apt -y install systemd-timesyncd
         timedatectl set-local-rtc 0 --adjust-system-clock
-
-        # tty
-        num=$(cat ~/.profile | grep "tty2" | wc -l)
-        if [ "$num" -lt "1" ]; then
-
-            echo "Automatically starting X after login"
-            echo '
-# start X after login
-test -z "$DISPLAY" -a "$(tty)" = /dev/tty2 &&
-            exec env XDG_VTNR=9 startx &>/dev/null' >>~/.profile
-
-        fi
 
         #############################################
         # add TMUX enable/disable to .bashrc
@@ -119,6 +108,12 @@ test -z "$DISPLAY" -a "$(tty)" = /dev/tty2 &&
         ln -sf "$APP_PATH"/tdab/tmux_sidebar.sh ~/.local/bin/sidebar
         ln -sf "$APP_PATH"/tdab/tmux_topbar.sh ~/.local/bin/topbar
         ln -sf "$APP_PATH"/tdab/show-tmux-popup.sh ~/.local/bin/show-tmux-popup
+
+	# display
+	ln -sf "$APP_PATH"/panel/dual.sh ~/.local/bin/flip
+	ln -sf "$APP_PATH"/panel/top.sh ~/.local/bin/wide
+	ln -sf "$APP_PATH"/panel/right.sh ~/.local/bin/extend
+	ln -sf "$APP_PATH"/panel/laptop.sh ~/.local/bin/laptop
         
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

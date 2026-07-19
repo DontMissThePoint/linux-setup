@@ -8,7 +8,6 @@ export GDK_DPI_SCALE=0
 export PIP_USE_PEP517=true
 export PIP_BREAK_SYSTEM_PACKAGES=true
 
-
 # FZF
 export FZF_DEFAULT_OPTS='--height 25%'
 export FZF_DEFAULT_COMMAND='rg --color=never --files --no-ignore --hidden --follow --glob "!.git/*"'
@@ -77,9 +76,8 @@ alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias mpv="mpv --msg-level=all=v"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
-alias cs="$GIT_PATH/linux-setup/scripts/system_clean.sh"
+alias sc="$GIT_PATH/linux-setup/scripts/system_clean.sh"
 alias moonphase="$GIT_PATH/linux-setup/scripts/moonphase.sh"
-alias mirror="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias droid="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
@@ -608,4 +606,4 @@ catkin() {
 # liquidprompt
 . ~/.liquidprompt/liquidprompt
 . ~/.liquidprompt/themes/unfold/unfold.theme
-lp_theme unfold
+# lp_theme unfold
