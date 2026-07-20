@@ -30,60 +30,60 @@ done
 arch=$(uname -i)
 
 # packages
-#sudo apt-get -y update -qq
+sudo apt-get -y update -qq
 
 # essentials
-#sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool wifi-qr moreutils
+sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool wifi-qr moreutils xserver-xorg-input-all
 
 # python
-#sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
+sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
 
-#if [ "$BEAVER" != "" ]; then
-#    sudo apt-get -y install python-git
-#    sudo ln -sf /bin/python2.7 /bin/python
-#else
-#    sudo apt-get -y install python3-git
-#fi
+if [ "$BEAVER" != "" ]; then
+    sudo apt-get -y install python-git
+    sudo ln -sf /bin/python2.7 /bin/python
+else
+    sudo apt-get -y install python3-git
+fi
 
 # other stuff
-#sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
+sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
 
 # submodules
-#cd "$MY_PATH"
-#"$docker" && git submodule update --init --recursive --recommend-shallow
-#! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive || echo "Updating..."
-#! "$docker" && bash "$MY_PATH"/scripts/update-submodules.sh
+cd "$MY_PATH"
+! "$docker" && git submodule update --init --recursive --recommend-shallow
+! "$docker" && git submodule sync --recursive && git submodule update --remote --recursive || echo "Updating..."
+! "$docker" && bash "$MY_PATH"/scripts/update-submodules.sh
 
 if [ "$unattended" == "0" ]; then
     if [ "$?" != "0" ]; then echo "Press Enter to continue.." && read; fi
 fi
 
 # 1. Install NIX
-#! "$docker" && bash "$APPCONFIG_PATH"/nix/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/nix/install.sh "$subinstall_params"
 
 # 2. Install LINUXBREW
-#! "$docker" && bash "$APPCONFIG_PATH"/brew/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/brew/install.sh "$subinstall_params"
 
 # 3. Install TMUX
-#! "$docker" && bash "$APPCONFIG_PATH"/tmux/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/tmux/install.sh "$subinstall_params"
 
 # 4. Install ZSH with ATHAME
-#! "$docker" && bash "$APPCONFIG_PATH"/zsh/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/zsh/install.sh "$subinstall_params"
 
 # 5. Install URXVT
-#! "$docker" && bash "$APPCONFIG_PATH"/urxvt/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/urxvt/install.sh "$subinstall_params"
 
 # 6. Install FONTS POWERLINE
-#! "$docker" && bash "$APPCONFIG_PATH"/fonts-powerline/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/fonts-powerline/install.sh "$subinstall_params"
 
 # 7. Install GO
-#! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/go/install.sh "$subinstall_params"
 
 # 8. Install VIM
-#! "$docker" && bash "$APPCONFIG_PATH"/vim/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/vim/install.sh "$subinstall_params"
 
 # 9. Install NVIM
-#! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/nvim/install.sh "$subinstall_params"
 
 # 10. Install I3
 ! "$docker" && bash "$APPCONFIG_PATH"/i3/install.sh "$subinstall_params"
@@ -101,7 +101,7 @@ fi
 ! "$docker" && bash "$APPCONFIG_PATH"/vimiv/install.sh "$subinstall_params"
 
 # 15. Setup modified keyboard rules
-! "$docker" && bash "$APPCONFIG_PATH"/keyboard/install.sh "$subinstall_params"
+! "$docker" && bash "$APPCONFIG_PATH"/xcape/install.sh "$subinstall_params"
 
 # 16 Setup FZF
 ! "$docker" && bash "$APPCONFIG_PATH"/fzf/install.sh "$subinstall_params"
@@ -129,31 +129,26 @@ fi
 # 23. Install ADGUARD
 ! "$docker" && bash "$APPCONFIG_PATH"/adguard/install.sh "$subinstall_params"
 
-# 24. Install QUTEBROWSER
-! "$docker" && bash "$APPCONFIG_PATH"/qutebrowser/install.sh "$subinstall_params"
+# 24. Install QUTE
+! "$docker" && bash "$APPCONFIG_PATH"/qute/install.sh "$subinstall_params"
 
 # the docker setup ends here
 if "$docker"; then
     exit 0
 fi
 
-##################################################
-# install inputs libraries when they are missing
-##################################################
-sudo apt-get -y install xserver-xorg-input-all
-
 #############################################
-# Disable automatic update over apt
+# apt
 #############################################
 
-sudo systemctl disable apt-daily.service
-sudo systemctl disable apt-daily.timer
+sudo systemctl stop apt-daily-upgrade.timer
+sudo systemctl stop apt-daily.timer
 
 sudo systemctl disable apt-daily-upgrade.timer
-sudo systemctl disable apt-daily-upgrade.service
+sudo systemctl disable apt-daily.timer
 
 #############################################
-# Disable basic telemetry
+# telemetry
 #############################################
 
 sudo ufw logging off
@@ -179,8 +174,6 @@ powerprofilesctl set performance
 # packages
 #############################################
 
-sudo fwupdmgr get-upgrades
-sudo dpkg --remove-architecture i386
 topgrade || echo "Up to date."
 
 #############################################

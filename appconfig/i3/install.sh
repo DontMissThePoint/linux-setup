@@ -19,10 +19,6 @@ for param in "$@"; do
     fi
 done
 
-var=$(lsb_release -r | awk '{ print $2 }')
-[ "$var" = "18.04" ] && export BEAVER=1
-[ "$var" = "24.04" ] && export NOBLE=1
-
 default=y
 while true; do
     if [[ "$unattended" == "1" ]]; then
@@ -37,10 +33,6 @@ while true; do
         toilet Installing i3 -t --filter metal -f smmono12
 
         sudo apt-get -y install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-dev libxcb-icccm4-dev libyajl-dev libstartup-notification0-dev libxcb-randr0-dev libev-dev libxcb-cursor-dev libxcb-xinerama0-dev libxcb-xkb-dev libxkbcommon-dev libxkbcommon-x11-dev autoconf libxcb-xrm0 libxcb-xrm-dev automake libxcb-shape0-dev libnotify-bin mpg123 dunst libkeybinder-3.0-0 redshift redshift-gtk libinput-tools vnstat vnstati
-
-        if [ "$beaver" != "" ]; then
-            sudo apt-get -y install python-keybinder gir1.2-keybinder
-        fi
 
         # required for i3-layout-manager
         sudo apt-get -y install xdotool x11-xserver-utils indent libanyevent-i3-perl
@@ -101,7 +93,7 @@ while true; do
         sudo apt-get -y install help2man
         cd "$APP_PATH"/../../submodules/light/
         ./autogen.sh
-        ./configure && make -j"$(nproc)"
+        ./configure && make -j$(nproc)
         sudo make install
         # set the minimal backlight value to 5%
         light -n 5
@@ -123,7 +115,7 @@ while true; do
         [ -e i3-gaps-rounded ] && rm -rf i3-gaps-rounded
         git clone https://github.com/jbenden/i3-gaps-rounded.git
         cd i3-gaps-rounded
-        meson setup --wipe build
+        meson setup build
 				ninja -C build
 				sudo -E ninja -C build install
 
@@ -135,7 +127,7 @@ while true; do
         cd "$APP_PATH"/../../submodules/i3blocks/
         ./autogen.sh
         ./configure
-        make -j"$(nproc)"
+        make -j$(nproc)
         sudo make install
 
         # clean after myself
@@ -159,7 +151,7 @@ while true; do
         git clone https://github.com/karlstav/cava
         cd cava
         ./autogen.sh && ./configure
-        make -j"$(nproc)"
+        make -j$(nproc)
         sudo make install
 
         # snd_aloop
@@ -186,12 +178,12 @@ while true; do
         [ -e xbanish ] && rm -rf xbanish
         git clone https://github.com/jcs/xbanish
         cd xbanish
-        make -j8
+				make -j$(nproc)
         sudo make install
 
         # memory
         cd "$APP_PATH"/../../submodules/i3blocks-contrib/memory2
-        make -j"$(nproc)"
+        make -j$(nproc)
 
         # symlink settings folder
         if [ ! -e ~/.i3 ]; then
@@ -206,8 +198,8 @@ while true; do
         git clone https://github.com/davatorium/rofi.git
         cd rofi
         meson setup build -Dwayland=disabled
-        ninja -C build -v
-        sudo ninja -C build install
+				ninja -C build
+				sudo -E ninja -C build install
 
         # config
         echo "Configuring..."
@@ -279,7 +271,7 @@ while true; do
 
         # install xkb layout state
         cd "$APP_PATH"/../../submodules/xkblayout-state/
-        make -j"$(nproc)"
+        make -j$(nproc)
         sudo cp -f "$APP_PATH"/../../submodules/xkblayout-state/xkblayout-state /usr/bin/xkblayout-state
         rm -f xkblayout-state
 
@@ -321,7 +313,7 @@ while true; do
         cd picom
         meson --buildtype=release . build
         ninja -C build
-        sudo ninja -C build install
+				sudo -E ninja -C build install
 
         # gpus
         # sudo apt-get -y install nvidia-prime

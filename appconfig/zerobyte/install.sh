@@ -33,14 +33,18 @@ while true; do
 
         toilet Installing zerobyte -t --filter metal -f smmono12
 
-        # sources
-        sudo rm -f /etc/apt/sources.list.d/syncthing.list
-
-        # Syncthing
         sudo apt install -y gnupg2 curl apt-transport-https
-        curl -fsSL https://syncthing.net/release-key.txt | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/syncthing.gpg
-        echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
-        sudo apt update
+
+        toilet Settingup syncthing -t -f future
+
+        # syncthing
+        if [ ! -e /etc/apt/sources.list.d/syncthing.list ]; then
+
+						curl -fsSL https://syncthing.net/release-key.txt | sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/syncthing.gpg
+						echo "deb https://apt.syncthing.net/ syncthing stable" | sudo tee /etc/apt/sources.list.d/syncthing.list
+						sudo apt update
+
+        fi
         sudo apt install -y syncthing
         sudo systemctl enable syncthing@"$USER".service
         sudo systemctl start syncthing@"$USER".service
@@ -51,7 +55,7 @@ while true; do
 
         #access the web UI
         # localhost:8384/
-        mkdir -p ~/Public/{Journal,Notes} ~/Documents/{Scorecard,Dashboard} ~/Pictures/Android\ Camera
+        mkdir -p ~/Public/{Journal,Notes} ~/Documents/Scorecard ~/Pictures/Android\ Camera
 
         # nextcloud
         toilet Settingup nextcloud -t -f future
@@ -63,37 +67,12 @@ while true; do
             sudo apt install -y shutter nextcloud-desktop
         fi
 
-        # MegaSync
-        toilet Settingup megasync -t -f future
-
         # Rclone
-        rclone config
+        /home/linuxbrew/.linuxbrew/bin/rclone config
         # rclone rcd --rc-web-gui
 
-        # GDrive
-        mkdir -p ~/.elinks
-        pv "$APP_PATH"/elinks.conf >~/.elinks/elinks.conf
-        pipx install gdown
-
-        # Add MEGA’s public signing key
-        if [ ! -e /etc/apt/sources.list.d/megaio.sources ]; then
-            curl -fsSL "https://mega.nz/linux/repo/xUbuntu_$(lsb_release -r | awk '{ print $2 }')/Release.key" | gpg --dearmor |
-            sudo tee /usr/share/keyrings/meganz-archive-keyring.gpg >/dev/null
-            sudo chmod a+r /usr/share/keyrings/meganz-archive-keyring.gpg
-
-            sudo tee /etc/apt/sources.list.d/megaio.sources > /dev/null <<EOF
-Types: deb
-URIs: https://mega.nz/linux/repo/xUbuntu_$(lsb_release -r | awk '{ print $2 }')/
-Suites: ./
-Signed-By: /etc/apt/keyrings/meganz-archive-keyring.gpg
-EOF
-
-            sudo apt-get update
-        fi
-
-        # MegaCMD
-        sudo apt-get install -y megacmd
-        # . "$APP_PATH"/dotsync.sh || echo "Done."
+        # Gdrive
+        /home/linuxbrew/.linuxbrew/bin/pipx install gdown
 
         # Zerobyte
         mkdir -p ~/VirtualMachines/Zerobyte-Backup/secrets

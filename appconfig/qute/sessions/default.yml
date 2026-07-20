@@ -1,0 +1,289 @@
+windows:
+- active: true
+  geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAGAAABRoAAALHAAAAAAAAABgAAAUaAAACxwAAAAAAAAAABRsAAAAAAAAA
+    GAAABRoAAALH
+  tabs:
+  - history:
+    - active: true
+      last_visited: '2026-07-17T05:16:07'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: billions | Syncthing
+      url: http://localhost:8384/
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-17T05:16:08'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte | Backup automation for Restic
+      url: https://zerobyte.app/
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-17T05:16:09'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Backups | Zerobyte Docs
+      url: https://zerobyte.app/docs/concepts/backups
+      zoom: 0.85
+  - history:
+    - last_visited: '2026-07-17T05:16:09'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T05:22:51'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:22:57'
+      pinned: false
+      title: Zerobyte - Create Repository
+      url: http://localhost:4096/repositories/create
+    - last_visited: '2026-07-17T05:24:59'
+      pinned: false
+      title: Zerobyte - FLT
+      url: http://localhost:4096/repositories/PDqsb811
+    - last_visited: '2026-07-17T05:25:37'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:25:50'
+      pinned: false
+      title: Zerobyte - FLT
+      url: http://localhost:4096/repositories/PDqsb811
+    - last_visited: '2026-07-17T05:25:53'
+      pinned: false
+      title: Zerobyte - Edit FLT
+      url: http://localhost:4096/repositories/PDqsb811/edit
+    - last_visited: '2026-07-17T05:26:28'
+      pinned: false
+      title: Zerobyte - FLT
+      url: http://localhost:4096/repositories/PDqsb811
+    - last_visited: '2026-07-17T05:26:38'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T05:26:41'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:26:54'
+      pinned: false
+      title: Zerobyte - Create Repository
+      url: http://localhost:4096/repositories/create
+    - last_visited: '2026-07-17T05:36:19'
+      pinned: false
+      title: Zerobyte - joplin-notes
+      url: http://localhost:4096/repositories/J5tTKXjH
+    - last_visited: '2026-07-17T05:36:54'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:37:02'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:37:04'
+      pinned: false
+      title: Zerobyte - Open Source Backup Solution
+      url: http://localhost:4096/backups/create
+    - last_visited: '2026-07-17T05:40:08'
+      pinned: false
+      title: Zerobyte - NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T05:40:49'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:41:11'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:41:18'
+      pinned: false
+      title: Zerobyte - NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T05:41:46'
+      pinned: false
+      title: Zerobyte - Edit NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ/edit
+    - last_visited: '2026-07-17T05:42:22'
+      pinned: false
+      title: Zerobyte - NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T05:42:39'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:42:42'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:43:00'
+      pinned: false
+      title: Zerobyte - Open Source Backup Solution
+      url: http://localhost:4096/backups/create
+    - last_visited: '2026-07-17T05:43:06'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T05:43:21'
+      pinned: false
+      title: Zerobyte - Create Volume
+      url: http://localhost:4096/volumes/create
+    - last_visited: '2026-07-17T05:44:02'
+      pinned: false
+      title: Zerobyte - query-data
+      url: http://localhost:4096/volumes/uF-KyFVf
+    - last_visited: '2026-07-17T05:44:08'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T05:44:19'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:44:35'
+      pinned: false
+      title: Zerobyte - NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T05:44:50'
+      pinned: false
+      title: Zerobyte - notes
+      url: http://localhost:4096/volumes/NP3JfJVR
+    - last_visited: '2026-07-17T05:44:57'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:44:59'
+      pinned: false
+      title: Zerobyte - NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T05:45:32'
+      pinned: false
+      title: Zerobyte - Edit NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ/edit
+    - last_visited: '2026-07-17T05:46:22'
+      pinned: false
+      title: Zerobyte - NOTE-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T05:46:26'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:46:33'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T05:46:35'
+      pinned: false
+      title: Zerobyte - notes
+      url: http://localhost:4096/volumes/NP3JfJVR
+    - last_visited: '2026-07-17T05:46:52'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:47:02'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:47:04'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T05:47:35'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T05:47:37'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T05:47:39'
+      pinned: false
+      title: Zerobyte - Open Source Backup Solution
+      url: http://localhost:4096/backups/create
+    - last_visited: '2026-07-17T05:49:43'
+      pinned: false
+      title: Zerobyte - QueryData-FLT
+      url: http://localhost:4096/backups/Suv1bQYU
+    - last_visited: '2026-07-17T05:50:26'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - active: true
+      last_visited: '2026-07-17T05:50:27'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+      zoom: 0.85
+  - active: true
+    history:
+    - last_visited: '2026-07-17T05:16:07'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-17T05:16:14'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#clients
+    - last_visited: '2026-07-17T05:32:09'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#custom_rules
+    - last_visited: '2026-07-17T05:32:27'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-17T05:33:15'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#logs?response_status=blocked
+    - last_visited: '2026-07-17T05:33:44'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-17T05:34:31'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#custom_rules
+    - last_visited: '2026-07-17T05:34:38'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-17T05:36:41'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#logs?response_status=blocked
+    - last_visited: '2026-07-17T05:50:51'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-17T05:50:59'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#custom_rules
+    - last_visited: '2026-07-17T05:51:03'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#clients
+    - active: true
+      last_visited: '2026-07-17T05:51:09'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+      zoom: 0.85

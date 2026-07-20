@@ -49,7 +49,7 @@ while true; do
     [ -e fnf ] && rm -rf fnf
     git clone https://github.com/leo-arch/fnf
     cd fnf
-    make -j8
+		make -j$(nproc)
     sudo make install
 
     # preview

@@ -93,7 +93,7 @@ while true; do
         cd /tmp/ble
 
         git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-        make -j8 -C ble.sh install PREFIX=~/.local
+				make -j$(nproc) -C ble.sh install PREFIX=~/.local
 
         # shell
         sudo usermod --shell "$(which zsh)" "$USER"

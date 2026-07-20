@@ -50,7 +50,7 @@ while true; do
         [ -e nchat ] && sudo rm -rf nchat
         git clone https://github.com/d99kris/nchat
         cd nchat
-        mkdir -p build && cd build && cmake .. && make -j"$(nproc)" -s
+        mkdir -p build && cd build && cmake .. && make -j$(nproc) -s
         sudo make install
 
         # messages
@@ -65,7 +65,7 @@ while true; do
         autoreconf -i               # if building from git
         ./configure --with-oniguruma=builtin
         make clean # if upgrading from a version previously built from source
-        make -j"$(nproc)"
+        make -j$(nproc)
         make check
         sudo make install
 
@@ -89,7 +89,7 @@ while true; do
         go install mvdan.cc/sh/v3/cmd/shfmt@latest
 
         # gopls
-        go install -v golang.org/x/tools/gopls@latest
+        go install golang.org/x/tools/gopls@latest
 
         # mpd-mpris
         go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest

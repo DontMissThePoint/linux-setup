@@ -8,6 +8,7 @@ local g = vim.g
 
 -------------------------------------- globals -----------------------------------------
 g.toggle_theme_icon = ""
+g.markdown_recommended_style = 0
 
 -------------------------------------- options ------------------------------------------
 o.laststatus = 3
@@ -39,10 +40,10 @@ opt.shortmess:append "sI"
 opt.pumheight = 5
 opt.completeopt = { "menuone", "noselect" } -- mostly just for cmp
 opt.gcr = {
-  "i-c-ci-ve:-block-TermCursor",
-  "n-v:block-Curosr/lCursor",
-  "o:hor50-Curosr/lCursor",
-  "r-cr:hor20-Curosr/lCursor",
+	"i-c-ci-ve:-block-TermCursor",
+	"n-v:block-Curosr/lCursor",
+	"o:hor50-Curosr/lCursor",
+	"r-cr:hor20-Curosr/lCursor",
 }
 
 vim.cmd "set whichwrap+=<,>,[,],h,l"

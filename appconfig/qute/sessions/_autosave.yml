@@ -1,0 +1,251 @@
+windows:
+- active: true
+  geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAGAAABRoAAALHAAAAAAAAABgAAAUaAAACxwAAAAAAAAAABRsAAAAAAAAA
+    GAAABRoAAALH
+  tabs:
+  - history:
+    - active: true
+      last_visited: '2026-07-17T05:58:36'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: billions | Syncthing
+      url: http://localhost:8384/
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-17T05:58:37'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte | Backup automation for Restic
+      url: https://zerobyte.app/
+      zoom: 0.85
+  - history:
+    - last_visited: '2026-07-17T06:09:03'
+      pinned: false
+      title: Zerobyte - journal-data
+      url: http://localhost:4096/repositories/Ctatv-jh
+    - last_visited: '2026-07-17T06:09:39'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:09:48'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:09:57'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:10:08'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:10:14'
+      pinned: false
+      title: Zerobyte - Notifications
+      url: http://localhost:4096/notifications
+    - last_visited: '2026-07-17T06:10:17'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:14:01'
+      pinned: false
+      title: Zerobyte - JoplinNote-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T06:14:06'
+      pinned: false
+      title: Zerobyte - Edit JoplinNote-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ/edit
+    - last_visited: '2026-07-17T06:14:15'
+      pinned: false
+      title: Zerobyte - JoplinNote-SYNC
+      url: http://localhost:4096/backups/QVnc-ZFJ
+    - last_visited: '2026-07-17T06:14:20'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:14:22'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:15:57'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:16:03'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:16:43'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:16:54'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T06:16:57'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:17:12'
+      pinned: false
+      title: Zerobyte - Open Source Backup Solution
+      url: http://localhost:4096/backups/create
+    - last_visited: '2026-07-17T06:22:16'
+      pinned: false
+      title: Zerobyte - JournalData-LEDGER
+      url: http://localhost:4096/backups/Co8NUCxm
+    - last_visited: '2026-07-17T06:22:21'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T06:22:24'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:22:48'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T06:22:50'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:22:52'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:22:56'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:23:00'
+      pinned: false
+      title: Zerobyte - Open Source Backup Solution
+      url: http://localhost:4096/settings
+    - last_visited: '2026-07-17T06:23:09'
+      pinned: false
+      title: Zerobyte - Open Source Backup Solution
+      url: http://localhost:4096/settings?tab=organization
+    - last_visited: '2026-07-17T06:23:11'
+      pinned: false
+      title: Zerobyte - Open Source Backup Solution
+      url: http://localhost:4096/settings?tab=account
+    - last_visited: '2026-07-17T06:23:13'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T06:23:18'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:23:20'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:23:27'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T06:23:29'
+      pinned: false
+      title: Zerobyte - linux-setup
+      url: http://localhost:4096/volumes/j96WsbWk
+    - last_visited: '2026-07-17T06:23:33'
+      pinned: false
+      title: Zerobyte - linux-setup
+      url: http://localhost:4096/volumes/j96WsbWk?tab=files
+    - last_visited: '2026-07-17T06:23:38'
+      pinned: false
+      title: Zerobyte - linux-setup
+      url: http://localhost:4096/volumes/j96WsbWk?tab=info
+    - last_visited: '2026-07-17T06:23:42'
+      pinned: false
+      title: Zerobyte - Volumes
+      url: http://localhost:4096/volumes
+    - last_visited: '2026-07-17T06:23:44'
+      pinned: false
+      title: Zerobyte - joplin-notes
+      url: http://localhost:4096/volumes/NP3JfJVR
+    - last_visited: '2026-07-17T06:23:45'
+      pinned: false
+      title: Zerobyte - joplin-notes
+      url: http://localhost:4096/volumes/NP3JfJVR?tab=files
+    - last_visited: '2026-07-17T06:23:55'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:24:02'
+      pinned: false
+      title: Zerobyte - Repositories
+      url: http://localhost:4096/repositories
+    - last_visited: '2026-07-17T06:24:14'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:24:19'
+      pinned: false
+      title: Zerobyte - JournalData-LEDGER
+      url: http://localhost:4096/backups/Co8NUCxm
+    - last_visited: '2026-07-17T06:24:23'
+      pinned: false
+      title: Zerobyte - Edit JournalData-LEDGER
+      url: http://localhost:4096/backups/Co8NUCxm/edit
+    - last_visited: '2026-07-17T06:24:59'
+      pinned: false
+      title: Zerobyte - JournalData-LEDGER
+      url: http://localhost:4096/backups/Co8NUCxm
+    - last_visited: '2026-07-17T06:25:06'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:28:15'
+      pinned: false
+      title: Zerobyte - LinuxMint-OS
+      url: http://localhost:4096/backups/StrhY1JF
+    - last_visited: '2026-07-17T06:28:18'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - last_visited: '2026-07-17T06:36:52'
+      pinned: false
+      title: Zerobyte - LinuxMint-OS
+      url: http://localhost:4096/backups/StrhY1JF
+    - last_visited: '2026-07-17T06:36:58'
+      pinned: false
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+    - active: true
+      last_visited: '2026-07-17T06:37:14'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte - LinuxMint-OS
+      url: http://localhost:4096/backups/StrhY1JF
+      zoom: 0.85
+  - active: true
+    history:
+    - last_visited: '2026-07-17T05:58:36'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-17T06:38:01'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#custom_rules
+    - active: true
+      last_visited: '2026-07-17T06:38:43'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+      zoom: 0.85

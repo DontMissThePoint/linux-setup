@@ -34,11 +34,11 @@ while true; do
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    toilet Installing lolcat -t --filter gay -f smmono12
+		toilet Installing lolcat -t --filter metal -f smmono12
 
     # install lolcat
     cd $APP_PATH/../../submodules/lolcat
-    make -j8 && sudo make install
+		make -j$(nproc) && sudo make install
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

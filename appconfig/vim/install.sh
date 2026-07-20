@@ -44,7 +44,7 @@ while true; do
         git clone https://github.com/jedisct1/libsodium --branch stable
         cd libsodium
 	./configure
-	make -j'$(nproc)' && make check
+	make -j$(nproc) && make check
 	sudo make install	
 
         # cache
