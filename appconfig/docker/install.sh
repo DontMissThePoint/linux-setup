@@ -173,12 +173,6 @@ while true; do
         toilet Settingup dockurr -t -f future
         # focus cell: #87ff87 #0088cc
 
-				# http://127.0.0.1:8006/
-        # Install Apps: 365, powerBi, mupdf, listary, librewolf
-        #               joplin, smplayer, nextcloud, zap zap
-        # Activate: irm https://get.activated.win | iex
-				# winboat
-
         # VM
         mkdir -p ~/VirtualMachines/Windows-Docker
         cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Windows-Docker
@@ -190,10 +184,21 @@ while true; do
         NC='\033[0m' # No Color
         echo -e "${BGREEN}> Windows debloater.${NC}"
 
-        cd ~/Public
-        curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
-            jq -r ".assets[] | .browser_download_url" | grep bat |\
-            xargs -n 1 curl -L -O --fail --show-error
+        # cd ~/Public
+        # curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
+        #     jq -r ".assets[] | .browser_download_url" | grep bat |\
+        #     xargs -n 1 curl -L -O --fail --show-error
+
+				# http://127.0.0.1:8006/
+        # Install Apps: 365, powerBi, mupdf, listary, librewolf
+        #               joplin, smplayer, nextcloud, zap zap
+        # Activate: irm https://get.activated.win | iex
+
+        toilet Settingup winboat -t -f future
+
+				cd /tmp
+				sudo /home/linuxbrew/.linuxbrew/bin/dra \
+					download --select '*amd64.deb' -i TibixDev/winboat
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

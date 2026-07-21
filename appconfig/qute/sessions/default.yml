@@ -1,13 +1,12 @@
 windows:
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABRoAAALeAAAAAAAAABgAAAUYAAACxwAAAAAABAAABRsAAAAAAAAA
-    AAAABRoAAALe
+    AdnQywADAAAAAAAAAAAAFwAABP8AAAK3AAAAAAAAABcAAAT/AAACtwAAAAAAAAAABQAAAAAAAAAA
+    FwAABP8AAAK3
   tabs:
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-07-21T22:02:19'
+      last_visited: '2026-07-22T01:20:32'
       pinned: false
       scroll-pos:
         x: 0
@@ -17,7 +16,7 @@ windows:
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-21T22:02:20'
+      last_visited: '2026-07-22T01:20:33'
       pinned: false
       scroll-pos:
         x: 0
@@ -27,7 +26,7 @@ windows:
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-21T22:02:20'
+      last_visited: '2026-07-22T01:20:33'
       pinned: false
       scroll-pos:
         x: 0
@@ -37,7 +36,7 @@ windows:
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-21T22:02:20'
+      last_visited: '2026-07-22T01:20:33'
       pinned: false
       scroll-pos:
         x: 0
@@ -46,69 +45,33 @@ windows:
       url: http://localhost:4096/backups
       zoom: 0.85
   - history:
-    - last_visited: '2026-07-21T22:02:19'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-    - last_visited: '2026-07-21T22:03:30'
+    - last_visited: '2026-07-22T01:20:32'
       pinned: false
       title: AdGuard Home
       url: http://127.0.0.1/#clients
-    - last_visited: '2026-07-21T22:04:17'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-    - last_visited: '2026-07-21T22:04:26'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#clients
-    - last_visited: '2026-07-21T22:04:30'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-    - last_visited: '2026-07-21T22:09:33'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#clients
-    - last_visited: '2026-07-21T22:09:37'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-    - last_visited: '2026-07-21T22:09:56'
-      original-url: http://127.0.0.1/#logs
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#logs?response_status=all
-    - last_visited: '2026-07-21T22:10:19'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-    - last_visited: '2026-07-21T22:26:51'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#logs?response_status=blocked
     - active: true
-      last_visited: '2026-07-21T22:26:59'
+      last_visited: '2026-07-22T01:23:08'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: AdGuard Home
-      url: http://127.0.0.1/#clients
+      url: http://127.0.0.1/#
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-21T22:02:19'
+      last_visited: '2026-07-22T01:20:32'
       pinned: false
       scroll-pos:
         x: 0
-        y: 558
+        y: 557
       title: WinBoat - Run Windows Apps on Linux with Seamless Integration
       url: https://winboat.app/#features
       zoom: 0.85
-  - history:
+  - active: true
+    history:
     - active: true
-      last_visited: '2026-07-21T22:02:22'
+      last_visited: '2026-07-22T01:20:34'
       pinned: false
       scroll-pos:
         x: 0
@@ -119,46 +82,21 @@ windows:
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-21T22:02:19'
+      last_visited: '2026-07-22T01:20:34'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: The Pirate Bay - The galaxy's most resilient bittorrent site
-      url: https://thepiratebay.org/description.php?id=83803397
+      title: 'dra installer github — Yandex: found 2 thousand results'
+      url: https://yandex.com/search?text=dra+installer+github&lr=21424
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-21T22:02:21'
-      original-url: https://yandex.com/showcaptcha?form-fb-hint=7.1&mt=5BA5EB20166CE9C73B718C8EC7E5C06422E4EA947AB5DE1BB196D973D6837D2C0BA13E68B700526277E2AF2661FB88635977D523889DAE025D370AC6E479E351F537B656109D69D1F4986060CB580B8C43CD8584C2EB1E9DD6AD58E1C9FA3D2290B7BBD056AF52E28D77A43784DB75E71B253BC10FE95DF1469A22CECCDD61A97A9E594816D369F9D9C104DA618F46059464FFFD54B060DCEDDCC688A803F4884C97BD372627F2E3F6EB369D3C50B96D68560111589BC584BA368C3720EF576F9B9D781415D13024FA5388E8EEBFCFF43686F6D731D2AE98DE495BD0720CDF46B0F495E12FE31E91F367FB27B2D94209800CFA10&retpath=aHR0cHM6Ly95YW5kZXguY29tL3NlYXJjaD90ZXh0PXJlZmluZC0yaytnaXRodWImbHI9MjE0MjQmc2VhcmNoX3NvdXJjZT15YWNvbV9kZXNrdG9wX2NvbW1vbiZ1dG1fcmVmZXJyZXI9aHR0cHMlM0ElMkYlMkZ5YW5kZXguY29tJTJG_70c99ad86a60a3b2caf8f4465d8b09d2&t=4%252F1784654439%252Fbef146d026fda56b9fc7cc6963e90c35&u=9085667623601085768&s=f30fe3eed1129bc149d3edfae0f672b5
-      pinned: false
+      last_visited: '2026-07-22T01:20:33'
+      pinned: true
       scroll-pos:
         x: 0
         y: 0
-      title: Are you not a robot?
-      url: https://yandex.com/showcaptcha?form-fb-hint=2.1&mt=6536A0C85B54A16C0D28BCE3A71D91B44AC7514139C24C8437BE3FEE187824E0678C205D20D419356FD0896A772E015F1107B871241D29EFACDC09D95B7C5C361D3B1B07773439CB5399EEA6411180EE0FA030C865F5D95BCA2245B0B98A2DDEBCE44AC3A9F983A238CD8B08209E3CEA412254C781684CCDE65C93C21A4990680F81A957F6A6A8192BBB56D3B01BF29533FE321DFD3F514CFAA1F88947492EF9679AD8E2019B8098E25C696508C7E2CDDF9246EEDF9C135FEB9A51E5604FF964D6FF1E606FC723DCB31DBF592CFE487530112DE8D2F56E3186389E9E02D09CF0EEEE43B5E4546311324562585D78624D973F&retpath=aHR0cHM6Ly95YW5kZXguY29tL3NlYXJjaD90ZXh0PXJlZmluZC0yaytnaXRodWImbHI9MjE0MjQmc2VhcmNoX3NvdXJjZT15YWNvbV9kZXNrdG9wX2NvbW1vbiZ1dG1fcmVmZXJyZXI9aHR0cHMlM0ElMkYlMkZ5YW5kZXguY29tJTJG_70c99ad86a60a3b2caf8f4465d8b09d2&t=2%252F1784660540%252Fd743cf412e9171c7f2b98532af0f4be1&u=9086077060486470986&s=ee4d23b1f06031ef4f29c59c9c01a3d1
+      title: https://www.google.com/search?q=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&sca_esv=894fd3fe8c2eef40&source=hp&ei=q7xfavXLAeGDi-gPt560qAY&iflsig=ABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6&aep=22&ved=0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI&cs=0&oq=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&gs_lp=Egdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB&sclient=gws-wiz&mstk=AUtExfAaZgp74RBS3iM_nd7qDzcX2g93O7JNIwjfa2eOjCIXP4X4N6FfsT07d163Ge2Og4y2YFVgNgcQtE9jxyyqo9jofLxd2g0vsjifhqPPGTjG8Xa9Tgvd_3t5L_G75foLY-c4Gy0-XR7ohCrntNfzJgz9GWu5jZ_vtJE&csuir=1&udm=50&sg_ss=*uISahODyAAbO4c8E7uF9486X5fRLo3sEAEABEArZ1ISfh6SMdLBimsaCD1lvtoUjI7w5c_W-K_Yr78Vms-GbkLskcMd3wXZDMDH-k5ZMoZwdg0BQa04MUJ3mPQAAAHptAAAAHlcBB0EANGPW-s2qVDchnzp_mIlzUnzbtaJNIzgvsV78p7TWFqMIuXBMRcfVVzIK36c2oiins_3vrP6mBCxOAY_557EwHRluJqkO0AEjyEDhlejlqCr1AG00u-A-QE4s8U4Y4jnSCvJAQSWzlCd3Dj7a90JKdeBZG2HuFEwKWg14C4rr0mzo5KEX-vznNjitVpPT77PpR4FeDzIyDGmGWZACMNujAmO-yoylRiS_JZ-lbI9a-0pzrZ6I219DdbHZEBh9nJnnMUz4VItgd05oXCu6lQLKc58gEgT03NrIaXw-MFpu1b2mwaepebMtHEBEUWmkjXfJ4urJ8JQkn_HLybGzpVHrh0QoWMYzFxbvgc71BuPPT1DBRTCSt77lBqzBmSDifxKRDsyRVuM_NxwGjw_Rq6ift2luzUWwmyYsWWqMcUyU6Y4C3_4MfOa9yzyGD1jvisTpEwT0lyJx7ObMeyBMjlKCR9Yrym8rm4CFh7PfC53XSI_JDNfhFuAh7CocHUVM5cvzAL4KCwE0bDfNzdjXq8t3LPdZzY2MTYWARzTh7THNfItybjHnl9d3RpZysf15urnzble03CZDitqe-e4YGowuKoUAPZtypKN8NqyM5MlW2Zi5lQ1Rd_aX1ZFPFMPxctrK1aNMnN42VcPbSSRss0CNG0yscA83H23gCi3fQY4OKFgZo_K6ZuKt59f33Yqq9rbKFMJEHrANJYaDnzrJ6OEGkodZPSkizBgxXN4GbsRcLr4nCt0ypJzuPRkFwTLnP2U1YhWA6pJK5XWOdqnWsTE8C9uo3W6kgkd8F1Hwtzl6Rq9xO2DjsVEpPrlfnj6UzeV28iaog_882K8A2qWiv1l7yK3JeqAxxN8a2S70zisdMrpHmGuUYeVRQ4lxdhrN6uJeOOUeKu15ZIAm5jjlSIm5n1ND2oHnE4G0NMPPXpcAeCdYyM2kCT3f1dOYpzgjkBUfbtGt0Qtd0gckdmodYuNrwNRMKdvQiXa6l_IH4m7f23yvksPn8lbtPLCU4b6Yw3RPyd2opUT_6YYn4GyMxHCEc2X6vgV0nOdYIidj28eH5C6z_eL-4wwYokehXkCYpMDBLQOgoYVtkpHQ5uKsJ94uNbnU7IrDpWyokbYIQbnQ1QAyWwfkk7oibNDTxtXLMoQY7bzXmPc3i00apuGBL0wZwtfXGFSr8xV0Rlqez1-g-J8b7w0G5S2o1lyEoueJsWWLELglWpEH624kHNu07v3ZFoU0wwTepfO0iOWV0YqQh23Ub6ec4z2YkWP84xyPGPnQGdNe6J-rjQtBP4tKPpxsRrZ8J7pEJKibJQNcPWLyIRG-XFxo9rqa5Exdj900XZ9GGHJGNPw5aP6NBdZqeWOzkE-mgJMXYIVEp3Ua_gC3f0G-yqJtFdFem1MLv_iIfZUYof2IQNHf6oCkJ9KkqxjJwzgDQWNmdWDG-dNUuksH6qHWIluLTBNoxDCWW-YiB5q995Ny5cFUEMH8I-l-UJsYxO-RTuY&sei=NOZfavL9Nb31i-gPjIPcuAw
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dlinuxmint%2Bnemo%2Bchange%2Bcolor%2Bfolders%2Bto%2Bgreen%2Blinux%2Bcli%2Bcommand%26sca_esv%3D894fd3fe8c2eef40%26source%3Dhp%26ei%3Dq7xfavXLAeGDi-gPt560qAY%26iflsig%3DABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6%26aep%3D22%26ved%3D0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI%26cs%3D0%26oq%3Dlinuxmint%2Bnemo%2Bchange%2Bcolor%2Bfolders%2Bto%2Bgreen%2Blinux%2Bcli%2Bcommand%26gs_lp%3DEgdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB%26sclient%3Dgws-wiz%26mstk%3DAUtExfAaZgp74RBS3iM_nd7qDzcX2g93O7JNIwjfa2eOjCIXP4X4N6FfsT07d163Ge2Og4y2YFVgNgcQtE9jxyyqo9jofLxd2g0vsjifhqPPGTjG8Xa9Tgvd_3t5L_G75foLY-c4Gy0-XR7ohCrntNfzJgz9GWu5jZ_vtJE%26csuir%3D1%26udm%3D50%26sg_ss%3D*uISahODyAAbO4c8E7uF9486X5fRLo3sEAEABEArZ1ISfh6SMdLBimsaCD1lvtoUjI7w5c_W-K_Yr78Vms-GbkLskcMd3wXZDMDH-k5ZMoZwdg0BQa04MUJ3mPQAAAHptAAAAHlcBB0EANGPW-s2qVDchnzp_mIlzUnzbtaJNIzgvsV78p7TWFqMIuXBMRcfVVzIK36c2oiins_3vrP6mBCxOAY_557EwHRluJqkO0AEjyEDhlejlqCr1AG00u-A-QE4s8U4Y4jnSCvJAQSWzlCd3Dj7a90JKdeBZG2HuFEwKWg14C4rr0mzo5KEX-vznNjitVpPT77PpR4FeDzIyDGmGWZACMNujAmO-yoylRiS_JZ-lbI9a-0pzrZ6I219DdbHZEBh9nJnnMUz4VItgd05oXCu6lQLKc58gEgT03NrIaXw-MFpu1b2mwaepebMtHEBEUWmkjXfJ4urJ8JQkn_HLybGzpVHrh0QoWMYzFxbvgc71BuPPT1DBRTCSt77lBqzBmSDifxKRDsyRVuM_NxwGjw_Rq6ift2luzUWwmyYsWWqMcUyU6Y4C3_4MfOa9yzyGD1jvisTpEwT0lyJx7ObMeyBMjlKCR9Yrym8rm4CFh7PfC53XSI_JDNfhFuAh7CocHUVM5cvzAL4KCwE0bDfNzdjXq8t3LPdZzY2MTYWARzTh7THNfItybjHnl9d3RpZysf15urnzble03CZDitqe-e4YGowuKoUAPZtypKN8NqyM5MlW2Zi5lQ1Rd_aX1ZFPFMPxctrK1aNMnN42VcPbSSRss0CNG0yscA83H23gCi3fQY4OKFgZo_K6ZuKt59f33Yqq9rbKFMJEHrANJYaDnzrJ6OEGkodZPSkizBgxXN4GbsRcLr4nCt0ypJzuPRkFwTLnP2U1YhWA6pJK5XWOdqnWsTE8C9uo3W6kgkd8F1Hwtzl6Rq9xO2DjsVEpPrlfnj6UzeV28iaog_882K8A2qWiv1l7yK3JeqAxxN8a2S70zisdMrpHmGuUYeVRQ4lxdhrN6uJeOOUeKu15ZIAm5jjlSIm5n1ND2oHnE4G0NMPPXpcAeCdYyM2kCT3f1dOYpzgjkBUfbtGt0Qtd0gckdmodYuNrwNRMKdvQiXa6l_IH4m7f23yvksPn8lbtPLCU4b6Yw3RPyd2opUT_6YYn4GyMxHCEc2X6vgV0nOdYIidj28eH5C6z_eL-4wwYokehXkCYpMDBLQOgoYVtkpHQ5uKsJ94uNbnU7IrDpWyokbYIQbnQ1QAyWwfkk7oibNDTxtXLMoQY7bzXmPc3i00apuGBL0wZwtfXGFSr8xV0Rlqez1-g-J8b7w0G5S2o1lyEoueJsWWLELglWpEH624kHNu07v3ZFoU0wwTepfO0iOWV0YqQh23Ub6ec4z2YkWP84xyPGPnQGdNe6J-rjQtBP4tKPpxsRrZ8J7pEJKibJQNcPWLyIRG-XFxo9rqa5Exdj900XZ9GGHJGNPw5aP6NBdZqeWOzkE-mgJMXYIVEp3Ua_gC3f0G-yqJtFdFem1MLv_iIfZUYof2IQNHf6oCkJ9KkqxjJwzgDQWNmdWDG-dNUuksH6qHWIluLTBNoxDCWW-YiB5q995Ny5cFUEMH8I-l-UJsYxO-RTuY%26sei%3DNOZfavL9Nb31i-gPjIPcuAw&q=EgQpvoYLGLXM_9IGIjDQRomQ4q5QH1ud_YNmInVGgvGLj-9TXYl2Q9tOhjFwGTyvUaA-TcThnuITMX0w0jwyAVJaAUM
       zoom: 0.85
-  - history:
-    - last_visited: '2026-07-21T22:02:21'
-      original-url: https://www.google.com/search?q=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&sca_esv=894fd3fe8c2eef40&source=hp&ei=q7xfavXLAeGDi-gPt560qAY&iflsig=ABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6&aep=22&ved=0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI&cs=0&oq=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&gs_lp=Egdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB&sclient=gws-wiz&mstk=AUtExfD6WbDyStFws5F7vKEhuP6B19izBrr4f0Ei_7y3hsgNaODAnxrnRAxhBss6Mor6YjIzhoPV8SrkbIe5djUnx9X0jgnuROsASRWgHGRmEAq6qKLt54sWb4-xv3uIw27kQQmfKpDPHP8NVpYf0wNTIzcpuAJxNbXwoHQ&csuir=1&udm=50
-      pinned: true
-      title: https://www.google.com/search?q=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&sca_esv=894fd3fe8c2eef40&source=hp&ei=q7xfavXLAeGDi-gPt560qAY&iflsig=ABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6&aep=22&ved=0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI&cs=0&oq=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&gs_lp=Egdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB&sclient=gws-wiz&mstk=AUtExfD6WbDyStFws5F7vKEhuP6B19izBrr4f0Ei_7y3hsgNaODAnxrnRAxhBss6Mor6YjIzhoPV8SrkbIe5djUnx9X0jgnuROsASRWgHGRmEAq6qKLt54sWb4-xv3uIw27kQQmfKpDPHP8NVpYf0wNTIzcpuAJxNbXwoHQ&csuir=1&udm=50&sei=O8Jfas3LOoiL9u8P3_7loQ0
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dlinuxmint%2Bnemo%2Bchange%2Bcolor%2Bfolders%2Bto%2Bgreen%2Blinux%2Bcli%2Bcommand%26sca_esv%3D894fd3fe8c2eef40%26source%3Dhp%26ei%3Dq7xfavXLAeGDi-gPt560qAY%26iflsig%3DABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6%26aep%3D22%26ved%3D0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI%26cs%3D0%26oq%3Dlinuxmint%2Bnemo%2Bchange%2Bcolor%2Bfolders%2Bto%2Bgreen%2Blinux%2Bcli%2Bcommand%26gs_lp%3DEgdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB%26sclient%3Dgws-wiz%26mstk%3DAUtExfD6WbDyStFws5F7vKEhuP6B19izBrr4f0Ei_7y3hsgNaODAnxrnRAxhBss6Mor6YjIzhoPV8SrkbIe5djUnx9X0jgnuROsASRWgHGRmEAq6qKLt54sWb4-xv3uIw27kQQmfKpDPHP8NVpYf0wNTIzcpuAJxNbXwoHQ%26csuir%3D1%26udm%3D50%26sei%3DO8Jfas3LOoiL9u8P3_7loQ0&q=EgQpvoYLGLyE_9IGIjAMtLXF_lSfmdhUAQNnardOrnu9Lv2EEUTUv67rWBpnvQWH474e9-jqk87-yRIzcaMyAVJaAUM
-    - active: true
-      last_visited: '2026-07-21T22:32:54'
-      pinned: true
-      scroll-pos:
-        x: 0
-        y: 8942
-      title: linuxmint nemo change color folders to green linux cli command - Google
-        Search
-      url: https://www.google.com/search?q=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&sca_esv=894fd3fe8c2eef40&source=hp&ei=q7xfavXLAeGDi-gPt560qAY&iflsig=ABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6&aep=22&ved=0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI&cs=0&oq=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&gs_lp=Egdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB&sclient=gws-wiz&mstk=AUtExfAaZgp74RBS3iM_nd7qDzcX2g93O7JNIwjfa2eOjCIXP4X4N6FfsT07d163Ge2Og4y2YFVgNgcQtE9jxyyqo9jofLxd2g0vsjifhqPPGTjG8Xa9Tgvd_3t5L_G75foLY-c4Gy0-XR7ohCrntNfzJgz9GWu5jZ_vtJE&csuir=1&sei=O8Jfas3LOoiL9u8P3_7loQ0&udm=50
-      zoom: 0.85
-    - last_visited: '2026-07-21T22:32:49'
-      pinned: true
-      title: Google
-      url: https://www.google.com/
-    - last_visited: '2026-07-21T22:30:17'
-      pinned: true
-      title: adguardhome whitelist windows docker container - Google Search
-      url: https://www.google.com/search?q=adguardhome+whitelist+windows+docker+container+&sca_esv=894fd3fe8c2eef40&source=hp&ei=ochfapOJAYiLi-gP0pLl0Qk&iflsig=ABILxe8AAAAAal_Wsbj4BKd7OAuXizjBxx0_IvdqjjLE&aep=22&udm=50&ved=0ahUKEwjT3evYwOSVAxWIxQIHHVJJOZoQteYPCBI&cs=0&oq=adguardhome+whitelist+windows+docker+container+&gs_lp=Egdnd3Mtd2l6Ii9hZGd1YXJkaG9tZSB3aGl0ZWxpc3Qgd2luZG93cyBkb2NrZXIgY29udGFpbmVyIDIHECEYChigATIHECEYChigAUizkAJQ1A1Y1-oBcAp4AJABAJgByQGgAcZGqgEGMC41MS4xuAEByAEA-AEBmAI2oAKaPagCCsICChAuGAMYjwEY6gLCAgoQABgDGI8BGOoCwgIIEC4YsQMYgATCAgsQABiABBixAxiDAcICBRAAGIAEwgIOEAAYgAQYigUYsQMYgwHCAgUQLhiABMICDhAuGIAEGIoFGLEDGIMBwgIIEAAYgAQYsQPCAgsQLhiDARixAxiABMICCxAuGIAEGLEDGIMBwgIIEC4YgAQYsQPCAg4QLhiABBixAxjHARjRA8ICBhAAGBYYHsICBxAAGIAEGA3CAgsQABiABBiKBRiGA8ICBRAAGO8FwgIIEAAYgAQYogSYAwnxBfI8360TLByXkgcHMTAuNDIuMqAHi48CsgcGMC40Mi4yuAfuPMIHCTIuMTkuMzIuMcgH0gGACAE&sclient=gws-wiz&mstk=AUtExfCL-2CgNWoBW8-aPa7PgQlf3UN3Fnv7zC7mmLDkJyQr5D88YogNthiA9LetocognAe3ySbgWO3ACCILF_MNwV1ZdRjcDc7qbxjw99kh4EUDh4XVFKs6I67YxWZV-dqAP7pYAKDqFJ7w2JN8BBeM2P9KouHd76cmJ3w&csuir=1

@@ -50,7 +50,7 @@ while true; do
         [ -e nchat ] && sudo rm -rf nchat
         git clone https://github.com/d99kris/nchat
         cd nchat
-        mkdir -p build && cd build && cmake .. && make -j$(nproc) -s
+        mkdir -p build && cd build && cmake .. && make -j"$(nproc)" -s
         sudo make install
 
         # messages
@@ -65,16 +65,9 @@ while true; do
         autoreconf -i               # if building from git
         ./configure --with-oniguruma=builtin
         make clean # if upgrading from a version previously built from source
-        make -j$(nproc)
+        make -j"$(nproc)"
         make check
         sudo make install
-
-        # zap
-        #toilet Settingup zap zap -t -f future
-
-        #cd /tmp
-        #sudo /home/linuxbrew/.linuxbrew/bin/dra download \
-            #	--select '*amd64.deb' -i rafatosta/zapzap
 
         # ledger
         go install github.com/howeyc/ledger/ledger@latest

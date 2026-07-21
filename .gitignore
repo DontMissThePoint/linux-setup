@@ -3,6 +3,7 @@
 *.swp
 *.orig
 *.pyc
+.null-ls_*
 
 **/.nvimlog
 
