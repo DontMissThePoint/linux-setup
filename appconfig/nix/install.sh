@@ -53,11 +53,8 @@ while true; do
             echo -e "[Manager]\nManagerEnvironment=\"XDG_DATA_DIRS=/home/$USER/.nix-profile/share:/usr/local/share:/usr/share\"" |
             tee ~/.config/systemd/user.conf >/dev/null
 
-            # icons
-            mkdir -p ~/.local/share/icons/hicolor/scalable/apps
-            rm -fr ~/.icons/default/index.theme
+            # desktop
             ln -sf ~/.nix-profile/share/applications/* ~/.local/share/applications/
-            ln -sf ~/.nix-profile/share/icons/hicolor/256x256/apps/* ~/.local/share/icons/hicolor/scalable/apps/
 
             # home-manager
             home-manager switch

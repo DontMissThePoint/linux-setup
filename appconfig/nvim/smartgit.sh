@@ -8,13 +8,11 @@ CONFIG="$HOME/.config/smartgit/$SMART_VERSION"
 
 # syntevo
 cd "$APP_PATH"
-
-# wget -c https://download.smartgit.dev/smartgit/smartgit-26_1_038-linux_amd64.deb
 wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
-# Activate
 toilet Setting up smartgit -t -f future
 
+# package
 sudo dpkg -i *.deb || sudo apt install -fy
 rm -fr "$APP_PATH"/*.deb ~/.config/smartgit
 # sed -i 's/listx: {.*}/listx: {}/g' preferences.yml

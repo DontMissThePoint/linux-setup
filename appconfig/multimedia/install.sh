@@ -21,9 +21,6 @@ for param in "$@"; do
     fi
 done
 
-var=$(lsb_release -r | awk '{ print $2 }')
-[ "$var" = "24.04" ] && export NOBLE=1
-
 default=y
 while true; do
     if [[ "$unattended" == "1" ]]; then
@@ -40,7 +37,7 @@ while true; do
         # ffmpeg
         cd /tmp
         wget -c -O ~/.local/bin/alass https://github.com/kaegi/alass/releases/download/v2.0.0/alass-linux64
-        aria2c -c -j 8 -x 16 -s 16 -k 1M https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
+        /home/linuxbrew/.linuxbrew/bin/aria2c -c -j 8 -x 16 -s 16 -k 1M https://johnvansickle.com/ffmpeg/releases/ffmpeg-release-amd64-static.tar.xz
         tar -xf ffmpeg-release-amd64-static.tar.xz
         cp ffmpeg-7.0.2-amd64-static/ff* ~/.local/bin
         sudo chmod 755 ~/.local/bin/ffmpeg
@@ -58,7 +55,7 @@ while true; do
         sudo apt-get -y install python3-gst-1.0 gir1.2-gstreamer-1.0 gir1.2-gst-plugins-base-1.0 gstreamer1.0-tools gstreamer1.0-libav gstreamer1.0-plugins-{bad,good,ugly} libxpresent1 timidity python3-dbus libmpdclient-dev libcaca-dev playerctl libplayerctl2 libplayerctl-dev
 
         # for video, photo, audio, ..., viewing and editing
-        sudo apt-get remove -y --purge gimp vlc audacity rawtherapee rhythmbox
+        sudo apt-get remove -y --purge gimp vlc audacity rawtherapee rhythmbox celluloid
 
         toilet Settingup ncmpcpp -t -f future
 
@@ -115,6 +112,8 @@ while true; do
         # mpv
         toilet Settingup mpv -t -f future
 
+        sudo apt remove -y libmpv2:amd64
+
         # Add the repository to apt sources
         if [ ! -e /etc/apt/sources.list.d/fruit.list ]; then
 
@@ -122,11 +121,11 @@ while true; do
             sudo curl --output-dir /etc/apt/trusted.gpg.d -O https://apt.fruit.je/fruit.gpg
 
             echo \
-                "deb https://apt.fruit.je/ubuntu $(lsb_release -cs) mpv" |
+                "deb https://apt.fruit.je/ubuntu $(. /etc/os-release && echo "$UBUNTU_CODENAME") mpv" |
             sudo tee /etc/apt/sources.list.d/fruit.list >/dev/null
             sudo apt-get update
-            sudo apt install -y libopencore-amrnb0 libopencore-amrwb0 mpv-mpris mpv
         fi
+        sudo apt install -y libopencore-amrnb0 libopencore-amrwb0 mpv-mpris mpv
 
         # high-quality mpv
         echo "🎥 High-quality configuration for mpv"

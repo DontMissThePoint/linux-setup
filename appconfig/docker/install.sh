@@ -48,7 +48,7 @@ while true; do
 
             echo \
             "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
-                $(lsb_release -cs) stable" |
+                $(. /etc/os-release && echo "$UBUNTU_CODENAME") stable" |
             sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
             sudo apt-get update
         fi
@@ -57,11 +57,8 @@ while true; do
         sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
         sudo usermod -aG docker "$USER"
 
-        # group
-        num=$(cat /etc/group | cut -d: -f1 | grep "docker" | wc -l)
-        if [ "$num" -lt "1" ]; then
-            newgrp docker
-        fi
+				# groups
+				groups "$USER"
         sudo systemctl enable docker
         sudo systemctl start docker
 
@@ -82,7 +79,7 @@ while true; do
 
             echo \
             "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
-                http://pub.freerdp.com/repositories/deb/""$(lsb_release -cs)/ freerdp-nightly main" |
+                http://pub.freerdp.com/repositories/deb/""$(. /etc/os-release && echo "$UBUNTU_CODENAME")/ freerdp-nightly main" |
             sudo tee /etc/apt/sources.list.d/freerdp-nightly.list >/dev/null
             sudo apt-get update
         fi
@@ -92,7 +89,8 @@ while true; do
         sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
         ## kernel modules
-        sudo apt install -y intel-media-va-driver mesa-utils linux-modules-extra-"$(uname -r)" v4l2loopback-dkms mtp-tools
+        sudo apt install -y intel-media-va-driver mesa-utils mtp-tools atomicparsley
+
         sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
         sudo depmod -a
 
@@ -129,13 +127,13 @@ while true; do
 
         mkdir -p ~/VirtualMachines/YoutubeDL-Material
         cd ~/VirtualMachines/YoutubeDL-Material
-        curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
-        docker compose pull
+
         # youtubedl: http://localhost:8998/#/home
+        curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
 
         # TX
         cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
-        docker run --rm \
+        sg docker -c "docker run --rm \
             -v ./TX-02:/in \
             -v ./patched:/out \
             nerdfonts/patcher \
@@ -153,6 +151,8 @@ while true; do
             --powerlineextra \
             --material \
             --weather
+				"
+				# cache
         cp -f patched/*.otf ~/.local/share/fonts/OTF
         rm -fr patched
         fc-cache -f -v
@@ -173,10 +173,6 @@ while true; do
         toilet Settingup dockurr -t -f future
         # focus cell: #87ff87 #0088cc
 
-        # Install Apps: 365, PowerBi, mupdf, Listary, librewolf
-        #               joplin, smplayer, nextcloud
-        # Activate: irm https://get.activated.win | iex
-
         # VM
         mkdir -p ~/VirtualMachines/Windows-Docker
         cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Windows-Docker
@@ -186,27 +182,23 @@ while true; do
         # docker system prune -af
         BGREEN='\033[1;32m'
         NC='\033[0m' # No Color
-        echo -e "${BGREEN}> Windows debloating ...${NC}"
+        echo -e "${BGREEN}> Windows debloater.${NC}"
 
-        cd ~/Public
-        curl -s 'https://api.github.com/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
-            jq -r ".assets[] | .browser_download_url" | grep bat |\
-            xargs -n 1 curl -L -O --fail --show-error
+        # cd ~/Public
+        # curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
+        #     jq -r ".assets[] | .browser_download_url" | grep bat |\
+        #     xargs -n 1 curl -L -O --fail --show-error
 
-        # ereader
-        # Green: #b9edcd background: #384f45 links: #0088cc
+				# http://127.0.0.1:8006/
+        # Install Apps: 365, powerBi, mupdf, listary, librewolf
+        #               joplin, smplayer, nextcloud, zap zap
+        # Activate: irm https://get.activated.win | iex
 
-        # calcpy
-        echo "Python math solver.. IPython, SymPy"
-        pipx install git+https://github.com/idanpa/calcpy
+        toilet Settingup winboat -t -f future
 
-        # glances
-        sudo apt install -y python3-psutil
-        pipx install 'glances[all]'
-
-        # config
-        mkdir -p ~/.config/glances
-        pv "$APP_PATH/glances.conf" >~/.config/glances/glances.conf
+				cd /tmp
+				sudo /home/linuxbrew/.linuxbrew/bin/dra \
+					download --select '*amd64.deb' -i TibixDev/winboat
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

@@ -76,7 +76,7 @@ while true; do
             cp "$APP_PATH"/dotzshrc_template "$HOME"/.zshrc
         fi
 
-        # symlink the .zprofile
+        # zprofile
         num=$(grep -ow "go" "$HOME/.zprofile" | wc -l)
         if [ "$num" -lt "1" ]; then
             cp "$APP_PATH"/zprofile_template "$HOME"/.zprofile
@@ -93,11 +93,7 @@ while true; do
         cd /tmp/ble
 
         git clone --recursive --depth 1 --shallow-submodules https://github.com/akinomyoga/ble.sh.git
-        make -j8 -C ble.sh install PREFIX=~/.local
-
-        # config
-        # starship preset pure-preset -o ~/.config/starship.toml
-        # rm -f ~/.config/starship.toml && cp $APP_PATH/starship.toml ~/.config/starship.toml
+				make -j$(nproc) -C ble.sh install PREFIX=~/.local
 
         # shell
         sudo usermod --shell "$(which zsh)" "$USER"

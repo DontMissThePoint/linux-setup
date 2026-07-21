@@ -27,35 +27,28 @@ while true; do
   then
     resp=$default
   else
-    [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall fzf? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
+    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall modified keyboard rules (qwerty, capslock=esc)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
   fi
   response=`echo $resp | sed -r 's/(.*)$/\1=/'`
 
   if [[ $response =~ ^(y|Y)=$ ]]
   then
 
-    cd $APP_PATH/../../submodules/fzf/
-    ./install --no-key-bindings --no-completion --no-update-rc --no-bash --no-zsh --no-fish
+		toilet Installing xcape -t --filter metal -f smmono12
 
-    mkdir -p ~/.config/fzf 2> /dev/null
+    # xcape
+    sudo apt install -y gcc make pkg-config libx11-dev libxtst-dev libxi-dev libx11-dev libxcomposite-dev libxdamage-dev libxrender-dev xcape
 
-    ln -fs $APP_PATH/config/fzf.bash ~/.config/fzf/fzf.bash
-    ln -fs $APP_PATH/config/fzf.zsh ~/.config/fzf/fzf.zsh
+    # copy modified keyboard default file
+    sudo cp "$APP_PATH/keyboard" /etc/default/keyboard
 
-    # fnf's not fzy
-    toilet Settingup fnf -t -f future
-
+    # find-cursor
     cd /tmp
-    [ -e fnf ] && rm -rf fnf
-    git clone https://github.com/leo-arch/fnf
-    cd fnf
+    [ -e find-cursor ] && rm -rf find-cursor
+    git clone https://github.com/arp242/find-cursor
+    cd find-cursor
 		make -j$(nproc)
     sudo make install
-
-    # preview
-    echo "Adding fzf previews.."
-    sudo cp -f $APP_PATH/preview /usr/local/bin/preview
-    sudo chmod a+x /usr/local/bin/preview
 
     break
   elif [[ $response =~ ^(n|N)=$ ]]

@@ -2,9 +2,8 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
+    pkgs.xidlehook pkgs.material-icons pkgs.xidel pkgs.texlab
       pkgs.libgen-cli pkgs.zscroll pkgs.siji pkgs.ueberzugpp
-      pkgs.material-icons pkgs.xidel pkgs.texlab
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -63,6 +62,7 @@
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
+			};
     };
   };
 
@@ -80,15 +80,6 @@
     address = "en_US.UTF-8";
     telephone = "en_US.UTF-8";
     measurement = "en_US.UTF-8";
-  };
-
-  # cursor
-  home.pointerCursor = {
-    gtk.enable = true;
-    # x11.enable = true;
-    name = "Afterglow-Recolored-Gruvbox-Black";
-    package = pkgs.afterglow-cursors-recolored;
-    size = 32;
   };
 
   # icons:fonts:man:etc

@@ -34,11 +34,11 @@ Xft*autohint: false
 Xft*hinting: true
 Xft*hintstyle: hintslight
 Xft*lcdfilter: lcddefault
-Xft.dpi: 141
+Xft.dpi: 144
 janus.fractionalDpi: 1.00
 
-Xcursor.size: 32
-Xcursor.theme: Afterglow-Recolored-Gruvbox-Black
+Xcursor.size: 24
+Xcursor.theme: Bibata-Modern-Classic
 
 ! Use Print to initiate a screen dump to the printer
 ! Ctrl-Print or Shift-Print to include the scrollback
@@ -581,13 +581,13 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 ! URxvt.colorUL: [36]#57c7ff
 ! URxvt.underlineColor: #57c7ff
 
-! URxvt.font: xft:TX\\-02:regular:size=10,\
+! URxvt.font: xft:TX\\-02:regular:size=9.5,\
 !             xft:Siji,xft:Symbola,xft:Material Design Icons,\
 !             xft:FontAwesome,xft:Noto Color Emoji,xft:Unifont,\
 !             -*-unifont-*-*-*-*-*-*-*-*-*-*-*-*
-! URxvt.boldFont: xft:TX\\-02:bold:size=10, xft:Siji,xft:Symbola
-! URxvt.italicFont: xft:TX\\-02:italic:size=10, xft:Siji,xft:Symbola
-! URxvt.boldItalicFont: xft:TX\\-02:bold:italic:size=10, xft:Siji,xft:Symbola
+! URxvt.boldFont: xft:TX\\-02:bold:size=9.5, xft:Siji,xft:Symbola
+! URxvt.italicFont: xft:TX\\-02:italic:size=9.5, xft:Siji,xft:Symbola
+! URxvt.boldItalicFont: xft:TX\\-02:bold:italic:size=9.5, xft:Siji,xft:Symbola
 ! URxvt.letterSpace: 0
 ! URxvt.intensityStyles: false
 

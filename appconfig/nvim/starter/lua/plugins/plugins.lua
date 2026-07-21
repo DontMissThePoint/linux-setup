@@ -256,13 +256,13 @@ local plugins = {
 	{
 		"willothy/savior.nvim",
 		dependencies = { "j-hui/fidget.nvim" },
-		event = { "BufLeave", "BufModifiedSet", "ExitPre" },
+		event = { "InsertLeave" },
 		config = true,
 	},
 
 	{
 		"lukas-reineke/lsp-format.nvim",
-		event = { "InsertLeave", "TextChanged" },
+		event = { "InsertEnter", "BufWritePre" },
 		config = function()
 			require("lsp-format").setup {}
 			vim.api.nvim_create_autocmd("LspAttach", {
@@ -331,7 +331,6 @@ local plugins = {
 
 	{
 		"gennaro-tedesco/nvim-jqx",
-		event = { "BufReadPost" },
 		ft = { "json", "yaml" },
 	},
 
@@ -513,7 +512,9 @@ local plugins = {
 
 	{
 		"numToStr/Comment.nvim",
-		event = "VeryLazy",
+		keys = {
+			{ "<leader>/", mode = { "n", "v" }, desc = "toggle comment" },
+		},
 		config = function()
 			require("Comment").setup()
 		end,

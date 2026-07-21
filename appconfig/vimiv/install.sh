@@ -41,7 +41,7 @@ while true; do
     [ -e pqiv ] && sudo rm -rf pqiv
     git clone https://github.com/phillipberndt/pqiv
     cd pqiv
-    ./configure && make -j8
+		./configure && make -j$(nproc)
     sudo make install
 
     echo "

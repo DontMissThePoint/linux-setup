@@ -30,6 +30,7 @@ return {
         -------------------        TS | JS       ------------------------
         -- formatting: PRETTIER FORMATTER
         require "none-ls.diagnostics.eslint_d", -- TS | JS
+        require "none-ls.diagnostics.flake8".with { extra_args = { "--max-line-length", "88" }, },
         require "none-ls.code_actions.eslint_d",
         require "none-ls.formatting.beautysh",
         require "none-ls.formatting.eslint_d",
@@ -61,9 +62,6 @@ return {
         -------------------        PYTHON       ------------------------
         null_ls.builtins.formatting.black,
         -- null_ls.builtins.formatting.isort,
-        null_ls.builtins.diagnostics.flake8.with {
-          extra_args = { "--max-line-length", "88" },
-        },
         ----------------                              ----------------
 
         -----------------        XML       ------------------------

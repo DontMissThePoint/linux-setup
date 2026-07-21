@@ -1,7 +1,7 @@
 configuration {
 	font: "Liga SFMono Nerd Font 14.5";
   show-icons: true;
-  // icon-theme: "Papirus-dark";
+  icon-theme: "Papirus";
   display-ssh:    "󰣀 ssh:";
   display-run:    "󱓞 run:";
   display-drun:   "󰣖 drun:";
@@ -22,7 +22,7 @@ configuration {
   }
   run,drun {
     sort:             true;
-    fallback-icon:    "~/linux-setup/miscellaneous/icons/fallback-icon.png";
+    fallback-icon:    "/usr/share/icons/Mint-Y/categories/32/applications-utilities.png";
     sorting-method:   "fzf";
     matching:         "fuzzy";
   }

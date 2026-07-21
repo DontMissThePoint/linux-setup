@@ -1,0 +1,102 @@
+windows:
+- active: true
+  geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAFwAABP8AAAK3AAAAAAAAABcAAAT/AAACtwAAAAAAAAAABQAAAAAAAAAA
+    FwAABP8AAAK3
+  tabs:
+  - history:
+    - active: true
+      last_visited: '2026-07-22T01:20:32'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: billions | Syncthing
+      url: http://localhost:8384/
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-22T01:20:33'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte | Backup automation for Restic
+      url: https://zerobyte.app/
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-22T01:20:33'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Backups | Zerobyte Docs
+      url: https://zerobyte.app/docs/concepts/backups
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-22T01:20:33'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte - Backup Jobs
+      url: http://localhost:4096/backups
+      zoom: 0.85
+  - history:
+    - last_visited: '2026-07-22T01:20:32'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#clients
+    - active: true
+      last_visited: '2026-07-22T01:23:08'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-22T01:20:32'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 557
+      title: WinBoat - Run Windows Apps on Linux with Seamless Integration
+      url: https://winboat.app/#features
+      zoom: 0.85
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-07-22T01:20:34'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: "TibixDev/winboat: Run Windows apps on \U0001F427 Linux with ✨ seamless
+        integration"
+      url: https://github.com/TibixDev/winboat
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-22T01:20:34'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'dra installer github — Yandex: found 2 thousand results'
+      url: https://yandex.com/search?text=dra+installer+github&lr=21424
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-22T01:20:33'
+      pinned: true
+      scroll-pos:
+        x: 0
+        y: 0
+      title: https://www.google.com/search?q=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&sca_esv=894fd3fe8c2eef40&source=hp&ei=q7xfavXLAeGDi-gPt560qAY&iflsig=ABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6&aep=22&ved=0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI&cs=0&oq=linuxmint+nemo+change+color+folders+to+green+linux+cli+command&gs_lp=Egdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB&sclient=gws-wiz&mstk=AUtExfAaZgp74RBS3iM_nd7qDzcX2g93O7JNIwjfa2eOjCIXP4X4N6FfsT07d163Ge2Og4y2YFVgNgcQtE9jxyyqo9jofLxd2g0vsjifhqPPGTjG8Xa9Tgvd_3t5L_G75foLY-c4Gy0-XR7ohCrntNfzJgz9GWu5jZ_vtJE&csuir=1&udm=50&sg_ss=*uISahODyAAbO4c8E7uF9486X5fRLo3sEAEABEArZ1ISfh6SMdLBimsaCD1lvtoUjI7w5c_W-K_Yr78Vms-GbkLskcMd3wXZDMDH-k5ZMoZwdg0BQa04MUJ3mPQAAAHptAAAAHlcBB0EANGPW-s2qVDchnzp_mIlzUnzbtaJNIzgvsV78p7TWFqMIuXBMRcfVVzIK36c2oiins_3vrP6mBCxOAY_557EwHRluJqkO0AEjyEDhlejlqCr1AG00u-A-QE4s8U4Y4jnSCvJAQSWzlCd3Dj7a90JKdeBZG2HuFEwKWg14C4rr0mzo5KEX-vznNjitVpPT77PpR4FeDzIyDGmGWZACMNujAmO-yoylRiS_JZ-lbI9a-0pzrZ6I219DdbHZEBh9nJnnMUz4VItgd05oXCu6lQLKc58gEgT03NrIaXw-MFpu1b2mwaepebMtHEBEUWmkjXfJ4urJ8JQkn_HLybGzpVHrh0QoWMYzFxbvgc71BuPPT1DBRTCSt77lBqzBmSDifxKRDsyRVuM_NxwGjw_Rq6ift2luzUWwmyYsWWqMcUyU6Y4C3_4MfOa9yzyGD1jvisTpEwT0lyJx7ObMeyBMjlKCR9Yrym8rm4CFh7PfC53XSI_JDNfhFuAh7CocHUVM5cvzAL4KCwE0bDfNzdjXq8t3LPdZzY2MTYWARzTh7THNfItybjHnl9d3RpZysf15urnzble03CZDitqe-e4YGowuKoUAPZtypKN8NqyM5MlW2Zi5lQ1Rd_aX1ZFPFMPxctrK1aNMnN42VcPbSSRss0CNG0yscA83H23gCi3fQY4OKFgZo_K6ZuKt59f33Yqq9rbKFMJEHrANJYaDnzrJ6OEGkodZPSkizBgxXN4GbsRcLr4nCt0ypJzuPRkFwTLnP2U1YhWA6pJK5XWOdqnWsTE8C9uo3W6kgkd8F1Hwtzl6Rq9xO2DjsVEpPrlfnj6UzeV28iaog_882K8A2qWiv1l7yK3JeqAxxN8a2S70zisdMrpHmGuUYeVRQ4lxdhrN6uJeOOUeKu15ZIAm5jjlSIm5n1ND2oHnE4G0NMPPXpcAeCdYyM2kCT3f1dOYpzgjkBUfbtGt0Qtd0gckdmodYuNrwNRMKdvQiXa6l_IH4m7f23yvksPn8lbtPLCU4b6Yw3RPyd2opUT_6YYn4GyMxHCEc2X6vgV0nOdYIidj28eH5C6z_eL-4wwYokehXkCYpMDBLQOgoYVtkpHQ5uKsJ94uNbnU7IrDpWyokbYIQbnQ1QAyWwfkk7oibNDTxtXLMoQY7bzXmPc3i00apuGBL0wZwtfXGFSr8xV0Rlqez1-g-J8b7w0G5S2o1lyEoueJsWWLELglWpEH624kHNu07v3ZFoU0wwTepfO0iOWV0YqQh23Ub6ec4z2YkWP84xyPGPnQGdNe6J-rjQtBP4tKPpxsRrZ8J7pEJKibJQNcPWLyIRG-XFxo9rqa5Exdj900XZ9GGHJGNPw5aP6NBdZqeWOzkE-mgJMXYIVEp3Ua_gC3f0G-yqJtFdFem1MLv_iIfZUYof2IQNHf6oCkJ9KkqxjJwzgDQWNmdWDG-dNUuksH6qHWIluLTBNoxDCWW-YiB5q995Ny5cFUEMH8I-l-UJsYxO-RTuY&sei=NOZfavL9Nb31i-gPjIPcuAw
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dlinuxmint%2Bnemo%2Bchange%2Bcolor%2Bfolders%2Bto%2Bgreen%2Blinux%2Bcli%2Bcommand%26sca_esv%3D894fd3fe8c2eef40%26source%3Dhp%26ei%3Dq7xfavXLAeGDi-gPt560qAY%26iflsig%3DABILxe8AAAAAal_Ku0xikOGfK5LVZmsn00naVdqWInH6%26aep%3D22%26ved%3D0ahUKEwi1zeKkteSVAxXhwQIHHTcPDWUQteYPCBI%26cs%3D0%26oq%3Dlinuxmint%2Bnemo%2Bchange%2Bcolor%2Bfolders%2Bto%2Bgreen%2Blinux%2Bcli%2Bcommand%26gs_lp%3DEgdnd3Mtd2l6Ij5saW51eG1pbnQgbmVtbyBjaGFuZ2UgY29sb3IgZm9sZGVycyB0byBncmVlbiBsaW51eCBjbGkgY29tbWFuZEiHwAFQAFjsoQFwA3gAkAEAmAHiAaAB7V2qAQcwLjUwLjE0uAEByAEA-AEBmAJAoALlXMICDhAuGIAEGLEDGMcBGNEDwgIIEC4YsQMYgATCAgsQLhiABBixAxiDAcICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAgUQABiABMICBRAuGIAEwgIREC4YgAQYsQMYgwEYxwEY0QPCAg4QLhjHARixAxjRAxiABMICDhAAGIAEGIoFGLEDGIMBwgIOEC4YgAQYigUYsQMYgwHCAgsQLhivARjHARiABMICCxAuGIAEGMcBGNEDwgIHEAAYgAQYCsICBhAAGBYYHsICBxAAGIAEGA3CAgYQABgeGA3CAggQABgWGB4YCsICCBAAGAgYHhgNwgIIEAAYgAQYogTCAgUQABjvBcICBxAhGAoYoAHCAgUQIRifBcICBBAhGBWYAwCSBwcyLjQ3LjE1oAexwgKyBwcwLjQ3LjE1uAfYXMIHCjEzLjM1LjEzLjPIB5kBgAgB%26sclient%3Dgws-wiz%26mstk%3DAUtExfAaZgp74RBS3iM_nd7qDzcX2g93O7JNIwjfa2eOjCIXP4X4N6FfsT07d163Ge2Og4y2YFVgNgcQtE9jxyyqo9jofLxd2g0vsjifhqPPGTjG8Xa9Tgvd_3t5L_G75foLY-c4Gy0-XR7ohCrntNfzJgz9GWu5jZ_vtJE%26csuir%3D1%26udm%3D50%26sg_ss%3D*uISahODyAAbO4c8E7uF9486X5fRLo3sEAEABEArZ1ISfh6SMdLBimsaCD1lvtoUjI7w5c_W-K_Yr78Vms-GbkLskcMd3wXZDMDH-k5ZMoZwdg0BQa04MUJ3mPQAAAHptAAAAHlcBB0EANGPW-s2qVDchnzp_mIlzUnzbtaJNIzgvsV78p7TWFqMIuXBMRcfVVzIK36c2oiins_3vrP6mBCxOAY_557EwHRluJqkO0AEjyEDhlejlqCr1AG00u-A-QE4s8U4Y4jnSCvJAQSWzlCd3Dj7a90JKdeBZG2HuFEwKWg14C4rr0mzo5KEX-vznNjitVpPT77PpR4FeDzIyDGmGWZACMNujAmO-yoylRiS_JZ-lbI9a-0pzrZ6I219DdbHZEBh9nJnnMUz4VItgd05oXCu6lQLKc58gEgT03NrIaXw-MFpu1b2mwaepebMtHEBEUWmkjXfJ4urJ8JQkn_HLybGzpVHrh0QoWMYzFxbvgc71BuPPT1DBRTCSt77lBqzBmSDifxKRDsyRVuM_NxwGjw_Rq6ift2luzUWwmyYsWWqMcUyU6Y4C3_4MfOa9yzyGD1jvisTpEwT0lyJx7ObMeyBMjlKCR9Yrym8rm4CFh7PfC53XSI_JDNfhFuAh7CocHUVM5cvzAL4KCwE0bDfNzdjXq8t3LPdZzY2MTYWARzTh7THNfItybjHnl9d3RpZysf15urnzble03CZDitqe-e4YGowuKoUAPZtypKN8NqyM5MlW2Zi5lQ1Rd_aX1ZFPFMPxctrK1aNMnN42VcPbSSRss0CNG0yscA83H23gCi3fQY4OKFgZo_K6ZuKt59f33Yqq9rbKFMJEHrANJYaDnzrJ6OEGkodZPSkizBgxXN4GbsRcLr4nCt0ypJzuPRkFwTLnP2U1YhWA6pJK5XWOdqnWsTE8C9uo3W6kgkd8F1Hwtzl6Rq9xO2DjsVEpPrlfnj6UzeV28iaog_882K8A2qWiv1l7yK3JeqAxxN8a2S70zisdMrpHmGuUYeVRQ4lxdhrN6uJeOOUeKu15ZIAm5jjlSIm5n1ND2oHnE4G0NMPPXpcAeCdYyM2kCT3f1dOYpzgjkBUfbtGt0Qtd0gckdmodYuNrwNRMKdvQiXa6l_IH4m7f23yvksPn8lbtPLCU4b6Yw3RPyd2opUT_6YYn4GyMxHCEc2X6vgV0nOdYIidj28eH5C6z_eL-4wwYokehXkCYpMDBLQOgoYVtkpHQ5uKsJ94uNbnU7IrDpWyokbYIQbnQ1QAyWwfkk7oibNDTxtXLMoQY7bzXmPc3i00apuGBL0wZwtfXGFSr8xV0Rlqez1-g-J8b7w0G5S2o1lyEoueJsWWLELglWpEH624kHNu07v3ZFoU0wwTepfO0iOWV0YqQh23Ub6ec4z2YkWP84xyPGPnQGdNe6J-rjQtBP4tKPpxsRrZ8J7pEJKibJQNcPWLyIRG-XFxo9rqa5Exdj900XZ9GGHJGNPw5aP6NBdZqeWOzkE-mgJMXYIVEp3Ua_gC3f0G-yqJtFdFem1MLv_iIfZUYof2IQNHf6oCkJ9KkqxjJwzgDQWNmdWDG-dNUuksH6qHWIluLTBNoxDCWW-YiB5q995Ny5cFUEMH8I-l-UJsYxO-RTuY%26sei%3DNOZfavL9Nb31i-gPjIPcuAw&q=EgQpvoYLGLXM_9IGIjDQRomQ4q5QH1ud_YNmInVGgvGLj-9TXYl2Q9tOhjFwGTyvUaA-TcThnuITMX0w0jwyAVJaAUM
+      zoom: 0.85

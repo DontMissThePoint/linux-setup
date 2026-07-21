@@ -41,7 +41,7 @@ while true; do
 
     # gem build tmuxinator.gemspec
     # sudo gem install tmuxinator
-    brew install tmuxinator
+    /home/linuxbrew/.linuxbrew/bin/brew install tmuxinator
 
     # symlink tmuxinator settings
     [ ! -e ~/.tmuxinator ] && ln -fs $APP_PATH/dottmuxinator ~/.tmuxinator
