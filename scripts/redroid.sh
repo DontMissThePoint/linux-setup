@@ -4,6 +4,7 @@ DROID="redroid-android"
 OPTIONS="15.0.0\n11.0.0"
 FPS="$(docker inspect -f '{{ .State.Status }}' windows)"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
+IMG="$HOME/VirtualMachines/Android-Docker"
 
 # image
 if [ "$VAR" = "" ]; then
@@ -43,20 +44,16 @@ if [ "$num" -lt "1" ]; then
 
 fi
 
-
 # STORAGE
+STORAGE=""$IMG"/"$VAR":/data"
+
 if [ "$VAR" = "11.0.0" ]; then
 
-    STORAGE="/opt/redroid:/data"
     IMAGE="redroid/redroid:"$VAR"_litegapps_ndk_magisk_widevine"
     BRIDGE=libndk_translation.so
-
 else
-
-    STORAGE="/var/redroid:/data"
     IMAGE="kylindemons/redroid:"$VAR"_amd64-GApps-Magisk-latest"
     BRIDGE=libndk_translation.so
-
 fi
 
 # container

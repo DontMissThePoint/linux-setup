@@ -33,7 +33,7 @@ while true; do
 
         toilet Installing qutebrowser -t --filter metal -f smmono12
         cd "$APP_PATH"/../../submodules/qutebrowser
-        sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl asciidoc python3-pyqt6 PyQt6.QtWebEngine
+        sudo apt-get -y install --no-install-recommends extrepo libsm6 libxext6 ffmpeg ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl asciidoc python3-pyqt6 PyQt6.QtWebEngine qt5ct qt6ct
 
         # env
         /home/linuxbrew/.linuxbrew/bin/python3 scripts/mkvenv.py --pyqt-type link
@@ -54,7 +54,7 @@ while true; do
 
         # default
         sudo update-alternatives --install /usr/bin/x-www-browser x-www-browser /usr/local/bin/qutebrowser 210
-				sudo apt remove --purge -y firefox
+        sudo apt remove --purge -y firefox
 
         # flavor
         mkdir -p ~/.config/qutebrowser ~/.local/share/qutebrowser/{greasemonkey,sessions}
@@ -89,6 +89,14 @@ while true; do
             jsonrepair terminal-image-cli qutejs
         pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
+        toilet Setting up librewolf -t -f future
+
+        # librewolf
+        sudo extrepo enable librewolf
+        sudo extrepo update librewolf
+        sudo apt update
+        sudo apt install -y librewolf
+
         # .env
         GREEN='\033[0;32m'
         NC='\033[0m' # No Color
@@ -99,8 +107,8 @@ while true; do
             sleep 1
         done
 
-				# keys
-				echo -e "${GREEN}Adding API keys..${NC}\nDone."
+        # keys
+        echo -e "${GREEN}Adding API keys..${NC}\nDone."
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

@@ -2,9 +2,8 @@
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
-    pkgs.vivaldi pkgs.vivaldi-ffmpeg-codecs pkgs.xidlehook
+    pkgs.xidlehook pkgs.material-icons pkgs.xidel pkgs.texlab
       pkgs.libgen-cli pkgs.zscroll pkgs.siji pkgs.ueberzugpp
-      pkgs.material-icons pkgs.xidel pkgs.texlab
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
@@ -63,6 +62,7 @@
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
+			};
     };
   };
 

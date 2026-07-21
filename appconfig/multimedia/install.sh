@@ -112,6 +112,8 @@ while true; do
         # mpv
         toilet Settingup mpv -t -f future
 
+        sudo apt remove -y libmpv2:amd64
+
         # Add the repository to apt sources
         if [ ! -e /etc/apt/sources.list.d/fruit.list ]; then
 
@@ -119,11 +121,11 @@ while true; do
             sudo curl --output-dir /etc/apt/trusted.gpg.d -O https://apt.fruit.je/fruit.gpg
 
             echo \
-                "deb https://apt.fruit.je/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) mpv" |
+                "deb https://apt.fruit.je/ubuntu $(. /etc/os-release && echo "$UBUNTU_CODENAME") mpv" |
             sudo tee /etc/apt/sources.list.d/fruit.list >/dev/null
             sudo apt-get update
-            sudo apt install -y libopencore-amrnb0 libopencore-amrwb0 mpv-mpris mpv
         fi
+        sudo apt install -y libopencore-amrnb0 libopencore-amrwb0 mpv-mpris mpv
 
         # high-quality mpv
         echo "🎥 High-quality configuration for mpv"

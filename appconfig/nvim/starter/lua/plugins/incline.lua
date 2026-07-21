@@ -23,7 +23,7 @@ return {
           local modified = vim.bo[props.buf].modified
           return {
             " ",
-            { filename, gui = modified and "bold,italic" or "bold" },
+            { filename, gui = modified and "light,regular" or "light" },
             " ",
             ft_icon and { ft_icon, " ", guibg = "none", group = ft_color } or "",
           }

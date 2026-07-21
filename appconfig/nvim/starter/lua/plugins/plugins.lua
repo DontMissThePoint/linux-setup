@@ -256,13 +256,13 @@ local plugins = {
 	{
 		"willothy/savior.nvim",
 		dependencies = { "j-hui/fidget.nvim" },
-		event = { "InsertEnter", "TextChanged" },
+		event = { "InsertLeave" },
 		config = true,
 	},
 
 	{
 		"lukas-reineke/lsp-format.nvim",
-		event = { "InsertLeave", "TextChanged" },
+		event = { "InsertEnter", "BufWritePre" },
 		config = function()
 			require("lsp-format").setup {}
 			vim.api.nvim_create_autocmd("LspAttach", {

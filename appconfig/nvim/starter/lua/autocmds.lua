@@ -58,7 +58,7 @@ autocmd("Filetype", {
 })
 
 -- Configs filetype
-autocmd({ "BufRead", "BufNewFile" }, {
+autocmd({ "BufEnter", "BufNewFile" }, {
   pattern = { "*.sh_git" },
   callback = function()
     vim.bo.filetype = "sh"
@@ -66,7 +66,7 @@ autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- Scripts permission
-autocmd({ "BufNewFile" }, {
+autocmd({ "BufUnload" }, {
   pattern = { "*.sh", "*.py" },
   callback = function()
     local file = vim.fn.expand "<afile>"
