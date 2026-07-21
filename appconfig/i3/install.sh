@@ -294,6 +294,12 @@ while true; do
         gsettings set org.gnome.system.location enabled false
 
         #theme
+        # ls /usr/share/themes | grep Mint-Y
+        gsettings set org.cinnamon.theme name "Mint-Y"
+        gsettings set org.cinnamon.desktop.interface icon-theme "Mint-Y"
+        gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y"
+        gsettings set org.gnome.desktop.interface color-scheme 'default'
+
 
         # install xkb layout state
         cd "$APP_PATH"/../../submodules/xkblayout-state/

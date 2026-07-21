@@ -512,7 +512,9 @@ local plugins = {
 
 	{
 		"numToStr/Comment.nvim",
-		event = "VeryLazy",
+		keys = {
+			{ "<leader>/", mode = { "n", "v" }, desc = "toggle comment" },
+		},
 		config = function()
 			require("Comment").setup()
 		end,

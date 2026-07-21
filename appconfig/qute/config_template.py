@@ -311,7 +311,7 @@ c.content.headers.do_not_track = True
 c.content.headers.referer = "same-domain"
 
 # Zoom
-c.zoom.default = "80%"
+c.zoom.default = "85%"
 c.zoom.mouse_divider = 512
 
 # Scrolling

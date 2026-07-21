@@ -1,7 +1,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 gtk-theme-name="Mint-Y"
-gtk-icon-theme-name="Papirus"
+gtk-icon-theme-name="Mint-Y"
 gtk-font-name="Ubuntu Regular 9"
 gtk-cursor-theme-name="Babita-Modern-Classic"
 gtk-cursor-theme-size=0

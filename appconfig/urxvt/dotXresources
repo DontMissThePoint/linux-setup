@@ -34,7 +34,7 @@ Xft*autohint: false
 Xft*hinting: true
 Xft*hintstyle: hintslight
 Xft*lcdfilter: lcddefault
-Xft.dpi: 141
+Xft.dpi: 144
 janus.fractionalDpi: 1.00
 
 Xcursor.size: 24

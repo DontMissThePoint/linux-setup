@@ -63,4 +63,4 @@ windows:
       panes:
         - ledger web -r ~/Public/Journal/reports.ini & curl rate.sx/btc; forx btc usd ; forx btc ugx
         - rfkill block bluetooth &; blueman-applet &>/dev/null ; cd ~/VirtualMachines/Windows-Docker ; clear ; win11
-        - cd $GIT_PATH/linux-setup ; bash && pomo
+        - cd $GIT_PATH/linux-setup ; pomo
