@@ -187,6 +187,9 @@ while true; do
         # polybar
         cp -fr --preserve "$APP_PATH"/polybar ~/.config/
 
+        mkdir -p ~/.config/polybar-gtk/gtk-3.0
+        echo -e "[Settings]\ngtk-icon-theme-name=Yaru-dark" > ~/.config/polybar-gtk/gtk-3.0/settings.ini
+
         # pulseaudio-control
         sudo sed -i -e 's/^\(load-module module-stream-restore\).*/\1 restore_device=false/g' \
             /etc/pulse/default.pa
