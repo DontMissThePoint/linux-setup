@@ -27,7 +27,7 @@ ss_dir = "~/Pictures/Screenshots/"
 timestamp = strftime("%Y-%m-%d-%H-%M-%S", localtime())
 terminal = "/usr/bin/urxvtc"
 editor = "/usr/bin/nvim"
-homepage = "https://www.google.com/advanced_search"
+homepage = "https://www.google.com"
 
 # theme
 # set the flavour you'd like to use

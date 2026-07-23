@@ -88,7 +88,7 @@ while true; do
 		sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
 		## kernel modules
-		sudo apt install -y intel-media-va-driver mesa-utils mtp-tools atomicparsley
+		sudo apt install -y adb intel-media-va-driver mesa-utils mtp-tools atomicparsley
 
 		sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 		sudo depmod -a
@@ -193,11 +193,11 @@ while true; do
 		#               joplin, smplayer, nextcloud, zap zap
 		# Activate: irm https://get.activated.win | iex
 
-		toilet Settingup winboat -t -f future
+		# toilet Settingup winboat -t -f future
 
-		cd /tmp
-		sudo /home/linuxbrew/.linuxbrew/bin/dra \
-			download --select '*amd64.deb' -i TibixDev/winboat
+		# cd /tmp
+		# sudo /home/linuxbrew/.linuxbrew/bin/dra \
+		# 	download --select '*amd64.deb' -i TibixDev/winboat
 
 		break
 	elif [[ $response =~ ^(n|N)=$ ]]; then
