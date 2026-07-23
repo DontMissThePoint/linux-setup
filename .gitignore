@@ -16,9 +16,9 @@ html/
 
 **/__pycache__
 
-appconfig/qutebrowser/catppuccin/
-appconfig/qutebrowser/sessions/
-appconfig/qutebrowser/.venv/
+appconfig/qute/catppuccin/
+appconfig/qute/sessions/
+appconfig/qute/.venv/
 /.env
 
 # Worktrees
