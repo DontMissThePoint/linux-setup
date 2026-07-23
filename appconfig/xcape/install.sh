@@ -6,55 +6,62 @@ trap 'last_command=$current_command; current_command=$BASH_COMMAND' DEBUG
 trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
-APP_PATH=`dirname "$0"`
-APP_PATH=`( cd "$APP_PATH" && pwd )`
+APP_PATH=$(dirname "$0")
+APP_PATH=$( (cd "$APP_PATH" && pwd))
 
 unattended=0
 subinstall_params=""
-for param in "$@"
-do
-  echo $param
-  if [ $param="--unattended" ]; then
-    echo "installing in unattended mode"
-    unattended=1
-    subinstall_params="--unattended"
-  fi
+for param in "$@"; do
+    echo "$param"
+    if [ "$param=--unattended" ]; then
+        echo "installing in unattended mode"
+        unattended=1
+        subinstall_params="--unattended"
+    fi
 done
 
 default=y
 while true; do
-  if [[ "$unattended" == "1" ]]
-  then
-    resp=$default
-  else
-    [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall modified keyboard rules (qwerty, capslock=esc)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default ; }
-  fi
-  response=`echo $resp | sed -r 's/(.*)$/\1=/'`
+    if [[ "$unattended" == "1" ]]; then
+        resp=$default
+    else
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall modified keyboard rules (qwerty, capslock=esc)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+    fi
+    response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
-  if [[ $response =~ ^(y|Y)=$ ]]
-  then
+    if [[ $response =~ ^(y|Y)=$ ]]; then
 
-		toilet Installing xcape -t --filter metal -f smmono12
+        toilet Installing xcape -t --filter metal -f smmono12
 
-    # xcape
-    sudo apt install -y gcc make pkg-config libx11-dev libxtst-dev libxi-dev libx11-dev libxcomposite-dev libxdamage-dev libxrender-dev xcape
+        # xcape
+        sudo apt install -y gcc make pkg-config libx11-dev libxtst-dev libxi-dev libx11-dev libxcomposite-dev libxdamage-dev libxrender-dev xcape
 
-    # copy modified keyboard default file
-    sudo cp "$APP_PATH/keyboard" /etc/default/keyboard
+        # copy modified keyboard default file
+        sudo cp "$APP_PATH/keyboard" /etc/default/keyboard
 
-    # find-cursor
-    cd /tmp
-    [ -e find-cursor ] && rm -rf find-cursor
-    git clone https://github.com/arp242/find-cursor
-    cd find-cursor
-		make -j$(nproc)
-    sudo make install
+        # find-cursor
+        cd /tmp
+        [ -e find-cursor ] && rm -rf find-cursor
+        git clone https://github.com/arp242/find-cursor
+        cd find-cursor
+        make -j"$(nproc)"
+        sudo make install
 
-    break
-  elif [[ $response =~ ^(n|N)=$ ]]
-  then
-    break
-  else
-    echo " What? \"$resp\" is not a correct answer. Try y+Enter."
-  fi
+        toilet Settingup neptune -t -f future
+
+        # neptune
+        sudo wget https://github.com/M1ndo/Neptune/releases/download/v1.0.2/Neptune-Cli -O \
+            /usr/bin/Neptune && sudo chmod +x /usr/bin/Neptune
+
+        # sounds
+        Neptune -cli -download
+        Neptune -lst
+        Neptune -cli -soundkey "Cherry MX Blues" -volume 0.8 & # Use MX soundkey
+
+        break
+    elif [[ $response =~ ^(n|N)=$ ]]; then
+        break
+    else
+        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+    fi
 done

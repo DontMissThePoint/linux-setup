@@ -16,6 +16,7 @@ config.set(
     "*",
 )
 c.backend = "webengine"
+config.set("qt.force_software_rendering", "chromium")
 
 ### When to show a changelog after qutebrowser was upgraded.
 ## Type: String "major", "minor", "patch"
@@ -244,7 +245,7 @@ c.content.canvas_reading = True
 # javascript
 c.content.javascript.alert = True
 c.content.javascript.can_open_tabs_automatically = True
-c.content.javascript.clipboard = "ask"
+c.content.javascript.clipboard = "access-paste"
 c.content.javascript.enabled = False
 try:
     with (config.configdir / "js.sites").open() as js_file:

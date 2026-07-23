@@ -1,42 +1,84 @@
 windows:
+- geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
+    AAAABP8AAALP
+  tabs:
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-07-24T01:45:50'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Google
+      url: https://www.google.com/
+      zoom: 0.85
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAFwAABP8AAAK3AAAAAAAAABcAAAT/AAACtwAAAAAAAAAABQAAAAAAAAAA
-    FwAABP8AAAK3
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAMgAAADIAAANRAAACiQAAAAAABAAABQAAAAAAAAAA
+    AAAABP8AAALP
   tabs:
-  - history:
+  - active: true
+    history:
+    - last_visited: '2026-07-24T01:48:56'
+      pinned: false
+      title: KeyEcho - Lightweight keyboard sound app for Windows, macOS & Linux
+      url: https://keyecho.app/packs
+    - last_visited: '2026-07-24T01:52:31'
+      pinned: false
+      title: KeyEcho - Lightweight keyboard sound app for Windows, macOS & Linux
+      url: https://keyecho.app/
+    - last_visited: '2026-07-24T02:05:38'
+      pinned: false
+      title: History
+      url: qute://history/
     - active: true
-      last_visited: '2026-07-23T19:47:27'
+      last_visited: '2026-07-24T02:11:10'
       pinned: false
       scroll-pos:
         x: 0
-        y: 0
-      title: billions | Syncthing
-      url: http://localhost:8384/
+        y: 6454
+      title: 'GitHub - M1ndo/Neptune: Neptune is a mechanical keysound app like Mechvibes
+        except its faster and written in Go · GitHub'
+      url: https://github.com/M1ndo/Neptune
       zoom: 0.85
   - history:
+    - last_visited: '2026-07-24T01:47:30'
+      pinned: false
+      title: pomo/README.md at main · Bahaaio/pomo · GitHub
+      url: https://github.com/Bahaaio/pomo/blob/main/README.md?ysclid=mrxdb7jbq8184938261
+    - last_visited: '2026-07-24T02:00:15'
+      original-url: https://www.google.com/search?q=spd-say%20github
+      pinned: false
+      title: https://www.google.com/search?q=spd-say%20github&sei=_ZxiaouRHr-ywcsP-OTe-AI
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dspd-say%2520github%26sei%3D_ZxiaouRHr-ywcsP-OTe-AI&q=EgQpvoYLGP65itMGIjCLtfrFKNR-oiWKnR3VZl7cj1rsKHn70EiExvYrhKEYrqB3cK3KwXGHZIjz5XEfflEyAVJaAUM
+    - last_visited: '2026-07-24T02:00:39'
+      pinned: false
+      title: spd-say github - Google Search
+      url: https://www.google.com/search?q=spd-say+github&sei=_ZxiaouRHr-ywcsP-OTe-AI
+    - last_visited: '2026-07-24T02:15:23'
+      pinned: false
+      title: qutebrowser fix no clipboard supported - Google Search
+      url: https://www.google.com/search?q=qutebrowser+fix+no+clipboard+supported&sca_esv=44c2076a61138388&ei=EJ1iat_6Cf6dseMP66TjkAI&biw=1506&bih=828&oq=qutebrowser+fix+no+clipboard+supp&gs_lp=Egxnd3Mtd2l6LXNlcnAiIXF1dGVicm93c2VyIGZpeCBubyBjbGlwYm9hcmQgc3VwcCoCCAAyBxAhGAoYoAFIhHdQ0RNYpWdwBHgAkAEBmAGyBKABgjeqAQwwLjMxLjMuMS4wLjG4AQPIAQD4AQGYAiegAp43qAIKwgIXEAAYgAQYigUYkQIY5wYY6gIYtALYAQHCAhAQLhgDGI8BGOoCGLQC2AEBwgIQEAAYAxiPARjqAhi0AtgBAcICCxAAGIAEGIoFGJECwgIIEAAYgAQYsQPCAggQLhiABBixA8ICCxAAGIAEGLEDGIMBwgIFEAAYgATCAhAQLhiABBiKBRhDGMcBGK8BwgIKEC4YgAQYigUYQ8ICBRAuGIAEwgIHEC4YgAQYCsICBxAAGIAEGArCAh8QLhiABBiKBRhDGMcBGK8BGJcFGNwEGN4EGOAE2AECwgIKEAAYgAQYigUYQ8ICBhAAGBYYHsICCBAAGBYYHhgKwgIFEAAY7wXCAgUQIRigAcICBRAhGJ8FmAMY8QVGpd8h4c-kkLoGBAgBGAe6BgYIAhABGBSSBwo0LjI2LjguMC4xoAf1sAGyBwowLjI2LjguMC4xuAfqNsIHCTItMTguMTkuMsgH8AKACAE&sclient=gws-wiz-serp
+    - last_visited: '2026-07-24T02:17:39'
+      pinned: false
+      title: qutebrowser fix some page elements missing on webpage rendered - Google
+        Search
+      url: https://www.google.com/search?q=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&sca_esv=44c2076a61138388&biw=1506&bih=828&ei=h6BiavyBBMPi7_UP6MzNqQc&ved=0ahUKEwi84dPv9umVAxVD8bsIHWhmM3UQ4dUDCBA&uact=5&oq=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&gs_lp=Egxnd3Mtd2l6LXNlcnAiPnF1dGVicm93c2VyIGZpeCBzb21lIHBhZ2UgZWxlbWVudHMgbWlzc2luZyBvbiB3ZWJwYWdlIHJlbmRlcmVkSOPNAVDiDVjzywFwCHgAkAEAmAHxAaABr2GqAQYwLjY1LjS4AQPIAQD4AQGYAkGgAodWwgIOEAAYgAQYigUYhgMYsAPCAggQABjvBRiwA8ICCxAAGIAEGKIEGLADwgIFECEYoAHCAgUQIRifBcICBxAhGAoYoAHCAgQQIRgVmAMAiAYBkAYJkgcGOC40OC45oAed7QGyBwYwLjQ4Ljm4B5ZVwgcKMC4yLjUzLjkuMcgHsAOACAE&sclient=gws-wiz-serp
     - active: true
-      last_visited: '2026-07-23T19:47:28'
+      last_visited: '2026-07-24T02:20:05'
       pinned: false
       scroll-pos:
         x: 0
-        y: 0
-      title: Zerobyte | Backup automation for Restic
-      url: https://zerobyte.app/
+        y: 2836
+      title: qutebrowser fix some page elements missing on webpage rendered - Google
+        Search
+      url: https://www.google.com/search?q=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&sca_esv=44c2076a61138388&biw=1506&bih=828&ei=h6BiavyBBMPi7_UP6MzNqQc&uact=5&sclient=gws-wiz-serp&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qaigyNre7a9Fsg8QLr9z5lJegIZGuhAshyGX8vZNsidOe2y3k9Yup0oEbg7vSMYlsXcLQONuEYGQeYUXcOUWQavxf8tiuiFRXsrG1FqFEc3jvZgjn&aep=10&ntc=1&mstk=AUtExfCHzS3wDk1SkdB2W6pKd0wnH2_VH8WgpSANRIY3RznCQ_O0ohbBx79HFsNV7ub0pe1Mfl7z-GCZNhBgcuzD8sMxm_lCfpBSFdTEvY4IvQbJIrUpOihY8NzBz0RT-C0vaMg8EzrEqRFz2ZSz2pla2KMxOEvuMow0V80&aioh=3&csuir=1&mtid=gqFiarGkK4iKi-gPzuj2mAw
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-23T20:18:57'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Backups | Zerobyte Docs
-      url: https://zerobyte.app/docs/concepts/backups
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T19:47:27'
+      last_visited: '2026-07-24T01:46:59'
       pinned: false
       scroll-pos:
         x: 0
@@ -46,110 +88,32 @@ windows:
       zoom: 0.85
   - history:
     - active: true
-      last_visited: '2026-07-23T19:47:32'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 1295
-      title: pomo/README.md at main · Bahaaio/pomo
-      url: https://github.com/Bahaaio/pomo/blob/main/README.md?ysclid=mrxdb7jbq8184938261
-      zoom: 0.85
-  - history:
-    - last_visited: '2026-07-23T19:47:28'
-      original-url: https://www.google.com/search?q=can+you+use+paplay+on+linuxmint+and++play+button++press+sound+when+i+type+on+the+keyboard+.+Don%27t+slow+down+my+computer.+Backspace+%2F+delete+should+have+differnt+sounds+from+other+keys.+Make+the+code+simple&sca_esv=fc2a7f6adb56bd6b&aep=1&cs=0&biw=1694&bih=953&prmd=ivns&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qL0zHOgSF_fPhBz4Y3qmJwwykkgDu4pIUF48xQNejTwIs1CGyfdr_4HCKY_BXhTJ9t8osIn_kuWApfjcTfOs7h73ocH496Prdxp7WYjlBKpt9QdTZmGXZi4Eyu8IGLKLnfK6fDA&sa=X&ved=2ahUKEwis097p9-iVAxU4UEEAHSGhO6oQ0pQJegQIBhAF
-      pinned: true
-      title: https://www.google.com/search?q=can+you+use+paplay+on+linuxmint+and++play+button++press+sound+when+i+type+on+the+keyboard+.+Don%27t+slow+down+my+computer.+Backspace+%2F+delete+should+have+differnt+sounds+from+other+keys.+Make+the+code+simple&sca_esv=fc2a7f6adb56bd6b&aep=1&cs=0&biw=1694&bih=953&prmd=ivns&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qL0zHOgSF_fPhBz4Y3qmJwwykkgDu4pIUF48xQNejTwIs1CGyfdr_4HCKY_BXhTJ9t8osIn_kuWApfjcTfOs7h73ocH496Prdxp7WYjlBKpt9QdTZmGXZi4Eyu8IGLKLnfK6fDA&sa=X&ved=2ahUKEwis097p9-iVAxU4UEEAHSGhO6oQ0pQJegQIBhAF&sei=oEViavnVAunW7M8P-Y2kQA
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dcan%2Byou%2Buse%2Bpaplay%2Bon%2Blinuxmint%2Band%2B%2Bplay%2Bbutton%2B%2Bpress%2Bsound%2Bwhen%2Bi%2Btype%2Bon%2Bthe%2Bkeyboard%2B.%2BDon%2527t%2Bslow%2Bdown%2Bmy%2Bcomputer.%2BBackspace%2B%252F%2Bdelete%2Bshould%2Bhave%2Bdiffernt%2Bsounds%2Bfrom%2Bother%2Bkeys.%2BMake%2Bthe%2Bcode%2Bsimple%26sca_esv%3Dfc2a7f6adb56bd6b%26aep%3D1%26cs%3D0%26biw%3D1694%26bih%3D953%26prmd%3Divns%26source%3Dlnms%26fbs%3DABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qL0zHOgSF_fPhBz4Y3qmJwwykkgDu4pIUF48xQNejTwIs1CGyfdr_4HCKY_BXhTJ9t8osIn_kuWApfjcTfOs7h73ocH496Prdxp7WYjlBKpt9QdTZmGXZi4Eyu8IGLKLnfK6fDA%26sa%3DX%26ved%3D2ahUKEwis097p9-iVAxU4UEEAHSGhO6oQ0pQJegQIBhAF%26sei%3DoEViavnVAunW7M8P-Y2kQA&q=EgQpvoYLGKCLidMGIjC9EZxSdjdRstq0KvO1LGURcLmmQg1alhJK959CfjYmC6XMrIa8q48Hhtuaswh62DoyAVJaAUM
-    - last_visited: '2026-07-23T20:19:22'
-      pinned: true
-      title: can you use paplay on linuxmint and play button press sound when i type
-        on the keyboard . Don't slow down my computer. Backspace / delete should have
-        differnt sounds from other keys. Make the code simple - Google Search
-      url: https://www.google.com/search?q=can+you+use+paplay+on+linuxmint+and++play+button++press+sound+when+i+type+on+the+keyboard+.+Don%27t+slow+down+my+computer.+Backspace+%2F+delete+should+have+differnt+sounds+from+other+keys.+Make+the+code+simple&sca_esv=fc2a7f6adb56bd6b&aep=1&cs=0&biw=1694&bih=953&prmd=ivns&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qL0zHOgSF_fPhBz4Y3qmJwwykkgDu4pIUF48xQNejTwIs1CGyfdr_4HCKY_BXhTJ9t8osIn_kuWApfjcTfOs7h73ocH496Prdxp7WYjlBKpt9QdTZmGXZi4Eyu8IGLKLnfK6fDA&sa=X&ved=2ahUKEwis097p9-iVAxU4UEEAHSGhO6oQ0pQJegQIBhAF&sei=oEViavnVAunW7M8P-Y2kQA&google_abuse=GOOGLE_ABUSE_EXEMPTION%3DID%3D1fd1f05bfb1e2a70%3ATM%3D1784825248%3AC%3DR%3AIP%3D41.190.134.11-%3AS%3Da3XQoaCpDQgZyy_2ae9XNBA%3B+path%3D%2F%3B+domain%3Dgoogle.com%3B+expires%3DThu%2C+23-Jul-2026+19%3A47%3A28+GMT
-    - last_visited: '2026-07-23T20:21:35'
-      pinned: true
-      title: can you use paplay on linuxmint and play button press sound when i type
-        on the keyboard . Don't slow down my computer. Backspace / delete should have
-        differnt sounds from other keys. Make the code simple - Google Search
-      url: https://www.google.com/search?q=can+you+use+paplay+on+linuxmint+and++play+button++press+sound+when+i+type+on+the+keyboard+.+Don%27t+slow+down+my+computer.+Backspace+%2F+delete+should+have+differnt+sounds+from+other+keys.+Make+the+code+simple&sca_esv=fc2a7f6adb56bd6b&aep=10&cs=0&biw=1694&bih=953&prmd=ivns&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qL0zHOgSF_fPhBz4Y3qmJwwykkgDu4pIUF48xQNejTwIs1CGyfdr_4HCKY_BXhTJ9t8osIn_kuWApfjcTfOs7h73ocH496Prdxp7WYjlBKpt9QdTZmGXZi4Eyu8IGLKLnfK6fDA&sa=X&sei=oEViavnVAunW7M8P-Y2kQA&google_abuse=GOOGLE_ABUSE_EXEMPTION%3DID%3D1fd1f05bfb1e2a70%3ATM%3D1784825248%3AC%3DR%3AIP%3D41.190.134.11-%3AS%3Da3XQoaCpDQgZyy_2ae9XNBA%3B+path%3D%2F%3B+domain%3Dgoogle.com%3B+expires%3DThu%2C+23-Jul-2026+19%3A47%3A28+GMT&udm=50&ntc=1&mstk=AUtExfDzTTF2OKw2A1cl0FwmnIEVkPEk_JsS4JzQXcLxgh4WzctiUok1mhpJLNqp3NEBqvwThtGwzxzQl9X8uijb1VHwlUwNHS3mAcWvgbz148GdtEdeH9kGK1x-JZzLubvyAsV5m4pYZneJaANBbKlZslsQimMVFX4oP1A&aioh=3&csuir=1&mtid=nE1iasaNEMb4kdUPoOWW0AY
-    - last_visited: '2026-07-23T21:09:04'
-      pinned: true
-      title: can you use paplay on linuxmint and play button press sound when i type
-        on the keyboard . Don't slow down my computer. Backspace / delete should have
-        differnt sounds from other keys. Make the code simple - Google Search
-      url: https://www.google.com/search?q=can+you+use+paplay+on+linuxmint+and++play+button++press+sound+when+i+type+on+the+keyboard+.+Don%27t+slow+down+my+computer.+Backspace+%2F+delete+should+have+differnt+sounds+from+other+keys.+Make+the+code+simple&sca_esv=fc2a7f6adb56bd6b&aep=10&cs=0&biw=1694&bih=953&prmd=ivns&source=lnms&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qL0zHOgSF_fPhBz4Y3qmJwwykkgDu4pIUF48xQNejTwIs1CGyfdr_4HCKY_BXhTJ9t8osIn_kuWApfjcTfOs7h73ocH496Prdxp7WYjlBKpt9QdTZmGXZi4Eyu8IGLKLnfK6fDA&sa=X&ved=2ahUKEwjRytrlp-mVAxUr9LsIHStOIY0Q0pQJegQIBhAF
-    - active: true
-      last_visited: '2026-07-23T21:09:55'
-      pinned: true
-      scroll-pos:
-        x: 0
-        y: 0
-      title: keyecho all sound packs downloads paid - Google Search
-      url: https://www.google.com/search?q=keyecho+all+sound+packs+downloads+paid&sca_esv=fc2a7f6adb56bd6b&aep=10&cs=0&biw=1280&bih=704&ei=u1hiaqmkG8eKkdUPuIqPiQI&ved=0ahUKEwjp7cizsumVAxVHRaQEHTjFIyEQ4dUDCBA&uact=5&oq=keyecho+all+sound+packs+downloads+paid&gs_lp=Egxnd3Mtd2l6LXNlcnAiJmtleWVjaG8gYWxsIHNvdW5kIHBhY2tzIGRvd25sb2FkcyBwYWlkMgUQIRigATIFECEYoAFIiwpQAFgAcAF4AJABAJgBAKABAKoBALgBA8gBAJgCAaACB5gDAJIHATGgBwCyBwC4BwDCBwMwLjHIBwGACAE&sclient=gws-wiz-serp
-      zoom: 0.85
-  - active: true
-    history:
-    - last_visited: '2026-07-23T19:47:32'
-      pinned: false
-      title: 'ZacharyL2/KeyEcho: Listen to Mechanical Keyboard Sounds with Every Keystroke
-        - It''s Fast'
-      url: https://github.com/ZacharyL2/KeyEcho
-    - last_visited: '2026-07-23T20:41:18'
-      pinned: false
-      title: Release KeyEcho v1.1.0 · ZacharyL2/KeyEcho
-      url: https://github.com/ZacharyL2/KeyEcho/releases/tag/v1.1.0
-    - last_visited: '2026-07-23T20:41:22'
-      pinned: false
-      title: Sound packs for KeyEcho - browser-tested keyboard sounds
-      url: https://keyecho.app/packs
-    - last_visited: '2026-07-23T20:42:02'
-      pinned: false
-      title: Sound packs for KeyEcho - browser-tested keyboard sounds
-      url: https://keyecho.app/packs/click-beats-snappy
-    - active: true
-      last_visited: '2026-07-23T20:59:58'
+      last_visited: '2026-07-24T02:21:41'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: Sound packs for KeyEcho - browser-tested keyboard sounds
-      url: https://keyecho.app/packs
+      title: Zerobyte | Backup automation for Restic
+      url: https://zerobyte.app/
       zoom: 0.85
-    - last_visited: '2026-07-23T20:59:33'
-      pinned: false
-      title: Tap Tune — Mellow Keyboard Sounds | KeyEcho
-      url: https://keyecho.app/packs/tap-tune-mellow
   - history:
     - active: true
-      last_visited: '2026-07-23T21:02:43'
+      last_visited: '2026-07-24T02:21:38'
       pinned: false
       scroll-pos:
         x: 0
-        y: 98
-      title: Release KeyEcho v1.1.0 · ZacharyL2/KeyEcho
-      url: https://github.com/ZacharyL2/KeyEcho/releases/tag/v1.1.0
+        y: 0
+      title: Zerobyte Documentation
+      url: https://zerobyte.app/docs
       zoom: 0.85
   - history:
-    - last_visited: '2026-07-23T19:52:01'
-      pinned: false
-      title: Google Advanced Search
-      url: https://www.google.com/advanced_search
-    - last_visited: '2026-07-23T19:52:13'
-      pinned: false
-      title: Google
-      url: https://www.google.com/
-    - last_visited: '2026-07-23T20:02:29'
-      original-url: https://www.google.com/search?q=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&sca_esv=fc2a7f6adb56bd6b&source=hp&ei=vEZiapiYJsTr7_UPu4KZ4Ac&iflsig=ABILxe8AAAAAamJUzNOCw5-P44tn_vwWtX1wcs1yTG6F&aep=22&udm=50&ved=0ahUKEwiY5u6eoemVAxXE9bsIHTtBBnwQteYPCBI&cs=0&oq=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&gs_lp=Egdnd3Mtd2l6IlJmaXggcHl0aG9uIGFwcHMgcXV0ZWJyb3dzZXIgbW91c2UgY3Vyc29yIHN0eWxlIHNpemUgb24gbGF1bmNoIHN5bmMgd2l0aCB4IHNldHRpbmdzSP-bJVAAWPOMJXATeACQAQGYAYQGoAGhngGqAQ8wLjYxLjMzLjEuMi4wLjG4AQHIAQD4AQGYAligAu97wgIOEAAYgAQYigUYsQMYgwHCAggQABiABBixA8ICCBAuGIAEGLEDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgUQABiABMICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAgUQLhiABMICCBAuGLEDGIAEwgILEC4YsQMYgAQYigXCAgsQLhiABBjHARivAcICBxAAGIAEGA3CAgsQLhiABBjHARjRA8ICBhAAGBYYHsICCBAAGIAEGKIEwgIFEAAY7wXCAggQABiJBRiiBMICCxAAGIAEGIoFGIYDwgIFECEYoAHCAgQQIRgVwgIHECEYChigAcICBBAhGAqYAwCSBw4xNi4zMS4zOC4xLjEuMaAHxswCsgcNMC4zMS4zOC4xLjEuMbgHwHvCBwoyNi40NS4xNS4yyAerAYAIAQ&sclient=gws-wiz
-      pinned: false
-      title: https://www.google.com/search?q=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&sca_esv=fc2a7f6adb56bd6b&source=hp&ei=vEZiapiYJsTr7_UPu4KZ4Ac&iflsig=ABILxe8AAAAAamJUzNOCw5-P44tn_vwWtX1wcs1yTG6F&aep=22&udm=50&ved=0ahUKEwiY5u6eoemVAxXE9bsIHTtBBnwQteYPCBI&cs=0&oq=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&gs_lp=Egdnd3Mtd2l6IlJmaXggcHl0aG9uIGFwcHMgcXV0ZWJyb3dzZXIgbW91c2UgY3Vyc29yIHN0eWxlIHNpemUgb24gbGF1bmNoIHN5bmMgd2l0aCB4IHNldHRpbmdzSP-bJVAAWPOMJXATeACQAQGYAYQGoAGhngGqAQ8wLjYxLjMzLjEuMi4wLjG4AQHIAQD4AQGYAligAu97wgIOEAAYgAQYigUYsQMYgwHCAggQABiABBixA8ICCBAuGIAEGLEDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgUQABiABMICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAgUQLhiABMICCBAuGLEDGIAEwgILEC4YsQMYgAQYigXCAgsQLhiABBjHARivAcICBxAAGIAEGA3CAgsQLhiABBjHARjRA8ICBhAAGBYYHsICCBAAGIAEGKIEwgIFEAAY7wXCAggQABiJBRiiBMICCxAAGIAEGIoFGIYDwgIFECEYoAHCAgQQIRgVwgIHECEYChigAcICBBAhGAqYAwCSBw4xNi4zMS4zOC4xLjEuMaAHxswCsgcNMC4zMS4zOC4xLjEuMbgHwHvCBwoyNi40NS4xNS4yyAerAYAIAQ&sclient=gws-wiz&sei=JEliau69J-KH9u8PiJPGgAI
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dfix%2Bpython%2Bapps%2Bqutebrowser%2Bmouse%2Bcursor%2Bstyle%2Bsize%2Bon%2Blaunch%2Bsync%2Bwith%2Bx%2Bsettings%26sca_esv%3Dfc2a7f6adb56bd6b%26source%3Dhp%26ei%3DvEZiapiYJsTr7_UPu4KZ4Ac%26iflsig%3DABILxe8AAAAAamJUzNOCw5-P44tn_vwWtX1wcs1yTG6F%26aep%3D22%26udm%3D50%26ved%3D0ahUKEwiY5u6eoemVAxXE9bsIHTtBBnwQteYPCBI%26cs%3D0%26oq%3Dfix%2Bpython%2Bapps%2Bqutebrowser%2Bmouse%2Bcursor%2Bstyle%2Bsize%2Bon%2Blaunch%2Bsync%2Bwith%2Bx%2Bsettings%26gs_lp%3DEgdnd3Mtd2l6IlJmaXggcHl0aG9uIGFwcHMgcXV0ZWJyb3dzZXIgbW91c2UgY3Vyc29yIHN0eWxlIHNpemUgb24gbGF1bmNoIHN5bmMgd2l0aCB4IHNldHRpbmdzSP-bJVAAWPOMJXATeACQAQGYAYQGoAGhngGqAQ8wLjYxLjMzLjEuMi4wLjG4AQHIAQD4AQGYAligAu97wgIOEAAYgAQYigUYsQMYgwHCAggQABiABBixA8ICCBAuGIAEGLEDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgUQABiABMICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAgUQLhiABMICCBAuGLEDGIAEwgILEC4YsQMYgAQYigXCAgsQLhiABBjHARivAcICBxAAGIAEGA3CAgsQLhiABBjHARjRA8ICBhAAGBYYHsICCBAAGIAEGKIEwgIFEAAY7wXCAggQABiJBRiiBMICCxAAGIAEGIoFGIYDwgIFECEYoAHCAgQQIRgVwgIHECEYChigAcICBBAhGAqYAwCSBw4xNi4zMS4zOC4xLjEuMaAHxswCsgcNMC4zMS4zOC4xLjEuMbgHwHvCBwoyNi40NS4xNS4yyAerAYAIAQ%26sclient%3Dgws-wiz%26sei%3DJEliau69J-KH9u8PiJPGgAI&q=EgQpvoYLGKSSidMGIjBaGZF4tZqkW_wJYckIzHqmp6v7CHu7Gq1qGqVdmD1YX5vqckm-a696Ob0oD3t9_WEyAVJaAUM
     - active: true
-      last_visited: '2026-07-23T20:11:54'
+      last_visited: '2026-07-24T01:46:23'
       pinned: false
       scroll-pos:
         x: 0
-        y: 1150
-      title: fix python apps qutebrowser mouse cursor style size on launch sync with
-        x settings - Google Search
-      url: https://www.google.com/search?q=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&sca_esv=fc2a7f6adb56bd6b&source=hp&ei=vEZiapiYJsTr7_UPu4KZ4Ac&iflsig=ABILxe8AAAAAamJUzNOCw5-P44tn_vwWtX1wcs1yTG6F&aep=22&ved=0ahUKEwiY5u6eoemVAxXE9bsIHTtBBnwQteYPCBI&cs=0&oq=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&gs_lp=Egdnd3Mtd2l6IlJmaXggcHl0aG9uIGFwcHMgcXV0ZWJyb3dzZXIgbW91c2UgY3Vyc29yIHN0eWxlIHNpemUgb24gbGF1bmNoIHN5bmMgd2l0aCB4IHNldHRpbmdzSP-bJVAAWPOMJXATeACQAQGYAYQGoAGhngGqAQ8wLjYxLjMzLjEuMi4wLjG4AQHIAQD4AQGYAligAu97wgIOEAAYgAQYigUYsQMYgwHCAggQABiABBixA8ICCBAuGIAEGLEDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgUQABiABMICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAgUQLhiABMICCBAuGLEDGIAEwgILEC4YsQMYgAQYigXCAgsQLhiABBjHARivAcICBxAAGIAEGA3CAgsQLhiABBjHARjRA8ICBhAAGBYYHsICCBAAGIAEGKIEwgIFEAAY7wXCAggQABiJBRiiBMICCxAAGIAEGIoFGIYDwgIFECEYoAHCAgQQIRgVwgIHECEYChigAcICBBAhGAqYAwCSBw4xNi4zMS4zOC4xLjEuMaAHxswCsgcNMC4zMS4zOC4xLjEuMbgHwHvCBwoyNi40NS4xNS4yyAerAYAIAQ&sclient=gws-wiz&sei=JEliau69J-KH9u8PiJPGgAI&mstk=AUtExfBqT967Ff8YkDrnZT5TqvxaqRQKkgIY8s7gKIa8BdpTUzufcqoUgf8u5PI8k4pKotiNkVhQ8Bs6Lbj6JJ0kVCDe1QgLfOSWmELb3q9psLnUJg8Ol2rZg863C2GGhFKWQlcZXVy2n03moL2OzxAIf1xqXpsRcPqQ-Z4&csuir=1&udm=50
+        y: 0
+      title: 'GitHub - DontMissThePoint/linux-setup: Linux setup. tmux - i3 - urxvt
+        - vim · GitHub'
+      url: https://github.com/DontMissThePoint/linux-setup
       zoom: 0.85
