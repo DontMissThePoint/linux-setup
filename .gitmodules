@@ -45,8 +45,8 @@
 	url = https://github.com/jaseg/lolcat
 	branch = master
   ignore = dirty
-[submodule "submodules/qute"]
-	path = submodules/qute
+[submodule "submodules/qutebrowser"]
+	path = submodules/qutebrowser
 	url = https://github.com/qutebrowser/qutebrowser
 	branch = main
   ignore = dirty

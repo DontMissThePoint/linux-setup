@@ -289,7 +289,6 @@ for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, move container position center, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
-for_window [class="^Vivaldi-stable$"] floating enable, move workspace $workspace1, focus
 for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
 for_window [class="Lxappearance"] floating enable, sticky enable, border normal
 for_window [class="^Zathura$"] floating enable, focus

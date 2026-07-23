@@ -53,6 +53,7 @@ o.signcolumn = "yes"
 o.splitbelow = true
 o.splitright = true
 o.timeoutlen = 400
+o.swapfile = false
 o.undofile = true
 
 -- go to previous/next line with h,l,left arrow and right arrow

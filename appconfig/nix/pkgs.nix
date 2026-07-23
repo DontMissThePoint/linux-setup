@@ -62,7 +62,6 @@
     config = {
       allowUnfree = true;
       allowUnfreePredicate = (_: true);
-			};
     };
   };
 
@@ -84,6 +83,7 @@
 
   # icons:fonts:man:etc
   fonts.fontconfig.enable = true;
+	home.pointerCursor.enable = false;
+  xdg.mime.enable = false;
   targets.genericLinux.enable = true;
-  xdg.mime.enable = true;
 }
