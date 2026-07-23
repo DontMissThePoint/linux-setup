@@ -12,128 +12,127 @@ APP_PATH=$( (cd "$APP_PATH" && pwd))
 unattended=0
 subinstall_params=""
 for param in "$@"; do
-    echo "$param"
-    if [ "$param=--unattended" ]; then
-        echo "installing in unattended mode"
-        unattended=1
-        subinstall_params="--unattended"
-    fi
+	echo "$param"
+	if [ "$param=--unattended" ]; then
+		echo "installing in unattended mode"
+		unattended=1
+		subinstall_params="--unattended"
+	fi
 done
 
 default=y
 while true; do
-    if [[ "$unattended" == "1" ]]; then
-        resp=$default
-    else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall docker? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
-    fi
-    response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
+	if [[ "$unattended" == "1" ]]; then
+		resp=$default
+	else
+		[[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall docker? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+	fi
+	response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
-    if [[ $response =~ ^(y|Y)=$ ]]; then
+	if [[ $response =~ ^(y|Y)=$ ]]; then
 
-        toilet Installing docker -t --filter metal -f smmono12
+		toilet Installing docker -t --filter metal -f smmono12
 
-        # packages
-        for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y "$pkg"; done
+		# packages
+		for pkg in docker.io docker-doc docker-compose docker-compose-v2 podman-docker containerd runc; do sudo apt-get remove -y "$pkg"; done
 
-        # sources
-        if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
-            sudo apt-get update
-            sudo apt-get install -y ca-certificates curl gnupg
+		# sources
+		if [ ! -e /etc/apt/sources.list.d/docker.list ]; then
+			sudo apt-get update
+			sudo apt-get install -y ca-certificates curl gnupg
 
-            # GPG
-            sudo install -m 0755 -d /etc/apt/keyrings
-            curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
-            sudo chmod a+r /etc/apt/keyrings/docker.gpg
+			# GPG
+			sudo install -m 0755 -d /etc/apt/keyrings
+			curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+			sudo chmod a+r /etc/apt/keyrings/docker.gpg
 
-            echo \
-            "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+			echo \
+				"deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
                 $(. /etc/os-release && echo "$UBUNTU_CODENAME") stable" |
-            sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
-            sudo apt-get update
-        fi
+				sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
+			sudo apt-get update
+		fi
 
-        # docker
-        sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
-        sudo usermod -aG docker "$USER"
+		# docker
+		sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+		sudo usermod -aG docker "$USER"
 
-				# groups
-				groups "$USER"
-        sudo systemctl enable docker
-        sudo systemctl start docker
+		# groups
+		groups "$USER"
+		sudo systemctl enable docker
+		sudo systemctl start docker
 
-        # plugins
-        mkdir -p "$HOME"/.docker
-        curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
-        curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
+		# plugins
+		mkdir -p "$HOME"/.docker
+		curl -sSfL https://raw.githubusercontent.com/docker/scout-cli/main/install.sh | sh -s --
+		curl -sSfL https://raw.githubusercontent.com/docker/sbom-cli-plugin/main/install.sh | sh -s --
 
-        # freerdp
-        echo "Setting up remote desktop"
-        if [ ! -e /etc/apt/sources.list.d/freerdp-nightly.list ]; then
+		# freerdp
+		echo "Setting up remote desktop"
+		if [ ! -e /etc/apt/sources.list.d/freerdp-nightly.list ]; then
 
+			# GPG key
+			sudo install -m 0755 -d /etc/apt/keyrings
+			wget -O - http://pub.freerdp.com/repositories/ADD6BF6D97CE5D8D.asc | sudo gpg --dearmor -o /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
+			sudo chmod a+r /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
 
-            # GPG key
-            sudo install -m 0755 -d /etc/apt/keyrings
-            wget -O - http://pub.freerdp.com/repositories/ADD6BF6D97CE5D8D.asc | sudo gpg --dearmor -o /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
-            sudo chmod a+r /etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg
-
-            echo \
-            "deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
+			echo \
+				"deb [signed-by=/etc/apt/keyrings/freerdp-nightly-ADD6BF6D97CE5D8D.gpg] \
                 http://pub.freerdp.com/repositories/deb/""$(. /etc/os-release && echo "$UBUNTU_CODENAME")/ freerdp-nightly main" |
-            sudo tee /etc/apt/sources.list.d/freerdp-nightly.list >/dev/null
-            sudo apt-get update
-        fi
+				sudo tee /etc/apt/sources.list.d/freerdp-nightly.list >/dev/null
+			sudo apt-get update
+		fi
 
-        # docker
-        sudo apt update
-        sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+		# docker
+		sudo apt update
+		sudo apt install -y freerdp-nightly docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 
-        ## kernel modules
-        sudo apt install -y intel-media-va-driver mesa-utils mtp-tools atomicparsley
+		## kernel modules
+		sudo apt install -y adb intel-media-va-driver mesa-utils mtp-tools atomicparsley
 
-        sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
-        sudo depmod -a
+		sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
+		sudo depmod -a
 
-        # adb
-        toilet Settingup android -t -f future
+		# adb
+		toilet Settingup android -t -f future
 
-        cd /tmp
-        wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
-        unzip platform-tools-latest-linux.zip
-        sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
-        sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/ || echo "OK."
+		cd /tmp
+		wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
+		unzip platform-tools-latest-linux.zip
+		sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
+			sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/ || echo "OK."
 
-        # keyboard, mouse
-        sudo modprobe uhid
+		# keyboard, mouse
+		sudo modprobe uhid
 
-        # webcam
-        sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
-        # v4l2-ctl --list-devices    # or you may `ls /dev/video*`
-        # scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
+		# webcam
+		sudo modprobe -v v4l2loopback exclusive_caps=1 card_label="Virtual Webcam"
+		# v4l2-ctl --list-devices    # or you may `ls /dev/video*`
+		# scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
 
-        # kernel
-        sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
+		# kernel
+		sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
 
-        # apk
-        # adb -s 127.0.0.1:5552 install "jp.naver.line.android.apk"
+		# apk
+		# adb -s 127.0.0.1:5552 install "jp.naver.line.android.apk"
 
-        # xapk
-        # Rename your .xapk file to .zip.
-        # Unzip
-        # adb -s 127.0.0.1:5552 install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
+		# xapk
+		# Rename your .xapk file to .zip.
+		# Unzip
+		# adb -s 127.0.0.1:5552 install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
 
-        # yt
-        toilet Settingup yt -t -f future
+		# yt
+		toilet Settingup yt -t -f future
 
-        mkdir -p ~/VirtualMachines/YoutubeDL-Material
-        cd ~/VirtualMachines/YoutubeDL-Material
+		mkdir -p ~/VirtualMachines/YoutubeDL-Material
+		cd ~/VirtualMachines/YoutubeDL-Material
 
-        # youtubedl: http://localhost:8998/#/home
-        curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
+		# youtubedl: http://localhost:8998/#/home
+		curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
 
-        # TX
-        cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
-        sg docker -c "docker run --rm \
+		# TX
+		cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
+		sg docker -c "docker run --rm \
             -v ./TX-02:/in \
             -v ./patched:/out \
             nerdfonts/patcher \
@@ -152,58 +151,58 @@ while true; do
             --material \
             --weather
 				"
-				# cache
-        cp -f patched/*.otf ~/.local/share/fonts/OTF
-        rm -fr patched
-        fc-cache -f -v
+		# cache
+		cp -f patched/*.otf ~/.local/share/fonts/OTF
+		rm -fr patched
+		fc-cache -f -v
 
-        # quickemu
-        the_ppa=flexiondotorg/quickemu
-        if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
-            sudo apt-add-repository ppa:flexiondotorg/quickemu
-            sudo apt update
-        fi
-        sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
-        sudo apt install -y --no-install-recommends samba
+		# quickemu
+		the_ppa=flexiondotorg/quickemu
+		if ! grep -q "^deb .*$the_ppa" /etc/apt/sources.list /etc/apt/sources.list.d/*; then
+			sudo apt-add-repository ppa:flexiondotorg/quickemu
+			sudo apt update
+		fi
+		sudo apt install -y bash coreutils ovmf grep jq lsb-base procps python3 genisoimage usbutils util-linux sed spice-client-gtk libtss2-tcti-swtpm0 wget xdg-user-dirs zsync unzip quickemu
+		sudo apt install -y --no-install-recommends samba
 
-        # quickget windows 11
-        # quickemu --vm windows-11.conf --width 1920 --height 1080
+		# quickget windows 11
+		# quickemu --vm windows-11.conf --width 1920 --height 1080
 
-        # Dockurr
-        toilet Settingup dockurr -t -f future
-        # focus cell: #87ff87 #0088cc
+		# Dockurr
+		toilet Settingup dockurr -t -f future
+		# focus cell: #87ff87 #0088cc
 
-        # VM
-        mkdir -p ~/VirtualMachines/Windows-Docker
-        cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Windows-Docker
-        # docker compose stop
-        # sudo docker compose up -d --force-recreate --build
+		# VM
+		mkdir -p ~/VirtualMachines/Windows-Docker
+		cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Windows-Docker
+		# docker compose stop
+		# sudo docker compose up -d --force-recreate --build
 
-        # docker system prune -af
-        BGREEN='\033[1;32m'
-        NC='\033[0m' # No Color
-        echo -e "${BGREEN}> Windows debloater.${NC}"
+		# docker system prune -af
+		BGREEN='\033[1;32m'
+		NC='\033[0m' # No Color
+		echo -e "${BGREEN}> Windows debloater.${NC}"
 
-        # cd ~/Public
-        # curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
-        #     jq -r ".assets[] | .browser_download_url" | grep bat |\
-        #     xargs -n 1 curl -L -O --fail --show-error
+		# cd ~/Public
+		# curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
+		#     jq -r ".assets[] | .browser_download_url" | grep bat |\
+		#     xargs -n 1 curl -L -O --fail --show-error
 
-				# http://127.0.0.1:8006/
-        # Install Apps: 365, powerBi, mupdf, listary, librewolf
-        #               joplin, smplayer, nextcloud, zap zap
-        # Activate: irm https://get.activated.win | iex
+		# http://127.0.0.1:8006/
+		# Install Apps: 365, powerBi, mupdf, listary, librewolf
+		#               joplin, smplayer, nextcloud, zap zap
+		# Activate: irm https://get.activated.win | iex
 
-        toilet Settingup winboat -t -f future
+		# toilet Settingup winboat -t -f future
 
-				cd /tmp
-				sudo /home/linuxbrew/.linuxbrew/bin/dra \
-					download --select '*amd64.deb' -i TibixDev/winboat
+		# cd /tmp
+		# sudo /home/linuxbrew/.linuxbrew/bin/dra \
+		# 	download --select '*amd64.deb' -i TibixDev/winboat
 
-        break
-    elif [[ $response =~ ^(n|N)=$ ]]; then
-        break
-    else
-        echo " What? \"$resp\" is not a correct answer. Try y+Enter."
-    fi
+		break
+	elif [[ $response =~ ^(n|N)=$ ]]; then
+		break
+	else
+		echo " What? \"$resp\" is not a correct answer. Try y+Enter."
+	fi
 done
