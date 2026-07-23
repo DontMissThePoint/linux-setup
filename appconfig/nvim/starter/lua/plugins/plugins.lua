@@ -256,7 +256,7 @@ local plugins = {
 	{
 		"willothy/savior.nvim",
 		dependencies = { "j-hui/fidget.nvim" },
-		event = { "InsertLeave" },
+		event = { "InsertLeave", "BufWritePre" },
 		config = true,
 	},
 

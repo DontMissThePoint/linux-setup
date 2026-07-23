@@ -17,7 +17,8 @@ work:
     title: "work finished 🎉"
     message: time to take a break
     # icon: ~/path/to/icon.png
-  # then:
+  then:
+    - [paplay, /usr/share/sounds/LinuxMint/stereo/system-ready.ogg]
   #   - [spd-say, "Time to take a break"]
 
 break:

@@ -77,6 +77,9 @@ f="/etc/X11/xinit/xinitrc.d/50-systemd-user.sh"
 
 # Start applets, daemons, etc.
 
+# neptune
+Neptune -cli -soundkey "Cherry MX Blues" -volume 0.8 & # Use Alpacas Soundkey
+
 # redshift
 redshift-gtk -l 0.3382088:32.585899 &
 
