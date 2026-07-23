@@ -1,125 +1,17 @@
 windows:
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAQAAABkAAAT+AAACuQAAAAAABAAABQAAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAMgAAADIAAANRAAACiQAAAAAABAAABQAAAAAAAAAA
     AAAABP8AAALP
   tabs:
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:15'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: billions | Syncthing
-      url: http://localhost:8384/
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:16'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Zerobyte | Backup automation for Restic
-      url: https://zerobyte.app/
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:16'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Backups | Zerobyte Docs
-      url: https://zerobyte.app/docs/concepts/backups
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:15'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:21'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: pomo/README.md at main · Bahaaio/pomo
-      url: https://github.com/Bahaaio/pomo/blob/main/README.md?ysclid=mrxdb7jbq8184938261
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:21'
-      pinned: true
-      scroll-pos:
-        x: 0
-        y: 0
-      title: keyecho all sound packs downloads paid - Google Search
-      url: https://www.google.com/search?q=keyecho+all+sound+packs+downloads+paid&sca_esv=fc2a7f6adb56bd6b&aep=10&cs=0&biw=1280&bih=704&ei=u1hiaqmkG8eKkdUPuIqPiQI&ved=0ahUKEwjp7cizsumVAxVHRaQEHTjFIyEQ4dUDCBA&uact=5&oq=keyecho+all+sound+packs+downloads+paid&gs_lp=Egxnd3Mtd2l6LXNlcnAiJmtleWVjaG8gYWxsIHNvdW5kIHBhY2tzIGRvd25sb2FkcyBwYWlkMgUQIRigATIFECEYoAFIiwpQAFgAcAF4AJABAJgBAKABAKoBALgBA8gBAJgCAaACB5gDAJIHATGgBwCyBwC4BwDCBwMwLjHIBwGACAE&sclient=gws-wiz-serp
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:17'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Sound packs for KeyEcho - browser-tested keyboard soundsSound packs for
-        KeyEcho - browser-tested keyboard sounds
-      url: https://keyecho.app/packs
-      zoom: 0.85
   - active: true
     history:
     - active: true
-      last_visited: '2026-07-23T21:25:20'
+      last_visited: '2026-07-24T01:35:18'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: Release KeyEcho v1.1.0 · ZacharyL2/KeyEcho
-      url: https://github.com/ZacharyL2/KeyEcho/releases/tag/v1.1.0
-      zoom: 0.85
-  - history:
-    - last_visited: '2026-07-23T21:25:27'
-      pinned: false
-      title: Your Repositories
-      url: https://github.com/DontMissThePoint?tab=repositories
-    - last_visited: '2026-07-23T21:25:31'
-      pinned: false
-      title: 'DontMissThePoint/linux-setup: Linux setup. tmux - i3 - urxvt - vim'
-      url: https://github.com/DontMissThePoint/linux-setup
-    - last_visited: '2026-07-23T21:25:39'
-      pinned: false
-      title: Comparing master...main · DontMissThePoint/linux-setup
-      url: https://github.com/DontMissThePoint/linux-setup/compare/main?expand=1
-    - last_visited: '2026-07-23T21:26:00'
-      pinned: false
-      title: 'Main by DontMissThePoint · Pull Request #41 · DontMissThePoint/linux-setup'
-      url: https://github.com/DontMissThePoint/linux-setup/pull/41
-    - active: true
-      last_visited: '2026-07-23T21:26:28'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 'DontMissThePoint/linux-setup: Linux setup. tmux - i3 - urxvt - vim'
-      url: https://github.com/DontMissThePoint/linux-setup
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-23T21:25:20'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: fix python apps qutebrowser mouse cursor style size on launch sync with
-        x settings - Google Search
-      url: https://www.google.com/search?q=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&sca_esv=fc2a7f6adb56bd6b&source=hp&ei=vEZiapiYJsTr7_UPu4KZ4Ac&iflsig=ABILxe8AAAAAamJUzNOCw5-P44tn_vwWtX1wcs1yTG6F&aep=22&ved=0ahUKEwiY5u6eoemVAxXE9bsIHTtBBnwQteYPCBI&cs=0&oq=fix+python+apps+qutebrowser+mouse+cursor+style+size+on+launch+sync+with+x+settings&gs_lp=Egdnd3Mtd2l6IlJmaXggcHl0aG9uIGFwcHMgcXV0ZWJyb3dzZXIgbW91c2UgY3Vyc29yIHN0eWxlIHNpemUgb24gbGF1bmNoIHN5bmMgd2l0aCB4IHNldHRpbmdzSP-bJVAAWPOMJXATeACQAQGYAYQGoAGhngGqAQ8wLjYxLjMzLjEuMi4wLjG4AQHIAQD4AQGYAligAu97wgIOEAAYgAQYigUYsQMYgwHCAggQABiABBixA8ICCBAuGIAEGLEDwgIREC4YgAQYsQMYgwEYxwEY0QPCAgUQABiABMICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAgUQLhiABMICCBAuGLEDGIAEwgILEC4YsQMYgAQYigXCAgsQLhiABBjHARivAcICBxAAGIAEGA3CAgsQLhiABBjHARjRA8ICBhAAGBYYHsICCBAAGIAEGKIEwgIFEAAY7wXCAggQABiJBRiiBMICCxAAGIAEGIoFGIYDwgIFECEYoAHCAgQQIRgVwgIHECEYChigAcICBBAhGAqYAwCSBw4xNi4zMS4zOC4xLjEuMaAHxswCsgcNMC4zMS4zOC4xLjEuMbgHwHvCBwoyNi40NS4xNS4yyAerAYAIAQ&sclient=gws-wiz&sei=JEliau69J-KH9u8PiJPGgAI&mstk=AUtExfBqT967Ff8YkDrnZT5TqvxaqRQKkgIY8s7gKIa8BdpTUzufcqoUgf8u5PI8k4pKotiNkVhQ8Bs6Lbj6JJ0kVCDe1QgLfOSWmELb3q9psLnUJg8Ol2rZg863C2GGhFKWQlcZXVy2n03moL2OzxAIf1xqXpsRcPqQ-Z4&csuir=1&udm=50
+      title: Google
+      url: https://www.google.com/
       zoom: 0.85

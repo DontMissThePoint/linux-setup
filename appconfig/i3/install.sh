@@ -188,7 +188,7 @@ while true; do
         cp -fr --preserve "$APP_PATH"/polybar ~/.config/
 
         mkdir -p ~/.config/polybar-gtk/gtk-3.0
-        echo -e "[Settings]\ngtk-icon-theme-name=Yaru-dark" > ~/.config/polybar-gtk/gtk-3.0/settings.ini
+        echo -e "[Settings]\ngtk-icon-theme-name=Mint-X" >~/.config/polybar-gtk/gtk-3.0/settings.ini
 
         # pulseaudio-control
         sudo sed -i -e 's/^\(load-module module-stream-restore\).*/\1 restore_device=false/g' \
@@ -302,7 +302,6 @@ while true; do
         gsettings set org.cinnamon.desktop.interface icon-theme "Mint-Y"
         gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y"
         gsettings set org.gnome.desktop.interface color-scheme 'default'
-
 
         # install xkb layout state
         cd "$APP_PATH"/../../submodules/xkblayout-state/

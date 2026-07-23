@@ -78,12 +78,15 @@ while true; do
         pv "$APP_PATH"/qt6ct.conf >~/.config/qt6ct/qt6ct.conf
 
         # interface
-        gsettings set org.cinnamon.desktop.interface enable-animations true
-        gsettings set org.cinnamon.desktop.interface scaling-factor 1
-        gsettings set org.cinnamon.desktop.interface text-scaling-factor 1
+        gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y'
+        gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y'
+        gsettings set org.cinnamon.desktop.interface font-name 'Ubuntu Regular 9'
 
         # cursor
         gsettings set org.cinnamon.desktop.interface cursor-size 24
+        gsettings set org.cinnamon.desktop.interface scaling-factor 1
+        gsettings set org.cinnamon.desktop.interface text-scaling-factor 1
+        gsettings set org.cinnamon.desktop.interface enable-animations true
 
         # cache
         xdg-desktop-menu forceupdate
