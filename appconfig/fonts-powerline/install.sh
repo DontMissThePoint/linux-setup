@@ -32,7 +32,7 @@ while true; do
 
     if [[ $response =~ ^(y|Y)=$ ]]; then
 
-        toilet Setting up powerline fonts -t -f future
+        toilet Installing nerdfonts -t --filter metal -f smmono12
 
         sudo apt install -y fonts-symbola unifont fonts-font-awesome fonts-noto-color-emoji ttf-bitstream-vera
 
@@ -50,10 +50,7 @@ while true; do
         mkdir -p ~/.config/fontconfig/conf.d
         cp fontconfig/50-enable-terminess-powerline.conf ~/.config/fontconfig/conf.d
 
-        # Nerd fonts
-        toilet Setting up Nerd Fonts -t -f future
-
-        # getnf
+        # nerd
         curl -fsSL https://raw.githubusercontent.com/getnf/getnf/main/install.sh | bash
         getnf -i "JetBrainsMono Terminus FiraMono Meslo Monofur Hermit IBMPlexMono iA-Writer \
           NerdFontsSymbolsOnly UbuntuMono ProFont"
@@ -61,8 +58,8 @@ while true; do
 
         # tx
         mkdir -p "$FONTS_PATH"/{TTF,OTF}
-        mv "$FONTS_PATH"/*.otf "$FONTS_PATH"/OTF || mv "$FONTS_PATH"/*.ttf "$FONTS_PATH"/TTF || \
-            echo "Configuring..."
+        mv "$FONTS_PATH"/*.otf "$FONTS_PATH"/OTF || mv "$FONTS_PATH"/*.ttf "$FONTS_PATH"/TTF ||
+        echo "Configuring..."
 
         # terminus
         sed -i -e 's/terminess powerline/Terminess Nerd Font/g' \
@@ -71,12 +68,28 @@ while true; do
         # emoji
         pv "$APP_PATH"/10-emoji.conf >~/.config/fontconfig/conf.d/10-emoji.conf
 
+        toilet Setting up qt6ct -t -f future
+
+        # qt6ct
+        sudo apt install qt5ct qt6ct
+
+        mkdir -p ~/.config/qt{5,6}ct
+        pv "$APP_PATH"/qt5ct.conf >~/.config/qt5ct/qt5ct.conf
+        pv "$APP_PATH"/qt6ct.conf >~/.config/qt6ct/qt6ct.conf
+
+        # interface
+        gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y'
+        gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y'
+        gsettings set org.cinnamon.desktop.interface font-name 'Ubuntu Regular 9'
+
         # cursor
+        gsettings set org.cinnamon.desktop.interface cursor-size 24
         gsettings set org.cinnamon.desktop.interface scaling-factor 1
         gsettings set org.cinnamon.desktop.interface text-scaling-factor 1
-        gsettings set org.cinnamon.desktop.interface cursor-size 24
+        gsettings set org.cinnamon.desktop.interface enable-animations true
 
         # cache
+        xdg-desktop-menu forceupdate
         fc-cache -vf
 
         break
