@@ -1,4 +1,19 @@
 windows:
+- geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
+    AAAABP8AAALP
+  tabs:
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-07-24T01:45:50'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Google
+      url: https://www.google.com/
+      zoom: 0.85
 - active: true
   geometry: !!binary |
     AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAMgAAADIAAANRAAACiQAAAAAABAAABQAAAAAAAAAA
@@ -6,12 +21,99 @@ windows:
   tabs:
   - active: true
     history:
+    - last_visited: '2026-07-24T01:48:56'
+      pinned: false
+      title: KeyEcho - Lightweight keyboard sound app for Windows, macOS & Linux
+      url: https://keyecho.app/packs
+    - last_visited: '2026-07-24T01:52:31'
+      pinned: false
+      title: KeyEcho - Lightweight keyboard sound app for Windows, macOS & Linux
+      url: https://keyecho.app/
+    - last_visited: '2026-07-24T02:05:38'
+      pinned: false
+      title: History
+      url: qute://history/
     - active: true
-      last_visited: '2026-07-24T01:35:18'
+      last_visited: '2026-07-24T02:11:10'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 6454
+      title: 'GitHub - M1ndo/Neptune: Neptune is a mechanical keysound app like Mechvibes
+        except its faster and written in Go · GitHub'
+      url: https://github.com/M1ndo/Neptune
+      zoom: 0.85
+  - history:
+    - last_visited: '2026-07-24T01:47:30'
+      pinned: false
+      title: pomo/README.md at main · Bahaaio/pomo · GitHub
+      url: https://github.com/Bahaaio/pomo/blob/main/README.md?ysclid=mrxdb7jbq8184938261
+    - last_visited: '2026-07-24T02:00:15'
+      original-url: https://www.google.com/search?q=spd-say%20github
+      pinned: false
+      title: https://www.google.com/search?q=spd-say%20github&sei=_ZxiaouRHr-ywcsP-OTe-AI
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dspd-say%2520github%26sei%3D_ZxiaouRHr-ywcsP-OTe-AI&q=EgQpvoYLGP65itMGIjCLtfrFKNR-oiWKnR3VZl7cj1rsKHn70EiExvYrhKEYrqB3cK3KwXGHZIjz5XEfflEyAVJaAUM
+    - last_visited: '2026-07-24T02:00:39'
+      pinned: false
+      title: spd-say github - Google Search
+      url: https://www.google.com/search?q=spd-say+github&sei=_ZxiaouRHr-ywcsP-OTe-AI
+    - last_visited: '2026-07-24T02:15:23'
+      pinned: false
+      title: qutebrowser fix no clipboard supported - Google Search
+      url: https://www.google.com/search?q=qutebrowser+fix+no+clipboard+supported&sca_esv=44c2076a61138388&ei=EJ1iat_6Cf6dseMP66TjkAI&biw=1506&bih=828&oq=qutebrowser+fix+no+clipboard+supp&gs_lp=Egxnd3Mtd2l6LXNlcnAiIXF1dGVicm93c2VyIGZpeCBubyBjbGlwYm9hcmQgc3VwcCoCCAAyBxAhGAoYoAFIhHdQ0RNYpWdwBHgAkAEBmAGyBKABgjeqAQwwLjMxLjMuMS4wLjG4AQPIAQD4AQGYAiegAp43qAIKwgIXEAAYgAQYigUYkQIY5wYY6gIYtALYAQHCAhAQLhgDGI8BGOoCGLQC2AEBwgIQEAAYAxiPARjqAhi0AtgBAcICCxAAGIAEGIoFGJECwgIIEAAYgAQYsQPCAggQLhiABBixA8ICCxAAGIAEGLEDGIMBwgIFEAAYgATCAhAQLhiABBiKBRhDGMcBGK8BwgIKEC4YgAQYigUYQ8ICBRAuGIAEwgIHEC4YgAQYCsICBxAAGIAEGArCAh8QLhiABBiKBRhDGMcBGK8BGJcFGNwEGN4EGOAE2AECwgIKEAAYgAQYigUYQ8ICBhAAGBYYHsICCBAAGBYYHhgKwgIFEAAY7wXCAgUQIRigAcICBRAhGJ8FmAMY8QVGpd8h4c-kkLoGBAgBGAe6BgYIAhABGBSSBwo0LjI2LjguMC4xoAf1sAGyBwowLjI2LjguMC4xuAfqNsIHCTItMTguMTkuMsgH8AKACAE&sclient=gws-wiz-serp
+    - last_visited: '2026-07-24T02:17:39'
+      pinned: false
+      title: qutebrowser fix some page elements missing on webpage rendered - Google
+        Search
+      url: https://www.google.com/search?q=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&sca_esv=44c2076a61138388&biw=1506&bih=828&ei=h6BiavyBBMPi7_UP6MzNqQc&ved=0ahUKEwi84dPv9umVAxVD8bsIHWhmM3UQ4dUDCBA&uact=5&oq=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&gs_lp=Egxnd3Mtd2l6LXNlcnAiPnF1dGVicm93c2VyIGZpeCBzb21lIHBhZ2UgZWxlbWVudHMgbWlzc2luZyBvbiB3ZWJwYWdlIHJlbmRlcmVkSOPNAVDiDVjzywFwCHgAkAEAmAHxAaABr2GqAQYwLjY1LjS4AQPIAQD4AQGYAkGgAodWwgIOEAAYgAQYigUYhgMYsAPCAggQABjvBRiwA8ICCxAAGIAEGKIEGLADwgIFECEYoAHCAgUQIRifBcICBxAhGAoYoAHCAgQQIRgVmAMAiAYBkAYJkgcGOC40OC45oAed7QGyBwYwLjQ4Ljm4B5ZVwgcKMC4yLjUzLjkuMcgHsAOACAE&sclient=gws-wiz-serp
+    - active: true
+      last_visited: '2026-07-24T02:20:05'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 2836
+      title: qutebrowser fix some page elements missing on webpage rendered - Google
+        Search
+      url: https://www.google.com/search?q=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&sca_esv=44c2076a61138388&biw=1506&bih=828&ei=h6BiavyBBMPi7_UP6MzNqQc&uact=5&sclient=gws-wiz-serp&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qaigyNre7a9Fsg8QLr9z5lJegIZGuhAshyGX8vZNsidOe2y3k9Yup0oEbg7vSMYlsXcLQONuEYGQeYUXcOUWQavxf8tiuiFRXsrG1FqFEc3jvZgjn&aep=10&ntc=1&mstk=AUtExfCHzS3wDk1SkdB2W6pKd0wnH2_VH8WgpSANRIY3RznCQ_O0ohbBx79HFsNV7ub0pe1Mfl7z-GCZNhBgcuzD8sMxm_lCfpBSFdTEvY4IvQbJIrUpOihY8NzBz0RT-C0vaMg8EzrEqRFz2ZSz2pla2KMxOEvuMow0V80&aioh=3&csuir=1&mtid=gqFiarGkK4iKi-gPzuj2mAw
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-24T01:46:59'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: Google
-      url: https://www.google.com/
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-24T02:21:41'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte | Backup automation for Restic
+      url: https://zerobyte.app/
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-24T02:21:38'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte Documentation
+      url: https://zerobyte.app/docs
+      zoom: 0.85
+  - history:
+    - active: true
+      last_visited: '2026-07-24T01:46:23'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'GitHub - DontMissThePoint/linux-setup: Linux setup. tmux - i3 - urxvt
+        - vim · GitHub'
+      url: https://github.com/DontMissThePoint/linux-setup
       zoom: 0.85

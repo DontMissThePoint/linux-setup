@@ -56,7 +56,7 @@ while true; do
         # sounds
         Neptune -cli -download
         Neptune -lst
-        Neptune -cli -soundkey "SKCM Blue Alps" & # Use Alpacas Soundkey
+        Neptune -cli -soundkey "Cherry MX Blues" -volume 0.8 & # Use MX soundkey
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
