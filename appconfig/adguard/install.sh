@@ -39,7 +39,7 @@ while true; do
         fi
 
         # DNS=1.1.1.1 8.8.8.8 9.9.9.9
-				# http://127.0.0.1:3000
+        # http://127.0.0.1:3000
         num=$(grep -ow "^DNS" /etc/systemd/resolved.conf | wc -l)
         if [ "$num" -lt "1" ]; then
 

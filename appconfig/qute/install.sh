@@ -101,6 +101,16 @@ while true; do
         sudo apt update
         sudo apt install -y librewolf
 
+        # QT
+        num=$(grep -ow "QT_QPA_PLATFORMTHEME=qt5ct" /etc/environment | wc -l)
+        if [ "$num" -lt "1" ]; then
+
+            echo "Override QT themes..."
+            echo 'QT_QPA_PLATFORMTHEME=qt5ct' |
+            sudo tee -a /etc/environment >/dev/null
+
+        fi
+
         # .env
         GREEN='\033[0;32m'
         NC='\033[0m' # No Color
