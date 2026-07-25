@@ -26,8 +26,9 @@ else
     echo "Android phone connected: $PHONE"
 
     # orientation
-    adb shell settings put system accelerometer_rotation 0  #disable auto-rotate
-    adb shell settings put system user_rotation 3  # 270° clockwise
-    scrcpy  --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
-        --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder
+    adb shell settings put system accelerometer_rotation 0 #disable auto-rotate
+    adb shell settings put system user_rotation 3          # 270° clockwise
+    scrcpy --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
+        --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder \
+        --ignore-video-encoder-constraints
 fi

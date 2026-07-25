@@ -48,15 +48,15 @@ while true; do
         ulimit -n2048
 
         toilet Setting up brew -t -f future
-	
+
         # packages
         . ~/.bashrc && /home/linuxbrew/.linuxbrew/bin/brew upgrade
         /home/linuxbrew/.linuxbrew/bin/brew install lzip topgrade zoxide grc vivid fzf pipx \
             oxker bat ripgrep universal-ctags miller countdown btop csvkit \
             ag fd dust zig aria2 glow restic croc newsboat walk gallery-dl \
             rg viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
-            pyqt scrcpy rclone dra \
-            2> /dev/null
+            pyqt rclone dra \
+            2>/dev/null
 
         # node
         /home/linuxbrew/.linuxbrew/bin/brew upgrade -q node
