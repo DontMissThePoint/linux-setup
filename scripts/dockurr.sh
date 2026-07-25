@@ -5,13 +5,30 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 
 # Prompt
-echo -e "\n${GREEN} 󰯄 Login ... ${NC}"
+echo -e "\n${GREEN}    Login ... ${NC}"
 username=Quickemu
 echo Username: "$username"
-stty -echo
-read -p "Password: " password
-echo
-stty echo
+
+# mask
+printf "Password: "
+password=""
+while IFS= read -r -s -n1 char; do
+    # Enter key (Empty input / Newline)
+    if [[ -z $char ]]; then
+        break
+    fi
+    # backspace
+    if [[ $char == $'\x7f' ]]; then
+        if [ ${#password} -gt 0 ]; then
+            password="${password%?}"
+            printf "\b \b" # Move back, overwrite with space, move back again
+        fi
+    else
+        password+="$char"
+        printf "*"
+    fi
+done
+echo # new Line
 
 # deamon
 cd ~/VirtualMachines/Windows-Docker
