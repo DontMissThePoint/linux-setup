@@ -73,6 +73,18 @@ FallbackDNS=8.8.4.4' |
         pv "$APP_PATH/lobster_config.txt" >~/.config/lobster/lobster_config.txt
         pv "$APP_PATH/libg.sh" >~/.config/libg/libg.sh
 
+        # custom rules
+        # @@||mega.io^
+        # @@||api.box.com^
+        # @@||api.github.com^
+
+        # mac address
+        echo "docker inspect <container_id> | grep -i macaddress"
+
+        # block ads: add client
+        # Name: docker0
+        # Network Identifiers: 172.17.0.0/16
+
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
         break

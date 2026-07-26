@@ -11,7 +11,7 @@ if [ "$PHONE" = "" ]; then
     # display
     until
     scrcpy --serial 127.0.0.1:5552 --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
-        --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder #\
+        --no-audio --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder #\
         # --max-size 1920 --window-borderless --no-mouse-hover --window-y 0
     do
 
