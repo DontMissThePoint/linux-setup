@@ -5,15 +5,6 @@ local augroup = vim.api.nvim_create_augroup -- Create/get autocommand group
 -- General settings
 -----------------------------------------------------------
 
--- Highlight on yank
-augroup("YankHighlight", { clear = true })
-autocmd("TextYankPost", {
-  group = "YankHighlight",
-  callback = function()
-    vim.highlight.on_yank { higroup = "Visual", timeout = "1000" }
-  end,
-})
-
 -- open a file at the last position
 vim.api.nvim_create_autocmd("BufReadPost", {
   callback = function()

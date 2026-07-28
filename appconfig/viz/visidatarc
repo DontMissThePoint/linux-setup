@@ -145,6 +145,9 @@ Sheet.unbindkey('.')
 Sheet.bindkey('.', 'repeat-input')
 Sheet.bindkey('z.', 'repeat-last')
 
+# clipboard
+bindkey('Ctrl+V', 'syspaste-cells')
+
 # Cursor
 globalCommand('gm', 'mm, _ = curses.mousemask(-1); status("mouse "+("ON" if mm else "OFF"))', 'enable mouse events')
 globalCommand('zm', 'mm, _ = curses.mousemask(0); status("mouse "+("ON" if mm else "OFF"))', 'disable mouse events')

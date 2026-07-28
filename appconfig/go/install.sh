@@ -53,6 +53,11 @@ while true; do
         mkdir -p build && cd build && cmake .. && make -j"$(nproc)" -s
         sudo make install
 
+        # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
+        # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
+        mkdir -p ~/.config/nchat
+        cp -f "$(dirname "$(which nchat)")"/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
+
         # messages
         echo "nchat --setup to get started."
 

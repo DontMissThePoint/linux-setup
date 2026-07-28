@@ -2,9 +2,12 @@
 
 DROID="redroid-android"
 OPTIONS="15.0.0\n11.0.0"
-FPS="$(docker inspect -f '{{ .State.Status }}' windows)"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
 IMG="$HOME/VirtualMachines/Android-Docker"
+
+# docker0
+FPS="$(docker inspect -f '{{ .State.Status }}' windows)"
+ADGUARD_DNS="$(docker network inspect bridge -f '{{range .IPAM.Config}}{{.Gateway}}{{end}}')"
 
 # image
 if [ "$VAR" = "" ]; then
@@ -55,6 +58,22 @@ else
     IMAGE="kylindemons/redroid:"$VAR"_amd64-GApps-Magisk-latest"
     BRIDGE=libndk_translation.so
 fi
+
+# rule
+sudo iptables -t nat -D PREROUTING -i docker0 -p udp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53 2>/dev/null
+sudo iptables -t nat -D PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53 2>/dev/null
+
+# guard
+echo "Activating AdGuard..."
+sudo iptables -t nat -A PREROUTING -i docker0 -p udp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53
+sudo iptables -t nat -A PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53
+
+# message
+echo -n "Hey. what's your number" | xsel --clipboard --input
 
 # container
 docker run -itd --rm --privileged \
