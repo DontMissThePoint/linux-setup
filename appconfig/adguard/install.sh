@@ -37,6 +37,8 @@ while true; do
         if [ ! -e /etc/systemd/system/AdGuardHome.service ]; then
             curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
         fi
+        sudo sed -i 's|\([[:space:]]*time_zone: \)/usr/share/zoneinfo/\(.*\)|\1\2|g' /opt/AdGuardHome/AdGuardHome.yaml ||
+        echo
 
         # DNS=1.1.1.1 8.8.8.8 9.9.9.9
         # http://127.0.0.1:3000
@@ -76,22 +78,6 @@ FallbackDNS=8.8.4.4' |
         # @@||mega.io^
         # @@||api.box.com^
         # @@||api.github.com^
-
-        # mac address
-        echo -e "\nAdGuard client Identifiers..."
-        # docker network inspect bridge -f '{{range .IPAM.Config}}{{.Gateway}}{{end}}'
-        echo "docker0: 172.17.0.0/16"
-        echo "droid0: 172.30.0.0/24"
-
-        # block ads: add clients
-        # Name: docker0
-        # Network Identifiers: 172.17.0.0/16
-
-        # Name: droid0
-        # Network Identifiers: 172.30.0.0/24
-
-        mkdir -p ~/VirtualMachines/Android-Docker
-        cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Android-Docker
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
