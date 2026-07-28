@@ -64,7 +64,6 @@ FallbackDNS=8.8.4.4' |
         sudo ln -sf /opt/AdGuardHome/AdGuardHome /usr/local/bin/adguard
 
         # libg-fzf
-        echo "Adding Library Genesis.."
         sudo curl -sL https://raw.githubusercontent.com/mrishu/libg-fzf/main/libg -o /usr/local/bin/libg &&
         sudo chmod +x /usr/local/bin/libg
 
@@ -79,11 +78,20 @@ FallbackDNS=8.8.4.4' |
         # @@||api.github.com^
 
         # mac address
-        echo "docker inspect <container_id> | grep -i macaddress"
+        echo -e "\nAdGuard client Identifiers..."
+        # docker network inspect bridge -f '{{range .IPAM.Config}}{{.Gateway}}{{end}}'
+        echo "docker0: 172.17.0.0/16"
+        echo "droid0: 172.30.0.0/24"
 
-        # block ads: add client
+        # block ads: add clients
         # Name: docker0
         # Network Identifiers: 172.17.0.0/16
+
+        # Name: droid0
+        # Network Identifiers: 172.30.0.0/24
+
+        mkdir -p ~/VirtualMachines/Android-Docker
+        cp -f "$APP_PATH"/docker-compose.yml ~/VirtualMachines/Android-Docker
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

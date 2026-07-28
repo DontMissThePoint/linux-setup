@@ -157,6 +157,11 @@ sudo sh -c 'printf "[SeatDefaults]\nallow-guest=false\ngreeter-show-remote-login
         /etc/lightdm/lightdm.conf.d/50-no-guest.conf'
 
 #############################################
+# storage
+#############################################
+sudo timeshift --delete-all
+
+#############################################
 # ram
 #############################################
 

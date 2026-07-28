@@ -31,7 +31,7 @@ done
 echo # new Line
 
 # deamon
-cd ~/VirtualMachines/Windows-Docker
+cd ~/VirtualMachines/Windows-Docker >/dev/null
 docker compose up -d
 
 # Docker container

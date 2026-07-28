@@ -1,0 +1,48 @@
+services:
+  redroid:
+    image: "${IMAGE}"
+    container_name: "${DROID}"
+    privileged: true
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2G
+    cap_add:
+      - NET_ADMIN
+    ports:
+      - "5552:5555/tcp"
+      - "5900:5900/udp"
+    volumes:
+      - "${STORAGE}:/data"
+    dns:
+      - 172.30.0.1 # gateway
+    networks:
+      redroid_bridge:
+        ipv4_address: 172.30.0.100 # bridge android IP
+    command:
+      - androidboot.redroid_width=1600
+      - androidboot.redroid_height=1600
+      - androidboot.redroid_dpi=480
+      - androidboot.redroid_fps=60
+      - androidboot.redroid_gpu_mode=host
+      - androidboot.use_memfd=1
+      - redroid.vncserver=1
+      - ro.product.cpu.abilist=x86_64,arm64-v8a,x86,armeabi-v7a,armeabi
+      - ro.product.cpu.abilist64=x86_64,arm64-v8a
+      - ro.product.cpu.abilist32=x86,armeabi-v7a,armeabi
+      - ro.dalvik.vm.isa.arm=x86
+      - ro.dalvik.vm.isa.arm64=x86_64
+      - ro.enable.native.bridge.exec=1
+      - ro.vendor.enable.native.bridge.exec=1
+      - ro.vendor.enable.native.bridge.exec64=1
+      - ro.dalvik.vm.native.bridge=${BRIDGE}
+
+networks:
+  redroid_bridge:
+    name: redroid_network
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.30.0.0/24
+          gateway: 172.30.0.1 # native AdGuard listen
