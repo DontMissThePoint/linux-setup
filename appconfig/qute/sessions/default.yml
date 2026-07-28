@@ -1,119 +1,83 @@
 windows:
-- geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
-    AAAABP8AAALP
-  tabs:
-  - active: true
-    history:
-    - active: true
-      last_visited: '2026-07-24T01:45:50'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Google
-      url: https://www.google.com/
-      zoom: 0.85
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAMgAAADIAAANRAAACiQAAAAAABAAABQAAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAABcAAAT/AAACtwAAAAAABAAABQAAAAAAAAAA
     AAAABP8AAALP
   tabs:
   - active: true
     history:
-    - last_visited: '2026-07-24T01:48:56'
+    - last_visited: '2026-07-28T21:17:27'
       pinned: false
-      title: KeyEcho - Lightweight keyboard sound app for Windows, macOS & Linux
-      url: https://keyecho.app/packs
-    - last_visited: '2026-07-24T01:52:31'
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-28T21:17:37'
       pinned: false
-      title: KeyEcho - Lightweight keyboard sound app for Windows, macOS & Linux
-      url: https://keyecho.app/
-    - last_visited: '2026-07-24T02:05:38'
+      title: AdGuard Home
+      url: http://127.0.0.1/#logs?response_status=blocked
+    - last_visited: '2026-07-28T21:17:41'
       pinned: false
-      title: History
-      url: qute://history/
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-07-28T21:17:54'
+      original-url: http://127.0.0.1/#logs?search=%22172.17.0.2%22
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#logs?response_status=all&search=%22172.17.0.2%22
     - active: true
-      last_visited: '2026-07-24T02:11:10'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 6454
-      title: 'GitHub - M1ndo/Neptune: Neptune is a mechanical keysound app like Mechvibes
-        except its faster and written in Go · GitHub'
-      url: https://github.com/M1ndo/Neptune
-      zoom: 0.85
-  - history:
-    - last_visited: '2026-07-24T01:47:30'
-      pinned: false
-      title: pomo/README.md at main · Bahaaio/pomo · GitHub
-      url: https://github.com/Bahaaio/pomo/blob/main/README.md?ysclid=mrxdb7jbq8184938261
-    - last_visited: '2026-07-24T02:00:15'
-      original-url: https://www.google.com/search?q=spd-say%20github
-      pinned: false
-      title: https://www.google.com/search?q=spd-say%20github&sei=_ZxiaouRHr-ywcsP-OTe-AI
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dspd-say%2520github%26sei%3D_ZxiaouRHr-ywcsP-OTe-AI&q=EgQpvoYLGP65itMGIjCLtfrFKNR-oiWKnR3VZl7cj1rsKHn70EiExvYrhKEYrqB3cK3KwXGHZIjz5XEfflEyAVJaAUM
-    - last_visited: '2026-07-24T02:00:39'
-      pinned: false
-      title: spd-say github - Google Search
-      url: https://www.google.com/search?q=spd-say+github&sei=_ZxiaouRHr-ywcsP-OTe-AI
-    - last_visited: '2026-07-24T02:15:23'
-      pinned: false
-      title: qutebrowser fix no clipboard supported - Google Search
-      url: https://www.google.com/search?q=qutebrowser+fix+no+clipboard+supported&sca_esv=44c2076a61138388&ei=EJ1iat_6Cf6dseMP66TjkAI&biw=1506&bih=828&oq=qutebrowser+fix+no+clipboard+supp&gs_lp=Egxnd3Mtd2l6LXNlcnAiIXF1dGVicm93c2VyIGZpeCBubyBjbGlwYm9hcmQgc3VwcCoCCAAyBxAhGAoYoAFIhHdQ0RNYpWdwBHgAkAEBmAGyBKABgjeqAQwwLjMxLjMuMS4wLjG4AQPIAQD4AQGYAiegAp43qAIKwgIXEAAYgAQYigUYkQIY5wYY6gIYtALYAQHCAhAQLhgDGI8BGOoCGLQC2AEBwgIQEAAYAxiPARjqAhi0AtgBAcICCxAAGIAEGIoFGJECwgIIEAAYgAQYsQPCAggQLhiABBixA8ICCxAAGIAEGLEDGIMBwgIFEAAYgATCAhAQLhiABBiKBRhDGMcBGK8BwgIKEC4YgAQYigUYQ8ICBRAuGIAEwgIHEC4YgAQYCsICBxAAGIAEGArCAh8QLhiABBiKBRhDGMcBGK8BGJcFGNwEGN4EGOAE2AECwgIKEAAYgAQYigUYQ8ICBhAAGBYYHsICCBAAGBYYHhgKwgIFEAAY7wXCAgUQIRigAcICBRAhGJ8FmAMY8QVGpd8h4c-kkLoGBAgBGAe6BgYIAhABGBSSBwo0LjI2LjguMC4xoAf1sAGyBwowLjI2LjguMC4xuAfqNsIHCTItMTguMTkuMsgH8AKACAE&sclient=gws-wiz-serp
-    - last_visited: '2026-07-24T02:17:39'
-      pinned: false
-      title: qutebrowser fix some page elements missing on webpage rendered - Google
-        Search
-      url: https://www.google.com/search?q=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&sca_esv=44c2076a61138388&biw=1506&bih=828&ei=h6BiavyBBMPi7_UP6MzNqQc&ved=0ahUKEwi84dPv9umVAxVD8bsIHWhmM3UQ4dUDCBA&uact=5&oq=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&gs_lp=Egxnd3Mtd2l6LXNlcnAiPnF1dGVicm93c2VyIGZpeCBzb21lIHBhZ2UgZWxlbWVudHMgbWlzc2luZyBvbiB3ZWJwYWdlIHJlbmRlcmVkSOPNAVDiDVjzywFwCHgAkAEAmAHxAaABr2GqAQYwLjY1LjS4AQPIAQD4AQGYAkGgAodWwgIOEAAYgAQYigUYhgMYsAPCAggQABjvBRiwA8ICCxAAGIAEGKIEGLADwgIFECEYoAHCAgUQIRifBcICBxAhGAoYoAHCAgQQIRgVmAMAiAYBkAYJkgcGOC40OC45oAed7QGyBwYwLjQ4Ljm4B5ZVwgcKMC4yLjUzLjkuMcgHsAOACAE&sclient=gws-wiz-serp
-    - active: true
-      last_visited: '2026-07-24T02:20:05'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 2836
-      title: qutebrowser fix some page elements missing on webpage rendered - Google
-        Search
-      url: https://www.google.com/search?q=qutebrowser+fix+some+page+elements+missing+on+webpage+rendered&sca_esv=44c2076a61138388&biw=1506&bih=828&ei=h6BiavyBBMPi7_UP6MzNqQc&uact=5&sclient=gws-wiz-serp&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8cqu7ocb7U6ah0xpkIrGMK4LpKPoHZrc4HVz9uOAATjT1g2XbMUNYTWk-OmYpiK--qaigyNre7a9Fsg8QLr9z5lJegIZGuhAshyGX8vZNsidOe2y3k9Yup0oEbg7vSMYlsXcLQONuEYGQeYUXcOUWQavxf8tiuiFRXsrG1FqFEc3jvZgjn&aep=10&ntc=1&mstk=AUtExfCHzS3wDk1SkdB2W6pKd0wnH2_VH8WgpSANRIY3RznCQ_O0ohbBx79HFsNV7ub0pe1Mfl7z-GCZNhBgcuzD8sMxm_lCfpBSFdTEvY4IvQbJIrUpOihY8NzBz0RT-C0vaMg8EzrEqRFz2ZSz2pla2KMxOEvuMow0V80&aioh=3&csuir=1&mtid=gqFiarGkK4iKi-gPzuj2mAw
-      zoom: 0.85
-  - history:
-    - active: true
-      last_visited: '2026-07-24T01:46:59'
+      last_visited: '2026-07-28T21:17:59'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: AdGuard Home
       url: http://127.0.0.1/#
-      zoom: 0.85
+      zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-07-24T02:21:41'
+      last_visited: '2026-07-28T21:17:28'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: Zerobyte | Backup automation for Restic
       url: https://zerobyte.app/
-      zoom: 0.85
+      zoom: 0.8
   - history:
+    - last_visited: '2026-07-28T21:17:29'
+      original-url: https://www.google.com/search?q=which+adb+command+to+witch+off+private+dns+completely+from+automatic+in+redroid+container+&sca_esv=5e05885409c385ba&source=hp&ei=F-doauX0I_Lp7M8PzPnw4QQ&iflsig=ABILxe8AAAAAamj1J5bFxP1XwKQjWRUImc17jC5Q8thf&aep=22&udm=50&ved=0ahUKEwil3L6B8_WVAxXyNPsDHcw8PEwQteYPCBI&cs=0&oq=which+adb+command+to+witch+off+private+dns+completely+from+automatic+in+redroid+container+&gs_lp=Egdnd3Mtd2l6Ilp3aGljaCBhZGIgY29tbWFuZCB0byB3aXRjaCBvZmYgcHJpdmF0ZSBkbnMgY29tcGxldGVseSBmcm9tIGF1dG9tYXRpYyBpbiByZWRyb2lkIGNvbnRhaW5lciBIiOQCUABY3bACcAR4AJABAZgB6QegAbz2AaoBEjAuNS41OS4xMi42LjE0LjEuMbgBAcgBAPgBAZgCSaACvqsBwgIFEC4YgATCAgUQABiABMICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAhEQLhiABBixAxiDARjHARjRA8ICDhAAGIAEGIoFGLEDGIMBwgILEC4YgAQYxwEY0QPCAgcQABiABBgKwgIOEC4YgAQYsQMYxwEY0QPCAgQQABgDwgILEAAYgAQYigUYhgPCAgUQABjvBcICCBAAGIkFGKIEwgIGEAAYFhgewgIEECEYCsICCBAAGIAEGKIEwgIFECEYoAHCAgQQIRgVwgIFECEYnwXCAgcQIRgKGKABwgIGECEYFRgKmAMAkgcPNC40LjQzLjguMTEuMi4xoAeR7AOyBw8wLjQuNDMuOC4xMS4yLjG4B66rAcIHBjguNTcuOMgHkQGACAE&sclient=gws-wiz&mstk=AUtExfD-NT228AZUBeATcB75tL6mMkkxIhjE77WvWPSTpoaR7eJD9fhdL5lobZWNiTWQDWuVZHxR3p84oolG4XLXCHDHQJPC188cnX8VZaO5G5G96aBWBYFHiDrdtLMr4VmYyAehc6PSQ9qJxnJCJqbnMjiHBjC-q_CnM4M&csuir=1
+      pinned: false
+      title: https://www.google.com/search?q=which+adb+command+to+witch+off+private+dns+completely+from+automatic+in+redroid+container+&sca_esv=5e05885409c385ba&source=hp&ei=F-doauX0I_Lp7M8PzPnw4QQ&iflsig=ABILxe8AAAAAamj1J5bFxP1XwKQjWRUImc17jC5Q8thf&aep=22&udm=50&ved=0ahUKEwil3L6B8_WVAxXyNPsDHcw8PEwQteYPCBI&cs=0&oq=which+adb+command+to+witch+off+private+dns+completely+from+automatic+in+redroid+container+&gs_lp=Egdnd3Mtd2l6Ilp3aGljaCBhZGIgY29tbWFuZCB0byB3aXRjaCBvZmYgcHJpdmF0ZSBkbnMgY29tcGxldGVseSBmcm9tIGF1dG9tYXRpYyBpbiByZWRyb2lkIGNvbnRhaW5lciBIiOQCUABY3bACcAR4AJABAZgB6QegAbz2AaoBEjAuNS41OS4xMi42LjE0LjEuMbgBAcgBAPgBAZgCSaACvqsBwgIFEC4YgATCAgUQABiABMICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAhEQLhiABBixAxiDARjHARjRA8ICDhAAGIAEGIoFGLEDGIMBwgILEC4YgAQYxwEY0QPCAgcQABiABBgKwgIOEC4YgAQYsQMYxwEY0QPCAgQQABgDwgILEAAYgAQYigUYhgPCAgUQABjvBcICCBAAGIkFGKIEwgIGEAAYFhgewgIEECEYCsICCBAAGIAEGKIEwgIFECEYoAHCAgQQIRgVwgIFECEYnwXCAgcQIRgKGKABwgIGECEYFRgKmAMAkgcPNC40LjQzLjguMTEuMi4xoAeR7AOyBw8wLjQuNDMuOC4xMS4yLjG4B66rAcIHBjguNTcuOMgHkQGACAE&sclient=gws-wiz&mstk=AUtExfD-NT228AZUBeATcB75tL6mMkkxIhjE77WvWPSTpoaR7eJD9fhdL5lobZWNiTWQDWuVZHxR3p84oolG4XLXCHDHQJPC188cnX8VZaO5G5G96aBWBYFHiDrdtLMr4VmYyAehc6PSQ9qJxnJCJqbnMjiHBjC-q_CnM4M&csuir=1&sei=OPJoao60DeDIi-gPn7eAoAE
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dwhich%2Badb%2Bcommand%2Bto%2Bwitch%2Boff%2Bprivate%2Bdns%2Bcompletely%2Bfrom%2Bautomatic%2Bin%2Bredroid%2Bcontainer%2B%26sca_esv%3D5e05885409c385ba%26source%3Dhp%26ei%3DF-doauX0I_Lp7M8PzPnw4QQ%26iflsig%3DABILxe8AAAAAamj1J5bFxP1XwKQjWRUImc17jC5Q8thf%26aep%3D22%26udm%3D50%26ved%3D0ahUKEwil3L6B8_WVAxXyNPsDHcw8PEwQteYPCBI%26cs%3D0%26oq%3Dwhich%2Badb%2Bcommand%2Bto%2Bwitch%2Boff%2Bprivate%2Bdns%2Bcompletely%2Bfrom%2Bautomatic%2Bin%2Bredroid%2Bcontainer%2B%26gs_lp%3DEgdnd3Mtd2l6Ilp3aGljaCBhZGIgY29tbWFuZCB0byB3aXRjaCBvZmYgcHJpdmF0ZSBkbnMgY29tcGxldGVseSBmcm9tIGF1dG9tYXRpYyBpbiByZWRyb2lkIGNvbnRhaW5lciBIiOQCUABY3bACcAR4AJABAZgB6QegAbz2AaoBEjAuNS41OS4xMi42LjE0LjEuMbgBAcgBAPgBAZgCSaACvqsBwgIFEC4YgATCAgUQABiABMICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAhEQLhiABBixAxiDARjHARjRA8ICDhAAGIAEGIoFGLEDGIMBwgILEC4YgAQYxwEY0QPCAgcQABiABBgKwgIOEC4YgAQYsQMYxwEY0QPCAgQQABgDwgILEAAYgAQYigUYhgPCAgUQABjvBcICCBAAGIkFGKIEwgIGEAAYFhgewgIEECEYCsICCBAAGIAEGKIEwgIFECEYoAHCAgQQIRgVwgIFECEYnwXCAgcQIRgKGKABwgIGECEYFRgKmAMAkgcPNC40LjQzLjguMTEuMi4xoAeR7AOyBw8wLjQuNDMuOC4xMS4yLjG4B66rAcIHBjguNTcuOMgHkQGACAE%26sclient%3Dgws-wiz%26mstk%3DAUtExfD-NT228AZUBeATcB75tL6mMkkxIhjE77WvWPSTpoaR7eJD9fhdL5lobZWNiTWQDWuVZHxR3p84oolG4XLXCHDHQJPC188cnX8VZaO5G5G96aBWBYFHiDrdtLMr4VmYyAehc6PSQ9qJxnJCJqbnMjiHBjC-q_CnM4M%26csuir%3D1%26sei%3DOPJoao60DeDIi-gPn7eAoAE&q=EgQpvoYLGLjko9MGIjDrAtZKHaatEgShdOdhQ1L3zIpHI9hH7IRJ7mMp4i2AbQEjV0WZ29RhHycNncAlN9AyAVJaAUM
+    - last_visited: '2026-07-28T21:20:46'
+      pinned: false
+      title: which adb command to witch off private dns completely from automatic
+        in redroid container - Google Search
+      url: https://www.google.com/search?q=which+adb+command+to+witch+off+private+dns+completely+from+automatic+in+redroid+container+&sca_esv=5e05885409c385ba&source=hp&ei=F-doauX0I_Lp7M8PzPnw4QQ&iflsig=ABILxe8AAAAAamj1J5bFxP1XwKQjWRUImc17jC5Q8thf&aep=22&udm=50&ved=0ahUKEwil3L6B8_WVAxXyNPsDHcw8PEwQteYPCBI&cs=0&oq=which+adb+command+to+witch+off+private+dns+completely+from+automatic+in+redroid+container+&gs_lp=Egdnd3Mtd2l6Ilp3aGljaCBhZGIgY29tbWFuZCB0byB3aXRjaCBvZmYgcHJpdmF0ZSBkbnMgY29tcGxldGVseSBmcm9tIGF1dG9tYXRpYyBpbiByZWRyb2lkIGNvbnRhaW5lciBIiOQCUABY3bACcAR4AJABAZgB6QegAbz2AaoBEjAuNS41OS4xMi42LjE0LjEuMbgBAcgBAPgBAZgCSaACvqsBwgIFEC4YgATCAgUQABiABMICCxAAGIAEGLEDGIMBwgIIEAAYgAQYsQPCAhEQLhiABBixAxiDARjHARjRA8ICDhAAGIAEGIoFGLEDGIMBwgILEC4YgAQYxwEY0QPCAgcQABiABBgKwgIOEC4YgAQYsQMYxwEY0QPCAgQQABgDwgILEAAYgAQYigUYhgPCAgUQABjvBcICCBAAGIkFGKIEwgIGEAAYFhgewgIEECEYCsICCBAAGIAEGKIEwgIFECEYoAHCAgQQIRgVwgIFECEYnwXCAgcQIRgKGKABwgIGECEYFRgKmAMAkgcPNC40LjQzLjguMTEuMi4xoAeR7AOyBw8wLjQuNDMuOC4xMS4yLjG4B66rAcIHBjguNTcuOMgHkQGACAE&sclient=gws-wiz&mstk=AUtExfD-NT228AZUBeATcB75tL6mMkkxIhjE77WvWPSTpoaR7eJD9fhdL5lobZWNiTWQDWuVZHxR3p84oolG4XLXCHDHQJPC188cnX8VZaO5G5G96aBWBYFHiDrdtLMr4VmYyAehc6PSQ9qJxnJCJqbnMjiHBjC-q_CnM4M&csuir=1&sei=-vJoauTzHciK7M8PlPGKiQw
+    - last_visited: '2026-07-28T21:22:57'
+      pinned: false
+      title: Google
+      url: https://www.google.com/
+    - last_visited: '2026-07-28T21:23:23'
+      pinned: false
+      title: fix tinder app playstore this app won't work for your device - Google
+        Search
+      url: https://www.google.com/search?q=fix+tinder+app+playstore+this+app+won%27t+work+for+your+device&sca_esv=5e05885409c385ba&source=hp&ei=gfNoavH_FoGdi-gPysqE2Aw&iflsig=ABILxe8AAAAAamkBkTwt6Hik6nbovffqxiZU-9D9vjuR&oq=fix+tinder+app+playstore+this+app+wont+wor&gs_lp=Egdnd3Mtd2l6IipmaXggdGluZGVyIGFwcCBwbGF5c3RvcmUgdGhpcyBhcHAgd29udCB3b3IqAggAMgcQIRgKGKABMgcQIRgKGKABMgUQIRifBUi0mAFQAFjuhwFwCngAkAEAmAHTAqABl0mqAQkwLjMzLjE0LjG4AQPIAQD4AQGYAjqgAo1LwgIOEAAYgAQYigUYsQMYgwHCAggQLhiABBixA8ICCBAAGIAEGLEDwgIFEAAYgATCAgsQLhiABBixAxiDAcICBRAuGIAEwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCxAuGLEDGIAEGIoFwgILEC4YgAQYxwEYrwHCAgYQABgWGB7CAgsQABiABBiKBRiGA8ICBRAAGO8FwgIIEAAYiQUYogTCAggQABgFGB4YDcICBRAhGKABwgIEECEYFcICBBAhGArCAggQABiABBiiBJgDAJIHCjEwLjI5LjE4LjGgB4XlAbIHCTAuMjkuMTguMbgH7UrCBwg2LjQzLjguMcgHf4AIAQ&sclient=gws-wiz
     - active: true
-      last_visited: '2026-07-24T02:21:38'
+      last_visited: '2026-07-28T21:24:12'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: Zerobyte Documentation
-      url: https://zerobyte.app/docs
-      zoom: 0.85
+      title: Google
+      url: https://www.google.com/
+      zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-07-24T01:46:23'
+      last_visited: '2026-07-28T21:17:27'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: 'GitHub - DontMissThePoint/linux-setup: Linux setup. tmux - i3 - urxvt
-        - vim · GitHub'
-      url: https://github.com/DontMissThePoint/linux-setup
-      zoom: 0.85
+      title: billions | Syncthing
+      url: http://localhost:8384/
+      zoom: 0.8

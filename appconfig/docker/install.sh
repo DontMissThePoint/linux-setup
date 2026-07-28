@@ -93,14 +93,27 @@ while true; do
 		sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 		sudo depmod -a
 
-		# adb
-		toilet Settingup android -t -f future
+		toilet Settingup scrcpy -t -f future
 
+		# adb
 		cd /tmp
 		wget -c https://dl.google.com/android/repository/platform-tools-latest-linux.zip
 		unzip platform-tools-latest-linux.zip
 		sudo cp platform-tools/adb /usr/lib/android-sdk/platform-tools/ ||
 			sudo cp platform-tools/fastboot /usr/lib/android-sdk/platform-tools/ || echo "OK."
+
+		# scrcpy
+		cd /tmp
+		sudo /home/linuxbrew/.linuxbrew/bin/dra \
+			download --install --select 'scrcpy-linux-*tar.gz' \
+			--output /usr/bin Genymobile/scrcpy
+
+		# server
+		echo "[scrcpy] Installing server..."
+		curl -sL https://api.github.com/repos/Genymobile/scrcpy/releases/latest |
+			jq -r '.assets[] | select(.name | contains ("server")) | .browser_download_url' |
+			head -n 1 | xargs -I {} wget -c -O scrcpy-server {}
+		sudo cp -f scrcpy-server /usr/bin/
 
 		# keyboard, mouse
 		sudo modprobe uhid
@@ -111,7 +124,8 @@ while true; do
 		# scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
 
 		# kernel
-		sudo cp "$APP_PATH/redroid.conf" /etc/modules-load.d/
+		sudo cp -f "$APP_PATH/redroid.conf" /etc/modules-load.d/
+		sudo cp -f "$APP_PATH/daemon.json" /etc/docker/
 
 		# apk
 		# adb -s 127.0.0.1:5552 install "jp.naver.line.android.apk"
@@ -150,7 +164,7 @@ while true; do
             --powerlineextra \
             --material \
             --weather
-				"
+        "
 		# cache
 		cp -f patched/*.otf ~/.local/share/fonts/OTF
 		rm -fr patched
@@ -178,6 +192,11 @@ while true; do
 		# docker compose stop
 		# sudo docker compose up -d --force-recreate --build
 
+		# http://127.0.0.1:8006/
+		# Install Apps: 365, powerBi, mupdf, listary, librewolf
+		#               joplin, smplayer, nextcloud, zap zap
+		# Activate: irm https://get.activated.win | iex
+
 		# docker system prune -af
 		BGREEN='\033[1;32m'
 		NC='\033[0m' # No Color
@@ -187,11 +206,6 @@ while true; do
 		# curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
 		#     jq -r ".assets[] | .browser_download_url" | grep bat |\
 		#     xargs -n 1 curl -L -O --fail --show-error
-
-		# http://127.0.0.1:8006/
-		# Install Apps: 365, powerBi, mupdf, listary, librewolf
-		#               joplin, smplayer, nextcloud, zap zap
-		# Activate: irm https://get.activated.win | iex
 
 		# toilet Settingup winboat -t -f future
 

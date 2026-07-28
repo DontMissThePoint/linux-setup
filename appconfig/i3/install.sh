@@ -337,11 +337,12 @@ while true; do
         # [ falcon_heavy.jpg, lightning.jpg ]
         betterlockscreen -u "$APP_PATH"/../../miscellaneous/wallpapers/pexels-seun-oderinde.jpg
 
-        # picom
         toilet Settingup picom -t -f future
 
-        cd /tmp
+        # picom
         sudo apt install -y libxcb-damage0-dev libxcb-sync-dev libxcb-present-dev uthash-dev libpcre3 libpcre3-dev
+
+        cd /tmp
         [ -e picom ] && rm -rf /tmp/picom
         git clone https://github.com/jonaburg/picom
         cd picom

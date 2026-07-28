@@ -37,9 +37,11 @@ while true; do
         if [ ! -e /etc/systemd/system/AdGuardHome.service ]; then
             curl -s -S -L https://raw.githubusercontent.com/AdguardTeam/AdGuardHome/master/scripts/install.sh | sh -s -- -v
         fi
+        sudo sed -i 's|\([[:space:]]*time_zone: \)/usr/share/zoneinfo/\(.*\)|\1\2|g' /opt/AdGuardHome/AdGuardHome.yaml ||
+        echo
 
         # DNS=1.1.1.1 8.8.8.8 9.9.9.9
-				# http://127.0.0.1:3000
+        # http://127.0.0.1:3000
         num=$(grep -ow "^DNS" /etc/systemd/resolved.conf | wc -l)
         if [ "$num" -lt "1" ]; then
 
@@ -64,7 +66,6 @@ FallbackDNS=8.8.4.4' |
         sudo ln -sf /opt/AdGuardHome/AdGuardHome /usr/local/bin/adguard
 
         # libg-fzf
-        echo "Adding Library Genesis.."
         sudo curl -sL https://raw.githubusercontent.com/mrishu/libg-fzf/main/libg -o /usr/local/bin/libg &&
         sudo chmod +x /usr/local/bin/libg
 
@@ -72,6 +73,11 @@ FallbackDNS=8.8.4.4' |
         mkdir -p ~/.config/{lobster,libg}
         pv "$APP_PATH/lobster_config.txt" >~/.config/lobster/lobster_config.txt
         pv "$APP_PATH/libg.sh" >~/.config/libg/libg.sh
+
+        # custom rules
+        # @@||mega.io^
+        # @@||api.box.com^
+        # @@||api.github.com^
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
