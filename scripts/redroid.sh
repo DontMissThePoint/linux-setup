@@ -8,6 +8,7 @@ IMG="$HOME/VirtualMachines/Android-Docker"
 # docker0
 FPS="$(docker inspect -f '{{ .State.Status }}' windows)"
 ADGUARD_DNS="$(docker network inspect bridge -f '{{range .IPAM.Config}}{{.Gateway}}{{end}}')"
+
 # image
 if [ "$VAR" = "" ]; then
     echo "Exiting ..." # handle empty (e.g. ESC)
@@ -58,13 +59,28 @@ else
     BRIDGE=libndk_translation.so
 fi
 
+# rule
+sudo iptables -t nat -D PREROUTING -i docker0 -p udp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53 2>/dev/null
+sudo iptables -t nat -D PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53 2>/dev/null
+
+# guard
+echo "Activating AdGuard..."
+sudo iptables -t nat -A PREROUTING -i docker0 -p udp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53
+sudo iptables -t nat -A PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \
+    --to-destination "$ADGUARD_DNS":53
+
+# message
+echo -n "Hey. what's your number" | xsel --clipboard --input
+
 # container
 docker run -itd --rm --privileged \
     --name "$DROID" \
     --memory 2G \
     --memory-swap 6G \
     --cap-add=NET_ADMIN \
-    --dns "$ADGUARD_DNS" \
     -p 5552:5555/tcp \
     -p 5900:5900/udp \
     -v "$STORAGE" \
