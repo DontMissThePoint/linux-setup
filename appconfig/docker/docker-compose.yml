@@ -13,7 +13,7 @@ services:
       - 8006:8006
       - 3389:3389/tcp
       - 3389:3389/udp
-    stop_grace_period: 2m
+    stop_grace_period: 120s
     restart: on-failure
     volumes:
       # Please start with an empty /storage folder: rm -fr /var/win/*
@@ -22,10 +22,8 @@ services:
       - /etc/localtime:/etc/localtime:ro
       - /etc/timezone:/etc/timezone:ro
     environment:
-      # VERSION: "win11e"
-      # ARGUMENTS: "-device usb-host,vendorid=0x048d,productid=0x1234"
       USERNAME: "Quickemu"
       PASSWORD: "win11"
       RAM_SIZE: "3G"
-      CPU_CORES: "4"
+      CPU_CORES: "11"
       DISK_SIZE: "64G"

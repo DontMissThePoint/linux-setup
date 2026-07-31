@@ -89,6 +89,7 @@ while true; do
 
 		## kernel modules
 		sudo apt install -y adb intel-media-va-driver mesa-utils mtp-tools atomicparsley
+		echo -e "ip_tables\niptable_nat" | sudo tee /etc/modules-load.d/iptables.conf
 
 		sudo modprobe binder_linux devices="binder,hwbinder,vndbinder"
 		sudo depmod -a
@@ -207,11 +208,12 @@ while true; do
 		#     jq -r ".assets[] | .browser_download_url" | grep bat |\
 		#     xargs -n 1 curl -L -O --fail --show-error
 
-		# toilet Settingup winboat -t -f future
+		toilet Settingup winboat -t -f future
 
-		# cd /tmp
-		# sudo /home/linuxbrew/.linuxbrew/bin/dra \
-		# 	download --select '*amd64.deb' -i TibixDev/winboat
+		cd /tmp
+		sudo /home/linuxbrew/.linuxbrew/bin/dra \
+			download --select '*amd64.deb' -i TibixDev/winboat
+		sudo ln -sf /opt/freerdp-nightly/bin/xfreerdp3 /usr/local/bin/xfreerdp3
 
 		break
 	elif [[ $response =~ ^(n|N)=$ ]]; then
