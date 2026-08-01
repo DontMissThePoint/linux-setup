@@ -1,12 +1,11 @@
 windows:
-- active: true
-  geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAABcAAAT/AAACtwAAAAAABAAABQAAAAAAAAAA
+- geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
     AAAABP8AAALP
   tabs:
   - history:
     - active: true
-      last_visited: '2026-07-31T20:59:45'
+      last_visited: '2026-08-01T11:25:46'
       pinned: false
       scroll-pos:
         x: 0
@@ -16,7 +15,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-07-31T20:59:44'
+      last_visited: '2026-08-01T11:25:45'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,26 +25,32 @@ windows:
       zoom: 0.8
   - active: true
     history:
-    - last_visited: '2026-07-31T20:59:49'
-      pinned: false
-      title: 'zerobyte Failed to save config after 10 tries: failed to create temp
-        file for new config: open rclone read-only file system {"message_type":"exit_error","code":10,"message":"Fatal:
-        repository does not exist: unable to open config file: \u003cconfig/\u003e
-        does not exist\nIs there a repository at the following location?\nrclone:MEGA
-        - Google Search'
-      url: https://www.google.com/search?q=zerobyte+Failed+to+save+config+after+10+tries%3A+failed+to+create+temp+file+for+new+config%3A+open+rclone+read-only+file+system+%7B%22message_type%22%3A%22exit_error%22%2C%22code%22%3A10%2C%22message%22%3A%22Fatal%3A+repository+does+not+exist%3A+unable+to+open+config+file%3A+%5Cu003cconfig%2F%5Cu003e+does+not+exist%5CnIs+there+a+repository+at+the+following+location%3F%5Cnrclone%3AMEGA&sca_esv=3e99ebba423c062f&biw=1600&bih=822&ei=ftlsao7kCve1i-gPjqL2uAc&ved=0ahUKEwiOm7bNtv2VAxX32gIHHQ6RHXcQ4dUDCBA&uact=5&oq=zerobyte+Failed+to+save+config+after+10+tries%3A+failed+to+create+temp+file+for+new+config%3A+open+rclone+read-only+file+system+%7B%22message_type%22%3A%22exit_error%22%2C%22code%22%3A10%2C%22message%22%3A%22Fatal%3A+repository+does+not+exist%3A+unable+to+open+config+file%3A+%5Cu003cconfig%2F%5Cu003e+does+not+exist%5CnIs+there+a+repository+at+the+following+location%3F%5Cnrclone%3AMEGA&gs_lp=Egxnd3Mtd2l6LXNlcnAizQJ6ZXJvYnl0ZSBGYWlsZWQgdG8gc2F2ZSBjb25maWcgYWZ0ZXIgMTAgdHJpZXM6IGZhaWxlZCB0byBjcmVhdGUgdGVtcCBmaWxlIGZvciBuZXcgY29uZmlnOiBvcGVuIHJjbG9uZSByZWFkLW9ubHkgZmlsZSBzeXN0ZW0geyJtZXNzYWdlX3R5cGUiOiJleGl0X2Vycm9yIiwiY29kZSI6MTAsIm1lc3NhZ2UiOiJGYXRhbDogcmVwb3NpdG9yeSBkb2VzIG5vdCBleGlzdDogdW5hYmxlIHRvIG9wZW4gY29uZmlnIGZpbGU6IFx1MDAzY2NvbmZpZy9cdTAwM2UgZG9lcyBub3QgZXhpc3RcbklzIHRoZXJlIGEgcmVwb3NpdG9yeSBhdCB0aGUgZm9sbG93aW5nIGxvY2F0aW9uP1xucmNsb25lOk1FR0FIAFAAWABwAHgAkAEAmAEAoAEAqgEAuAEDyAEA-AEBmAIAoAIAmAMAkgcAoAcAsgcAuAcAwgcAyAcAgAgB&sclient=gws-wiz-serp
     - active: true
-      last_visited: '2026-07-31T21:00:03'
+      last_visited: '2026-08-01T11:25:55'
       pinned: false
       scroll-pos:
         x: 0
-        y: 5366
-      title: freerdp Couldn't get socket ip address - Google Search
-      url: https://www.google.com/search?q=freerdp+Couldn%27t+get+socket+ip+address&sca_esv=3e99ebba423c062f&biw=1600&bih=880&ei=kOJsaq6rOOa0i-gP5ru5uQQ&ved=0ahUKEwius_-gv_2VAxVm2gIHHeZdLkcQ4dUDCBA&uact=5&oq=freerdp+Couldn%27t+get+socket+ip+address&gs_lp=Egxnd3Mtd2l6LXNlcnAiJmZyZWVyZHAgQ291bGRuJ3QgZ2V0IHNvY2tldCBpcCBhZGRyZXNzMgUQABjvBTIIEAAYiQUYogQyBRAAGO8FMgUQABjvBTIFEAAY7wVI1ElQyBJYmD5wAXgAkAEAmAHQAaABng2qAQUwLjguMbgBA8gBAPgBAfgBApgCCqAC7g2oAgrCAhcQABiABBiKBRiRAhjnBhjqAhi0AtgBAcICEBAuGAMYjwEY6gIYtALYAQHCAhAQABgDGI8BGOoCGLQC2AEBwgILEAAYgAQYigUYkQLCAgoQABiABBiKBRhDwgIOEAAYgAQYigUYsQMYgwHCAggQLhiABBixA8ICCBAAGIAEGLEDwgIFEAAYgATCAgsQABiABBixAxiDAcICERAuGIAEGLEDGIMBGMcBGNEDwgIKEC4YgAQYigUYQ8ICFhAuGIAEGIoFGEMYsQMYgwEYxwEY0QPCAg0QABiABBiKBRhDGLEDwgIFEC4YgATCAg0QLhiABBiKBRhDGLEDmAMK8QUp5jBKN_3gpboGBAgBGAeSBwUxLjYuM6AHgjyyBwUwLjYuM7gH5A3CBwUyLTcuM8gHOoAIAQ&sclient=gws-wiz-serp
+        y: 1710
+      title: xfreerdp /? debug this command fix xfreerdp3 /u:Dockurr /p:win11 /v:127.0.0.1￼/port:47302
+        /cert:ignore +clipboard \ /sound:sys:pulse /microphone:sys:pulse /floatbar
+        /compression￼/scale-device:100 /scale-desktop:108 +f ￼/scale:100 - Google
+        Search
+      url: https://www.google.com/search?q=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&sca_esv=d6905c7cc2141b5b&source=hp&ei=D4ttaq2OCdPrkdUPu_aR2AU&iflsig=ABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP&aep=22&ved=0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI&cs=0&oq=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&gs_lp=Egdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ&csuir=1&sei=iZFtavGALJiA7M8PoMP0qQg&udm=50
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-07-31T20:59:45'
+      last_visited: '2026-08-01T11:25:45'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
+        : r/winboat'
+      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:46'
       pinned: false
       scroll-pos:
         x: 0
@@ -55,11 +60,180 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-07-31T20:59:44'
+      last_visited: '2026-08-01T11:25:44'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: AdGuard Home
       url: http://127.0.0.1/#
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:52'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: "GitHub - TibixDev/winboat: Run Windows apps on \U0001F427 Linux with
+        ✨ seamless integration · GitHub"
+      url: https://github.com/TibixDev/winboat
+      zoom: 0.8
+- geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
+    AAAABP8AAALP
+  tabs:
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-08-01T11:25:46'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Google
+      url: https://www.google.com/
+      zoom: 0.8
+- geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
+    AAAABP8AAALP
+  tabs:
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:46'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte | Backup automation for Restic
+      url: https://zerobyte.app/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:45'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: billions | Syncthing
+      url: http://localhost:8384/
+      zoom: 0.8
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-08-01T11:25:58'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 1710
+      title: xfreerdp /? debug this command fix xfreerdp3 /u:Dockurr /p:win11 /v:127.0.0.1￼/port:47302
+        /cert:ignore +clipboard \ /sound:sys:pulse /microphone:sys:pulse /floatbar
+        /compression￼/scale-device:100 /scale-desktop:108 +f ￼/scale:100 - Google
+        Search
+      url: https://www.google.com/search?q=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&sca_esv=d6905c7cc2141b5b&source=hp&ei=D4ttaq2OCdPrkdUPu_aR2AU&iflsig=ABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP&aep=22&ved=0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI&cs=0&oq=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&gs_lp=Egdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ&csuir=1&sei=iZFtavGALJiA7M8PoMP0qQg&udm=50
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:45'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
+        : r/winboat'
+      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:46'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Recovery Keys | Zerobyte Docs
+      url: https://zerobyte.app/docs/guides/recovery-key-and-repository-passwords
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:45'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:52'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: "GitHub - TibixDev/winboat: Run Windows apps on \U0001F427 Linux with
+        ✨ seamless integration · GitHub"
+      url: https://github.com/TibixDev/winboat
+      zoom: 0.8
+- active: true
+  geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAACgwAAACQAAATyAAACqwAAAAAABAAABQAAAAAAAAAA
+    AAAABP8AAALP
+  tabs:
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-08-01T11:25:45'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:47'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Zerobyte | Backup automation for Restic
+      url: https://zerobyte.app/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:45'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: billions | Syncthing
+      url: http://localhost:8384/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:25:52'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: "GitHub - TibixDev/winboat: Run Windows apps on \U0001F427 Linux with
+        ✨ seamless integration · GitHub"
+      url: https://github.com/TibixDev/winboat
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-01T11:26:23'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 3019
+      title: 'combine fzf and xfreerdp option to launch a specific app from my script
+        . Upgrade this OPTIONS="Excel\nPowerBi\nDesktop" VAR=$(printf "$OPTIONS" |
+        fzf --prompt="Select app: ") xfreerdp3 /u:Dockurr /p:***** /v:127.0.0.1 /port:"$RDP_PORT"
+        /cert:ignore /clipboard \ /sound:sys:pulse /microphone:sys:pulse /floatbar
+        /compression \ /scale:100 /scale-desktop:110 /f /t:"Dockurr - Windows 11"
+        /wm-class:xfreerdp \ ''/app:program:C:\Program Files\Microsoft Office\root\Office16\EXCEL.EXE,name:Excel,cmd:""''
+        so that it launches what i select not just excel - Google Search'
+      url: https://www.google.com/search?q=combine+fzf+and+xfreerdp+option+to+launch+a+specific+app+from+my+script+.+Upgrade+this+OPTIONS%3D%22Excel%5CnPowerBi%5CnDesktop%22%0D%0AVAR%3D%24%28printf+%22%24OPTIONS%22+%7C+fzf+--prompt%3D%22Select+app%3A+%22%29%0D%0A++xfreerdp3+%2Fu%3ADockurr+%2Fp%3A*****+%2Fv%3A127.0.0.1+%2Fport%3A%22%24RDP_PORT%22+%2Fcert%3Aignore+%2Fclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression+%5C%0D%0A++++%2Fscale%3A100+%2Fscale-desktop%3A110+%2Ff+%2Ft%3A%22Dockurr+-+Windows+11%22+%2Fwm-class%3Axfreerdp+%5C%0D%0A++++%27%2Fapp%3Aprogram%3AC%3A%5CProgram+Files%5CMicrosoft+Office%5Croot%5COffice16%5CEXCEL.EXE%2Cname%3AExcel%2Ccmd%3A%22%22%27%0D%0A++++++++so+that+it+launches+what+i+select+not+just+excel&sca_esv=f41035333e0e95c2&source=hp&ei=_Z1tatKzBdXV7M8PlJz1sAw&iflsig=ABILxe8AAAAAam2sDenqpT5BcA6XCU8cKiWGc6ouMTk0&aep=22&ved=0ahUKEwiSptz_8f6VAxXVKvsDHRROHcYQteYPCBI&cs=0&oq=combine+fzf+and+xfreerdp+option+to+launch+a+specific+app+from+my+script+.+Upgrade+this+OPTIONS%3D%22Excel%5CnPowerBi%5CnDesktop%22%0D%0AVAR%3D%24%28printf+%22%24OPTIONS%22+%7C+fzf+--prompt%3D%22Select+app%3A+%22%29%0D%0A++xfreerdp3+%2Fu%3ADockurr+%2Fp%3A*****+%2Fv%3A127.0.0.1+%2Fport%3A%22%24RDP_PORT%22+%2Fcert%3Aignore+%2Fclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression+%5C%0D%0A++++%2Fscale%3A100+%2Fscale-desktop%3A110+%2Ff+%2Ft%3A%22Dockurr+-+Windows+11%22+%2Fwm-class%3Axfreerdp+%5C%0D%0A++++%27%2Fapp%3Aprogram%3AC%3A%5CProgram+Files%5CMicrosoft+Office%5Croot%5COffice16%5CEXCEL.EXE%2Cname%3AExcel%2Ccmd%3A%22%22%27%0D%0A++++++++so+that+it+launches+what+i+select+not+just+excel&gs_lp=Egdnd3Mtd2l6IrgEY29tYmluZSBmemYgYW5kIHhmcmVlcmRwIG9wdGlvbiB0byBsYXVuY2ggYSBzcGVjaWZpYyBhcHAgZnJvbSBteSBzY3JpcHQgLiBVcGdyYWRlIHRoaXMgT1BUSU9OUz0iRXhjZWxcblBvd2VyQmlcbkRlc2t0b3AiClZBUj0kKHByaW50ZiAiJE9QVElPTlMiIHwgZnpmIC0tcHJvbXB0PSJTZWxlY3QgYXBwOiAiKQogIHhmcmVlcmRwMyAvdTpEb2NrdXJyIC9wOioqKioqIC92OjEyNy4wLjAuMSAvcG9ydDoiJFJEUF9QT1JUIiAvY2VydDppZ25vcmUgL2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9uIFwKICAgIC9zY2FsZToxMDAgL3NjYWxlLWRlc2t0b3A6MTEwIC9mIC90OiJEb2NrdXJyIC0gV2luZG93cyAxMSIgL3dtLWNsYXNzOnhmcmVlcmRwIFwKICAgICcvYXBwOnByb2dyYW06QzpcUHJvZ3JhbSBGaWxlc1xNaWNyb3NvZnQgT2ZmaWNlXHJvb3RcT2ZmaWNlMTZcRVhDRUwuRVhFLG5hbWU6RXhjZWwsY21kOiIiJwogICAgICAgIHNvIHRoYXQgaXQgbGF1bmNoZXMgd2hhdCBpIHNlbGVjdCBub3QganVzdCBleGNlbEgAUABYAHAAeACQAQCYAQCgAQCqAQC4AQHIAQCYAgCgAgCYAwCSBwCgBwCyBwC4BwDCBwDIBwCACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfDF9AYUJWLkcAIs1hQTp-Y56hFizFlv163MVGE0sKotITWQ49to3byePPETIUWXcJlpjMfuSzgIzVg5nCPoAFt0E-BMYqZ1DoAGbu1BrLjwUwJSETm7Ys7Dcttdqa9-iuuw7poc2U2sYZlJcgMI1cNd2s3BlLyOaeo&csuir=1&sei=vqZtavS8L6KokdUPgMDIyQ0&udm=50
       zoom: 0.8
