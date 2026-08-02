@@ -64,6 +64,9 @@ fi
 # F13 for LShift & RControl
 xcape -e 'Control_L=Escape;Shift_L=F13;Shift_R=F13' &
 
+# performance
+powerprofilesctl set performance
+
 # Keyring
 eval "$(/usr/bin/gnome-keyring-daemon --start --components=gpg,pkcs11,secrets,ssh)"
 export SSH_AUTH_SOCK
