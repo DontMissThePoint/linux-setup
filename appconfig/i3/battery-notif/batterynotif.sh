@@ -16,7 +16,7 @@ echo "$BASHPID" > "$PIDFILE"
 
 notify_me_full () {
     notify-send -u critical -t 0 -i "$GIT_PATH/linux-setup/miscellaneous/icons/battery-full-charging.svg" "$1" "Level : $2%"
-    paplay "$GIT_PATH"/linux-setup/miscellaneous/notifications/ac_notification.wav
+    paplay /usr/share/sounds/LinuxMint/stereo/button-toggle-on.ogg
 }
 
 notify_me_low () {

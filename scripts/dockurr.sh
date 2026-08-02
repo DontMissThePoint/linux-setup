@@ -1,47 +1,28 @@
 #!/bin/bash
 
-RED='\033[0;31m'
-GREEN='\033[0;32m'
-NC='\033[0m' # No Color
+CONTAINER_NAME="WinBoat"
 
-# Prompt
-echo -e "\n${GREEN}    Login ... ${NC}"
-username=Quickemu
-echo Username: "$username"
+# container
+if ! docker ps --format '{{.Names}}' | grep -q "^${CONTAINER_NAME}$"; then
+    # deamon
+    cd ~/.winboat
+    docker compose up -d
+fi
+RDP_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "3389/tcp") 0).HostPort}}' "$CONTAINER_NAME")
 
-# mask
-printf "Password: "
-password=""
-while IFS= read -r -s -n1 char; do
-    # Enter key (Empty input / Newline)
-    if [[ -z $char ]]; then
-        break
-    fi
-    # backspace
-    if [[ $char == $'\x7f' ]]; then
-        if [ ${#password} -gt 0 ]; then
-            password="${password%?}"
-            printf "\b \b" # Move back, overwrite with space, move back again
-        fi
-    else
-        password+="$char"
-        printf "*"
-    fi
-done
-echo # new Line
-
-# deamon
-cd ~/VirtualMachines/Windows-Docker >/dev/null
-docker compose up -d
-
-# Docker container
+# display
 until
-/opt/freerdp-nightly/bin/xfreerdp3 /cert:tofu /f /u:"$username" /p:"$password" /v:"$(hostname -I | awk '{print $1}')" \
-    /dynamic-resolution +decorations +fonts +aero +window-drag +multitransport +clipboard -grab-keyboard /cache:glyph:on \
-    /floatbar:show:fullscreen /floatbar:sticky:off /bpp:32 /audio-mode:0 /gfx:avc444 /video /sec:tls -themes -wallpaper \
-    /tune:FreeRDP_HiDefRemoteApp:true,FreeRDP_GfxAVC444v2:true,FreeRDP_GfxH264:true /scale-desktop:135 /scale-device:100 \
-    /w:1080 /h:1920 /t:"Dockurr - Windows 11"
+xfreerdp3 /u:Dockurr /p:win11 /v:127.0.0.1 /port:"$RDP_PORT" /cert:ignore /clipboard /sound:sys:pulse /microphone:sys:pulse \
+    /floatbar:sticky:off /compression /scale:140 /scale-desktop:112 /wm-class:xfreerdp /gdi:hw /f \
+    -grab-keyboard +auto-reconnect +async-channels +async-update /t:"Dockurr - Windows 11"
+
 do
+
     sleep 1
-    echo -e "Verifying... ${RED} ✔ ${NC}"
+
+    # app
+    echo "Windows started..."
 done
+
+# powershell
+# Get-AppxPackage -Name *PowerBIDesktop* | Select-Object InstallLocation
