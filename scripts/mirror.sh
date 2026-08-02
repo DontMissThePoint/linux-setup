@@ -32,3 +32,6 @@ else
         --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder \
         --ignore-video-encoder-constraints
 fi
+
+# close
+docker container stop redroid-android

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 CONTAINER_NAME="WinBoat"
-OPTIONS="Excel\nPowerBi\nDesktop"
+OPTIONS="Desktop\nExcel"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select app: ")
 
 # user
@@ -34,22 +34,27 @@ RDP_ARGS=(
     /clipboard
     /sound:sys:pulse
     /microphone:sys:pulse
-    /floatbar
+    /floatbar:sticky:off
     /compression
     /scale:100
     /scale-desktop:112
-    /f
     /wm-class:xfreerdp
+    /f
+    -grab-keyboard
+    +fonts
+    +multitransport
 )
 
-# app
-echo "Starting $VAR..."
+# powershell
+# Get-AppxPackage -Name *PowerBIDesktop* | Select-Object InstallLocation
+
+until
 case "$VAR" in
     "Excel")
         xfreerdp3 "${RDP_ARGS[@]}" /t:"Dockurr - Excel" \
             '/app:program:C:\\Program Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE'
         ;;
-    "PowerBi")
+    "PowerBI")
         xfreerdp3 "${RDP_ARGS[@]}" /t:"Dockurr - Power BI" \
             '/app:program:C:\\Program Files\\Microsoft Power BI Desktop\\bin\\PBIDesktop.exe'
         ;;
@@ -61,3 +66,10 @@ case "$VAR" in
         echo "App not installed."
         ;;
 esac
+do
+
+    sleep 1
+
+    # app
+    echo "Starting $VAR..."
+done

@@ -1,11 +1,11 @@
 windows:
 - geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
-    AAAABP8AAALP
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
+    AAAABSQAAALk
   tabs:
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:14'
+      last_visited: '2026-08-02T20:11:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -15,7 +15,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:07'
+      last_visited: '2026-08-02T20:11:46'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,8 +26,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-01T18:17:13'
-      original-url: https://www.google.com/search?q=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&sca_esv=d6905c7cc2141b5b&source=hp&ei=D4ttaq2OCdPrkdUPu_aR2AU&iflsig=ABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP&aep=22&ved=0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI&cs=0&oq=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&gs_lp=Egdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ&csuir=1&sei=iZFtavGALJiA7M8PoMP0qQg&udm=50
+      last_visited: '2026-08-02T20:11:47'
       pinned: false
       scroll-pos:
         x: 0
@@ -37,18 +36,18 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:09'
+      last_visited: '2026-08-02T20:11:48'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
         : r/winboat'
-      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/
+      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=fee5f3cfb35ac7e7fee5f3cfb35ac7e7&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ec9fc510d8652306a99c7c3a9bfd8893e9&jsc_orig_r=
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:14'
+      last_visited: '2026-08-02T20:11:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -58,7 +57,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:07'
+      last_visited: '2026-08-02T20:11:46'
       pinned: false
       scroll-pos:
         x: 0
@@ -68,7 +67,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:16'
+      last_visited: '2026-08-02T20:12:01'
       pinned: false
       scroll-pos:
         x: 0
@@ -78,13 +77,13 @@ windows:
       url: https://github.com/TibixDev/winboat
       zoom: 0.8
 - geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
-    AAAABP8AAALP
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
+    AAAABSQAAALk
   tabs:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-01T18:17:09'
+      last_visited: '2026-08-02T20:11:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -93,12 +92,12 @@ windows:
       url: https://www.google.com/
       zoom: 0.8
 - geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAAAAAAAAAAAAAT/AAACzwAAAAAAAAAABQAAAAAAAAAA
-    AAAABP8AAALP
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
+    AAAABSQAAALk
   tabs:
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:14'
+      last_visited: '2026-08-02T20:11:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -108,7 +107,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:07'
+      last_visited: '2026-08-02T20:11:46'
       pinned: false
       scroll-pos:
         x: 0
@@ -119,8 +118,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-01T18:17:12'
-      original-url: https://www.google.com/search?q=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&sca_esv=d6905c7cc2141b5b&source=hp&ei=D4ttaq2OCdPrkdUPu_aR2AU&iflsig=ABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP&aep=22&ved=0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI&cs=0&oq=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&gs_lp=Egdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ&csuir=1&sei=iZFtavGALJiA7M8PoMP0qQg&udm=50
+      last_visited: '2026-08-02T20:11:47'
       pinned: false
       scroll-pos:
         x: 0
@@ -130,18 +128,18 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:09'
+      last_visited: '2026-08-02T20:11:48'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
         : r/winboat'
-      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/
+      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=91aa1f0a8349d40f91aa1f0a8349d40f&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ecec2982785d44c598c190aaf6e338e073&jsc_orig_r=
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:14'
+      last_visited: '2026-08-02T20:11:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -151,7 +149,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:07'
+      last_visited: '2026-08-02T20:11:46'
       pinned: false
       scroll-pos:
         x: 0
@@ -161,7 +159,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:16'
+      last_visited: '2026-08-02T20:12:02'
       pinned: false
       scroll-pos:
         x: 0
@@ -172,23 +170,31 @@ windows:
       zoom: 0.8
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABP8AAALPAAACgwAAACQAAATyAAACqwAAAAAABAAABQAAAAAAAAAA
-    AAAABP8AAALP
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAACgwAAACQAAATyAAACqwAAAAAABAAABSUAAAAAAAAA
+    AAAABSQAAALk
   tabs:
   - active: true
     history:
+    - last_visited: '2026-08-02T20:11:47'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#
+    - last_visited: '2026-08-02T20:43:04'
+      pinned: false
+      title: AdGuard Home
+      url: http://127.0.0.1/#logs?response_status=blocked
     - active: true
-      last_visited: '2026-08-01T18:17:07'
+      last_visited: '2026-08-02T20:43:09'
       pinned: false
       scroll-pos:
         x: 0
-        y: 0
+        y: 6
       title: AdGuard Home
       url: http://127.0.0.1/#
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:14'
+      last_visited: '2026-08-02T20:11:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -198,7 +204,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-01T18:17:07'
+      last_visited: '2026-08-02T20:11:46'
       pinned: false
       scroll-pos:
         x: 0
@@ -207,25 +213,43 @@ windows:
       url: http://localhost:8384/
       zoom: 0.8
   - history:
+    - last_visited: '2026-08-02T20:11:49'
+      original-url: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&sca_esv=b3f2486425dbf702&source=hp&ei=alZvapDQO-WrkdUPuI6-sAg&iflsig=ABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl&aep=22&ved=0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI&cs=0&oq=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&gs_lp=Egdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc&csuir=1&udm=50
+      pinned: false
+      title: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&sca_esv=b3f2486425dbf702&source=hp&ei=alZvapDQO-WrkdUPuI6-sAg&iflsig=ABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl&aep=22&ved=0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI&cs=0&oq=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&gs_lp=Egdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc&csuir=1&udm=50&sei=U3pvatDdA5-Xi-gPu42zgA4
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Di3wm%2Beasy%2Bswitch%2Bbetween%2Bxfreerdp%2Bvm%2Bwindow%2Band%2Bhost%2Bwindows%2Bshortcut%2B%26sca_esv%3Db3f2486425dbf702%26source%3Dhp%26ei%3DalZvapDQO-WrkdUPuI6-sAg%26iflsig%3DABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl%26aep%3D22%26ved%3D0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI%26cs%3D0%26oq%3Di3wm%2Beasy%2Bswitch%2Bbetween%2Bxfreerdp%2Bvm%2Bwindow%2Band%2Bhost%2Bwindows%2Bshortcut%2B%26gs_lp%3DEgdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ%26sclient%3Dgws-wiz%26atvm%3D2%26mstk%3DAUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc%26csuir%3D1%26udm%3D50%26sei%3DU3pvatDdA5-Xi-gPu42zgA4&q=EgQpvoYLGNT0vdMGIjCD5EZXjnhkfEkOZNyEw4yjCsvn9Czt2jHqnElMvq3_XTAaM2L_eYVQ4hVwc2y2KqIyAVJaAUM
+    - last_visited: '2026-08-02T20:12:41'
+      pinned: false
+      title: i3wm easy switch between xfreerdp vm window and host windows shortcut
+        - Google Search
+      url: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&sca_esv=b3f2486425dbf702&source=hp&ei=alZvapDQO-WrkdUPuI6-sAg&iflsig=ABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl&aep=22&ved=0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI&cs=0&oq=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&gs_lp=Egdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc&csuir=1&udm=50&sei=hHpvapiMF9iyi-gP08zj0Aw
+    - last_visited: '2026-08-02T20:12:47'
+      pinned: false
+      title: i3wm easy switch between xfreerdp vm window and host windows shortcut
+        - Google Search
+      url: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut&sca_esv=b3f2486425dbf702&aep=22&cs=0&prmd=ivns&source=lnms&sa=X&ved=2ahUKEwiA5aC6uIKWAxU14wIHHVhsEiYQ0pQJegQIBhAF
+    - last_visited: '2026-08-02T20:13:00'
+      pinned: false
+      title: powerbi desktop download - Google Search
+      url: https://www.google.com/search?q=powerbi+desktop+download&sca_esv=b3f2486425dbf702&aep=22&cs=0&ei=inpvarieONawi-gPtcKN6Q4&biw=1647&bih=907&ved=0ahUKEwi4i-m8uIKWAxVW2AIHHTVhI-0Q4dUDCBA&uact=5&oq=powerbi+desktop+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiGHBvd2VyYmkgZGVza3RvcCBkb3dubG9hZDIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIIEAAYFhgeGAoyCBAAGBYYHhgKMggQABgWGB4YCjIGEAAYFhgeMgYQABgWGB5I0UxQ8RVYpUhwAHgAkAEAmAGeBKAB_i-qAQwwLjEyLjguMy4wLjK4AQPIAQD4AQGYAhmgAuozqAIKwgIXEAAYgAQYigUYkQIY5wYY6gIYtALYAQHCAhAQABgDGI8BGOoCGLQC2AEBwgIQEC4YAxiPARjqAhi0AtgBAcICCxAAGIAEGIoFGJECwgIIEAAYgAQYsQPCAggQLhiABBixA8ICBRAAGIAEwgIKEAAYgAQYigUYQ8ICChAuGIAEGIoFGEPCAgQQABgDwgIFEC4YgATCAhAQABiABBiKBRhDGLEDGIMBwgINEAAYgAQYigUYQxixA8ICExAAGIAEGIoFGEMYsQMYgwEYyQPCAggQABiABBiSA5gDzwLxBQVJfz92Myq0ugYECAEYB5IHCjAuMy4xNy4yLjOgB5CTArIHCjAuMy4xNy4yLjO4B-ozwgcGMy0yMi4zyAeDA4AIAQ&sclient=gws-wiz-serp
+    - last_visited: '2026-08-02T20:23:52'
+      pinned: false
+      title: librewolf windows download - Google Search
+      url: https://www.google.com/search?q=librewolf+windows+download&sca_esv=b3f2486425dbf702&aep=22&cs=0&biw=1647&bih=907&ei=l3pvar6qLJyki-gPtZr1qQs&ved=0ahUKEwj-0fbCuIKWAxUc0gIHHTVNPbUQ4dUDCBA&uact=5&oq=librewolf+windows+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiGmxpYnJld29sZiB3aW5kb3dzIGRvd25sb2FkMgUQABiABDIGEAAYFhgeMggQABgWGB4YCjIGEAAYFhgeMggQABgWGB4YCjILEAAYgAQYigUYhgMyCBAAGIAEGKIEMgUQABjvBTIIEAAYgAQYogRIuXRQAFjKcHADeAGQAQSYAe4CoAGjO6oBCDAuNi4xOS42uAEDyAEA-AEBmAIeoAKmNagCFMICFhAAGIAEGIoFGEMY5wYY6gIYtALYAQHCAiAQABiABBiKBRjUAxjlAhjnBhjqAhi0AhiKAxi3A9gBAcICEBAAGAMYjwEY6gIYtALYAQLCAhAQLhgDGI8BGOoCGLQC2AECwgIKEAAYgAQYigUYQ8ICEBAuGIAEGIoFGEMYxwEY0QPCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIMBGLEDGIAEwgILEAAYgAQYsQMYgwHCAg4QABiABBiKBRixAxiDAcICDhAuGIAEGIoFGLEDGIMBwgITEC4YgAQYigUYQxixAxjHARjRA8ICChAuGIAEGIoFGEPCAiIQLhiABBiKBRhDGLEDGMcBGNEDGJcFGNwEGN4EGOAE2AECwgINEAAYgAQYigUYQxixA8ICDRAuGIAEGIoFGEMYsQPCAgkQABiABBgKGAuYAxviAwUSATEgQPEFHkQFXLyKn0y6BgQIARgHugYGCAIQARgKkgcIMy4yLjIwLjWgB_K5AbIHCDAuMi4yMC41uAfyNMIHCDItMS4yNy4yyAfrAoAIAQ&sclient=gws-wiz-serp
+    - last_visited: '2026-08-02T20:24:09'
+      pinned: false
+      title: whatsapp business windows download - Google Search
+      url: https://www.google.com/search?q=whatsapp+business+windows+download&sca_esv=b3f2486425dbf702&aep=22&cs=0&biw=1647&bih=907&ei=JHtvaofADpWukdUPxYrEwQ0&oq=whatsapp+windows+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiGXdoYXRzYXBwIHdpbmRvd3MgZG93bmxvYWQqAggAMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB5I2ixQ5ARYnRFwAngBkAEAmAHMAaAB1wuqAQUwLjcuMbgBA8gBAPgBAZgCB6ACmAjCAgoQABhHGNYEGLADwgIOEAAY5AIY1gQYsAPYAQHCAhcQLhjcBhi4BhjaBhjYAhjIAxiwA9gBAcICCBAAGAgYBxgemAMAiAYBkAYPugYGCAEQARgJkgcFMi4yLjOgB_k5sgcFMC4yLjO4B-gHwgcFMy02LjHIB2KACAE&sclient=gws-wiz-serp
+    - last_visited: '2026-08-02T20:32:38'
+      pinned: false
+      title: vim command set clipboard to clipboard=unnamed - Google Search
+      url: https://www.google.com/search?q=vim+command+set+clipboard+to+clipboard%3Dunnamed&sca_esv=b3f2486425dbf702&aep=22&cs=0&biw=1647&bih=907&ei=NH1vaqXNNpGL7M8P_e7X4Qs&oq=vim+command+set+%2B+clipboard+to+*+cli&gs_lp=Egxnd3Mtd2l6LXNlcnAiJHZpbSBjb21tYW5kIHNldCArIGNsaXBib2FyZCB0byAqIGNsaSoCCAAyBRAhGJ8FMgUQIRifBUiR7QFQry5YyrIBcAR4AZABAJgBjwKgAe87qgEHMC4yMy4xNbgBA8gBAPgBAZgCKqAC5UCoAhTCAhYQABiABBiKBRhDGOcGGOoCGLQC2AEBwgIgEAAYgAQYigUY1AMY5QIY5wYY6gIYtAIYigMYtwPYAQHCAhAQLhgDGI8BGOoCGLQC2AECwgIQEAAYAxiPARjqAhi0AtgBAsICCxAAGIAEGIoFGJECwgIOEAAYgAQYigUYsQMYgwHCAgsQLhiDARixAxiABMICCBAAGIAEGLEDwgIIEC4YgAQYsQPCAgsQLhiABBiKBRixA8ICCxAAGIAEGIoFGLEDwgIKEAAYgAQYigUYQ8ICDRAAGIAEGIoFGEMYsQPCAhAQLhhDGMcBGNEDGIAEGIoFwgIFEAAYgATCAgUQLhiABMICHxAuGEMYxwEY0QMYgAQYigUYlwUY3AQY3gQY4ATYAQLCAgYQABgWGB7CAgUQABjvBcICCBAAGIkFGKIEwgIIEAAYgAQYogTCAgQQIRgVwgIFECEYoAHCAgcQIRgKGKABmAMW8QXDY2sZO5BkIroGBAgBGAe6BgYIAhABGAqSBwc0LjE1LjIzoAeOzgGyBwcwLjE1LjIzuAehQMIHCTItMTIuMjguMsgHmAOACAE&sclient=gws-wiz-serp
     - active: true
-      last_visited: '2026-08-01T18:17:16'
+      last_visited: '2026-08-02T20:34:15'
       pinned: false
       scroll-pos:
         x: 0
-        y: 0
-      title: "GitHub - TibixDev/winboat: Run Windows apps on \U0001F427 Linux with
-        ✨ seamless integration · GitHub"
-      url: https://github.com/TibixDev/winboat
+        y: 4329
+      title: vim command set clipboard to clipboard=unnamed - Google Search
+      url: https://www.google.com/search?q=vim+command+set+clipboard+to+clipboard%3Dunnamed&sca_esv=b3f2486425dbf702&aep=10&cs=0&biw=1647&bih=907&ei=NH1vaqXNNpGL7M8P_e7X4Qs&sclient=gws-wiz-serp&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832a9BVCEiB2iPJNekNderQwJGZIG7YID1eBGNWasq2rzBIURiSCrdR156KVg_RXap7nymj7qwomXHj_SiILyyw7Ta9Q-KE-MaWxqo7jHrqQyEW5GYd4Al-Ng6PS506BSWStYgV2V047447UIBRUyB2GwDFWjsD_zdq4DE4Jd0AqJizczSNg&ntc=1&mstk=AUtExfAmzKSbK9SbN2EJstKKQL3ohUMbJuRXLYr0Qf-Dw2hrR2B7b5kZvIDIari3AyzadefEVcRvydW7wiyzdbqQyQppxja8laUYq3he_O9pDdKfcABtn-CEGWIFsePjlg_pcZfBm_5Ed4YZUfffxX-Nklz89LYl3TZTs60&aioh=3&csuir=1&atvm=2&mtid=YX9vasftBcWckdUP2-CHiAo
       zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-01T18:17:09'
-      original-url: https://www.google.com/search?q=combine+fzf+and+xfreerdp+option+to+launch+a+specific+app+from+my+script+.+Upgrade+this+OPTIONS%3D%22Excel%5CnPowerBi%5CnDesktop%22%0D%0AVAR%3D%24%28printf+%22%24OPTIONS%22+%7C+fzf+--prompt%3D%22Select+app%3A+%22%29%0D%0A++xfreerdp3+%2Fu%3ADockurr+%2Fp%3A*****+%2Fv%3A127.0.0.1+%2Fport%3A%22%24RDP_PORT%22+%2Fcert%3Aignore+%2Fclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression+%5C%0D%0A++++%2Fscale%3A100+%2Fscale-desktop%3A110+%2Ff+%2Ft%3A%22Dockurr+-+Windows+11%22+%2Fwm-class%3Axfreerdp+%5C%0D%0A++++%27%2Fapp%3Aprogram%3AC%3A%5CProgram+Files%5CMicrosoft+Office%5Croot%5COffice16%5CEXCEL.EXE%2Cname%3AExcel%2Ccmd%3A%22%22%27%0D%0A++++++++so+that+it+launches+what+i+select+not+just+excel&sca_esv=f41035333e0e95c2&source=hp&ei=_Z1tatKzBdXV7M8PlJz1sAw&iflsig=ABILxe8AAAAAam2sDenqpT5BcA6XCU8cKiWGc6ouMTk0&aep=22&ved=0ahUKEwiSptz_8f6VAxXVKvsDHRROHcYQteYPCBI&cs=0&oq=combine+fzf+and+xfreerdp+option+to+launch+a+specific+app+from+my+script+.+Upgrade+this+OPTIONS%3D%22Excel%5CnPowerBi%5CnDesktop%22%0D%0AVAR%3D%24%28printf+%22%24OPTIONS%22+%7C+fzf+--prompt%3D%22Select+app%3A+%22%29%0D%0A++xfreerdp3+%2Fu%3ADockurr+%2Fp%3A*****+%2Fv%3A127.0.0.1+%2Fport%3A%22%24RDP_PORT%22+%2Fcert%3Aignore+%2Fclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression+%5C%0D%0A++++%2Fscale%3A100+%2Fscale-desktop%3A110+%2Ff+%2Ft%3A%22Dockurr+-+Windows+11%22+%2Fwm-class%3Axfreerdp+%5C%0D%0A++++%27%2Fapp%3Aprogram%3AC%3A%5CProgram+Files%5CMicrosoft+Office%5Croot%5COffice16%5CEXCEL.EXE%2Cname%3AExcel%2Ccmd%3A%22%22%27%0D%0A++++++++so+that+it+launches+what+i+select+not+just+excel&gs_lp=Egdnd3Mtd2l6IrgEY29tYmluZSBmemYgYW5kIHhmcmVlcmRwIG9wdGlvbiB0byBsYXVuY2ggYSBzcGVjaWZpYyBhcHAgZnJvbSBteSBzY3JpcHQgLiBVcGdyYWRlIHRoaXMgT1BUSU9OUz0iRXhjZWxcblBvd2VyQmlcbkRlc2t0b3AiClZBUj0kKHByaW50ZiAiJE9QVElPTlMiIHwgZnpmIC0tcHJvbXB0PSJTZWxlY3QgYXBwOiAiKQogIHhmcmVlcmRwMyAvdTpEb2NrdXJyIC9wOioqKioqIC92OjEyNy4wLjAuMSAvcG9ydDoiJFJEUF9QT1JUIiAvY2VydDppZ25vcmUgL2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9uIFwKICAgIC9zY2FsZToxMDAgL3NjYWxlLWRlc2t0b3A6MTEwIC9mIC90OiJEb2NrdXJyIC0gV2luZG93cyAxMSIgL3dtLWNsYXNzOnhmcmVlcmRwIFwKICAgICcvYXBwOnByb2dyYW06QzpcUHJvZ3JhbSBGaWxlc1xNaWNyb3NvZnQgT2ZmaWNlXHJvb3RcT2ZmaWNlMTZcRVhDRUwuRVhFLG5hbWU6RXhjZWwsY21kOiIiJwogICAgICAgIHNvIHRoYXQgaXQgbGF1bmNoZXMgd2hhdCBpIHNlbGVjdCBub3QganVzdCBleGNlbEgAUABYAHAAeACQAQCYAQCgAQCqAQC4AQHIAQCYAgCgAgCYAwCSBwCgBwCyBwC4BwDCBwDIBwCACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfDF9AYUJWLkcAIs1hQTp-Y56hFizFlv163MVGE0sKotITWQ49to3byePPETIUWXcJlpjMfuSzgIzVg5nCPoAFt0E-BMYqZ1DoAGbu1BrLjwUwJSETm7Ys7Dcttdqa9-iuuw7poc2U2sYZlJcgMI1cNd2s3BlLyOaeo&csuir=1&sei=vqZtavS8L6KokdUPgMDIyQ0&udm=50
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: https://www.google.com/search?q=combine+fzf+and+xfreerdp+option+to+launch+a+specific+app+from+my+script+.+Upgrade+this+OPTIONS%3D%22Excel%5CnPowerBi%5CnDesktop%22%0D%0AVAR%3D%24%28printf+%22%24OPTIONS%22+%7C+fzf+--prompt%3D%22Select+app%3A+%22%29%0D%0A++xfreerdp3+%2Fu%3ADockurr+%2Fp%3A*****+%2Fv%3A127.0.0.1+%2Fport%3A%22%24RDP_PORT%22+%2Fcert%3Aignore+%2Fclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression+%5C%0D%0A++++%2Fscale%3A100+%2Fscale-desktop%3A110+%2Ff+%2Ft%3A%22Dockurr+-+Windows+11%22+%2Fwm-class%3Axfreerdp+%5C%0D%0A++++%27%2Fapp%3Aprogram%3AC%3A%5CProgram+Files%5CMicrosoft+Office%5Croot%5COffice16%5CEXCEL.EXE%2Cname%3AExcel%2Ccmd%3A%22%22%27%0D%0A++++++++so+that+it+launches+what+i+select+not+just+excel&sca_esv=f41035333e0e95c2&source=hp&ei=_Z1tatKzBdXV7M8PlJz1sAw&iflsig=ABILxe8AAAAAam2sDenqpT5BcA6XCU8cKiWGc6ouMTk0&aep=22&ved=0ahUKEwiSptz_8f6VAxXVKvsDHRROHcYQteYPCBI&cs=0&oq=combine+fzf+and+xfreerdp+option+to+launch+a+specific+app+from+my+script+.+Upgrade+this+OPTIONS%3D%22Excel%5CnPowerBi%5CnDesktop%22%0D%0AVAR%3D%24%28printf+%22%24OPTIONS%22+%7C+fzf+--prompt%3D%22Select+app%3A+%22%29%0D%0A++xfreerdp3+%2Fu%3ADockurr+%2Fp%3A*****+%2Fv%3A127.0.0.1+%2Fport%3A%22%24RDP_PORT%22+%2Fcert%3Aignore+%2Fclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression+%5C%0D%0A++++%2Fscale%3A100+%2Fscale-desktop%3A110+%2Ff+%2Ft%3A%22Dockurr+-+Windows+11%22+%2Fwm-class%3Axfreerdp+%5C%0D%0A++++%27%2Fapp%3Aprogram%3AC%3A%5CProgram+Files%5CMicrosoft+Office%5Croot%5COffice16%5CEXCEL.EXE%2Cname%3AExcel%2Ccmd%3A%22%22%27%0D%0A++++++++so+that+it+launches+what+i+select+not+just+excel&gs_lp=Egdnd3Mtd2l6IrgEY29tYmluZSBmemYgYW5kIHhmcmVlcmRwIG9wdGlvbiB0byBsYXVuY2ggYSBzcGVjaWZpYyBhcHAgZnJvbSBteSBzY3JpcHQgLiBVcGdyYWRlIHRoaXMgT1BUSU9OUz0iRXhjZWxcblBvd2VyQmlcbkRlc2t0b3AiClZBUj0kKHByaW50ZiAiJE9QVElPTlMiIHwgZnpmIC0tcHJvbXB0PSJTZWxlY3QgYXBwOiAiKQogIHhmcmVlcmRwMyAvdTpEb2NrdXJyIC9wOioqKioqIC92OjEyNy4wLjAuMSAvcG9ydDoiJFJEUF9QT1JUIiAvY2VydDppZ25vcmUgL2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9uIFwKICAgIC9zY2FsZToxMDAgL3NjYWxlLWRlc2t0b3A6MTEwIC9mIC90OiJEb2NrdXJyIC0gV2luZG93cyAxMSIgL3dtLWNsYXNzOnhmcmVlcmRwIFwKICAgICcvYXBwOnByb2dyYW06QzpcUHJvZ3JhbSBGaWxlc1xNaWNyb3NvZnQgT2ZmaWNlXHJvb3RcT2ZmaWNlMTZcRVhDRUwuRVhFLG5hbWU6RXhjZWwsY21kOiIiJwogICAgICAgIHNvIHRoYXQgaXQgbGF1bmNoZXMgd2hhdCBpIHNlbGVjdCBub3QganVzdCBleGNlbEgAUABYAHAAeACQAQCYAQCgAQCqAQC4AQHIAQCYAgCgAgCYAwCSBwCgBwCyBwC4BwDCBwDIBwCACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfDF9AYUJWLkcAIs1hQTp-Y56hFizFlv163MVGE0sKotITWQ49to3byePPETIUWXcJlpjMfuSzgIzVg5nCPoAFt0E-BMYqZ1DoAGbu1BrLjwUwJSETm7Ys7Dcttdqa9-iuuw7poc2U2sYZlJcgMI1cNd2s3BlLyOaeo&csuir=1&udm=50&sg_ss=*-MSaxKDyAAYvGsMBDxp9eLIhafiqJ6IEAEABEArZ1C6Ba0VhsWwoCAaEzJXV5pLcjUIQDWcJwRaP_drJGBb-4HO3dNczMwElLzW7XVE28rcI_r-dd3f03FgcPQAAAIRtAAAAHFcBB0EANDIAumFjZdn1-Esn5eqEmIDUG7ZY1YQkjSvcSsr_iy1gfuY8YrGgE5sp6nceUoDRUNZREUimAqB2fMW3n4WKEiLjb6FLWmXyJ_VhldvMqe5WsrVfHnQek7zQR0vBnlBncXrYn4QjlRrcpGgldrBwF8S6tz5vL9OOhzGNyEbSDEXmir_w4x1Iq63IRD-5-hWTtszwKRYa99jSNWfExS3JGRIP1khHGD959GrbbULCIyfcioect_0nX0-9qLzN4Q1eD0OEUZ4--jieKGfn5hJe4oiyozp9zd3q6-6wV8nDzUBUR7rGjvTuu01IMmyAp9pIGbvYz69FusL1HNDgOJtig_YTH3pyhq0P4iTHs93EeoXKWF-iwAY_5mnWQQb8GCBcQOwDaXDmyMaZ9jXpEgNVPV1SlSIMUDoCiaTmuX5RLBT9D9wxDycBpNnMdpHkrH_xlYYKZxXZas42I7h_nh9n7K5ea3Ha7fktBekGNDh-jFWCYkFlhk9B5tmV6pvrWNrDwdJUJLUWZqvOH7EmlGx5PlUhsNYCjrzju42VQSh1sRtUhvMub5B2diCSV2knUVxpxOtmBC2pVbBod6CbeJ-kEdwoh5X3Yy8O1AE417PIFert5r5-GR3hyeO01i77I1yqQ_B_DAtodiMDai2nPamll4FDZKrVmvQFYJVGyhbz6uZUrJOziWORK2Sn8L4-vvA0aRXb0878L1oKWqP6KiFcj7qYLadUoJ-okpBCG9SJVkaJtbKUZ1UMUmw1whYIRjSqaJUmmnWwRY6ItPcA4Dq8nE2f5lprft23GmxoCQVrLczI9fYlvE23dAGPxA9vDXGg2BRjOdXR5GUBDLwrg_TSAlEEa8WjwhK6etGKJKYTSmKzK7YIiOl0IQJvq78pf4JhtyCDke9KzeL_kdB75lFD6xhOXU_JiO97HQn_Cgkr-aViRX8Eh0W7k_TZKRSRJmwjF02cAb6aWUU&sei=9A1uaqMwqa6L6A_tlvqwAg
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dcombine%2Bfzf%2Band%2Bxfreerdp%2Boption%2Bto%2Blaunch%2Ba%2Bspecific%2Bapp%2Bfrom%2Bmy%2Bscript%2B.%2BUpgrade%2Bthis%2BOPTIONS%253D%2522Excel%255CnPowerBi%255CnDesktop%2522%250D%250AVAR%253D%2524%2528printf%2B%2522%2524OPTIONS%2522%2B%257C%2Bfzf%2B--prompt%253D%2522Select%2Bapp%253A%2B%2522%2529%250D%250A%2B%2Bxfreerdp3%2B%252Fu%253ADockurr%2B%252Fp%253A*****%2B%252Fv%253A127.0.0.1%2B%252Fport%253A%2522%2524RDP_PORT%2522%2B%252Fcert%253Aignore%2B%252Fclipboard%2B%255C%250D%250A%2B%2B%2B%2B%252Fsound%253Asys%253Apulse%2B%252Fmicrophone%253Asys%253Apulse%2B%252Ffloatbar%2B%252Fcompression%2B%255C%250D%250A%2B%2B%2B%2B%252Fscale%253A100%2B%252Fscale-desktop%253A110%2B%252Ff%2B%252Ft%253A%2522Dockurr%2B-%2BWindows%2B11%2522%2B%252Fwm-class%253Axfreerdp%2B%255C%250D%250A%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255CProgram%2BFiles%255CMicrosoft%2BOffice%255Croot%255COffice16%255CEXCEL.EXE%252Cname%253AExcel%252Ccmd%253A%2522%2522%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bso%2Bthat%2Bit%2Blaunches%2Bwhat%2Bi%2Bselect%2Bnot%2Bjust%2Bexcel%26sca_esv%3Df41035333e0e95c2%26source%3Dhp%26ei%3D_Z1tatKzBdXV7M8PlJz1sAw%26iflsig%3DABILxe8AAAAAam2sDenqpT5BcA6XCU8cKiWGc6ouMTk0%26aep%3D22%26ved%3D0ahUKEwiSptz_8f6VAxXVKvsDHRROHcYQteYPCBI%26cs%3D0%26oq%3Dcombine%2Bfzf%2Band%2Bxfreerdp%2Boption%2Bto%2Blaunch%2Ba%2Bspecific%2Bapp%2Bfrom%2Bmy%2Bscript%2B.%2BUpgrade%2Bthis%2BOPTIONS%253D%2522Excel%255CnPowerBi%255CnDesktop%2522%250D%250AVAR%253D%2524%2528printf%2B%2522%2524OPTIONS%2522%2B%257C%2Bfzf%2B--prompt%253D%2522Select%2Bapp%253A%2B%2522%2529%250D%250A%2B%2Bxfreerdp3%2B%252Fu%253ADockurr%2B%252Fp%253A*****%2B%252Fv%253A127.0.0.1%2B%252Fport%253A%2522%2524RDP_PORT%2522%2B%252Fcert%253Aignore%2B%252Fclipboard%2B%255C%250D%250A%2B%2B%2B%2B%252Fsound%253Asys%253Apulse%2B%252Fmicrophone%253Asys%253Apulse%2B%252Ffloatbar%2B%252Fcompression%2B%255C%250D%250A%2B%2B%2B%2B%252Fscale%253A100%2B%252Fscale-desktop%253A110%2B%252Ff%2B%252Ft%253A%2522Dockurr%2B-%2BWindows%2B11%2522%2B%252Fwm-class%253Axfreerdp%2B%255C%250D%250A%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255CProgram%2BFiles%255CMicrosoft%2BOffice%255Croot%255COffice16%255CEXCEL.EXE%252Cname%253AExcel%252Ccmd%253A%2522%2522%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bso%2Bthat%2Bit%2Blaunches%2Bwhat%2Bi%2Bselect%2Bnot%2Bjust%2Bexcel%26gs_lp%3DEgdnd3Mtd2l6IrgEY29tYmluZSBmemYgYW5kIHhmcmVlcmRwIG9wdGlvbiB0byBsYXVuY2ggYSBzcGVjaWZpYyBhcHAgZnJvbSBteSBzY3JpcHQgLiBVcGdyYWRlIHRoaXMgT1BUSU9OUz0iRXhjZWxcblBvd2VyQmlcbkRlc2t0b3AiClZBUj0kKHByaW50ZiAiJE9QVElPTlMiIHwgZnpmIC0tcHJvbXB0PSJTZWxlY3QgYXBwOiAiKQogIHhmcmVlcmRwMyAvdTpEb2NrdXJyIC9wOioqKioqIC92OjEyNy4wLjAuMSAvcG9ydDoiJFJEUF9QT1JUIiAvY2VydDppZ25vcmUgL2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9uIFwKICAgIC9zY2FsZToxMDAgL3NjYWxlLWRlc2t0b3A6MTEwIC9mIC90OiJEb2NrdXJyIC0gV2luZG93cyAxMSIgL3dtLWNsYXNzOnhmcmVlcmRwIFwKICAgICcvYXBwOnByb2dyYW06QzpcUHJvZ3JhbSBGaWxlc1xNaWNyb3NvZnQgT2ZmaWNlXHJvb3RcT2ZmaWNlMTZcRVhDRUwuRVhFLG5hbWU6RXhjZWwsY21kOiIiJwogICAgICAgIHNvIHRoYXQgaXQgbGF1bmNoZXMgd2hhdCBpIHNlbGVjdCBub3QganVzdCBleGNlbEgAUABYAHAAeACQAQCYAQCgAQCqAQC4AQHIAQCYAgCgAgCYAwCSBwCgBwCyBwC4BwDCBwDIBwCACAE%26sclient%3Dgws-wiz%26atvm%3D2%26mstk%3DAUtExfDF9AYUJWLkcAIs1hQTp-Y56hFizFlv163MVGE0sKotITWQ49to3byePPETIUWXcJlpjMfuSzgIzVg5nCPoAFt0E-BMYqZ1DoAGbu1BrLjwUwJSETm7Ys7Dcttdqa9-iuuw7poc2U2sYZlJcgMI1cNd2s3BlLyOaeo%26csuir%3D1%26udm%3D50%26sg_ss%3D*-MSaxKDyAAYvGsMBDxp9eLIhafiqJ6IEAEABEArZ1C6Ba0VhsWwoCAaEzJXV5pLcjUIQDWcJwRaP_drJGBb-4HO3dNczMwElLzW7XVE28rcI_r-dd3f03FgcPQAAAIRtAAAAHFcBB0EANDIAumFjZdn1-Esn5eqEmIDUG7ZY1YQkjSvcSsr_iy1gfuY8YrGgE5sp6nceUoDRUNZREUimAqB2fMW3n4WKEiLjb6FLWmXyJ_VhldvMqe5WsrVfHnQek7zQR0vBnlBncXrYn4QjlRrcpGgldrBwF8S6tz5vL9OOhzGNyEbSDEXmir_w4x1Iq63IRD-5-hWTtszwKRYa99jSNWfExS3JGRIP1khHGD959GrbbULCIyfcioect_0nX0-9qLzN4Q1eD0OEUZ4--jieKGfn5hJe4oiyozp9zd3q6-6wV8nDzUBUR7rGjvTuu01IMmyAp9pIGbvYz69FusL1HNDgOJtig_YTH3pyhq0P4iTHs93EeoXKWF-iwAY_5mnWQQb8GCBcQOwDaXDmyMaZ9jXpEgNVPV1SlSIMUDoCiaTmuX5RLBT9D9wxDycBpNnMdpHkrH_xlYYKZxXZas42I7h_nh9n7K5ea3Ha7fktBekGNDh-jFWCYkFlhk9B5tmV6pvrWNrDwdJUJLUWZqvOH7EmlGx5PlUhsNYCjrzju42VQSh1sRtUhvMub5B2diCSV2knUVxpxOtmBC2pVbBod6CbeJ-kEdwoh5X3Yy8O1AE417PIFert5r5-GR3hyeO01i77I1yqQ_B_DAtodiMDai2nPamll4FDZKrVmvQFYJVGyhbz6uZUrJOziWORK2Sn8L4-vvA0aRXb0878L1oKWqP6KiFcj7qYLadUoJ-okpBCG9SJVkaJtbKUZ1UMUmw1whYIRjSqaJUmmnWwRY6ItPcA4Dq8nE2f5lprft23GmxoCQVrLczI9fYlvE23dAGPxA9vDXGg2BRjOdXR5GUBDLwrg_TSAlEEa8WjwhK6etGKJKYTSmKzK7YIiOl0IQJvq78pf4JhtyCDke9KzeL_kdB75lFD6xhOXU_JiO97HQn_Cgkr-aViRX8Eh0W7k_TZKRSRJmwjF02cAb6aWUU%26sei%3D9A1uaqMwqa6L6A_tlvqwAg&q=EgQpvoYLGPSbuNMGIjBgjdKh1MJFb9pf3whA3YIbyeEghmeHDZq3ZNDGOEzsWoZDlQs0q5EWxt3hMLBF9OYyAVJaAUM
-      zoom: 0.8
-  - history: []
