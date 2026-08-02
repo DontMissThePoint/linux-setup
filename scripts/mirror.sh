@@ -11,8 +11,7 @@ if [ "$PHONE" = "" ]; then
     # display
     until
     scrcpy --serial 127.0.0.1:5552 --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
-        --no-audio --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder \
-        --ignore-video-encoder-constraints
+        --no-audio --stay-awake --ignore-video-encoder-constraints
     do
 
         # server
@@ -29,8 +28,7 @@ else
     adb shell settings put system accelerometer_rotation 0 #disable auto-rotate
     adb shell settings put system user_rotation 3          # 270° clockwise
     scrcpy --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
-        --stay-awake --audio-codec=aac --audio-encoder=OMX.google.aac.encoder \
-        --ignore-video-encoder-constraints
+        --stay-awake --ignore-video-encoder-constraints
 fi
 
 # close

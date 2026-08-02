@@ -5,7 +5,7 @@ windows:
   tabs:
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:49'
+      last_visited: '2026-08-02T22:23:02'
       pinned: false
       scroll-pos:
         x: 0
@@ -15,7 +15,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:46'
+      last_visited: '2026-08-02T22:22:58'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,7 +26,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-02T20:11:47'
+      last_visited: '2026-08-02T22:22:59'
       pinned: false
       scroll-pos:
         x: 0
@@ -36,7 +36,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:48'
+      last_visited: '2026-08-02T22:23:02'
       pinned: false
       scroll-pos:
         x: 0
@@ -47,7 +47,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:49'
+      last_visited: '2026-08-02T22:23:02'
       pinned: false
       scroll-pos:
         x: 0
@@ -57,7 +57,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:46'
+      last_visited: '2026-08-02T22:22:58'
       pinned: false
       scroll-pos:
         x: 0
@@ -67,7 +67,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:12:01'
+      last_visited: '2026-08-02T22:23:06'
       pinned: false
       scroll-pos:
         x: 0
@@ -83,7 +83,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-02T20:11:49'
+      last_visited: '2026-08-02T22:22:59'
       pinned: false
       scroll-pos:
         x: 0
@@ -97,7 +97,7 @@ windows:
   tabs:
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:49'
+      last_visited: '2026-08-02T22:23:02'
       pinned: false
       scroll-pos:
         x: 0
@@ -107,7 +107,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:46'
+      last_visited: '2026-08-02T22:22:58'
       pinned: false
       scroll-pos:
         x: 0
@@ -118,7 +118,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-02T20:11:47'
+      last_visited: '2026-08-02T22:22:59'
       pinned: false
       scroll-pos:
         x: 0
@@ -128,7 +128,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:48'
+      last_visited: '2026-08-02T22:23:02'
       pinned: false
       scroll-pos:
         x: 0
@@ -139,7 +139,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:49'
+      last_visited: '2026-08-02T22:23:02'
       pinned: false
       scroll-pos:
         x: 0
@@ -149,7 +149,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:46'
+      last_visited: '2026-08-02T22:22:58'
       pinned: false
       scroll-pos:
         x: 0
@@ -159,7 +159,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:12:02'
+      last_visited: '2026-08-02T22:23:06'
       pinned: false
       scroll-pos:
         x: 0
@@ -173,28 +173,19 @@ windows:
     AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAACgwAAACQAAATyAAACqwAAAAAABAAABSUAAAAAAAAA
     AAAABSQAAALk
   tabs:
-  - active: true
-    history:
-    - last_visited: '2026-08-02T20:11:47'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-    - last_visited: '2026-08-02T20:43:04'
-      pinned: false
-      title: AdGuard Home
-      url: http://127.0.0.1/#logs?response_status=blocked
+  - history:
     - active: true
-      last_visited: '2026-08-02T20:43:09'
+      last_visited: '2026-08-02T22:22:58'
       pinned: false
       scroll-pos:
         x: 0
-        y: 6
+        y: 0
       title: AdGuard Home
       url: http://127.0.0.1/#
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:49'
+      last_visited: '2026-08-02T22:23:04'
       pinned: false
       scroll-pos:
         x: 0
@@ -204,7 +195,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T20:11:46'
+      last_visited: '2026-08-02T22:22:58'
       pinned: false
       scroll-pos:
         x: 0
@@ -212,44 +203,18 @@ windows:
       title: billions | Syncthing
       url: http://localhost:8384/
       zoom: 0.8
-  - history:
-    - last_visited: '2026-08-02T20:11:49'
-      original-url: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&sca_esv=b3f2486425dbf702&source=hp&ei=alZvapDQO-WrkdUPuI6-sAg&iflsig=ABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl&aep=22&ved=0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI&cs=0&oq=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&gs_lp=Egdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc&csuir=1&udm=50
-      pinned: false
-      title: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&sca_esv=b3f2486425dbf702&source=hp&ei=alZvapDQO-WrkdUPuI6-sAg&iflsig=ABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl&aep=22&ved=0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI&cs=0&oq=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&gs_lp=Egdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc&csuir=1&udm=50&sei=U3pvatDdA5-Xi-gPu42zgA4
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Di3wm%2Beasy%2Bswitch%2Bbetween%2Bxfreerdp%2Bvm%2Bwindow%2Band%2Bhost%2Bwindows%2Bshortcut%2B%26sca_esv%3Db3f2486425dbf702%26source%3Dhp%26ei%3DalZvapDQO-WrkdUPuI6-sAg%26iflsig%3DABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl%26aep%3D22%26ved%3D0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI%26cs%3D0%26oq%3Di3wm%2Beasy%2Bswitch%2Bbetween%2Bxfreerdp%2Bvm%2Bwindow%2Band%2Bhost%2Bwindows%2Bshortcut%2B%26gs_lp%3DEgdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ%26sclient%3Dgws-wiz%26atvm%3D2%26mstk%3DAUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc%26csuir%3D1%26udm%3D50%26sei%3DU3pvatDdA5-Xi-gPu42zgA4&q=EgQpvoYLGNT0vdMGIjCD5EZXjnhkfEkOZNyEw4yjCsvn9Czt2jHqnElMvq3_XTAaM2L_eYVQ4hVwc2y2KqIyAVJaAUM
-    - last_visited: '2026-08-02T20:12:41'
-      pinned: false
-      title: i3wm easy switch between xfreerdp vm window and host windows shortcut
-        - Google Search
-      url: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&sca_esv=b3f2486425dbf702&source=hp&ei=alZvapDQO-WrkdUPuI6-sAg&iflsig=ABILxe8AAAAAam9ke6XAx4qjtSAOZBSNTgy5G7go2Ttl&aep=22&ved=0ahUKEwiQrYeDloKWAxXlVaQEHTiHD4YQteYPCBI&cs=0&oq=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut+&gs_lp=Egdnd3Mtd2l6IkZpM3dtIGVhc3kgc3dpdGNoIGJldHdlZW4geGZyZWVyZHAgdm0gd2luZG93IGFuZCBob3N0IHdpbmRvd3Mgc2hvcnRjdXQgSLW6AlAAWIasAnAJeACQAQCYAeABoAHOcqoBBzAuNTMuMjS4AQHIAQD4AQGYAkygArBrwgIEEAAYA8ICCxAuGIAEGLEDGIMBwgILEAAYgAQYsQMYgwHCAggQABiABBixA8ICBRAuGIAEwgIFEAAYgATCAgsQLhiABBjHARivAcICBhAAGBYYHsICBRAAGO8FwgIIEAAYgAQYogTCAgUQIRigAcICBxAhGAoYoAHCAgQQIRgVwgIFECEYnwXCAgQQIRgKmAMAkgcHOC4zNS4zM6AHppsCsgcHMC4zNS4zM7gH9GrCBw0wLjM1LjM1LjUuMC4xyAe7AoAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfCHqt-gDIQ1YwHke_7q3OrNdBHf1eBP5WW_vPDB8OlPJxzUroDVteD25lUn_FXioCX2t6CJZXb13sM1F2-Eedr3633cvjFuLYEA79KLxAP0llsu3F67EABMaHGxYbTUXPAt0aJJiH7s5hjrzaXJ_-1UapUpBybzogc&csuir=1&udm=50&sei=hHpvapiMF9iyi-gP08zj0Aw
-    - last_visited: '2026-08-02T20:12:47'
-      pinned: false
-      title: i3wm easy switch between xfreerdp vm window and host windows shortcut
-        - Google Search
-      url: https://www.google.com/search?q=i3wm+easy+switch+between+xfreerdp+vm+window+and+host+windows+shortcut&sca_esv=b3f2486425dbf702&aep=22&cs=0&prmd=ivns&source=lnms&sa=X&ved=2ahUKEwiA5aC6uIKWAxU14wIHHVhsEiYQ0pQJegQIBhAF
-    - last_visited: '2026-08-02T20:13:00'
-      pinned: false
-      title: powerbi desktop download - Google Search
-      url: https://www.google.com/search?q=powerbi+desktop+download&sca_esv=b3f2486425dbf702&aep=22&cs=0&ei=inpvarieONawi-gPtcKN6Q4&biw=1647&bih=907&ved=0ahUKEwi4i-m8uIKWAxVW2AIHHTVhI-0Q4dUDCBA&uact=5&oq=powerbi+desktop+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiGHBvd2VyYmkgZGVza3RvcCBkb3dubG9hZDIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIHEAAYgAQYCjIIEAAYFhgeGAoyCBAAGBYYHhgKMggQABgWGB4YCjIGEAAYFhgeMgYQABgWGB5I0UxQ8RVYpUhwAHgAkAEAmAGeBKAB_i-qAQwwLjEyLjguMy4wLjK4AQPIAQD4AQGYAhmgAuozqAIKwgIXEAAYgAQYigUYkQIY5wYY6gIYtALYAQHCAhAQABgDGI8BGOoCGLQC2AEBwgIQEC4YAxiPARjqAhi0AtgBAcICCxAAGIAEGIoFGJECwgIIEAAYgAQYsQPCAggQLhiABBixA8ICBRAAGIAEwgIKEAAYgAQYigUYQ8ICChAuGIAEGIoFGEPCAgQQABgDwgIFEC4YgATCAhAQABiABBiKBRhDGLEDGIMBwgINEAAYgAQYigUYQxixA8ICExAAGIAEGIoFGEMYsQMYgwEYyQPCAggQABiABBiSA5gDzwLxBQVJfz92Myq0ugYECAEYB5IHCjAuMy4xNy4yLjOgB5CTArIHCjAuMy4xNy4yLjO4B-ozwgcGMy0yMi4zyAeDA4AIAQ&sclient=gws-wiz-serp
-    - last_visited: '2026-08-02T20:23:52'
-      pinned: false
-      title: librewolf windows download - Google Search
-      url: https://www.google.com/search?q=librewolf+windows+download&sca_esv=b3f2486425dbf702&aep=22&cs=0&biw=1647&bih=907&ei=l3pvar6qLJyki-gPtZr1qQs&ved=0ahUKEwj-0fbCuIKWAxUc0gIHHTVNPbUQ4dUDCBA&uact=5&oq=librewolf+windows+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiGmxpYnJld29sZiB3aW5kb3dzIGRvd25sb2FkMgUQABiABDIGEAAYFhgeMggQABgWGB4YCjIGEAAYFhgeMggQABgWGB4YCjILEAAYgAQYigUYhgMyCBAAGIAEGKIEMgUQABjvBTIIEAAYgAQYogRIuXRQAFjKcHADeAGQAQSYAe4CoAGjO6oBCDAuNi4xOS42uAEDyAEA-AEBmAIeoAKmNagCFMICFhAAGIAEGIoFGEMY5wYY6gIYtALYAQHCAiAQABiABBiKBRjUAxjlAhjnBhjqAhi0AhiKAxi3A9gBAcICEBAAGAMYjwEY6gIYtALYAQLCAhAQLhgDGI8BGOoCGLQC2AECwgIKEAAYgAQYigUYQ8ICEBAuGIAEGIoFGEMYxwEY0QPCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIMBGLEDGIAEwgILEAAYgAQYsQMYgwHCAg4QABiABBiKBRixAxiDAcICDhAuGIAEGIoFGLEDGIMBwgITEC4YgAQYigUYQxixAxjHARjRA8ICChAuGIAEGIoFGEPCAiIQLhiABBiKBRhDGLEDGMcBGNEDGJcFGNwEGN4EGOAE2AECwgINEAAYgAQYigUYQxixA8ICDRAuGIAEGIoFGEMYsQPCAgkQABiABBgKGAuYAxviAwUSATEgQPEFHkQFXLyKn0y6BgQIARgHugYGCAIQARgKkgcIMy4yLjIwLjWgB_K5AbIHCDAuMi4yMC41uAfyNMIHCDItMS4yNy4yyAfrAoAIAQ&sclient=gws-wiz-serp
-    - last_visited: '2026-08-02T20:24:09'
-      pinned: false
-      title: whatsapp business windows download - Google Search
-      url: https://www.google.com/search?q=whatsapp+business+windows+download&sca_esv=b3f2486425dbf702&aep=22&cs=0&biw=1647&bih=907&ei=JHtvaofADpWukdUPxYrEwQ0&oq=whatsapp+windows+download&gs_lp=Egxnd3Mtd2l6LXNlcnAiGXdoYXRzYXBwIHdpbmRvd3MgZG93bmxvYWQqAggAMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB4yBhAAGAcYHjIGEAAYBxgeMgYQABgHGB5I2ixQ5ARYnRFwAngBkAEAmAHMAaAB1wuqAQUwLjcuMbgBA8gBAPgBAZgCB6ACmAjCAgoQABhHGNYEGLADwgIOEAAY5AIY1gQYsAPYAQHCAhcQLhjcBhi4BhjaBhjYAhjIAxiwA9gBAcICCBAAGAgYBxgemAMAiAYBkAYPugYGCAEQARgJkgcFMi4yLjOgB_k5sgcFMC4yLjO4B-gHwgcFMy02LjHIB2KACAE&sclient=gws-wiz-serp
-    - last_visited: '2026-08-02T20:32:38'
-      pinned: false
-      title: vim command set clipboard to clipboard=unnamed - Google Search
-      url: https://www.google.com/search?q=vim+command+set+clipboard+to+clipboard%3Dunnamed&sca_esv=b3f2486425dbf702&aep=22&cs=0&biw=1647&bih=907&ei=NH1vaqXNNpGL7M8P_e7X4Qs&oq=vim+command+set+%2B+clipboard+to+*+cli&gs_lp=Egxnd3Mtd2l6LXNlcnAiJHZpbSBjb21tYW5kIHNldCArIGNsaXBib2FyZCB0byAqIGNsaSoCCAAyBRAhGJ8FMgUQIRifBUiR7QFQry5YyrIBcAR4AZABAJgBjwKgAe87qgEHMC4yMy4xNbgBA8gBAPgBAZgCKqAC5UCoAhTCAhYQABiABBiKBRhDGOcGGOoCGLQC2AEBwgIgEAAYgAQYigUY1AMY5QIY5wYY6gIYtAIYigMYtwPYAQHCAhAQLhgDGI8BGOoCGLQC2AECwgIQEAAYAxiPARjqAhi0AtgBAsICCxAAGIAEGIoFGJECwgIOEAAYgAQYigUYsQMYgwHCAgsQLhiDARixAxiABMICCBAAGIAEGLEDwgIIEC4YgAQYsQPCAgsQLhiABBiKBRixA8ICCxAAGIAEGIoFGLEDwgIKEAAYgAQYigUYQ8ICDRAAGIAEGIoFGEMYsQPCAhAQLhhDGMcBGNEDGIAEGIoFwgIFEAAYgATCAgUQLhiABMICHxAuGEMYxwEY0QMYgAQYigUYlwUY3AQY3gQY4ATYAQLCAgYQABgWGB7CAgUQABjvBcICCBAAGIkFGKIEwgIIEAAYgAQYogTCAgQQIRgVwgIFECEYoAHCAgcQIRgKGKABmAMW8QXDY2sZO5BkIroGBAgBGAe6BgYIAhABGAqSBwc0LjE1LjIzoAeOzgGyBwcwLjE1LjIzuAehQMIHCTItMTIuMjguMsgHmAOACAE&sclient=gws-wiz-serp
+  - active: true
+    history:
     - active: true
-      last_visited: '2026-08-02T20:34:15'
+      last_visited: '2026-08-02T22:46:46'
       pinned: false
       scroll-pos:
         x: 0
-        y: 4329
-      title: vim command set clipboard to clipboard=unnamed - Google Search
-      url: https://www.google.com/search?q=vim+command+set+clipboard+to+clipboard%3Dunnamed&sca_esv=b3f2486425dbf702&aep=10&cs=0&biw=1647&bih=907&ei=NH1vaqXNNpGL7M8P_e7X4Qs&sclient=gws-wiz-serp&udm=50&fbs=ABfTbFVyMZGZf1hfvX9uKjN_-G8c4u0nXx4bEIpwm1lnNH832a9BVCEiB2iPJNekNderQwJGZIG7YID1eBGNWasq2rzBIURiSCrdR156KVg_RXap7nymj7qwomXHj_SiILyyw7Ta9Q-KE-MaWxqo7jHrqQyEW5GYd4Al-Ng6PS506BSWStYgV2V047447UIBRUyB2GwDFWjsD_zdq4DE4Jd0AqJizczSNg&ntc=1&mstk=AUtExfAmzKSbK9SbN2EJstKKQL3ohUMbJuRXLYr0Qf-Dw2hrR2B7b5kZvIDIari3AyzadefEVcRvydW7wiyzdbqQyQppxja8laUYq3he_O9pDdKfcABtn-CEGWIFsePjlg_pcZfBm_5Ed4YZUfffxX-Nklz89LYl3TZTs60&aioh=3&csuir=1&atvm=2&mtid=YX9vasftBcWckdUP2-CHiAo
+        y: 10061
+      title: Fix these lines apps launch but unstable in rdp case "$VAR" in "Excel")
+        xfreerdp3 "${RDP_ARGS[@]}" /t:"Dockurr - Excel" \ '/app:program:C:\\Program
+        Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE' ;; "Power BI") xfreerdp3
+        "${RDP_ARGS[@]}" /t:"Dockurr - Power BI" \ '/app:program:C:\\Program Files\\Microsoft
+        Power BI Desktop\\bin\\PBIDesktop.exe' ;; - Google Search
+      url: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50
       zoom: 0.8
