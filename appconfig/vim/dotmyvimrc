@@ -128,7 +128,8 @@ au BufNewFile,BufRead *.tsv set filetype=tsv
 au BufNewFile,BufRead *.dat set filetype=ledger
 
 " autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
-autocmd FileType ledger,tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+" autocmd FileType ledger,tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+autocmd FileType ledger silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
 " cursors
 let g:togglecursor_force = 'xterm'

@@ -1,11 +1,11 @@
 windows:
 - geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABckAAAAAAAAA
     AAAABSQAAALk
   tabs:
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:02'
+      last_visited: '2026-08-04T08:51:26'
       pinned: false
       scroll-pos:
         x: 0
@@ -15,7 +15,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:22:58'
+      last_visited: '2026-08-04T08:51:23'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,7 +26,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-02T22:22:59'
+      last_visited: '2026-08-04T08:51:24'
       pinned: false
       scroll-pos:
         x: 0
@@ -36,18 +36,18 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:02'
+      last_visited: '2026-08-04T08:51:26'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
         : r/winboat'
-      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=fee5f3cfb35ac7e7fee5f3cfb35ac7e7&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ec9fc510d8652306a99c7c3a9bfd8893e9&jsc_orig_r=
+      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=63bf01e62ee3705763bf01e62ee37057&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ecb5dc8bac6560c92ba88b2883f60196f8&jsc_orig_r=&solution=fee5f3cfb35ac7e7fee5f3cfb35ac7e7&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ec9fc510d8652306a99c7c3a9bfd8893e9&jsc_orig_r=
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:02'
+      last_visited: '2026-08-04T08:51:26'
       pinned: false
       scroll-pos:
         x: 0
@@ -57,7 +57,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:22:58'
+      last_visited: '2026-08-04T08:51:23'
       pinned: false
       scroll-pos:
         x: 0
@@ -67,7 +67,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:06'
+      last_visited: '2026-08-04T08:51:36'
       pinned: false
       scroll-pos:
         x: 0
@@ -77,13 +77,13 @@ windows:
       url: https://github.com/TibixDev/winboat
       zoom: 0.8
 - geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABckAAAAAAAAA
     AAAABSQAAALk
   tabs:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-02T22:22:59'
+      last_visited: '2026-08-04T08:51:31'
       pinned: false
       scroll-pos:
         x: 0
@@ -92,12 +92,12 @@ windows:
       url: https://www.google.com/
       zoom: 0.8
 - geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABckAAAAAAAAA
     AAAABSQAAALk
   tabs:
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:02'
+      last_visited: '2026-08-04T08:51:26'
       pinned: false
       scroll-pos:
         x: 0
@@ -107,7 +107,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:22:58'
+      last_visited: '2026-08-04T08:51:23'
       pinned: false
       scroll-pos:
         x: 0
@@ -118,7 +118,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-08-02T22:22:59'
+      last_visited: '2026-08-04T08:51:24'
       pinned: false
       scroll-pos:
         x: 0
@@ -128,18 +128,18 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:02'
+      last_visited: '2026-08-04T08:51:26'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
         : r/winboat'
-      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=91aa1f0a8349d40f91aa1f0a8349d40f&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ecec2982785d44c598c190aaf6e338e073&jsc_orig_r=
+      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=b9ef47fb3c0b151cb9ef47fb3c0b151c&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9eccd6db97fb3f29c81425c69531364fa11&jsc_orig_r=&solution=91aa1f0a8349d40f91aa1f0a8349d40f&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ecec2982785d44c598c190aaf6e338e073&jsc_orig_r=
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:02'
+      last_visited: '2026-08-04T08:51:26'
       pinned: false
       scroll-pos:
         x: 0
@@ -149,7 +149,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:22:58'
+      last_visited: '2026-08-04T08:51:23'
       pinned: false
       scroll-pos:
         x: 0
@@ -159,7 +159,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:06'
+      last_visited: '2026-08-04T08:51:36'
       pinned: false
       scroll-pos:
         x: 0
@@ -170,12 +170,13 @@ windows:
       zoom: 0.8
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAACgwAAACQAAATyAAACqwAAAAAABAAABSUAAAAAAAAA
-    AAAABSQAAALk
+    AdnQywADAAAAAAAAAAAAAAAABcgAAANAAAACgwAAACQAAATyAAACqwAAAAAABAAABckAAAAAAAAA
+    AAAABcgAAANA
   tabs:
-  - history:
+  - active: true
+    history:
     - active: true
-      last_visited: '2026-08-02T22:22:58'
+      last_visited: '2026-08-04T08:51:23'
       pinned: false
       scroll-pos:
         x: 0
@@ -185,7 +186,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:23:04'
+      last_visited: '2026-08-04T08:51:26'
       pinned: false
       scroll-pos:
         x: 0
@@ -195,7 +196,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-02T22:22:58'
+      last_visited: '2026-08-04T08:51:23'
       pinned: false
       scroll-pos:
         x: 0
@@ -203,18 +204,30 @@ windows:
       title: billions | Syncthing
       url: http://localhost:8384/
       zoom: 0.8
-  - active: true
-    history:
-    - active: true
-      last_visited: '2026-08-02T22:46:46'
+  - history:
+    - last_visited: '2026-08-04T08:51:31'
+      original-url: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50
       pinned: false
-      scroll-pos:
-        x: 0
-        y: 10061
+      title: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50&sei=3H1xao6_D-S5hbIP3KS3-Qs
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3DFix%2Bthese%2Blines%2Bapps%2Blaunch%2Bbut%2Bunstable%2Bin%2Brdp%2Bcase%2B%2522%2524VAR%2522%2Bin%250D%250A%2B%2B%2B%2B%2522Excel%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BExcel%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BOffice%255C%255Croot%255C%255COffice16%255C%255CEXCEL.EXE%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%2B%2B%2B%2B%2522Power%2BBI%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BPower%2BBI%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BPower%2BBI%2BDesktop%255C%255Cbin%255C%255CPBIDesktop.exe%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%26sca_esv%3D29cd9412ce350a53%26source%3Dhp%26ei%3D05Bvauz3CZKbi-gPifhA%26iflsig%3DABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_%26aep%3D22%26ved%3D0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI%26cs%3D0%26oq%3DFix%2Bthese%2Blines%2Bapps%2Blaunch%2Bbut%2Bunstable%2Bin%2Brdp%2Bcase%2B%2522%2524VAR%2522%2Bin%250D%250A%2B%2B%2B%2B%2522Excel%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BExcel%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BOffice%255C%255Croot%255C%255COffice16%255C%255CEXCEL.EXE%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%2B%2B%2B%2B%2522Power%2BBI%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BPower%2BBI%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BPower%2BBI%2BDesktop%255C%255Cbin%255C%255CPBIDesktop.exe%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%26gs_lp%3DEgdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE%26sclient%3Dgws-wiz%26atvm%3D2%26mstk%3DAUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8%26csuir%3D1%26udm%3D50%26sei%3D3H1xao6_D-S5hbIP3KS3-Qs&q=EgRm2m8eGN77xdMGIjAJchQGj9_gkeaMHrwoPdnACufOI2J1NhW1KOEm0Px7a42PW5-tE7Uf27xmAMgKm-0yAVJaAUM
+    - last_visited: '2026-08-04T08:53:11'
+      pinned: false
       title: Fix these lines apps launch but unstable in rdp case "$VAR" in "Excel")
         xfreerdp3 "${RDP_ARGS[@]}" /t:"Dockurr - Excel" \ '/app:program:C:\\Program
         Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE' ;; "Power BI") xfreerdp3
         "${RDP_ARGS[@]}" /t:"Dockurr - Power BI" \ '/app:program:C:\\Program Files\\Microsoft
         Power BI Desktop\\bin\\PBIDesktop.exe' ;; - Google Search
-      url: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50
+      url: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50&sei=MX5xaoiJBYCdhbIPtcWFoAY
+    - last_visited: '2026-08-04T08:53:12'
+      pinned: false
+      title: Google
+      url: https://www.google.com/
+    - active: true
+      last_visited: '2026-08-04T08:53:59'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: polybar change tray icon size - Google Search
+      url: https://www.google.com/search?q=polybar+change+tray+icon+size+&sca_esv=6200a6f684f90d8a&source=hp&ei=RH5xasDnHJjWhbIPhOm08Qo&iflsig=ABILxe8AAAAAanGMVEeQnm8V9qvuc4SdkX0BQ5L6xdaZ&ved=0ahUKEwjAmcGnpIaWAxUYa0EAHYQ0La4Q4dUDCBw&uact=5&oq=polybar+change+tray+icon+size+&gs_lp=Egdnd3Mtd2l6Ih5wb2x5YmFyIGNoYW5nZSB0cmF5IGljb24gc2l6ZSAyBRAhGKABMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRifBUjOmQFQ7wFY14YBcAl4AJABAJgB7AKgAbtRqgEHMi0yMC4xNbgBA8gBAPgBAZgCLKAClVOoAgrCAgoQABgDGI8BGOoCwgIKEC4YAxiPARjqAsICCxAAGIAEGLEDGIMBwgIREC4YgAQYsQMYgwEYxwEY0QPCAggQABiABBixA8ICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwHCAg4QABiABBiKBRixAxiDAcICDhAuGIAEGLEDGMcBGNEDwgIIEC4YgAQYsQPCAgUQABiABMICBRAuGIAEwgILEC4YgAQYigUYsQPCAgQQABgDwgIIEC4YsQMYgATCAgcQABiABBgKwgIIEAAYgAQYogTCAgYQABgWGB7CAgUQABjvBcICCxAAGIAEGIoFGIYDwgIEECEYFcICBxAhGAoYoAGYAw7xBUdtlALppnEUkgcJOS4wLjIwLjE1oAfzvQGyBwcyLTIwLjE1uAffUsIHCTMuMjUuMTQuMsgHhwGACAE&sclient=gws-wiz
       zoom: 0.8
