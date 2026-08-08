@@ -1,182 +1,12 @@
 windows:
-- geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABckAAAAAAAAA
-    AAAABSQAAALk
-  tabs:
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:26'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Zerobyte | Backup automation for Restic
-      url: https://zerobyte.app/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:23'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: billions | Syncthing
-      url: http://localhost:8384/
-      zoom: 0.8
-  - active: true
-    history:
-    - active: true
-      last_visited: '2026-08-04T08:51:24'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: https://www.google.com/search?q=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&sca_esv=d6905c7cc2141b5b&source=hp&ei=D4ttaq2OCdPrkdUPu_aR2AU&iflsig=ABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP&aep=22&ved=0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI&cs=0&oq=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&gs_lp=Egdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ&csuir=1&udm=50&sg_ss=*u4eah-PyAAYvGsMBDxp9mlYXds2pW_QEAEABEArZ1Gx4kjBSdAXU9Q11t6trkrD59oWTvvEOqsM7byQh6lMEfdj8fdslIhnygc3eTrn5UjfQ31wQYelLC3y-PQAAALNtAAAALFcBB0EANAXemamIKK6ZFtcSAX-4AKnFrhB2V9kHW_7IFL1WMfBjjhdhS7EDWm5hFJ02Mt6t-fMpt3SmAqUDbODQl1fUhOZgUosXju42srA5Ho_lY6p1rUgelDl1bLahpqrWmD3IIGpSmhKLaOagVOZmFZPRBsfDz_S2Cc62HW-euCr8gqz-D7o58OSOXALuMfiPkk1eRaWvKRX6Ei9q3Vc_zoGlfeRRRluUmWSbM16C8zt2r6HlMHQ3Hu2uZ9Ve9Cju8Gxpi6z8UxGEALvL-Di5ScL0XSrUYjOgMD-9w6ul4GdyOeF8pFuJb_Ds7dTrwv2OT5LUwmObyqKrmCIlpHgi_EotLnYdQzOPxSgj7wyzX9BjYsabn9gbK_2BhkrJjDRm3IU7tXn_6CrNAnPAP4G5w_omxOMq7oRTzvdoFtH-VmLnzARmkJCeM3DRoAs6kuqpRUAJCLMBCskz6yC_rQEyNqcM_0NupOBD4f0yxa4gx03tHpVvxU3vbnuY0pElZVSTA9fizqH8uuoRixhW0fLLjMMRJckNQu44OanLb5FbunboT2WrcqeuJBeWPRqNrBYv-q5TigBIbslqcmBGi5R8mwNnuNbhA_0RpMSsu0vn2867Gz7iT0FkXrSTzSqDAb5qtlygGiOOWndmHJ6sp77xP3NMGeb6YUOAFgUE4N8SuZhNsqXvojHTPXizCHtTM_g7sEBCAajJn6Go1BFn_ATu7Ucmm75B9I1piolrgFW9uHZGp7IADs9XIDFZipqsOHwtAZ65B9VjjK_Kim50O7RV816IVfF3deUYUYOiIT-GCLz7qDnHb86WIFqOSzWpJnKismXbQjX7B7zRmm76biboy4peIzrirQqHzBg9w0tEH-Rd3vzproUjyyOtn5iED2r57rBCR9eKVTynoAiY3IDc29VsksyIM8qxN8sYEqcMy82Qb2NghEEYcdIlCDwTaDphREWlLXxukuY7mYrqT88A0A&sei=8w1uaoTlPM2li-gPm-jicA
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dxfreerdp%2B%252F%253F%2Bdebug%2Bthis%2Bcommand%2Bfix%2Bxfreerdp3%2B%252Fu%253ADockurr%2B%252Fp%253Awin11%2B%252Fv%253A127.0.0.1%25EF%25BF%25BC%252Fport%253A47302%2B%252Fcert%253Aignore%2B%252Bclipboard%2B%255C%250D%250A%2B%2B%2B%2B%252Fsound%253Asys%253Apulse%2B%252Fmicrophone%253Asys%253Apulse%2B%252Ffloatbar%2B%252Fcompression%25EF%25BF%25BC%252Fscale-device%253A100%2B%252Fscale-desktop%253A108%2B%252Bf%2B%25EF%25BF%25BC%252Fscale%253A100%250D%250A%26sca_esv%3Dd6905c7cc2141b5b%26source%3Dhp%26ei%3DD4ttaq2OCdPrkdUPu_aR2AU%26iflsig%3DABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP%26aep%3D22%26ved%3D0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI%26cs%3D0%26oq%3Dxfreerdp%2B%252F%253F%2Bdebug%2Bthis%2Bcommand%2Bfix%2Bxfreerdp3%2B%252Fu%253ADockurr%2B%252Fp%253Awin11%2B%252Fv%253A127.0.0.1%25EF%25BF%25BC%252Fport%253A47302%2B%252Fcert%253Aignore%2B%252Bclipboard%2B%255C%250D%250A%2B%2B%2B%2B%252Fsound%253Asys%253Apulse%2B%252Fmicrophone%253Asys%253Apulse%2B%252Ffloatbar%2B%252Fcompression%25EF%25BF%25BC%252Fscale-device%253A100%2B%252Fscale-desktop%253A108%2B%252Bf%2B%25EF%25BF%25BC%252Fscale%253A100%250D%250A%26gs_lp%3DEgdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ%26sclient%3Dgws-wiz%26atvm%3D2%26mstk%3DAUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ%26csuir%3D1%26udm%3D50%26sg_ss%3D*u4eah-PyAAYvGsMBDxp9mlYXds2pW_QEAEABEArZ1Gx4kjBSdAXU9Q11t6trkrD59oWTvvEOqsM7byQh6lMEfdj8fdslIhnygc3eTrn5UjfQ31wQYelLC3y-PQAAALNtAAAALFcBB0EANAXemamIKK6ZFtcSAX-4AKnFrhB2V9kHW_7IFL1WMfBjjhdhS7EDWm5hFJ02Mt6t-fMpt3SmAqUDbODQl1fUhOZgUosXju42srA5Ho_lY6p1rUgelDl1bLahpqrWmD3IIGpSmhKLaOagVOZmFZPRBsfDz_S2Cc62HW-euCr8gqz-D7o58OSOXALuMfiPkk1eRaWvKRX6Ei9q3Vc_zoGlfeRRRluUmWSbM16C8zt2r6HlMHQ3Hu2uZ9Ve9Cju8Gxpi6z8UxGEALvL-Di5ScL0XSrUYjOgMD-9w6ul4GdyOeF8pFuJb_Ds7dTrwv2OT5LUwmObyqKrmCIlpHgi_EotLnYdQzOPxSgj7wyzX9BjYsabn9gbK_2BhkrJjDRm3IU7tXn_6CrNAnPAP4G5w_omxOMq7oRTzvdoFtH-VmLnzARmkJCeM3DRoAs6kuqpRUAJCLMBCskz6yC_rQEyNqcM_0NupOBD4f0yxa4gx03tHpVvxU3vbnuY0pElZVSTA9fizqH8uuoRixhW0fLLjMMRJckNQu44OanLb5FbunboT2WrcqeuJBeWPRqNrBYv-q5TigBIbslqcmBGi5R8mwNnuNbhA_0RpMSsu0vn2867Gz7iT0FkXrSTzSqDAb5qtlygGiOOWndmHJ6sp77xP3NMGeb6YUOAFgUE4N8SuZhNsqXvojHTPXizCHtTM_g7sEBCAajJn6Go1BFn_ATu7Ucmm75B9I1piolrgFW9uHZGp7IADs9XIDFZipqsOHwtAZ65B9VjjK_Kim50O7RV816IVfF3deUYUYOiIT-GCLz7qDnHb86WIFqOSzWpJnKismXbQjX7B7zRmm76biboy4peIzrirQqHzBg9w0tEH-Rd3vzproUjyyOtn5iED2r57rBCR9eKVTynoAiY3IDc29VsksyIM8qxN8sYEqcMy82Qb2NghEEYcdIlCDwTaDphREWlLXxukuY7mYrqT88A0A%26sei%3D8w1uaoTlPM2li-gPm-jicA&q=EgQpvoYLGPSbuNMGIjCWe-eB31vOa_Xh0bb4TpuwuK3x_PlEU4r1fGvqNgnmMBtrwb7XJoIBQxQeqh8q6wEyAVJaAUM
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:26'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
-        : r/winboat'
-      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=63bf01e62ee3705763bf01e62ee37057&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ecb5dc8bac6560c92ba88b2883f60196f8&jsc_orig_r=&solution=fee5f3cfb35ac7e7fee5f3cfb35ac7e7&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ec9fc510d8652306a99c7c3a9bfd8893e9&jsc_orig_r=
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:26'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Recovery Keys | Zerobyte Docs
-      url: https://zerobyte.app/docs/guides/recovery-key-and-repository-passwords
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:23'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:36'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: "GitHub - TibixDev/winboat: Run Windows apps on \U0001F427 Linux with
-        ✨ seamless integration · GitHub"
-      url: https://github.com/TibixDev/winboat
-      zoom: 0.8
-- geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABckAAAAAAAAA
-    AAAABSQAAALk
-  tabs:
-  - active: true
-    history:
-    - active: true
-      last_visited: '2026-08-04T08:51:31'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Google
-      url: https://www.google.com/
-      zoom: 0.8
-- geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABckAAAAAAAAA
-    AAAABSQAAALk
-  tabs:
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:26'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Zerobyte | Backup automation for Restic
-      url: https://zerobyte.app/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:23'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: billions | Syncthing
-      url: http://localhost:8384/
-      zoom: 0.8
-  - active: true
-    history:
-    - active: true
-      last_visited: '2026-08-04T08:51:24'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: https://www.google.com/search?q=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&sca_esv=d6905c7cc2141b5b&source=hp&ei=D4ttaq2OCdPrkdUPu_aR2AU&iflsig=ABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP&aep=22&ved=0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI&cs=0&oq=xfreerdp+%2F%3F+debug+this+command+fix+xfreerdp3+%2Fu%3ADockurr+%2Fp%3Awin11+%2Fv%3A127.0.0.1%EF%BF%BC%2Fport%3A47302+%2Fcert%3Aignore+%2Bclipboard+%5C%0D%0A++++%2Fsound%3Asys%3Apulse+%2Fmicrophone%3Asys%3Apulse+%2Ffloatbar+%2Fcompression%EF%BF%BC%2Fscale-device%3A100+%2Fscale-desktop%3A108+%2Bf+%EF%BF%BC%2Fscale%3A100%0D%0A&gs_lp=Egdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ&sclient=gws-wiz&atvm=2&mstk=AUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ&csuir=1&udm=50&sg_ss=*v4Oag-fyAAYvGsMBDxp9JPQehp8NLqQEAEABEArZ1C5SquSkQy61gLtjd9JS5gTuaD4z_2ZEwiw_fP0nD0hSqeGly2G0jz0Y2xLHWWxOvMUVZ-3J7KCQ0fFhPQAAAJ1tAAAAHVcBB0EANL-4LwPPg-F-iDbarQKab3v6bVWzwwJSrZNR-83jwqzY3sg-a19PHg3E1Zs75pokvuLjGxY1ACnOZYYZgqoGkGY00ixpvsGbdIjcpZi7KN3lOU8JdJwg9_5GZjbJdRKBIKYCpdBhG_g_6sfkaaPtHQLYSOiQcsg2z9ftehsIiCWeyt4JPN6GikPYA3Ui7jRLy4nz-heD15M9Myd_6C0FsjaThR_AeTQGpW-nr3XHFnBTwfhLcNKLMVRlDq7ZHwXy3v0cqcW794bEd6gl5HgY0p5TIyy7VNNpEdHyhs7KL0tT_cQTYNUPc9kGwm0rv1E4P5-Eb9W06OL8AwQeoC6CbYKToWgbRYDxaA27rzxVU6rrXHr115mseUs9mUrHr15WwKGk7OLJeeBPZp7uJc93Vdv04vA5d6iztMmGgiN8rPuEn359v54aNys0NlRfg_pbAJXy7VRqCsWZ0Lbl40FDeVW3O3OGnVh1ElYLQV2MTFuMSROkwmd4Wn2kwemYayM2jZcaCHQ4Mj9cChm-R6ccc-ammF_llp1WaJfMFyURPStCR0ufLpGhGOjRUZrqISJ7V4qdo2RDTRosKtks2SMxlzwSvytocC95ZUk6TFm-t0wX-NW06836yYM6nUESy-H5g34Dj0S0o8kmzTAbjr0P6BD8B5PChlblduNUe5ePZ7MJ7x60S8jewjG7lKp2eZlZ6CxWDS1yD9CquO4XLZ3UBEeX0octKK8d01YM0EZS6dfnIKtbDnMFLBbuXgRI1TU1-cspyE6jo1cnwv5Idmg8015TQ6mCscNJAqhJJgKFQGJvDTXrnZhwL9Wjy11G30glqU1jIg_CijB67O3hmFFzuSDH6IAIu1LVYVJAb74UyUBlFNhdigFYaN4qS6buufurV0Zk6cMGgwtTj2jMfoGpPhCSE9iIwPMd_VxOgzLqwqwK00K9zPDP2uZZKTzM5xW9Gw1OSL5hZ5cItoVjHyrsLUwQIfXXP-eqBLlbfXaV3HPPVtzMMMqOFSsZCe77oV-O8yBrepaX_N1k&sei=9A1uarfFDfm9i-gPhZKPuQI
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dxfreerdp%2B%252F%253F%2Bdebug%2Bthis%2Bcommand%2Bfix%2Bxfreerdp3%2B%252Fu%253ADockurr%2B%252Fp%253Awin11%2B%252Fv%253A127.0.0.1%25EF%25BF%25BC%252Fport%253A47302%2B%252Fcert%253Aignore%2B%252Bclipboard%2B%255C%250D%250A%2B%2B%2B%2B%252Fsound%253Asys%253Apulse%2B%252Fmicrophone%253Asys%253Apulse%2B%252Ffloatbar%2B%252Fcompression%25EF%25BF%25BC%252Fscale-device%253A100%2B%252Fscale-desktop%253A108%2B%252Bf%2B%25EF%25BF%25BC%252Fscale%253A100%250D%250A%26sca_esv%3Dd6905c7cc2141b5b%26source%3Dhp%26ei%3DD4ttaq2OCdPrkdUPu_aR2AU%26iflsig%3DABILxe8AAAAAam2ZHyV3vPKa0wwTk4253aSAUnfy8dAP%26aep%3D22%26ved%3D0ahUKEwjt0f_43_6VAxXTdaQEHTt7BFsQteYPCBI%26cs%3D0%26oq%3Dxfreerdp%2B%252F%253F%2Bdebug%2Bthis%2Bcommand%2Bfix%2Bxfreerdp3%2B%252Fu%253ADockurr%2B%252Fp%253Awin11%2B%252Fv%253A127.0.0.1%25EF%25BF%25BC%252Fport%253A47302%2B%252Fcert%253Aignore%2B%252Bclipboard%2B%255C%250D%250A%2B%2B%2B%2B%252Fsound%253Asys%253Apulse%2B%252Fmicrophone%253Asys%253Apulse%2B%252Ffloatbar%2B%252Fcompression%25EF%25BF%25BC%252Fscale-device%253A100%2B%252Fscale-desktop%253A108%2B%252Bf%2B%25EF%25BF%25BC%252Fscale%253A100%250D%250A%26gs_lp%3DEgdnd3Mtd2l6IvABeGZyZWVyZHAgLz8gZGVidWcgdGhpcyBjb21tYW5kIGZpeCB4ZnJlZXJkcDMgL3U6RG9ja3VyciAvcDp3aW4xMSAvdjoxMjcuMC4wLjHvv7wvcG9ydDo0NzMwMiAvY2VydDppZ25vcmUgK2NsaXBib2FyZCBcCiAgICAvc291bmQ6c3lzOnB1bHNlIC9taWNyb3Bob25lOnN5czpwdWxzZSAvZmxvYXRiYXIgL2NvbXByZXNzaW9u77-8L3NjYWxlLWRldmljZToxMDAgL3NjYWxlLWRlc2t0b3A6MTA4ICtmIO-_vC9zY2FsZToxMDAKSABQAFgAcAB4AJABAJgBAKABAKoBALgBAcgBAJgCAKACAJgDAJIHAKAHALIHALgHAMIHAMgHAIAIAQ%26sclient%3Dgws-wiz%26atvm%3D2%26mstk%3DAUtExfAeNLkX-h-A28oggMd2kZr_IlvBd9MYEeWO-rLZHPfepKvIilLSN-X9ytXl6m0Jx5O6sXAVmpTDLCBNgzCib4qL-b3bbMcDMp62dUfpVip6Be6w_bxES-ivMUtCTuyYK8tlVMzyi2gZN-XNmhCzqgUF7VAXFVc0MvQ%26csuir%3D1%26udm%3D50%26sg_ss%3D*v4Oag-fyAAYvGsMBDxp9JPQehp8NLqQEAEABEArZ1C5SquSkQy61gLtjd9JS5gTuaD4z_2ZEwiw_fP0nD0hSqeGly2G0jz0Y2xLHWWxOvMUVZ-3J7KCQ0fFhPQAAAJ1tAAAAHVcBB0EANL-4LwPPg-F-iDbarQKab3v6bVWzwwJSrZNR-83jwqzY3sg-a19PHg3E1Zs75pokvuLjGxY1ACnOZYYZgqoGkGY00ixpvsGbdIjcpZi7KN3lOU8JdJwg9_5GZjbJdRKBIKYCpdBhG_g_6sfkaaPtHQLYSOiQcsg2z9ftehsIiCWeyt4JPN6GikPYA3Ui7jRLy4nz-heD15M9Myd_6C0FsjaThR_AeTQGpW-nr3XHFnBTwfhLcNKLMVRlDq7ZHwXy3v0cqcW794bEd6gl5HgY0p5TIyy7VNNpEdHyhs7KL0tT_cQTYNUPc9kGwm0rv1E4P5-Eb9W06OL8AwQeoC6CbYKToWgbRYDxaA27rzxVU6rrXHr115mseUs9mUrHr15WwKGk7OLJeeBPZp7uJc93Vdv04vA5d6iztMmGgiN8rPuEn359v54aNys0NlRfg_pbAJXy7VRqCsWZ0Lbl40FDeVW3O3OGnVh1ElYLQV2MTFuMSROkwmd4Wn2kwemYayM2jZcaCHQ4Mj9cChm-R6ccc-ammF_llp1WaJfMFyURPStCR0ufLpGhGOjRUZrqISJ7V4qdo2RDTRosKtks2SMxlzwSvytocC95ZUk6TFm-t0wX-NW06836yYM6nUESy-H5g34Dj0S0o8kmzTAbjr0P6BD8B5PChlblduNUe5ePZ7MJ7x60S8jewjG7lKp2eZlZ6CxWDS1yD9CquO4XLZ3UBEeX0octKK8d01YM0EZS6dfnIKtbDnMFLBbuXgRI1TU1-cspyE6jo1cnwv5Idmg8015TQ6mCscNJAqhJJgKFQGJvDTXrnZhwL9Wjy11G30glqU1jIg_CijB67O3hmFFzuSDH6IAIu1LVYVJAb74UyUBlFNhdigFYaN4qS6buufurV0Zk6cMGgwtTj2jMfoGpPhCSE9iIwPMd_VxOgzLqwqwK00K9zPDP2uZZKTzM5xW9Gw1OSL5hZ5cItoVjHyrsLUwQIfXXP-eqBLlbfXaV3HPPVtzMMMqOFSsZCe77oV-O8yBrepaX_N1k%26sei%3D9A1uarfFDfm9i-gPhZKPuQI&q=EgQpvoYLGPWbuNMGIjA43av5ttpmo63-usAja5jyeyo3gKvo_KbzCn85b5UOfG-2Po74GSn0K1k5BTcbwvQyAVJaAUM
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:26'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 'Windows Desktop FreeRDP shortcut? Or any application shortcut possible?
-        : r/winboat'
-      url: https://www.reddit.com/r/winboat/comments/1sl8ap6/windows_desktop_freerdp_shortcut_or_any/?solution=b9ef47fb3c0b151cb9ef47fb3c0b151c&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9eccd6db97fb3f29c81425c69531364fa11&jsc_orig_r=&solution=91aa1f0a8349d40f91aa1f0a8349d40f&js_challenge=1&token=7afd7253fec22262ff1c52b1703fe9ecec2982785d44c598c190aaf6e338e073&jsc_orig_r=
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:26'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Recovery Keys | Zerobyte Docs
-      url: https://zerobyte.app/docs/guides/recovery-key-and-repository-passwords
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:23'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: AdGuard Home
-      url: http://127.0.0.1/#
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:36'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: "GitHub - TibixDev/winboat: Run Windows apps on \U0001F427 Linux with
-        ✨ seamless integration · GitHub"
-      url: https://github.com/TibixDev/winboat
-      zoom: 0.8
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABcgAAANAAAACgwAAACQAAATyAAACqwAAAAAABAAABckAAAAAAAAA
-    AAAABcgAAANA
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAABgAAAUkAAACzAAAAAAABAAABSUAAAAAAAAA
+    AAAABSQAAALk
   tabs:
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-08-04T08:51:23'
+      last_visited: '2026-08-08T23:39:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -186,17 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-04T08:51:26'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Zerobyte | Backup automation for Restic
-      url: https://zerobyte.app/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-08-04T08:51:23'
+      last_visited: '2026-08-08T23:39:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -205,29 +25,43 @@ windows:
       url: http://localhost:8384/
       zoom: 0.8
   - history:
-    - last_visited: '2026-08-04T08:51:31'
-      original-url: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50
-      pinned: false
-      title: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50&sei=3H1xao6_D-S5hbIP3KS3-Qs
-      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3DFix%2Bthese%2Blines%2Bapps%2Blaunch%2Bbut%2Bunstable%2Bin%2Brdp%2Bcase%2B%2522%2524VAR%2522%2Bin%250D%250A%2B%2B%2B%2B%2522Excel%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BExcel%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BOffice%255C%255Croot%255C%255COffice16%255C%255CEXCEL.EXE%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%2B%2B%2B%2B%2522Power%2BBI%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BPower%2BBI%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BPower%2BBI%2BDesktop%255C%255Cbin%255C%255CPBIDesktop.exe%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%26sca_esv%3D29cd9412ce350a53%26source%3Dhp%26ei%3D05Bvauz3CZKbi-gPifhA%26iflsig%3DABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_%26aep%3D22%26ved%3D0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI%26cs%3D0%26oq%3DFix%2Bthese%2Blines%2Bapps%2Blaunch%2Bbut%2Bunstable%2Bin%2Brdp%2Bcase%2B%2522%2524VAR%2522%2Bin%250D%250A%2B%2B%2B%2B%2522Excel%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BExcel%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BOffice%255C%255Croot%255C%255COffice16%255C%255CEXCEL.EXE%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%2B%2B%2B%2B%2522Power%2BBI%2522%2529%250D%250A%2B%2B%2B%2B%2B%2B%2B%2Bxfreerdp3%2B%2522%2524%257BRDP_ARGS%255B%2540%255D%257D%2522%2B%252Ft%253A%2522Dockurr%2B-%2BPower%2BBI%2522%2B%255C%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2B%2527%252Fapp%253Aprogram%253AC%253A%255C%255CProgram%2BFiles%255C%255CMicrosoft%2BPower%2BBI%2BDesktop%255C%255Cbin%255C%255CPBIDesktop.exe%2527%250D%250A%2B%2B%2B%2B%2B%2B%2B%2B%253B%253B%250D%250A%26gs_lp%3DEgdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE%26sclient%3Dgws-wiz%26atvm%3D2%26mstk%3DAUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8%26csuir%3D1%26udm%3D50%26sei%3D3H1xao6_D-S5hbIP3KS3-Qs&q=EgRm2m8eGN77xdMGIjAJchQGj9_gkeaMHrwoPdnACufOI2J1NhW1KOEm0Px7a42PW5-tE7Uf27xmAMgKm-0yAVJaAUM
-    - last_visited: '2026-08-04T08:53:11'
-      pinned: false
-      title: Fix these lines apps launch but unstable in rdp case "$VAR" in "Excel")
-        xfreerdp3 "${RDP_ARGS[@]}" /t:"Dockurr - Excel" \ '/app:program:C:\\Program
-        Files\\Microsoft Office\\root\\Office16\\EXCEL.EXE' ;; "Power BI") xfreerdp3
-        "${RDP_ARGS[@]}" /t:"Dockurr - Power BI" \ '/app:program:C:\\Program Files\\Microsoft
-        Power BI Desktop\\bin\\PBIDesktop.exe' ;; - Google Search
-      url: https://www.google.com/search?q=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&sca_esv=29cd9412ce350a53&source=hp&ei=05Bvauz3CZKbi-gPifhA&iflsig=ABILxe8AAAAAam-e44x9OjYHf91UyMYJ0ftl_5w-QxB_&aep=22&ved=0ahUKEwisrejczYKWAxWSzQIHHQk8EAAQteYPCBI&cs=0&oq=Fix+these+lines+apps+launch+but+unstable+in+rdp+case+%22%24VAR%22+in%0D%0A++++%22Excel%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Excel%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Office%5C%5Croot%5C%5COffice16%5C%5CEXCEL.EXE%27%0D%0A++++++++%3B%3B%0D%0A++++%22Power+BI%22%29%0D%0A++++++++xfreerdp3+%22%24%7BRDP_ARGS%5B%40%5D%7D%22+%2Ft%3A%22Dockurr+-+Power+BI%22+%5C%0D%0A++++++++++++%27%2Fapp%3Aprogram%3AC%3A%5C%5CProgram+Files%5C%5CMicrosoft+Power+BI+Desktop%5C%5Cbin%5C%5CPBIDesktop.exe%27%0D%0A++++++++%3B%3B%0D%0A&gs_lp=Egdnd3Mtd2l6IqEDRml4IHRoZXNlIGxpbmVzIGFwcHMgbGF1bmNoIGJ1dCB1bnN0YWJsZSBpbiByZHAgY2FzZSAiJFZBUiIgaW4KICAgICJFeGNlbCIpCiAgICAgICAgeGZyZWVyZHAzICIke1JEUF9BUkdTW0BdfSIgL3Q6IkRvY2t1cnIgLSBFeGNlbCIgXAogICAgICAgICAgICAnL2FwcDpwcm9ncmFtOkM6XFxQcm9ncmFtIEZpbGVzXFxNaWNyb3NvZnQgT2ZmaWNlXFxyb290XFxPZmZpY2UxNlxcRVhDRUwuRVhFJwogICAgICAgIDs7CiAgICAiUG93ZXIgQkkiKQogICAgICAgIHhmcmVlcmRwMyAiJHtSRFBfQVJHU1tAXX0iIC90OiJEb2NrdXJyIC0gUG93ZXIgQkkiIFwKICAgICAgICAgICAgJy9hcHA6cHJvZ3JhbTpDOlxcUHJvZ3JhbSBGaWxlc1xcTWljcm9zb2Z0IFBvd2VyIEJJIERlc2t0b3BcXGJpblxcUEJJRGVza3RvcC5leGUnCiAgICAgICAgOzsKMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRigATIFECEYoAFIluwBUABYsd8BcA94AJABAJgBgQKgAdRZqgEHMC40MC4xObgBAcgBAPgBAfgBApgCSqACglzCAg4QABiABBiKBRixAxiDAcICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgUQABiABMICCxAuGIAEGLEDGIMBwgIOEC4YgAQYsQMYxwEY0QPCAggQLhixAxiABMICCBAAGIAEGLEDwgILEC4YsQMYgAQYigXCAhEQLhiABBixAxiDARjHARjRA8ICCxAuGIAEGMcBGK8BwgIHEAAYgAQYCsICCxAAGIAEGIoFGIYDwgIFEAAY7wXCAggQABiABBiiBMICBhAAGBYYHsICBxAhGAoYoAHCAggQABgWGB4YCsICBRAhGJ8FwgIEECEYFcICCBAAGIkFGKIEmAMAkgcIMTUuMzQuMjWgB-_HAbIHBzAuMzQuMjW4B9lbwgcKMjkuMzMuMTEuMcgHiAGACAE&sclient=gws-wiz&atvm=2&mstk=AUtExfAJ2N0E9QIeasSiMmbvIkOKi9Fr7fTqAiW3o6E4h_FpJr4XAM8ZTwMFPwdV2_v8vQ8NRQ5QMMrVeoS19hy-5G8Gw9Lsi6Cpt2dXdBG0nBjeBgzm2QumI6O_gTxHm042wgWOh6KkixyUz7YpmLJUy3fHVOStiUXkAA8&csuir=1&udm=50&sei=MX5xaoiJBYCdhbIPtcWFoAY
-    - last_visited: '2026-08-04T08:53:12'
-      pinned: false
-      title: Google
-      url: https://www.google.com/
     - active: true
-      last_visited: '2026-08-04T08:53:59'
+      last_visited: '2026-08-08T23:39:50'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: polybar change tray icon size - Google Search
-      url: https://www.google.com/search?q=polybar+change+tray+icon+size+&sca_esv=6200a6f684f90d8a&source=hp&ei=RH5xasDnHJjWhbIPhOm08Qo&iflsig=ABILxe8AAAAAanGMVEeQnm8V9qvuc4SdkX0BQ5L6xdaZ&ved=0ahUKEwjAmcGnpIaWAxUYa0EAHYQ0La4Q4dUDCBw&uact=5&oq=polybar+change+tray+icon+size+&gs_lp=Egdnd3Mtd2l6Ih5wb2x5YmFyIGNoYW5nZSB0cmF5IGljb24gc2l6ZSAyBRAhGKABMgUQIRigATIFECEYoAEyBRAhGKABMgUQIRifBUjOmQFQ7wFY14YBcAl4AJABAJgB7AKgAbtRqgEHMi0yMC4xNbgBA8gBAPgBAZgCLKAClVOoAgrCAgoQABgDGI8BGOoCwgIKEC4YAxiPARjqAsICCxAAGIAEGLEDGIMBwgIREC4YgAQYsQMYgwEYxwEY0QPCAggQABiABBixA8ICDhAuGIAEGIoFGLEDGIMBwgILEC4YgAQYsQMYgwHCAg4QABiABBiKBRixAxiDAcICDhAuGIAEGLEDGMcBGNEDwgIIEC4YgAQYsQPCAgUQABiABMICBRAuGIAEwgILEC4YgAQYigUYsQPCAgQQABgDwgIIEC4YsQMYgATCAgcQABiABBgKwgIIEAAYgAQYogTCAgYQABgWGB7CAgUQABjvBcICCxAAGIAEGIoFGIYDwgIEECEYFcICBxAhGAoYoAGYAw7xBUdtlALppnEUkgcJOS4wLjIwLjE1oAfzvQGyBwcyLTIwLjE1uAffUsIHCTMuMjUuMTQuMsgHhwGACAE&sclient=gws-wiz
+      title: https://www.google.com/search?q=visidata+days+difference+between+date+cell+and+value+directly+above+add+new+column&sca_esv=a5c034f0c31fd439&source=hp&ei=hqJ2ar6MAqvUkdUP6cCMKA&iflsig=ABILxe8AAAAAanawlrYKPuZYGC1H67Trpx5fIgFYPiVK&aep=22&ved=0ahUKEwi-56bLi5CWAxUraqQEHWkgAwUQteYPCBI&cs=0&oq=visidata+days+difference+between+date+cell+and+value+directly+above+add+new+column&gs_lp=Egdnd3Mtd2l6IlJ2aXNpZGF0YSBkYXlzIGRpZmZlcmVuY2UgYmV0d2VlbiBkYXRlIGNlbGwgYW5kIHZhbHVlIGRpcmVjdGx5IGFib3ZlIGFkZCBuZXcgY29sdW1uSLPBA1AAWPi2A3AReACQAQCYAakCoAGIiAGqAQcwLjg1LjEzuAEByAEA-AEBmAJXoALOa6gCCsICDhAuGIAEGIoFGLEDGIMBwgIIEC4YgAQYsQPCAggQABiABBixA8ICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgoQABgDGI8BGOoCwgIKEC4YAxiPARjqAsICCxAuGIMBGLEDGIAEwgILEC4YgAQYigUYsQPCAgsQABiABBiKBRixA8ICDhAAGIAEGIoFGLEDGIMBwgIFEAAYgATCAg4QLhjHARixAxjRAxiABMICCRAAGIAEGAoYC8ICDBAAGIAEGAoYCxjJA8ICCRAuGIAEGAoYC8ICCxAAGIAEGIoFGJIDwgIHEAAYgAQYCsICBhAAGBYYHsICBRAhGKABwgIHECEYChigAcICBhAhGA0YFcICBBAhGBXCAgQQIRgKmAMP8QWaNvjQ29LVJZIHCjEzLjU3LjE2LjGgB4KVArIHCTAuNTcuMTYuMbgHoGvCBws0MC40MS4zLjIuMcgHkwGACAE&sclient=gws-wiz&mstk=AUtExfDgMBfAHVcnC3uIq_hxbR7IY965p1K33f1wjqh2l0GHBWFRe5xrjHbhQc4X9It5IxXhH1_uCOxiUM5thwT7_5pinQzcO6yRrEqlhMQAS6Cd-WItuo-DUZn2Q5E6ap3MFbWrp5JhSx6U2DEval8ASIOWyN7bNjewqkA&csuir=1&atvm=2&udm=50&sg_ss=*zvKa8pbyAAaE2JYbpNh9UxhIx0h6l1AEAEABEArZ1ByGrjDpYplo7pzYczW1QhubVOLt1ErhUt6wu41UmBMjiZwwnE23vwSQAv2HGMQgATOsHPUuwlx0Xu9LPQAAAIRtAAAALlcBB0EANDNiwmse98GFdJaLGEd2i0jLgWgdBoJfkoT5sIvDYrU7mWLNP_asQdjLCaTx4z3AJ3Zk9NymAo6VcXNLJwF8eForZ_2Bdsd82UAsk8O6lPHfL1yMlIEYzBJapqfjErITG3zIvBgdbX0pCZ0vhhV1ho5CoQPqCBa2OuqZrSWNlPYEojVpJQSzIbLjN7DYZyfaB222_juZXDFhMuoFDH4Az79Gi8Qunxeb9iZGBwsDsWJRLD8Qbw523F3ovsZHRfeZQ6YMl5BhFEYhOKjzrDwUdw4eQBsF3pPDVxQ8tcIVIcc9oa7csO0tigNRW0I7HCYxnUxbD1aLhUvRmp68g9DQcdW8dw3Ezqth_XTQllmKHgUCdxgLbxsAIfO5xActdOCNN8l6_rzBiIAMTYlehH7aPcIj5zZ5xO7wOkzSXKlt_45TQ2O3wSDC9hV_qyb8i5-6qbPy2z7y39biWOnxU-lqBmhAVr3JkR8RxGZPBoB4lxpTOcKQemHkA6tl-n_9VcpAi2UPlBOikbOejmjMtkZXzNHghzeLwuE9hokApEwoKJobNbwc25uoG9y4c8djJb_ExJm51MEdQWhsEeRVOkXYnyCX9-3DdaDI2Sm-RNYyPNotmyqxJobRzNkpimKkL0CKMxItOyFUqbFJcGWY-__eFbTB_FdhRsk8rlSn0NPWiX8HJOug0oeYcEexcWd2p_TOdXvWAUtl6qij-rCdor7JKDV-Ftv28VSh3EKp1FEcDATyFFjahYJfD0UvMnXdChDmRFohTuXVJAZpzTCCep9ebRSI3tnPjScQ3HWvsbq7uANCpbFf00bk7mFia_PteA69hGnm-H_A-HbH_r5v0YTmhQ5Os8awKU3fb-2jF9L1b7UClKE_ZeCDYyUiuUYsm7vYU_aamgdirAwviecyZCn3n8K-MUs8e5lMOjEoVl9qh44gUiBRLbo&sei=nk53atKJIoigi-gP0I23wA8
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dvisidata%2Bdays%2Bdifference%2Bbetween%2Bdate%2Bcell%2Band%2Bvalue%2Bdirectly%2Babove%2Badd%2Bnew%2Bcolumn%26sca_esv%3Da5c034f0c31fd439%26source%3Dhp%26ei%3DhqJ2ar6MAqvUkdUP6cCMKA%26iflsig%3DABILxe8AAAAAanawlrYKPuZYGC1H67Trpx5fIgFYPiVK%26aep%3D22%26ved%3D0ahUKEwi-56bLi5CWAxUraqQEHWkgAwUQteYPCBI%26cs%3D0%26oq%3Dvisidata%2Bdays%2Bdifference%2Bbetween%2Bdate%2Bcell%2Band%2Bvalue%2Bdirectly%2Babove%2Badd%2Bnew%2Bcolumn%26gs_lp%3DEgdnd3Mtd2l6IlJ2aXNpZGF0YSBkYXlzIGRpZmZlcmVuY2UgYmV0d2VlbiBkYXRlIGNlbGwgYW5kIHZhbHVlIGRpcmVjdGx5IGFib3ZlIGFkZCBuZXcgY29sdW1uSLPBA1AAWPi2A3AReACQAQCYAakCoAGIiAGqAQcwLjg1LjEzuAEByAEA-AEBmAJXoALOa6gCCsICDhAuGIAEGIoFGLEDGIMBwgIIEC4YgAQYsQPCAggQABiABBixA8ICCxAAGIAEGLEDGIMBwgIFEC4YgATCAgoQABgDGI8BGOoCwgIKEC4YAxiPARjqAsICCxAuGIMBGLEDGIAEwgILEC4YgAQYigUYsQPCAgsQABiABBiKBRixA8ICDhAAGIAEGIoFGLEDGIMBwgIFEAAYgATCAg4QLhjHARixAxjRAxiABMICCRAAGIAEGAoYC8ICDBAAGIAEGAoYCxjJA8ICCRAuGIAEGAoYC8ICCxAAGIAEGIoFGJIDwgIHEAAYgAQYCsICBhAAGBYYHsICBRAhGKABwgIHECEYChigAcICBhAhGA0YFcICBBAhGBXCAgQQIRgKmAMP8QWaNvjQ29LVJZIHCjEzLjU3LjE2LjGgB4KVArIHCTAuNTcuMTYuMbgHoGvCBws0MC40MS4zLjIuMcgHkwGACAE%26sclient%3Dgws-wiz%26mstk%3DAUtExfDgMBfAHVcnC3uIq_hxbR7IY965p1K33f1wjqh2l0GHBWFRe5xrjHbhQc4X9It5IxXhH1_uCOxiUM5thwT7_5pinQzcO6yRrEqlhMQAS6Cd-WItuo-DUZn2Q5E6ap3MFbWrp5JhSx6U2DEval8ASIOWyN7bNjewqkA%26csuir%3D1%26atvm%3D2%26udm%3D50%26sg_ss%3D*zvKa8pbyAAaE2JYbpNh9UxhIx0h6l1AEAEABEArZ1ByGrjDpYplo7pzYczW1QhubVOLt1ErhUt6wu41UmBMjiZwwnE23vwSQAv2HGMQgATOsHPUuwlx0Xu9LPQAAAIRtAAAALlcBB0EANDNiwmse98GFdJaLGEd2i0jLgWgdBoJfkoT5sIvDYrU7mWLNP_asQdjLCaTx4z3AJ3Zk9NymAo6VcXNLJwF8eForZ_2Bdsd82UAsk8O6lPHfL1yMlIEYzBJapqfjErITG3zIvBgdbX0pCZ0vhhV1ho5CoQPqCBa2OuqZrSWNlPYEojVpJQSzIbLjN7DYZyfaB222_juZXDFhMuoFDH4Az79Gi8Qunxeb9iZGBwsDsWJRLD8Qbw523F3ovsZHRfeZQ6YMl5BhFEYhOKjzrDwUdw4eQBsF3pPDVxQ8tcIVIcc9oa7csO0tigNRW0I7HCYxnUxbD1aLhUvRmp68g9DQcdW8dw3Ezqth_XTQllmKHgUCdxgLbxsAIfO5xActdOCNN8l6_rzBiIAMTYlehH7aPcIj5zZ5xO7wOkzSXKlt_45TQ2O3wSDC9hV_qyb8i5-6qbPy2z7y39biWOnxU-lqBmhAVr3JkR8RxGZPBoB4lxpTOcKQemHkA6tl-n_9VcpAi2UPlBOikbOejmjMtkZXzNHghzeLwuE9hokApEwoKJobNbwc25uoG9y4c8djJb_ExJm51MEdQWhsEeRVOkXYnyCX9-3DdaDI2Sm-RNYyPNotmyqxJobRzNkpimKkL0CKMxItOyFUqbFJcGWY-__eFbTB_FdhRsk8rlSn0NPWiX8HJOug0oeYcEexcWd2p_TOdXvWAUtl6qij-rCdor7JKDV-Ftv28VSh3EKp1FEcDATyFFjahYJfD0UvMnXdChDmRFohTuXVJAZpzTCCep9ebRSI3tnPjScQ3HWvsbq7uANCpbFf00bk7mFia_PteA69hGnm-H_A-HbH_r5v0YTmhQ5Os8awKU3fb-2jF9L1b7UClKE_ZeCDYyUiuUYsm7vYU_aamgdirAwviecyZCn3n8K-MUs8e5lMOjEoVl9qh44gUiBRLbo%26sei%3Dnk53atKJIoigi-gP0I23wA8&q=EgQpvoYLGJ-d3dMGIjAC6yxt_wwmoNIcCsR_WURATE85yLE7417a3DqymAFt7iyZuscGI30-nxJbcyKkbiAyAVJaAUM
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-08T23:39:50'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Excel, Power Query & Access Consultants | Excel and Access
+      url: https://www.excelandaccess.com/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-08-08T23:39:50'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: BCTI - YouTube
+      url: https://www.youtube.com/@bcti-bcti/videos
+      zoom: 0.8
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-08-08T23:39:50'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: portfolio - The New Excel
+      url: https://thenewexcel.com/portfolio/
       zoom: 0.8
