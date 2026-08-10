@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-			[[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata (sqlit, rbql, calcpy)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata (sqlit, rbql, calcpy)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -33,24 +33,25 @@ while true; do
 
         toilet Installing visidata -t --filter metal -f smmono12
 
-				sudo apt install -y python3-lxml python3-pandas python3-h5py python3-yaml python3-requests python3-tz python3-virtualenv python3-genshi python-lxml-doc img2pdf datamash pdftk visidata
+        sudo apt install -y python3-lxml python3-pandas python3-h5py python3-yaml python3-requests python3-tz python3-virtualenv python3-genshi python-lxml-doc img2pdf datamash pdftk
 
         # packages
         /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
             datapackage pypng pdfminer.six ptpython pytz PyYAML lxml \
             xlrd openpyxl pyxlsb h5py pyreadstat requests IPython \
-            virtualenv tomli tabulate odfpy rbql
+            virtualenv tomli tabulate odfpy rbql dedupe
 
         # pipx
-        /home/linuxbrew/.linuxbrew/bin/pipx install posting sqlit-tui
+        /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting sqlit-tui
+        sudo ln -sf ~/.local/share/pipx/venvs/visidata/bin/vd /usr/bin/vd
 
         toilet Settingup zathura -t -f future
 
         # zathura
         sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pandoc pdf-presenter-console
 
-        mkdir -p ~/.visidata ~/.config/zathura
-        cp -f "$APP_PATH"/dotvisidata/* ~/.visidata
+        mkdir -p ~/.config/{visidata,zathura}
+        # cp -f "$APP_PATH"/visidata/* ~/.config/visidata
         pv "$APP_PATH"/visidatarc >~/.visidatarc
 
         toilet Settingup calcpy -t -f future
@@ -62,7 +63,8 @@ while true; do
         /home/linuxbrew/.linuxbrew/bin/pipx install git+https://github.com/idanpa/calcpy
 
         break
-    elif [[ $response =~ ^(n|N)=$ ]]; then break
+    elif [[ $response =~ ^(n|N)=$ ]]; then
+        break
     else
         echo " What? \"$resp\" is not a correct answer. Try y+Enter."
     fi
