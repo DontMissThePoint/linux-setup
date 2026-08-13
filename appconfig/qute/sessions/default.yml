@@ -1,22 +1,22 @@
 windows:
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAABgAAAUkAAACzAAAAAAABAAABSUAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAABQAAAUkAAAC+AAAAAAABAAABSUAAAAAAAAA
     AAAABSQAAALk
   tabs:
   - history:
     - active: true
-      last_visited: '2026-08-08T23:39:49'
+      last_visited: '2026-08-13T09:11:21'
       pinned: false
       scroll-pos:
         x: 0
-        y: 0
+        y: 729
       title: AdGuard Home
       url: http://127.0.0.1/#
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-08T23:39:49'
+      last_visited: '2026-08-13T09:11:21'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,7 +26,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-08T23:39:50'
+      last_visited: '2026-08-13T09:11:22'
       pinned: false
       scroll-pos:
         x: 0
@@ -36,7 +36,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-08T23:39:50'
+      last_visited: '2026-08-13T09:11:22'
       pinned: false
       scroll-pos:
         x: 0
@@ -46,7 +46,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-08T23:39:50'
+      last_visited: '2026-08-13T09:11:22'
       pinned: false
       scroll-pos:
         x: 0
@@ -54,14 +54,32 @@ windows:
       title: BCTI - YouTube
       url: https://www.youtube.com/@bcti-bcti/videos
       zoom: 0.8
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-08-08T23:39:50'
+      last_visited: '2026-08-13T09:11:24'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: portfolio - The New Excel
       url: https://thenewexcel.com/portfolio/
+      zoom: 0.8
+  - active: true
+    history:
+    - last_visited: '2026-08-13T09:12:03'
+      pinned: false
+      title: Google
+      url: https://www.google.com/
+    - last_visited: '2026-08-13T09:13:48'
+      pinned: false
+      title: https://www.google.com/search?q=peltiertech%20revenue%20chart%20showing%20year%20over%20year%20variance&sei=U2B9av2aCpSdhbIPnP68sAo
+      url: https://www.google.com/sorry/index?continue=https://www.google.com/search%3Fq%3Dpeltiertech%2520revenue%2520chart%2520showing%2520year%2520over%2520year%2520variance%26sei%3DU2B9av2aCpSdhbIPnP68sAo&q=EgTE-kVsGNPA9dMGIjANZt41xtF2FyVFtG5Tea4ZjNOvrSFhEJFjVnuGLnXwEqvMhFiBzi-xVfUOf0mirQ8yAVJaAUM
+    - active: true
+      last_visited: '2026-08-13T09:15:42'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 1346
+      title: Revenue Chart Showing Year-Over-Year Variances - Peltier Tech
+      url: https://peltiertech.com/revenue-chart-showing-year-over-year-variances/
       zoom: 0.8

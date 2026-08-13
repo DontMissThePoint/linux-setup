@@ -39,7 +39,7 @@ while true; do
         /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
             datapackage pypng pdfminer.six ptpython pytz PyYAML lxml \
             xlrd openpyxl pyxlsb h5py pyreadstat requests IPython \
-            virtualenv tomli tabulate odfpy rbql dedupe
+            virtualenv tomli tabulate odfpy rbql
 
         # pipx
         /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting sqlit-tui
