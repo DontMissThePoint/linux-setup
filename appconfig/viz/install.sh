@@ -35,15 +35,15 @@ while true; do
 
         sudo apt install -y python3-lxml python3-pandas python3-h5py python3-yaml python3-requests python3-tz python3-virtualenv python3-genshi python-lxml-doc img2pdf datamash pdftk
 
-        # packages
-        /usr/bin/python3 -m pip install --user --break-system-packages -U rich-cli \
-            datapackage pypng pdfminer.six ptpython pytz PyYAML lxml \
-            xlrd openpyxl pyxlsb h5py pyreadstat requests IPython \
-            virtualenv tomli tabulate odfpy rbql
-
         # pipx
         /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting sqlit-tui
         sudo ln -sf ~/.local/share/pipx/venvs/visidata/bin/vd /usr/bin/vd
+
+        # packages
+        /home/linuxbrew/.linuxbrew/bin/pipx inject visidata \
+            rich-cli datapackage pypng pdfminer.six ptpython pytz PyYAML lxml \
+            xlrd openpyxl pyxlsb h5py pyreadstat requests IPython \
+            virtualenv tomli tabulate odfpy rbql
 
         toilet Settingup zathura -t -f future
 
