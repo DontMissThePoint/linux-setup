@@ -5,5 +5,5 @@
 EARLYOOM_ARGS="-n \
   -m 5 \
   -r 3600 \
-  --avoid '(^|/)(init|systemd|dockerd|Xorg|i3|picom|ssh|adb|mpv|vim|xfreerdp|scrcpy)$' \
-  --prefer '(^|/)(qutebrowser|librewolf)$'"
+  --avoid '(^|/)(init|systemd|dockerd|Xorg|i3|picom|adb|scrcpy|xfreerdp|mpv|vim|ssh)$' \
+  --prefer '(^|/)(qutebrowser|timeshift)$'"

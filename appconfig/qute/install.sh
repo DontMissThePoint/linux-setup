@@ -90,7 +90,7 @@ while true; do
         # modules
         npm config set strict-ssl=false
         npm install --loglevel=error -g @mozilla/readability bash-language-server \
-            jsonrepair terminal-image-cli qutejs
+            jsonrepair terminal-image-cli qutejs libgen-downloader
         pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
         toilet Setting up qt6ct -t -f future

@@ -18,6 +18,7 @@ services:
       - /var/lib/zerobyte:/var/lib/zerobyte
       - ~/linux-setup/:/linux-setup
       - ~/Nextcloud/Documents/netis-fleet/WinAutomation/:/WinAutomation
+      - ~/Documents/Scorecard/:/Scorecard
       - ~/Public/Notes/:/Notes
       - ~/Public/Journal/:/Journal
       - ~/.config/rclone:/root/.config/rclone:ro
