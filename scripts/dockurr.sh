@@ -12,10 +12,9 @@ RDP_PORT=$(docker inspect --format='{{(index (index .NetworkSettings.Ports "3389
 
 # display
 until
-xfreerdp3 /u:Dockurr /p:win11 /v:127.0.0.1 /port:"$RDP_PORT" /cert:ignore /clipboard /sound:sys:pulse /microphone:sys:pulse \
-    /floatbar:sticky:off /compression /scale:140 /scale-desktop:112 /wm-class:xfreerdp /gdi:hw /f \
-    -grab-keyboard +auto-reconnect +async-channels +async-update /t:"Dockurr - Windows 11"
-
+xfreerdp3 /u:Dockurr /p:win11 /v:127.0.0.1 /port:"$RDP_PORT" /cert:ignore /clipboard /scale:140 /scale-desktop:120 \
+    /sound:sys:pulse /microphone:sys:pulse /floatbar:sticky:off /compression /gdi:hw /f \
+    -grab-keyboard -grab-mouse +auto-reconnect +async-channels +async-update /t:"Dockurr - Windows 11"
 do
 
     sleep 1

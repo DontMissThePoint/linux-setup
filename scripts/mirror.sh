@@ -27,8 +27,10 @@ else
     # orientation
     adb shell settings put system accelerometer_rotation 0 #disable auto-rotate
     adb shell settings put system user_rotation 3          # 270° clockwise
-    scrcpy --video-codec=h264 --video-encoder=OMX.google.h264.encoder \
+    scrcpy --new-display=1920x1080/160 --start-app=com.whatsapp.w4b \
+        --disable-screensaver --turn-screen-off \
         --stay-awake --ignore-video-encoder-constraints
+
 fi
 
 # close

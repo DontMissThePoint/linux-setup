@@ -128,7 +128,8 @@ au BufNewFile,BufRead *.tsv set filetype=tsv
 au BufNewFile,BufRead *.dat set filetype=ledger
 
 " autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
-autocmd FileType ledger,tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+" autocmd FileType ledger,tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
+autocmd FileType ledger silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
 " cursors
 let g:togglecursor_force = 'xterm'
@@ -396,12 +397,12 @@ autocmd FileType tsv,sh call DataViz()
 function DataViz()
 
   silent! Goyo!
-  set background=light
+  set background=dark
 
-  let g:airline_theme='papercolor'
+  "let g:airline_theme='papercolor'
   let g:github_colors_soft = 0
   colo github
-	hi SpecialKey guifg=#ff69b4 gui=NONE
+	"hi SpecialKey guifg=#ff69b4 gui=NONE
 	hi LineNr guifg=#ff69b4 gui=NONE
 
 	windo set scrollbind

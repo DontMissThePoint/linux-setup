@@ -4,16 +4,6 @@ from visidata import TableSheet, options
 #  │                         Plugins                          │
 #  ╰──────────────────────────────────────────────────────────╯
 
-import dedupe
-import vpager
-import normcol
-import parent_navigation
-import vdrepl
-import vds3
-import vd_toml
-
-options.vds3_glob            =  False                  # disable glob matching for S3 paths
-
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        WorkBook                          │
@@ -54,7 +44,7 @@ options.disp_pending         =  '{PENDING}'          # string to display in pend
 options.disp_date_fmt        =  '%m/%d/%Y'           # default fmtstr to strftime for date values
 options.disp_status_fmt      =  '({sheet.cursorRowIndex},{sheet.cursorColIndex}) {sheet.name}'         # Add current position to status bar
 
-options.disp_menu            =  False                 # menu Ctrl+H, zCtrtl+H, gCtrl+H
+options.disp_menu            =  True                 # menu Ctrl+H, zCtrtl+H, gCtrl+H
 options.scroll_incr          =  -3                   # steps to scroll
 options.disp_scroll_context  =  5                    # lines to scroll
 options.numeric_binning      =  True
@@ -64,7 +54,6 @@ options.disp_float_fmt       =  '{:.02f}'             # format for float values
 options.disp_int_fmt         =  '{:d}'                # format for integer values
 options.disp_replay_play     =  '▶'                  # status indicator for active replay
 options.disp_histogram       =  '*'                  # histogram element character
-options.disp_pixel_random    =  False                # randomly choose attr from set of pixels instead of most common
 options.value_joiner         =  "|"
 
 # Mouse
@@ -78,10 +67,10 @@ options.scroll_incr          =  -3                    # enable scroll wheel
 
 options.color_default        =  '96 plum4'         # the default color
 options.color_default_hdr    =  '116 reverse bold underline'     # color of the column headers
-options.color_menu           =  '235 on 72'          # color of the menu
-options.color_menu_help      =  '117'
-options.color_menu_spec      =  'yellow underline'   # color of the help
-options.color_menu_active    =  'reverse underline'            # color of the menu selected
+options.color_menu           =  'black on 68 blue'          # color of the menu
+options.color_menu_help      =  'black italic on 68 blue'
+options.color_menu_spec      =  'black on 34 green'   # color of the help
+options.color_menu_active    =  '223 yellow on black'            # color of the menu selected
 options.color_current_row    =  '215 yellow'      # color of the cursor row
 options.color_current_col    =  '44 darkturquoise'   # color of the cursor column
 options.color_current_hdr    =  'bold italic'  # color of the header for the cursor column
@@ -100,7 +89,9 @@ options.color_match          =  '222 italic'           # color for matches found
 options.color_code           =  'normal'
 options.color_error          =  'red'                # error message color
 options.color_warning        =  '231 on black'             # warning message color
-options.color_edit_cell      =  'normal'             # cell color to use when editing cell
+options.color_edit_cell      =  '233 on 110'             # cell color to use when editing cell
+options.color_edit_unfocused =  '233 on 110'             #
+options.color_sidebar       =  'black on 114 blue'             #
 options.color_note_pending   =  'bold magenta'       # color of note in pending cells
 options.color_note_type      =  '226 yellow'         # cell note for numeric types in anytype columns
 options.color_change_pending =  'bold reverse'       # color for file attributes pending modification
@@ -141,12 +132,12 @@ Sheet.bindkey('Ins', 'split-col')
 # Ctrl+^
 
 # Repeat
-Sheet.unbindkey('.')
-Sheet.bindkey('.', 'repeat-input')
-Sheet.bindkey('z.', 'repeat-last')
+TableSheet.unbindkey('.')
+TableSheet.bindkey('.', 'repeat-input')
+TableSheet.bindkey('z.', 'repeat-last')
 
 # clipboard
-bindkey('Ctrl+V', 'syspaste-cells')
+TableSheet.bindkey('Ctrl+V', 'syspaste-cells')
 
 # Cursor
 globalCommand('gm', 'mm, _ = curses.mousemask(-1); status("mouse "+("ON" if mm else "OFF"))', 'enable mouse events')
