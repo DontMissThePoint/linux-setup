@@ -1,4 +1,4 @@
-from visidata import TableSheet, options
+from visidata import TableSheet, ColumnColorizer, SheetsSheet, options
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                         Plugins                          │
@@ -131,6 +131,19 @@ TableSheet.bindkey('Ctrl+V', 'syspaste-cells')
 # Insert mode
 TableSheet.unbindkey("i")
 TableSheet.bindkey("i", "edit-cell")
+
+# colorizer
+TableSheet.colorizers.append(
+    ColumnColorizer(
+        100,
+        None,
+        lambda s, c, r, v: (
+            str(s.columns.index(c) + 1)
+            if s and c and s.__class__.__name__ not in ('SheetsSheet', 'GuideSheet', 'GuideIndex')
+            else None
+        )
+    )
+)
 
 # Scroll
 Sheet.addCommand(None, 'scroll-top', 'sheet.topRowIndex = cursorRowIndex', 'scroll current row to top of screen')

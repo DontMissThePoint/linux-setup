@@ -1,22 +1,23 @@
 windows:
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABcgAAANAAAAAAAAAABQAAAXIAAADVAAAAAEABAAABckAAAAAAAAA
-    AAAABcgAAANA
+    AdnQywADAAAAAAKVAAAAJAAABRgAAALAAAAClgAAACUAAAUXAAACvwAAAAAAAAAABSUAAAKWAAAA
+    JQAABRcAAAK/
   tabs:
-  - history:
+  - active: true
+    history:
     - active: true
-      last_visited: '2026-08-18T08:42:59'
+      last_visited: '2026-09-10T19:57:23'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: AdGuard Home
-      url: http://127.0.0.1/#
+      url: http://127.0.0.1/
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-08-18T08:42:59'
+      last_visited: '2026-09-10T19:57:23'
       pinned: false
       scroll-pos:
         x: 0
@@ -24,10 +25,9 @@ windows:
       title: billions | Syncthing
       url: http://localhost:8384/
       zoom: 0.8
-  - history: []
   - history:
     - active: true
-      last_visited: '2026-08-18T08:43:00'
+      last_visited: '2026-09-10T19:57:25'
       pinned: false
       scroll-pos:
         x: 0
@@ -35,14 +35,23 @@ windows:
       title: BCTI - YouTube
       url: https://www.youtube.com/@bcti-bcti/videos
       zoom: 0.8
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-08-18T08:43:00'
+      last_visited: '2026-09-10T19:57:24'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: portfolio - The New Excel
       url: https://thenewexcel.com/portfolio/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-09-10T19:57:24'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Reading and Updating an Excel Database - The New Excel
+      url: https://thenewexcel.com/reading-and-updating-an-excel-database/
       zoom: 0.8
