@@ -132,6 +132,7 @@ while true; do
 
 		# apk
 		# adb -s 127.0.0.1:5552 install "jp.naver.line.android.apk"
+		# adb push IMG_20260716_201848_964@-1106920399.jpg /storage/emulated/0/Download
 
 		# xapk
 		# Rename your .xapk file to .zip.

@@ -71,7 +71,7 @@ while true; do
         sudo /home/linuxbrew/.linuxbrew/bin/zig build installexe -Dinit_system=systemd
 
         # session
-        sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
+        sudo cp -f "$APP_PATH"/ly/config.ini /etc/ly/config.ini
 
         # autologin
         sudo sed -i "s/\(auto_login_user\) = null/\1 = $USER/" /etc/ly/config.ini
