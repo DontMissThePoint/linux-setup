@@ -108,6 +108,7 @@ while true; do
             sudo apt update
         fi
         sudo apt install -y smplayer smplayer-themes smplayer-skins
+        pv "$APP_PATH/smplayer.ini" >~/.config/smplayer/smplayer.ini
 
         # mpv
         toilet Settingup mpv -t -f future

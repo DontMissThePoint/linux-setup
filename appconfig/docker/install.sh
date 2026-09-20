@@ -54,7 +54,7 @@ while true; do
 		fi
 
 		# docker
-		sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+		sudo apt-get install -y zipalign docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 		sudo usermod -aG docker "$USER"
 
 		# groups
@@ -189,8 +189,8 @@ while true; do
 
 		# Dockurr
 		toilet Settingup dockurr -t -f future
-		# focus cell: #87ff87 #0088cc
-		# lithium ebook: bg #384F45 fg #B9EDCD
+		# focus cell: #87ff87
+		# lithium ebook: bg #384F45 fg #B9EDCD link #0088cc
 
 		# docker compose stop
 		# sudo docker compose up -d --force-recreate --build
