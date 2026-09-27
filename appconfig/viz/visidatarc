@@ -138,7 +138,8 @@ TableSheet.colorizers.append(
         100,
         None,
         lambda s, c, r, v: (
-            str(s.columns.index(c) + 1)
+            # rainbow  6=cyan, 5=magenta, 4=blue, 3=yellow, 2=green (skips 1=red)
+            str(6 - ((s.columns.index(c)) % 5))
             if s and c and s.__class__.__name__ not in ('SheetsSheet', 'GuideSheet', 'GuideIndex')
             else None
         )

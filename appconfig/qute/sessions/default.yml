@@ -7,7 +7,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-09-18T15:04:02'
+      last_visited: '2026-09-23T19:39:03'
       pinned: false
       scroll-pos:
         x: 0
@@ -17,7 +17,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-09-18T15:04:02'
+      last_visited: '2026-09-23T19:39:03'
       pinned: false
       scroll-pos:
         x: 0
@@ -27,7 +27,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-09-18T15:04:05'
+      last_visited: '2026-09-23T19:41:44'
       pinned: false
       scroll-pos:
         x: 0
@@ -35,3 +35,7 @@ windows:
       title: Reading & Updating Data in an Excel Database | The New Excel
       url: https://thenewexcel.com/reading-and-updating-an-excel-database/
       zoom: 0.8
+    - last_visited: '2026-09-23T19:41:38'
+      pinned: false
+      title: It's Not Just Excel. It's Your Excel. | The New Excel
+      url: https://thenewexcel.com/
