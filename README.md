@@ -1,5 +1,6 @@
 # Linux environment
 
+|              |       |                                                                                                                                                                                   |
 |--------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | 24.04 Docker | AMD64 | [![Noble](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml) |
 | 24.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml) |
