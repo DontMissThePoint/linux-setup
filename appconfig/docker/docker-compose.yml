@@ -1,0 +1,37 @@
+name: winboat
+volumes:
+  data:
+services:
+  windows:
+    image: ghcr.io/dockur/windows:6.05
+    container_name: WinBoat
+    environment:
+      VERSION: "tiny11"
+      RAM_SIZE: 4G
+      CPU_CORES: "10"
+      DISK_SIZE: 96G
+      USERNAME: Dockurr
+      PASSWORD: win11
+      HOME: ${HOME}
+      LANGUAGE: English
+      USER_PORTS: "7148"
+      HOST_PORTS: "7149"
+      ARGUMENTS: -qmp tcp:0.0.0.0:7149,server,wait=off
+    cap_add:
+      - NET_ADMIN
+    privileged: true
+    ports:
+      - 127.0.0.1:47270-47279:8006
+      - 127.0.0.1:47280-47289:7148
+      - 127.0.0.1:47290-47299:7149
+      - 127.0.0.1:47300-47309:3389/tcp
+      - 127.0.0.1:47310-47319:3389/udp
+    stop_grace_period: 120s
+    restart: on-failure
+    volumes:
+      - ~/VirtualMachines/Windows-Boat/winboat:/storage
+      - ${HOME}:/shared
+      - /dev/bus/usb:/dev/bus/usb
+      - ./oem:/oem
+    devices:
+      - /dev/kvm

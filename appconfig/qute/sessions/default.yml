@@ -1,4 +1,19 @@
 windows:
+- geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
+    AAAABSQAAALk
+  tabs:
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-09-30T16:07:29'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Google
+      url: https://www.google.com/
+      zoom: 0.8
 - active: true
   geometry: !!binary |
     AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAClgAAACUAAAUXAAACvwAAAAAABAAABSUAAAAAAAAA
@@ -7,17 +22,17 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-09-23T19:39:03'
+      last_visited: '2026-09-30T16:07:28'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: AdGuard Home
-      url: http://127.0.0.1/
+      url: http://127.0.0.1/#
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-09-23T19:39:03'
+      last_visited: '2026-09-30T16:07:29'
       pinned: false
       scroll-pos:
         x: 0
@@ -27,7 +42,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-09-23T19:41:44'
+      last_visited: '2026-09-30T16:07:30'
       pinned: false
       scroll-pos:
         x: 0
@@ -35,7 +50,14 @@ windows:
       title: Reading & Updating Data in an Excel Database | The New Excel
       url: https://thenewexcel.com/reading-and-updating-an-excel-database/
       zoom: 0.8
-    - last_visited: '2026-09-23T19:41:38'
+  - history:
+    - active: true
+      last_visited: '2026-09-30T16:07:30'
       pinned: false
-      title: It's Not Just Excel. It's Your Excel. | The New Excel
-      url: https://thenewexcel.com/
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'Your Job Search in Uganda Ends Here at JobAdverts.UG - Jobs in Uganda:
+        JobAdverts.UG'
+      url: https://jobadverts.ug/
+      zoom: 0.8

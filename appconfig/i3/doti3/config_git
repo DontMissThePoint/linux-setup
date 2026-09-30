@@ -428,7 +428,8 @@ set_from_resource $term_color15 color15
 
 # set $inactive_background      #d5d6db
 # set $active_background        #a9b1d6
-# set $active_border            #7aa2f7
+## set $active_border            #7aa2f7
+# set $active_border            #1d2021
 
 # set $warn                     #ff9e64
 # set $info                     #e0af68
