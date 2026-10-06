@@ -3,16 +3,69 @@ windows:
     AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
     AAAABSQAAALk
   tabs:
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-09-30T16:07:29'
+      last_visited: '2026-10-06T09:57:51'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: Google
       url: https://www.google.com/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-10-06T09:57:51'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 127.0.0.1
+      url: http://127.0.0.1:8006/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-10-06T09:57:51'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 127.0.0.1
+      url: http://127.0.0.1:47274/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-10-06T09:57:53'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Kakira Sugar's Susan N. Mataka Joins Airtel Uganda as HR Director - CEO
+        East Africa
+      url: https://www.ceo.co.ug/kakira-sugars-susan-n-mataka-joins-airtel-uganda-as-hr-director/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-10-06T09:57:53'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'When Johnnie Walker Blue Meets Golf and Uganda’s Influential Elite:
+        Inside Serena Kigo’s Inaugural Captain’s Putter - CEO East Africa'
+      url: https://www.ceo.co.ug/when-johnnie-walker-blue-meets-golf-and-ugandas-influential-elite-inside-serena-kigos-inaugural-captains-putter/
+      zoom: 0.8
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-10-06T09:57:53'
+      original-url: https://auth.openai.com/oauth/authorize?response_type=code&client_id=app_EMoamEEZ73f0CkXaXp7hrann&redirect_uri=http%3A%2F%2F127.0.0.1%3A1455%2Fauth%2Fcallback&code_challenge=Axrn58cNH9htwl-cFogYcGKTd36Sv8TULadnU4GRyHA&code_challenge_method=S256&state=0GQyEHWPSM61uXJBe8T-EEudAXVJMalepSA0q-BclVY&scope=openid+profile+email+offline_access+api.connectors.read+api.connectors.invoke&id_token_add_organizations=true&codex_cli_simplified_flow=true&originator=codex_cli_rs
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Welcome back - OpenAI
+      url: https://auth.openai.com/log-in
       zoom: 0.8
 - active: true
   geometry: !!binary |
@@ -22,7 +75,7 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-09-30T16:07:28'
+      last_visited: '2026-10-06T09:57:51'
       pinned: false
       scroll-pos:
         x: 0
@@ -32,7 +85,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-09-30T16:07:29'
+      last_visited: '2026-10-06T09:57:51'
       pinned: false
       scroll-pos:
         x: 0
@@ -42,7 +95,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-09-30T16:07:30'
+      last_visited: '2026-10-06T09:57:51'
       pinned: false
       scroll-pos:
         x: 0
@@ -52,12 +105,11 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-09-30T16:07:30'
+      last_visited: '2026-10-06T09:57:53'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: 'Your Job Search in Uganda Ends Here at JobAdverts.UG - Jobs in Uganda:
-        JobAdverts.UG'
-      url: https://jobadverts.ug/
+      title: How to Make a Database in Excel with Power Query | The New Excel
+      url: https://thenewexcel.com/making-an-excel-database/
       zoom: 0.8
