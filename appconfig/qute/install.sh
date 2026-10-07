@@ -89,9 +89,26 @@ while true; do
 
         # modules
         npm config set strict-ssl=false
-        npm install --loglevel=error -g @mozilla/readability bash-language-server \
+
+        toilet Setting up codex -t -f future
+        npm config set prefix ~/.local
+        # npm config delete prefix
+
+        npm install --loglevel=error -g @openai/codex @mozilla/readability bash-language-server \
             jsonrepair terminal-image-cli qutejs libgen-downloader
-        pip install --break-system-packages -U llama-cloud-services dotenv halo forx
+        # pip install --break-system-packages -U llama-cloud-services dotenv halo forx
+
+        # Add marketplace (one time)
+        codex plugin marketplace add fcakyon/claude-codex-settings
+
+        # Install any plugin by name
+        codex plugin add simplify@claude-settings
+        codex plugin add humanize@claude-settings
+
+        # advisor
+        codex plugin add codex-advisor@claude-settings
+        python3 -m pip install openpyxl
+        # codex auth login
 
         toilet Setting up qt6ct -t -f future
 

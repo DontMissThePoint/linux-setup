@@ -109,12 +109,18 @@ while true; do
         ln -sf "$APP_PATH"/tdab/tmux_topbar.sh ~/.local/bin/topbar
         ln -sf "$APP_PATH"/tdab/show-tmux-popup.sh ~/.local/bin/show-tmux-popup
 
-	# display
-	ln -sf "$APP_PATH"/panel/dual.sh ~/.local/bin/flip
-	ln -sf "$APP_PATH"/panel/top.sh ~/.local/bin/wide
-	ln -sf "$APP_PATH"/panel/right.sh ~/.local/bin/extend
-	ln -sf "$APP_PATH"/panel/laptop.sh ~/.local/bin/laptop
-        
+        # display
+
+        toilet Settingup panel -t -f future
+
+        sudo apt update
+        sudo apt install --reinstall -y xserver-xorg-video-all xserver-xorg-core libgl1-mesa-dri libglx-mesa0
+
+        ln -sf "$APP_PATH"/panel/dual.sh ~/.local/bin/flip
+        ln -sf "$APP_PATH"/panel/top.sh ~/.local/bin/wide
+        ln -sf "$APP_PATH"/panel/right.sh ~/.local/bin/extend
+        ln -sf "$APP_PATH"/panel/laptop.sh ~/.local/bin/laptop
+
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
         break

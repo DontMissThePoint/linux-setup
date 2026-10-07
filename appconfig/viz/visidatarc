@@ -1,4 +1,4 @@
-from visidata import TableSheet, options
+from visidata import TableSheet, ColumnColorizer, SheetsSheet, options
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                         Plugins                          │
@@ -120,17 +120,6 @@ Sheet.bindkey('Ctrl+Space', 'splitwin-swap')
 # Split (Insert)
 Sheet.bindkey('Ins', 'split-col')
 
-# pane resize
-# z + Shift+Z
-
-# full screen
-# g + Shift+Z
-
-# Swap
-# Shift+Z
-# Tab
-# Ctrl+^
-
 # Repeat
 TableSheet.unbindkey('.')
 TableSheet.bindkey('.', 'repeat-input')
@@ -139,13 +128,23 @@ TableSheet.bindkey('z.', 'repeat-last')
 # clipboard
 TableSheet.bindkey('Ctrl+V', 'syspaste-cells')
 
-# Cursor
-globalCommand('gm', 'mm, _ = curses.mousemask(-1); status("mouse "+("ON" if mm else "OFF"))', 'enable mouse events')
-globalCommand('zm', 'mm, _ = curses.mousemask(0); status("mouse "+("ON" if mm else "OFF"))', 'disable mouse events')
-
 # Insert mode
 TableSheet.unbindkey("i")
 TableSheet.bindkey("i", "edit-cell")
+
+# colorizer
+TableSheet.colorizers.append(
+    ColumnColorizer(
+        100,
+        None,
+        lambda s, c, r, v: (
+            # rainbow  6=cyan, 5=magenta, 4=blue, 3=yellow, 2=green (skips 1=red)
+            str(6 - ((s.columns.index(c)) % 5))
+            if s and c and s.__class__.__name__ not in ('SheetsSheet', 'GuideSheet', 'GuideIndex')
+            else None
+        )
+    )
+)
 
 # Scroll
 Sheet.addCommand(None, 'scroll-top', 'sheet.topRowIndex = cursorRowIndex', 'scroll current row to top of screen')

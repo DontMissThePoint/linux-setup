@@ -255,7 +255,8 @@ bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # bindsym $mod2+e exec nemo
 bindsym $mod2+b exec qutebrowser
-bindsym $mod2+s exec "sed -i 's/listx: {.*}/listx: {}/g' ~/.smartgit-preferences.yml; /usr/share/smartgit/bin/smartgit.sh"
+# bindsym $mod2+s exec "sed -i 's/listx: {.*}/listx: {}/g' ~/.smartgit-preferences.yml; /usr/share/smartgit/bin/smartgit.sh"
+bindsym $mod2+s exec --no-startup-id "/usr/share/smartgit/bin/smartgit.sh"
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
 
 # bind i3 modes
@@ -287,13 +288,14 @@ bindsym button8 move right
 for_window [title="File Transfer*"] floating enable
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, move container position center, focus
+for_window [class="smplayer"] fullscreen enable, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
-for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace2, focus
+for_window [class="qutebrowser"] fullscreen enable, move workspace $workspace3, focus
 for_window [class="librewolf"] floating enable, move workspace $workspace3, focus
 for_window [class="Lxappearance"] floating enable, sticky enable, border normal
 for_window [class="^Zathura$"] floating enable, focus
-for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace6, floating enable
+for_window [class="^xfreerdp$"] focus, fullscreen enable, move workspace $workspace2, floating enable
 
 for_window [class="SmartGit"] move workspace $workspace3, fullscreen enable, focus
 for_window [window_role="pop-up"] floating enable
@@ -426,7 +428,8 @@ set_from_resource $term_color15 color15
 
 # set $inactive_background      #d5d6db
 # set $active_background        #a9b1d6
-# set $active_border            #7aa2f7
+## set $active_border            #7aa2f7
+# set $active_border            #1d2021
 
 # set $warn                     #ff9e64
 # set $info                     #e0af68
@@ -490,7 +493,7 @@ bar {
     active_workspace   $i3bar_bg          $i3bar_bg            $active_background
     inactive_workspace $i3bar_bg          $i3bar_bg            $inactive_text_color
     urgent_workspace   $i3bar_bg          $i3bar_bg            $urgent
-    binding_mode       $i3bar_bg          $i3bar_bg            $urgent
+    binding_mode       $i3bar_bg          $i3bar_bg            $i3bar_bg
   }
 }
 # EPIGEN_DEL_BLOCK_COLORSCHEME_GIT }
@@ -1770,7 +1773,7 @@ mode "gaps_mode" {
 
 # #{ throughput mode
 
-# is usefull for controlling i3 and tmux through teamviewer
+# is usefull for controlling i3 and tmux through xfreerdp
 mode "throughput_mode" {
 
   bindsym $mod+shift+t mode "default"
