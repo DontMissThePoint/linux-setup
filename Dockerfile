@@ -1,17 +1,20 @@
 FROM ubuntu:22.04
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update && \
-      apt-get -y install sudo
+    apt-get install --yes --no-install-recommends \
+      git \
+      keyboard-configuration \
+      software-properties-common \
+      sudo && \
+    rm -rf /var/lib/apt/lists/*
 
-# fixes prompts during apt installations
-RUN echo 'debconf debconf/frontend select Noninteractive' | sudo debconf-set-selections
-RUN sudo apt-get install -y -q
-RUN DEBIAN_FRONTEND=noninteractive sudo apt-get -y install keyboard-configuration
+WORKDIR /opt/dontmissthepoint/linux-setup
 
-RUN sudo apt-get -y update && sudo apt-get -y install software-properties-common git
+COPY . .
 
-RUN mkdir -p /opt/dontmissthepoint && cd /opt/shafiq && git clone https://github.com/dontmissthepoint/linux-setup --depth 1
-
-RUN cd /opt/dontmissthepoint/linux-setup && ./install.sh --unattended --docker && rm -rf /var/lib/apt/lists/*
+RUN ./install.sh --unattended --docker && \
+    rm -rf /var/lib/apt/lists/*
 
 CMD ["bash"]
