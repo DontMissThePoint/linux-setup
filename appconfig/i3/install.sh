@@ -71,7 +71,7 @@ while true; do
         sudo /home/linuxbrew/.linuxbrew/bin/zig build installexe -Dinit_system=systemd
 
         # session
-        sudo cp -f "$APP_PATH"/config.ini /etc/ly/config.ini
+        sudo cp -f "$APP_PATH"/ly/config.ini /etc/ly/config.ini
 
         # autologin
         sudo sed -i "s/\(auto_login_user\) = null/\1 = $USER/" /etc/ly/config.ini
@@ -297,10 +297,9 @@ while true; do
         gsettings set org.gnome.system.location enabled false
 
         #theme
-        # ls /usr/share/themes | grep Mint-Y
-        gsettings set org.cinnamon.theme name "Mint-Y"
-        gsettings set org.cinnamon.desktop.interface icon-theme "Mint-Y"
-        gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y"
+        gsettings set org.cinnamon.theme name "Mint-Y-Dark"
+        gsettings set org.cinnamon.desktop.interface icon-theme "Mint-Y-Dark"
+        gsettings set org.cinnamon.desktop.interface gtk-theme "Mint-Y-Dark"
         gsettings set org.gnome.desktop.interface color-scheme 'default'
 
         # install xkb layout state

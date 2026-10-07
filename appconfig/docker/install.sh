@@ -54,7 +54,7 @@ while true; do
         fi
 
         # docker
-        sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+        sudo apt-get install -y zipalign docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
         sudo usermod -aG docker "$USER"
 
         # groups
@@ -132,6 +132,7 @@ while true; do
 
         # apk
         # adb -s 127.0.0.1:5552 install "jp.naver.line.android.apk"
+        # adb push IMG_20260716_201848_964@-1106920399.jpg /storage/emulated/0/Download
 
         # xapk
         # Rename your .xapk file to .zip.
@@ -145,6 +146,7 @@ while true; do
         cd ~/VirtualMachines/YoutubeDL-Material
 
         # youtubedl: http://localhost:8998/#/home
+        # youtubedl: "$(hostname -I | awk '{print $1}')":8998/#/home
         curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
 
         # TX
@@ -185,28 +187,6 @@ while true; do
 		# quickget windows 11
 		# quickemu --vm windows-11.conf --width 1920 --height 1080
 
-		# Dockurr
-		toilet Settingup dockurr -t -f future
-		# focus cell: #87ff87 #0088cc
-
-		# docker compose stop
-		# sudo docker compose up -d --force-recreate --build
-
-		# http://127.0.0.1:8006/
-		# Install Apps: 365, powerBi, mupdf, listary, librewolf
-		#               joplin, smplayer, nextcloud, zap zap
-		# Activate: irm https://get.activated.win | iex
-
-		# docker system prune -af
-		BGREEN='\033[1;32m'
-		NC='\033[0m' # No Color
-		echo -e "${BGREEN}> Windows debloater.${NC}"
-
-		# cd ~/Public
-		# curl -s 'https://api.github.com/repos/theantipopau/windows11nontouchgamingoptimizer/releases/latest' |\
-		#     jq -r ".assets[] | .browser_download_url" | grep bat |\
-		#     xargs -n 1 curl -L -O --fail --show-error
-
 		toilet Settingup winboat -t -f future
 
 		# VM
@@ -214,6 +194,22 @@ while true; do
 		sudo /home/linuxbrew/.linuxbrew/bin/dra \
 			download --select '*amd64.deb' -i TibixDev/winboat
 		sudo ln -sf /opt/freerdp-nightly/bin/xfreerdp3 /usr/local/bin/xfreerdp3
+
+		# config
+		mkdir -p ~/.winboat
+		pv "$APP_PATH/winboat.config.json" >~/.winboat/winboat.config.json
+
+		# Dockurr
+		# toilet Settingup dockurr -t -f future
+		# https://github.com/kelexine/tiny11-automated/releases
+		# focus cell: #87ff87
+		# lithium ebook: bg #384F45 fg #B9EDCD link #0088cc
+
+		# http://127.0.0.1:8006/
+		# Install Apps: 365, vscode, listary, librewolf joplin
+		# Activate: irm https://get.activated.win | iex
+
+		# docker system prune -af
 
 		break
 	elif [[ $response =~ ^(n|N)=$ ]]; then
