@@ -85,8 +85,6 @@ while true; do
         # screenshots <space>dp
         mkdir -p ~/Pictures/Screenshots
 
-        toilet Setting up llamaparse -t -f future
-
         # modules
         npm config set strict-ssl=false
 
@@ -107,10 +105,11 @@ while true; do
 
         # advisor
         codex plugin add codex-advisor@claude-settings
-        python3 -m pip install openpyxl
-        # codex auth login
 
-        toilet Setting up qt6ct -t -f future
+        # MCP servers
+        codex mcp add gridcraft gridcraft-cli mcp
+
+        toilet Setting up json2env -t -f future
 
         # QT
         num=$(grep -ow "QT_QPA_PLATFORMTHEME=qt5ct" /etc/environment | wc -l)
@@ -122,10 +121,6 @@ while true; do
 
         fi
 
-        # .env
-        GREEN='\033[0;32m'
-        NC='\033[0m' # No Color
-
         until touch ~/Public/Journal/llama-parse_API_KEY.json &&
         cat ~/Public/Journal/llama-parse_API_KEY.json | sg docker -c "docker run --name json2env -i decknroll/json2env" >.env 2>/dev/null; do
             docker rm json2env
@@ -133,7 +128,11 @@ while true; do
         done
 
         # keys
-        echo -e "${GREEN}Adding API keys..${NC}\nDone."
+        echo -e "Adding API keys.."
+
+        toilet Setting up librechat -t -f future
+
+        # http://localhost:3080
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

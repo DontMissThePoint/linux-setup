@@ -1,11 +1,11 @@
 windows:
 - geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
-    AAAABSQAAALk
+    AdnQywADAAAAAAAAAAAAAAAABcgAAANAAAAAAAAAAAAAAAXIAAADQAAAAAEAAAAABckAAAAAAAAA
+    AAAABcgAAANA
   tabs:
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-12T17:03:08'
       pinned: false
       scroll-pos:
         x: 0
@@ -15,7 +15,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-12T17:03:07'
       pinned: false
       scroll-pos:
         x: 0
@@ -25,7 +25,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-12T17:03:07'
       pinned: false
       scroll-pos:
         x: 0
@@ -35,7 +35,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:53'
+      last_visited: '2026-10-12T17:03:11'
       pinned: false
       scroll-pos:
         x: 0
@@ -46,7 +46,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:53'
+      last_visited: '2026-10-12T17:03:11'
       pinned: false
       scroll-pos:
         x: 0
@@ -55,11 +55,9 @@ windows:
         Inside Serena Kigo’s Inaugural Captain’s Putter - CEO East Africa'
       url: https://www.ceo.co.ug/when-johnnie-walker-blue-meets-golf-and-ugandas-influential-elite-inside-serena-kigos-inaugural-captains-putter/
       zoom: 0.8
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-10-06T09:57:53'
-      original-url: https://auth.openai.com/oauth/authorize?response_type=code&client_id=app_EMoamEEZ73f0CkXaXp7hrann&redirect_uri=http%3A%2F%2F127.0.0.1%3A1455%2Fauth%2Fcallback&code_challenge=Axrn58cNH9htwl-cFogYcGKTd36Sv8TULadnU4GRyHA&code_challenge_method=S256&state=0GQyEHWPSM61uXJBe8T-EEudAXVJMalepSA0q-BclVY&scope=openid+profile+email+offline_access+api.connectors.read+api.connectors.invoke&id_token_add_organizations=true&codex_cli_simplified_flow=true&originator=codex_cli_rs
+      last_visited: '2026-10-12T17:03:08'
       pinned: false
       scroll-pos:
         x: 0
@@ -67,15 +65,36 @@ windows:
       title: Welcome back - OpenAI
       url: https://auth.openai.com/log-in
       zoom: 0.8
-- active: true
-  geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAClgAAACUAAAUXAAACvwAAAAAABAAABSUAAAAAAAAA
-    AAAABSQAAALk
-  tabs:
+  - history:
+    - active: true
+      last_visited: '2026-10-12T17:03:10'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'Uganda Telecom: A History and Timeline of Troubled Privatisation and
+        the Key Players - CEO East Africa'
+      url: https://www.ceo.co.ug/uganda-telecom-a-history-and-timeline-of-troubled-privatisation-and-the-key-players/
+      zoom: 0.8
   - active: true
     history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-12T17:03:07'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: localhost
+      url: http://localhost:3080/
+      zoom: 0.8
+- active: true
+  geometry: !!binary |
+    AdnQywADAAAAAAAAAAAAAAAABcgAAANAAAADRwAAACUAAAXIAAACvwAAAAEABAAABckAAAAAAAAA
+    AAAABcgAAANA
+  tabs:
+  - history:
+    - active: true
+      last_visited: '2026-10-12T17:03:07'
       pinned: false
       scroll-pos:
         x: 0
@@ -85,7 +104,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-12T17:03:07'
       pinned: false
       scroll-pos:
         x: 0
@@ -95,7 +114,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-12T17:03:09'
       pinned: false
       scroll-pos:
         x: 0
@@ -105,11 +124,40 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:53'
+      last_visited: '2026-10-12T17:03:09'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: How to Make a Database in Excel with Power Query | The New Excel
       url: https://thenewexcel.com/making-an-excel-database/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-10-12T17:03:09'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'Crafting Apps: open-source creative tools — ArtCraft'
+      url: https://getartcraft.com/apps
+      zoom: 0.8
+  - active: true
+    history:
+    - last_visited: '2026-10-12T17:03:09'
+      pinned: false
+      title: 'PdfCraft: The open-source PDF workbench. — ArtCraft'
+      url: https://getartcraft.com/apps/pdfcraft
+    - last_visited: '2026-10-12T17:03:24'
+      pinned: false
+      title: 'Crafting Apps: open-source creative tools — ArtCraft'
+      url: https://getartcraft.com/apps
+    - active: true
+      last_visited: '2026-10-12T17:03:27'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 3433
+      title: 'GridCraft: Fast, native spreadsheets, rebuilt in pure Rust. — ArtCraft'
+      url: https://getartcraft.com/apps/gridcraft
       zoom: 0.8

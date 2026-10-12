@@ -206,7 +206,8 @@ while true; do
 		# lithium ebook: bg #384F45 fg #B9EDCD link #0088cc
 
 		# http://127.0.0.1:8006/
-		# Install Apps: 365, vscode, listary, librewolf joplin
+		#  Artcraft
+		#  Apps: 365, joplin, listary, librewolf, snipping tool+
 		# Activate: irm https://get.activated.win | iex
 
 		# docker system prune -af

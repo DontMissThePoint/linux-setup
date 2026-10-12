@@ -48,12 +48,19 @@ while true; do
         toilet Settingup zathura -t -f future
 
         # zathura
-        sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pandoc pdf-presenter-console
+        sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc pandoc pdf-presenter-console
 
         mkdir -p ~/.config/{visidata,zathura}
         # cp -f "$APP_PATH"/visidata/* ~/.config/visidata
         pv "$APP_PATH"/visidatarc >~/.visidatarc
-        echo "Done."
+
+        toilet Settingup gridcraft -t -f future
+
+        # launcher
+        sudo apt purge libreoffice* -y
+        cd /tmp
+        sudo /home/linuxbrew/.linuxbrew/bin/dra \
+            download --select '*_64.deb' -i storytold/gridcraft
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
