@@ -20,6 +20,7 @@ URxvt.loginShell: true
 URxvt.clipboard.autocopy: true
 URxvt.transparent: false
 URxvt.visualBell: true
+URxvt.borderLess: true
 
 URxvt*cursorBlink: true
 URxvt*scrollBar: false

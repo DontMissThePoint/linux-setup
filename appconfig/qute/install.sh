@@ -108,8 +108,9 @@ while true; do
 
         # MCP servers
         codex mcp add gridcraft gridcraft-cli mcp
+        codex mcp add pdfcraft pdfcraft-cli mcp
 
-        toilet Setting up json2env -t -f future
+        toilet Setting up librechat -t -f future
 
         # QT
         num=$(grep -ow "QT_QPA_PLATFORMTHEME=qt5ct" /etc/environment | wc -l)
@@ -121,18 +122,16 @@ while true; do
 
         fi
 
-        until touch ~/Public/Journal/llama-parse_API_KEY.json &&
+        # http://localhost:3080
+        cd "$APP_PATH"/../../submodules/librechat
+        cp .env.example .env || echo -e "Adding API keys.."
+
+        # api
+        until touch ~/Public/Journal/libreChat_mcp.json &&
         cat ~/Public/Journal/llama-parse_API_KEY.json | sg docker -c "docker run --name json2env -i decknroll/json2env" >.env 2>/dev/null; do
             docker rm json2env
             sleep 1
         done
-
-        # keys
-        echo -e "Adding API keys.."
-
-        toilet Setting up librechat -t -f future
-
-        # http://localhost:3080
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

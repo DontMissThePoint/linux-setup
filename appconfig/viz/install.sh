@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata (vd, sqlit)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -36,7 +36,7 @@ while true; do
         sudo apt install -y python3-lxml python3-pandas python3-h5py python3-yaml python3-requests python3-tz python3-virtualenv python3-genshi python-lxml-doc img2pdf datamash pdftk
 
         # pipx
-        /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting sqlit-tui
+        /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting
         sudo ln -sf ~/.local/share/pipx/venvs/visidata/bin/vd /usr/bin/vd
 
         # packages
@@ -54,13 +54,17 @@ while true; do
         # cp -f "$APP_PATH"/visidata/* ~/.config/visidata
         pv "$APP_PATH"/visidatarc >~/.visidatarc
 
-        toilet Settingup gridcraft -t -f future
+        toilet Settingup artcraft -t -f future
 
-        # launcher
+        # grid
         sudo apt purge libreoffice* -y
         cd /tmp
         sudo /home/linuxbrew/.linuxbrew/bin/dra \
             download --select '*_64.deb' -i storytold/gridcraft
+
+        # pdf
+        sudo /home/linuxbrew/.linuxbrew/bin/dra \
+            download --select '*_64.deb' -i storytold/pdfcraft
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

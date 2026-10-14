@@ -66,7 +66,8 @@ while true; do
         cd /tmp
         [ -e ly ] && sudo rm -rf ly
         git clone https://github.com/fairyglade/ly
-        cd ly && git checkout tags/v1.4.0
+        cd ly
+        # git checkout tags/v1.4.0
         /home/linuxbrew/.linuxbrew/bin/zig build
         sudo /home/linuxbrew/.linuxbrew/bin/zig build installexe -Dinit_system=systemd
 
