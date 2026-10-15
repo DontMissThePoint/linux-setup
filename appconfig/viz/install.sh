@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, artcraft (grid, pdf) ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -54,10 +54,11 @@ while true; do
         # cp -f "$APP_PATH"/visidata/* ~/.config/visidata
         pv "$APP_PATH"/visidatarc >~/.visidatarc
 
-        toilet Settingup artcraft -t -f future
-
         # grid
         sudo apt purge libreoffice* -y
+
+        toilet Installing artcraft -t --filter metal -f smmono12
+
         cd /tmp
         sudo /home/linuxbrew/.linuxbrew/bin/dra \
             download --select '*_64.deb' -i storytold/gridcraft

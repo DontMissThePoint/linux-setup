@@ -81,7 +81,6 @@ alias droid="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
 alias librechat="$GIT_PATH/linux-setup/scripts/librechat.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
-alias viz="tmux set status off; vd -y"
 alias post="devour posting"
 
 # apt get multiple connections
@@ -93,6 +92,13 @@ alias info="info --vi-keys"
 
 # quick acces to files
 alias al="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
+
+# llm
+viz() {
+    tmux set status off
+    eval "$(docker run -i --rm decknroll/json2env --export --upper <~/Public/Journal/llm_mcp.json | grep -E 'OPENAI|ANTHROPIC')"
+    vd -y
+}
 
 # directories
 z() {

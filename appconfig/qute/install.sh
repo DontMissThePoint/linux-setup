@@ -127,7 +127,7 @@ while true; do
         cp .env.example .env || echo -e "Adding API keys.."
 
         # api
-        until touch ~/Public/Journal/libreChat_mcp.json &&
+        until touch ~/Public/Journal/llm_mcp.json &&
         cat ~/Public/Journal/llama-parse_API_KEY.json | sg docker -c "docker run --name json2env -i decknroll/json2env" >.env 2>/dev/null; do
             docker rm json2env
             sleep 1

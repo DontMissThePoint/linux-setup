@@ -1,3 +1,6 @@
+# LLM
+import os
+
 from visidata import TableSheet, ColumnColorizer, SheetsSheet, options
 
 #  ╭──────────────────────────────────────────────────────────╮
@@ -146,6 +149,15 @@ TableSheet.colorizers.append(
     )
 )
 
-# Scroll
+# scroll
 Sheet.addCommand(None, 'scroll-top', 'sheet.topRowIndex = cursorRowIndex', 'scroll current row to top of screen')
 Sheet.addCommand(None, 'scroll-bottom', 'sheet.topRowIndex = cursorRowIndex-nScreenRows', 'scroll current row to bottom of screen')
+
+# anthropic
+options.llm_provider = "anthropic"
+options.llm_model = "claude-3-5-sonnet"
+options.anthropic_api_key = os.environ.get("ANTHROPIC_API_KEY", "")
+
+# codex / OpenAI
+options.codex_model = "gpt-4o"
+options.openai_api_key = os.environ.get("OPENAI_API_KEY", "")
