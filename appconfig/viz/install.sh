@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, artcraft (grid, pdf) ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, artcraft (grid) ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -40,7 +40,7 @@ while true; do
         sudo ln -sf ~/.local/share/pipx/venvs/visidata/bin/vd /usr/bin/vd
 
         # packages
-        /home/linuxbrew/.linuxbrew/bin/pipx inject visidata dependency \
+        /home/linuxbrew/.linuxbrew/bin/pipx inject visidata dependency anthropic \
             datapackage pypng pdfminer.six ptpython pytz PyYAML lxml \
             xlrd openpyxl pyxlsb h5py pyreadstat requests IPython \
             virtualenv tomli tabulate odfpy

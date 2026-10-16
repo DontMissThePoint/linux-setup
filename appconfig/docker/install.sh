@@ -205,10 +205,9 @@ while true; do
 		# focus cell: #87ff87
 		# lithium ebook: bg #384F45 fg #B9EDCD link #0088cc
 
-		# http://127.0.0.1:8006/
-		#  Artcraft
-		#  Apps: 365, joplin, listary, librewolf, snipping tool+
+		# Apps: Artcraft, 365, joplin, listary, librewolf, snipping tool+
 		# Activate: irm https://get.activated.win | iex
+		# http://127.0.0.1:8006/
 
 		# docker system prune -af
 

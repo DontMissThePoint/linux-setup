@@ -95,9 +95,18 @@ alias al="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --pad
 
 # llm
 viz() {
-    tmux set status off
-    eval "$(docker run -i --rm decknroll/json2env --export --upper <~/Public/Journal/llm_mcp.json | grep -E 'OPENAI|ANTHROPIC')"
-    vd -y
+    # status
+    if [ "$TMUX" != "" ]; then
+        tmux set status off
+    fi
+
+    # env
+    if [ -f ~/Public/Journal/llm_mcp.json ]; then
+        eval "$(docker run --rm -i decknroll/json2env --export --upper <~/Public/Journal/llm_mcp.json | grep -E 'OPENAI|ANTHROPIC')"
+    fi
+
+    # vd
+    vd -y "$@"
 }
 
 # directories
