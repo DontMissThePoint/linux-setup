@@ -49,8 +49,9 @@ windows:
   - tdab:
       layout: b0fe,147x41,0,0,1
       panes:
-        # - rfkill block bluetooth &; clear ; i3-msg mode throughput_mode; vnstat -t ; nvim
-        - portview ; bash
+        # - rfkill block bluetooth &; clear ; i3-msg mode throughput_mode; portview ; nvim
+        # - vnstat -t ; bash
+        - bash
   # - tdab:
   # Synchronize all panes of this window, can be enabled before or after the pane commands run.
   # synchronize: after

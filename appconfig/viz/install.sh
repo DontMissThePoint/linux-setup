@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, artcraft (grid) ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, gridcraft ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -45,27 +45,24 @@ while true; do
             xlrd openpyxl pyxlsb h5py pyreadstat requests IPython \
             virtualenv tomli tabulate odfpy
 
-        toilet Settingup zathura -t -f future
-
-        # zathura
-        sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc pandoc pdf-presenter-console
-
         mkdir -p ~/.config/{visidata,zathura}
         # cp -f "$APP_PATH"/visidata/* ~/.config/visidata
         pv "$APP_PATH"/visidatarc >~/.visidatarc
 
         # grid
-        sudo apt purge libreoffice* -y
+        sudo apt purge libreoffice* -qy
+        sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc pandoc pdf-presenter-console
 
-        toilet Installing artcraft -t --filter metal -f smmono12
+        # craft
+        toilet Installing gridcraft -t --filter metal -f smmono12
 
         cd /tmp
         sudo /home/linuxbrew/.linuxbrew/bin/dra \
             download --select '*_64.deb' -i storytold/gridcraft
 
         # pdf
-        sudo /home/linuxbrew/.linuxbrew/bin/dra \
-            download --select '*_64.deb' -i storytold/pdfcraft
+        # sudo /home/linuxbrew/.linuxbrew/bin/dra \
+            #     download --select '*_64.deb' -i storytold/pdfcraft
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
