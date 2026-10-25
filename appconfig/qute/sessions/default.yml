@@ -1,81 +1,12 @@
 windows:
-- geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAAAAAAAUkAAAC5AAAAAAAAAAABSUAAAAAAAAA
-    AAAABSQAAALk
-  tabs:
-  - history:
-    - active: true
-      last_visited: '2026-10-06T09:57:51'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Google
-      url: https://www.google.com/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-06T09:57:51'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 127.0.0.1
-      url: http://127.0.0.1:8006/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-06T09:57:51'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 127.0.0.1
-      url: http://127.0.0.1:47274/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-06T09:57:53'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Kakira Sugar's Susan N. Mataka Joins Airtel Uganda as HR Director - CEO
-        East Africa
-      url: https://www.ceo.co.ug/kakira-sugars-susan-n-mataka-joins-airtel-uganda-as-hr-director/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-06T09:57:53'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 'When Johnnie Walker Blue Meets Golf and Uganda’s Influential Elite:
-        Inside Serena Kigo’s Inaugural Captain’s Putter - CEO East Africa'
-      url: https://www.ceo.co.ug/when-johnnie-walker-blue-meets-golf-and-ugandas-influential-elite-inside-serena-kigos-inaugural-captains-putter/
-      zoom: 0.8
-  - active: true
-    history:
-    - active: true
-      last_visited: '2026-10-06T09:57:53'
-      original-url: https://auth.openai.com/oauth/authorize?response_type=code&client_id=app_EMoamEEZ73f0CkXaXp7hrann&redirect_uri=http%3A%2F%2F127.0.0.1%3A1455%2Fauth%2Fcallback&code_challenge=Axrn58cNH9htwl-cFogYcGKTd36Sv8TULadnU4GRyHA&code_challenge_method=S256&state=0GQyEHWPSM61uXJBe8T-EEudAXVJMalepSA0q-BclVY&scope=openid+profile+email+offline_access+api.connectors.read+api.connectors.invoke&id_token_add_organizations=true&codex_cli_simplified_flow=true&originator=codex_cli_rs
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Welcome back - OpenAI
-      url: https://auth.openai.com/log-in
-      zoom: 0.8
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAClgAAACUAAAUXAAACvwAAAAAABAAABSUAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAABgAAAUkAAACzAAAAAAABAAABSUAAAAAAAAA
     AAAABSQAAALk
   tabs:
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-23T19:26:21'
       pinned: false
       scroll-pos:
         x: 0
@@ -85,7 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-23T19:26:21'
       pinned: false
       scroll-pos:
         x: 0
@@ -95,21 +26,45 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:51'
+      last_visited: '2026-10-23T19:26:22'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: Reading & Updating Data in an Excel Database | The New Excel
+      title: thenewexcel.com
       url: https://thenewexcel.com/reading-and-updating-an-excel-database/
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-06T09:57:53'
+      last_visited: '2026-10-23T19:26:22'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: How to Make a Database in Excel with Power Query | The New Excel
+      title: thenewexcel.com
       url: https://thenewexcel.com/making-an-excel-database/
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-10-23T19:26:24'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: 'Crafting Apps: open-source creative tools — ArtCraft'
+      url: https://getartcraft.com/apps
+      zoom: 0.8
+  - active: true
+    history:
+    - active: true
+      last_visited: '2026-10-23T19:26:27'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 1254
+      title: 'GitHub - adelaidasofia/whatsapp-mcp: Personal WhatsApp MCP for Claude,
+        built directly on whatsmeow. Encrypted-at-rest storage, Whisper voice-note
+        transcription, accent-insensitive Spanish search, vault-native CRM integration,
+        send-confirmation safety. · GitHub'
+      url: https://github.com/adelaidasofia/whatsapp-mcp
       zoom: 0.8

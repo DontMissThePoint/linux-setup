@@ -199,15 +199,12 @@ while true; do
 		mkdir -p ~/.winboat
 		pv "$APP_PATH/winboat.config.json" >~/.winboat/winboat.config.json
 
-		# Dockurr
-		# toilet Settingup dockurr -t -f future
-		# https://github.com/kelexine/tiny11-automated/releases
 		# focus cell: #87ff87
 		# lithium ebook: bg #384F45 fg #B9EDCD link #0088cc
 
-		# http://127.0.0.1:8006/
-		# Install Apps: 365, vscode, listary, librewolf joplin
+		# Apps: Artcraft, 365, Photocraft, Wordcraft, Pdfcraft, librewolf, Edge WebView
 		# Activate: irm https://get.activated.win | iex
+		# http://127.0.0.1:8006/
 
 		# docker system prune -af
 

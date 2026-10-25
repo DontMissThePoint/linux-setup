@@ -288,6 +288,7 @@ bindsym button8 move right
 for_window [title="File Transfer*"] floating enable
 for_window [title="pdfpc"] border none floating enable
 for_window [class="scrcpy*"] floating enable, move container position center, focus
+for_window [class="ai.*"] floating enable, move workspace $workspace4, focus
 for_window [class="smplayer"] fullscreen enable, focus
 for_window [class="mpv"] fullscreen enable, focus
 for_window [instance="mpvfloat"] floating enable, move workspace $workspace1, focus
@@ -441,9 +442,9 @@ set_from_resource $term_color15 color15
 # set $i3bar_bg                 #1a1b26
 # exec_always --no-startup-id feh --bg-fill ~/linux-setup/miscellaneous/wallpapers/cloud-computing.jpg
 
-# default_border pixel 1
-# default_floating_border pixel 1
-# for_window [class="^.*"] border pixel 1
+# default_border pixel 0
+# default_floating_border pixel 0
+# for_window [class="^.*"] border pixel 0
 
 # EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 

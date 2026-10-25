@@ -89,3 +89,7 @@
 [submodule "submodules/redroid-android"]
 	path = submodules/redroid-android
 	url = https://github.com/ayasa520/redroid-script
+[submodule "submodules/librechat"]
+	path = submodules/librechat
+	url = https://github.com/LibreChat-AI/LibreChat.git
+	branch = main

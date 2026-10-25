@@ -1,8 +1,12 @@
+# vd
 from visidata import TableSheet, ColumnColorizer, SheetsSheet, options
 
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                         Plugins                          │
 #  ╰──────────────────────────────────────────────────────────╯
+
+# llm
+import visidata.experimental.llm
 
 
 #  ╭──────────────────────────────────────────────────────────╮
@@ -146,6 +150,6 @@ TableSheet.colorizers.append(
     )
 )
 
-# Scroll
+# scroll
 Sheet.addCommand(None, 'scroll-top', 'sheet.topRowIndex = cursorRowIndex', 'scroll current row to top of screen')
 Sheet.addCommand(None, 'scroll-bottom', 'sheet.topRowIndex = cursorRowIndex-nScreenRows', 'scroll current row to bottom of screen')

@@ -85,12 +85,10 @@ while true; do
         # screenshots <space>dp
         mkdir -p ~/Pictures/Screenshots
 
-        toilet Setting up llamaparse -t -f future
-
         # modules
         npm config set strict-ssl=false
 
-        toilet Setting up codex -t -f future
+        toilet Installing codex -t --filter metal -f smmono12
         npm config set prefix ~/.local
         # npm config delete prefix
 
@@ -98,19 +96,27 @@ while true; do
             jsonrepair terminal-image-cli qutejs libgen-downloader
         # pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
-        # Add marketplace (one time)
+        # skill
         codex plugin marketplace add fcakyon/claude-codex-settings
+        codex plugin marketplace add adelaidasofia/parse-mcp
 
-        # Install any plugin by name
+        # plugin
         codex plugin add simplify@claude-settings
         codex plugin add humanize@claude-settings
 
         # advisor
         codex plugin add codex-advisor@claude-settings
-        python3 -m pip install openpyxl
-        # codex auth login
 
-        toilet Setting up qt6ct -t -f future
+        # parsers
+        # markitdown (free, fast, MIT). Escalate to Docling (table-heavy, scanned PDFs)
+        # LlamaParse (cloud, BYOK) when markitdown's quality isn't enough
+        codex plugin add parse-mcp@parse-mcp
+
+        # mcp
+        codex mcp add gridcraft gridcraft-cli mcp
+        codex mcp add pdfcraft pdfcraft-cli mcp
+
+        toilet Installing librechat -t --filter metal -f smmono12
 
         # QT
         num=$(grep -ow "QT_QPA_PLATFORMTHEME=qt5ct" /etc/environment | wc -l)
@@ -122,18 +128,16 @@ while true; do
 
         fi
 
-        # .env
-        GREEN='\033[0;32m'
-        NC='\033[0m' # No Color
+        # http://localhost:3080
+        cd "$APP_PATH"/../../submodules/librechat
+        cp .env.example .env || echo -e "Adding API keys.."
 
-        until touch ~/Public/Journal/llama-parse_API_KEY.json &&
-        cat ~/Public/Journal/llama-parse_API_KEY.json | sg docker -c "docker run --name json2env -i decknroll/json2env" >.env 2>/dev/null; do
+        # api
+        until touch ~/Public/Journal/llm_mcp.json &&
+        cat ~/Public/Journal/llm_mcp.json | sg docker -c "docker run --name json2env -i decknroll/json2env" >.env 2>/dev/null; do
             docker rm json2env
             sleep 1
         done
-
-        # keys
-        echo -e "${GREEN}Adding API keys..${NC}\nDone."
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
