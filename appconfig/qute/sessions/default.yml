@@ -1,12 +1,12 @@
 windows:
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAGAAABSQAAALMAAAAAAAAABgAAAUkAAACzAAAAAAAAAAABSUAAAAAAAAA
-    GAAABSQAAALM
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAABgAAAUkAAACzAAAAAAABAAABSUAAAAAAAAA
+    AAAABSQAAALk
   tabs:
   - history:
     - active: true
-      last_visited: '2026-10-14T21:25:12'
+      last_visited: '2026-10-23T19:26:21'
       pinned: false
       scroll-pos:
         x: 0
@@ -16,7 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-14T21:25:12'
+      last_visited: '2026-10-23T19:26:21'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,27 +26,27 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-14T21:25:14'
+      last_visited: '2026-10-23T19:26:22'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: Reading & Updating Data in an Excel Database | The New Excel
+      title: thenewexcel.com
       url: https://thenewexcel.com/reading-and-updating-an-excel-database/
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-14T21:25:17'
+      last_visited: '2026-10-23T19:26:22'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: How to Make a Database in Excel with Power Query | The New Excel
+      title: thenewexcel.com
       url: https://thenewexcel.com/making-an-excel-database/
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-14T21:25:17'
+      last_visited: '2026-10-23T19:26:24'
       pinned: false
       scroll-pos:
         x: 0
@@ -57,30 +57,14 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-10-14T21:26:24'
+      last_visited: '2026-10-23T19:26:27'
       pinned: false
       scroll-pos:
         x: 0
-        y: 0
-      title: 'GridCraft: Fast, native spreadsheets, rebuilt in pure Rust. — ArtCraft'
-      url: https://getartcraft.com/apps/gridcraft
-      zoom: 0.8
-    - last_visited: '2026-10-14T21:26:23'
-      pinned: false
-      title: ArtCraft - Create AI Images and Video
-      url: https://app.getartcraft.com/
-    - last_visited: '2026-10-14T21:26:08'
-      pinned: false
-      title: ArtCraft - Create AI Images and Video
-      url: https://app.getartcraft.com/moodboard
-  - history:
-    - active: true
-      last_visited: '2026-10-14T21:48:05'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: FIREBAT F1 MINI PC AMD Ryzen 5 7640HS LPDDR5 24GB RAM 512GB SSD WIFI6
-        BT5.2 Portable MINI-PC Windows 11 Desktop Computer
-      url: https://www.aliexpress.com/item/1005012353846431.html?spm=a2g0o.detail.pcDetailTopMoreOtherSeller.3.766bcfStcfStkB&gps-id=pcDetailTopMoreOtherSeller&scm=1007.40050.354490.0&scm_id=1007.40050.354490.0&scm-url=1007.40050.354490.0&pvid=7697e34e-6125-4a95-8a54-07736bebc6a3&_t=gps-id%3ApcDetailTopMoreOtherSeller%2Cscm-url%3A1007.40050.354490.0%2Cpvid%3A7697e34e-6125-4a95-8a54-07736bebc6a3%2Ctpp_buckets%3A668%232846%238110%231995&pdp_ext_f=%7B%22order%22%3A%22783%22%2C%22spu_best_type%22%3A%22price%22%2C%22eval%22%3A%221%22%2C%22sceneId%22%3A%2230050%22%2C%22fromPage%22%3A%22recommend%22%7D&pdp_npi=6%40dis%21UGX%215136988%212175304%21%21%217565.22%213203.56%21%400b88ab8a17920034808762522e0e7c%2112000058189583031%21rec%21UG%21%21ABX%211%210%21n_tag%3A-29910%3Bd%3Ac28fa0b8%3Bm03_new_user%3A-29895%3BpisId%3A5000000219255310&utparam-url=scene%3ApcDetailTopMoreOtherSeller%7Cquery_from%3A%7Cx_object_id%3A1005012353846431%7C_p_origin_prod%3A
+        y: 1254
+      title: 'GitHub - adelaidasofia/whatsapp-mcp: Personal WhatsApp MCP for Claude,
+        built directly on whatsmeow. Encrypted-at-rest storage, Whisper voice-note
+        transcription, accent-insensitive Spanish search, vault-native CRM integration,
+        send-confirmation safety. · GitHub'
+      url: https://github.com/adelaidasofia/whatsapp-mcp
       zoom: 0.8
