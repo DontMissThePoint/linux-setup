@@ -98,7 +98,7 @@ while true; do
 
         # skill
         codex plugin marketplace add fcakyon/claude-codex-settings
-        codex plugin marketplace add run-llama/llamaparse-agent-plugins
+        codex plugin marketplace add adelaidasofia/parse-mcp
 
         # plugin
         codex plugin add simplify@claude-settings
@@ -107,8 +107,10 @@ while true; do
         # advisor
         codex plugin add codex-advisor@claude-settings
 
-        # llama
-        codex plugin add llamaparse-mcp@llamaparse-marketplace
+        # parsers
+        # markitdown (free, fast, MIT). Escalate to Docling (table-heavy, scanned PDFs)
+        # LlamaParse (cloud, BYOK) when markitdown's quality isn't enough
+        codex plugin add parse-mcp@parse-mcp
 
         # mcp
         codex mcp add gridcraft gridcraft-cli mcp
