@@ -12,8 +12,7 @@ config.load_autoconfig()
 # User agent
 config.set(
     "content.headers.user_agent",
-    "Mozilla/5.0 ({os_info}; rv:130.0) Gecko/20100101 Firefox/130",
-    "*",
+    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
 )
 c.backend = "webengine"
 config.set("qt.force_software_rendering", "chromium")

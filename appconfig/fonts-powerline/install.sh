@@ -78,8 +78,9 @@ while true; do
         pv "$APP_PATH"/qt6ct.conf >~/.config/qt6ct/qt6ct.conf
 
         # interface
-        gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y'
-        gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y'
+        gsettings set org.cinnamon.desktop.interface gtk-theme 'Mint-Y-Dark'
+        gsettings set org.cinnamon.desktop.interface icon-theme 'Mint-Y-Dark'
+
         gsettings set org.cinnamon.desktop.interface font-name 'Ubuntu Regular 9'
 
         # cursor

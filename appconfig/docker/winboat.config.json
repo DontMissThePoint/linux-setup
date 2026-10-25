@@ -1,0 +1,39 @@
+{
+    "scale": 100,
+    "scaleDesktop": 100,
+    "smartcardEnabled": false,
+    "rdpMonitoringEnabled": false,
+    "passedThroughDevices": [],
+    "customApps": [],
+    "experimentalFeatures": true,
+    "advancedFeatures": true,
+    "multiMonitor": 0,
+    "rdpArgs": [
+        {
+            "newArg": "/scale-device:100",
+            "isReplacement": false
+        },
+        {
+            "newArg": "/scale-desktop:108",
+            "isReplacement": false
+        },
+        {
+            "newArg": "",
+            "isReplacement": false
+        },
+        {
+            "newArg": "",
+            "isReplacement": false
+        },
+        {
+            "newArg": "",
+            "isReplacement": false
+        }
+    ],
+    "disableAnimations": false,
+    "containerRuntime": "Docker",
+    "versionData": {
+        "previous": "0.9.0",
+        "current": "0.9.0"
+    }
+}

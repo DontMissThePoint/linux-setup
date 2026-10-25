@@ -26,7 +26,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall go (nchat, ledger)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 10 -n 2 -p $'\e[1;32mInstall go (nchat, ledger, irssi)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -34,7 +34,7 @@ while true; do
 
         toilet Installing go -t --filter metal -f smmono12
 
-        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev
+        sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev irssi irssi-scripts
         /home/linuxbrew/.linuxbrew/bin/brew unlink pkg-config libtool
 
         # go
@@ -56,7 +56,7 @@ while true; do
         # colors : basic-color, default, espresso, solarized-dark-higher-contrast, tomorrow-night, zenburned
         # catppuccin-mocha, dracula, gruvbox-dark, tokyo-night, zenbones-dark
         mkdir -p ~/.config/nchat
-        cp -f "$(dirname "$(which nchat)")"/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
+        # cp -f "$(dirname "$(which nchat)")"/../share/nchat/themes/solarized-dark-higher-contrast/* ~/.config/nchat/
 
         # messages
         echo "nchat --setup to get started."
@@ -93,8 +93,16 @@ while true; do
         go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest
 
         # config
-        mkdir -p ~/.config/pomo
+        mkdir -p ~/.config/pomo ~/.irssi/scripts/autorun
+        cp "$APP_PATH"/themes/*.theme ~/.irssi/
+        cp -fr "$APP_PATH"/scripts ~/.irssi/
+        pv "$APP_PATH/config" >~/.irssi/config
         pv "$APP_PATH/pomo.yaml" >~/.config/pomo/pomo.yaml
+
+        # autorun
+        cd ~/.irssi/scripts/autorun/
+        ln -sf \
+            ~/.irssi/scripts/{awl.pl,mouse.pl,nm.pl,usercount.pl,smartfilter.pl,tmux-nicklist-portable.pl,passwd.pl,trackbar22.pl,nickcolor.pl,notifications.pl} ./
 
         # link
         /home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool

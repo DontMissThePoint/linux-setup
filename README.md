@@ -1,11 +1,9 @@
 # Linux environment
 
-|              |       |                                                                                                                                                                       |
-|--------------|-------|-----|
-| 24.04 Docker | AMD64 | [![Noble](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml) |
-| 24.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
-| 20.04 Docker | AMD64 | [![Focal](https://github.com/dontmissthepoint/linux-setup/actions/workflows/focal.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/focal.yml)          |
-| 20.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml)       |
+| Property | Value | Passed |
+|--------------|-------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 24.04 Docker | AMD64 | [![Noble](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/docker.yml) |
+| 24.04        | AMD64 | [![Docker](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml/badge.svg)](https://github.com/dontmissthepoint/linux-setup/actions/workflows/noble.yml) |
 
 ## Summary
 

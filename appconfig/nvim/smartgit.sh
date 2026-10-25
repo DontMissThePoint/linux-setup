@@ -7,14 +7,15 @@ SMART_VERSION=20.2
 CONFIG="$HOME/.config/smartgit/$SMART_VERSION"
 
 # syntevo
-cd "$APP_PATH"
+cd /tmp
+wget -c https://download.smartgit.dev/smartgit/smartgit-26_2_006-preview-linux_amd64.deb ||
 wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
 toilet Setting up smartgit -t -f future
 
 # package
 sudo dpkg -i *.deb || sudo apt install -fy
-rm -fr "$APP_PATH"/*.deb ~/.config/smartgit
+rm -fr ~/.config/smartgit
 # sed -i 's/listx: {.*}/listx: {}/g' preferences.yml
 
 # user
@@ -31,7 +32,7 @@ while true; do
     read -r user_email
 
     if validate_email "$user_email"; then
-        echo "Updating..."
+        echo "Done."
         break
     else
         echo "Sorry, try again."
@@ -47,9 +48,9 @@ if [ ! -e ~/.ssh/id_ed25519 ]; then
 fi
 
 # config
-mkdir -p "$CONFIG"
+# mkdir -p "$CONFIG"
 
-ln -sf "$CONFIG"/preferences.yml ~/.smartgit-preferences.yml
-pv "$APP_PATH"/smartgit.properties > "$CONFIG"/smartgit.properties
-pv "$APP_PATH"/gitconfig >~/.gitconfig
-pv ./ssh_config >~/.ssh/config
+# ln -sf "$CONFIG"/preferences.yml ~/.smartgit-preferences.yml
+# pv "$APP_PATH"/smartgit.properties > "$CONFIG"/smartgit.properties
+# pv "$APP_PATH"/gitconfig >~/.gitconfig
+# pv ./ssh_config >~/.ssh/config

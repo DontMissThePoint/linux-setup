@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata (sqlit, rbql, calcpy)? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, gridcraft ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -36,31 +36,33 @@ while true; do
         sudo apt install -y python3-lxml python3-pandas python3-h5py python3-yaml python3-requests python3-tz python3-virtualenv python3-genshi python-lxml-doc img2pdf datamash pdftk
 
         # pipx
-        /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting sqlit-tui
+        /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting
         sudo ln -sf ~/.local/share/pipx/venvs/visidata/bin/vd /usr/bin/vd
 
         # packages
-        /home/linuxbrew/.linuxbrew/bin/pipx inject visidata \
-            rich-cli datapackage pypng pdfminer.six ptpython pytz PyYAML lxml \
+        /home/linuxbrew/.linuxbrew/bin/pipx inject visidata dependency anthropic \
+            datapackage pypng pdfminer.six ptpython pytz PyYAML lxml \
             xlrd openpyxl pyxlsb h5py pyreadstat requests IPython \
-            virtualenv tomli tabulate odfpy rbql
-
-        toilet Settingup zathura -t -f future
-
-        # zathura
-        sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc libreoffice pandoc pdf-presenter-console
+            virtualenv tomli tabulate odfpy
 
         mkdir -p ~/.config/{visidata,zathura}
         # cp -f "$APP_PATH"/visidata/* ~/.config/visidata
         pv "$APP_PATH"/visidatarc >~/.visidatarc
 
-        toilet Settingup calcpy -t -f future
+        # grid
+        sudo apt purge libreoffice* -qy
+        sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc pandoc pdf-presenter-console
 
-        # Green: #b9edcd background: #384f45 links: #0088cc
-        echo "Include... IPython, SymPy"
+        # craft
+        toilet Installing gridcraft -t --filter metal -f smmono12
 
-        # calcpy
-        /home/linuxbrew/.linuxbrew/bin/pipx install git+https://github.com/idanpa/calcpy
+        cd /tmp
+        sudo /home/linuxbrew/.linuxbrew/bin/dra \
+            download --select '*_64.deb' -i storytold/gridcraft
+
+        # pdf
+        # sudo /home/linuxbrew/.linuxbrew/bin/dra \
+            #     download --select '*_64.deb' -i storytold/pdfcraft
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then
