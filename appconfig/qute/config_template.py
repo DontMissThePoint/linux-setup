@@ -9,13 +9,6 @@ c = c  # noqa: F821
 # load your autoconfig, use this if the rest of your config is empty!
 config.load_autoconfig()
 
-# User agent
-config.set(
-    "content.headers.user_agent",
-    'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-)
-c.backend = "webengine"
-config.set("qt.force_software_rendering", "chromium")
 
 ### When to show a changelog after qutebrowser was upgraded.
 ## Type: String "major", "minor", "patch"
@@ -203,7 +196,8 @@ c.content.notifications.show_origin = True
 # cookies
 c.content.cookies.accept = "all"
 c.content.cookies.store = True
-c.content.default_encoding = "iso-8859-1"
+c.content.default_encoding = "utf-8"
+c.content.local_storage = True
 
 # privacy
 c.content.canvas_reading = True
@@ -216,8 +210,11 @@ c.content.fullscreen.window = False
 c.content.headers.accept_language = "en-US,en;q=0.9"
 c.content.headers.custom = {}
 c.content.headers.do_not_track = True
-c.content.headers.referer = "same-domain"
+# c.content.headers.referer = "same-domain"
 c.content.headers.user_agent = "Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {qt_key}/{qt_version} {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version}"
+
+c.content.headers.user_agent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+c.content.canvas_reading = True
 
 # webgl
 c.content.webgl = True

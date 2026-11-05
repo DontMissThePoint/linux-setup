@@ -196,6 +196,7 @@ while true; do
 		sudo ln -sf /opt/freerdp-nightly/bin/xfreerdp3 /usr/local/bin/xfreerdp3
 
 		# config
+		echo "Setup tiny11 iso."
 		mkdir -p ~/.winboat
 		pv "$APP_PATH/winboat.config.json" >~/.winboat/winboat.config.json
 

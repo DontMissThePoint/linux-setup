@@ -7,7 +7,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
 APP_PATH=$(dirname "$0")
-APP_PATH=$( (cd "$APP_PATH" && pwd))
+APP_PATH=$( (cd "$APP_PATH" && pwd) )
 
 unattended=0
 subinstall_params=""
@@ -36,7 +36,7 @@ while true; do
         sudo apt install -y python3-lxml python3-pandas python3-h5py python3-yaml python3-requests python3-tz python3-virtualenv python3-genshi python-lxml-doc img2pdf datamash pdftk
 
         # pipx
-        /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting
+        /home/linuxbrew/.linuxbrew/bin/pipx install visidata posting sqlit-tui
         sudo ln -sf ~/.local/share/pipx/venvs/visidata/bin/vd /usr/bin/vd
 
         # packages

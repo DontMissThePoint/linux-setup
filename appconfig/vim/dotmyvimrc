@@ -355,7 +355,6 @@ nnoremap <leader>idl :IndentLinesToggle<CR>
 nnoremap <Esc>n <Cmd>noh<CR>
 
 " Command-line
-cnoremap q qa
 noremap ;; ;
 vnoremap ; :
 map ; :

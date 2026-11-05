@@ -195,9 +195,6 @@ if g:user_mode == "1"
   " <leader>cs
   Plug 'ron89/thesaurus_query.vim'
 
-  " Registers
-  Plug 'junegunn/vim-peekaboo'
-
   " Focus
   Plug 'junegunn/goyo.vim'
   Plug 'junegunn/limelight.vim'

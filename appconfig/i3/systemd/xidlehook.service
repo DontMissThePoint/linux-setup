@@ -12,7 +12,7 @@ ExecStart=%h/.nix-profile/bin/xidlehook \
                   --detect-sleep \
                   --timer 60 \
                     '%h/.i3/brightness.sh 9' \
-                    '%h/.i3/brightness.sh 84' \
+                    '%h/.i3/brightness.sh 86' \
                   --timer 300 \
                     '%h/.i3/brightness.sh 84; /usr/bin/i3lock-fancy -gpf Hurmit-Nerd-Font -t "" -- /usr/bin/maim -q' '' \
                   --timer 360 \

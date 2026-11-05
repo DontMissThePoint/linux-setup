@@ -47,7 +47,7 @@ export NODE_PATH=$NODE_PATH:$(npm root -g)
 
 # LS_COLORS
 export LS_COLORS="$(vivid generate tokyonight-night)"
-export LEDGER_FILE="$HOME/Public/Journal/ledger.dat"
+export LEDGER_FILE="$HOME/Public/Journal/profit-1st/ledger/ledger.dat"
 
 # NIX
 export LOCALE_ARCHIVE=/usr/lib/locale/locale-archive
@@ -75,11 +75,9 @@ alias rcp="rsync -ahP"
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
-alias sc="$GIT_PATH/linux-setup/scripts/system_clean.sh"
-alias moonphase="$GIT_PATH/linux-setup/scripts/moonphase.sh"
+alias moon="$GIT_PATH/linux-setup/scripts/moon.sh"
 alias droid="$GIT_PATH/linux-setup/scripts/mirror.sh"
 alias win11="$GIT_PATH/linux-setup/scripts/dockurr.sh"
-alias librechat="$GIT_PATH/linux-setup/scripts/librechat.sh"
 alias play="$GIT_PATH/linux-setup/scripts/mpdcontrol_add.sh 2>/dev/null"
 alias post="devour posting"
 
@@ -94,19 +92,42 @@ alias info="info --vi-keys"
 alias al="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
 
 # llm
-viz() {
-    # status
-    if [ "$TMUX" != "" ]; then
-        tmux set status off
-    fi
+tmux_status_off() {
+    [ -z "$TMUX" ] || tmux set status off
+}
 
-    # env
-    if [ -f ~/Public/Journal/llm_mcp.json ]; then
-        eval "$(docker run --rm -i decknroll/json2env --export --upper <~/Public/Journal/llm_mcp.json | grep -E 'OPENAI|ANTHROPIC')"
-    fi
+llm_env() {
+    local keys=$1
+    local config="$HOME/Public/Journal/llm_mcp.json"
+    [ -f "$config" ] || return 0
+    eval "$(docker run --rm -i decknroll/json2env --export --upper <"$config" | grep -E "$keys")"
+}
+
+viz() {
+    tmux_status_off
+    llm_env 'OPENAI|ANTHROPIC'
 
     # vd
     vd -y "$@"
+}
+
+# db
+sq() {
+    tmux_status_off
+
+    # env
+    "$GIT_PATH"/linux-setup/scripts/adventure-works_db.sh
+
+    #db
+    sqlit
+}
+
+# ai
+libre() {
+    llm_env 'OPENAI|ANTHROPIC|DEEP'
+
+    # chat
+    "$GIT_PATH/linux-setup/scripts/librechat.sh"
 }
 
 # directories

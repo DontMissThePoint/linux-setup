@@ -95,5 +95,11 @@ picom --experimental-backends --backend glx -b --log-level info 2>&1 | systemd-c
 # terminal
 urxvtd -q &
 
+# display
+xlayoutdisplay &
+
+# cloud
+nextcloud &
+
 # Start i3wm
 exec i3

@@ -22,14 +22,15 @@
 window {
     // location:           center;
     fullscreen:         false;
-    width:              50%;
-    height:             15%;
+    width:              100.4%;
+    height:             12%;
     // height: 600;
     // width: 600;
 
-    border: 1;
+    border: 0;
     border-radius: 10;
-    border-color: @lavender;
+    // border-color: @lavender;
+    border-color: @base;
 }
 
 mainbox {
@@ -114,7 +115,7 @@ element.selected.urgent {
 }
 
 element-text, element-icon {
-    size:               5%;
+    size:               2%;
     // size: 40;
     padding:            0 0.3em;
     margin: 0 10 0 0;

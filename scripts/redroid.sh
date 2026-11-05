@@ -66,7 +66,7 @@ sudo iptables -t nat -D PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \
     --to-destination "$ADGUARD_DNS":53 2>/dev/null
 
 # guard
-echo "AdGuard..."
+echo "DNS activating..."
 sudo iptables -t nat -A PREROUTING -i docker0 -p udp --dport 53 -j DNAT \
     --to-destination "$ADGUARD_DNS":53
 sudo iptables -t nat -A PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \

@@ -1,12 +1,12 @@
 windows:
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAABgAAAUkAAACzAAAAAAABAAABSUAAAAAAAAA
-    AAAABSQAAALk
+    AdnQywADAAAAAAAAAAAAGAAABSQAAALMAAAAAAAAABgAAAUkAAACzAAAAAAAAAAABSUAAAAAAAAA
+    GAAABSQAAALM
   tabs:
   - history:
     - active: true
-      last_visited: '2026-10-23T19:26:21'
+      last_visited: '2026-11-04T09:13:09'
       pinned: false
       scroll-pos:
         x: 0
@@ -16,7 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-23T19:26:21'
+      last_visited: '2026-11-04T09:13:09'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,45 +26,39 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-23T19:26:22'
+      last_visited: '2026-11-04T09:13:13'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: thenewexcel.com
-      url: https://thenewexcel.com/reading-and-updating-an-excel-database/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-23T19:26:22'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: thenewexcel.com
-      url: https://thenewexcel.com/making-an-excel-database/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-23T19:26:24'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 'Crafting Apps: open-source creative tools — ArtCraft'
+      title: 'Crafting Apps: open-source creative tools - ArtCraft'
       url: https://getartcraft.com/apps
       zoom: 0.8
   - active: true
     history:
+    - last_visited: '2026-11-04T09:13:13'
+      pinned: false
+      title: 'Kieldro/whatsmeow-mcp: Single-binary WhatsApp MCP server (whatsmeow
+        + official Go MCP SDK)'
+      url: https://github.com/Kieldro/whatsmeow-mcp
+    - last_visited: '2026-11-04T09:14:18'
+      pinned: false
+      title: 'kahflane/whatsapp-mcp: Give your AI agent a WhatsApp account — an MCP
+        server with 87 tools for reading, sending, groups, status, scheduling & more.
+        Works with Claude, Codex, Cursor, OpenCode & any MCP client.'
+      url: https://github.com/kahflane/whatsapp-mcp
+    - last_visited: '2026-11-04T09:14:40'
+      pinned: false
+      title: Releases · kahflane/whatsapp-mcp
+      url: https://github.com/kahflane/whatsapp-mcp/releases
     - active: true
-      last_visited: '2026-10-23T19:26:27'
+      last_visited: '2026-11-04T09:18:45'
       pinned: false
       scroll-pos:
         x: 0
-        y: 1254
-      title: 'GitHub - adelaidasofia/whatsapp-mcp: Personal WhatsApp MCP for Claude,
-        built directly on whatsmeow. Encrypted-at-rest storage, Whisper voice-note
-        transcription, accent-insensitive Spanish search, vault-native CRM integration,
-        send-confirmation safety. · GitHub'
-      url: https://github.com/adelaidasofia/whatsapp-mcp
+        y: 2610
+      title: 'kahflane/whatsapp-mcp: Give your AI agent a WhatsApp account — an MCP
+        server with 87 tools for reading, sending, groups, status, scheduling & more.
+        Works with Claude, Codex, Cursor, OpenCode & any MCP client.'
+      url: https://github.com/kahflane/whatsapp-mcp
       zoom: 0.8
