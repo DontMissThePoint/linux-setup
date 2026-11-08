@@ -7,7 +7,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
 APP_PATH=$(dirname "$0")
-APP_PATH=$( (cd "$APP_PATH" && pwd))
+APP_PATH=$( (cd "$APP_PATH" && pwd) )
 
 unattended=0
 subinstall_params=""
@@ -94,7 +94,7 @@ while true; do
         # npm config delete prefix
 
         npm install --loglevel=error -g @openai/codex @anthropic-ai/claude-code@latest @google/gemini-cli \
-            @mozilla/readability bash-language-server gridbash \
+            @mozilla/readability bash-language-server jsonlint gridbash \
             jsonrepair terminal-image-cli qutejs libgen-downloader
         # pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
@@ -141,6 +141,10 @@ while true; do
             docker rm json2env
             sleep 1
         done
+
+        # config
+        mkdir -p ~/.config/gridbash
+        pv "$APP_PATH/config.toml" >~/.config/gridbash/config.toml
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

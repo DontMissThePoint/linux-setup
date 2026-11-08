@@ -5,7 +5,6 @@ PHONE=$(mtp-detect 2>/dev/null | grep "Model:" | cut -d':' -f2 | xargs)
 
 # container
 if [ "$PHONE" = "" ]; then
-    echo "Container resume..."
     . "$GIT_PATH/linux-setup/scripts/redroid.sh"
 
     # display

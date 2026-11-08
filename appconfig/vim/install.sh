@@ -7,7 +7,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
 APP_PATH=$(dirname "$0")
-APP_PATH=$( (cd "$APP_PATH" && pwd))
+APP_PATH=$( (cd "$APP_PATH" && pwd) )
 
 unattended=0
 subinstall_params=""
@@ -36,16 +36,16 @@ while true; do
         sudo apt-get -y remove vim-* || echo ""
 
         sudo apt-get -y install libncurses5-dev libgtk2.0-dev libatk1.0-dev libcairo2-dev libx11-dev libxpm-dev libxt-dev python3-dev clang-format libpython3-all-dev
-	/home/linuxbrew/.linuxbrew/bin/brew unlink pkg-config libtool
+        /home/linuxbrew/.linuxbrew/bin/brew unlink pkg-config libtool
 
         # libsodium
         cd /tmp
         [ -e libsodium ] && sudo rm -rf libsodium
         git clone https://github.com/jedisct1/libsodium --branch stable
         cd libsodium
-	./configure
-	make -j$(nproc) && make check
-	sudo make install	
+        ./configure
+        make -j"$(nproc)" && make check
+        sudo make install
 
         # cache
         sudo ldconfig
@@ -71,9 +71,9 @@ while true; do
             --prefix=/usr
 
         cd src
-        make -j$(nproc)
+        make -j"$(nproc)"
         cd ../
-        make -j$(nproc) VIMRUNTIMEDIR=/usr/share/vim/vim91
+        make -j"$(nproc)" VIMRUNTIMEDIR=/usr/share/vim/vim91
         sudo make install
 
         # mergetool
@@ -102,15 +102,15 @@ while true; do
 
                 # set youcompleteme
                 toilet Settingup youcompleteme -t -f future
-		
+
                 sudo apt-get -y install python3-clang libclang-20-dev
 
                 # install prequisites for YCM
                 sudo bash -c "$(wget -O - https://apt.llvm.org/llvm.sh)"
 
                 # clangd
-		sudo update-alternatives --install /usr/bin/clangd \
-			clangd /usr/bin/clangd-"$(ls /usr/bin/clangd-* 2>/dev/null | grep -oE '[0-9]+$' | sort | tail -n1)" 999
+                sudo update-alternatives --install /usr/bin/clangd \
+                    clangd /usr/bin/clangd-"$(ls /usr/bin/clangd-* 2>/dev/null | grep -oE '[0-9]+$' | sort | tail -n1)" 999
                 sudo apt-get -y install libboost-all-dev
 
                 cd ~/.vim/plugged
@@ -128,15 +128,15 @@ while true; do
                 [ -e clipmenu ] && rm -rf clipmenu
                 git clone https://github.com/cdown/clipmenu
                 cd clipmenu
-		make -j$(nproc)
+                make -j"$(nproc)"
                 sudo make install
 
                 # config
                 mkdir -p ~/.config/clipmenu
                 pv "$APP_PATH/clipmenu.conf" >~/.config/clipmenu/clipmenu.conf
 
-		# link
-		/home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool
+                # link
+                /home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool
                 echo "Done."
 
                 break

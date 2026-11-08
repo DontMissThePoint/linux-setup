@@ -57,7 +57,7 @@ windows:
   # - tdab:
   # Synchronize all panes of this window, can be enabled before or after the pane commands run.
   # synchronize: after
-  - tdab:
+  - ai:
       layout: b0ff,147x41,0,0,1
       # layout: b0ff,147x41,0,0,2
       panes:
