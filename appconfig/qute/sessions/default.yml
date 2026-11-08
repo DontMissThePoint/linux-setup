@@ -6,7 +6,7 @@ windows:
   tabs:
   - history:
     - active: true
-      last_visited: '2026-10-23T19:26:21'
+      last_visited: '2026-11-05T17:17:07'
       pinned: false
       scroll-pos:
         x: 0
@@ -16,7 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-23T19:26:21'
+      last_visited: '2026-11-05T17:15:16'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,45 +26,28 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-10-23T19:26:22'
+      last_visited: '2026-11-05T17:18:26'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: thenewexcel.com
-      url: https://thenewexcel.com/reading-and-updating-an-excel-database/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-23T19:26:22'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: thenewexcel.com
-      url: https://thenewexcel.com/making-an-excel-database/
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-10-23T19:26:24'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: 'Crafting Apps: open-source creative tools — ArtCraft'
+      title: 'Crafting Apps: open-source creative tools - ArtCraft'
       url: https://getartcraft.com/apps
       zoom: 0.8
+    - last_visited: '2026-11-05T17:17:25'
+      pinned: false
+      title: 'MaterialCraft: Procedural materials, node by node. - ArtCraft'
+      url: https://getartcraft.com/apps/materialcraft
   - active: true
     history:
     - active: true
-      last_visited: '2026-10-23T19:26:27'
+      last_visited: '2026-11-05T17:15:24'
       pinned: false
       scroll-pos:
         x: 0
-        y: 1254
-      title: 'GitHub - adelaidasofia/whatsapp-mcp: Personal WhatsApp MCP for Claude,
-        built directly on whatsmeow. Encrypted-at-rest storage, Whisper voice-note
-        transcription, accent-insensitive Spanish search, vault-native CRM integration,
-        send-confirmation safety. · GitHub'
-      url: https://github.com/adelaidasofia/whatsapp-mcp
+        y: 0
+      title: 'kahflane/whatsapp-mcp: Give your AI agent a WhatsApp account — an MCP
+        server with 87 tools for reading, sending, groups, status, scheduling & more.
+        Works with Claude, Codex, Cursor, OpenCode & any MCP client.'
+      url: https://github.com/kahflane/whatsapp-mcp
       zoom: 0.8

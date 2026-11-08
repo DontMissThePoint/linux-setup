@@ -17,15 +17,17 @@ unattended=0
 docker=false
 for param in "$@"; do
     echo "$param"
-    if [ "$param=--unattended" ]; then
-        echo "installing in unattended mode"
-        unattended=1
-        subinstall_params="--unattended"
-    fi
-    if [ "$param=--docker" ]; then
-        echo "installing in docker mode"
-        docker=true
-    fi
+    case "$param" in
+        --unattended)
+            echo "installing in unattended mode"
+            unattended=1
+            subinstall_params="--unattended"
+            ;;
+        --docker)
+            echo "installing in docker mode"
+            docker=true
+            ;;
+    esac
 done
 arch=$(uname -i)
 
