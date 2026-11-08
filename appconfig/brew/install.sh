@@ -7,7 +7,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
 APP_PATH=$(dirname "$0")
-APP_PATH=$( (cd "$APP_PATH" && pwd))
+APP_PATH=$( (cd "$APP_PATH" && pwd) )
 
 unattended=0
 subinstall_params=""
@@ -52,11 +52,10 @@ while true; do
         # packages
         . ~/.bashrc && /home/linuxbrew/.linuxbrew/bin/brew upgrade
         /home/linuxbrew/.linuxbrew/bin/brew install lzip topgrade zoxide grc vivid fzf pipx \
-            oxker bat ripgrep universal-ctags miller countdown btop csvkit \
+            oxker bat ripgrep universal-ctags miller countdown btop csvkit fx check-jsonschema \
             ag fd dust zig aria2 glow restic croc newsboat walk gallery-dl \
-            rg viddy detox eza lazygit delta poetry npm tailspin yamlfix yq \
-            pyqt rclone dra \
-            2>/dev/null
+            rg viddy detox eza lazygit delta poetry npm tailspin \
+            pyqt rclone dra 2>/dev/null
 
         # node
         /home/linuxbrew/.linuxbrew/bin/brew upgrade -q node

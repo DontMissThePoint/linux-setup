@@ -7,7 +7,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
 APP_PATH=$(dirname "$0")
-APP_PATH=$( (cd "$APP_PATH" && pwd))
+APP_PATH=$( (cd "$APP_PATH" && pwd) )
 CONFIG="$HOME/.config/nvim"
 DATA="$HOME/.local/share/nvim"
 
@@ -44,7 +44,7 @@ while true; do
         git clone https://github.com/neovim/neovim.git
         cd neovim
         cd /tmp/nvim/neovim
-				make -j$(nproc) CMAKE_BUILD_TYPE=RelWithDebInfo \
+        make -j"$(nproc)" CMAKE_BUILD_TYPE=RelWithDebInfo \
             CMAKE_INSTALL_PREFIX=/usr/bin/nvim
 
         cd build && cpack -G DEB && sudo dpkg -i /tmp/nvim/neovim/build/nvim-linux-x86_64.deb
@@ -58,12 +58,8 @@ while true; do
         rustup update
 
         # cargo
-        cargo install cargo-update cargo-cache tree-sitter-cli shellharden felix portview
+        cargo install cargo-update cargo-cache tree-sitter-cli shellharden portview
         # rustup self uninstall
-
-        # fx
-        mkdir -p ~/.config/felix/
-        pv "$APP_PATH/config.yaml" >~/.config/felix/config.yaml
 
         # Nvchad
         git clone https://github.com/NvChad/starter "$CONFIG"

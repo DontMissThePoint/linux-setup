@@ -7,7 +7,7 @@ trap 'echo "$0: \"${last_command}\" command failed with exit code $?"' ERR
 
 # get the path to this script
 APP_PATH=$(dirname "$0")
-APP_PATH=$( (cd "$APP_PATH" && pwd))
+APP_PATH=$( (cd "$APP_PATH" && pwd) )
 
 unattended=0
 subinstall_params=""
@@ -33,7 +33,7 @@ while true; do
 
         toilet Installing qutebrowser -t --filter metal -f smmono12
         cd "$APP_PATH"/../../submodules/qutebrowser
-        sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl asciidoc python3-pyqt6 PyQt6.QtWebEngine qt5ct qt6ct
+        sudo apt-get -y install --no-install-recommends libsm6 libxext6 ffmpeg ca-certificates python3 python3-venv libgl1 libxkbcommon-x11-0 libfontconfig1 libglib2.0-0 libdbus-1-3 libxcb-cursor0 libxcb-icccm4 libxcb-keysyms1 libxcb-shape0 libnss3 libxcomposite1 libxdamage1 libxrender1 libxrandr2 libxtst6 libxi6 gstreamer1.0-plugins-{bad,base,good,ugly} python3-pyqt5.qtquick python3-pyqt5.qtsql python3-pyqt5.qtopengl asciidoc python3-pyqt6 PyQt6.QtWebEngine qt5ct qt6ct libsecret-tools
 
         # display
         # plugins: vkkhrdisplay, minimal, eglfs, vnc, offscreen, linuxfb, minimalegl, xcb
@@ -75,6 +75,7 @@ while true; do
 
         cd ~/.config/qutebrowser
         ln -sf "$APP_PATH"/../../submodules/qutebrowser/misc/userscripts ./userscripts
+
         rm -fr "$GIT_PATH"/linux-setup/submodules/qutebrowser/misc/userscripts/userscripts
 
         # greasmonkey
@@ -92,7 +93,8 @@ while true; do
         npm config set prefix ~/.local
         # npm config delete prefix
 
-        npm install --loglevel=error -g @openai/codex @mozilla/readability bash-language-server \
+        npm install --loglevel=error -g @openai/codex @anthropic-ai/claude-code@latest @google/gemini-cli \
+            @mozilla/readability bash-language-server jsonlint gridbash \
             jsonrepair terminal-image-cli qutejs libgen-downloader
         # pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
@@ -108,13 +110,14 @@ while true; do
         codex plugin add codex-advisor@claude-settings
 
         # parsers
-        # markitdown (free, fast, MIT). Escalate to Docling (table-heavy, scanned PDFs)
-        # LlamaParse (cloud, BYOK) when markitdown's quality isn't enough
+        # markitdown (free, fast, MIT).
+        # Docling (table-heavy, scanned PDFs)
+        # LlamaParse (cloud, BYOK)
         codex plugin add parse-mcp@parse-mcp
 
         # mcp
         codex mcp add gridcraft gridcraft-cli mcp
-        codex mcp add pdfcraft pdfcraft-cli mcp
+        # codex mcp add whatsapp whatsmeow-mcp
 
         toilet Installing librechat -t --filter metal -f smmono12
 
@@ -138,6 +141,10 @@ while true; do
             docker rm json2env
             sleep 1
         done
+
+        # config
+        mkdir -p ~/.config/gridbash
+        pv "$APP_PATH/config.toml" >~/.config/gridbash/config.toml
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

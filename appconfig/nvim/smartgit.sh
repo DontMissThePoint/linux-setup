@@ -2,13 +2,13 @@
 
 # get the path to this script
 APP_PATH=$(dirname "$0")
-APP_PATH=$( (cd "$APP_PATH" && pwd))
+APP_PATH=$( (cd "$APP_PATH" && pwd) )
 SMART_VERSION=20.2
 CONFIG="$HOME/.config/smartgit/$SMART_VERSION"
 
 # syntevo
 cd /tmp
-wget -c https://download.smartgit.dev/smartgit/smartgit-26_2_006-preview-linux_amd64.deb ||
+wget -c https://download.smartgit.dev/smartgit/smartgit-26_1_057-linux_amd64.deb ||
 wget -c https://www.syntevo.com/downloads/smartgit/archive/smartgit-20_2_6.deb
 
 toilet Setting up smartgit -t -f future

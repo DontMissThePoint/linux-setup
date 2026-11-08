@@ -123,15 +123,40 @@ let g:ledger_date_format = '%Y/%m/%d'
 " lens
 let g:GIT_LENS_ENABLED = 1
 
-" Fullscreen for datasets
+" datasets
 au BufNewFile,BufRead *.tsv set filetype=tsv
 au BufNewFile,BufRead *.dat set filetype=ledger
+au BufNewFile,BufRead *.json set filetype=json
 
 " autocmd Syntax *\(^tsv\)\@<! silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 " autocmd FileType ledger,tsv,csv silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 autocmd FileType ledger silent! !wmctrl -r ':ACTIVE:' -b add,fullscreen
 
-" cursors
+" json
+func! JsonPrettierColors() abort
+  hi! link jsonKeyword Identifier
+  hi! link jsonString String
+  hi! link jsonNumber Number
+  hi! link jsonBoolean Boolean
+  hi! link jsonNull Constant
+  hi! link jsonNoise Delimiter
+  hi! link jsonEscape Special
+endfunc
+
+func! JsonPrettierSetup() abort
+  setlocal syntax=json
+  setlocal foldmethod=manual
+  setlocal synmaxcol=500
+  call JsonPrettierColors()
+endfunc
+
+augroup json_prettier
+  autocmd!
+  autocmd FileType json call JsonPrettierSetup()
+  autocmd ColorScheme * call JsonPrettierColors()
+augroup END
+
+" cursor
 let g:togglecursor_force = 'xterm'
 
 " status
@@ -150,6 +175,9 @@ set mouse=a
 " support mouse codes : xterm, xterm2, netterm, dec, jsbterm, pterm
 set ttymouse=xterm2
 "}}}
+
+" goyo
+autocmd! VimEnter * silent! Goyo
 
 "{{{ PLUGIN
 
@@ -259,15 +287,6 @@ let g:Illuminate_ftHighlightGroups = {
       \ }
 let g:Illuminate_ftblacklist = ['nerdtree']
 
-" Sneak
-let g:sneak#label = 1
-let g:sneak#s_next = 1
-let g:sneak#use_ic_scs = 1
-let g:sneak#prompt = '🔎'
-
-highlight Sneak guifg=black guibg=#00C7DF ctermfg=black ctermbg=cyan
-highlight SneakScope guifg=red guibg=yellow ctermfg=red ctermbg=yellow
-
 " Rainbow
 let g:rainbow_active = 1
 let g:rbql_with_headers = 1
@@ -277,9 +296,9 @@ let g:rbql_use_system_python = 1
 let g:indentLine_defaultGroup         = 'SpecialKey'
 let g:indentLine_char                 = '│'
 
-" disable for syntax
-let g:vim_json_conceal=0
+" syntax
 let g:markdown_syntax_conceal=0
+let g:json_syntax_conceal=0
 
 " YouCompleteMe
 augroup load_ycm
@@ -317,7 +336,10 @@ let g:ycm_filetype_blacklist = {}
 
 " disable for Ledger files
 if exists('g:ycm_filetype_blacklist')
-  call extend(g:ycm_filetype_blacklist, { 'ledger': 1 })
+  call extend(g:ycm_filetype_blacklist, {
+        \ 'ledger': 1,
+        \ 'json': 1,
+        \ })
 endif
 
 " Let clangd fully control code completion
@@ -348,6 +370,9 @@ nnoremap <expr> <C-Up> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoUp<CR>' : '<C-U
 nnoremap <expr> <C-Down> get(b:, 'rbcsv', 0) == 1 ? ':RainbowCellGoDown<CR>' : '<C-Down>'
 " nnoremap <F5> :RainbowQuery<CR>
 
+" jq
+nnoremap <leader>jq :silent! %!jq .<CR>:syntax sync fromstart<CR>
+
 " Indent
 nnoremap <leader>idl :IndentLinesToggle<CR>
 
@@ -355,7 +380,6 @@ nnoremap <leader>idl :IndentLinesToggle<CR>
 nnoremap <Esc>n <Cmd>noh<CR>
 
 " Command-line
-cnoremap q qa
 noremap ;; ;
 vnoremap ; :
 map ; :
@@ -372,73 +396,5 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 noremap \\ :set invlist<CR>
 
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
- " autocmd! VimEnter *\(.dat\|.tsv\|.csv\)\@<! call SneakStf()
- " function SneakStf()
- "   " better f, F, t, and T
- "   nnoremap <buffer> s <Plug>Sneak_s
- "   nnoremap <buffer> S <Plug>Sneak_S
- "   nnoremap <buffer> f <Plug>Sneak_f
- "   nnoremap <buffer> F <Plug>Sneak_F
- "   nnoremap <buffer> t <Plug>Sneak_t
- "   nnoremap <buffer> T <Plug>Sneak_T
-
- "   " remove the default , and ;
- "   noremap <buffer> gS <Plug>Sneak_,
- "   noremap <buffer> gs <Plug>Sneak_;
-
- "   " focus
- "   set background=dark
- "   silent! Goyo
- " endfunction
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
-
-" NetisFleet
-autocmd FileType tsv,sh call DataViz()
-function DataViz()
-
-  silent! Goyo!
-  set background=dark
-
-  "let g:airline_theme='papercolor'
-  let g:github_colors_soft = 0
-  colo github
-	"hi SpecialKey guifg=#ff69b4 gui=NONE
-	hi LineNr guifg=#ff69b4 gui=NONE
-
-	windo set scrollbind
-
-  " prepend
-  noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
-
-  func! Swipe(card)
-    let @c = a:card
-    silent! execute "normal d$:pu c"
-    -join!
-
-    " Cursor pos
-    call cursor('.',strwidth(getline('.')))
-  endfunc
-
-  " Preselect
-  iabbrev <silent> i <Cmd>:call fzf#run(fzf#wrap({
-        \ 'source': readfile(expand('$HOME/.cards.txt')),
-        \ 'sink': function('Swipe'), 'window': { 'width': 0.65,
-        \ 'height': 0.6, 'highlight': 'Todo', 'border': 'sharp' },
-        \ 'options': '+m --header "" --border-label "Select gas station"
-        \ --preview "" --prompt "Location	: 💳 "'}))<CR>
-
-  " Canvas
-  setlocal noexpandtab ruler
-  setlocal tabstop=20 softtabstop=20 shiftwidth=20
-
-  " Visibility
-  setlocal number relativenumber cursorcolumn cursorline
-  windo set scrollopt=ver,jump scrollbind nowrap
-
-  " Fast Lane
-  call EnableCursorLines()
-
-  " Highlight
-  call feedkeys(",a")
-endfunc
 "}}}

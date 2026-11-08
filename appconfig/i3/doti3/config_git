@@ -254,7 +254,7 @@ bindsym $mod+y exec --no-startup-id ~/.scripts/toggle_touchpad.sh
 bindsym $mod+Shift+x exec ~/.i3/shutdown_menu -p rofi
 
 # bindsym $mod2+e exec nemo
-bindsym $mod2+b exec qutebrowser
+bindsym $mod2+b exec "qutebrowser  --qt-flag disable-blink-features=AutomationControlled"
 # bindsym $mod2+s exec "sed -i 's/listx: {.*}/listx: {}/g' ~/.smartgit-preferences.yml; /usr/share/smartgit/bin/smartgit.sh"
 bindsym $mod2+s exec --no-startup-id "/usr/share/smartgit/bin/smartgit.sh"
 bindsym $mod2+l exec --no-startup-id ~/.i3/layout_manager.sh
@@ -1587,7 +1587,7 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id compton -f -D 3 --backend glx --paint-on-overlay --vsync opengl-swc # EPIGEN_DEL_LINE_GPD EPIGEN_DEL_LINE_TOSHIBA EPIGEN_DEL_LINE_PETR EPIGEN_DEL_LINE_PAVEL EPIGEN_DEL_LINE_HONZA EPIGEN_DEL_LINE_DANIEL
 
 # polybar
-# exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
+## exec_always --no-startup-id $HOME/.config/polybar/launch.sh # EPIGEN_ADD_LINE_COLORSCHEME_GIT
 
 # tmux
 exec --no-startup-id "i3-sensible-terminal -name launcher -e $SHELL -c 'tmuxinator double;$SHELL -i'"
