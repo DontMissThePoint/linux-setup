@@ -29,26 +29,31 @@ for param in "$@"; do
             ;;
     esac
 done
+
+apt_install_flags=()
+if "$docker"; then
+    apt_install_flags+=(--no-install-recommends)
+fi
 arch=$(uname -i)
 
 # packages
 sudo apt-get -y update -qq
 
 # essentials
-sudo apt-get -y install curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool wifi-qr moreutils xserver-xorg-input-all
+sudo apt-get -y install "${apt_install_flags[@]}" curl git git-lfs cmake-curses-gui build-essential automake autoconf autogen libgit2-dev libncurses5-dev libc++-dev pkg-config libx11-dev libconfig-dev libwayland-dev libtool net-tools libcurl4-openssl-dev libtiff-dev openssh-server nmap rsync gawk bison byacc pv atool wifi-qr moreutils xserver-xorg-input-all
 
 # python
-sudo apt-get -y install python3-full python3-dev python3-setuptools python3-tk python3-pip
+sudo apt-get -y install "${apt_install_flags[@]}" python3-full python3-dev python3-setuptools python3-tk python3-pip
 
 if [ "$BEAVER" != "" ]; then
-    sudo apt-get -y install python-git
+    sudo apt-get -y install "${apt_install_flags[@]}" python-git
     sudo ln -sf /bin/python2.7 /bin/python
 else
-    sudo apt-get -y install python3-git
+    sudo apt-get -y install "${apt_install_flags[@]}" python3-git
 fi
 
 # other stuff
-sudo apt-get -y install ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
+sudo apt-get -y install "${apt_install_flags[@]}" ruby sl indicator-multiload figlet toilet gem tree exuberant-ctags xclip xsel exfat-fuse blueman autossh jq xvfb poppler-utils neofetch gparted cryptsetup xfsprogs espeak imagemagick ncdu bleachbit stacer wmctrl elinks libarchive-tools ffmpegthumbnailer multitail
 
 # submodules
 cd "$MY_PATH"
