@@ -157,9 +157,6 @@ while true; do
 
 		# drawnix: http://localhost:3000
 
-		# berkeley
-		toilet Settingup drawnix -t -f future
-
 		# TX
 		cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
 		sg docker -c "docker run --rm \

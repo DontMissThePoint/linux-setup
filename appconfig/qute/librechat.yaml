@@ -671,7 +671,6 @@ actions:
 # Do not use URLs, paths, CIDR ranges, bare hosts/IPs, or public IP literals.
 # Hostname entries trust whatever IP they resolve to on the listed port — only
 # list names whose DNS you control.
-endpoints:
   #   allowedAddresses:
   #     - 'localhost:11434'
   #     - '127.0.0.1:11434'
