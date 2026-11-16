@@ -83,6 +83,16 @@ while true; do
         cd ~/.local/share/qutebrowser/greasemonkey
         xargs -n1 curl -LO <"$APP_PATH"/js.greasyforks
 
+        # QT
+        num=$(grep -ow "QT_QPA_PLATFORMTHEME=qt5ct" /etc/environment | wc -l)
+        if [ "$num" -lt "1" ]; then
+
+            echo "Override QT themes..."
+            echo 'QT_QPA_PLATFORMTHEME=qt5ct' |
+            sudo tee -a /etc/environment >/dev/null
+
+        fi
+
         # screenshots <space>dp
         mkdir -p ~/Pictures/Screenshots
 
@@ -119,28 +129,13 @@ while true; do
         codex mcp add gridcraft gridcraft-cli mcp
         # codex mcp add whatsapp whatsmeow-mcp
 
-        toilet Installing librechat -t --filter metal -f smmono12
-
-        # QT
-        num=$(grep -ow "QT_QPA_PLATFORMTHEME=qt5ct" /etc/environment | wc -l)
-        if [ "$num" -lt "1" ]; then
-
-            echo "Override QT themes..."
-            echo 'QT_QPA_PLATFORMTHEME=qt5ct' |
-            sudo tee -a /etc/environment >/dev/null
-
-        fi
+        toilet Settingup deepseek -t -f future
 
         # http://localhost:3080
         cd "$APP_PATH"/../../submodules/librechat
         cp .env.example .env || echo -e "Adding API keys.."
-
-        # api
-        until touch ~/Public/Journal/llm_mcp.json &&
-        cat ~/Public/Journal/llm_mcp.json | sg docker -c "docker run --name json2env -i decknroll/json2env" >.env 2>/dev/null; do
-            docker rm json2env
-            sleep 1
-        done
+        pv "$APP_PATH/librechat.yaml" >librechat.yaml
+        pv "$APP_PATH/docker-compose.override.yml" >docker-compose.override.yml
 
         # config
         mkdir -p ~/.config/gridbash

@@ -90,6 +90,7 @@ while true; do
 
         # wacli
         curl -fsSL https://raw.githubusercontent.com/BrOrlandi/whatsapp-mcp-local/main/install.sh | bash
+        # systemctl --user stop whatsapp-mcp.service
 
         # link
         /home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool

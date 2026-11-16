@@ -1,12 +1,12 @@
 windows:
 - active: true
   geometry: !!binary |
-    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAAAAAAABgAAAUkAAACzAAAAAAABAAABSUAAAAAAAAA
+    AdnQywADAAAAAAAAAAAAAAAABSQAAALkAAAClAAAACQAAAUYAAACwAAAAAAABAAABSUAAAAAAAAA
     AAAABSQAAALk
   tabs:
   - history:
     - active: true
-      last_visited: '2026-11-15T01:35:29'
+      last_visited: '2026-11-16T22:23:29'
       pinned: false
       scroll-pos:
         x: 0
@@ -16,7 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-11-15T01:35:29'
+      last_visited: '2026-11-16T22:23:29'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,7 +26,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-11-15T01:35:31'
+      last_visited: '2026-11-16T22:23:35'
       pinned: false
       scroll-pos:
         x: 0
@@ -34,34 +34,14 @@ windows:
       title: 'Crafting Apps: open-source creative tools - ArtCraft'
       url: https://getartcraft.com/apps
       zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-11-15T01:35:29'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Recipes · WhatsApp MCP
-      url: http://127.0.0.1:47821/receitas
-      zoom: 0.8
-  - history:
-    - active: true
-      last_visited: '2026-11-15T01:35:30'
-      pinned: false
-      scroll-pos:
-        x: 0
-        y: 0
-      title: Settings · WhatsApp MCP
-      url: http://127.0.0.1:47821/configuracoes
-      zoom: 0.8
   - active: true
     history:
     - active: true
-      last_visited: '2026-11-15T01:35:29'
+      last_visited: '2026-11-16T22:23:31'
       pinned: false
       scroll-pos:
         x: 0
-        y: 983
+        y: 0
       title: WhatsApp · WhatsApp MCP
       url: http://127.0.0.1:47821/whatsapp
       zoom: 0.8

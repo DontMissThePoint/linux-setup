@@ -1,6 +1,6 @@
 from time import localtime, strftime
 
-import catppuccin
+import os, catppuccin
 
 # Reassign to avoid lsp(ruff_lsp) errors
 config = config  # noqa: F821
@@ -8,6 +8,21 @@ c = c  # noqa: F821
 
 # load your autoconfig, use this if the rest of your config is empty!
 config.load_autoconfig()
+
+# zoneinfo
+tz = os.environ.get('TZ', '')
+
+# os
+if tz:
+    # trim
+    tz = tz.lstrip(':')
+
+    # start
+    prefix = '/usr/share/zoneinfo/'
+    if tz.startswith(prefix):
+        tz = tz[len(prefix):]
+
+    c.qt.environ['TZ'] = tz
 
 
 ### When to show a changelog after qutebrowser was upgraded.
