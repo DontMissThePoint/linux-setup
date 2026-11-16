@@ -77,6 +77,7 @@ alias rcp="rsync -ahP"
 alias jql="fx"
 
 alias mvi="mpv --config-dir=$HOME/.config/mvi"
+alias deepseek="$GIT_PATH/linux-setup/scripts/librechat.sh"
 alias newsboat="$GIT_PATH/linux-setup/scripts/newsboat.sh"
 alias ncmp="$GIT_PATH/linux-setup/scripts/ncmpcpp.sh"
 alias moon="$GIT_PATH/linux-setup/scripts/moonphase.sh"
@@ -96,15 +97,10 @@ alias info="info --vi-keys"
 alias al="ls -Lisha \$(fd -H . / | fzf --tmux 100%,70% --border horizontal --padding 1,2 --preview 'preview {}' --preview-window '~8')"
 
 # llm
+source "$GIT_PATH/linux-setup/scripts/llm_env.sh"
+
 tmux_status_off() {
     [ "$TMUX" = "" ] || tmux set status off
-}
-
-llm_env() {
-    local keys=$1
-    local config="$HOME/Public/Journal/llm_mcp.json"
-    [ -f "$config" ] || return 0
-    eval "$(docker run --rm -i decknroll/json2env --export --upper <"$config" | grep -E "$keys")"
 }
 
 viz() {
@@ -124,14 +120,6 @@ sq() {
 
     #db
     sqlit
-}
-
-# ai
-libre() {
-    llm_env 'OPENAI|ANTHROPIC|DEEP'
-
-    # chat
-    "$GIT_PATH/linux-setup/scripts/librechat.sh"
 }
 
 # directories
