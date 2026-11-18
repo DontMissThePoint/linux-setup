@@ -35,28 +35,12 @@ while true; do
         toilet Installing go -t --filter metal -f smmono12
 
         sudo apt install -y ccache cmake build-essential gperf help2man libreadline-dev libssl-dev libncurses-dev libncursesw5-dev ncurses-doc zlib1g-dev libsqlite3-dev libmagic-dev irssi irssi-scripts
-        /home/linuxbrew/.linuxbrew/bin/brew unlink pkg-config libtool
 
         # go
         sudo apt-get remove -y --auto-remove golang-go
         sudo rm -rf /usr/local/go
         wget -c "https://go.dev/dl/${GO_VERSION}.linux-amd64.tar.gz" -O - | sudo tar -xz -C /usr/local
         export PATH=/usr/local/go/bin:$PATH
-
-        toilet Installing jq -t --filter metal -f smmono12
-
-        # jq
-        cd /tmp
-        [ -e jq ] && rm -rf jq
-        git clone https://github.com/jqlang/jq
-        cd jq
-        git submodule update --init # if building from git to get oniguruma
-        autoreconf -i               # if building from git
-        ./configure --with-oniguruma=builtin
-        make clean # if upgrading from a version previously built from source
-        make -j"$(nproc)"
-        make check
-        sudo make install
 
         # ledger
         go install github.com/howeyc/ledger/ledger@latest
@@ -73,6 +57,16 @@ while true; do
         # mpd-mpris
         go install github.com/natsukagami/mpd-mpris/cmd/mpd-mpris@latest
 
+        # whatsapp-mcp-local
+        toilet Installing whatsapp -t --filter metal -f smmono12
+
+        # wacli
+        curl -fsSL https://raw.githubusercontent.com/BrOrlandi/whatsapp-mcp-local/main/install.sh | bash
+        # systemctl --user stop whatsapp-mcp.service
+
+        # completion
+        wacli completion zsh >"${fpath[1]}/_wacli"
+
         # config
         mkdir -p ~/.config/pomo ~/.irssi/scripts/autorun
         cp "$APP_PATH"/themes/*.theme ~/.irssi/
@@ -84,19 +78,6 @@ while true; do
         cd ~/.irssi/scripts/autorun/
         ln -sf \
             ~/.irssi/scripts/{awl.pl,mouse.pl,nm.pl,usercount.pl,smartfilter.pl,tmux-nicklist-portable.pl,passwd.pl,trackbar22.pl,nickcolor.pl,notifications.pl} ./
-
-        # whatsapp-mcp-local
-        toilet Installing whatsapp -t --filter metal -f smmono12
-
-        # wacli
-        curl -fsSL https://raw.githubusercontent.com/BrOrlandi/whatsapp-mcp-local/main/install.sh | bash
-        # systemctl --user stop whatsapp-mcp.service
-
-        # completion
-        wacli completion zsh >"${fpath[1]}/_wacli"
-
-        # link
-        /home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool
 
         break
     elif [[ $response =~ ^(n|N)=$ ]]; then

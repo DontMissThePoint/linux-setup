@@ -104,7 +104,7 @@ while true; do
         # npm config delete prefix
 
         npm install --loglevel=error -g @openai/codex @anthropic-ai/claude-code@latest @google/gemini-cli \
-            @mozilla/readability bash-language-server jsonlint gridbash \
+            @mozilla/readability bash-language-server vscode-langservers-extracted jsonlint gridbash \
             jsonrepair terminal-image-cli qutejs libgen-downloader
         # pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
@@ -129,6 +129,13 @@ while true; do
 
         toilet Installing librechat -t --filter metal -f smmono12
 
+        # nvm
+        nvm install 24.22.1
+        nvm use 24.22.1
+        npm install -g npm@11.13.0
+        node -v
+        npm -v
+
         # chat
         if [ ! -e "$HOME"/VirtualMachines/Libre-Chat ]; then
 
@@ -138,6 +145,8 @@ while true; do
         cd ~/VirtualMachines/Libre-Chat
 
         echo -e "Adding API keys.."
+        git pull
+        npm run smart-reinstall
 
         # env
         cp .env.example .env

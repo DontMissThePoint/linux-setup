@@ -6,7 +6,7 @@ windows:
   tabs:
   - history:
     - active: true
-      last_visited: '2026-11-17T18:54:33'
+      last_visited: '2026-11-18T10:18:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -16,7 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-11-17T18:54:33'
+      last_visited: '2026-11-18T10:18:49'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,18 +26,17 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-11-17T18:54:45'
+      last_visited: '2026-11-18T10:18:54'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
-      title: 'Crafting Apps: open-source creative tools - ArtCraft'
+      title: getartcraft.com
       url: https://getartcraft.com/apps
       zoom: 0.8
-  - active: true
-    history:
+  - history:
     - active: true
-      last_visited: '2026-11-17T18:54:34'
+      last_visited: '2026-11-18T10:18:51'
       pinned: false
       scroll-pos:
         x: 0
@@ -45,9 +44,10 @@ windows:
       title: WhatsApp · WhatsApp MCP
       url: http://127.0.0.1:47821/whatsapp
       zoom: 0.8
-  - history:
+  - active: true
+    history:
     - active: true
-      last_visited: '2026-11-17T18:54:33'
+      last_visited: '2026-11-18T10:18:49'
       pinned: false
       scroll-pos:
         x: 0

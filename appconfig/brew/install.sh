@@ -54,7 +54,7 @@ while true; do
         /home/linuxbrew/.linuxbrew/bin/brew install lzip topgrade zoxide grc vivid fzf pipx \
             oxker bat ripgrep universal-ctags miller countdown btop csvkit fx check-jsonschema \
             ag fd dust zig aria2 glow restic croc newsboat walk gallery-dl \
-            rg viddy detox eza lazygit delta poetry npm tailspin \
+            rg viddy detox eza lazygit delta poetry npm nvm tailspin \
             pyqt rclone dra 2>/dev/null
 
         # node
@@ -63,7 +63,7 @@ while true; do
         /home/linuxbrew/.linuxbrew/bin/brew cleanup --prune=all
 
         # newsboat
-        mkdir -p ~/.newsboat
+        mkdir -p ~/.{newsboat,nvm}
         cp -rf "$APP_PATH"/newsboat/* ~/.newsboat/
 
         # gallery-dl

@@ -128,7 +128,7 @@ if g:user_mode == "1"
   Plug 'ervandew/supertab', { 'on': [] }
   " enable airline YCM status
   let g:airline#extensions#ycm#enabled = 1
-	let g:ale_completion_enabled = 1
+	let g:ale_completion_enabled = 0
 
 	" ale
 	Plug 'dense-analysis/ale'

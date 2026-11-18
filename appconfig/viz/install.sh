@@ -53,6 +53,21 @@ while true; do
         sudo apt purge libreoffice* -qy
         sudo apt install -y zathura mupdf mupdf-tools faketime xsltproc htmldoc pandoc pdf-presenter-console
 
+        toilet Installing jq -t --filter metal -f smmono12
+
+        # jq
+        cd /tmp
+        [ -e jq ] && rm -rf jq
+        git clone https://github.com/jqlang/jq
+        cd jq
+        git submodule update --init # if building from git to get oniguruma
+        autoreconf -i               # if building from git
+        ./configure --with-oniguruma=builtin
+        make clean # if upgrading from a version previously built from source
+        make -j"$(nproc)"
+        make check
+        sudo make install
+
         # craft
         toilet Installing gridcraft -t --filter metal -f smmono12
 

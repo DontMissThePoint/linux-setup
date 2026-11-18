@@ -6,9 +6,6 @@ set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
 set hidden
 
-" omni
-set omnifunc=ale#completion#OmniFunc
-
 let g:auto_save        = 1
 let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
@@ -351,20 +348,39 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates
 let g:ycm_clangd_binary_path = exepath("clangd")
 
-" lint
+" lint fix only
+let g:ale_completion_enabled = 0
 let g:ale_linters_explicit = 0
 let g:ale_linters = {
 \   'json': ['jq', 'eslint', 'check-jsonschema'],
+\   'vim': ['vint'],
 \}
-let g:ale_json_check_jsonschema_options = '--schemafile '
-			\ . shellescape(expand('%:p:h') . '/schema.json')
 
-" fix
+" Note: Use a function or autocmd: %:p:h per buffer
+autocmd BufRead,BufNewFile *.json let b:ale_json_check_jsonschema_options = '--schemafile '
+      \ . shellescape(expand('%:p:h') . '/schema.json')
+
 let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['prettier', 'eslint'],
 \}
 let g:ale_fix_on_save = 1
+
+" vimscript + json schema completion
+autocmd FileType vim setlocal omnifunc=syntaxcomplete#Complete
+
+let g:ycm_semantic_triggers = {
+\   'vim': ['re!\w{2}'],
+\   'json': ['"', ':'],
+\}
+
+let g:ycm_language_server = [
+\   {
+\     'name': 'json',
+\     'cmdline': ['vscode-json-language-server', '--stdio'],
+\     'filetypes': ['json', 'jsonc'],
+\   },
+\]
 "}}}
 
 "{{{ REMAP
