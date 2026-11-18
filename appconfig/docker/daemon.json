@@ -1,5 +1,6 @@
 {
   "dns": [
     "172.17.0.1"
-  ]
+  ],
+  "data-root": "/home/docker"
 }

@@ -112,11 +112,8 @@ while true; do
         codex plugin marketplace add fcakyon/claude-codex-settings
         codex plugin marketplace add adelaidasofia/parse-mcp
 
-        # plugin
-        codex plugin add simplify@claude-settings
-        codex plugin add humanize@claude-settings
-
         # advisor
+        codex plugin add humanize@claude-settings
         codex plugin add codex-advisor@claude-settings
 
         # parsers
@@ -127,15 +124,33 @@ while true; do
 
         # mcp
         codex mcp add gridcraft gridcraft-cli mcp
+        codex mcp add mailcraft mailcraft-cli mcp
         # codex mcp add whatsapp whatsmeow-mcp
 
-        toilet Settingup deepseek -t -f future
+        toilet Installing librechat -t --filter metal -f smmono12
 
+        # chat
+        if [ ! -e "$HOME"/VirtualMachines/Libre-Chat ]; then
+
+            git clone https://github.com/LibreChat-AI/LibreChat "$HOME"/VirtualMachines/Libre-Chat
+        fi
         # http://localhost:3080
-        cd "$APP_PATH"/../../submodules/librechat
-        cp .env.example .env || echo -e "Adding API keys.."
+        cd ~/VirtualMachines/Libre-Chat
+
+        echo -e "Adding API keys.."
+
+        # env
+        cp .env.example .env
         pv "$APP_PATH/librechat.yaml" >librechat.yaml
         pv "$APP_PATH/docker-compose.override.yml" >docker-compose.override.yml
+
+        # session
+        sed -i "s/^\(ADMIN_PANEL_SESSION_SECRET=\).*/\1$(openssl rand -hex 32)/" .env
+        sed -i "s/^\(CREDS_KEY=\).*/\1$(openssl rand -hex 32)/" .env
+        sed -i "s/^\(CREDS_IV=\).*/\1$(openssl rand -hex 16)/" .env
+        sed -i "s/^\(JWT_SECRET=\).*/\1$(openssl rand -hex 32)/" .env
+        sed -i "s/^\(JWT_REFRESH_SECRET=\).*/\1$(openssl rand -hex 32)/" .env
+        # docker compose up -d --remove-orphans
 
         # config
         mkdir -p ~/.config/gridbash

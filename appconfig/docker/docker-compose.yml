@@ -4,4 +4,4 @@ services:
     container_name: drawnix
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - "8080:80"

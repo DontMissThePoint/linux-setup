@@ -126,6 +126,9 @@ while true; do
 		# v4l2-ctl --list-devices    # or you may `ls /dev/video*`
 		# scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
 
+		# volumes
+		sudo mkdir -p /home/docker
+
 		# kernel
 		sudo cp -f "$APP_PATH/redroid.conf" /etc/modules-load.d/
 		sudo cp -f "$APP_PATH/daemon.json" /etc/docker/
@@ -149,15 +152,17 @@ while true; do
 		# youtubedl: "$(hostname -I | awk '{print $1}')":17442/#/home
 		curl -L https://raw.githubusercontent.com/voc0der/ytdl-material/refs/heads/main/docker-compose.yml -o docker-compose.yml
 
-		# flowchart
+		# drawnix
 		toilet Settingup drawnix -t -f future
 
 		mkdir -p ~/VirtualMachines/Drawnix-Board
 		pv "$APP_PATH/docker-compose.yml" >~/VirtualMachines/Drawnix-Board/docker-compose.yml
+		# drawnix: http://localhost:8080
 
-		# drawnix: http://localhost:3000
+		# mono
+		toilet Settingup berkeley -t -f future
 
-		# TX
+		# TX-02
 		cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
 		sg docker -c "docker run --rm \
             -v ./TX-02:/in \

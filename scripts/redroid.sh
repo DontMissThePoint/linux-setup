@@ -1,7 +1,8 @@
 #!/bin/sh
 
 DROID="redroid-android"
-OPTIONS="15.0.0\n11.0.0"
+# OPTIONS="15.0.0\n11.0.0"
+OPTIONS="11.0.0"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
 IMG="$HOME/VirtualMachines/Android-Docker"
 

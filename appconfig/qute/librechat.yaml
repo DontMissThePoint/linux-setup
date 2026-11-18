@@ -31,13 +31,13 @@ cache: true
 
 # Chat Projects: the ceilings a single project may reach. Every field is optional and
 # defaults to the value shown, which is the behavior when the block is absent.
-projects:
-  # Reference files that may be attached to one project (maximum 500).
-  maxFiles: 50
-  # Characters of project instructions stored and sent as guidance (maximum 200000).
-  maxInstructionsLength: 16000
-  # Characters of the project description shown in the workspace and sidebar (maximum 10000).
-  maxDescriptionLength: 1000
+# projects:
+# Reference files that may be attached to one project (maximum 500).
+# maxFiles: 50
+# Characters of project instructions stored and sent as guidance (maximum 200000).
+# maxInstructionsLength: 16000
+# Characters of the project description shown in the workspace and sidebar (maximum 10000).
+# maxDescriptionLength: 1000
 
 # Tool-call previews: a long conversation's tool outputs, arguments and subagent transcripts
 # can run to megabytes, though their cards render collapsed. The web client asks for bounded
@@ -671,27 +671,11 @@ actions:
 # Do not use URLs, paths, CIDR ranges, bare hosts/IPs, or public IP literals.
 # Hostname entries trust whatever IP they resolve to on the listed port — only
 # list names whose DNS you control.
-  #   allowedAddresses:
-  #     - 'localhost:11434'
-  #     - '127.0.0.1:11434'
-  #     - 'ollama:11434'
-  #     - '10.0.0.5:8080'
-  custom:
-    - name: "Deepseek"
-      apiKey: "${DEEPSEEK_API_KEY}"
-      baseURL: "https://api.deepseek.com/v1"
-      models:
-        default:
-          [
-            "deepseek-chat",
-            "deepseek-coder",
-            "deepseek-reasoner",
-            "deepseek-v4.1-flash",
-          ]
-        fetch: false
-      titleConvo: true
-      titleModel: "deepseek-chat"
-      modelDisplayLabel: "Deepseek"
+#   allowedAddresses:
+#     - 'localhost:11434'
+#     - '127.0.0.1:11434'
+#     - 'ollama:11434'
+#     - '10.0.0.5:8080'
 
 # MCP Server domain restrictions for remote transports (SSE, WebSocket, HTTP)
 # SECURITY: If not configured, SSRF targets are blocked (localhost, private IPs, .internal/.local TLDs).
@@ -1265,6 +1249,22 @@ endpoints:
   #     #     deploymentName: claude-3-5-haiku@20241022  # Override for this model
 
   custom:
+    - name: "Deepseek"
+      apiKey: "${DEEPSEEK_API_KEY}"
+      baseURL: "https://api.deepseek.com/v1"
+      models:
+        default:
+          [
+            "deepseek-chat",
+            "deepseek-coder",
+            "deepseek-reasoner",
+            "deepseek-v4.1-flash",
+          ]
+        fetch: false
+      titleConvo: true
+      titleModel: "deepseek-chat"
+      modelDisplayLabel: "Deepseek"
+
     # xAI: Grok 4.7 uses the existing OpenAI-compatible chat and agent paths.
     # https://docs.x.ai/developers/grok-4-7
     # Set XAI_API_KEY in your environment. No separate SpaceXAI provider is needed.

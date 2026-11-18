@@ -6,7 +6,7 @@ windows:
   tabs:
   - history:
     - active: true
-      last_visited: '2026-11-16T22:23:29'
+      last_visited: '2026-11-17T18:54:33'
       pinned: false
       scroll-pos:
         x: 0
@@ -16,7 +16,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-11-16T22:23:29'
+      last_visited: '2026-11-17T18:54:33'
       pinned: false
       scroll-pos:
         x: 0
@@ -26,7 +26,7 @@ windows:
       zoom: 0.8
   - history:
     - active: true
-      last_visited: '2026-11-16T22:23:35'
+      last_visited: '2026-11-17T18:54:45'
       pinned: false
       scroll-pos:
         x: 0
@@ -37,11 +37,21 @@ windows:
   - active: true
     history:
     - active: true
-      last_visited: '2026-11-16T22:23:31'
+      last_visited: '2026-11-17T18:54:34'
       pinned: false
       scroll-pos:
         x: 0
         y: 0
       title: WhatsApp · WhatsApp MCP
       url: http://127.0.0.1:47821/whatsapp
+      zoom: 0.8
+  - history:
+    - active: true
+      last_visited: '2026-11-17T18:54:33'
+      pinned: false
+      scroll-pos:
+        x: 0
+        y: 0
+      title: Drawnix - 开源白板工具
+      url: http://localhost:8080/
       zoom: 0.8
