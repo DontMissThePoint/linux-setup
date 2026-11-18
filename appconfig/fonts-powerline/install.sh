@@ -85,9 +85,11 @@ while true; do
 
         # cursor
         gsettings set org.cinnamon.desktop.interface cursor-size 24
-        gsettings set org.cinnamon.desktop.interface scaling-factor 1
-        gsettings set org.cinnamon.desktop.interface text-scaling-factor 1
         gsettings set org.cinnamon.desktop.interface enable-animations true
+
+        # scale
+        gsettings set org.cinnamon.desktop.interface scaling-factor 1
+        gsettings set org.cinnamon.desktop.interface text-scaling-factor 0.8
 
         # cache
         xdg-desktop-menu forceupdate

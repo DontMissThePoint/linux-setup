@@ -103,9 +103,9 @@ while true; do
         npm config set prefix ~/.local
         # npm config delete prefix
 
-        npm install --loglevel=error -g @openai/codex @anthropic-ai/claude-code@latest @google/gemini-cli \
-            @mozilla/readability bash-language-server vscode-langservers-extracted jsonlint gridbash \
-            jsonrepair terminal-image-cli qutejs libgen-downloader
+        npm install --loglevel=error -g @openai/codex gridbash \
+            @mozilla/readability terminal-image-cli qutejs libgen-downloader
+
         # pip install --break-system-packages -U llama-cloud-services dotenv halo forx
 
         # skill
@@ -129,14 +129,7 @@ while true; do
 
         toilet Installing librechat -t --filter metal -f smmono12
 
-        # nvm
-        nvm install 24.22.1
-        nvm use 24.22.1
-        npm install -g npm@11.13.0
-        node -v
-        npm -v
-
-        # chat
+        # ai
         if [ ! -e "$HOME"/VirtualMachines/Libre-Chat ]; then
 
             git clone https://github.com/LibreChat-AI/LibreChat "$HOME"/VirtualMachines/Libre-Chat
@@ -145,8 +138,6 @@ while true; do
         cd ~/VirtualMachines/Libre-Chat
 
         echo -e "Adding API keys.."
-        git pull
-        npm run smart-reinstall
 
         # env
         cp .env.example .env
@@ -159,6 +150,10 @@ while true; do
         sed -i "s/^\(CREDS_IV=\).*/\1$(openssl rand -hex 16)/" .env
         sed -i "s/^\(JWT_SECRET=\).*/\1$(openssl rand -hex 32)/" .env
         sed -i "s/^\(JWT_REFRESH_SECRET=\).*/\1$(openssl rand -hex 32)/" .env
+
+        # docker images -a | grep "librechat" | awk '{print $3}' | xargs docker rmi
+        # git pull
+        # docker compose pull
         # docker compose up -d --remove-orphans
 
         # config

@@ -79,8 +79,8 @@ echo -n "Hey. what's your number" | xsel --clipboard --input
 # container
 docker run -itd --rm --privileged \
     --name "$DROID" \
-    --memory 2G \
-    --memory-swap 6G \
+    --memory 6G \
+    --memory-swap 9G \
     --cap-add=NET_ADMIN \
     -p 5552:5555/tcp \
     -p 5900:5900/udp \

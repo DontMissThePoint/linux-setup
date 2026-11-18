@@ -364,15 +364,10 @@ let g:ale_fixers = {
 \   '*': ['remove_trailing_lines', 'trim_whitespace'],
 \   'json': ['prettier', 'eslint'],
 \}
-let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 0
 
 " vimscript + json schema completion
 autocmd FileType vim setlocal omnifunc=syntaxcomplete#Complete
-
-let g:ycm_semantic_triggers = {
-\   'vim': ['re!\w{2}'],
-\   'json': ['"', ':'],
-\}
 
 let g:ycm_language_server = [
 \   {
