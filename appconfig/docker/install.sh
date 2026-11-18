@@ -126,6 +126,9 @@ while true; do
 		# v4l2-ctl --list-devices    # or you may `ls /dev/video*`
 		# scrcpy --video-source=camera --no-audio --camera-facing=front --v4l2-sink=/dev/video0
 
+		# volumes
+		sudo mkdir -p /home/docker
+
 		# kernel
 		sudo cp -f "$APP_PATH/redroid.conf" /etc/modules-load.d/
 		sudo cp -f "$APP_PATH/daemon.json" /etc/docker/
@@ -140,16 +143,26 @@ while true; do
 		# adb -s 127.0.0.1:5552 install-multiple ru.fotostrana.sweetmeet.apk config.arm64_v8a.apk config.xhdpi.apk config.xxhdpi.apk
 
 		# yt
-		toilet Settingup yt -t -f future
+		toilet Settingup ytdl-material -t -f future
 
 		mkdir -p ~/VirtualMachines/YoutubeDL-Material
 		cd ~/VirtualMachines/YoutubeDL-Material
 
-		# youtubedl: http://localhost:8998/#/home
-		# youtubedl: "$(hostname -I | awk '{print $1}')":8998/#/home
-		curl -L https://github.com/Tzahi12345/YoutubeDL-Material/releases/latest/download/docker-compose.yml -o docker-compose.yml
+		# youtubedl: http://localhost:17442/#/home
+		# youtubedl: "$(hostname -I | awk '{print $1}')":17442/#/home
+		curl -L https://raw.githubusercontent.com/voc0der/ytdl-material/refs/heads/main/docker-compose.yml -o docker-compose.yml
 
-		# TX
+		# drawnix
+		toilet Settingup drawnix -t -f future
+
+		mkdir -p ~/VirtualMachines/Drawnix-Board
+		pv "$APP_PATH/docker-compose.yml" >~/VirtualMachines/Drawnix-Board/docker-compose.yml
+		# drawnix: http://localhost:8080
+
+		# mono
+		toilet Settingup berkeley -t -f future
+
+		# TX-02
 		cd "$APP_PATH"/../fonts-powerline/fonts && mkdir -p patched
 		sg docker -c "docker run --rm \
             -v ./TX-02:/in \
