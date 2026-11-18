@@ -1,7 +1,8 @@
 #!/bin/sh
 
 DROID="redroid-android"
-OPTIONS="15.0.0\n11.0.0"
+# OPTIONS="15.0.0\n11.0.0"
+OPTIONS="11.0.0"
 VAR=$(printf "$OPTIONS" | fzf --prompt="Select android image: ")
 IMG="$HOME/VirtualMachines/Android-Docker"
 
@@ -66,7 +67,7 @@ sudo iptables -t nat -D PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \
     --to-destination "$ADGUARD_DNS":53 2>/dev/null
 
 # guard
-echo "DNS activating..."
+echo "DNS activated."
 sudo iptables -t nat -A PREROUTING -i docker0 -p udp --dport 53 -j DNAT \
     --to-destination "$ADGUARD_DNS":53
 sudo iptables -t nat -A PREROUTING -i docker0 -p tcp --dport 53 -j DNAT \

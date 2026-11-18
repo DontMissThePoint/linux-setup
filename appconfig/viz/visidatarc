@@ -8,7 +8,6 @@ from visidata import TableSheet, ColumnColorizer, SheetsSheet, options
 # llm
 import visidata.experimental.llm
 
-
 #  ╭──────────────────────────────────────────────────────────╮
 #  │                        WorkBook                          │
 #  ╰──────────────────────────────────────────────────────────╯
@@ -53,6 +52,7 @@ options.scroll_incr          =  -3                   # steps to scroll
 options.disp_scroll_context  =  5                    # lines to scroll
 options.numeric_binning      =  True
 options.save_filetype        =  'csv'                # saved file extension
+options.json_indent          =  2
 options.quitguard            =  False                 # prevent quit
 options.disp_float_fmt       =  '{:.02f}'             # format for float values
 options.disp_int_fmt         =  '{:d}'                # format for integer values
@@ -132,7 +132,7 @@ TableSheet.bindkey('z.', 'repeat-last')
 # clipboard
 TableSheet.bindkey('Ctrl+V', 'syspaste-cells')
 
-# Insert mode
+# insert
 TableSheet.unbindkey("i")
 TableSheet.bindkey("i", "edit-cell")
 

@@ -25,7 +25,7 @@ while true; do
     if [[ "$unattended" == "1" ]]; then
         resp=$default
     else
-        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, gridcraft ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
+        [[ -t 0 ]] && { read -t 5 -n 2 -p $'\e[1;32mInstall visidata, gridcraft, mail ? [y/n] (default: '"$default"$')\e[0m\n' resp || resp=$default; }
     fi
     response=$(echo "$resp" | sed -r 's/(.*)$/\1=/')
 
@@ -59,6 +59,13 @@ while true; do
         cd /tmp
         sudo /home/linuxbrew/.linuxbrew/bin/dra \
             download --select '*_64.deb' -i storytold/gridcraft
+
+        # mail
+        toilet mailcraft -t --filter metal -f smmono12
+
+        cd /tmp
+        sudo /home/linuxbrew/.linuxbrew/bin/dra \
+            download --select '*_64.deb' -i UCS-Care-Group/mailcraft
 
         # pdf
         # sudo /home/linuxbrew/.linuxbrew/bin/dra \

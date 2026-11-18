@@ -85,6 +85,16 @@ while true; do
         ln -sf \
             ~/.irssi/scripts/{awl.pl,mouse.pl,nm.pl,usercount.pl,smartfilter.pl,tmux-nicklist-portable.pl,passwd.pl,trackbar22.pl,nickcolor.pl,notifications.pl} ./
 
+        # whatsapp-mcp-local
+        toilet Installing whatsapp -t --filter metal -f smmono12
+
+        # wacli
+        curl -fsSL https://raw.githubusercontent.com/BrOrlandi/whatsapp-mcp-local/main/install.sh | bash
+        # systemctl --user stop whatsapp-mcp.service
+
+        # completion
+        wacli completion zsh >"${fpath[1]}/_wacli"
+
         # link
         /home/linuxbrew/.linuxbrew/bin/brew link pkg-config libtool
 

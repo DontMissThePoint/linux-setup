@@ -6,6 +6,9 @@ set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
 set hidden
 
+" omni
+set omnifunc=ale#completion#OmniFunc
+
 let g:auto_save        = 1
 let g:auto_save_silent = 1
 let g:auto_save_events = ["InsertLeave", "TextChanged", "FocusLost"]
@@ -347,6 +350,21 @@ let g:ycm_clangd_uses_ycmd_caching = 0
 
 " Use installed clangd, not YCM-bundled clangd which doesn't get updates
 let g:ycm_clangd_binary_path = exepath("clangd")
+
+" lint
+let g:ale_linters_explicit = 0
+let g:ale_linters = {
+\   'json': ['jq', 'eslint', 'check-jsonschema'],
+\}
+let g:ale_json_check_jsonschema_options = '--schemafile '
+			\ . shellescape(expand('%:p:h') . '/schema.json')
+
+" fix
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'json': ['prettier', 'eslint'],
+\}
+let g:ale_fix_on_save = 1
 "}}}
 
 "{{{ REMAP
@@ -396,5 +414,33 @@ nnoremap <silent><leader>1 :source ~/.my.vimrc \| :PlugInstall<CR>
 noremap \\ :set invlist<CR>
 
 " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT {
-" EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
+
+" " NetisFleet
+" autocmd FileType json,tsv,csv call DataViz()
+" function DataViz()
+"
+" 	let g:github_colors_soft = 1
+" 	colo github
+" 	silent! Goyo!
+" 	"hi SpecialKey guifg=#ff69b4 gui=NONE
+" 	hi LineNr guifg=#ff69b4 gui=NONE
+"
+" 	" FX
+" 	hi jsonKeyword guifg=#4D96FF
+" 	hi jsonQuote   guifg=#6BCB77
+" 	hi jsonString  guifg=#6BCB77
+" 	hi jsonNumber  guifg=#FFD93D
+" 	hi jsonBoolean guifg=#FF6B6B
+" 	hi jsonNull    guifg=#767676
+" 	hi jsonEscape  guifg=#6BCB77
+"
+" 	" prepend
+" 	noremap <silent> ,, :source %:p:h/sheet_options.vim<CR>
+"
+" 	" scroll
+" 	setlocal number relativenumber cursorcolumn cursorline
+" 	windo set scrollopt=ver,jump noscrollbind nowrap
+"
+" 	endfunc
+" " EPIGEN_ADD_BLOCK_COLORSCHEME_GIT }
 "}}}

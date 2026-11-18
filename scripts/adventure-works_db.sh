@@ -51,4 +51,7 @@ if [ "$ATTEMPT" -gt "$MAX_ATTEMPTS" ]; then
     exit 1
 fi
 
-sqlit connections add mssql --name "ad-works" --server "localhost" --username "sa" --password "$PASSWORD"
+sqlit connections add mssql --name "ad-works" \
+    --server "localhost" --username "sa" \
+    --password "$PASSWORD" || \
+    sqlit

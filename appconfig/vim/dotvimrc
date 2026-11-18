@@ -128,6 +128,10 @@ if g:user_mode == "1"
   Plug 'ervandew/supertab', { 'on': [] }
   " enable airline YCM status
   let g:airline#extensions#ycm#enabled = 1
+	let g:ale_completion_enabled = 1
+
+	" ale
+	Plug 'dense-analysis/ale'
   " EPIGEN_DEL_BLOCK_VIKTOR_BIGBOX }
 
   " EPIGEN_DEL_BLOCK_COLORSCHEME_GIT {
@@ -163,7 +167,7 @@ if g:user_mode == "1"
   " ... it has many more useful commands
   Plug 'tpope/vim-unimpaired'
 
-  " fuzzy finder
+  " finder
   Plug 'ctrlpvim/ctrlp.vim'
 
   " vim talking to tmux.. seems better then vimux, so far in testing
@@ -271,19 +275,13 @@ Plug 'jszakmeister/vim-togglecursor'
 " smooth scroll
 Plug 'cskeeters/vim-smooth-scroll'
 
-"json
-Plug 'elzr/vim-json'
-
-" jq
-Plug 'vito-c/jq.vim'
-
 " lens
 Plug 'Eliot00/git-lens.vim'
 
-" Dog
+" dog
 Plug 'mhinz/vim-startify'
 
-" Autosave
+" autosave
 Plug '907th/vim-auto-save'
 
 " highlighting under cursor
